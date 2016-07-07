@@ -33,7 +33,7 @@ class Main(thryft.main.Main):
 
     def _clean(self):
         for dir_path in (
-             os.path.join(ROOT_DIR_PATH, 'py', 'src', 'pastpy', 'api'),
+             os.path.join(ROOT_DIR_PATH, 'py', 'src', 'pastpy', 'models'),
              os.path.join(ROOT_DIR_PATH, 'py', 'src', 'thryft'),
         ):
             if os.path.isdir(dir_path):
@@ -50,14 +50,13 @@ class Main(thryft.main.Main):
 
         thrift_src_root_dir_path = os.path.join(ROOT_DIR_PATH, 'thrift', 'src')
 
-        for thrift_subdir_name in ('api',):
+        for thrift_subdir_name in ('models',):
             thrift_src_dir_path = os.path.join(thrift_src_root_dir_path, 'pastpy', thrift_subdir_name)
             if not os.path.isdir(thrift_src_dir_path):
                 continue
 
             for thrift_file_path in self._get_thrift_file_paths(thrift_src_dir_path):
                 thrift_file_name = os.path.split(thrift_file_path)[1]
-                thrift_file_base_name = os.path.splitext(thrift_file_name)[0]
 
                 compile_kwds = {
                     'document_root_dir_path': thrift_src_root_dir_path,
