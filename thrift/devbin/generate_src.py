@@ -1,8 +1,6 @@
-import csv
 import os.path
 import shutil
 import sys
-from pprint import pformat
 
 try:
     __import__('thryft')
@@ -34,19 +32,12 @@ class Main(thryft.main.Main):
     def _clean(self):
         for dir_path in (
              os.path.join(ROOT_DIR_PATH, 'py', 'src', 'pastpy', 'models'),
-             os.path.join(ROOT_DIR_PATH, 'py', 'src', 'thryft'),
         ):
             if os.path.isdir(dir_path):
                 shutil.rmtree(dir_path)
 
     def _compile(self):
         self._clean()
-
-        # Copy thryft/lib/py to py/src
-        shutil.copytree(
-            os.path.join(THRYFT_ROOT_DIR_PATH, 'lib', 'py', 'src', 'thryft'),
-            os.path.join(ROOT_DIR_PATH, 'py', 'src', 'thryft')
-        )
 
         thrift_src_root_dir_path = os.path.join(ROOT_DIR_PATH, 'thrift', 'src')
 
