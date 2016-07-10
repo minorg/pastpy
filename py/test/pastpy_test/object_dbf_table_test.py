@@ -4,7 +4,7 @@ import unittest
 from pastpy.object_dbf_table import ObjectDbfTable
 
 
-class TbfTable(unittest.TestCase):
+class ObjectDbfTableTest(unittest.TestCase):
     def __open(self):
         dbf_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'devdata', 'buffalostate', 'ftt', 'PPSdata.dbf'))
         return ObjectDbfTable.open(dbf_file_path)

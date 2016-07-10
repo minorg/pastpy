@@ -1,6 +1,6 @@
 from __future__ import absolute_import; import decimal
-from datetime import datetime
 import __builtin__
+import datetime
 import pastpy.models.condition
 import pastpy.models.recas
 import pastpy.models.status
@@ -269,17 +269,17 @@ class Object(object):
             :type boxno: str or None
             :type caption: str or None
             :type catby: str or None
-            :type catdate: datetime or None
+            :type catdate: datetime.datetime or None
             :type cattype: str or None
             :type chemcomp: str or None
             :type circum: str or None
             :type circumft: Decimal or None
             :type circumin: Decimal or None
             :type classes: str or None
-            :type colldate: datetime or None
+            :type colldate: datetime.datetime or None
             :type collection: str or None
             :type collector: str or None
-            :type conddate: datetime or None
+            :type conddate: datetime.datetime or None
             :type condexam: str or None
             :type condition: pastpy.models.condition.Condition or None
             :type condnotes: str or None
@@ -442,7 +442,7 @@ class Object(object):
             :type stage: str or None
             :type status: pastpy.models.status.Status or None
             :type statusby: str or None
-            :type statusdate: datetime or None
+            :type statusdate: datetime.datetime or None
             :type sterms: str or None
             :type stratum: str or None
             :type streak: str or None
@@ -847,7 +847,7 @@ class Object(object):
         @property
         def catdate(self):
             '''
-            :rtype: datetime
+            :rtype: datetime.datetime
             '''
 
             return self.__catdate
@@ -903,7 +903,7 @@ class Object(object):
         @property
         def colldate(self):
             '''
-            :rtype: datetime
+            :rtype: datetime.datetime
             '''
 
             return self.__colldate
@@ -927,7 +927,7 @@ class Object(object):
         @property
         def conddate(self):
             '''
-            :rtype: datetime
+            :rtype: datetime.datetime
             '''
 
             return self.__conddate
@@ -2230,7 +2230,7 @@ class Object(object):
 
         def set_catdate(self, catdate):
             '''
-            :type catdate: datetime or None
+            :type catdate: datetime.datetime or None
             '''
 
             self.__catdate = catdate
@@ -2286,7 +2286,7 @@ class Object(object):
 
         def set_colldate(self, colldate):
             '''
-            :type colldate: datetime or None
+            :type colldate: datetime.datetime or None
             '''
 
             self.__colldate = colldate
@@ -2310,7 +2310,7 @@ class Object(object):
 
         def set_conddate(self, conddate):
             '''
-            :type conddate: datetime or None
+            :type conddate: datetime.datetime or None
             '''
 
             self.__conddate = conddate
@@ -3614,7 +3614,7 @@ class Object(object):
 
         def set_statusdate(self, statusdate):
             '''
-            :type statusdate: datetime or None
+            :type statusdate: datetime.datetime or None
             '''
 
             self.__statusdate = statusdate
@@ -4199,7 +4199,7 @@ class Object(object):
         @property
         def statusdate(self):
             '''
-            :rtype: datetime
+            :rtype: datetime.datetime
             '''
 
             return self.__statusdate
@@ -4585,17 +4585,17 @@ class Object(object):
             :type boxno: str or None
             :type caption: str or None
             :type catby: str or None
-            :type catdate: datetime or None
+            :type catdate: datetime.datetime or None
             :type cattype: str or None
             :type chemcomp: str or None
             :type circum: str or None
             :type circumft: Decimal or None
             :type circumin: Decimal or None
             :type classes: str or None
-            :type colldate: datetime or None
+            :type colldate: datetime.datetime or None
             :type collection: str or None
             :type collector: str or None
-            :type conddate: datetime or None
+            :type conddate: datetime.datetime or None
             :type condexam: str or None
             :type condition: pastpy.models.condition.Condition or None
             :type condnotes: str or None
@@ -4758,7 +4758,7 @@ class Object(object):
             :type stage: str or None
             :type status: pastpy.models.status.Status or None
             :type statusby: str or None
-            :type statusdate: datetime or None
+            :type statusdate: datetime.datetime or None
             :type sterms: str or None
             :type stratum: str or None
             :type streak: str or None
@@ -5287,7 +5287,7 @@ class Object(object):
         @catdate.setter
         def catdate(self, catdate):
             '''
-            :type catdate: datetime or None
+            :type catdate: datetime.datetime or None
             '''
 
             self.set_catdate(catdate)
@@ -5343,7 +5343,7 @@ class Object(object):
         @colldate.setter
         def colldate(self, colldate):
             '''
-            :type colldate: datetime or None
+            :type colldate: datetime.datetime or None
             '''
 
             self.set_colldate(colldate)
@@ -5367,7 +5367,7 @@ class Object(object):
         @conddate.setter
         def conddate(self, conddate):
             '''
-            :type conddate: datetime or None
+            :type conddate: datetime.datetime or None
             '''
 
             self.set_conddate(conddate)
@@ -6671,7 +6671,7 @@ class Object(object):
         @statusdate.setter
         def statusdate(self, statusdate):
             '''
-            :type statusdate: datetime or None
+            :type statusdate: datetime.datetime or None
             '''
 
             self.set_statusdate(statusdate)
@@ -7164,6 +7164,517 @@ class Object(object):
 
             self.set_zcord(zcord)
 
+    class FieldMetadata(object):
+        ACCESSNO = None
+        ACCESSORY = None
+        ACQVALUE = None
+        AGE = None
+        APPNOTES = None
+        APPRAISOR = None
+        ASSEMZONE = None
+        BAGNO = None
+        BOXNO = None
+        CAPTION = None
+        CATBY = None
+        CATDATE = None
+        CATTYPE = None
+        CHEMCOMP = None
+        CIRCUM = None
+        CIRCUMFT = None
+        CIRCUMIN = None
+        CLASSES = None
+        COLLDATE = None
+        COLLECTION = None
+        COLLECTOR = None
+        CONDDATE = None
+        CONDEXAM = None
+        CONDITION = None
+        CONDNOTES = None
+        COUNT = None
+        CREATOR = None
+        CREATOR2 = None
+        CREATOR3 = None
+        CREDIT = None
+        CRYSTAL = None
+        CULTURE = None
+        CURVALMAX = None
+        CURVALUE = None
+        DATASET = None
+        DATE = None
+        DATINGMETH = None
+        DATUM = None
+        DEPTH = None
+        DEPTHFT = None
+        DEPTHIN = None
+        DESCRIP = None
+        DIAMETER = None
+        DIAMETERFT = None
+        DIAMETERIN = None
+        DIMNOTES = None
+        DIMTYPE = None
+        DISPVALUE = None
+        EARLYDATE = None
+        ELEMENTS = None
+        EPOCH = None
+        ERA = None
+        EVENT = None
+        EXCAVADATE = None
+        EXCAVATEBY = None
+        EXHIBITNO = None
+        EXHLABEL1 = None
+        EXHLABEL2 = None
+        EXHLABEL3 = None
+        EXHLABEL4 = None
+        EXHSTART = None
+        FAMILY = None
+        FEATURE = None
+        FLAGDATE = None
+        FLAGNOTES = None
+        FLAGREASON = None
+        FORMATION = None
+        FOSSILS = None
+        FOUND = None
+        FRACTURE = None
+        FRAME = None
+        FRAMESIZE = None
+        GENUS = None
+        GPARENT = None
+        GRAINSIZE = None
+        HABITAT = None
+        HARDNESS = None
+        HEIGHT = None
+        HEIGHTFT = None
+        HEIGHTIN = None
+        HOMELOC = None
+        IDBY = None
+        IDDATE = None
+        IMAGEFILE = None
+        IMAGENO = None
+        IMAGESIZE = None
+        INSCOMP = None
+        INSCRLANG = None
+        INSCRPOS = None
+        INSCRTECH = None
+        INSCRTEXT = None
+        INSCRTRANS = None
+        INSCRTYPE = None
+        INSDATE = None
+        INSPHONE = None
+        INSPREMIUM = None
+        INSREP = None
+        INSVALUE = None
+        INVNBY = None
+        INVNDATE = None
+        KINGDOM = None
+        LATEDATE = None
+        LEGAL = None
+        LENGTH = None
+        LENGTHFT = None
+        LENGTHIN = None
+        LEVEL = None
+        LITHOFACIE = None
+        LOANCOND = None
+        LOANDUE = None
+        LOANINNO = None
+        LOANNO = None
+        LOCFIELD1 = None
+        LOCFIELD2 = None
+        LOCFIELD3 = None
+        LOCFIELD4 = None
+        LOCFIELD5 = None
+        LOCFIELD6 = None
+        LUSTER = None
+        MADE = None
+        MAINTCYCLE = None
+        MAINTDATE = None
+        MAINTNOTE = None
+        MATERIAL = None
+        MEDIUM = None
+        MEMBER = None
+        MMARK = None
+        NHCLASS = None
+        NHORDER = None
+        NOTES = None
+        OBJECTID = None
+        OBJNAME = None
+        OBJNAME2 = None
+        OBJNAME3 = None
+        OBJNAMES = None
+        OCCURRENCE = None
+        OLDNO = None
+        ORIGIN = None
+        OTHERNAME = None
+        OTHERNO = None
+        OUTDATE = None
+        OWNED = None
+        PARENT = None
+        PEOPLE = None
+        PERIOD = None
+        PHYLUM = None
+        POLICYNO = None
+        PREPARATOR = None
+        PREPDATE = None
+        PRESERVE = None
+        PRESSURE = None
+        PROVENANCE = None
+        PUBNOTES = None
+        RECAS = None
+        RECDATE = None
+        RECFROM = None
+        RELNOTES = None
+        REPATBY = None
+        REPATCLAIM = None
+        REPATDATE = None
+        REPATDISP = None
+        REPATHAND = None
+        REPATNOTES = None
+        REPATNOTIC = None
+        REPATTYPE = None
+        ROCKCLASS = None
+        ROCKCOLOR = None
+        ROCKORIGIN = None
+        ROCKTYPE = None
+        ROLE = None
+        ROLE2 = None
+        ROLE3 = None
+        SCHOOL = None
+        SEX = None
+        SIGNEDNAME = None
+        SIGNLOC = None
+        SITE = None
+        SITENO = None
+        SPECGRAV = None
+        SPECIES = None
+        SPROCESS = None
+        STAGE = None
+        STATUS = None
+        STATUSBY = None
+        STATUSDATE = None
+        STERMS = None
+        STRATUM = None
+        STREAK = None
+        SUBFAMILY = None
+        SUBJECTS = None
+        SUBSPECIES = None
+        TECHNIQUE = None
+        TEMPAUTHOR = None
+        TEMPBY = None
+        TEMPDATE = None
+        TEMPERATUR = None
+        TEMPLOC = None
+        TEMPNOTES = None
+        TEMPREASON = None
+        TEMPUNTIL = None
+        TEXTURE = None
+        TITLE = None
+        TLOCFIELD1 = None
+        TLOCFIELD2 = None
+        TLOCFIELD3 = None
+        TLOCFIELD4 = None
+        TLOCFIELD5 = None
+        TLOCFIELD6 = None
+        UDF1 = None
+        UDF10 = None
+        UDF11 = None
+        UDF12 = None
+        UDF13 = None
+        UDF14 = None
+        UDF15 = None
+        UDF16 = None
+        UDF17 = None
+        UDF18 = None
+        UDF19 = None
+        UDF2 = None
+        UDF20 = None
+        UDF21 = None
+        UDF22 = None
+        UDF3 = None
+        UDF4 = None
+        UDF5 = None
+        UDF6 = None
+        UDF7 = None
+        UDF8 = None
+        UDF9 = None
+        UNIT = None
+        UPDATED = None
+        UPDATEDBY = None
+        USED = None
+        VALUEDATE = None
+        VARIETIES = None
+        WEBINCLUDE = None
+        WEIGHT = None
+        WEIGHTIN = None
+        WEIGHTLB = None
+        WIDTH = None
+        WIDTHFT = None
+        WIDTHIN = None
+        XCORD = None
+        YCORD = None
+        ZCORD = None
+
+        def __init__(self, name, type_):
+            object.__init__(self)
+            self.__name = name
+            self.__type = type_
+
+        def __repr__(self):
+            return self.__name
+
+        @property
+        def type(self):
+            return self.__type
+
+        @classmethod
+        def values(cls):
+            return (cls.ACCESSNO, cls.ACCESSORY, cls.ACQVALUE, cls.AGE, cls.APPNOTES, cls.APPRAISOR, cls.ASSEMZONE, cls.BAGNO, cls.BOXNO, cls.CAPTION, cls.CATBY, cls.CATDATE, cls.CATTYPE, cls.CHEMCOMP, cls.CIRCUM, cls.CIRCUMFT, cls.CIRCUMIN, cls.CLASSES, cls.COLLDATE, cls.COLLECTION, cls.COLLECTOR, cls.CONDDATE, cls.CONDEXAM, cls.CONDITION, cls.CONDNOTES, cls.COUNT, cls.CREATOR, cls.CREATOR2, cls.CREATOR3, cls.CREDIT, cls.CRYSTAL, cls.CULTURE, cls.CURVALMAX, cls.CURVALUE, cls.DATASET, cls.DATE, cls.DATINGMETH, cls.DATUM, cls.DEPTH, cls.DEPTHFT, cls.DEPTHIN, cls.DESCRIP, cls.DIAMETER, cls.DIAMETERFT, cls.DIAMETERIN, cls.DIMNOTES, cls.DIMTYPE, cls.DISPVALUE, cls.EARLYDATE, cls.ELEMENTS, cls.EPOCH, cls.ERA, cls.EVENT, cls.EXCAVADATE, cls.EXCAVATEBY, cls.EXHIBITNO, cls.EXHLABEL1, cls.EXHLABEL2, cls.EXHLABEL3, cls.EXHLABEL4, cls.EXHSTART, cls.FAMILY, cls.FEATURE, cls.FLAGDATE, cls.FLAGNOTES, cls.FLAGREASON, cls.FORMATION, cls.FOSSILS, cls.FOUND, cls.FRACTURE, cls.FRAME, cls.FRAMESIZE, cls.GENUS, cls.GPARENT, cls.GRAINSIZE, cls.HABITAT, cls.HARDNESS, cls.HEIGHT, cls.HEIGHTFT, cls.HEIGHTIN, cls.HOMELOC, cls.IDBY, cls.IDDATE, cls.IMAGEFILE, cls.IMAGENO, cls.IMAGESIZE, cls.INSCOMP, cls.INSCRLANG, cls.INSCRPOS, cls.INSCRTECH, cls.INSCRTEXT, cls.INSCRTRANS, cls.INSCRTYPE, cls.INSDATE, cls.INSPHONE, cls.INSPREMIUM, cls.INSREP, cls.INSVALUE, cls.INVNBY, cls.INVNDATE, cls.KINGDOM, cls.LATEDATE, cls.LEGAL, cls.LENGTH, cls.LENGTHFT, cls.LENGTHIN, cls.LEVEL, cls.LITHOFACIE, cls.LOANCOND, cls.LOANDUE, cls.LOANINNO, cls.LOANNO, cls.LOCFIELD1, cls.LOCFIELD2, cls.LOCFIELD3, cls.LOCFIELD4, cls.LOCFIELD5, cls.LOCFIELD6, cls.LUSTER, cls.MADE, cls.MAINTCYCLE, cls.MAINTDATE, cls.MAINTNOTE, cls.MATERIAL, cls.MEDIUM, cls.MEMBER, cls.MMARK, cls.NHCLASS, cls.NHORDER, cls.NOTES, cls.OBJECTID, cls.OBJNAME, cls.OBJNAME2, cls.OBJNAME3, cls.OBJNAMES, cls.OCCURRENCE, cls.OLDNO, cls.ORIGIN, cls.OTHERNAME, cls.OTHERNO, cls.OUTDATE, cls.OWNED, cls.PARENT, cls.PEOPLE, cls.PERIOD, cls.PHYLUM, cls.POLICYNO, cls.PREPARATOR, cls.PREPDATE, cls.PRESERVE, cls.PRESSURE, cls.PROVENANCE, cls.PUBNOTES, cls.RECAS, cls.RECDATE, cls.RECFROM, cls.RELNOTES, cls.REPATBY, cls.REPATCLAIM, cls.REPATDATE, cls.REPATDISP, cls.REPATHAND, cls.REPATNOTES, cls.REPATNOTIC, cls.REPATTYPE, cls.ROCKCLASS, cls.ROCKCOLOR, cls.ROCKORIGIN, cls.ROCKTYPE, cls.ROLE, cls.ROLE2, cls.ROLE3, cls.SCHOOL, cls.SEX, cls.SIGNEDNAME, cls.SIGNLOC, cls.SITE, cls.SITENO, cls.SPECGRAV, cls.SPECIES, cls.SPROCESS, cls.STAGE, cls.STATUS, cls.STATUSBY, cls.STATUSDATE, cls.STERMS, cls.STRATUM, cls.STREAK, cls.SUBFAMILY, cls.SUBJECTS, cls.SUBSPECIES, cls.TECHNIQUE, cls.TEMPAUTHOR, cls.TEMPBY, cls.TEMPDATE, cls.TEMPERATUR, cls.TEMPLOC, cls.TEMPNOTES, cls.TEMPREASON, cls.TEMPUNTIL, cls.TEXTURE, cls.TITLE, cls.TLOCFIELD1, cls.TLOCFIELD2, cls.TLOCFIELD3, cls.TLOCFIELD4, cls.TLOCFIELD5, cls.TLOCFIELD6, cls.UDF1, cls.UDF10, cls.UDF11, cls.UDF12, cls.UDF13, cls.UDF14, cls.UDF15, cls.UDF16, cls.UDF17, cls.UDF18, cls.UDF19, cls.UDF2, cls.UDF20, cls.UDF21, cls.UDF22, cls.UDF3, cls.UDF4, cls.UDF5, cls.UDF6, cls.UDF7, cls.UDF8, cls.UDF9, cls.UNIT, cls.UPDATED, cls.UPDATEDBY, cls.USED, cls.VALUEDATE, cls.VARIETIES, cls.WEBINCLUDE, cls.WEIGHT, cls.WEIGHTIN, cls.WEIGHTLB, cls.WIDTH, cls.WIDTHFT, cls.WIDTHIN, cls.XCORD, cls.YCORD, cls.ZCORD,)
+
+    FieldMetadata.ACCESSNO = FieldMetadata('accessno', str)
+    FieldMetadata.ACCESSORY = FieldMetadata('accessory', str)
+    FieldMetadata.ACQVALUE = FieldMetadata('acqvalue', decimal.Decimal)
+    FieldMetadata.AGE = FieldMetadata('age', str)
+    FieldMetadata.APPNOTES = FieldMetadata('appnotes', str)
+    FieldMetadata.APPRAISOR = FieldMetadata('appraisor', str)
+    FieldMetadata.ASSEMZONE = FieldMetadata('assemzone', str)
+    FieldMetadata.BAGNO = FieldMetadata('bagno', str)
+    FieldMetadata.BOXNO = FieldMetadata('boxno', str)
+    FieldMetadata.CAPTION = FieldMetadata('caption', str)
+    FieldMetadata.CATBY = FieldMetadata('catby', str)
+    FieldMetadata.CATDATE = FieldMetadata('catdate', datetime.datetime)
+    FieldMetadata.CATTYPE = FieldMetadata('cattype', str)
+    FieldMetadata.CHEMCOMP = FieldMetadata('chemcomp', str)
+    FieldMetadata.CIRCUM = FieldMetadata('circum', str)
+    FieldMetadata.CIRCUMFT = FieldMetadata('circumft', decimal.Decimal)
+    FieldMetadata.CIRCUMIN = FieldMetadata('circumin', decimal.Decimal)
+    FieldMetadata.CLASSES = FieldMetadata('classes', str)
+    FieldMetadata.COLLDATE = FieldMetadata('colldate', datetime.datetime)
+    FieldMetadata.COLLECTION = FieldMetadata('collection', str)
+    FieldMetadata.COLLECTOR = FieldMetadata('collector', str)
+    FieldMetadata.CONDDATE = FieldMetadata('conddate', datetime.datetime)
+    FieldMetadata.CONDEXAM = FieldMetadata('condexam', str)
+    FieldMetadata.CONDITION = FieldMetadata('condition', pastpy.models.condition.Condition)
+    FieldMetadata.CONDNOTES = FieldMetadata('condnotes', str)
+    FieldMetadata.COUNT = FieldMetadata('count', str)
+    FieldMetadata.CREATOR = FieldMetadata('creator', str)
+    FieldMetadata.CREATOR2 = FieldMetadata('creator2', str)
+    FieldMetadata.CREATOR3 = FieldMetadata('creator3', str)
+    FieldMetadata.CREDIT = FieldMetadata('credit', str)
+    FieldMetadata.CRYSTAL = FieldMetadata('crystal', str)
+    FieldMetadata.CULTURE = FieldMetadata('culture', str)
+    FieldMetadata.CURVALMAX = FieldMetadata('curvalmax', decimal.Decimal)
+    FieldMetadata.CURVALUE = FieldMetadata('curvalue', decimal.Decimal)
+    FieldMetadata.DATASET = FieldMetadata('dataset', str)
+    FieldMetadata.DATE = FieldMetadata('date', str)
+    FieldMetadata.DATINGMETH = FieldMetadata('datingmeth', str)
+    FieldMetadata.DATUM = FieldMetadata('datum', str)
+    FieldMetadata.DEPTH = FieldMetadata('depth', str)
+    FieldMetadata.DEPTHFT = FieldMetadata('depthft', decimal.Decimal)
+    FieldMetadata.DEPTHIN = FieldMetadata('depthin', decimal.Decimal)
+    FieldMetadata.DESCRIP = FieldMetadata('descrip', str)
+    FieldMetadata.DIAMETER = FieldMetadata('diameter', str)
+    FieldMetadata.DIAMETERFT = FieldMetadata('diameterft', decimal.Decimal)
+    FieldMetadata.DIAMETERIN = FieldMetadata('diameterin', decimal.Decimal)
+    FieldMetadata.DIMNOTES = FieldMetadata('dimnotes', str)
+    FieldMetadata.DIMTYPE = FieldMetadata('dimtype', str)
+    FieldMetadata.DISPVALUE = FieldMetadata('dispvalue', str)
+    FieldMetadata.EARLYDATE = FieldMetadata('earlydate', str)
+    FieldMetadata.ELEMENTS = FieldMetadata('elements', str)
+    FieldMetadata.EPOCH = FieldMetadata('epoch', str)
+    FieldMetadata.ERA = FieldMetadata('era', str)
+    FieldMetadata.EVENT = FieldMetadata('event', str)
+    FieldMetadata.EXCAVADATE = FieldMetadata('excavadate', str)
+    FieldMetadata.EXCAVATEBY = FieldMetadata('excavateby', str)
+    FieldMetadata.EXHIBITNO = FieldMetadata('exhibitno', int)
+    FieldMetadata.EXHLABEL1 = FieldMetadata('exhlabel1', str)
+    FieldMetadata.EXHLABEL2 = FieldMetadata('exhlabel2', str)
+    FieldMetadata.EXHLABEL3 = FieldMetadata('exhlabel3', str)
+    FieldMetadata.EXHLABEL4 = FieldMetadata('exhlabel4', str)
+    FieldMetadata.EXHSTART = FieldMetadata('exhstart', str)
+    FieldMetadata.FAMILY = FieldMetadata('family', str)
+    FieldMetadata.FEATURE = FieldMetadata('feature', str)
+    FieldMetadata.FLAGDATE = FieldMetadata('flagdate', str)
+    FieldMetadata.FLAGNOTES = FieldMetadata('flagnotes', str)
+    FieldMetadata.FLAGREASON = FieldMetadata('flagreason', str)
+    FieldMetadata.FORMATION = FieldMetadata('formation', str)
+    FieldMetadata.FOSSILS = FieldMetadata('fossils', str)
+    FieldMetadata.FOUND = FieldMetadata('found', str)
+    FieldMetadata.FRACTURE = FieldMetadata('fracture', str)
+    FieldMetadata.FRAME = FieldMetadata('frame', str)
+    FieldMetadata.FRAMESIZE = FieldMetadata('framesize', str)
+    FieldMetadata.GENUS = FieldMetadata('genus', str)
+    FieldMetadata.GPARENT = FieldMetadata('gparent', str)
+    FieldMetadata.GRAINSIZE = FieldMetadata('grainsize', str)
+    FieldMetadata.HABITAT = FieldMetadata('habitat', str)
+    FieldMetadata.HARDNESS = FieldMetadata('hardness', str)
+    FieldMetadata.HEIGHT = FieldMetadata('height', str)
+    FieldMetadata.HEIGHTFT = FieldMetadata('heightft', decimal.Decimal)
+    FieldMetadata.HEIGHTIN = FieldMetadata('heightin', decimal.Decimal)
+    FieldMetadata.HOMELOC = FieldMetadata('homeloc', str)
+    FieldMetadata.IDBY = FieldMetadata('idby', str)
+    FieldMetadata.IDDATE = FieldMetadata('iddate', str)
+    FieldMetadata.IMAGEFILE = FieldMetadata('imagefile', str)
+    FieldMetadata.IMAGENO = FieldMetadata('imageno', int)
+    FieldMetadata.IMAGESIZE = FieldMetadata('imagesize', str)
+    FieldMetadata.INSCOMP = FieldMetadata('inscomp', str)
+    FieldMetadata.INSCRLANG = FieldMetadata('inscrlang', str)
+    FieldMetadata.INSCRPOS = FieldMetadata('inscrpos', str)
+    FieldMetadata.INSCRTECH = FieldMetadata('inscrtech', str)
+    FieldMetadata.INSCRTEXT = FieldMetadata('inscrtext', str)
+    FieldMetadata.INSCRTRANS = FieldMetadata('inscrtrans', str)
+    FieldMetadata.INSCRTYPE = FieldMetadata('inscrtype', str)
+    FieldMetadata.INSDATE = FieldMetadata('insdate', str)
+    FieldMetadata.INSPHONE = FieldMetadata('insphone', str)
+    FieldMetadata.INSPREMIUM = FieldMetadata('inspremium', str)
+    FieldMetadata.INSREP = FieldMetadata('insrep', str)
+    FieldMetadata.INSVALUE = FieldMetadata('insvalue', decimal.Decimal)
+    FieldMetadata.INVNBY = FieldMetadata('invnby', str)
+    FieldMetadata.INVNDATE = FieldMetadata('invndate', str)
+    FieldMetadata.KINGDOM = FieldMetadata('kingdom', str)
+    FieldMetadata.LATEDATE = FieldMetadata('latedate', str)
+    FieldMetadata.LEGAL = FieldMetadata('legal', str)
+    FieldMetadata.LENGTH = FieldMetadata('length', str)
+    FieldMetadata.LENGTHFT = FieldMetadata('lengthft', decimal.Decimal)
+    FieldMetadata.LENGTHIN = FieldMetadata('lengthin', decimal.Decimal)
+    FieldMetadata.LEVEL = FieldMetadata('level', str)
+    FieldMetadata.LITHOFACIE = FieldMetadata('lithofacie', str)
+    FieldMetadata.LOANCOND = FieldMetadata('loancond', str)
+    FieldMetadata.LOANDUE = FieldMetadata('loandue', str)
+    FieldMetadata.LOANINNO = FieldMetadata('loaninno', str)
+    FieldMetadata.LOANNO = FieldMetadata('loanno', str)
+    FieldMetadata.LOCFIELD1 = FieldMetadata('locfield1', str)
+    FieldMetadata.LOCFIELD2 = FieldMetadata('locfield2', str)
+    FieldMetadata.LOCFIELD3 = FieldMetadata('locfield3', str)
+    FieldMetadata.LOCFIELD4 = FieldMetadata('locfield4', str)
+    FieldMetadata.LOCFIELD5 = FieldMetadata('locfield5', str)
+    FieldMetadata.LOCFIELD6 = FieldMetadata('locfield6', str)
+    FieldMetadata.LUSTER = FieldMetadata('luster', str)
+    FieldMetadata.MADE = FieldMetadata('made', str)
+    FieldMetadata.MAINTCYCLE = FieldMetadata('maintcycle', str)
+    FieldMetadata.MAINTDATE = FieldMetadata('maintdate', str)
+    FieldMetadata.MAINTNOTE = FieldMetadata('maintnote', str)
+    FieldMetadata.MATERIAL = FieldMetadata('material', str)
+    FieldMetadata.MEDIUM = FieldMetadata('medium', str)
+    FieldMetadata.MEMBER = FieldMetadata('member', str)
+    FieldMetadata.MMARK = FieldMetadata('mmark', str)
+    FieldMetadata.NHCLASS = FieldMetadata('nhclass', str)
+    FieldMetadata.NHORDER = FieldMetadata('nhorder', str)
+    FieldMetadata.NOTES = FieldMetadata('notes', str)
+    FieldMetadata.OBJECTID = FieldMetadata('objectid', str)
+    FieldMetadata.OBJNAME = FieldMetadata('objname', str)
+    FieldMetadata.OBJNAME2 = FieldMetadata('objname2', str)
+    FieldMetadata.OBJNAME3 = FieldMetadata('objname3', str)
+    FieldMetadata.OBJNAMES = FieldMetadata('objnames', str)
+    FieldMetadata.OCCURRENCE = FieldMetadata('occurrence', str)
+    FieldMetadata.OLDNO = FieldMetadata('oldno', int)
+    FieldMetadata.ORIGIN = FieldMetadata('origin', str)
+    FieldMetadata.OTHERNAME = FieldMetadata('othername', str)
+    FieldMetadata.OTHERNO = FieldMetadata('otherno', int)
+    FieldMetadata.OUTDATE = FieldMetadata('outdate', str)
+    FieldMetadata.OWNED = FieldMetadata('owned', str)
+    FieldMetadata.PARENT = FieldMetadata('parent', str)
+    FieldMetadata.PEOPLE = FieldMetadata('people', str)
+    FieldMetadata.PERIOD = FieldMetadata('period', str)
+    FieldMetadata.PHYLUM = FieldMetadata('phylum', str)
+    FieldMetadata.POLICYNO = FieldMetadata('policyno', str)
+    FieldMetadata.PREPARATOR = FieldMetadata('preparator', str)
+    FieldMetadata.PREPDATE = FieldMetadata('prepdate', str)
+    FieldMetadata.PRESERVE = FieldMetadata('preserve', str)
+    FieldMetadata.PRESSURE = FieldMetadata('pressure', str)
+    FieldMetadata.PROVENANCE = FieldMetadata('provenance', str)
+    FieldMetadata.PUBNOTES = FieldMetadata('pubnotes', str)
+    FieldMetadata.RECAS = FieldMetadata('recas', pastpy.models.recas.Recas)
+    FieldMetadata.RECDATE = FieldMetadata('recdate', str)
+    FieldMetadata.RECFROM = FieldMetadata('recfrom', str)
+    FieldMetadata.RELNOTES = FieldMetadata('relnotes', str)
+    FieldMetadata.REPATBY = FieldMetadata('repatby', str)
+    FieldMetadata.REPATCLAIM = FieldMetadata('repatclaim', str)
+    FieldMetadata.REPATDATE = FieldMetadata('repatdate', str)
+    FieldMetadata.REPATDISP = FieldMetadata('repatdisp', str)
+    FieldMetadata.REPATHAND = FieldMetadata('repathand', str)
+    FieldMetadata.REPATNOTES = FieldMetadata('repatnotes', str)
+    FieldMetadata.REPATNOTIC = FieldMetadata('repatnotic', str)
+    FieldMetadata.REPATTYPE = FieldMetadata('repattype', str)
+    FieldMetadata.ROCKCLASS = FieldMetadata('rockclass', str)
+    FieldMetadata.ROCKCOLOR = FieldMetadata('rockcolor', str)
+    FieldMetadata.ROCKORIGIN = FieldMetadata('rockorigin', str)
+    FieldMetadata.ROCKTYPE = FieldMetadata('rocktype', str)
+    FieldMetadata.ROLE = FieldMetadata('role', str)
+    FieldMetadata.ROLE2 = FieldMetadata('role2', str)
+    FieldMetadata.ROLE3 = FieldMetadata('role3', str)
+    FieldMetadata.SCHOOL = FieldMetadata('school', str)
+    FieldMetadata.SEX = FieldMetadata('sex', str)
+    FieldMetadata.SIGNEDNAME = FieldMetadata('signedname', str)
+    FieldMetadata.SIGNLOC = FieldMetadata('signloc', str)
+    FieldMetadata.SITE = FieldMetadata('site', str)
+    FieldMetadata.SITENO = FieldMetadata('siteno', str)
+    FieldMetadata.SPECGRAV = FieldMetadata('specgrav', str)
+    FieldMetadata.SPECIES = FieldMetadata('species', str)
+    FieldMetadata.SPROCESS = FieldMetadata('sprocess', str)
+    FieldMetadata.STAGE = FieldMetadata('stage', str)
+    FieldMetadata.STATUS = FieldMetadata('status', pastpy.models.status.Status)
+    FieldMetadata.STATUSBY = FieldMetadata('statusby', str)
+    FieldMetadata.STATUSDATE = FieldMetadata('statusdate', datetime.datetime)
+    FieldMetadata.STERMS = FieldMetadata('sterms', str)
+    FieldMetadata.STRATUM = FieldMetadata('stratum', str)
+    FieldMetadata.STREAK = FieldMetadata('streak', str)
+    FieldMetadata.SUBFAMILY = FieldMetadata('subfamily', str)
+    FieldMetadata.SUBJECTS = FieldMetadata('subjects', str)
+    FieldMetadata.SUBSPECIES = FieldMetadata('subspecies', str)
+    FieldMetadata.TECHNIQUE = FieldMetadata('technique', str)
+    FieldMetadata.TEMPAUTHOR = FieldMetadata('tempauthor', str)
+    FieldMetadata.TEMPBY = FieldMetadata('tempby', str)
+    FieldMetadata.TEMPDATE = FieldMetadata('tempdate', str)
+    FieldMetadata.TEMPERATUR = FieldMetadata('temperatur', str)
+    FieldMetadata.TEMPLOC = FieldMetadata('temploc', str)
+    FieldMetadata.TEMPNOTES = FieldMetadata('tempnotes', str)
+    FieldMetadata.TEMPREASON = FieldMetadata('tempreason', str)
+    FieldMetadata.TEMPUNTIL = FieldMetadata('tempuntil', str)
+    FieldMetadata.TEXTURE = FieldMetadata('texture', str)
+    FieldMetadata.TITLE = FieldMetadata('title', str)
+    FieldMetadata.TLOCFIELD1 = FieldMetadata('tlocfield1', str)
+    FieldMetadata.TLOCFIELD2 = FieldMetadata('tlocfield2', str)
+    FieldMetadata.TLOCFIELD3 = FieldMetadata('tlocfield3', str)
+    FieldMetadata.TLOCFIELD4 = FieldMetadata('tlocfield4', str)
+    FieldMetadata.TLOCFIELD5 = FieldMetadata('tlocfield5', str)
+    FieldMetadata.TLOCFIELD6 = FieldMetadata('tlocfield6', str)
+    FieldMetadata.UDF1 = FieldMetadata('udf1', str)
+    FieldMetadata.UDF10 = FieldMetadata('udf10', str)
+    FieldMetadata.UDF11 = FieldMetadata('udf11', str)
+    FieldMetadata.UDF12 = FieldMetadata('udf12', str)
+    FieldMetadata.UDF13 = FieldMetadata('udf13', str)
+    FieldMetadata.UDF14 = FieldMetadata('udf14', str)
+    FieldMetadata.UDF15 = FieldMetadata('udf15', str)
+    FieldMetadata.UDF16 = FieldMetadata('udf16', str)
+    FieldMetadata.UDF17 = FieldMetadata('udf17', str)
+    FieldMetadata.UDF18 = FieldMetadata('udf18', str)
+    FieldMetadata.UDF19 = FieldMetadata('udf19', str)
+    FieldMetadata.UDF2 = FieldMetadata('udf2', str)
+    FieldMetadata.UDF20 = FieldMetadata('udf20', str)
+    FieldMetadata.UDF21 = FieldMetadata('udf21', str)
+    FieldMetadata.UDF22 = FieldMetadata('udf22', str)
+    FieldMetadata.UDF3 = FieldMetadata('udf3', str)
+    FieldMetadata.UDF4 = FieldMetadata('udf4', str)
+    FieldMetadata.UDF5 = FieldMetadata('udf5', str)
+    FieldMetadata.UDF6 = FieldMetadata('udf6', str)
+    FieldMetadata.UDF7 = FieldMetadata('udf7', str)
+    FieldMetadata.UDF8 = FieldMetadata('udf8', str)
+    FieldMetadata.UDF9 = FieldMetadata('udf9', str)
+    FieldMetadata.UNIT = FieldMetadata('unit', str)
+    FieldMetadata.UPDATED = FieldMetadata('updated', str)
+    FieldMetadata.UPDATEDBY = FieldMetadata('updatedby', str)
+    FieldMetadata.USED = FieldMetadata('used', str)
+    FieldMetadata.VALUEDATE = FieldMetadata('valuedate', str)
+    FieldMetadata.VARIETIES = FieldMetadata('varieties', str)
+    FieldMetadata.WEBINCLUDE = FieldMetadata('webinclude', str)
+    FieldMetadata.WEIGHT = FieldMetadata('weight', str)
+    FieldMetadata.WEIGHTIN = FieldMetadata('weightin', str)
+    FieldMetadata.WEIGHTLB = FieldMetadata('weightlb', decimal.Decimal)
+    FieldMetadata.WIDTH = FieldMetadata('width', str)
+    FieldMetadata.WIDTHFT = FieldMetadata('widthft', decimal.Decimal)
+    FieldMetadata.WIDTHIN = FieldMetadata('widthin', decimal.Decimal)
+    FieldMetadata.XCORD = FieldMetadata('xcord', str)
+    FieldMetadata.YCORD = FieldMetadata('ycord', str)
+    FieldMetadata.ZCORD = FieldMetadata('zcord', str)
+
     def __init__(
         self,
         accessno=None,
@@ -7425,17 +7936,17 @@ class Object(object):
         :type boxno: str or None
         :type caption: str or None
         :type catby: str or None
-        :type catdate: datetime or None
+        :type catdate: datetime.datetime or None
         :type cattype: str or None
         :type chemcomp: str or None
         :type circum: str or None
         :type circumft: Decimal or None
         :type circumin: Decimal or None
         :type classes: str or None
-        :type colldate: datetime or None
+        :type colldate: datetime.datetime or None
         :type collection: str or None
         :type collector: str or None
-        :type conddate: datetime or None
+        :type conddate: datetime.datetime or None
         :type condexam: str or None
         :type condition: pastpy.models.condition.Condition or None
         :type condnotes: str or None
@@ -7598,7 +8109,7 @@ class Object(object):
         :type stage: str or None
         :type status: pastpy.models.status.Status or None
         :type statusby: str or None
-        :type statusdate: datetime or None
+        :type statusdate: datetime.datetime or None
         :type sterms: str or None
         :type stratum: str or None
         :type streak: str or None
@@ -7738,8 +8249,8 @@ class Object(object):
         self.__catby = catby
 
         if catdate is not None:
-            if not isinstance(catdate, datetime):
-                raise TypeError("expected catdate to be a datetime but it is a %s" % getattr(__builtin__, 'type')(catdate))
+            if not isinstance(catdate, datetime.datetime):
+                raise TypeError("expected catdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(catdate))
         self.__catdate = catdate
 
         if cattype is not None:
@@ -7781,8 +8292,8 @@ class Object(object):
         self.__classes = classes
 
         if colldate is not None:
-            if not isinstance(colldate, datetime):
-                raise TypeError("expected colldate to be a datetime but it is a %s" % getattr(__builtin__, 'type')(colldate))
+            if not isinstance(colldate, datetime.datetime):
+                raise TypeError("expected colldate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(colldate))
         self.__colldate = colldate
 
         if collection is not None:
@@ -7800,8 +8311,8 @@ class Object(object):
         self.__collector = collector
 
         if conddate is not None:
-            if not isinstance(conddate, datetime):
-                raise TypeError("expected conddate to be a datetime but it is a %s" % getattr(__builtin__, 'type')(conddate))
+            if not isinstance(conddate, datetime.datetime):
+                raise TypeError("expected conddate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(conddate))
         self.__conddate = conddate
 
         if condexam is not None:
@@ -8903,8 +9414,8 @@ class Object(object):
         self.__statusby = statusby
 
         if statusdate is not None:
-            if not isinstance(statusdate, datetime):
-                raise TypeError("expected statusdate to be a datetime but it is a %s" % getattr(__builtin__, 'type')(statusdate))
+            if not isinstance(statusdate, datetime.datetime):
+                raise TypeError("expected statusdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(statusdate))
         self.__statusdate = statusdate
 
         if sterms is not None:
@@ -10933,7 +11444,7 @@ class Object(object):
     @property
     def catdate(self):
         '''
-        :rtype: datetime
+        :rtype: datetime.datetime
         '''
 
         return self.__catdate
@@ -10989,7 +11500,7 @@ class Object(object):
     @property
     def colldate(self):
         '''
-        :rtype: datetime
+        :rtype: datetime.datetime
         '''
 
         return self.__colldate
@@ -11013,7 +11524,7 @@ class Object(object):
     @property
     def conddate(self):
         '''
-        :rtype: datetime
+        :rtype: datetime.datetime
         '''
 
         return self.__conddate
@@ -13676,17 +14187,17 @@ class Object(object):
         :type boxno: str or None
         :type caption: str or None
         :type catby: str or None
-        :type catdate: datetime or None
+        :type catdate: datetime.datetime or None
         :type cattype: str or None
         :type chemcomp: str or None
         :type circum: str or None
         :type circumft: Decimal or None
         :type circumin: Decimal or None
         :type classes: str or None
-        :type colldate: datetime or None
+        :type colldate: datetime.datetime or None
         :type collection: str or None
         :type collector: str or None
-        :type conddate: datetime or None
+        :type conddate: datetime.datetime or None
         :type condexam: str or None
         :type condition: pastpy.models.condition.Condition or None
         :type condnotes: str or None
@@ -13849,7 +14360,7 @@ class Object(object):
         :type stage: str or None
         :type status: pastpy.models.status.Status or None
         :type statusby: str or None
-        :type statusdate: datetime or None
+        :type statusdate: datetime.datetime or None
         :type sterms: str or None
         :type stratum: str or None
         :type streak: str or None
@@ -14563,7 +15074,7 @@ class Object(object):
     @property
     def statusdate(self):
         '''
-        :rtype: datetime
+        :rtype: datetime.datetime
         '''
 
         return self.__statusdate
