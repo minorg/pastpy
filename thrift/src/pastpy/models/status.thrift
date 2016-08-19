@@ -1,5 +1,7 @@
 namespace * pastpy.models
 
 enum Status {
-    OK
+    OK,
+    LOST,
+    ON_LOAN
 }

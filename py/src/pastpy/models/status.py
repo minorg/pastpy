@@ -1,5 +1,7 @@
 class Status(object):
     OK = None
+    LOST = None
+    ON_LOAN = None
 
     def __init__(self, name, value):
         object.__init__(self)
@@ -19,10 +21,16 @@ class Status(object):
     def value_of(cls, name):
         if name == 'OK' or name == '0':
             return getattr(Status, 'OK')
+        elif name == 'LOST' or name == '1':
+            return getattr(Status, 'LOST')
+        elif name == 'ON_LOAN' or name == '2':
+            return getattr(Status, 'ON_LOAN')
         raise ValueError(name)
 
     @classmethod
     def values(cls):
-        return (Status.OK,)
+        return (Status.OK, Status.LOST, Status.ON_LOAN,)
 
 Status.OK = Status('OK', 0)
+Status.LOST = Status('LOST', 1)
+Status.ON_LOAN = Status('ON_LOAN', 2)

@@ -14,7 +14,8 @@ class ObjectDbfTableTest(unittest.TestCase):
 
     def test_records(self):
         for record in self.__open().records():
-            print record
-            print
+            pass
+#             print record
+#             print
 #             assert isinstance(record, Object)
 

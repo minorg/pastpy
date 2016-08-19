@@ -270,7 +270,7 @@ class Object(object):
             :type caption: str or None
             :type catby: str or None
             :type catdate: datetime.datetime or None
-            :type cattype: int or None
+            :type cattype: str or None
             :type chemcomp: str or None
             :type circum: Decimal or None
             :type circumft: Decimal or None
@@ -306,7 +306,7 @@ class Object(object):
             :type dimnotes: str or None
             :type dimtype: int or None
             :type dispvalue: str or None
-            :type earlydate: datetime.datetime or None
+            :type earlydate: str or None
             :type elements: str or None
             :type epoch: str or None
             :type era: str or None
@@ -350,7 +350,7 @@ class Object(object):
             :type inscrtech: str or None
             :type inscrtext: str or None
             :type inscrtrans: str or None
-            :type inscrtype: int or None
+            :type inscrtype: object or None
             :type insdate: datetime.datetime or None
             :type insphone: str or None
             :type inspremium: str or None
@@ -359,7 +359,7 @@ class Object(object):
             :type invnby: str or None
             :type invndate: datetime.datetime or None
             :type kingdom: str or None
-            :type latedate: datetime.datetime or None
+            :type latedate: str or None
             :type legal: str or None
             :type length: Decimal or None
             :type lengthft: Decimal or None
@@ -397,7 +397,7 @@ class Object(object):
             :type oldno: int or None
             :type origin: str or None
             :type othername: str or None
-            :type otherno: int or None
+            :type otherno: str or None
             :type outdate: datetime.datetime or None
             :type owned: str or None
             :type parent: str or None
@@ -489,14 +489,14 @@ class Object(object):
             :type udf8: object or None
             :type udf9: object or None
             :type unit: str or None
-            :type updated: str or None
+            :type updated: datetime.datetime or None
             :type updatedby: str or None
             :type used: str or None
             :type valuedate: datetime.datetime or None
             :type varieties: str or None
-            :type webinclude: str or None
-            :type weight: str or None
-            :type weightin: str or None
+            :type webinclude: bool or None
+            :type weight: Decimal or None
+            :type weightin: Decimal or None
             :type weightlb: Decimal or None
             :type width: Decimal or None
             :type widthft: Decimal or None
@@ -855,7 +855,7 @@ class Object(object):
         @property
         def cattype(self):
             '''
-            :rtype: int
+            :rtype: str
             '''
 
             return self.__cattype
@@ -1143,7 +1143,7 @@ class Object(object):
         @property
         def earlydate(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: str
             '''
 
             return self.__earlydate
@@ -1495,7 +1495,7 @@ class Object(object):
         @property
         def inscrtype(self):
             '''
-            :rtype: int
+            :rtype: object
             '''
 
             return self.__inscrtype
@@ -1567,7 +1567,7 @@ class Object(object):
         @property
         def latedate(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: str
             '''
 
             return self.__latedate
@@ -1871,7 +1871,7 @@ class Object(object):
         @property
         def otherno(self):
             '''
-            :rtype: int
+            :rtype: str
             '''
 
             return self.__otherno
@@ -2150,6 +2150,8 @@ class Object(object):
                     raise TypeError("expected accessno to be a str but it is a %s" % getattr(__builtin__, 'type')(accessno))
                 if len(accessno) < 1:
                     raise ValueError("expected len(accessno) to be >= 1, was %d" % len(accessno))
+                if accessno.isspace():
+                    raise ValueError("expected accessno not to be blank")
             self.__accessno = accessno
             return self
 
@@ -2163,6 +2165,8 @@ class Object(object):
                     raise TypeError("expected accessory to be a str but it is a %s" % getattr(__builtin__, 'type')(accessory))
                 if len(accessory) < 1:
                     raise ValueError("expected len(accessory) to be >= 1, was %d" % len(accessory))
+                if accessory.isspace():
+                    raise ValueError("expected accessory not to be blank")
             self.__accessory = accessory
             return self
 
@@ -2187,6 +2191,8 @@ class Object(object):
                     raise TypeError("expected age to be a str but it is a %s" % getattr(__builtin__, 'type')(age))
                 if len(age) < 1:
                     raise ValueError("expected len(age) to be >= 1, was %d" % len(age))
+                if age.isspace():
+                    raise ValueError("expected age not to be blank")
             self.__age = age
             return self
 
@@ -2200,6 +2206,8 @@ class Object(object):
                     raise TypeError("expected appnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(appnotes))
                 if len(appnotes) < 1:
                     raise ValueError("expected len(appnotes) to be >= 1, was %d" % len(appnotes))
+                if appnotes.isspace():
+                    raise ValueError("expected appnotes not to be blank")
             self.__appnotes = appnotes
             return self
 
@@ -2213,6 +2221,8 @@ class Object(object):
                     raise TypeError("expected appraisor to be a str but it is a %s" % getattr(__builtin__, 'type')(appraisor))
                 if len(appraisor) < 1:
                     raise ValueError("expected len(appraisor) to be >= 1, was %d" % len(appraisor))
+                if appraisor.isspace():
+                    raise ValueError("expected appraisor not to be blank")
             self.__appraisor = appraisor
             return self
 
@@ -2226,6 +2236,8 @@ class Object(object):
                     raise TypeError("expected assemzone to be a str but it is a %s" % getattr(__builtin__, 'type')(assemzone))
                 if len(assemzone) < 1:
                     raise ValueError("expected len(assemzone) to be >= 1, was %d" % len(assemzone))
+                if assemzone.isspace():
+                    raise ValueError("expected assemzone not to be blank")
             self.__assemzone = assemzone
             return self
 
@@ -2261,6 +2273,8 @@ class Object(object):
                     raise TypeError("expected caption to be a str but it is a %s" % getattr(__builtin__, 'type')(caption))
                 if len(caption) < 1:
                     raise ValueError("expected len(caption) to be >= 1, was %d" % len(caption))
+                if caption.isspace():
+                    raise ValueError("expected caption not to be blank")
             self.__caption = caption
             return self
 
@@ -2274,6 +2288,8 @@ class Object(object):
                     raise TypeError("expected catby to be a str but it is a %s" % getattr(__builtin__, 'type')(catby))
                 if len(catby) < 1:
                     raise ValueError("expected len(catby) to be >= 1, was %d" % len(catby))
+                if catby.isspace():
+                    raise ValueError("expected catby not to be blank")
             self.__catby = catby
             return self
 
@@ -2290,12 +2306,16 @@ class Object(object):
 
         def set_cattype(self, cattype):
             '''
-            :type cattype: int or None
+            :type cattype: str or None
             '''
 
             if cattype is not None:
-                if not isinstance(cattype, int):
-                    raise TypeError("expected cattype to be a int but it is a %s" % getattr(__builtin__, 'type')(cattype))
+                if not isinstance(cattype, basestring):
+                    raise TypeError("expected cattype to be a str but it is a %s" % getattr(__builtin__, 'type')(cattype))
+                if len(cattype) < 1:
+                    raise ValueError("expected len(cattype) to be >= 1, was %d" % len(cattype))
+                if cattype.isspace():
+                    raise ValueError("expected cattype not to be blank")
             self.__cattype = cattype
             return self
 
@@ -2309,6 +2329,8 @@ class Object(object):
                     raise TypeError("expected chemcomp to be a str but it is a %s" % getattr(__builtin__, 'type')(chemcomp))
                 if len(chemcomp) < 1:
                     raise ValueError("expected len(chemcomp) to be >= 1, was %d" % len(chemcomp))
+                if chemcomp.isspace():
+                    raise ValueError("expected chemcomp not to be blank")
             self.__chemcomp = chemcomp
             return self
 
@@ -2320,6 +2342,8 @@ class Object(object):
             if circum is not None:
                 if not isinstance(circum, decimal.Decimal):
                     raise TypeError("expected circum to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(circum))
+                if circum <= 0:
+                    raise ValueError("expected circum to be > 0, was %s" % circum)
             self.__circum = circum
             return self
 
@@ -2331,6 +2355,8 @@ class Object(object):
             if circumft is not None:
                 if not isinstance(circumft, decimal.Decimal):
                     raise TypeError("expected circumft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(circumft))
+                if circumft <= 0:
+                    raise ValueError("expected circumft to be > 0, was %s" % circumft)
             self.__circumft = circumft
             return self
 
@@ -2342,6 +2368,8 @@ class Object(object):
             if circumin is not None:
                 if not isinstance(circumin, decimal.Decimal):
                     raise TypeError("expected circumin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(circumin))
+                if circumin <= 0:
+                    raise ValueError("expected circumin to be > 0, was %s" % circumin)
             self.__circumin = circumin
             return self
 
@@ -2355,6 +2383,8 @@ class Object(object):
                     raise TypeError("expected classes to be a str but it is a %s" % getattr(__builtin__, 'type')(classes))
                 if len(classes) < 1:
                     raise ValueError("expected len(classes) to be >= 1, was %d" % len(classes))
+                if classes.isspace():
+                    raise ValueError("expected classes not to be blank")
             self.__classes = classes
             return self
 
@@ -2379,6 +2409,8 @@ class Object(object):
                     raise TypeError("expected collection to be a str but it is a %s" % getattr(__builtin__, 'type')(collection))
                 if len(collection) < 1:
                     raise ValueError("expected len(collection) to be >= 1, was %d" % len(collection))
+                if collection.isspace():
+                    raise ValueError("expected collection not to be blank")
             self.__collection = collection
             return self
 
@@ -2392,6 +2424,8 @@ class Object(object):
                     raise TypeError("expected collector to be a str but it is a %s" % getattr(__builtin__, 'type')(collector))
                 if len(collector) < 1:
                     raise ValueError("expected len(collector) to be >= 1, was %d" % len(collector))
+                if collector.isspace():
+                    raise ValueError("expected collector not to be blank")
             self.__collector = collector
             return self
 
@@ -2416,6 +2450,8 @@ class Object(object):
                     raise TypeError("expected condexam to be a str but it is a %s" % getattr(__builtin__, 'type')(condexam))
                 if len(condexam) < 1:
                     raise ValueError("expected len(condexam) to be >= 1, was %d" % len(condexam))
+                if condexam.isspace():
+                    raise ValueError("expected condexam not to be blank")
             self.__condexam = condexam
             return self
 
@@ -2440,6 +2476,8 @@ class Object(object):
                     raise TypeError("expected condnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(condnotes))
                 if len(condnotes) < 1:
                     raise ValueError("expected len(condnotes) to be >= 1, was %d" % len(condnotes))
+                if condnotes.isspace():
+                    raise ValueError("expected condnotes not to be blank")
             self.__condnotes = condnotes
             return self
 
@@ -2453,6 +2491,8 @@ class Object(object):
                     raise TypeError("expected count to be a str but it is a %s" % getattr(__builtin__, 'type')(count))
                 if len(count) < 1:
                     raise ValueError("expected len(count) to be >= 1, was %d" % len(count))
+                if count.isspace():
+                    raise ValueError("expected count not to be blank")
             self.__count = count
             return self
 
@@ -2466,6 +2506,8 @@ class Object(object):
                     raise TypeError("expected creator to be a str but it is a %s" % getattr(__builtin__, 'type')(creator))
                 if len(creator) < 1:
                     raise ValueError("expected len(creator) to be >= 1, was %d" % len(creator))
+                if creator.isspace():
+                    raise ValueError("expected creator not to be blank")
             self.__creator = creator
             return self
 
@@ -2479,6 +2521,8 @@ class Object(object):
                     raise TypeError("expected creator2 to be a str but it is a %s" % getattr(__builtin__, 'type')(creator2))
                 if len(creator2) < 1:
                     raise ValueError("expected len(creator2) to be >= 1, was %d" % len(creator2))
+                if creator2.isspace():
+                    raise ValueError("expected creator2 not to be blank")
             self.__creator2 = creator2
             return self
 
@@ -2492,6 +2536,8 @@ class Object(object):
                     raise TypeError("expected creator3 to be a str but it is a %s" % getattr(__builtin__, 'type')(creator3))
                 if len(creator3) < 1:
                     raise ValueError("expected len(creator3) to be >= 1, was %d" % len(creator3))
+                if creator3.isspace():
+                    raise ValueError("expected creator3 not to be blank")
             self.__creator3 = creator3
             return self
 
@@ -2505,6 +2551,8 @@ class Object(object):
                     raise TypeError("expected credit to be a str but it is a %s" % getattr(__builtin__, 'type')(credit))
                 if len(credit) < 1:
                     raise ValueError("expected len(credit) to be >= 1, was %d" % len(credit))
+                if credit.isspace():
+                    raise ValueError("expected credit not to be blank")
             self.__credit = credit
             return self
 
@@ -2518,6 +2566,8 @@ class Object(object):
                     raise TypeError("expected crystal to be a str but it is a %s" % getattr(__builtin__, 'type')(crystal))
                 if len(crystal) < 1:
                     raise ValueError("expected len(crystal) to be >= 1, was %d" % len(crystal))
+                if crystal.isspace():
+                    raise ValueError("expected crystal not to be blank")
             self.__crystal = crystal
             return self
 
@@ -2531,6 +2581,8 @@ class Object(object):
                     raise TypeError("expected culture to be a str but it is a %s" % getattr(__builtin__, 'type')(culture))
                 if len(culture) < 1:
                     raise ValueError("expected len(culture) to be >= 1, was %d" % len(culture))
+                if culture.isspace():
+                    raise ValueError("expected culture not to be blank")
             self.__culture = culture
             return self
 
@@ -2566,6 +2618,8 @@ class Object(object):
                     raise TypeError("expected dataset to be a str but it is a %s" % getattr(__builtin__, 'type')(dataset))
                 if len(dataset) < 1:
                     raise ValueError("expected len(dataset) to be >= 1, was %d" % len(dataset))
+                if dataset.isspace():
+                    raise ValueError("expected dataset not to be blank")
             self.__dataset = dataset
             return self
 
@@ -2579,6 +2633,8 @@ class Object(object):
                     raise TypeError("expected date to be a str but it is a %s" % getattr(__builtin__, 'type')(date))
                 if len(date) < 1:
                     raise ValueError("expected len(date) to be >= 1, was %d" % len(date))
+                if date.isspace():
+                    raise ValueError("expected date not to be blank")
             self.__date = date
             return self
 
@@ -2592,6 +2648,8 @@ class Object(object):
                     raise TypeError("expected datingmeth to be a str but it is a %s" % getattr(__builtin__, 'type')(datingmeth))
                 if len(datingmeth) < 1:
                     raise ValueError("expected len(datingmeth) to be >= 1, was %d" % len(datingmeth))
+                if datingmeth.isspace():
+                    raise ValueError("expected datingmeth not to be blank")
             self.__datingmeth = datingmeth
             return self
 
@@ -2605,6 +2663,8 @@ class Object(object):
                     raise TypeError("expected datum to be a str but it is a %s" % getattr(__builtin__, 'type')(datum))
                 if len(datum) < 1:
                     raise ValueError("expected len(datum) to be >= 1, was %d" % len(datum))
+                if datum.isspace():
+                    raise ValueError("expected datum not to be blank")
             self.__datum = datum
             return self
 
@@ -2616,6 +2676,8 @@ class Object(object):
             if depth is not None:
                 if not isinstance(depth, decimal.Decimal):
                     raise TypeError("expected depth to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(depth))
+                if depth <= 0:
+                    raise ValueError("expected depth to be > 0, was %s" % depth)
             self.__depth = depth
             return self
 
@@ -2627,6 +2689,8 @@ class Object(object):
             if depthft is not None:
                 if not isinstance(depthft, decimal.Decimal):
                     raise TypeError("expected depthft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(depthft))
+                if depthft <= 0:
+                    raise ValueError("expected depthft to be > 0, was %s" % depthft)
             self.__depthft = depthft
             return self
 
@@ -2638,6 +2702,8 @@ class Object(object):
             if depthin is not None:
                 if not isinstance(depthin, decimal.Decimal):
                     raise TypeError("expected depthin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(depthin))
+                if depthin <= 0:
+                    raise ValueError("expected depthin to be > 0, was %s" % depthin)
             self.__depthin = depthin
             return self
 
@@ -2651,6 +2717,8 @@ class Object(object):
                     raise TypeError("expected descrip to be a str but it is a %s" % getattr(__builtin__, 'type')(descrip))
                 if len(descrip) < 1:
                     raise ValueError("expected len(descrip) to be >= 1, was %d" % len(descrip))
+                if descrip.isspace():
+                    raise ValueError("expected descrip not to be blank")
             self.__descrip = descrip
             return self
 
@@ -2662,6 +2730,8 @@ class Object(object):
             if diameter is not None:
                 if not isinstance(diameter, decimal.Decimal):
                     raise TypeError("expected diameter to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(diameter))
+                if diameter <= 0:
+                    raise ValueError("expected diameter to be > 0, was %s" % diameter)
             self.__diameter = diameter
             return self
 
@@ -2673,6 +2743,8 @@ class Object(object):
             if diameterft is not None:
                 if not isinstance(diameterft, decimal.Decimal):
                     raise TypeError("expected diameterft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(diameterft))
+                if diameterft <= 0:
+                    raise ValueError("expected diameterft to be > 0, was %s" % diameterft)
             self.__diameterft = diameterft
             return self
 
@@ -2684,6 +2756,8 @@ class Object(object):
             if diameterin is not None:
                 if not isinstance(diameterin, decimal.Decimal):
                     raise TypeError("expected diameterin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(diameterin))
+                if diameterin <= 0:
+                    raise ValueError("expected diameterin to be > 0, was %s" % diameterin)
             self.__diameterin = diameterin
             return self
 
@@ -2697,6 +2771,8 @@ class Object(object):
                     raise TypeError("expected dimnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(dimnotes))
                 if len(dimnotes) < 1:
                     raise ValueError("expected len(dimnotes) to be >= 1, was %d" % len(dimnotes))
+                if dimnotes.isspace():
+                    raise ValueError("expected dimnotes not to be blank")
             self.__dimnotes = dimnotes
             return self
 
@@ -2721,17 +2797,23 @@ class Object(object):
                     raise TypeError("expected dispvalue to be a str but it is a %s" % getattr(__builtin__, 'type')(dispvalue))
                 if len(dispvalue) < 1:
                     raise ValueError("expected len(dispvalue) to be >= 1, was %d" % len(dispvalue))
+                if dispvalue.isspace():
+                    raise ValueError("expected dispvalue not to be blank")
             self.__dispvalue = dispvalue
             return self
 
         def set_earlydate(self, earlydate):
             '''
-            :type earlydate: datetime.datetime or None
+            :type earlydate: str or None
             '''
 
             if earlydate is not None:
-                if not isinstance(earlydate, datetime.datetime):
-                    raise TypeError("expected earlydate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(earlydate))
+                if not isinstance(earlydate, basestring):
+                    raise TypeError("expected earlydate to be a str but it is a %s" % getattr(__builtin__, 'type')(earlydate))
+                if len(earlydate) < 1:
+                    raise ValueError("expected len(earlydate) to be >= 1, was %d" % len(earlydate))
+                if earlydate.isspace():
+                    raise ValueError("expected earlydate not to be blank")
             self.__earlydate = earlydate
             return self
 
@@ -2745,6 +2827,8 @@ class Object(object):
                     raise TypeError("expected elements to be a str but it is a %s" % getattr(__builtin__, 'type')(elements))
                 if len(elements) < 1:
                     raise ValueError("expected len(elements) to be >= 1, was %d" % len(elements))
+                if elements.isspace():
+                    raise ValueError("expected elements not to be blank")
             self.__elements = elements
             return self
 
@@ -2758,6 +2842,8 @@ class Object(object):
                     raise TypeError("expected epoch to be a str but it is a %s" % getattr(__builtin__, 'type')(epoch))
                 if len(epoch) < 1:
                     raise ValueError("expected len(epoch) to be >= 1, was %d" % len(epoch))
+                if epoch.isspace():
+                    raise ValueError("expected epoch not to be blank")
             self.__epoch = epoch
             return self
 
@@ -2771,6 +2857,8 @@ class Object(object):
                     raise TypeError("expected era to be a str but it is a %s" % getattr(__builtin__, 'type')(era))
                 if len(era) < 1:
                     raise ValueError("expected len(era) to be >= 1, was %d" % len(era))
+                if era.isspace():
+                    raise ValueError("expected era not to be blank")
             self.__era = era
             return self
 
@@ -2784,6 +2872,8 @@ class Object(object):
                     raise TypeError("expected event to be a str but it is a %s" % getattr(__builtin__, 'type')(event))
                 if len(event) < 1:
                     raise ValueError("expected len(event) to be >= 1, was %d" % len(event))
+                if event.isspace():
+                    raise ValueError("expected event not to be blank")
             self.__event = event
             return self
 
@@ -2808,6 +2898,8 @@ class Object(object):
                     raise TypeError("expected excavateby to be a str but it is a %s" % getattr(__builtin__, 'type')(excavateby))
                 if len(excavateby) < 1:
                     raise ValueError("expected len(excavateby) to be >= 1, was %d" % len(excavateby))
+                if excavateby.isspace():
+                    raise ValueError("expected excavateby not to be blank")
             self.__excavateby = excavateby
             return self
 
@@ -2832,6 +2924,8 @@ class Object(object):
                     raise TypeError("expected exhlabel1 to be a str but it is a %s" % getattr(__builtin__, 'type')(exhlabel1))
                 if len(exhlabel1) < 1:
                     raise ValueError("expected len(exhlabel1) to be >= 1, was %d" % len(exhlabel1))
+                if exhlabel1.isspace():
+                    raise ValueError("expected exhlabel1 not to be blank")
             self.__exhlabel1 = exhlabel1
             return self
 
@@ -2845,6 +2939,8 @@ class Object(object):
                     raise TypeError("expected exhlabel2 to be a str but it is a %s" % getattr(__builtin__, 'type')(exhlabel2))
                 if len(exhlabel2) < 1:
                     raise ValueError("expected len(exhlabel2) to be >= 1, was %d" % len(exhlabel2))
+                if exhlabel2.isspace():
+                    raise ValueError("expected exhlabel2 not to be blank")
             self.__exhlabel2 = exhlabel2
             return self
 
@@ -2858,6 +2954,8 @@ class Object(object):
                     raise TypeError("expected exhlabel3 to be a str but it is a %s" % getattr(__builtin__, 'type')(exhlabel3))
                 if len(exhlabel3) < 1:
                     raise ValueError("expected len(exhlabel3) to be >= 1, was %d" % len(exhlabel3))
+                if exhlabel3.isspace():
+                    raise ValueError("expected exhlabel3 not to be blank")
             self.__exhlabel3 = exhlabel3
             return self
 
@@ -2871,6 +2969,8 @@ class Object(object):
                     raise TypeError("expected exhlabel4 to be a str but it is a %s" % getattr(__builtin__, 'type')(exhlabel4))
                 if len(exhlabel4) < 1:
                     raise ValueError("expected len(exhlabel4) to be >= 1, was %d" % len(exhlabel4))
+                if exhlabel4.isspace():
+                    raise ValueError("expected exhlabel4 not to be blank")
             self.__exhlabel4 = exhlabel4
             return self
 
@@ -2884,6 +2984,8 @@ class Object(object):
                     raise TypeError("expected exhstart to be a str but it is a %s" % getattr(__builtin__, 'type')(exhstart))
                 if len(exhstart) < 1:
                     raise ValueError("expected len(exhstart) to be >= 1, was %d" % len(exhstart))
+                if exhstart.isspace():
+                    raise ValueError("expected exhstart not to be blank")
             self.__exhstart = exhstart
             return self
 
@@ -2897,6 +2999,8 @@ class Object(object):
                     raise TypeError("expected family to be a str but it is a %s" % getattr(__builtin__, 'type')(family))
                 if len(family) < 1:
                     raise ValueError("expected len(family) to be >= 1, was %d" % len(family))
+                if family.isspace():
+                    raise ValueError("expected family not to be blank")
             self.__family = family
             return self
 
@@ -2910,6 +3014,8 @@ class Object(object):
                     raise TypeError("expected feature to be a str but it is a %s" % getattr(__builtin__, 'type')(feature))
                 if len(feature) < 1:
                     raise ValueError("expected len(feature) to be >= 1, was %d" % len(feature))
+                if feature.isspace():
+                    raise ValueError("expected feature not to be blank")
             self.__feature = feature
             return self
 
@@ -2934,6 +3040,8 @@ class Object(object):
                     raise TypeError("expected flagnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(flagnotes))
                 if len(flagnotes) < 1:
                     raise ValueError("expected len(flagnotes) to be >= 1, was %d" % len(flagnotes))
+                if flagnotes.isspace():
+                    raise ValueError("expected flagnotes not to be blank")
             self.__flagnotes = flagnotes
             return self
 
@@ -2947,6 +3055,8 @@ class Object(object):
                     raise TypeError("expected flagreason to be a str but it is a %s" % getattr(__builtin__, 'type')(flagreason))
                 if len(flagreason) < 1:
                     raise ValueError("expected len(flagreason) to be >= 1, was %d" % len(flagreason))
+                if flagreason.isspace():
+                    raise ValueError("expected flagreason not to be blank")
             self.__flagreason = flagreason
             return self
 
@@ -2960,6 +3070,8 @@ class Object(object):
                     raise TypeError("expected formation to be a str but it is a %s" % getattr(__builtin__, 'type')(formation))
                 if len(formation) < 1:
                     raise ValueError("expected len(formation) to be >= 1, was %d" % len(formation))
+                if formation.isspace():
+                    raise ValueError("expected formation not to be blank")
             self.__formation = formation
             return self
 
@@ -2973,6 +3085,8 @@ class Object(object):
                     raise TypeError("expected fossils to be a str but it is a %s" % getattr(__builtin__, 'type')(fossils))
                 if len(fossils) < 1:
                     raise ValueError("expected len(fossils) to be >= 1, was %d" % len(fossils))
+                if fossils.isspace():
+                    raise ValueError("expected fossils not to be blank")
             self.__fossils = fossils
             return self
 
@@ -2986,6 +3100,8 @@ class Object(object):
                     raise TypeError("expected found to be a str but it is a %s" % getattr(__builtin__, 'type')(found))
                 if len(found) < 1:
                     raise ValueError("expected len(found) to be >= 1, was %d" % len(found))
+                if found.isspace():
+                    raise ValueError("expected found not to be blank")
             self.__found = found
             return self
 
@@ -2999,6 +3115,8 @@ class Object(object):
                     raise TypeError("expected fracture to be a str but it is a %s" % getattr(__builtin__, 'type')(fracture))
                 if len(fracture) < 1:
                     raise ValueError("expected len(fracture) to be >= 1, was %d" % len(fracture))
+                if fracture.isspace():
+                    raise ValueError("expected fracture not to be blank")
             self.__fracture = fracture
             return self
 
@@ -3012,6 +3130,8 @@ class Object(object):
                     raise TypeError("expected frame to be a str but it is a %s" % getattr(__builtin__, 'type')(frame))
                 if len(frame) < 1:
                     raise ValueError("expected len(frame) to be >= 1, was %d" % len(frame))
+                if frame.isspace():
+                    raise ValueError("expected frame not to be blank")
             self.__frame = frame
             return self
 
@@ -3025,6 +3145,8 @@ class Object(object):
                     raise TypeError("expected framesize to be a str but it is a %s" % getattr(__builtin__, 'type')(framesize))
                 if len(framesize) < 1:
                     raise ValueError("expected len(framesize) to be >= 1, was %d" % len(framesize))
+                if framesize.isspace():
+                    raise ValueError("expected framesize not to be blank")
             self.__framesize = framesize
             return self
 
@@ -3038,6 +3160,8 @@ class Object(object):
                     raise TypeError("expected genus to be a str but it is a %s" % getattr(__builtin__, 'type')(genus))
                 if len(genus) < 1:
                     raise ValueError("expected len(genus) to be >= 1, was %d" % len(genus))
+                if genus.isspace():
+                    raise ValueError("expected genus not to be blank")
             self.__genus = genus
             return self
 
@@ -3051,6 +3175,8 @@ class Object(object):
                     raise TypeError("expected gparent to be a str but it is a %s" % getattr(__builtin__, 'type')(gparent))
                 if len(gparent) < 1:
                     raise ValueError("expected len(gparent) to be >= 1, was %d" % len(gparent))
+                if gparent.isspace():
+                    raise ValueError("expected gparent not to be blank")
             self.__gparent = gparent
             return self
 
@@ -3064,6 +3190,8 @@ class Object(object):
                     raise TypeError("expected grainsize to be a str but it is a %s" % getattr(__builtin__, 'type')(grainsize))
                 if len(grainsize) < 1:
                     raise ValueError("expected len(grainsize) to be >= 1, was %d" % len(grainsize))
+                if grainsize.isspace():
+                    raise ValueError("expected grainsize not to be blank")
             self.__grainsize = grainsize
             return self
 
@@ -3077,6 +3205,8 @@ class Object(object):
                     raise TypeError("expected habitat to be a str but it is a %s" % getattr(__builtin__, 'type')(habitat))
                 if len(habitat) < 1:
                     raise ValueError("expected len(habitat) to be >= 1, was %d" % len(habitat))
+                if habitat.isspace():
+                    raise ValueError("expected habitat not to be blank")
             self.__habitat = habitat
             return self
 
@@ -3090,6 +3220,8 @@ class Object(object):
                     raise TypeError("expected hardness to be a str but it is a %s" % getattr(__builtin__, 'type')(hardness))
                 if len(hardness) < 1:
                     raise ValueError("expected len(hardness) to be >= 1, was %d" % len(hardness))
+                if hardness.isspace():
+                    raise ValueError("expected hardness not to be blank")
             self.__hardness = hardness
             return self
 
@@ -3101,6 +3233,8 @@ class Object(object):
             if height is not None:
                 if not isinstance(height, decimal.Decimal):
                     raise TypeError("expected height to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(height))
+                if height <= 0:
+                    raise ValueError("expected height to be > 0, was %s" % height)
             self.__height = height
             return self
 
@@ -3112,6 +3246,8 @@ class Object(object):
             if heightft is not None:
                 if not isinstance(heightft, decimal.Decimal):
                     raise TypeError("expected heightft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(heightft))
+                if heightft <= 0:
+                    raise ValueError("expected heightft to be > 0, was %s" % heightft)
             self.__heightft = heightft
             return self
 
@@ -3123,6 +3259,8 @@ class Object(object):
             if heightin is not None:
                 if not isinstance(heightin, decimal.Decimal):
                     raise TypeError("expected heightin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(heightin))
+                if heightin <= 0:
+                    raise ValueError("expected heightin to be > 0, was %s" % heightin)
             self.__heightin = heightin
             return self
 
@@ -3136,6 +3274,8 @@ class Object(object):
                     raise TypeError("expected homeloc to be a str but it is a %s" % getattr(__builtin__, 'type')(homeloc))
                 if len(homeloc) < 1:
                     raise ValueError("expected len(homeloc) to be >= 1, was %d" % len(homeloc))
+                if homeloc.isspace():
+                    raise ValueError("expected homeloc not to be blank")
             self.__homeloc = homeloc
             return self
 
@@ -3149,6 +3289,8 @@ class Object(object):
                     raise TypeError("expected idby to be a str but it is a %s" % getattr(__builtin__, 'type')(idby))
                 if len(idby) < 1:
                     raise ValueError("expected len(idby) to be >= 1, was %d" % len(idby))
+                if idby.isspace():
+                    raise ValueError("expected idby not to be blank")
             self.__idby = idby
             return self
 
@@ -3173,6 +3315,8 @@ class Object(object):
                     raise TypeError("expected imagefile to be a str but it is a %s" % getattr(__builtin__, 'type')(imagefile))
                 if len(imagefile) < 1:
                     raise ValueError("expected len(imagefile) to be >= 1, was %d" % len(imagefile))
+                if imagefile.isspace():
+                    raise ValueError("expected imagefile not to be blank")
             self.__imagefile = imagefile
             return self
 
@@ -3197,6 +3341,8 @@ class Object(object):
                     raise TypeError("expected imagesize to be a str but it is a %s" % getattr(__builtin__, 'type')(imagesize))
                 if len(imagesize) < 1:
                     raise ValueError("expected len(imagesize) to be >= 1, was %d" % len(imagesize))
+                if imagesize.isspace():
+                    raise ValueError("expected imagesize not to be blank")
             self.__imagesize = imagesize
             return self
 
@@ -3210,6 +3356,8 @@ class Object(object):
                     raise TypeError("expected inscomp to be a str but it is a %s" % getattr(__builtin__, 'type')(inscomp))
                 if len(inscomp) < 1:
                     raise ValueError("expected len(inscomp) to be >= 1, was %d" % len(inscomp))
+                if inscomp.isspace():
+                    raise ValueError("expected inscomp not to be blank")
             self.__inscomp = inscomp
             return self
 
@@ -3223,6 +3371,8 @@ class Object(object):
                     raise TypeError("expected inscrlang to be a str but it is a %s" % getattr(__builtin__, 'type')(inscrlang))
                 if len(inscrlang) < 1:
                     raise ValueError("expected len(inscrlang) to be >= 1, was %d" % len(inscrlang))
+                if inscrlang.isspace():
+                    raise ValueError("expected inscrlang not to be blank")
             self.__inscrlang = inscrlang
             return self
 
@@ -3236,6 +3386,8 @@ class Object(object):
                     raise TypeError("expected inscrpos to be a str but it is a %s" % getattr(__builtin__, 'type')(inscrpos))
                 if len(inscrpos) < 1:
                     raise ValueError("expected len(inscrpos) to be >= 1, was %d" % len(inscrpos))
+                if inscrpos.isspace():
+                    raise ValueError("expected inscrpos not to be blank")
             self.__inscrpos = inscrpos
             return self
 
@@ -3249,6 +3401,8 @@ class Object(object):
                     raise TypeError("expected inscrtech to be a str but it is a %s" % getattr(__builtin__, 'type')(inscrtech))
                 if len(inscrtech) < 1:
                     raise ValueError("expected len(inscrtech) to be >= 1, was %d" % len(inscrtech))
+                if inscrtech.isspace():
+                    raise ValueError("expected inscrtech not to be blank")
             self.__inscrtech = inscrtech
             return self
 
@@ -3262,6 +3416,8 @@ class Object(object):
                     raise TypeError("expected inscrtext to be a str but it is a %s" % getattr(__builtin__, 'type')(inscrtext))
                 if len(inscrtext) < 1:
                     raise ValueError("expected len(inscrtext) to be >= 1, was %d" % len(inscrtext))
+                if inscrtext.isspace():
+                    raise ValueError("expected inscrtext not to be blank")
             self.__inscrtext = inscrtext
             return self
 
@@ -3275,17 +3431,17 @@ class Object(object):
                     raise TypeError("expected inscrtrans to be a str but it is a %s" % getattr(__builtin__, 'type')(inscrtrans))
                 if len(inscrtrans) < 1:
                     raise ValueError("expected len(inscrtrans) to be >= 1, was %d" % len(inscrtrans))
+                if inscrtrans.isspace():
+                    raise ValueError("expected inscrtrans not to be blank")
             self.__inscrtrans = inscrtrans
             return self
 
         def set_inscrtype(self, inscrtype):
             '''
-            :type inscrtype: int or None
+            :type inscrtype: object or None
             '''
 
-            if inscrtype is not None:
-                if not isinstance(inscrtype, int):
-                    raise TypeError("expected inscrtype to be a int but it is a %s" % getattr(__builtin__, 'type')(inscrtype))
+
             self.__inscrtype = inscrtype
             return self
 
@@ -3310,6 +3466,8 @@ class Object(object):
                     raise TypeError("expected insphone to be a str but it is a %s" % getattr(__builtin__, 'type')(insphone))
                 if len(insphone) < 1:
                     raise ValueError("expected len(insphone) to be >= 1, was %d" % len(insphone))
+                if insphone.isspace():
+                    raise ValueError("expected insphone not to be blank")
             self.__insphone = insphone
             return self
 
@@ -3323,6 +3481,8 @@ class Object(object):
                     raise TypeError("expected inspremium to be a str but it is a %s" % getattr(__builtin__, 'type')(inspremium))
                 if len(inspremium) < 1:
                     raise ValueError("expected len(inspremium) to be >= 1, was %d" % len(inspremium))
+                if inspremium.isspace():
+                    raise ValueError("expected inspremium not to be blank")
             self.__inspremium = inspremium
             return self
 
@@ -3336,6 +3496,8 @@ class Object(object):
                     raise TypeError("expected insrep to be a str but it is a %s" % getattr(__builtin__, 'type')(insrep))
                 if len(insrep) < 1:
                     raise ValueError("expected len(insrep) to be >= 1, was %d" % len(insrep))
+                if insrep.isspace():
+                    raise ValueError("expected insrep not to be blank")
             self.__insrep = insrep
             return self
 
@@ -3360,6 +3522,8 @@ class Object(object):
                     raise TypeError("expected invnby to be a str but it is a %s" % getattr(__builtin__, 'type')(invnby))
                 if len(invnby) < 1:
                     raise ValueError("expected len(invnby) to be >= 1, was %d" % len(invnby))
+                if invnby.isspace():
+                    raise ValueError("expected invnby not to be blank")
             self.__invnby = invnby
             return self
 
@@ -3384,17 +3548,23 @@ class Object(object):
                     raise TypeError("expected kingdom to be a str but it is a %s" % getattr(__builtin__, 'type')(kingdom))
                 if len(kingdom) < 1:
                     raise ValueError("expected len(kingdom) to be >= 1, was %d" % len(kingdom))
+                if kingdom.isspace():
+                    raise ValueError("expected kingdom not to be blank")
             self.__kingdom = kingdom
             return self
 
         def set_latedate(self, latedate):
             '''
-            :type latedate: datetime.datetime or None
+            :type latedate: str or None
             '''
 
             if latedate is not None:
-                if not isinstance(latedate, datetime.datetime):
-                    raise TypeError("expected latedate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(latedate))
+                if not isinstance(latedate, basestring):
+                    raise TypeError("expected latedate to be a str but it is a %s" % getattr(__builtin__, 'type')(latedate))
+                if len(latedate) < 1:
+                    raise ValueError("expected len(latedate) to be >= 1, was %d" % len(latedate))
+                if latedate.isspace():
+                    raise ValueError("expected latedate not to be blank")
             self.__latedate = latedate
             return self
 
@@ -3408,6 +3578,8 @@ class Object(object):
                     raise TypeError("expected legal to be a str but it is a %s" % getattr(__builtin__, 'type')(legal))
                 if len(legal) < 1:
                     raise ValueError("expected len(legal) to be >= 1, was %d" % len(legal))
+                if legal.isspace():
+                    raise ValueError("expected legal not to be blank")
             self.__legal = legal
             return self
 
@@ -3419,6 +3591,8 @@ class Object(object):
             if length is not None:
                 if not isinstance(length, decimal.Decimal):
                     raise TypeError("expected length to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(length))
+                if length <= 0:
+                    raise ValueError("expected length to be > 0, was %s" % length)
             self.__length = length
             return self
 
@@ -3430,6 +3604,8 @@ class Object(object):
             if lengthft is not None:
                 if not isinstance(lengthft, decimal.Decimal):
                     raise TypeError("expected lengthft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(lengthft))
+                if lengthft <= 0:
+                    raise ValueError("expected lengthft to be > 0, was %s" % lengthft)
             self.__lengthft = lengthft
             return self
 
@@ -3441,6 +3617,8 @@ class Object(object):
             if lengthin is not None:
                 if not isinstance(lengthin, decimal.Decimal):
                     raise TypeError("expected lengthin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(lengthin))
+                if lengthin <= 0:
+                    raise ValueError("expected lengthin to be > 0, was %s" % lengthin)
             self.__lengthin = lengthin
             return self
 
@@ -3454,6 +3632,8 @@ class Object(object):
                     raise TypeError("expected level to be a str but it is a %s" % getattr(__builtin__, 'type')(level))
                 if len(level) < 1:
                     raise ValueError("expected len(level) to be >= 1, was %d" % len(level))
+                if level.isspace():
+                    raise ValueError("expected level not to be blank")
             self.__level = level
             return self
 
@@ -3467,6 +3647,8 @@ class Object(object):
                     raise TypeError("expected lithofacie to be a str but it is a %s" % getattr(__builtin__, 'type')(lithofacie))
                 if len(lithofacie) < 1:
                     raise ValueError("expected len(lithofacie) to be >= 1, was %d" % len(lithofacie))
+                if lithofacie.isspace():
+                    raise ValueError("expected lithofacie not to be blank")
             self.__lithofacie = lithofacie
             return self
 
@@ -3480,6 +3662,8 @@ class Object(object):
                     raise TypeError("expected loancond to be a str but it is a %s" % getattr(__builtin__, 'type')(loancond))
                 if len(loancond) < 1:
                     raise ValueError("expected len(loancond) to be >= 1, was %d" % len(loancond))
+                if loancond.isspace():
+                    raise ValueError("expected loancond not to be blank")
             self.__loancond = loancond
             return self
 
@@ -3493,6 +3677,8 @@ class Object(object):
                     raise TypeError("expected loandue to be a str but it is a %s" % getattr(__builtin__, 'type')(loandue))
                 if len(loandue) < 1:
                     raise ValueError("expected len(loandue) to be >= 1, was %d" % len(loandue))
+                if loandue.isspace():
+                    raise ValueError("expected loandue not to be blank")
             self.__loandue = loandue
             return self
 
@@ -3528,6 +3714,8 @@ class Object(object):
                     raise TypeError("expected locfield1 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield1))
                 if len(locfield1) < 1:
                     raise ValueError("expected len(locfield1) to be >= 1, was %d" % len(locfield1))
+                if locfield1.isspace():
+                    raise ValueError("expected locfield1 not to be blank")
             self.__locfield1 = locfield1
             return self
 
@@ -3541,6 +3729,8 @@ class Object(object):
                     raise TypeError("expected locfield2 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield2))
                 if len(locfield2) < 1:
                     raise ValueError("expected len(locfield2) to be >= 1, was %d" % len(locfield2))
+                if locfield2.isspace():
+                    raise ValueError("expected locfield2 not to be blank")
             self.__locfield2 = locfield2
             return self
 
@@ -3554,6 +3744,8 @@ class Object(object):
                     raise TypeError("expected locfield3 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield3))
                 if len(locfield3) < 1:
                     raise ValueError("expected len(locfield3) to be >= 1, was %d" % len(locfield3))
+                if locfield3.isspace():
+                    raise ValueError("expected locfield3 not to be blank")
             self.__locfield3 = locfield3
             return self
 
@@ -3567,6 +3759,8 @@ class Object(object):
                     raise TypeError("expected locfield4 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield4))
                 if len(locfield4) < 1:
                     raise ValueError("expected len(locfield4) to be >= 1, was %d" % len(locfield4))
+                if locfield4.isspace():
+                    raise ValueError("expected locfield4 not to be blank")
             self.__locfield4 = locfield4
             return self
 
@@ -3580,6 +3774,8 @@ class Object(object):
                     raise TypeError("expected locfield5 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield5))
                 if len(locfield5) < 1:
                     raise ValueError("expected len(locfield5) to be >= 1, was %d" % len(locfield5))
+                if locfield5.isspace():
+                    raise ValueError("expected locfield5 not to be blank")
             self.__locfield5 = locfield5
             return self
 
@@ -3593,6 +3789,8 @@ class Object(object):
                     raise TypeError("expected locfield6 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield6))
                 if len(locfield6) < 1:
                     raise ValueError("expected len(locfield6) to be >= 1, was %d" % len(locfield6))
+                if locfield6.isspace():
+                    raise ValueError("expected locfield6 not to be blank")
             self.__locfield6 = locfield6
             return self
 
@@ -3606,6 +3804,8 @@ class Object(object):
                     raise TypeError("expected luster to be a str but it is a %s" % getattr(__builtin__, 'type')(luster))
                 if len(luster) < 1:
                     raise ValueError("expected len(luster) to be >= 1, was %d" % len(luster))
+                if luster.isspace():
+                    raise ValueError("expected luster not to be blank")
             self.__luster = luster
             return self
 
@@ -3619,6 +3819,8 @@ class Object(object):
                     raise TypeError("expected made to be a str but it is a %s" % getattr(__builtin__, 'type')(made))
                 if len(made) < 1:
                     raise ValueError("expected len(made) to be >= 1, was %d" % len(made))
+                if made.isspace():
+                    raise ValueError("expected made not to be blank")
             self.__made = made
             return self
 
@@ -3632,6 +3834,8 @@ class Object(object):
                     raise TypeError("expected maintcycle to be a str but it is a %s" % getattr(__builtin__, 'type')(maintcycle))
                 if len(maintcycle) < 1:
                     raise ValueError("expected len(maintcycle) to be >= 1, was %d" % len(maintcycle))
+                if maintcycle.isspace():
+                    raise ValueError("expected maintcycle not to be blank")
             self.__maintcycle = maintcycle
             return self
 
@@ -3656,6 +3860,8 @@ class Object(object):
                     raise TypeError("expected maintnote to be a str but it is a %s" % getattr(__builtin__, 'type')(maintnote))
                 if len(maintnote) < 1:
                     raise ValueError("expected len(maintnote) to be >= 1, was %d" % len(maintnote))
+                if maintnote.isspace():
+                    raise ValueError("expected maintnote not to be blank")
             self.__maintnote = maintnote
             return self
 
@@ -3669,6 +3875,8 @@ class Object(object):
                     raise TypeError("expected material to be a str but it is a %s" % getattr(__builtin__, 'type')(material))
                 if len(material) < 1:
                     raise ValueError("expected len(material) to be >= 1, was %d" % len(material))
+                if material.isspace():
+                    raise ValueError("expected material not to be blank")
             self.__material = material
             return self
 
@@ -3682,6 +3890,8 @@ class Object(object):
                     raise TypeError("expected medium to be a str but it is a %s" % getattr(__builtin__, 'type')(medium))
                 if len(medium) < 1:
                     raise ValueError("expected len(medium) to be >= 1, was %d" % len(medium))
+                if medium.isspace():
+                    raise ValueError("expected medium not to be blank")
             self.__medium = medium
             return self
 
@@ -3695,6 +3905,8 @@ class Object(object):
                     raise TypeError("expected member to be a str but it is a %s" % getattr(__builtin__, 'type')(member))
                 if len(member) < 1:
                     raise ValueError("expected len(member) to be >= 1, was %d" % len(member))
+                if member.isspace():
+                    raise ValueError("expected member not to be blank")
             self.__member = member
             return self
 
@@ -3708,6 +3920,8 @@ class Object(object):
                     raise TypeError("expected mmark to be a str but it is a %s" % getattr(__builtin__, 'type')(mmark))
                 if len(mmark) < 1:
                     raise ValueError("expected len(mmark) to be >= 1, was %d" % len(mmark))
+                if mmark.isspace():
+                    raise ValueError("expected mmark not to be blank")
             self.__mmark = mmark
             return self
 
@@ -3721,6 +3935,8 @@ class Object(object):
                     raise TypeError("expected nhclass to be a str but it is a %s" % getattr(__builtin__, 'type')(nhclass))
                 if len(nhclass) < 1:
                     raise ValueError("expected len(nhclass) to be >= 1, was %d" % len(nhclass))
+                if nhclass.isspace():
+                    raise ValueError("expected nhclass not to be blank")
             self.__nhclass = nhclass
             return self
 
@@ -3734,6 +3950,8 @@ class Object(object):
                     raise TypeError("expected nhorder to be a str but it is a %s" % getattr(__builtin__, 'type')(nhorder))
                 if len(nhorder) < 1:
                     raise ValueError("expected len(nhorder) to be >= 1, was %d" % len(nhorder))
+                if nhorder.isspace():
+                    raise ValueError("expected nhorder not to be blank")
             self.__nhorder = nhorder
             return self
 
@@ -3747,6 +3965,8 @@ class Object(object):
                     raise TypeError("expected notes to be a str but it is a %s" % getattr(__builtin__, 'type')(notes))
                 if len(notes) < 1:
                     raise ValueError("expected len(notes) to be >= 1, was %d" % len(notes))
+                if notes.isspace():
+                    raise ValueError("expected notes not to be blank")
             self.__notes = notes
             return self
 
@@ -3760,6 +3980,8 @@ class Object(object):
                     raise TypeError("expected objectid to be a str but it is a %s" % getattr(__builtin__, 'type')(objectid))
                 if len(objectid) < 1:
                     raise ValueError("expected len(objectid) to be >= 1, was %d" % len(objectid))
+                if objectid.isspace():
+                    raise ValueError("expected objectid not to be blank")
             self.__objectid = objectid
             return self
 
@@ -3773,6 +3995,8 @@ class Object(object):
                     raise TypeError("expected objname to be a str but it is a %s" % getattr(__builtin__, 'type')(objname))
                 if len(objname) < 1:
                     raise ValueError("expected len(objname) to be >= 1, was %d" % len(objname))
+                if objname.isspace():
+                    raise ValueError("expected objname not to be blank")
             self.__objname = objname
             return self
 
@@ -3786,6 +4010,8 @@ class Object(object):
                     raise TypeError("expected objname2 to be a str but it is a %s" % getattr(__builtin__, 'type')(objname2))
                 if len(objname2) < 1:
                     raise ValueError("expected len(objname2) to be >= 1, was %d" % len(objname2))
+                if objname2.isspace():
+                    raise ValueError("expected objname2 not to be blank")
             self.__objname2 = objname2
             return self
 
@@ -3799,6 +4025,8 @@ class Object(object):
                     raise TypeError("expected objname3 to be a str but it is a %s" % getattr(__builtin__, 'type')(objname3))
                 if len(objname3) < 1:
                     raise ValueError("expected len(objname3) to be >= 1, was %d" % len(objname3))
+                if objname3.isspace():
+                    raise ValueError("expected objname3 not to be blank")
             self.__objname3 = objname3
             return self
 
@@ -3812,6 +4040,8 @@ class Object(object):
                     raise TypeError("expected objnames to be a str but it is a %s" % getattr(__builtin__, 'type')(objnames))
                 if len(objnames) < 1:
                     raise ValueError("expected len(objnames) to be >= 1, was %d" % len(objnames))
+                if objnames.isspace():
+                    raise ValueError("expected objnames not to be blank")
             self.__objnames = objnames
             return self
 
@@ -3825,6 +4055,8 @@ class Object(object):
                     raise TypeError("expected occurrence to be a str but it is a %s" % getattr(__builtin__, 'type')(occurrence))
                 if len(occurrence) < 1:
                     raise ValueError("expected len(occurrence) to be >= 1, was %d" % len(occurrence))
+                if occurrence.isspace():
+                    raise ValueError("expected occurrence not to be blank")
             self.__occurrence = occurrence
             return self
 
@@ -3849,6 +4081,8 @@ class Object(object):
                     raise TypeError("expected origin to be a str but it is a %s" % getattr(__builtin__, 'type')(origin))
                 if len(origin) < 1:
                     raise ValueError("expected len(origin) to be >= 1, was %d" % len(origin))
+                if origin.isspace():
+                    raise ValueError("expected origin not to be blank")
             self.__origin = origin
             return self
 
@@ -3862,17 +4096,23 @@ class Object(object):
                     raise TypeError("expected othername to be a str but it is a %s" % getattr(__builtin__, 'type')(othername))
                 if len(othername) < 1:
                     raise ValueError("expected len(othername) to be >= 1, was %d" % len(othername))
+                if othername.isspace():
+                    raise ValueError("expected othername not to be blank")
             self.__othername = othername
             return self
 
         def set_otherno(self, otherno):
             '''
-            :type otherno: int or None
+            :type otherno: str or None
             '''
 
             if otherno is not None:
-                if not isinstance(otherno, int):
-                    raise TypeError("expected otherno to be a int but it is a %s" % getattr(__builtin__, 'type')(otherno))
+                if not isinstance(otherno, basestring):
+                    raise TypeError("expected otherno to be a str but it is a %s" % getattr(__builtin__, 'type')(otherno))
+                if len(otherno) < 1:
+                    raise ValueError("expected len(otherno) to be >= 1, was %d" % len(otherno))
+                if otherno.isspace():
+                    raise ValueError("expected otherno not to be blank")
             self.__otherno = otherno
             return self
 
@@ -3897,6 +4137,8 @@ class Object(object):
                     raise TypeError("expected owned to be a str but it is a %s" % getattr(__builtin__, 'type')(owned))
                 if len(owned) < 1:
                     raise ValueError("expected len(owned) to be >= 1, was %d" % len(owned))
+                if owned.isspace():
+                    raise ValueError("expected owned not to be blank")
             self.__owned = owned
             return self
 
@@ -3910,6 +4152,8 @@ class Object(object):
                     raise TypeError("expected parent to be a str but it is a %s" % getattr(__builtin__, 'type')(parent))
                 if len(parent) < 1:
                     raise ValueError("expected len(parent) to be >= 1, was %d" % len(parent))
+                if parent.isspace():
+                    raise ValueError("expected parent not to be blank")
             self.__parent = parent
             return self
 
@@ -3923,6 +4167,8 @@ class Object(object):
                     raise TypeError("expected people to be a str but it is a %s" % getattr(__builtin__, 'type')(people))
                 if len(people) < 1:
                     raise ValueError("expected len(people) to be >= 1, was %d" % len(people))
+                if people.isspace():
+                    raise ValueError("expected people not to be blank")
             self.__people = people
             return self
 
@@ -3936,6 +4182,8 @@ class Object(object):
                     raise TypeError("expected period to be a str but it is a %s" % getattr(__builtin__, 'type')(period))
                 if len(period) < 1:
                     raise ValueError("expected len(period) to be >= 1, was %d" % len(period))
+                if period.isspace():
+                    raise ValueError("expected period not to be blank")
             self.__period = period
             return self
 
@@ -3949,6 +4197,8 @@ class Object(object):
                     raise TypeError("expected phylum to be a str but it is a %s" % getattr(__builtin__, 'type')(phylum))
                 if len(phylum) < 1:
                     raise ValueError("expected len(phylum) to be >= 1, was %d" % len(phylum))
+                if phylum.isspace():
+                    raise ValueError("expected phylum not to be blank")
             self.__phylum = phylum
             return self
 
@@ -3973,6 +4223,8 @@ class Object(object):
                     raise TypeError("expected preparator to be a str but it is a %s" % getattr(__builtin__, 'type')(preparator))
                 if len(preparator) < 1:
                     raise ValueError("expected len(preparator) to be >= 1, was %d" % len(preparator))
+                if preparator.isspace():
+                    raise ValueError("expected preparator not to be blank")
             self.__preparator = preparator
             return self
 
@@ -3997,6 +4249,8 @@ class Object(object):
                     raise TypeError("expected preserve to be a str but it is a %s" % getattr(__builtin__, 'type')(preserve))
                 if len(preserve) < 1:
                     raise ValueError("expected len(preserve) to be >= 1, was %d" % len(preserve))
+                if preserve.isspace():
+                    raise ValueError("expected preserve not to be blank")
             self.__preserve = preserve
             return self
 
@@ -4010,6 +4264,8 @@ class Object(object):
                     raise TypeError("expected pressure to be a str but it is a %s" % getattr(__builtin__, 'type')(pressure))
                 if len(pressure) < 1:
                     raise ValueError("expected len(pressure) to be >= 1, was %d" % len(pressure))
+                if pressure.isspace():
+                    raise ValueError("expected pressure not to be blank")
             self.__pressure = pressure
             return self
 
@@ -4023,6 +4279,8 @@ class Object(object):
                     raise TypeError("expected provenance to be a str but it is a %s" % getattr(__builtin__, 'type')(provenance))
                 if len(provenance) < 1:
                     raise ValueError("expected len(provenance) to be >= 1, was %d" % len(provenance))
+                if provenance.isspace():
+                    raise ValueError("expected provenance not to be blank")
             self.__provenance = provenance
             return self
 
@@ -4036,6 +4294,8 @@ class Object(object):
                     raise TypeError("expected pubnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(pubnotes))
                 if len(pubnotes) < 1:
                     raise ValueError("expected len(pubnotes) to be >= 1, was %d" % len(pubnotes))
+                if pubnotes.isspace():
+                    raise ValueError("expected pubnotes not to be blank")
             self.__pubnotes = pubnotes
             return self
 
@@ -4071,6 +4331,8 @@ class Object(object):
                     raise TypeError("expected recfrom to be a str but it is a %s" % getattr(__builtin__, 'type')(recfrom))
                 if len(recfrom) < 1:
                     raise ValueError("expected len(recfrom) to be >= 1, was %d" % len(recfrom))
+                if recfrom.isspace():
+                    raise ValueError("expected recfrom not to be blank")
             self.__recfrom = recfrom
             return self
 
@@ -4084,6 +4346,8 @@ class Object(object):
                     raise TypeError("expected relnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(relnotes))
                 if len(relnotes) < 1:
                     raise ValueError("expected len(relnotes) to be >= 1, was %d" % len(relnotes))
+                if relnotes.isspace():
+                    raise ValueError("expected relnotes not to be blank")
             self.__relnotes = relnotes
             return self
 
@@ -4097,6 +4361,8 @@ class Object(object):
                     raise TypeError("expected repatby to be a str but it is a %s" % getattr(__builtin__, 'type')(repatby))
                 if len(repatby) < 1:
                     raise ValueError("expected len(repatby) to be >= 1, was %d" % len(repatby))
+                if repatby.isspace():
+                    raise ValueError("expected repatby not to be blank")
             self.__repatby = repatby
             return self
 
@@ -4110,6 +4376,8 @@ class Object(object):
                     raise TypeError("expected repatclaim to be a str but it is a %s" % getattr(__builtin__, 'type')(repatclaim))
                 if len(repatclaim) < 1:
                     raise ValueError("expected len(repatclaim) to be >= 1, was %d" % len(repatclaim))
+                if repatclaim.isspace():
+                    raise ValueError("expected repatclaim not to be blank")
             self.__repatclaim = repatclaim
             return self
 
@@ -4134,6 +4402,8 @@ class Object(object):
                     raise TypeError("expected repatdisp to be a str but it is a %s" % getattr(__builtin__, 'type')(repatdisp))
                 if len(repatdisp) < 1:
                     raise ValueError("expected len(repatdisp) to be >= 1, was %d" % len(repatdisp))
+                if repatdisp.isspace():
+                    raise ValueError("expected repatdisp not to be blank")
             self.__repatdisp = repatdisp
             return self
 
@@ -4147,6 +4417,8 @@ class Object(object):
                     raise TypeError("expected repathand to be a str but it is a %s" % getattr(__builtin__, 'type')(repathand))
                 if len(repathand) < 1:
                     raise ValueError("expected len(repathand) to be >= 1, was %d" % len(repathand))
+                if repathand.isspace():
+                    raise ValueError("expected repathand not to be blank")
             self.__repathand = repathand
             return self
 
@@ -4160,6 +4432,8 @@ class Object(object):
                     raise TypeError("expected repatnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(repatnotes))
                 if len(repatnotes) < 1:
                     raise ValueError("expected len(repatnotes) to be >= 1, was %d" % len(repatnotes))
+                if repatnotes.isspace():
+                    raise ValueError("expected repatnotes not to be blank")
             self.__repatnotes = repatnotes
             return self
 
@@ -4173,6 +4447,8 @@ class Object(object):
                     raise TypeError("expected repatnotic to be a str but it is a %s" % getattr(__builtin__, 'type')(repatnotic))
                 if len(repatnotic) < 1:
                     raise ValueError("expected len(repatnotic) to be >= 1, was %d" % len(repatnotic))
+                if repatnotic.isspace():
+                    raise ValueError("expected repatnotic not to be blank")
             self.__repatnotic = repatnotic
             return self
 
@@ -4197,6 +4473,8 @@ class Object(object):
                     raise TypeError("expected rockclass to be a str but it is a %s" % getattr(__builtin__, 'type')(rockclass))
                 if len(rockclass) < 1:
                     raise ValueError("expected len(rockclass) to be >= 1, was %d" % len(rockclass))
+                if rockclass.isspace():
+                    raise ValueError("expected rockclass not to be blank")
             self.__rockclass = rockclass
             return self
 
@@ -4210,6 +4488,8 @@ class Object(object):
                     raise TypeError("expected rockcolor to be a str but it is a %s" % getattr(__builtin__, 'type')(rockcolor))
                 if len(rockcolor) < 1:
                     raise ValueError("expected len(rockcolor) to be >= 1, was %d" % len(rockcolor))
+                if rockcolor.isspace():
+                    raise ValueError("expected rockcolor not to be blank")
             self.__rockcolor = rockcolor
             return self
 
@@ -4223,6 +4503,8 @@ class Object(object):
                     raise TypeError("expected rockorigin to be a str but it is a %s" % getattr(__builtin__, 'type')(rockorigin))
                 if len(rockorigin) < 1:
                     raise ValueError("expected len(rockorigin) to be >= 1, was %d" % len(rockorigin))
+                if rockorigin.isspace():
+                    raise ValueError("expected rockorigin not to be blank")
             self.__rockorigin = rockorigin
             return self
 
@@ -4247,6 +4529,8 @@ class Object(object):
                     raise TypeError("expected role to be a str but it is a %s" % getattr(__builtin__, 'type')(role))
                 if len(role) < 1:
                     raise ValueError("expected len(role) to be >= 1, was %d" % len(role))
+                if role.isspace():
+                    raise ValueError("expected role not to be blank")
             self.__role = role
             return self
 
@@ -4260,6 +4544,8 @@ class Object(object):
                     raise TypeError("expected role2 to be a str but it is a %s" % getattr(__builtin__, 'type')(role2))
                 if len(role2) < 1:
                     raise ValueError("expected len(role2) to be >= 1, was %d" % len(role2))
+                if role2.isspace():
+                    raise ValueError("expected role2 not to be blank")
             self.__role2 = role2
             return self
 
@@ -4273,6 +4559,8 @@ class Object(object):
                     raise TypeError("expected role3 to be a str but it is a %s" % getattr(__builtin__, 'type')(role3))
                 if len(role3) < 1:
                     raise ValueError("expected len(role3) to be >= 1, was %d" % len(role3))
+                if role3.isspace():
+                    raise ValueError("expected role3 not to be blank")
             self.__role3 = role3
             return self
 
@@ -4286,6 +4574,8 @@ class Object(object):
                     raise TypeError("expected school to be a str but it is a %s" % getattr(__builtin__, 'type')(school))
                 if len(school) < 1:
                     raise ValueError("expected len(school) to be >= 1, was %d" % len(school))
+                if school.isspace():
+                    raise ValueError("expected school not to be blank")
             self.__school = school
             return self
 
@@ -4299,6 +4589,8 @@ class Object(object):
                     raise TypeError("expected sex to be a str but it is a %s" % getattr(__builtin__, 'type')(sex))
                 if len(sex) < 1:
                     raise ValueError("expected len(sex) to be >= 1, was %d" % len(sex))
+                if sex.isspace():
+                    raise ValueError("expected sex not to be blank")
             self.__sex = sex
             return self
 
@@ -4312,6 +4604,8 @@ class Object(object):
                     raise TypeError("expected signedname to be a str but it is a %s" % getattr(__builtin__, 'type')(signedname))
                 if len(signedname) < 1:
                     raise ValueError("expected len(signedname) to be >= 1, was %d" % len(signedname))
+                if signedname.isspace():
+                    raise ValueError("expected signedname not to be blank")
             self.__signedname = signedname
             return self
 
@@ -4325,6 +4619,8 @@ class Object(object):
                     raise TypeError("expected signloc to be a str but it is a %s" % getattr(__builtin__, 'type')(signloc))
                 if len(signloc) < 1:
                     raise ValueError("expected len(signloc) to be >= 1, was %d" % len(signloc))
+                if signloc.isspace():
+                    raise ValueError("expected signloc not to be blank")
             self.__signloc = signloc
             return self
 
@@ -4338,6 +4634,8 @@ class Object(object):
                     raise TypeError("expected site to be a str but it is a %s" % getattr(__builtin__, 'type')(site))
                 if len(site) < 1:
                     raise ValueError("expected len(site) to be >= 1, was %d" % len(site))
+                if site.isspace():
+                    raise ValueError("expected site not to be blank")
             self.__site = site
             return self
 
@@ -4362,6 +4660,8 @@ class Object(object):
                     raise TypeError("expected specgrav to be a str but it is a %s" % getattr(__builtin__, 'type')(specgrav))
                 if len(specgrav) < 1:
                     raise ValueError("expected len(specgrav) to be >= 1, was %d" % len(specgrav))
+                if specgrav.isspace():
+                    raise ValueError("expected specgrav not to be blank")
             self.__specgrav = specgrav
             return self
 
@@ -4375,6 +4675,8 @@ class Object(object):
                     raise TypeError("expected species to be a str but it is a %s" % getattr(__builtin__, 'type')(species))
                 if len(species) < 1:
                     raise ValueError("expected len(species) to be >= 1, was %d" % len(species))
+                if species.isspace():
+                    raise ValueError("expected species not to be blank")
             self.__species = species
             return self
 
@@ -4388,6 +4690,8 @@ class Object(object):
                     raise TypeError("expected sprocess to be a str but it is a %s" % getattr(__builtin__, 'type')(sprocess))
                 if len(sprocess) < 1:
                     raise ValueError("expected len(sprocess) to be >= 1, was %d" % len(sprocess))
+                if sprocess.isspace():
+                    raise ValueError("expected sprocess not to be blank")
             self.__sprocess = sprocess
             return self
 
@@ -4401,6 +4705,8 @@ class Object(object):
                     raise TypeError("expected stage to be a str but it is a %s" % getattr(__builtin__, 'type')(stage))
                 if len(stage) < 1:
                     raise ValueError("expected len(stage) to be >= 1, was %d" % len(stage))
+                if stage.isspace():
+                    raise ValueError("expected stage not to be blank")
             self.__stage = stage
             return self
 
@@ -4425,6 +4731,8 @@ class Object(object):
                     raise TypeError("expected statusby to be a str but it is a %s" % getattr(__builtin__, 'type')(statusby))
                 if len(statusby) < 1:
                     raise ValueError("expected len(statusby) to be >= 1, was %d" % len(statusby))
+                if statusby.isspace():
+                    raise ValueError("expected statusby not to be blank")
             self.__statusby = statusby
             return self
 
@@ -4449,6 +4757,8 @@ class Object(object):
                     raise TypeError("expected sterms to be a str but it is a %s" % getattr(__builtin__, 'type')(sterms))
                 if len(sterms) < 1:
                     raise ValueError("expected len(sterms) to be >= 1, was %d" % len(sterms))
+                if sterms.isspace():
+                    raise ValueError("expected sterms not to be blank")
             self.__sterms = sterms
             return self
 
@@ -4462,6 +4772,8 @@ class Object(object):
                     raise TypeError("expected stratum to be a str but it is a %s" % getattr(__builtin__, 'type')(stratum))
                 if len(stratum) < 1:
                     raise ValueError("expected len(stratum) to be >= 1, was %d" % len(stratum))
+                if stratum.isspace():
+                    raise ValueError("expected stratum not to be blank")
             self.__stratum = stratum
             return self
 
@@ -4475,6 +4787,8 @@ class Object(object):
                     raise TypeError("expected streak to be a str but it is a %s" % getattr(__builtin__, 'type')(streak))
                 if len(streak) < 1:
                     raise ValueError("expected len(streak) to be >= 1, was %d" % len(streak))
+                if streak.isspace():
+                    raise ValueError("expected streak not to be blank")
             self.__streak = streak
             return self
 
@@ -4488,6 +4802,8 @@ class Object(object):
                     raise TypeError("expected subfamily to be a str but it is a %s" % getattr(__builtin__, 'type')(subfamily))
                 if len(subfamily) < 1:
                     raise ValueError("expected len(subfamily) to be >= 1, was %d" % len(subfamily))
+                if subfamily.isspace():
+                    raise ValueError("expected subfamily not to be blank")
             self.__subfamily = subfamily
             return self
 
@@ -4501,6 +4817,8 @@ class Object(object):
                     raise TypeError("expected subjects to be a str but it is a %s" % getattr(__builtin__, 'type')(subjects))
                 if len(subjects) < 1:
                     raise ValueError("expected len(subjects) to be >= 1, was %d" % len(subjects))
+                if subjects.isspace():
+                    raise ValueError("expected subjects not to be blank")
             self.__subjects = subjects
             return self
 
@@ -4514,6 +4832,8 @@ class Object(object):
                     raise TypeError("expected subspecies to be a str but it is a %s" % getattr(__builtin__, 'type')(subspecies))
                 if len(subspecies) < 1:
                     raise ValueError("expected len(subspecies) to be >= 1, was %d" % len(subspecies))
+                if subspecies.isspace():
+                    raise ValueError("expected subspecies not to be blank")
             self.__subspecies = subspecies
             return self
 
@@ -4527,6 +4847,8 @@ class Object(object):
                     raise TypeError("expected technique to be a str but it is a %s" % getattr(__builtin__, 'type')(technique))
                 if len(technique) < 1:
                     raise ValueError("expected len(technique) to be >= 1, was %d" % len(technique))
+                if technique.isspace():
+                    raise ValueError("expected technique not to be blank")
             self.__technique = technique
             return self
 
@@ -4540,6 +4862,8 @@ class Object(object):
                     raise TypeError("expected tempauthor to be a str but it is a %s" % getattr(__builtin__, 'type')(tempauthor))
                 if len(tempauthor) < 1:
                     raise ValueError("expected len(tempauthor) to be >= 1, was %d" % len(tempauthor))
+                if tempauthor.isspace():
+                    raise ValueError("expected tempauthor not to be blank")
             self.__tempauthor = tempauthor
             return self
 
@@ -4553,6 +4877,8 @@ class Object(object):
                     raise TypeError("expected tempby to be a str but it is a %s" % getattr(__builtin__, 'type')(tempby))
                 if len(tempby) < 1:
                     raise ValueError("expected len(tempby) to be >= 1, was %d" % len(tempby))
+                if tempby.isspace():
+                    raise ValueError("expected tempby not to be blank")
             self.__tempby = tempby
             return self
 
@@ -4577,6 +4903,8 @@ class Object(object):
                     raise TypeError("expected temperatur to be a str but it is a %s" % getattr(__builtin__, 'type')(temperatur))
                 if len(temperatur) < 1:
                     raise ValueError("expected len(temperatur) to be >= 1, was %d" % len(temperatur))
+                if temperatur.isspace():
+                    raise ValueError("expected temperatur not to be blank")
             self.__temperatur = temperatur
             return self
 
@@ -4590,6 +4918,8 @@ class Object(object):
                     raise TypeError("expected temploc to be a str but it is a %s" % getattr(__builtin__, 'type')(temploc))
                 if len(temploc) < 1:
                     raise ValueError("expected len(temploc) to be >= 1, was %d" % len(temploc))
+                if temploc.isspace():
+                    raise ValueError("expected temploc not to be blank")
             self.__temploc = temploc
             return self
 
@@ -4603,6 +4933,8 @@ class Object(object):
                     raise TypeError("expected tempnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(tempnotes))
                 if len(tempnotes) < 1:
                     raise ValueError("expected len(tempnotes) to be >= 1, was %d" % len(tempnotes))
+                if tempnotes.isspace():
+                    raise ValueError("expected tempnotes not to be blank")
             self.__tempnotes = tempnotes
             return self
 
@@ -4616,6 +4948,8 @@ class Object(object):
                     raise TypeError("expected tempreason to be a str but it is a %s" % getattr(__builtin__, 'type')(tempreason))
                 if len(tempreason) < 1:
                     raise ValueError("expected len(tempreason) to be >= 1, was %d" % len(tempreason))
+                if tempreason.isspace():
+                    raise ValueError("expected tempreason not to be blank")
             self.__tempreason = tempreason
             return self
 
@@ -4629,6 +4963,8 @@ class Object(object):
                     raise TypeError("expected tempuntil to be a str but it is a %s" % getattr(__builtin__, 'type')(tempuntil))
                 if len(tempuntil) < 1:
                     raise ValueError("expected len(tempuntil) to be >= 1, was %d" % len(tempuntil))
+                if tempuntil.isspace():
+                    raise ValueError("expected tempuntil not to be blank")
             self.__tempuntil = tempuntil
             return self
 
@@ -4642,6 +4978,8 @@ class Object(object):
                     raise TypeError("expected texture to be a str but it is a %s" % getattr(__builtin__, 'type')(texture))
                 if len(texture) < 1:
                     raise ValueError("expected len(texture) to be >= 1, was %d" % len(texture))
+                if texture.isspace():
+                    raise ValueError("expected texture not to be blank")
             self.__texture = texture
             return self
 
@@ -4655,6 +4993,8 @@ class Object(object):
                     raise TypeError("expected title to be a str but it is a %s" % getattr(__builtin__, 'type')(title))
                 if len(title) < 1:
                     raise ValueError("expected len(title) to be >= 1, was %d" % len(title))
+                if title.isspace():
+                    raise ValueError("expected title not to be blank")
             self.__title = title
             return self
 
@@ -4668,6 +5008,8 @@ class Object(object):
                     raise TypeError("expected tlocfield1 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield1))
                 if len(tlocfield1) < 1:
                     raise ValueError("expected len(tlocfield1) to be >= 1, was %d" % len(tlocfield1))
+                if tlocfield1.isspace():
+                    raise ValueError("expected tlocfield1 not to be blank")
             self.__tlocfield1 = tlocfield1
             return self
 
@@ -4681,6 +5023,8 @@ class Object(object):
                     raise TypeError("expected tlocfield2 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield2))
                 if len(tlocfield2) < 1:
                     raise ValueError("expected len(tlocfield2) to be >= 1, was %d" % len(tlocfield2))
+                if tlocfield2.isspace():
+                    raise ValueError("expected tlocfield2 not to be blank")
             self.__tlocfield2 = tlocfield2
             return self
 
@@ -4694,6 +5038,8 @@ class Object(object):
                     raise TypeError("expected tlocfield3 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield3))
                 if len(tlocfield3) < 1:
                     raise ValueError("expected len(tlocfield3) to be >= 1, was %d" % len(tlocfield3))
+                if tlocfield3.isspace():
+                    raise ValueError("expected tlocfield3 not to be blank")
             self.__tlocfield3 = tlocfield3
             return self
 
@@ -4707,6 +5053,8 @@ class Object(object):
                     raise TypeError("expected tlocfield4 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield4))
                 if len(tlocfield4) < 1:
                     raise ValueError("expected len(tlocfield4) to be >= 1, was %d" % len(tlocfield4))
+                if tlocfield4.isspace():
+                    raise ValueError("expected tlocfield4 not to be blank")
             self.__tlocfield4 = tlocfield4
             return self
 
@@ -4720,6 +5068,8 @@ class Object(object):
                     raise TypeError("expected tlocfield5 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield5))
                 if len(tlocfield5) < 1:
                     raise ValueError("expected len(tlocfield5) to be >= 1, was %d" % len(tlocfield5))
+                if tlocfield5.isspace():
+                    raise ValueError("expected tlocfield5 not to be blank")
             self.__tlocfield5 = tlocfield5
             return self
 
@@ -4733,6 +5083,8 @@ class Object(object):
                     raise TypeError("expected tlocfield6 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield6))
                 if len(tlocfield6) < 1:
                     raise ValueError("expected len(tlocfield6) to be >= 1, was %d" % len(tlocfield6))
+                if tlocfield6.isspace():
+                    raise ValueError("expected tlocfield6 not to be blank")
             self.__tlocfield6 = tlocfield6
             return self
 
@@ -4944,19 +5296,19 @@ class Object(object):
                     raise TypeError("expected unit to be a str but it is a %s" % getattr(__builtin__, 'type')(unit))
                 if len(unit) < 1:
                     raise ValueError("expected len(unit) to be >= 1, was %d" % len(unit))
+                if unit.isspace():
+                    raise ValueError("expected unit not to be blank")
             self.__unit = unit
             return self
 
         def set_updated(self, updated):
             '''
-            :type updated: str or None
+            :type updated: datetime.datetime or None
             '''
 
             if updated is not None:
-                if not isinstance(updated, basestring):
-                    raise TypeError("expected updated to be a str but it is a %s" % getattr(__builtin__, 'type')(updated))
-                if len(updated) < 1:
-                    raise ValueError("expected len(updated) to be >= 1, was %d" % len(updated))
+                if not isinstance(updated, datetime.datetime):
+                    raise TypeError("expected updated to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(updated))
             self.__updated = updated
             return self
 
@@ -4970,6 +5322,8 @@ class Object(object):
                     raise TypeError("expected updatedby to be a str but it is a %s" % getattr(__builtin__, 'type')(updatedby))
                 if len(updatedby) < 1:
                     raise ValueError("expected len(updatedby) to be >= 1, was %d" % len(updatedby))
+                if updatedby.isspace():
+                    raise ValueError("expected updatedby not to be blank")
             self.__updatedby = updatedby
             return self
 
@@ -4983,6 +5337,8 @@ class Object(object):
                     raise TypeError("expected used to be a str but it is a %s" % getattr(__builtin__, 'type')(used))
                 if len(used) < 1:
                     raise ValueError("expected len(used) to be >= 1, was %d" % len(used))
+                if used.isspace():
+                    raise ValueError("expected used not to be blank")
             self.__used = used
             return self
 
@@ -5007,45 +5363,45 @@ class Object(object):
                     raise TypeError("expected varieties to be a str but it is a %s" % getattr(__builtin__, 'type')(varieties))
                 if len(varieties) < 1:
                     raise ValueError("expected len(varieties) to be >= 1, was %d" % len(varieties))
+                if varieties.isspace():
+                    raise ValueError("expected varieties not to be blank")
             self.__varieties = varieties
             return self
 
         def set_webinclude(self, webinclude):
             '''
-            :type webinclude: str or None
+            :type webinclude: bool or None
             '''
 
             if webinclude is not None:
-                if not isinstance(webinclude, basestring):
-                    raise TypeError("expected webinclude to be a str but it is a %s" % getattr(__builtin__, 'type')(webinclude))
-                if len(webinclude) < 1:
-                    raise ValueError("expected len(webinclude) to be >= 1, was %d" % len(webinclude))
+                if not isinstance(webinclude, bool):
+                    raise TypeError("expected webinclude to be a bool but it is a %s" % getattr(__builtin__, 'type')(webinclude))
             self.__webinclude = webinclude
             return self
 
         def set_weight(self, weight):
             '''
-            :type weight: str or None
+            :type weight: Decimal or None
             '''
 
             if weight is not None:
-                if not isinstance(weight, basestring):
-                    raise TypeError("expected weight to be a str but it is a %s" % getattr(__builtin__, 'type')(weight))
-                if len(weight) < 1:
-                    raise ValueError("expected len(weight) to be >= 1, was %d" % len(weight))
+                if not isinstance(weight, decimal.Decimal):
+                    raise TypeError("expected weight to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(weight))
+                if weight <= 0:
+                    raise ValueError("expected weight to be > 0, was %s" % weight)
             self.__weight = weight
             return self
 
         def set_weightin(self, weightin):
             '''
-            :type weightin: str or None
+            :type weightin: Decimal or None
             '''
 
             if weightin is not None:
-                if not isinstance(weightin, basestring):
-                    raise TypeError("expected weightin to be a str but it is a %s" % getattr(__builtin__, 'type')(weightin))
-                if len(weightin) < 1:
-                    raise ValueError("expected len(weightin) to be >= 1, was %d" % len(weightin))
+                if not isinstance(weightin, decimal.Decimal):
+                    raise TypeError("expected weightin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(weightin))
+                if weightin <= 0:
+                    raise ValueError("expected weightin to be > 0, was %s" % weightin)
             self.__weightin = weightin
             return self
 
@@ -5057,6 +5413,8 @@ class Object(object):
             if weightlb is not None:
                 if not isinstance(weightlb, decimal.Decimal):
                     raise TypeError("expected weightlb to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(weightlb))
+                if weightlb <= 0:
+                    raise ValueError("expected weightlb to be > 0, was %s" % weightlb)
             self.__weightlb = weightlb
             return self
 
@@ -5068,6 +5426,8 @@ class Object(object):
             if width is not None:
                 if not isinstance(width, decimal.Decimal):
                     raise TypeError("expected width to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(width))
+                if width <= 0:
+                    raise ValueError("expected width to be > 0, was %s" % width)
             self.__width = width
             return self
 
@@ -5079,6 +5439,8 @@ class Object(object):
             if widthft is not None:
                 if not isinstance(widthft, decimal.Decimal):
                     raise TypeError("expected widthft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(widthft))
+                if widthft <= 0:
+                    raise ValueError("expected widthft to be > 0, was %s" % widthft)
             self.__widthft = widthft
             return self
 
@@ -5090,6 +5452,8 @@ class Object(object):
             if widthin is not None:
                 if not isinstance(widthin, decimal.Decimal):
                     raise TypeError("expected widthin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(widthin))
+                if widthin <= 0:
+                    raise ValueError("expected widthin to be > 0, was %s" % widthin)
             self.__widthin = widthin
             return self
 
@@ -5103,6 +5467,8 @@ class Object(object):
                     raise TypeError("expected xcord to be a str but it is a %s" % getattr(__builtin__, 'type')(xcord))
                 if len(xcord) < 1:
                     raise ValueError("expected len(xcord) to be >= 1, was %d" % len(xcord))
+                if xcord.isspace():
+                    raise ValueError("expected xcord not to be blank")
             self.__xcord = xcord
             return self
 
@@ -5116,6 +5482,8 @@ class Object(object):
                     raise TypeError("expected ycord to be a str but it is a %s" % getattr(__builtin__, 'type')(ycord))
                 if len(ycord) < 1:
                     raise ValueError("expected len(ycord) to be >= 1, was %d" % len(ycord))
+                if ycord.isspace():
+                    raise ValueError("expected ycord not to be blank")
             self.__ycord = ycord
             return self
 
@@ -5129,6 +5497,8 @@ class Object(object):
                     raise TypeError("expected zcord to be a str but it is a %s" % getattr(__builtin__, 'type')(zcord))
                 if len(zcord) < 1:
                     raise ValueError("expected len(zcord) to be >= 1, was %d" % len(zcord))
+                if zcord.isspace():
+                    raise ValueError("expected zcord not to be blank")
             self.__zcord = zcord
             return self
 
@@ -5610,7 +5980,7 @@ class Object(object):
             :type caption: str or None
             :type catby: str or None
             :type catdate: datetime.datetime or None
-            :type cattype: int or None
+            :type cattype: str or None
             :type chemcomp: str or None
             :type circum: Decimal or None
             :type circumft: Decimal or None
@@ -5646,7 +6016,7 @@ class Object(object):
             :type dimnotes: str or None
             :type dimtype: int or None
             :type dispvalue: str or None
-            :type earlydate: datetime.datetime or None
+            :type earlydate: str or None
             :type elements: str or None
             :type epoch: str or None
             :type era: str or None
@@ -5690,7 +6060,7 @@ class Object(object):
             :type inscrtech: str or None
             :type inscrtext: str or None
             :type inscrtrans: str or None
-            :type inscrtype: int or None
+            :type inscrtype: object or None
             :type insdate: datetime.datetime or None
             :type insphone: str or None
             :type inspremium: str or None
@@ -5699,7 +6069,7 @@ class Object(object):
             :type invnby: str or None
             :type invndate: datetime.datetime or None
             :type kingdom: str or None
-            :type latedate: datetime.datetime or None
+            :type latedate: str or None
             :type legal: str or None
             :type length: Decimal or None
             :type lengthft: Decimal or None
@@ -5737,7 +6107,7 @@ class Object(object):
             :type oldno: int or None
             :type origin: str or None
             :type othername: str or None
-            :type otherno: int or None
+            :type otherno: str or None
             :type outdate: datetime.datetime or None
             :type owned: str or None
             :type parent: str or None
@@ -5829,14 +6199,14 @@ class Object(object):
             :type udf8: object or None
             :type udf9: object or None
             :type unit: str or None
-            :type updated: str or None
+            :type updated: datetime.datetime or None
             :type updatedby: str or None
             :type used: str or None
             :type valuedate: datetime.datetime or None
             :type varieties: str or None
-            :type webinclude: str or None
-            :type weight: str or None
-            :type weightin: str or None
+            :type webinclude: bool or None
+            :type weight: Decimal or None
+            :type weightin: Decimal or None
             :type weightlb: Decimal or None
             :type width: Decimal or None
             :type widthft: Decimal or None
@@ -6103,7 +6473,7 @@ class Object(object):
         @property
         def updated(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__updated
@@ -6143,7 +6513,7 @@ class Object(object):
         @property
         def webinclude(self):
             '''
-            :rtype: str
+            :rtype: bool
             '''
 
             return self.__webinclude
@@ -6151,7 +6521,7 @@ class Object(object):
         @property
         def weight(self):
             '''
-            :rtype: str
+            :rtype: Decimal
             '''
 
             return self.__weight
@@ -6159,7 +6529,7 @@ class Object(object):
         @property
         def weightin(self):
             '''
-            :rtype: str
+            :rtype: Decimal
             '''
 
             return self.__weightin
@@ -6319,7 +6689,7 @@ class Object(object):
         @cattype.setter
         def cattype(self, cattype):
             '''
-            :type cattype: int or None
+            :type cattype: str or None
             '''
 
             self.set_cattype(cattype)
@@ -6607,7 +6977,7 @@ class Object(object):
         @earlydate.setter
         def earlydate(self, earlydate):
             '''
-            :type earlydate: datetime.datetime or None
+            :type earlydate: str or None
             '''
 
             self.set_earlydate(earlydate)
@@ -6959,7 +7329,7 @@ class Object(object):
         @inscrtype.setter
         def inscrtype(self, inscrtype):
             '''
-            :type inscrtype: int or None
+            :type inscrtype: object or None
             '''
 
             self.set_inscrtype(inscrtype)
@@ -7031,7 +7401,7 @@ class Object(object):
         @latedate.setter
         def latedate(self, latedate):
             '''
-            :type latedate: datetime.datetime or None
+            :type latedate: str or None
             '''
 
             self.set_latedate(latedate)
@@ -7335,7 +7705,7 @@ class Object(object):
         @otherno.setter
         def otherno(self, otherno):
             '''
-            :type otherno: int or None
+            :type otherno: str or None
             '''
 
             self.set_otherno(otherno)
@@ -8071,7 +8441,7 @@ class Object(object):
         @updated.setter
         def updated(self, updated):
             '''
-            :type updated: str or None
+            :type updated: datetime.datetime or None
             '''
 
             self.set_updated(updated)
@@ -8111,7 +8481,7 @@ class Object(object):
         @webinclude.setter
         def webinclude(self, webinclude):
             '''
-            :type webinclude: str or None
+            :type webinclude: bool or None
             '''
 
             self.set_webinclude(webinclude)
@@ -8119,7 +8489,7 @@ class Object(object):
         @weight.setter
         def weight(self, weight):
             '''
-            :type weight: str or None
+            :type weight: Decimal or None
             '''
 
             self.set_weight(weight)
@@ -8127,7 +8497,7 @@ class Object(object):
         @weightin.setter
         def weightin(self, weightin):
             '''
-            :type weightin: str or None
+            :type weightin: Decimal or None
             '''
 
             self.set_weightin(weightin)
@@ -8436,10 +8806,11 @@ class Object(object):
         YCORD = None
         ZCORD = None
 
-        def __init__(self, name, type_):
+        def __init__(self, name, type_, validation):
             object.__init__(self)
             self.__name = name
             self.__type = type_
+            self.__validation = validation
 
         def __repr__(self):
             return self.__name
@@ -8448,256 +8819,260 @@ class Object(object):
         def type(self):
             return self.__type
 
+        @property
+        def validation(self):
+            return self.__validation
+
         @classmethod
         def values(cls):
             return (cls.ACCESSNO, cls.ACCESSORY, cls.ACQVALUE, cls.AGE, cls.APPNOTES, cls.APPRAISOR, cls.ASSEMZONE, cls.BAGNO, cls.BOXNO, cls.CAPTION, cls.CATBY, cls.CATDATE, cls.CATTYPE, cls.CHEMCOMP, cls.CIRCUM, cls.CIRCUMFT, cls.CIRCUMIN, cls.CLASSES, cls.COLLDATE, cls.COLLECTION, cls.COLLECTOR, cls.CONDDATE, cls.CONDEXAM, cls.CONDITION, cls.CONDNOTES, cls.COUNT, cls.CREATOR, cls.CREATOR2, cls.CREATOR3, cls.CREDIT, cls.CRYSTAL, cls.CULTURE, cls.CURVALMAX, cls.CURVALUE, cls.DATASET, cls.DATE, cls.DATINGMETH, cls.DATUM, cls.DEPTH, cls.DEPTHFT, cls.DEPTHIN, cls.DESCRIP, cls.DIAMETER, cls.DIAMETERFT, cls.DIAMETERIN, cls.DIMNOTES, cls.DIMTYPE, cls.DISPVALUE, cls.EARLYDATE, cls.ELEMENTS, cls.EPOCH, cls.ERA, cls.EVENT, cls.EXCAVADATE, cls.EXCAVATEBY, cls.EXHIBITNO, cls.EXHLABEL1, cls.EXHLABEL2, cls.EXHLABEL3, cls.EXHLABEL4, cls.EXHSTART, cls.FAMILY, cls.FEATURE, cls.FLAGDATE, cls.FLAGNOTES, cls.FLAGREASON, cls.FORMATION, cls.FOSSILS, cls.FOUND, cls.FRACTURE, cls.FRAME, cls.FRAMESIZE, cls.GENUS, cls.GPARENT, cls.GRAINSIZE, cls.HABITAT, cls.HARDNESS, cls.HEIGHT, cls.HEIGHTFT, cls.HEIGHTIN, cls.HOMELOC, cls.IDBY, cls.IDDATE, cls.IMAGEFILE, cls.IMAGENO, cls.IMAGESIZE, cls.INSCOMP, cls.INSCRLANG, cls.INSCRPOS, cls.INSCRTECH, cls.INSCRTEXT, cls.INSCRTRANS, cls.INSCRTYPE, cls.INSDATE, cls.INSPHONE, cls.INSPREMIUM, cls.INSREP, cls.INSVALUE, cls.INVNBY, cls.INVNDATE, cls.KINGDOM, cls.LATEDATE, cls.LEGAL, cls.LENGTH, cls.LENGTHFT, cls.LENGTHIN, cls.LEVEL, cls.LITHOFACIE, cls.LOANCOND, cls.LOANDUE, cls.LOANINNO, cls.LOANNO, cls.LOCFIELD1, cls.LOCFIELD2, cls.LOCFIELD3, cls.LOCFIELD4, cls.LOCFIELD5, cls.LOCFIELD6, cls.LUSTER, cls.MADE, cls.MAINTCYCLE, cls.MAINTDATE, cls.MAINTNOTE, cls.MATERIAL, cls.MEDIUM, cls.MEMBER, cls.MMARK, cls.NHCLASS, cls.NHORDER, cls.NOTES, cls.OBJECTID, cls.OBJNAME, cls.OBJNAME2, cls.OBJNAME3, cls.OBJNAMES, cls.OCCURRENCE, cls.OLDNO, cls.ORIGIN, cls.OTHERNAME, cls.OTHERNO, cls.OUTDATE, cls.OWNED, cls.PARENT, cls.PEOPLE, cls.PERIOD, cls.PHYLUM, cls.POLICYNO, cls.PREPARATOR, cls.PREPDATE, cls.PRESERVE, cls.PRESSURE, cls.PROVENANCE, cls.PUBNOTES, cls.RECAS, cls.RECDATE, cls.RECFROM, cls.RELNOTES, cls.REPATBY, cls.REPATCLAIM, cls.REPATDATE, cls.REPATDISP, cls.REPATHAND, cls.REPATNOTES, cls.REPATNOTIC, cls.REPATTYPE, cls.ROCKCLASS, cls.ROCKCOLOR, cls.ROCKORIGIN, cls.ROCKTYPE, cls.ROLE, cls.ROLE2, cls.ROLE3, cls.SCHOOL, cls.SEX, cls.SIGNEDNAME, cls.SIGNLOC, cls.SITE, cls.SITENO, cls.SPECGRAV, cls.SPECIES, cls.SPROCESS, cls.STAGE, cls.STATUS, cls.STATUSBY, cls.STATUSDATE, cls.STERMS, cls.STRATUM, cls.STREAK, cls.SUBFAMILY, cls.SUBJECTS, cls.SUBSPECIES, cls.TECHNIQUE, cls.TEMPAUTHOR, cls.TEMPBY, cls.TEMPDATE, cls.TEMPERATUR, cls.TEMPLOC, cls.TEMPNOTES, cls.TEMPREASON, cls.TEMPUNTIL, cls.TEXTURE, cls.TITLE, cls.TLOCFIELD1, cls.TLOCFIELD2, cls.TLOCFIELD3, cls.TLOCFIELD4, cls.TLOCFIELD5, cls.TLOCFIELD6, cls.UDF1, cls.UDF10, cls.UDF11, cls.UDF12, cls.UDF13, cls.UDF14, cls.UDF15, cls.UDF16, cls.UDF17, cls.UDF18, cls.UDF19, cls.UDF2, cls.UDF20, cls.UDF21, cls.UDF22, cls.UDF3, cls.UDF4, cls.UDF5, cls.UDF6, cls.UDF7, cls.UDF8, cls.UDF9, cls.UNIT, cls.UPDATED, cls.UPDATEDBY, cls.USED, cls.VALUEDATE, cls.VARIETIES, cls.WEBINCLUDE, cls.WEIGHT, cls.WEIGHTIN, cls.WEIGHTLB, cls.WIDTH, cls.WIDTHFT, cls.WIDTHIN, cls.XCORD, cls.YCORD, cls.ZCORD,)
 
-    FieldMetadata.ACCESSNO = FieldMetadata('accessno', str)
-    FieldMetadata.ACCESSORY = FieldMetadata('accessory', str)
-    FieldMetadata.ACQVALUE = FieldMetadata('acqvalue', decimal.Decimal)
-    FieldMetadata.AGE = FieldMetadata('age', str)
-    FieldMetadata.APPNOTES = FieldMetadata('appnotes', str)
-    FieldMetadata.APPRAISOR = FieldMetadata('appraisor', str)
-    FieldMetadata.ASSEMZONE = FieldMetadata('assemzone', str)
-    FieldMetadata.BAGNO = FieldMetadata('bagno', int)
-    FieldMetadata.BOXNO = FieldMetadata('boxno', int)
-    FieldMetadata.CAPTION = FieldMetadata('caption', str)
-    FieldMetadata.CATBY = FieldMetadata('catby', str)
-    FieldMetadata.CATDATE = FieldMetadata('catdate', datetime.datetime)
-    FieldMetadata.CATTYPE = FieldMetadata('cattype', int)
-    FieldMetadata.CHEMCOMP = FieldMetadata('chemcomp', str)
-    FieldMetadata.CIRCUM = FieldMetadata('circum', decimal.Decimal)
-    FieldMetadata.CIRCUMFT = FieldMetadata('circumft', decimal.Decimal)
-    FieldMetadata.CIRCUMIN = FieldMetadata('circumin', decimal.Decimal)
-    FieldMetadata.CLASSES = FieldMetadata('classes', str)
-    FieldMetadata.COLLDATE = FieldMetadata('colldate', datetime.datetime)
-    FieldMetadata.COLLECTION = FieldMetadata('collection', str)
-    FieldMetadata.COLLECTOR = FieldMetadata('collector', str)
-    FieldMetadata.CONDDATE = FieldMetadata('conddate', datetime.datetime)
-    FieldMetadata.CONDEXAM = FieldMetadata('condexam', str)
-    FieldMetadata.CONDITION = FieldMetadata('condition', pastpy.models.condition.Condition)
-    FieldMetadata.CONDNOTES = FieldMetadata('condnotes', str)
-    FieldMetadata.COUNT = FieldMetadata('count', str)
-    FieldMetadata.CREATOR = FieldMetadata('creator', str)
-    FieldMetadata.CREATOR2 = FieldMetadata('creator2', str)
-    FieldMetadata.CREATOR3 = FieldMetadata('creator3', str)
-    FieldMetadata.CREDIT = FieldMetadata('credit', str)
-    FieldMetadata.CRYSTAL = FieldMetadata('crystal', str)
-    FieldMetadata.CULTURE = FieldMetadata('culture', str)
-    FieldMetadata.CURVALMAX = FieldMetadata('curvalmax', decimal.Decimal)
-    FieldMetadata.CURVALUE = FieldMetadata('curvalue', decimal.Decimal)
-    FieldMetadata.DATASET = FieldMetadata('dataset', str)
-    FieldMetadata.DATE = FieldMetadata('date', str)
-    FieldMetadata.DATINGMETH = FieldMetadata('datingmeth', str)
-    FieldMetadata.DATUM = FieldMetadata('datum', str)
-    FieldMetadata.DEPTH = FieldMetadata('depth', decimal.Decimal)
-    FieldMetadata.DEPTHFT = FieldMetadata('depthft', decimal.Decimal)
-    FieldMetadata.DEPTHIN = FieldMetadata('depthin', decimal.Decimal)
-    FieldMetadata.DESCRIP = FieldMetadata('descrip', str)
-    FieldMetadata.DIAMETER = FieldMetadata('diameter', decimal.Decimal)
-    FieldMetadata.DIAMETERFT = FieldMetadata('diameterft', decimal.Decimal)
-    FieldMetadata.DIAMETERIN = FieldMetadata('diameterin', decimal.Decimal)
-    FieldMetadata.DIMNOTES = FieldMetadata('dimnotes', str)
-    FieldMetadata.DIMTYPE = FieldMetadata('dimtype', int)
-    FieldMetadata.DISPVALUE = FieldMetadata('dispvalue', str)
-    FieldMetadata.EARLYDATE = FieldMetadata('earlydate', datetime.datetime)
-    FieldMetadata.ELEMENTS = FieldMetadata('elements', str)
-    FieldMetadata.EPOCH = FieldMetadata('epoch', str)
-    FieldMetadata.ERA = FieldMetadata('era', str)
-    FieldMetadata.EVENT = FieldMetadata('event', str)
-    FieldMetadata.EXCAVADATE = FieldMetadata('excavadate', datetime.datetime)
-    FieldMetadata.EXCAVATEBY = FieldMetadata('excavateby', str)
-    FieldMetadata.EXHIBITNO = FieldMetadata('exhibitno', int)
-    FieldMetadata.EXHLABEL1 = FieldMetadata('exhlabel1', str)
-    FieldMetadata.EXHLABEL2 = FieldMetadata('exhlabel2', str)
-    FieldMetadata.EXHLABEL3 = FieldMetadata('exhlabel3', str)
-    FieldMetadata.EXHLABEL4 = FieldMetadata('exhlabel4', str)
-    FieldMetadata.EXHSTART = FieldMetadata('exhstart', str)
-    FieldMetadata.FAMILY = FieldMetadata('family', str)
-    FieldMetadata.FEATURE = FieldMetadata('feature', str)
-    FieldMetadata.FLAGDATE = FieldMetadata('flagdate', datetime.datetime)
-    FieldMetadata.FLAGNOTES = FieldMetadata('flagnotes', str)
-    FieldMetadata.FLAGREASON = FieldMetadata('flagreason', str)
-    FieldMetadata.FORMATION = FieldMetadata('formation', str)
-    FieldMetadata.FOSSILS = FieldMetadata('fossils', str)
-    FieldMetadata.FOUND = FieldMetadata('found', str)
-    FieldMetadata.FRACTURE = FieldMetadata('fracture', str)
-    FieldMetadata.FRAME = FieldMetadata('frame', str)
-    FieldMetadata.FRAMESIZE = FieldMetadata('framesize', str)
-    FieldMetadata.GENUS = FieldMetadata('genus', str)
-    FieldMetadata.GPARENT = FieldMetadata('gparent', str)
-    FieldMetadata.GRAINSIZE = FieldMetadata('grainsize', str)
-    FieldMetadata.HABITAT = FieldMetadata('habitat', str)
-    FieldMetadata.HARDNESS = FieldMetadata('hardness', str)
-    FieldMetadata.HEIGHT = FieldMetadata('height', decimal.Decimal)
-    FieldMetadata.HEIGHTFT = FieldMetadata('heightft', decimal.Decimal)
-    FieldMetadata.HEIGHTIN = FieldMetadata('heightin', decimal.Decimal)
-    FieldMetadata.HOMELOC = FieldMetadata('homeloc', str)
-    FieldMetadata.IDBY = FieldMetadata('idby', str)
-    FieldMetadata.IDDATE = FieldMetadata('iddate', datetime.datetime)
-    FieldMetadata.IMAGEFILE = FieldMetadata('imagefile', str)
-    FieldMetadata.IMAGENO = FieldMetadata('imageno', int)
-    FieldMetadata.IMAGESIZE = FieldMetadata('imagesize', str)
-    FieldMetadata.INSCOMP = FieldMetadata('inscomp', str)
-    FieldMetadata.INSCRLANG = FieldMetadata('inscrlang', str)
-    FieldMetadata.INSCRPOS = FieldMetadata('inscrpos', str)
-    FieldMetadata.INSCRTECH = FieldMetadata('inscrtech', str)
-    FieldMetadata.INSCRTEXT = FieldMetadata('inscrtext', str)
-    FieldMetadata.INSCRTRANS = FieldMetadata('inscrtrans', str)
-    FieldMetadata.INSCRTYPE = FieldMetadata('inscrtype', int)
-    FieldMetadata.INSDATE = FieldMetadata('insdate', datetime.datetime)
-    FieldMetadata.INSPHONE = FieldMetadata('insphone', str)
-    FieldMetadata.INSPREMIUM = FieldMetadata('inspremium', str)
-    FieldMetadata.INSREP = FieldMetadata('insrep', str)
-    FieldMetadata.INSVALUE = FieldMetadata('insvalue', decimal.Decimal)
-    FieldMetadata.INVNBY = FieldMetadata('invnby', str)
-    FieldMetadata.INVNDATE = FieldMetadata('invndate', datetime.datetime)
-    FieldMetadata.KINGDOM = FieldMetadata('kingdom', str)
-    FieldMetadata.LATEDATE = FieldMetadata('latedate', datetime.datetime)
-    FieldMetadata.LEGAL = FieldMetadata('legal', str)
-    FieldMetadata.LENGTH = FieldMetadata('length', decimal.Decimal)
-    FieldMetadata.LENGTHFT = FieldMetadata('lengthft', decimal.Decimal)
-    FieldMetadata.LENGTHIN = FieldMetadata('lengthin', decimal.Decimal)
-    FieldMetadata.LEVEL = FieldMetadata('level', str)
-    FieldMetadata.LITHOFACIE = FieldMetadata('lithofacie', str)
-    FieldMetadata.LOANCOND = FieldMetadata('loancond', str)
-    FieldMetadata.LOANDUE = FieldMetadata('loandue', str)
-    FieldMetadata.LOANINNO = FieldMetadata('loaninno', int)
-    FieldMetadata.LOANNO = FieldMetadata('loanno', int)
-    FieldMetadata.LOCFIELD1 = FieldMetadata('locfield1', str)
-    FieldMetadata.LOCFIELD2 = FieldMetadata('locfield2', str)
-    FieldMetadata.LOCFIELD3 = FieldMetadata('locfield3', str)
-    FieldMetadata.LOCFIELD4 = FieldMetadata('locfield4', str)
-    FieldMetadata.LOCFIELD5 = FieldMetadata('locfield5', str)
-    FieldMetadata.LOCFIELD6 = FieldMetadata('locfield6', str)
-    FieldMetadata.LUSTER = FieldMetadata('luster', str)
-    FieldMetadata.MADE = FieldMetadata('made', str)
-    FieldMetadata.MAINTCYCLE = FieldMetadata('maintcycle', str)
-    FieldMetadata.MAINTDATE = FieldMetadata('maintdate', datetime.datetime)
-    FieldMetadata.MAINTNOTE = FieldMetadata('maintnote', str)
-    FieldMetadata.MATERIAL = FieldMetadata('material', str)
-    FieldMetadata.MEDIUM = FieldMetadata('medium', str)
-    FieldMetadata.MEMBER = FieldMetadata('member', str)
-    FieldMetadata.MMARK = FieldMetadata('mmark', str)
-    FieldMetadata.NHCLASS = FieldMetadata('nhclass', str)
-    FieldMetadata.NHORDER = FieldMetadata('nhorder', str)
-    FieldMetadata.NOTES = FieldMetadata('notes', str)
-    FieldMetadata.OBJECTID = FieldMetadata('objectid', str)
-    FieldMetadata.OBJNAME = FieldMetadata('objname', str)
-    FieldMetadata.OBJNAME2 = FieldMetadata('objname2', str)
-    FieldMetadata.OBJNAME3 = FieldMetadata('objname3', str)
-    FieldMetadata.OBJNAMES = FieldMetadata('objnames', str)
-    FieldMetadata.OCCURRENCE = FieldMetadata('occurrence', str)
-    FieldMetadata.OLDNO = FieldMetadata('oldno', int)
-    FieldMetadata.ORIGIN = FieldMetadata('origin', str)
-    FieldMetadata.OTHERNAME = FieldMetadata('othername', str)
-    FieldMetadata.OTHERNO = FieldMetadata('otherno', int)
-    FieldMetadata.OUTDATE = FieldMetadata('outdate', datetime.datetime)
-    FieldMetadata.OWNED = FieldMetadata('owned', str)
-    FieldMetadata.PARENT = FieldMetadata('parent', str)
-    FieldMetadata.PEOPLE = FieldMetadata('people', str)
-    FieldMetadata.PERIOD = FieldMetadata('period', str)
-    FieldMetadata.PHYLUM = FieldMetadata('phylum', str)
-    FieldMetadata.POLICYNO = FieldMetadata('policyno', int)
-    FieldMetadata.PREPARATOR = FieldMetadata('preparator', str)
-    FieldMetadata.PREPDATE = FieldMetadata('prepdate', datetime.datetime)
-    FieldMetadata.PRESERVE = FieldMetadata('preserve', str)
-    FieldMetadata.PRESSURE = FieldMetadata('pressure', str)
-    FieldMetadata.PROVENANCE = FieldMetadata('provenance', str)
-    FieldMetadata.PUBNOTES = FieldMetadata('pubnotes', str)
-    FieldMetadata.RECAS = FieldMetadata('recas', pastpy.models.recas.Recas)
-    FieldMetadata.RECDATE = FieldMetadata('recdate', datetime.datetime)
-    FieldMetadata.RECFROM = FieldMetadata('recfrom', str)
-    FieldMetadata.RELNOTES = FieldMetadata('relnotes', str)
-    FieldMetadata.REPATBY = FieldMetadata('repatby', str)
-    FieldMetadata.REPATCLAIM = FieldMetadata('repatclaim', str)
-    FieldMetadata.REPATDATE = FieldMetadata('repatdate', datetime.datetime)
-    FieldMetadata.REPATDISP = FieldMetadata('repatdisp', str)
-    FieldMetadata.REPATHAND = FieldMetadata('repathand', str)
-    FieldMetadata.REPATNOTES = FieldMetadata('repatnotes', str)
-    FieldMetadata.REPATNOTIC = FieldMetadata('repatnotic', str)
-    FieldMetadata.REPATTYPE = FieldMetadata('repattype', int)
-    FieldMetadata.ROCKCLASS = FieldMetadata('rockclass', str)
-    FieldMetadata.ROCKCOLOR = FieldMetadata('rockcolor', str)
-    FieldMetadata.ROCKORIGIN = FieldMetadata('rockorigin', str)
-    FieldMetadata.ROCKTYPE = FieldMetadata('rocktype', int)
-    FieldMetadata.ROLE = FieldMetadata('role', str)
-    FieldMetadata.ROLE2 = FieldMetadata('role2', str)
-    FieldMetadata.ROLE3 = FieldMetadata('role3', str)
-    FieldMetadata.SCHOOL = FieldMetadata('school', str)
-    FieldMetadata.SEX = FieldMetadata('sex', str)
-    FieldMetadata.SIGNEDNAME = FieldMetadata('signedname', str)
-    FieldMetadata.SIGNLOC = FieldMetadata('signloc', str)
-    FieldMetadata.SITE = FieldMetadata('site', str)
-    FieldMetadata.SITENO = FieldMetadata('siteno', int)
-    FieldMetadata.SPECGRAV = FieldMetadata('specgrav', str)
-    FieldMetadata.SPECIES = FieldMetadata('species', str)
-    FieldMetadata.SPROCESS = FieldMetadata('sprocess', str)
-    FieldMetadata.STAGE = FieldMetadata('stage', str)
-    FieldMetadata.STATUS = FieldMetadata('status', pastpy.models.status.Status)
-    FieldMetadata.STATUSBY = FieldMetadata('statusby', str)
-    FieldMetadata.STATUSDATE = FieldMetadata('statusdate', datetime.datetime)
-    FieldMetadata.STERMS = FieldMetadata('sterms', str)
-    FieldMetadata.STRATUM = FieldMetadata('stratum', str)
-    FieldMetadata.STREAK = FieldMetadata('streak', str)
-    FieldMetadata.SUBFAMILY = FieldMetadata('subfamily', str)
-    FieldMetadata.SUBJECTS = FieldMetadata('subjects', str)
-    FieldMetadata.SUBSPECIES = FieldMetadata('subspecies', str)
-    FieldMetadata.TECHNIQUE = FieldMetadata('technique', str)
-    FieldMetadata.TEMPAUTHOR = FieldMetadata('tempauthor', str)
-    FieldMetadata.TEMPBY = FieldMetadata('tempby', str)
-    FieldMetadata.TEMPDATE = FieldMetadata('tempdate', datetime.datetime)
-    FieldMetadata.TEMPERATUR = FieldMetadata('temperatur', str)
-    FieldMetadata.TEMPLOC = FieldMetadata('temploc', str)
-    FieldMetadata.TEMPNOTES = FieldMetadata('tempnotes', str)
-    FieldMetadata.TEMPREASON = FieldMetadata('tempreason', str)
-    FieldMetadata.TEMPUNTIL = FieldMetadata('tempuntil', str)
-    FieldMetadata.TEXTURE = FieldMetadata('texture', str)
-    FieldMetadata.TITLE = FieldMetadata('title', str)
-    FieldMetadata.TLOCFIELD1 = FieldMetadata('tlocfield1', str)
-    FieldMetadata.TLOCFIELD2 = FieldMetadata('tlocfield2', str)
-    FieldMetadata.TLOCFIELD3 = FieldMetadata('tlocfield3', str)
-    FieldMetadata.TLOCFIELD4 = FieldMetadata('tlocfield4', str)
-    FieldMetadata.TLOCFIELD5 = FieldMetadata('tlocfield5', str)
-    FieldMetadata.TLOCFIELD6 = FieldMetadata('tlocfield6', str)
-    FieldMetadata.UDF1 = FieldMetadata('udf1', object)
-    FieldMetadata.UDF10 = FieldMetadata('udf10', object)
-    FieldMetadata.UDF11 = FieldMetadata('udf11', object)
-    FieldMetadata.UDF12 = FieldMetadata('udf12', object)
-    FieldMetadata.UDF13 = FieldMetadata('udf13', object)
-    FieldMetadata.UDF14 = FieldMetadata('udf14', object)
-    FieldMetadata.UDF15 = FieldMetadata('udf15', object)
-    FieldMetadata.UDF16 = FieldMetadata('udf16', object)
-    FieldMetadata.UDF17 = FieldMetadata('udf17', object)
-    FieldMetadata.UDF18 = FieldMetadata('udf18', object)
-    FieldMetadata.UDF19 = FieldMetadata('udf19', object)
-    FieldMetadata.UDF2 = FieldMetadata('udf2', object)
-    FieldMetadata.UDF20 = FieldMetadata('udf20', object)
-    FieldMetadata.UDF21 = FieldMetadata('udf21', object)
-    FieldMetadata.UDF22 = FieldMetadata('udf22', object)
-    FieldMetadata.UDF3 = FieldMetadata('udf3', object)
-    FieldMetadata.UDF4 = FieldMetadata('udf4', object)
-    FieldMetadata.UDF5 = FieldMetadata('udf5', object)
-    FieldMetadata.UDF6 = FieldMetadata('udf6', object)
-    FieldMetadata.UDF7 = FieldMetadata('udf7', object)
-    FieldMetadata.UDF8 = FieldMetadata('udf8', object)
-    FieldMetadata.UDF9 = FieldMetadata('udf9', object)
-    FieldMetadata.UNIT = FieldMetadata('unit', str)
-    FieldMetadata.UPDATED = FieldMetadata('updated', str)
-    FieldMetadata.UPDATEDBY = FieldMetadata('updatedby', str)
-    FieldMetadata.USED = FieldMetadata('used', str)
-    FieldMetadata.VALUEDATE = FieldMetadata('valuedate', datetime.datetime)
-    FieldMetadata.VARIETIES = FieldMetadata('varieties', str)
-    FieldMetadata.WEBINCLUDE = FieldMetadata('webinclude', str)
-    FieldMetadata.WEIGHT = FieldMetadata('weight', str)
-    FieldMetadata.WEIGHTIN = FieldMetadata('weightin', str)
-    FieldMetadata.WEIGHTLB = FieldMetadata('weightlb', decimal.Decimal)
-    FieldMetadata.WIDTH = FieldMetadata('width', decimal.Decimal)
-    FieldMetadata.WIDTHFT = FieldMetadata('widthft', decimal.Decimal)
-    FieldMetadata.WIDTHIN = FieldMetadata('widthin', decimal.Decimal)
-    FieldMetadata.XCORD = FieldMetadata('xcord', str)
-    FieldMetadata.YCORD = FieldMetadata('ycord', str)
-    FieldMetadata.ZCORD = FieldMetadata('zcord', str)
+    FieldMetadata.ACCESSNO = FieldMetadata('accessno', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.ACCESSORY = FieldMetadata('accessory', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.ACQVALUE = FieldMetadata('acqvalue', decimal.Decimal, None)
+    FieldMetadata.AGE = FieldMetadata('age', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.APPNOTES = FieldMetadata('appnotes', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.APPRAISOR = FieldMetadata('appraisor', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.ASSEMZONE = FieldMetadata('assemzone', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.BAGNO = FieldMetadata('bagno', int, None)
+    FieldMetadata.BOXNO = FieldMetadata('boxno', int, None)
+    FieldMetadata.CAPTION = FieldMetadata('caption', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.CATBY = FieldMetadata('catby', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.CATDATE = FieldMetadata('catdate', datetime.datetime, None)
+    FieldMetadata.CATTYPE = FieldMetadata('cattype', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.CHEMCOMP = FieldMetadata('chemcomp', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.CIRCUM = FieldMetadata('circum', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.CIRCUMFT = FieldMetadata('circumft', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.CIRCUMIN = FieldMetadata('circumin', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.CLASSES = FieldMetadata('classes', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.COLLDATE = FieldMetadata('colldate', datetime.datetime, None)
+    FieldMetadata.COLLECTION = FieldMetadata('collection', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.COLLECTOR = FieldMetadata('collector', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.CONDDATE = FieldMetadata('conddate', datetime.datetime, None)
+    FieldMetadata.CONDEXAM = FieldMetadata('condexam', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.CONDITION = FieldMetadata('condition', pastpy.models.condition.Condition, None)
+    FieldMetadata.CONDNOTES = FieldMetadata('condnotes', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.COUNT = FieldMetadata('count', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.CREATOR = FieldMetadata('creator', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.CREATOR2 = FieldMetadata('creator2', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.CREATOR3 = FieldMetadata('creator3', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.CREDIT = FieldMetadata('credit', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.CRYSTAL = FieldMetadata('crystal', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.CULTURE = FieldMetadata('culture', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.CURVALMAX = FieldMetadata('curvalmax', decimal.Decimal, None)
+    FieldMetadata.CURVALUE = FieldMetadata('curvalue', decimal.Decimal, None)
+    FieldMetadata.DATASET = FieldMetadata('dataset', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.DATE = FieldMetadata('date', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.DATINGMETH = FieldMetadata('datingmeth', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.DATUM = FieldMetadata('datum', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.DEPTH = FieldMetadata('depth', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.DEPTHFT = FieldMetadata('depthft', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.DEPTHIN = FieldMetadata('depthin', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.DESCRIP = FieldMetadata('descrip', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.DIAMETER = FieldMetadata('diameter', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.DIAMETERFT = FieldMetadata('diameterft', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.DIAMETERIN = FieldMetadata('diameterin', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.DIMNOTES = FieldMetadata('dimnotes', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.DIMTYPE = FieldMetadata('dimtype', int, None)
+    FieldMetadata.DISPVALUE = FieldMetadata('dispvalue', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.EARLYDATE = FieldMetadata('earlydate', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.ELEMENTS = FieldMetadata('elements', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.EPOCH = FieldMetadata('epoch', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.ERA = FieldMetadata('era', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.EVENT = FieldMetadata('event', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.EXCAVADATE = FieldMetadata('excavadate', datetime.datetime, None)
+    FieldMetadata.EXCAVATEBY = FieldMetadata('excavateby', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.EXHIBITNO = FieldMetadata('exhibitno', int, None)
+    FieldMetadata.EXHLABEL1 = FieldMetadata('exhlabel1', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.EXHLABEL2 = FieldMetadata('exhlabel2', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.EXHLABEL3 = FieldMetadata('exhlabel3', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.EXHLABEL4 = FieldMetadata('exhlabel4', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.EXHSTART = FieldMetadata('exhstart', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.FAMILY = FieldMetadata('family', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.FEATURE = FieldMetadata('feature', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.FLAGDATE = FieldMetadata('flagdate', datetime.datetime, None)
+    FieldMetadata.FLAGNOTES = FieldMetadata('flagnotes', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.FLAGREASON = FieldMetadata('flagreason', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.FORMATION = FieldMetadata('formation', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.FOSSILS = FieldMetadata('fossils', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.FOUND = FieldMetadata('found', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.FRACTURE = FieldMetadata('fracture', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.FRAME = FieldMetadata('frame', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.FRAMESIZE = FieldMetadata('framesize', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.GENUS = FieldMetadata('genus', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.GPARENT = FieldMetadata('gparent', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.GRAINSIZE = FieldMetadata('grainsize', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.HABITAT = FieldMetadata('habitat', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.HARDNESS = FieldMetadata('hardness', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.HEIGHT = FieldMetadata('height', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.HEIGHTFT = FieldMetadata('heightft', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.HEIGHTIN = FieldMetadata('heightin', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.HOMELOC = FieldMetadata('homeloc', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.IDBY = FieldMetadata('idby', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.IDDATE = FieldMetadata('iddate', datetime.datetime, None)
+    FieldMetadata.IMAGEFILE = FieldMetadata('imagefile', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.IMAGENO = FieldMetadata('imageno', int, None)
+    FieldMetadata.IMAGESIZE = FieldMetadata('imagesize', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.INSCOMP = FieldMetadata('inscomp', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.INSCRLANG = FieldMetadata('inscrlang', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.INSCRPOS = FieldMetadata('inscrpos', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.INSCRTECH = FieldMetadata('inscrtech', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.INSCRTEXT = FieldMetadata('inscrtext', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.INSCRTRANS = FieldMetadata('inscrtrans', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.INSCRTYPE = FieldMetadata('inscrtype', object, None)
+    FieldMetadata.INSDATE = FieldMetadata('insdate', datetime.datetime, None)
+    FieldMetadata.INSPHONE = FieldMetadata('insphone', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.INSPREMIUM = FieldMetadata('inspremium', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.INSREP = FieldMetadata('insrep', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.INSVALUE = FieldMetadata('insvalue', decimal.Decimal, None)
+    FieldMetadata.INVNBY = FieldMetadata('invnby', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.INVNDATE = FieldMetadata('invndate', datetime.datetime, None)
+    FieldMetadata.KINGDOM = FieldMetadata('kingdom', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.LATEDATE = FieldMetadata('latedate', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.LEGAL = FieldMetadata('legal', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.LENGTH = FieldMetadata('length', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.LENGTHFT = FieldMetadata('lengthft', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.LENGTHIN = FieldMetadata('lengthin', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.LEVEL = FieldMetadata('level', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.LITHOFACIE = FieldMetadata('lithofacie', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.LOANCOND = FieldMetadata('loancond', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.LOANDUE = FieldMetadata('loandue', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.LOANINNO = FieldMetadata('loaninno', int, None)
+    FieldMetadata.LOANNO = FieldMetadata('loanno', int, None)
+    FieldMetadata.LOCFIELD1 = FieldMetadata('locfield1', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.LOCFIELD2 = FieldMetadata('locfield2', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.LOCFIELD3 = FieldMetadata('locfield3', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.LOCFIELD4 = FieldMetadata('locfield4', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.LOCFIELD5 = FieldMetadata('locfield5', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.LOCFIELD6 = FieldMetadata('locfield6', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.LUSTER = FieldMetadata('luster', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.MADE = FieldMetadata('made', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.MAINTCYCLE = FieldMetadata('maintcycle', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.MAINTDATE = FieldMetadata('maintdate', datetime.datetime, None)
+    FieldMetadata.MAINTNOTE = FieldMetadata('maintnote', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.MATERIAL = FieldMetadata('material', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.MEDIUM = FieldMetadata('medium', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.MEMBER = FieldMetadata('member', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.MMARK = FieldMetadata('mmark', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.NHCLASS = FieldMetadata('nhclass', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.NHORDER = FieldMetadata('nhorder', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.NOTES = FieldMetadata('notes', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.OBJECTID = FieldMetadata('objectid', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.OBJNAME = FieldMetadata('objname', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.OBJNAME2 = FieldMetadata('objname2', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.OBJNAME3 = FieldMetadata('objname3', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.OBJNAMES = FieldMetadata('objnames', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.OCCURRENCE = FieldMetadata('occurrence', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.OLDNO = FieldMetadata('oldno', int, None)
+    FieldMetadata.ORIGIN = FieldMetadata('origin', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.OTHERNAME = FieldMetadata('othername', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.OTHERNO = FieldMetadata('otherno', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.OUTDATE = FieldMetadata('outdate', datetime.datetime, None)
+    FieldMetadata.OWNED = FieldMetadata('owned', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.PARENT = FieldMetadata('parent', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.PEOPLE = FieldMetadata('people', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.PERIOD = FieldMetadata('period', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.PHYLUM = FieldMetadata('phylum', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.POLICYNO = FieldMetadata('policyno', int, None)
+    FieldMetadata.PREPARATOR = FieldMetadata('preparator', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.PREPDATE = FieldMetadata('prepdate', datetime.datetime, None)
+    FieldMetadata.PRESERVE = FieldMetadata('preserve', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.PRESSURE = FieldMetadata('pressure', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.PROVENANCE = FieldMetadata('provenance', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.PUBNOTES = FieldMetadata('pubnotes', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.RECAS = FieldMetadata('recas', pastpy.models.recas.Recas, None)
+    FieldMetadata.RECDATE = FieldMetadata('recdate', datetime.datetime, None)
+    FieldMetadata.RECFROM = FieldMetadata('recfrom', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.RELNOTES = FieldMetadata('relnotes', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.REPATBY = FieldMetadata('repatby', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.REPATCLAIM = FieldMetadata('repatclaim', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.REPATDATE = FieldMetadata('repatdate', datetime.datetime, None)
+    FieldMetadata.REPATDISP = FieldMetadata('repatdisp', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.REPATHAND = FieldMetadata('repathand', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.REPATNOTES = FieldMetadata('repatnotes', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.REPATNOTIC = FieldMetadata('repatnotic', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.REPATTYPE = FieldMetadata('repattype', int, None)
+    FieldMetadata.ROCKCLASS = FieldMetadata('rockclass', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.ROCKCOLOR = FieldMetadata('rockcolor', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.ROCKORIGIN = FieldMetadata('rockorigin', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.ROCKTYPE = FieldMetadata('rocktype', int, None)
+    FieldMetadata.ROLE = FieldMetadata('role', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.ROLE2 = FieldMetadata('role2', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.ROLE3 = FieldMetadata('role3', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.SCHOOL = FieldMetadata('school', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.SEX = FieldMetadata('sex', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.SIGNEDNAME = FieldMetadata('signedname', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.SIGNLOC = FieldMetadata('signloc', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.SITE = FieldMetadata('site', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.SITENO = FieldMetadata('siteno', int, None)
+    FieldMetadata.SPECGRAV = FieldMetadata('specgrav', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.SPECIES = FieldMetadata('species', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.SPROCESS = FieldMetadata('sprocess', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.STAGE = FieldMetadata('stage', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.STATUS = FieldMetadata('status', pastpy.models.status.Status, None)
+    FieldMetadata.STATUSBY = FieldMetadata('statusby', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.STATUSDATE = FieldMetadata('statusdate', datetime.datetime, None)
+    FieldMetadata.STERMS = FieldMetadata('sterms', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.STRATUM = FieldMetadata('stratum', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.STREAK = FieldMetadata('streak', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.SUBFAMILY = FieldMetadata('subfamily', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.SUBJECTS = FieldMetadata('subjects', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.SUBSPECIES = FieldMetadata('subspecies', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.TECHNIQUE = FieldMetadata('technique', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.TEMPAUTHOR = FieldMetadata('tempauthor', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.TEMPBY = FieldMetadata('tempby', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.TEMPDATE = FieldMetadata('tempdate', datetime.datetime, None)
+    FieldMetadata.TEMPERATUR = FieldMetadata('temperatur', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.TEMPLOC = FieldMetadata('temploc', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.TEMPNOTES = FieldMetadata('tempnotes', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.TEMPREASON = FieldMetadata('tempreason', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.TEMPUNTIL = FieldMetadata('tempuntil', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.TEXTURE = FieldMetadata('texture', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.TITLE = FieldMetadata('title', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.TLOCFIELD1 = FieldMetadata('tlocfield1', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.TLOCFIELD2 = FieldMetadata('tlocfield2', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.TLOCFIELD3 = FieldMetadata('tlocfield3', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.TLOCFIELD4 = FieldMetadata('tlocfield4', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.TLOCFIELD5 = FieldMetadata('tlocfield5', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.TLOCFIELD6 = FieldMetadata('tlocfield6', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.UDF1 = FieldMetadata('udf1', object, None)
+    FieldMetadata.UDF10 = FieldMetadata('udf10', object, None)
+    FieldMetadata.UDF11 = FieldMetadata('udf11', object, None)
+    FieldMetadata.UDF12 = FieldMetadata('udf12', object, None)
+    FieldMetadata.UDF13 = FieldMetadata('udf13', object, None)
+    FieldMetadata.UDF14 = FieldMetadata('udf14', object, None)
+    FieldMetadata.UDF15 = FieldMetadata('udf15', object, None)
+    FieldMetadata.UDF16 = FieldMetadata('udf16', object, None)
+    FieldMetadata.UDF17 = FieldMetadata('udf17', object, None)
+    FieldMetadata.UDF18 = FieldMetadata('udf18', object, None)
+    FieldMetadata.UDF19 = FieldMetadata('udf19', object, None)
+    FieldMetadata.UDF2 = FieldMetadata('udf2', object, None)
+    FieldMetadata.UDF20 = FieldMetadata('udf20', object, None)
+    FieldMetadata.UDF21 = FieldMetadata('udf21', object, None)
+    FieldMetadata.UDF22 = FieldMetadata('udf22', object, None)
+    FieldMetadata.UDF3 = FieldMetadata('udf3', object, None)
+    FieldMetadata.UDF4 = FieldMetadata('udf4', object, None)
+    FieldMetadata.UDF5 = FieldMetadata('udf5', object, None)
+    FieldMetadata.UDF6 = FieldMetadata('udf6', object, None)
+    FieldMetadata.UDF7 = FieldMetadata('udf7', object, None)
+    FieldMetadata.UDF8 = FieldMetadata('udf8', object, None)
+    FieldMetadata.UDF9 = FieldMetadata('udf9', object, None)
+    FieldMetadata.UNIT = FieldMetadata('unit', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.UPDATED = FieldMetadata('updated', datetime.datetime, None)
+    FieldMetadata.UPDATEDBY = FieldMetadata('updatedby', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.USED = FieldMetadata('used', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.VALUEDATE = FieldMetadata('valuedate', datetime.datetime, None)
+    FieldMetadata.VARIETIES = FieldMetadata('varieties', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.WEBINCLUDE = FieldMetadata('webinclude', bool, None)
+    FieldMetadata.WEIGHT = FieldMetadata('weight', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.WEIGHTIN = FieldMetadata('weightin', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.WEIGHTLB = FieldMetadata('weightlb', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.WIDTH = FieldMetadata('width', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.WIDTHFT = FieldMetadata('widthft', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.WIDTHIN = FieldMetadata('widthin', decimal.Decimal, {u'minExclusive': 0})
+    FieldMetadata.XCORD = FieldMetadata('xcord', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.YCORD = FieldMetadata('ycord', str, {u'blank': False, u'minLength': 1})
+    FieldMetadata.ZCORD = FieldMetadata('zcord', str, {u'blank': False, u'minLength': 1})
 
     def __init__(
         self,
@@ -8961,7 +9336,7 @@ class Object(object):
         :type caption: str or None
         :type catby: str or None
         :type catdate: datetime.datetime or None
-        :type cattype: int or None
+        :type cattype: str or None
         :type chemcomp: str or None
         :type circum: Decimal or None
         :type circumft: Decimal or None
@@ -8997,7 +9372,7 @@ class Object(object):
         :type dimnotes: str or None
         :type dimtype: int or None
         :type dispvalue: str or None
-        :type earlydate: datetime.datetime or None
+        :type earlydate: str or None
         :type elements: str or None
         :type epoch: str or None
         :type era: str or None
@@ -9041,7 +9416,7 @@ class Object(object):
         :type inscrtech: str or None
         :type inscrtext: str or None
         :type inscrtrans: str or None
-        :type inscrtype: int or None
+        :type inscrtype: object or None
         :type insdate: datetime.datetime or None
         :type insphone: str or None
         :type inspremium: str or None
@@ -9050,7 +9425,7 @@ class Object(object):
         :type invnby: str or None
         :type invndate: datetime.datetime or None
         :type kingdom: str or None
-        :type latedate: datetime.datetime or None
+        :type latedate: str or None
         :type legal: str or None
         :type length: Decimal or None
         :type lengthft: Decimal or None
@@ -9088,7 +9463,7 @@ class Object(object):
         :type oldno: int or None
         :type origin: str or None
         :type othername: str or None
-        :type otherno: int or None
+        :type otherno: str or None
         :type outdate: datetime.datetime or None
         :type owned: str or None
         :type parent: str or None
@@ -9180,14 +9555,14 @@ class Object(object):
         :type udf8: object or None
         :type udf9: object or None
         :type unit: str or None
-        :type updated: str or None
+        :type updated: datetime.datetime or None
         :type updatedby: str or None
         :type used: str or None
         :type valuedate: datetime.datetime or None
         :type varieties: str or None
-        :type webinclude: str or None
-        :type weight: str or None
-        :type weightin: str or None
+        :type webinclude: bool or None
+        :type weight: Decimal or None
+        :type weightin: Decimal or None
         :type weightlb: Decimal or None
         :type width: Decimal or None
         :type widthft: Decimal or None
@@ -9202,6 +9577,8 @@ class Object(object):
                 raise TypeError("expected accessno to be a str but it is a %s" % getattr(__builtin__, 'type')(accessno))
             if len(accessno) < 1:
                 raise ValueError("expected len(accessno) to be >= 1, was %d" % len(accessno))
+            if accessno.isspace():
+                raise ValueError("expected accessno not to be blank")
         self.__accessno = accessno
 
         if accessory is not None:
@@ -9209,6 +9586,8 @@ class Object(object):
                 raise TypeError("expected accessory to be a str but it is a %s" % getattr(__builtin__, 'type')(accessory))
             if len(accessory) < 1:
                 raise ValueError("expected len(accessory) to be >= 1, was %d" % len(accessory))
+            if accessory.isspace():
+                raise ValueError("expected accessory not to be blank")
         self.__accessory = accessory
 
         if acqvalue is not None:
@@ -9221,6 +9600,8 @@ class Object(object):
                 raise TypeError("expected age to be a str but it is a %s" % getattr(__builtin__, 'type')(age))
             if len(age) < 1:
                 raise ValueError("expected len(age) to be >= 1, was %d" % len(age))
+            if age.isspace():
+                raise ValueError("expected age not to be blank")
         self.__age = age
 
         if appnotes is not None:
@@ -9228,6 +9609,8 @@ class Object(object):
                 raise TypeError("expected appnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(appnotes))
             if len(appnotes) < 1:
                 raise ValueError("expected len(appnotes) to be >= 1, was %d" % len(appnotes))
+            if appnotes.isspace():
+                raise ValueError("expected appnotes not to be blank")
         self.__appnotes = appnotes
 
         if appraisor is not None:
@@ -9235,6 +9618,8 @@ class Object(object):
                 raise TypeError("expected appraisor to be a str but it is a %s" % getattr(__builtin__, 'type')(appraisor))
             if len(appraisor) < 1:
                 raise ValueError("expected len(appraisor) to be >= 1, was %d" % len(appraisor))
+            if appraisor.isspace():
+                raise ValueError("expected appraisor not to be blank")
         self.__appraisor = appraisor
 
         if assemzone is not None:
@@ -9242,6 +9627,8 @@ class Object(object):
                 raise TypeError("expected assemzone to be a str but it is a %s" % getattr(__builtin__, 'type')(assemzone))
             if len(assemzone) < 1:
                 raise ValueError("expected len(assemzone) to be >= 1, was %d" % len(assemzone))
+            if assemzone.isspace():
+                raise ValueError("expected assemzone not to be blank")
         self.__assemzone = assemzone
 
         if bagno is not None:
@@ -9259,6 +9646,8 @@ class Object(object):
                 raise TypeError("expected caption to be a str but it is a %s" % getattr(__builtin__, 'type')(caption))
             if len(caption) < 1:
                 raise ValueError("expected len(caption) to be >= 1, was %d" % len(caption))
+            if caption.isspace():
+                raise ValueError("expected caption not to be blank")
         self.__caption = caption
 
         if catby is not None:
@@ -9266,6 +9655,8 @@ class Object(object):
                 raise TypeError("expected catby to be a str but it is a %s" % getattr(__builtin__, 'type')(catby))
             if len(catby) < 1:
                 raise ValueError("expected len(catby) to be >= 1, was %d" % len(catby))
+            if catby.isspace():
+                raise ValueError("expected catby not to be blank")
         self.__catby = catby
 
         if catdate is not None:
@@ -9274,8 +9665,12 @@ class Object(object):
         self.__catdate = catdate
 
         if cattype is not None:
-            if not isinstance(cattype, int):
-                raise TypeError("expected cattype to be a int but it is a %s" % getattr(__builtin__, 'type')(cattype))
+            if not isinstance(cattype, basestring):
+                raise TypeError("expected cattype to be a str but it is a %s" % getattr(__builtin__, 'type')(cattype))
+            if len(cattype) < 1:
+                raise ValueError("expected len(cattype) to be >= 1, was %d" % len(cattype))
+            if cattype.isspace():
+                raise ValueError("expected cattype not to be blank")
         self.__cattype = cattype
 
         if chemcomp is not None:
@@ -9283,21 +9678,29 @@ class Object(object):
                 raise TypeError("expected chemcomp to be a str but it is a %s" % getattr(__builtin__, 'type')(chemcomp))
             if len(chemcomp) < 1:
                 raise ValueError("expected len(chemcomp) to be >= 1, was %d" % len(chemcomp))
+            if chemcomp.isspace():
+                raise ValueError("expected chemcomp not to be blank")
         self.__chemcomp = chemcomp
 
         if circum is not None:
             if not isinstance(circum, decimal.Decimal):
                 raise TypeError("expected circum to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(circum))
+            if circum <= 0:
+                raise ValueError("expected circum to be > 0, was %s" % circum)
         self.__circum = circum
 
         if circumft is not None:
             if not isinstance(circumft, decimal.Decimal):
                 raise TypeError("expected circumft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(circumft))
+            if circumft <= 0:
+                raise ValueError("expected circumft to be > 0, was %s" % circumft)
         self.__circumft = circumft
 
         if circumin is not None:
             if not isinstance(circumin, decimal.Decimal):
                 raise TypeError("expected circumin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(circumin))
+            if circumin <= 0:
+                raise ValueError("expected circumin to be > 0, was %s" % circumin)
         self.__circumin = circumin
 
         if classes is not None:
@@ -9305,6 +9708,8 @@ class Object(object):
                 raise TypeError("expected classes to be a str but it is a %s" % getattr(__builtin__, 'type')(classes))
             if len(classes) < 1:
                 raise ValueError("expected len(classes) to be >= 1, was %d" % len(classes))
+            if classes.isspace():
+                raise ValueError("expected classes not to be blank")
         self.__classes = classes
 
         if colldate is not None:
@@ -9317,6 +9722,8 @@ class Object(object):
                 raise TypeError("expected collection to be a str but it is a %s" % getattr(__builtin__, 'type')(collection))
             if len(collection) < 1:
                 raise ValueError("expected len(collection) to be >= 1, was %d" % len(collection))
+            if collection.isspace():
+                raise ValueError("expected collection not to be blank")
         self.__collection = collection
 
         if collector is not None:
@@ -9324,6 +9731,8 @@ class Object(object):
                 raise TypeError("expected collector to be a str but it is a %s" % getattr(__builtin__, 'type')(collector))
             if len(collector) < 1:
                 raise ValueError("expected len(collector) to be >= 1, was %d" % len(collector))
+            if collector.isspace():
+                raise ValueError("expected collector not to be blank")
         self.__collector = collector
 
         if conddate is not None:
@@ -9336,6 +9745,8 @@ class Object(object):
                 raise TypeError("expected condexam to be a str but it is a %s" % getattr(__builtin__, 'type')(condexam))
             if len(condexam) < 1:
                 raise ValueError("expected len(condexam) to be >= 1, was %d" % len(condexam))
+            if condexam.isspace():
+                raise ValueError("expected condexam not to be blank")
         self.__condexam = condexam
 
         if condition is not None:
@@ -9348,6 +9759,8 @@ class Object(object):
                 raise TypeError("expected condnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(condnotes))
             if len(condnotes) < 1:
                 raise ValueError("expected len(condnotes) to be >= 1, was %d" % len(condnotes))
+            if condnotes.isspace():
+                raise ValueError("expected condnotes not to be blank")
         self.__condnotes = condnotes
 
         if count is not None:
@@ -9355,6 +9768,8 @@ class Object(object):
                 raise TypeError("expected count to be a str but it is a %s" % getattr(__builtin__, 'type')(count))
             if len(count) < 1:
                 raise ValueError("expected len(count) to be >= 1, was %d" % len(count))
+            if count.isspace():
+                raise ValueError("expected count not to be blank")
         self.__count = count
 
         if creator is not None:
@@ -9362,6 +9777,8 @@ class Object(object):
                 raise TypeError("expected creator to be a str but it is a %s" % getattr(__builtin__, 'type')(creator))
             if len(creator) < 1:
                 raise ValueError("expected len(creator) to be >= 1, was %d" % len(creator))
+            if creator.isspace():
+                raise ValueError("expected creator not to be blank")
         self.__creator = creator
 
         if creator2 is not None:
@@ -9369,6 +9786,8 @@ class Object(object):
                 raise TypeError("expected creator2 to be a str but it is a %s" % getattr(__builtin__, 'type')(creator2))
             if len(creator2) < 1:
                 raise ValueError("expected len(creator2) to be >= 1, was %d" % len(creator2))
+            if creator2.isspace():
+                raise ValueError("expected creator2 not to be blank")
         self.__creator2 = creator2
 
         if creator3 is not None:
@@ -9376,6 +9795,8 @@ class Object(object):
                 raise TypeError("expected creator3 to be a str but it is a %s" % getattr(__builtin__, 'type')(creator3))
             if len(creator3) < 1:
                 raise ValueError("expected len(creator3) to be >= 1, was %d" % len(creator3))
+            if creator3.isspace():
+                raise ValueError("expected creator3 not to be blank")
         self.__creator3 = creator3
 
         if credit is not None:
@@ -9383,6 +9804,8 @@ class Object(object):
                 raise TypeError("expected credit to be a str but it is a %s" % getattr(__builtin__, 'type')(credit))
             if len(credit) < 1:
                 raise ValueError("expected len(credit) to be >= 1, was %d" % len(credit))
+            if credit.isspace():
+                raise ValueError("expected credit not to be blank")
         self.__credit = credit
 
         if crystal is not None:
@@ -9390,6 +9813,8 @@ class Object(object):
                 raise TypeError("expected crystal to be a str but it is a %s" % getattr(__builtin__, 'type')(crystal))
             if len(crystal) < 1:
                 raise ValueError("expected len(crystal) to be >= 1, was %d" % len(crystal))
+            if crystal.isspace():
+                raise ValueError("expected crystal not to be blank")
         self.__crystal = crystal
 
         if culture is not None:
@@ -9397,6 +9822,8 @@ class Object(object):
                 raise TypeError("expected culture to be a str but it is a %s" % getattr(__builtin__, 'type')(culture))
             if len(culture) < 1:
                 raise ValueError("expected len(culture) to be >= 1, was %d" % len(culture))
+            if culture.isspace():
+                raise ValueError("expected culture not to be blank")
         self.__culture = culture
 
         if curvalmax is not None:
@@ -9414,6 +9841,8 @@ class Object(object):
                 raise TypeError("expected dataset to be a str but it is a %s" % getattr(__builtin__, 'type')(dataset))
             if len(dataset) < 1:
                 raise ValueError("expected len(dataset) to be >= 1, was %d" % len(dataset))
+            if dataset.isspace():
+                raise ValueError("expected dataset not to be blank")
         self.__dataset = dataset
 
         if date is not None:
@@ -9421,6 +9850,8 @@ class Object(object):
                 raise TypeError("expected date to be a str but it is a %s" % getattr(__builtin__, 'type')(date))
             if len(date) < 1:
                 raise ValueError("expected len(date) to be >= 1, was %d" % len(date))
+            if date.isspace():
+                raise ValueError("expected date not to be blank")
         self.__date = date
 
         if datingmeth is not None:
@@ -9428,6 +9859,8 @@ class Object(object):
                 raise TypeError("expected datingmeth to be a str but it is a %s" % getattr(__builtin__, 'type')(datingmeth))
             if len(datingmeth) < 1:
                 raise ValueError("expected len(datingmeth) to be >= 1, was %d" % len(datingmeth))
+            if datingmeth.isspace():
+                raise ValueError("expected datingmeth not to be blank")
         self.__datingmeth = datingmeth
 
         if datum is not None:
@@ -9435,21 +9868,29 @@ class Object(object):
                 raise TypeError("expected datum to be a str but it is a %s" % getattr(__builtin__, 'type')(datum))
             if len(datum) < 1:
                 raise ValueError("expected len(datum) to be >= 1, was %d" % len(datum))
+            if datum.isspace():
+                raise ValueError("expected datum not to be blank")
         self.__datum = datum
 
         if depth is not None:
             if not isinstance(depth, decimal.Decimal):
                 raise TypeError("expected depth to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(depth))
+            if depth <= 0:
+                raise ValueError("expected depth to be > 0, was %s" % depth)
         self.__depth = depth
 
         if depthft is not None:
             if not isinstance(depthft, decimal.Decimal):
                 raise TypeError("expected depthft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(depthft))
+            if depthft <= 0:
+                raise ValueError("expected depthft to be > 0, was %s" % depthft)
         self.__depthft = depthft
 
         if depthin is not None:
             if not isinstance(depthin, decimal.Decimal):
                 raise TypeError("expected depthin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(depthin))
+            if depthin <= 0:
+                raise ValueError("expected depthin to be > 0, was %s" % depthin)
         self.__depthin = depthin
 
         if descrip is not None:
@@ -9457,21 +9898,29 @@ class Object(object):
                 raise TypeError("expected descrip to be a str but it is a %s" % getattr(__builtin__, 'type')(descrip))
             if len(descrip) < 1:
                 raise ValueError("expected len(descrip) to be >= 1, was %d" % len(descrip))
+            if descrip.isspace():
+                raise ValueError("expected descrip not to be blank")
         self.__descrip = descrip
 
         if diameter is not None:
             if not isinstance(diameter, decimal.Decimal):
                 raise TypeError("expected diameter to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(diameter))
+            if diameter <= 0:
+                raise ValueError("expected diameter to be > 0, was %s" % diameter)
         self.__diameter = diameter
 
         if diameterft is not None:
             if not isinstance(diameterft, decimal.Decimal):
                 raise TypeError("expected diameterft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(diameterft))
+            if diameterft <= 0:
+                raise ValueError("expected diameterft to be > 0, was %s" % diameterft)
         self.__diameterft = diameterft
 
         if diameterin is not None:
             if not isinstance(diameterin, decimal.Decimal):
                 raise TypeError("expected diameterin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(diameterin))
+            if diameterin <= 0:
+                raise ValueError("expected diameterin to be > 0, was %s" % diameterin)
         self.__diameterin = diameterin
 
         if dimnotes is not None:
@@ -9479,6 +9928,8 @@ class Object(object):
                 raise TypeError("expected dimnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(dimnotes))
             if len(dimnotes) < 1:
                 raise ValueError("expected len(dimnotes) to be >= 1, was %d" % len(dimnotes))
+            if dimnotes.isspace():
+                raise ValueError("expected dimnotes not to be blank")
         self.__dimnotes = dimnotes
 
         if dimtype is not None:
@@ -9491,11 +9942,17 @@ class Object(object):
                 raise TypeError("expected dispvalue to be a str but it is a %s" % getattr(__builtin__, 'type')(dispvalue))
             if len(dispvalue) < 1:
                 raise ValueError("expected len(dispvalue) to be >= 1, was %d" % len(dispvalue))
+            if dispvalue.isspace():
+                raise ValueError("expected dispvalue not to be blank")
         self.__dispvalue = dispvalue
 
         if earlydate is not None:
-            if not isinstance(earlydate, datetime.datetime):
-                raise TypeError("expected earlydate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(earlydate))
+            if not isinstance(earlydate, basestring):
+                raise TypeError("expected earlydate to be a str but it is a %s" % getattr(__builtin__, 'type')(earlydate))
+            if len(earlydate) < 1:
+                raise ValueError("expected len(earlydate) to be >= 1, was %d" % len(earlydate))
+            if earlydate.isspace():
+                raise ValueError("expected earlydate not to be blank")
         self.__earlydate = earlydate
 
         if elements is not None:
@@ -9503,6 +9960,8 @@ class Object(object):
                 raise TypeError("expected elements to be a str but it is a %s" % getattr(__builtin__, 'type')(elements))
             if len(elements) < 1:
                 raise ValueError("expected len(elements) to be >= 1, was %d" % len(elements))
+            if elements.isspace():
+                raise ValueError("expected elements not to be blank")
         self.__elements = elements
 
         if epoch is not None:
@@ -9510,6 +9969,8 @@ class Object(object):
                 raise TypeError("expected epoch to be a str but it is a %s" % getattr(__builtin__, 'type')(epoch))
             if len(epoch) < 1:
                 raise ValueError("expected len(epoch) to be >= 1, was %d" % len(epoch))
+            if epoch.isspace():
+                raise ValueError("expected epoch not to be blank")
         self.__epoch = epoch
 
         if era is not None:
@@ -9517,6 +9978,8 @@ class Object(object):
                 raise TypeError("expected era to be a str but it is a %s" % getattr(__builtin__, 'type')(era))
             if len(era) < 1:
                 raise ValueError("expected len(era) to be >= 1, was %d" % len(era))
+            if era.isspace():
+                raise ValueError("expected era not to be blank")
         self.__era = era
 
         if event is not None:
@@ -9524,6 +9987,8 @@ class Object(object):
                 raise TypeError("expected event to be a str but it is a %s" % getattr(__builtin__, 'type')(event))
             if len(event) < 1:
                 raise ValueError("expected len(event) to be >= 1, was %d" % len(event))
+            if event.isspace():
+                raise ValueError("expected event not to be blank")
         self.__event = event
 
         if excavadate is not None:
@@ -9536,6 +10001,8 @@ class Object(object):
                 raise TypeError("expected excavateby to be a str but it is a %s" % getattr(__builtin__, 'type')(excavateby))
             if len(excavateby) < 1:
                 raise ValueError("expected len(excavateby) to be >= 1, was %d" % len(excavateby))
+            if excavateby.isspace():
+                raise ValueError("expected excavateby not to be blank")
         self.__excavateby = excavateby
 
         if exhibitno is not None:
@@ -9548,6 +10015,8 @@ class Object(object):
                 raise TypeError("expected exhlabel1 to be a str but it is a %s" % getattr(__builtin__, 'type')(exhlabel1))
             if len(exhlabel1) < 1:
                 raise ValueError("expected len(exhlabel1) to be >= 1, was %d" % len(exhlabel1))
+            if exhlabel1.isspace():
+                raise ValueError("expected exhlabel1 not to be blank")
         self.__exhlabel1 = exhlabel1
 
         if exhlabel2 is not None:
@@ -9555,6 +10024,8 @@ class Object(object):
                 raise TypeError("expected exhlabel2 to be a str but it is a %s" % getattr(__builtin__, 'type')(exhlabel2))
             if len(exhlabel2) < 1:
                 raise ValueError("expected len(exhlabel2) to be >= 1, was %d" % len(exhlabel2))
+            if exhlabel2.isspace():
+                raise ValueError("expected exhlabel2 not to be blank")
         self.__exhlabel2 = exhlabel2
 
         if exhlabel3 is not None:
@@ -9562,6 +10033,8 @@ class Object(object):
                 raise TypeError("expected exhlabel3 to be a str but it is a %s" % getattr(__builtin__, 'type')(exhlabel3))
             if len(exhlabel3) < 1:
                 raise ValueError("expected len(exhlabel3) to be >= 1, was %d" % len(exhlabel3))
+            if exhlabel3.isspace():
+                raise ValueError("expected exhlabel3 not to be blank")
         self.__exhlabel3 = exhlabel3
 
         if exhlabel4 is not None:
@@ -9569,6 +10042,8 @@ class Object(object):
                 raise TypeError("expected exhlabel4 to be a str but it is a %s" % getattr(__builtin__, 'type')(exhlabel4))
             if len(exhlabel4) < 1:
                 raise ValueError("expected len(exhlabel4) to be >= 1, was %d" % len(exhlabel4))
+            if exhlabel4.isspace():
+                raise ValueError("expected exhlabel4 not to be blank")
         self.__exhlabel4 = exhlabel4
 
         if exhstart is not None:
@@ -9576,6 +10051,8 @@ class Object(object):
                 raise TypeError("expected exhstart to be a str but it is a %s" % getattr(__builtin__, 'type')(exhstart))
             if len(exhstart) < 1:
                 raise ValueError("expected len(exhstart) to be >= 1, was %d" % len(exhstart))
+            if exhstart.isspace():
+                raise ValueError("expected exhstart not to be blank")
         self.__exhstart = exhstart
 
         if family is not None:
@@ -9583,6 +10060,8 @@ class Object(object):
                 raise TypeError("expected family to be a str but it is a %s" % getattr(__builtin__, 'type')(family))
             if len(family) < 1:
                 raise ValueError("expected len(family) to be >= 1, was %d" % len(family))
+            if family.isspace():
+                raise ValueError("expected family not to be blank")
         self.__family = family
 
         if feature is not None:
@@ -9590,6 +10069,8 @@ class Object(object):
                 raise TypeError("expected feature to be a str but it is a %s" % getattr(__builtin__, 'type')(feature))
             if len(feature) < 1:
                 raise ValueError("expected len(feature) to be >= 1, was %d" % len(feature))
+            if feature.isspace():
+                raise ValueError("expected feature not to be blank")
         self.__feature = feature
 
         if flagdate is not None:
@@ -9602,6 +10083,8 @@ class Object(object):
                 raise TypeError("expected flagnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(flagnotes))
             if len(flagnotes) < 1:
                 raise ValueError("expected len(flagnotes) to be >= 1, was %d" % len(flagnotes))
+            if flagnotes.isspace():
+                raise ValueError("expected flagnotes not to be blank")
         self.__flagnotes = flagnotes
 
         if flagreason is not None:
@@ -9609,6 +10092,8 @@ class Object(object):
                 raise TypeError("expected flagreason to be a str but it is a %s" % getattr(__builtin__, 'type')(flagreason))
             if len(flagreason) < 1:
                 raise ValueError("expected len(flagreason) to be >= 1, was %d" % len(flagreason))
+            if flagreason.isspace():
+                raise ValueError("expected flagreason not to be blank")
         self.__flagreason = flagreason
 
         if formation is not None:
@@ -9616,6 +10101,8 @@ class Object(object):
                 raise TypeError("expected formation to be a str but it is a %s" % getattr(__builtin__, 'type')(formation))
             if len(formation) < 1:
                 raise ValueError("expected len(formation) to be >= 1, was %d" % len(formation))
+            if formation.isspace():
+                raise ValueError("expected formation not to be blank")
         self.__formation = formation
 
         if fossils is not None:
@@ -9623,6 +10110,8 @@ class Object(object):
                 raise TypeError("expected fossils to be a str but it is a %s" % getattr(__builtin__, 'type')(fossils))
             if len(fossils) < 1:
                 raise ValueError("expected len(fossils) to be >= 1, was %d" % len(fossils))
+            if fossils.isspace():
+                raise ValueError("expected fossils not to be blank")
         self.__fossils = fossils
 
         if found is not None:
@@ -9630,6 +10119,8 @@ class Object(object):
                 raise TypeError("expected found to be a str but it is a %s" % getattr(__builtin__, 'type')(found))
             if len(found) < 1:
                 raise ValueError("expected len(found) to be >= 1, was %d" % len(found))
+            if found.isspace():
+                raise ValueError("expected found not to be blank")
         self.__found = found
 
         if fracture is not None:
@@ -9637,6 +10128,8 @@ class Object(object):
                 raise TypeError("expected fracture to be a str but it is a %s" % getattr(__builtin__, 'type')(fracture))
             if len(fracture) < 1:
                 raise ValueError("expected len(fracture) to be >= 1, was %d" % len(fracture))
+            if fracture.isspace():
+                raise ValueError("expected fracture not to be blank")
         self.__fracture = fracture
 
         if frame is not None:
@@ -9644,6 +10137,8 @@ class Object(object):
                 raise TypeError("expected frame to be a str but it is a %s" % getattr(__builtin__, 'type')(frame))
             if len(frame) < 1:
                 raise ValueError("expected len(frame) to be >= 1, was %d" % len(frame))
+            if frame.isspace():
+                raise ValueError("expected frame not to be blank")
         self.__frame = frame
 
         if framesize is not None:
@@ -9651,6 +10146,8 @@ class Object(object):
                 raise TypeError("expected framesize to be a str but it is a %s" % getattr(__builtin__, 'type')(framesize))
             if len(framesize) < 1:
                 raise ValueError("expected len(framesize) to be >= 1, was %d" % len(framesize))
+            if framesize.isspace():
+                raise ValueError("expected framesize not to be blank")
         self.__framesize = framesize
 
         if genus is not None:
@@ -9658,6 +10155,8 @@ class Object(object):
                 raise TypeError("expected genus to be a str but it is a %s" % getattr(__builtin__, 'type')(genus))
             if len(genus) < 1:
                 raise ValueError("expected len(genus) to be >= 1, was %d" % len(genus))
+            if genus.isspace():
+                raise ValueError("expected genus not to be blank")
         self.__genus = genus
 
         if gparent is not None:
@@ -9665,6 +10164,8 @@ class Object(object):
                 raise TypeError("expected gparent to be a str but it is a %s" % getattr(__builtin__, 'type')(gparent))
             if len(gparent) < 1:
                 raise ValueError("expected len(gparent) to be >= 1, was %d" % len(gparent))
+            if gparent.isspace():
+                raise ValueError("expected gparent not to be blank")
         self.__gparent = gparent
 
         if grainsize is not None:
@@ -9672,6 +10173,8 @@ class Object(object):
                 raise TypeError("expected grainsize to be a str but it is a %s" % getattr(__builtin__, 'type')(grainsize))
             if len(grainsize) < 1:
                 raise ValueError("expected len(grainsize) to be >= 1, was %d" % len(grainsize))
+            if grainsize.isspace():
+                raise ValueError("expected grainsize not to be blank")
         self.__grainsize = grainsize
 
         if habitat is not None:
@@ -9679,6 +10182,8 @@ class Object(object):
                 raise TypeError("expected habitat to be a str but it is a %s" % getattr(__builtin__, 'type')(habitat))
             if len(habitat) < 1:
                 raise ValueError("expected len(habitat) to be >= 1, was %d" % len(habitat))
+            if habitat.isspace():
+                raise ValueError("expected habitat not to be blank")
         self.__habitat = habitat
 
         if hardness is not None:
@@ -9686,21 +10191,29 @@ class Object(object):
                 raise TypeError("expected hardness to be a str but it is a %s" % getattr(__builtin__, 'type')(hardness))
             if len(hardness) < 1:
                 raise ValueError("expected len(hardness) to be >= 1, was %d" % len(hardness))
+            if hardness.isspace():
+                raise ValueError("expected hardness not to be blank")
         self.__hardness = hardness
 
         if height is not None:
             if not isinstance(height, decimal.Decimal):
                 raise TypeError("expected height to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(height))
+            if height <= 0:
+                raise ValueError("expected height to be > 0, was %s" % height)
         self.__height = height
 
         if heightft is not None:
             if not isinstance(heightft, decimal.Decimal):
                 raise TypeError("expected heightft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(heightft))
+            if heightft <= 0:
+                raise ValueError("expected heightft to be > 0, was %s" % heightft)
         self.__heightft = heightft
 
         if heightin is not None:
             if not isinstance(heightin, decimal.Decimal):
                 raise TypeError("expected heightin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(heightin))
+            if heightin <= 0:
+                raise ValueError("expected heightin to be > 0, was %s" % heightin)
         self.__heightin = heightin
 
         if homeloc is not None:
@@ -9708,6 +10221,8 @@ class Object(object):
                 raise TypeError("expected homeloc to be a str but it is a %s" % getattr(__builtin__, 'type')(homeloc))
             if len(homeloc) < 1:
                 raise ValueError("expected len(homeloc) to be >= 1, was %d" % len(homeloc))
+            if homeloc.isspace():
+                raise ValueError("expected homeloc not to be blank")
         self.__homeloc = homeloc
 
         if idby is not None:
@@ -9715,6 +10230,8 @@ class Object(object):
                 raise TypeError("expected idby to be a str but it is a %s" % getattr(__builtin__, 'type')(idby))
             if len(idby) < 1:
                 raise ValueError("expected len(idby) to be >= 1, was %d" % len(idby))
+            if idby.isspace():
+                raise ValueError("expected idby not to be blank")
         self.__idby = idby
 
         if iddate is not None:
@@ -9727,6 +10244,8 @@ class Object(object):
                 raise TypeError("expected imagefile to be a str but it is a %s" % getattr(__builtin__, 'type')(imagefile))
             if len(imagefile) < 1:
                 raise ValueError("expected len(imagefile) to be >= 1, was %d" % len(imagefile))
+            if imagefile.isspace():
+                raise ValueError("expected imagefile not to be blank")
         self.__imagefile = imagefile
 
         if imageno is not None:
@@ -9739,6 +10258,8 @@ class Object(object):
                 raise TypeError("expected imagesize to be a str but it is a %s" % getattr(__builtin__, 'type')(imagesize))
             if len(imagesize) < 1:
                 raise ValueError("expected len(imagesize) to be >= 1, was %d" % len(imagesize))
+            if imagesize.isspace():
+                raise ValueError("expected imagesize not to be blank")
         self.__imagesize = imagesize
 
         if inscomp is not None:
@@ -9746,6 +10267,8 @@ class Object(object):
                 raise TypeError("expected inscomp to be a str but it is a %s" % getattr(__builtin__, 'type')(inscomp))
             if len(inscomp) < 1:
                 raise ValueError("expected len(inscomp) to be >= 1, was %d" % len(inscomp))
+            if inscomp.isspace():
+                raise ValueError("expected inscomp not to be blank")
         self.__inscomp = inscomp
 
         if inscrlang is not None:
@@ -9753,6 +10276,8 @@ class Object(object):
                 raise TypeError("expected inscrlang to be a str but it is a %s" % getattr(__builtin__, 'type')(inscrlang))
             if len(inscrlang) < 1:
                 raise ValueError("expected len(inscrlang) to be >= 1, was %d" % len(inscrlang))
+            if inscrlang.isspace():
+                raise ValueError("expected inscrlang not to be blank")
         self.__inscrlang = inscrlang
 
         if inscrpos is not None:
@@ -9760,6 +10285,8 @@ class Object(object):
                 raise TypeError("expected inscrpos to be a str but it is a %s" % getattr(__builtin__, 'type')(inscrpos))
             if len(inscrpos) < 1:
                 raise ValueError("expected len(inscrpos) to be >= 1, was %d" % len(inscrpos))
+            if inscrpos.isspace():
+                raise ValueError("expected inscrpos not to be blank")
         self.__inscrpos = inscrpos
 
         if inscrtech is not None:
@@ -9767,6 +10294,8 @@ class Object(object):
                 raise TypeError("expected inscrtech to be a str but it is a %s" % getattr(__builtin__, 'type')(inscrtech))
             if len(inscrtech) < 1:
                 raise ValueError("expected len(inscrtech) to be >= 1, was %d" % len(inscrtech))
+            if inscrtech.isspace():
+                raise ValueError("expected inscrtech not to be blank")
         self.__inscrtech = inscrtech
 
         if inscrtext is not None:
@@ -9774,6 +10303,8 @@ class Object(object):
                 raise TypeError("expected inscrtext to be a str but it is a %s" % getattr(__builtin__, 'type')(inscrtext))
             if len(inscrtext) < 1:
                 raise ValueError("expected len(inscrtext) to be >= 1, was %d" % len(inscrtext))
+            if inscrtext.isspace():
+                raise ValueError("expected inscrtext not to be blank")
         self.__inscrtext = inscrtext
 
         if inscrtrans is not None:
@@ -9781,11 +10312,11 @@ class Object(object):
                 raise TypeError("expected inscrtrans to be a str but it is a %s" % getattr(__builtin__, 'type')(inscrtrans))
             if len(inscrtrans) < 1:
                 raise ValueError("expected len(inscrtrans) to be >= 1, was %d" % len(inscrtrans))
+            if inscrtrans.isspace():
+                raise ValueError("expected inscrtrans not to be blank")
         self.__inscrtrans = inscrtrans
 
-        if inscrtype is not None:
-            if not isinstance(inscrtype, int):
-                raise TypeError("expected inscrtype to be a int but it is a %s" % getattr(__builtin__, 'type')(inscrtype))
+
         self.__inscrtype = inscrtype
 
         if insdate is not None:
@@ -9798,6 +10329,8 @@ class Object(object):
                 raise TypeError("expected insphone to be a str but it is a %s" % getattr(__builtin__, 'type')(insphone))
             if len(insphone) < 1:
                 raise ValueError("expected len(insphone) to be >= 1, was %d" % len(insphone))
+            if insphone.isspace():
+                raise ValueError("expected insphone not to be blank")
         self.__insphone = insphone
 
         if inspremium is not None:
@@ -9805,6 +10338,8 @@ class Object(object):
                 raise TypeError("expected inspremium to be a str but it is a %s" % getattr(__builtin__, 'type')(inspremium))
             if len(inspremium) < 1:
                 raise ValueError("expected len(inspremium) to be >= 1, was %d" % len(inspremium))
+            if inspremium.isspace():
+                raise ValueError("expected inspremium not to be blank")
         self.__inspremium = inspremium
 
         if insrep is not None:
@@ -9812,6 +10347,8 @@ class Object(object):
                 raise TypeError("expected insrep to be a str but it is a %s" % getattr(__builtin__, 'type')(insrep))
             if len(insrep) < 1:
                 raise ValueError("expected len(insrep) to be >= 1, was %d" % len(insrep))
+            if insrep.isspace():
+                raise ValueError("expected insrep not to be blank")
         self.__insrep = insrep
 
         if insvalue is not None:
@@ -9824,6 +10361,8 @@ class Object(object):
                 raise TypeError("expected invnby to be a str but it is a %s" % getattr(__builtin__, 'type')(invnby))
             if len(invnby) < 1:
                 raise ValueError("expected len(invnby) to be >= 1, was %d" % len(invnby))
+            if invnby.isspace():
+                raise ValueError("expected invnby not to be blank")
         self.__invnby = invnby
 
         if invndate is not None:
@@ -9836,11 +10375,17 @@ class Object(object):
                 raise TypeError("expected kingdom to be a str but it is a %s" % getattr(__builtin__, 'type')(kingdom))
             if len(kingdom) < 1:
                 raise ValueError("expected len(kingdom) to be >= 1, was %d" % len(kingdom))
+            if kingdom.isspace():
+                raise ValueError("expected kingdom not to be blank")
         self.__kingdom = kingdom
 
         if latedate is not None:
-            if not isinstance(latedate, datetime.datetime):
-                raise TypeError("expected latedate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(latedate))
+            if not isinstance(latedate, basestring):
+                raise TypeError("expected latedate to be a str but it is a %s" % getattr(__builtin__, 'type')(latedate))
+            if len(latedate) < 1:
+                raise ValueError("expected len(latedate) to be >= 1, was %d" % len(latedate))
+            if latedate.isspace():
+                raise ValueError("expected latedate not to be blank")
         self.__latedate = latedate
 
         if legal is not None:
@@ -9848,21 +10393,29 @@ class Object(object):
                 raise TypeError("expected legal to be a str but it is a %s" % getattr(__builtin__, 'type')(legal))
             if len(legal) < 1:
                 raise ValueError("expected len(legal) to be >= 1, was %d" % len(legal))
+            if legal.isspace():
+                raise ValueError("expected legal not to be blank")
         self.__legal = legal
 
         if length is not None:
             if not isinstance(length, decimal.Decimal):
                 raise TypeError("expected length to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(length))
+            if length <= 0:
+                raise ValueError("expected length to be > 0, was %s" % length)
         self.__length = length
 
         if lengthft is not None:
             if not isinstance(lengthft, decimal.Decimal):
                 raise TypeError("expected lengthft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(lengthft))
+            if lengthft <= 0:
+                raise ValueError("expected lengthft to be > 0, was %s" % lengthft)
         self.__lengthft = lengthft
 
         if lengthin is not None:
             if not isinstance(lengthin, decimal.Decimal):
                 raise TypeError("expected lengthin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(lengthin))
+            if lengthin <= 0:
+                raise ValueError("expected lengthin to be > 0, was %s" % lengthin)
         self.__lengthin = lengthin
 
         if level is not None:
@@ -9870,6 +10423,8 @@ class Object(object):
                 raise TypeError("expected level to be a str but it is a %s" % getattr(__builtin__, 'type')(level))
             if len(level) < 1:
                 raise ValueError("expected len(level) to be >= 1, was %d" % len(level))
+            if level.isspace():
+                raise ValueError("expected level not to be blank")
         self.__level = level
 
         if lithofacie is not None:
@@ -9877,6 +10432,8 @@ class Object(object):
                 raise TypeError("expected lithofacie to be a str but it is a %s" % getattr(__builtin__, 'type')(lithofacie))
             if len(lithofacie) < 1:
                 raise ValueError("expected len(lithofacie) to be >= 1, was %d" % len(lithofacie))
+            if lithofacie.isspace():
+                raise ValueError("expected lithofacie not to be blank")
         self.__lithofacie = lithofacie
 
         if loancond is not None:
@@ -9884,6 +10441,8 @@ class Object(object):
                 raise TypeError("expected loancond to be a str but it is a %s" % getattr(__builtin__, 'type')(loancond))
             if len(loancond) < 1:
                 raise ValueError("expected len(loancond) to be >= 1, was %d" % len(loancond))
+            if loancond.isspace():
+                raise ValueError("expected loancond not to be blank")
         self.__loancond = loancond
 
         if loandue is not None:
@@ -9891,6 +10450,8 @@ class Object(object):
                 raise TypeError("expected loandue to be a str but it is a %s" % getattr(__builtin__, 'type')(loandue))
             if len(loandue) < 1:
                 raise ValueError("expected len(loandue) to be >= 1, was %d" % len(loandue))
+            if loandue.isspace():
+                raise ValueError("expected loandue not to be blank")
         self.__loandue = loandue
 
         if loaninno is not None:
@@ -9908,6 +10469,8 @@ class Object(object):
                 raise TypeError("expected locfield1 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield1))
             if len(locfield1) < 1:
                 raise ValueError("expected len(locfield1) to be >= 1, was %d" % len(locfield1))
+            if locfield1.isspace():
+                raise ValueError("expected locfield1 not to be blank")
         self.__locfield1 = locfield1
 
         if locfield2 is not None:
@@ -9915,6 +10478,8 @@ class Object(object):
                 raise TypeError("expected locfield2 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield2))
             if len(locfield2) < 1:
                 raise ValueError("expected len(locfield2) to be >= 1, was %d" % len(locfield2))
+            if locfield2.isspace():
+                raise ValueError("expected locfield2 not to be blank")
         self.__locfield2 = locfield2
 
         if locfield3 is not None:
@@ -9922,6 +10487,8 @@ class Object(object):
                 raise TypeError("expected locfield3 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield3))
             if len(locfield3) < 1:
                 raise ValueError("expected len(locfield3) to be >= 1, was %d" % len(locfield3))
+            if locfield3.isspace():
+                raise ValueError("expected locfield3 not to be blank")
         self.__locfield3 = locfield3
 
         if locfield4 is not None:
@@ -9929,6 +10496,8 @@ class Object(object):
                 raise TypeError("expected locfield4 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield4))
             if len(locfield4) < 1:
                 raise ValueError("expected len(locfield4) to be >= 1, was %d" % len(locfield4))
+            if locfield4.isspace():
+                raise ValueError("expected locfield4 not to be blank")
         self.__locfield4 = locfield4
 
         if locfield5 is not None:
@@ -9936,6 +10505,8 @@ class Object(object):
                 raise TypeError("expected locfield5 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield5))
             if len(locfield5) < 1:
                 raise ValueError("expected len(locfield5) to be >= 1, was %d" % len(locfield5))
+            if locfield5.isspace():
+                raise ValueError("expected locfield5 not to be blank")
         self.__locfield5 = locfield5
 
         if locfield6 is not None:
@@ -9943,6 +10514,8 @@ class Object(object):
                 raise TypeError("expected locfield6 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield6))
             if len(locfield6) < 1:
                 raise ValueError("expected len(locfield6) to be >= 1, was %d" % len(locfield6))
+            if locfield6.isspace():
+                raise ValueError("expected locfield6 not to be blank")
         self.__locfield6 = locfield6
 
         if luster is not None:
@@ -9950,6 +10523,8 @@ class Object(object):
                 raise TypeError("expected luster to be a str but it is a %s" % getattr(__builtin__, 'type')(luster))
             if len(luster) < 1:
                 raise ValueError("expected len(luster) to be >= 1, was %d" % len(luster))
+            if luster.isspace():
+                raise ValueError("expected luster not to be blank")
         self.__luster = luster
 
         if made is not None:
@@ -9957,6 +10532,8 @@ class Object(object):
                 raise TypeError("expected made to be a str but it is a %s" % getattr(__builtin__, 'type')(made))
             if len(made) < 1:
                 raise ValueError("expected len(made) to be >= 1, was %d" % len(made))
+            if made.isspace():
+                raise ValueError("expected made not to be blank")
         self.__made = made
 
         if maintcycle is not None:
@@ -9964,6 +10541,8 @@ class Object(object):
                 raise TypeError("expected maintcycle to be a str but it is a %s" % getattr(__builtin__, 'type')(maintcycle))
             if len(maintcycle) < 1:
                 raise ValueError("expected len(maintcycle) to be >= 1, was %d" % len(maintcycle))
+            if maintcycle.isspace():
+                raise ValueError("expected maintcycle not to be blank")
         self.__maintcycle = maintcycle
 
         if maintdate is not None:
@@ -9976,6 +10555,8 @@ class Object(object):
                 raise TypeError("expected maintnote to be a str but it is a %s" % getattr(__builtin__, 'type')(maintnote))
             if len(maintnote) < 1:
                 raise ValueError("expected len(maintnote) to be >= 1, was %d" % len(maintnote))
+            if maintnote.isspace():
+                raise ValueError("expected maintnote not to be blank")
         self.__maintnote = maintnote
 
         if material is not None:
@@ -9983,6 +10564,8 @@ class Object(object):
                 raise TypeError("expected material to be a str but it is a %s" % getattr(__builtin__, 'type')(material))
             if len(material) < 1:
                 raise ValueError("expected len(material) to be >= 1, was %d" % len(material))
+            if material.isspace():
+                raise ValueError("expected material not to be blank")
         self.__material = material
 
         if medium is not None:
@@ -9990,6 +10573,8 @@ class Object(object):
                 raise TypeError("expected medium to be a str but it is a %s" % getattr(__builtin__, 'type')(medium))
             if len(medium) < 1:
                 raise ValueError("expected len(medium) to be >= 1, was %d" % len(medium))
+            if medium.isspace():
+                raise ValueError("expected medium not to be blank")
         self.__medium = medium
 
         if member is not None:
@@ -9997,6 +10582,8 @@ class Object(object):
                 raise TypeError("expected member to be a str but it is a %s" % getattr(__builtin__, 'type')(member))
             if len(member) < 1:
                 raise ValueError("expected len(member) to be >= 1, was %d" % len(member))
+            if member.isspace():
+                raise ValueError("expected member not to be blank")
         self.__member = member
 
         if mmark is not None:
@@ -10004,6 +10591,8 @@ class Object(object):
                 raise TypeError("expected mmark to be a str but it is a %s" % getattr(__builtin__, 'type')(mmark))
             if len(mmark) < 1:
                 raise ValueError("expected len(mmark) to be >= 1, was %d" % len(mmark))
+            if mmark.isspace():
+                raise ValueError("expected mmark not to be blank")
         self.__mmark = mmark
 
         if nhclass is not None:
@@ -10011,6 +10600,8 @@ class Object(object):
                 raise TypeError("expected nhclass to be a str but it is a %s" % getattr(__builtin__, 'type')(nhclass))
             if len(nhclass) < 1:
                 raise ValueError("expected len(nhclass) to be >= 1, was %d" % len(nhclass))
+            if nhclass.isspace():
+                raise ValueError("expected nhclass not to be blank")
         self.__nhclass = nhclass
 
         if nhorder is not None:
@@ -10018,6 +10609,8 @@ class Object(object):
                 raise TypeError("expected nhorder to be a str but it is a %s" % getattr(__builtin__, 'type')(nhorder))
             if len(nhorder) < 1:
                 raise ValueError("expected len(nhorder) to be >= 1, was %d" % len(nhorder))
+            if nhorder.isspace():
+                raise ValueError("expected nhorder not to be blank")
         self.__nhorder = nhorder
 
         if notes is not None:
@@ -10025,6 +10618,8 @@ class Object(object):
                 raise TypeError("expected notes to be a str but it is a %s" % getattr(__builtin__, 'type')(notes))
             if len(notes) < 1:
                 raise ValueError("expected len(notes) to be >= 1, was %d" % len(notes))
+            if notes.isspace():
+                raise ValueError("expected notes not to be blank")
         self.__notes = notes
 
         if objectid is not None:
@@ -10032,6 +10627,8 @@ class Object(object):
                 raise TypeError("expected objectid to be a str but it is a %s" % getattr(__builtin__, 'type')(objectid))
             if len(objectid) < 1:
                 raise ValueError("expected len(objectid) to be >= 1, was %d" % len(objectid))
+            if objectid.isspace():
+                raise ValueError("expected objectid not to be blank")
         self.__objectid = objectid
 
         if objname is not None:
@@ -10039,6 +10636,8 @@ class Object(object):
                 raise TypeError("expected objname to be a str but it is a %s" % getattr(__builtin__, 'type')(objname))
             if len(objname) < 1:
                 raise ValueError("expected len(objname) to be >= 1, was %d" % len(objname))
+            if objname.isspace():
+                raise ValueError("expected objname not to be blank")
         self.__objname = objname
 
         if objname2 is not None:
@@ -10046,6 +10645,8 @@ class Object(object):
                 raise TypeError("expected objname2 to be a str but it is a %s" % getattr(__builtin__, 'type')(objname2))
             if len(objname2) < 1:
                 raise ValueError("expected len(objname2) to be >= 1, was %d" % len(objname2))
+            if objname2.isspace():
+                raise ValueError("expected objname2 not to be blank")
         self.__objname2 = objname2
 
         if objname3 is not None:
@@ -10053,6 +10654,8 @@ class Object(object):
                 raise TypeError("expected objname3 to be a str but it is a %s" % getattr(__builtin__, 'type')(objname3))
             if len(objname3) < 1:
                 raise ValueError("expected len(objname3) to be >= 1, was %d" % len(objname3))
+            if objname3.isspace():
+                raise ValueError("expected objname3 not to be blank")
         self.__objname3 = objname3
 
         if objnames is not None:
@@ -10060,6 +10663,8 @@ class Object(object):
                 raise TypeError("expected objnames to be a str but it is a %s" % getattr(__builtin__, 'type')(objnames))
             if len(objnames) < 1:
                 raise ValueError("expected len(objnames) to be >= 1, was %d" % len(objnames))
+            if objnames.isspace():
+                raise ValueError("expected objnames not to be blank")
         self.__objnames = objnames
 
         if occurrence is not None:
@@ -10067,6 +10672,8 @@ class Object(object):
                 raise TypeError("expected occurrence to be a str but it is a %s" % getattr(__builtin__, 'type')(occurrence))
             if len(occurrence) < 1:
                 raise ValueError("expected len(occurrence) to be >= 1, was %d" % len(occurrence))
+            if occurrence.isspace():
+                raise ValueError("expected occurrence not to be blank")
         self.__occurrence = occurrence
 
         if oldno is not None:
@@ -10079,6 +10686,8 @@ class Object(object):
                 raise TypeError("expected origin to be a str but it is a %s" % getattr(__builtin__, 'type')(origin))
             if len(origin) < 1:
                 raise ValueError("expected len(origin) to be >= 1, was %d" % len(origin))
+            if origin.isspace():
+                raise ValueError("expected origin not to be blank")
         self.__origin = origin
 
         if othername is not None:
@@ -10086,11 +10695,17 @@ class Object(object):
                 raise TypeError("expected othername to be a str but it is a %s" % getattr(__builtin__, 'type')(othername))
             if len(othername) < 1:
                 raise ValueError("expected len(othername) to be >= 1, was %d" % len(othername))
+            if othername.isspace():
+                raise ValueError("expected othername not to be blank")
         self.__othername = othername
 
         if otherno is not None:
-            if not isinstance(otherno, int):
-                raise TypeError("expected otherno to be a int but it is a %s" % getattr(__builtin__, 'type')(otherno))
+            if not isinstance(otherno, basestring):
+                raise TypeError("expected otherno to be a str but it is a %s" % getattr(__builtin__, 'type')(otherno))
+            if len(otherno) < 1:
+                raise ValueError("expected len(otherno) to be >= 1, was %d" % len(otherno))
+            if otherno.isspace():
+                raise ValueError("expected otherno not to be blank")
         self.__otherno = otherno
 
         if outdate is not None:
@@ -10103,6 +10718,8 @@ class Object(object):
                 raise TypeError("expected owned to be a str but it is a %s" % getattr(__builtin__, 'type')(owned))
             if len(owned) < 1:
                 raise ValueError("expected len(owned) to be >= 1, was %d" % len(owned))
+            if owned.isspace():
+                raise ValueError("expected owned not to be blank")
         self.__owned = owned
 
         if parent is not None:
@@ -10110,6 +10727,8 @@ class Object(object):
                 raise TypeError("expected parent to be a str but it is a %s" % getattr(__builtin__, 'type')(parent))
             if len(parent) < 1:
                 raise ValueError("expected len(parent) to be >= 1, was %d" % len(parent))
+            if parent.isspace():
+                raise ValueError("expected parent not to be blank")
         self.__parent = parent
 
         if people is not None:
@@ -10117,6 +10736,8 @@ class Object(object):
                 raise TypeError("expected people to be a str but it is a %s" % getattr(__builtin__, 'type')(people))
             if len(people) < 1:
                 raise ValueError("expected len(people) to be >= 1, was %d" % len(people))
+            if people.isspace():
+                raise ValueError("expected people not to be blank")
         self.__people = people
 
         if period is not None:
@@ -10124,6 +10745,8 @@ class Object(object):
                 raise TypeError("expected period to be a str but it is a %s" % getattr(__builtin__, 'type')(period))
             if len(period) < 1:
                 raise ValueError("expected len(period) to be >= 1, was %d" % len(period))
+            if period.isspace():
+                raise ValueError("expected period not to be blank")
         self.__period = period
 
         if phylum is not None:
@@ -10131,6 +10754,8 @@ class Object(object):
                 raise TypeError("expected phylum to be a str but it is a %s" % getattr(__builtin__, 'type')(phylum))
             if len(phylum) < 1:
                 raise ValueError("expected len(phylum) to be >= 1, was %d" % len(phylum))
+            if phylum.isspace():
+                raise ValueError("expected phylum not to be blank")
         self.__phylum = phylum
 
         if policyno is not None:
@@ -10143,6 +10768,8 @@ class Object(object):
                 raise TypeError("expected preparator to be a str but it is a %s" % getattr(__builtin__, 'type')(preparator))
             if len(preparator) < 1:
                 raise ValueError("expected len(preparator) to be >= 1, was %d" % len(preparator))
+            if preparator.isspace():
+                raise ValueError("expected preparator not to be blank")
         self.__preparator = preparator
 
         if prepdate is not None:
@@ -10155,6 +10782,8 @@ class Object(object):
                 raise TypeError("expected preserve to be a str but it is a %s" % getattr(__builtin__, 'type')(preserve))
             if len(preserve) < 1:
                 raise ValueError("expected len(preserve) to be >= 1, was %d" % len(preserve))
+            if preserve.isspace():
+                raise ValueError("expected preserve not to be blank")
         self.__preserve = preserve
 
         if pressure is not None:
@@ -10162,6 +10791,8 @@ class Object(object):
                 raise TypeError("expected pressure to be a str but it is a %s" % getattr(__builtin__, 'type')(pressure))
             if len(pressure) < 1:
                 raise ValueError("expected len(pressure) to be >= 1, was %d" % len(pressure))
+            if pressure.isspace():
+                raise ValueError("expected pressure not to be blank")
         self.__pressure = pressure
 
         if provenance is not None:
@@ -10169,6 +10800,8 @@ class Object(object):
                 raise TypeError("expected provenance to be a str but it is a %s" % getattr(__builtin__, 'type')(provenance))
             if len(provenance) < 1:
                 raise ValueError("expected len(provenance) to be >= 1, was %d" % len(provenance))
+            if provenance.isspace():
+                raise ValueError("expected provenance not to be blank")
         self.__provenance = provenance
 
         if pubnotes is not None:
@@ -10176,6 +10809,8 @@ class Object(object):
                 raise TypeError("expected pubnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(pubnotes))
             if len(pubnotes) < 1:
                 raise ValueError("expected len(pubnotes) to be >= 1, was %d" % len(pubnotes))
+            if pubnotes.isspace():
+                raise ValueError("expected pubnotes not to be blank")
         self.__pubnotes = pubnotes
 
         if recas is not None:
@@ -10193,6 +10828,8 @@ class Object(object):
                 raise TypeError("expected recfrom to be a str but it is a %s" % getattr(__builtin__, 'type')(recfrom))
             if len(recfrom) < 1:
                 raise ValueError("expected len(recfrom) to be >= 1, was %d" % len(recfrom))
+            if recfrom.isspace():
+                raise ValueError("expected recfrom not to be blank")
         self.__recfrom = recfrom
 
         if relnotes is not None:
@@ -10200,6 +10837,8 @@ class Object(object):
                 raise TypeError("expected relnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(relnotes))
             if len(relnotes) < 1:
                 raise ValueError("expected len(relnotes) to be >= 1, was %d" % len(relnotes))
+            if relnotes.isspace():
+                raise ValueError("expected relnotes not to be blank")
         self.__relnotes = relnotes
 
         if repatby is not None:
@@ -10207,6 +10846,8 @@ class Object(object):
                 raise TypeError("expected repatby to be a str but it is a %s" % getattr(__builtin__, 'type')(repatby))
             if len(repatby) < 1:
                 raise ValueError("expected len(repatby) to be >= 1, was %d" % len(repatby))
+            if repatby.isspace():
+                raise ValueError("expected repatby not to be blank")
         self.__repatby = repatby
 
         if repatclaim is not None:
@@ -10214,6 +10855,8 @@ class Object(object):
                 raise TypeError("expected repatclaim to be a str but it is a %s" % getattr(__builtin__, 'type')(repatclaim))
             if len(repatclaim) < 1:
                 raise ValueError("expected len(repatclaim) to be >= 1, was %d" % len(repatclaim))
+            if repatclaim.isspace():
+                raise ValueError("expected repatclaim not to be blank")
         self.__repatclaim = repatclaim
 
         if repatdate is not None:
@@ -10226,6 +10869,8 @@ class Object(object):
                 raise TypeError("expected repatdisp to be a str but it is a %s" % getattr(__builtin__, 'type')(repatdisp))
             if len(repatdisp) < 1:
                 raise ValueError("expected len(repatdisp) to be >= 1, was %d" % len(repatdisp))
+            if repatdisp.isspace():
+                raise ValueError("expected repatdisp not to be blank")
         self.__repatdisp = repatdisp
 
         if repathand is not None:
@@ -10233,6 +10878,8 @@ class Object(object):
                 raise TypeError("expected repathand to be a str but it is a %s" % getattr(__builtin__, 'type')(repathand))
             if len(repathand) < 1:
                 raise ValueError("expected len(repathand) to be >= 1, was %d" % len(repathand))
+            if repathand.isspace():
+                raise ValueError("expected repathand not to be blank")
         self.__repathand = repathand
 
         if repatnotes is not None:
@@ -10240,6 +10887,8 @@ class Object(object):
                 raise TypeError("expected repatnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(repatnotes))
             if len(repatnotes) < 1:
                 raise ValueError("expected len(repatnotes) to be >= 1, was %d" % len(repatnotes))
+            if repatnotes.isspace():
+                raise ValueError("expected repatnotes not to be blank")
         self.__repatnotes = repatnotes
 
         if repatnotic is not None:
@@ -10247,6 +10896,8 @@ class Object(object):
                 raise TypeError("expected repatnotic to be a str but it is a %s" % getattr(__builtin__, 'type')(repatnotic))
             if len(repatnotic) < 1:
                 raise ValueError("expected len(repatnotic) to be >= 1, was %d" % len(repatnotic))
+            if repatnotic.isspace():
+                raise ValueError("expected repatnotic not to be blank")
         self.__repatnotic = repatnotic
 
         if repattype is not None:
@@ -10259,6 +10910,8 @@ class Object(object):
                 raise TypeError("expected rockclass to be a str but it is a %s" % getattr(__builtin__, 'type')(rockclass))
             if len(rockclass) < 1:
                 raise ValueError("expected len(rockclass) to be >= 1, was %d" % len(rockclass))
+            if rockclass.isspace():
+                raise ValueError("expected rockclass not to be blank")
         self.__rockclass = rockclass
 
         if rockcolor is not None:
@@ -10266,6 +10919,8 @@ class Object(object):
                 raise TypeError("expected rockcolor to be a str but it is a %s" % getattr(__builtin__, 'type')(rockcolor))
             if len(rockcolor) < 1:
                 raise ValueError("expected len(rockcolor) to be >= 1, was %d" % len(rockcolor))
+            if rockcolor.isspace():
+                raise ValueError("expected rockcolor not to be blank")
         self.__rockcolor = rockcolor
 
         if rockorigin is not None:
@@ -10273,6 +10928,8 @@ class Object(object):
                 raise TypeError("expected rockorigin to be a str but it is a %s" % getattr(__builtin__, 'type')(rockorigin))
             if len(rockorigin) < 1:
                 raise ValueError("expected len(rockorigin) to be >= 1, was %d" % len(rockorigin))
+            if rockorigin.isspace():
+                raise ValueError("expected rockorigin not to be blank")
         self.__rockorigin = rockorigin
 
         if rocktype is not None:
@@ -10285,6 +10942,8 @@ class Object(object):
                 raise TypeError("expected role to be a str but it is a %s" % getattr(__builtin__, 'type')(role))
             if len(role) < 1:
                 raise ValueError("expected len(role) to be >= 1, was %d" % len(role))
+            if role.isspace():
+                raise ValueError("expected role not to be blank")
         self.__role = role
 
         if role2 is not None:
@@ -10292,6 +10951,8 @@ class Object(object):
                 raise TypeError("expected role2 to be a str but it is a %s" % getattr(__builtin__, 'type')(role2))
             if len(role2) < 1:
                 raise ValueError("expected len(role2) to be >= 1, was %d" % len(role2))
+            if role2.isspace():
+                raise ValueError("expected role2 not to be blank")
         self.__role2 = role2
 
         if role3 is not None:
@@ -10299,6 +10960,8 @@ class Object(object):
                 raise TypeError("expected role3 to be a str but it is a %s" % getattr(__builtin__, 'type')(role3))
             if len(role3) < 1:
                 raise ValueError("expected len(role3) to be >= 1, was %d" % len(role3))
+            if role3.isspace():
+                raise ValueError("expected role3 not to be blank")
         self.__role3 = role3
 
         if school is not None:
@@ -10306,6 +10969,8 @@ class Object(object):
                 raise TypeError("expected school to be a str but it is a %s" % getattr(__builtin__, 'type')(school))
             if len(school) < 1:
                 raise ValueError("expected len(school) to be >= 1, was %d" % len(school))
+            if school.isspace():
+                raise ValueError("expected school not to be blank")
         self.__school = school
 
         if sex is not None:
@@ -10313,6 +10978,8 @@ class Object(object):
                 raise TypeError("expected sex to be a str but it is a %s" % getattr(__builtin__, 'type')(sex))
             if len(sex) < 1:
                 raise ValueError("expected len(sex) to be >= 1, was %d" % len(sex))
+            if sex.isspace():
+                raise ValueError("expected sex not to be blank")
         self.__sex = sex
 
         if signedname is not None:
@@ -10320,6 +10987,8 @@ class Object(object):
                 raise TypeError("expected signedname to be a str but it is a %s" % getattr(__builtin__, 'type')(signedname))
             if len(signedname) < 1:
                 raise ValueError("expected len(signedname) to be >= 1, was %d" % len(signedname))
+            if signedname.isspace():
+                raise ValueError("expected signedname not to be blank")
         self.__signedname = signedname
 
         if signloc is not None:
@@ -10327,6 +10996,8 @@ class Object(object):
                 raise TypeError("expected signloc to be a str but it is a %s" % getattr(__builtin__, 'type')(signloc))
             if len(signloc) < 1:
                 raise ValueError("expected len(signloc) to be >= 1, was %d" % len(signloc))
+            if signloc.isspace():
+                raise ValueError("expected signloc not to be blank")
         self.__signloc = signloc
 
         if site is not None:
@@ -10334,6 +11005,8 @@ class Object(object):
                 raise TypeError("expected site to be a str but it is a %s" % getattr(__builtin__, 'type')(site))
             if len(site) < 1:
                 raise ValueError("expected len(site) to be >= 1, was %d" % len(site))
+            if site.isspace():
+                raise ValueError("expected site not to be blank")
         self.__site = site
 
         if siteno is not None:
@@ -10346,6 +11019,8 @@ class Object(object):
                 raise TypeError("expected specgrav to be a str but it is a %s" % getattr(__builtin__, 'type')(specgrav))
             if len(specgrav) < 1:
                 raise ValueError("expected len(specgrav) to be >= 1, was %d" % len(specgrav))
+            if specgrav.isspace():
+                raise ValueError("expected specgrav not to be blank")
         self.__specgrav = specgrav
 
         if species is not None:
@@ -10353,6 +11028,8 @@ class Object(object):
                 raise TypeError("expected species to be a str but it is a %s" % getattr(__builtin__, 'type')(species))
             if len(species) < 1:
                 raise ValueError("expected len(species) to be >= 1, was %d" % len(species))
+            if species.isspace():
+                raise ValueError("expected species not to be blank")
         self.__species = species
 
         if sprocess is not None:
@@ -10360,6 +11037,8 @@ class Object(object):
                 raise TypeError("expected sprocess to be a str but it is a %s" % getattr(__builtin__, 'type')(sprocess))
             if len(sprocess) < 1:
                 raise ValueError("expected len(sprocess) to be >= 1, was %d" % len(sprocess))
+            if sprocess.isspace():
+                raise ValueError("expected sprocess not to be blank")
         self.__sprocess = sprocess
 
         if stage is not None:
@@ -10367,6 +11046,8 @@ class Object(object):
                 raise TypeError("expected stage to be a str but it is a %s" % getattr(__builtin__, 'type')(stage))
             if len(stage) < 1:
                 raise ValueError("expected len(stage) to be >= 1, was %d" % len(stage))
+            if stage.isspace():
+                raise ValueError("expected stage not to be blank")
         self.__stage = stage
 
         if status is not None:
@@ -10379,6 +11060,8 @@ class Object(object):
                 raise TypeError("expected statusby to be a str but it is a %s" % getattr(__builtin__, 'type')(statusby))
             if len(statusby) < 1:
                 raise ValueError("expected len(statusby) to be >= 1, was %d" % len(statusby))
+            if statusby.isspace():
+                raise ValueError("expected statusby not to be blank")
         self.__statusby = statusby
 
         if statusdate is not None:
@@ -10391,6 +11074,8 @@ class Object(object):
                 raise TypeError("expected sterms to be a str but it is a %s" % getattr(__builtin__, 'type')(sterms))
             if len(sterms) < 1:
                 raise ValueError("expected len(sterms) to be >= 1, was %d" % len(sterms))
+            if sterms.isspace():
+                raise ValueError("expected sterms not to be blank")
         self.__sterms = sterms
 
         if stratum is not None:
@@ -10398,6 +11083,8 @@ class Object(object):
                 raise TypeError("expected stratum to be a str but it is a %s" % getattr(__builtin__, 'type')(stratum))
             if len(stratum) < 1:
                 raise ValueError("expected len(stratum) to be >= 1, was %d" % len(stratum))
+            if stratum.isspace():
+                raise ValueError("expected stratum not to be blank")
         self.__stratum = stratum
 
         if streak is not None:
@@ -10405,6 +11092,8 @@ class Object(object):
                 raise TypeError("expected streak to be a str but it is a %s" % getattr(__builtin__, 'type')(streak))
             if len(streak) < 1:
                 raise ValueError("expected len(streak) to be >= 1, was %d" % len(streak))
+            if streak.isspace():
+                raise ValueError("expected streak not to be blank")
         self.__streak = streak
 
         if subfamily is not None:
@@ -10412,6 +11101,8 @@ class Object(object):
                 raise TypeError("expected subfamily to be a str but it is a %s" % getattr(__builtin__, 'type')(subfamily))
             if len(subfamily) < 1:
                 raise ValueError("expected len(subfamily) to be >= 1, was %d" % len(subfamily))
+            if subfamily.isspace():
+                raise ValueError("expected subfamily not to be blank")
         self.__subfamily = subfamily
 
         if subjects is not None:
@@ -10419,6 +11110,8 @@ class Object(object):
                 raise TypeError("expected subjects to be a str but it is a %s" % getattr(__builtin__, 'type')(subjects))
             if len(subjects) < 1:
                 raise ValueError("expected len(subjects) to be >= 1, was %d" % len(subjects))
+            if subjects.isspace():
+                raise ValueError("expected subjects not to be blank")
         self.__subjects = subjects
 
         if subspecies is not None:
@@ -10426,6 +11119,8 @@ class Object(object):
                 raise TypeError("expected subspecies to be a str but it is a %s" % getattr(__builtin__, 'type')(subspecies))
             if len(subspecies) < 1:
                 raise ValueError("expected len(subspecies) to be >= 1, was %d" % len(subspecies))
+            if subspecies.isspace():
+                raise ValueError("expected subspecies not to be blank")
         self.__subspecies = subspecies
 
         if technique is not None:
@@ -10433,6 +11128,8 @@ class Object(object):
                 raise TypeError("expected technique to be a str but it is a %s" % getattr(__builtin__, 'type')(technique))
             if len(technique) < 1:
                 raise ValueError("expected len(technique) to be >= 1, was %d" % len(technique))
+            if technique.isspace():
+                raise ValueError("expected technique not to be blank")
         self.__technique = technique
 
         if tempauthor is not None:
@@ -10440,6 +11137,8 @@ class Object(object):
                 raise TypeError("expected tempauthor to be a str but it is a %s" % getattr(__builtin__, 'type')(tempauthor))
             if len(tempauthor) < 1:
                 raise ValueError("expected len(tempauthor) to be >= 1, was %d" % len(tempauthor))
+            if tempauthor.isspace():
+                raise ValueError("expected tempauthor not to be blank")
         self.__tempauthor = tempauthor
 
         if tempby is not None:
@@ -10447,6 +11146,8 @@ class Object(object):
                 raise TypeError("expected tempby to be a str but it is a %s" % getattr(__builtin__, 'type')(tempby))
             if len(tempby) < 1:
                 raise ValueError("expected len(tempby) to be >= 1, was %d" % len(tempby))
+            if tempby.isspace():
+                raise ValueError("expected tempby not to be blank")
         self.__tempby = tempby
 
         if tempdate is not None:
@@ -10459,6 +11160,8 @@ class Object(object):
                 raise TypeError("expected temperatur to be a str but it is a %s" % getattr(__builtin__, 'type')(temperatur))
             if len(temperatur) < 1:
                 raise ValueError("expected len(temperatur) to be >= 1, was %d" % len(temperatur))
+            if temperatur.isspace():
+                raise ValueError("expected temperatur not to be blank")
         self.__temperatur = temperatur
 
         if temploc is not None:
@@ -10466,6 +11169,8 @@ class Object(object):
                 raise TypeError("expected temploc to be a str but it is a %s" % getattr(__builtin__, 'type')(temploc))
             if len(temploc) < 1:
                 raise ValueError("expected len(temploc) to be >= 1, was %d" % len(temploc))
+            if temploc.isspace():
+                raise ValueError("expected temploc not to be blank")
         self.__temploc = temploc
 
         if tempnotes is not None:
@@ -10473,6 +11178,8 @@ class Object(object):
                 raise TypeError("expected tempnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(tempnotes))
             if len(tempnotes) < 1:
                 raise ValueError("expected len(tempnotes) to be >= 1, was %d" % len(tempnotes))
+            if tempnotes.isspace():
+                raise ValueError("expected tempnotes not to be blank")
         self.__tempnotes = tempnotes
 
         if tempreason is not None:
@@ -10480,6 +11187,8 @@ class Object(object):
                 raise TypeError("expected tempreason to be a str but it is a %s" % getattr(__builtin__, 'type')(tempreason))
             if len(tempreason) < 1:
                 raise ValueError("expected len(tempreason) to be >= 1, was %d" % len(tempreason))
+            if tempreason.isspace():
+                raise ValueError("expected tempreason not to be blank")
         self.__tempreason = tempreason
 
         if tempuntil is not None:
@@ -10487,6 +11196,8 @@ class Object(object):
                 raise TypeError("expected tempuntil to be a str but it is a %s" % getattr(__builtin__, 'type')(tempuntil))
             if len(tempuntil) < 1:
                 raise ValueError("expected len(tempuntil) to be >= 1, was %d" % len(tempuntil))
+            if tempuntil.isspace():
+                raise ValueError("expected tempuntil not to be blank")
         self.__tempuntil = tempuntil
 
         if texture is not None:
@@ -10494,6 +11205,8 @@ class Object(object):
                 raise TypeError("expected texture to be a str but it is a %s" % getattr(__builtin__, 'type')(texture))
             if len(texture) < 1:
                 raise ValueError("expected len(texture) to be >= 1, was %d" % len(texture))
+            if texture.isspace():
+                raise ValueError("expected texture not to be blank")
         self.__texture = texture
 
         if title is not None:
@@ -10501,6 +11214,8 @@ class Object(object):
                 raise TypeError("expected title to be a str but it is a %s" % getattr(__builtin__, 'type')(title))
             if len(title) < 1:
                 raise ValueError("expected len(title) to be >= 1, was %d" % len(title))
+            if title.isspace():
+                raise ValueError("expected title not to be blank")
         self.__title = title
 
         if tlocfield1 is not None:
@@ -10508,6 +11223,8 @@ class Object(object):
                 raise TypeError("expected tlocfield1 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield1))
             if len(tlocfield1) < 1:
                 raise ValueError("expected len(tlocfield1) to be >= 1, was %d" % len(tlocfield1))
+            if tlocfield1.isspace():
+                raise ValueError("expected tlocfield1 not to be blank")
         self.__tlocfield1 = tlocfield1
 
         if tlocfield2 is not None:
@@ -10515,6 +11232,8 @@ class Object(object):
                 raise TypeError("expected tlocfield2 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield2))
             if len(tlocfield2) < 1:
                 raise ValueError("expected len(tlocfield2) to be >= 1, was %d" % len(tlocfield2))
+            if tlocfield2.isspace():
+                raise ValueError("expected tlocfield2 not to be blank")
         self.__tlocfield2 = tlocfield2
 
         if tlocfield3 is not None:
@@ -10522,6 +11241,8 @@ class Object(object):
                 raise TypeError("expected tlocfield3 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield3))
             if len(tlocfield3) < 1:
                 raise ValueError("expected len(tlocfield3) to be >= 1, was %d" % len(tlocfield3))
+            if tlocfield3.isspace():
+                raise ValueError("expected tlocfield3 not to be blank")
         self.__tlocfield3 = tlocfield3
 
         if tlocfield4 is not None:
@@ -10529,6 +11250,8 @@ class Object(object):
                 raise TypeError("expected tlocfield4 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield4))
             if len(tlocfield4) < 1:
                 raise ValueError("expected len(tlocfield4) to be >= 1, was %d" % len(tlocfield4))
+            if tlocfield4.isspace():
+                raise ValueError("expected tlocfield4 not to be blank")
         self.__tlocfield4 = tlocfield4
 
         if tlocfield5 is not None:
@@ -10536,6 +11259,8 @@ class Object(object):
                 raise TypeError("expected tlocfield5 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield5))
             if len(tlocfield5) < 1:
                 raise ValueError("expected len(tlocfield5) to be >= 1, was %d" % len(tlocfield5))
+            if tlocfield5.isspace():
+                raise ValueError("expected tlocfield5 not to be blank")
         self.__tlocfield5 = tlocfield5
 
         if tlocfield6 is not None:
@@ -10543,6 +11268,8 @@ class Object(object):
                 raise TypeError("expected tlocfield6 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield6))
             if len(tlocfield6) < 1:
                 raise ValueError("expected len(tlocfield6) to be >= 1, was %d" % len(tlocfield6))
+            if tlocfield6.isspace():
+                raise ValueError("expected tlocfield6 not to be blank")
         self.__tlocfield6 = tlocfield6
 
 
@@ -10616,13 +11343,13 @@ class Object(object):
                 raise TypeError("expected unit to be a str but it is a %s" % getattr(__builtin__, 'type')(unit))
             if len(unit) < 1:
                 raise ValueError("expected len(unit) to be >= 1, was %d" % len(unit))
+            if unit.isspace():
+                raise ValueError("expected unit not to be blank")
         self.__unit = unit
 
         if updated is not None:
-            if not isinstance(updated, basestring):
-                raise TypeError("expected updated to be a str but it is a %s" % getattr(__builtin__, 'type')(updated))
-            if len(updated) < 1:
-                raise ValueError("expected len(updated) to be >= 1, was %d" % len(updated))
+            if not isinstance(updated, datetime.datetime):
+                raise TypeError("expected updated to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(updated))
         self.__updated = updated
 
         if updatedby is not None:
@@ -10630,6 +11357,8 @@ class Object(object):
                 raise TypeError("expected updatedby to be a str but it is a %s" % getattr(__builtin__, 'type')(updatedby))
             if len(updatedby) < 1:
                 raise ValueError("expected len(updatedby) to be >= 1, was %d" % len(updatedby))
+            if updatedby.isspace():
+                raise ValueError("expected updatedby not to be blank")
         self.__updatedby = updatedby
 
         if used is not None:
@@ -10637,6 +11366,8 @@ class Object(object):
                 raise TypeError("expected used to be a str but it is a %s" % getattr(__builtin__, 'type')(used))
             if len(used) < 1:
                 raise ValueError("expected len(used) to be >= 1, was %d" % len(used))
+            if used.isspace():
+                raise ValueError("expected used not to be blank")
         self.__used = used
 
         if valuedate is not None:
@@ -10649,47 +11380,55 @@ class Object(object):
                 raise TypeError("expected varieties to be a str but it is a %s" % getattr(__builtin__, 'type')(varieties))
             if len(varieties) < 1:
                 raise ValueError("expected len(varieties) to be >= 1, was %d" % len(varieties))
+            if varieties.isspace():
+                raise ValueError("expected varieties not to be blank")
         self.__varieties = varieties
 
         if webinclude is not None:
-            if not isinstance(webinclude, basestring):
-                raise TypeError("expected webinclude to be a str but it is a %s" % getattr(__builtin__, 'type')(webinclude))
-            if len(webinclude) < 1:
-                raise ValueError("expected len(webinclude) to be >= 1, was %d" % len(webinclude))
+            if not isinstance(webinclude, bool):
+                raise TypeError("expected webinclude to be a bool but it is a %s" % getattr(__builtin__, 'type')(webinclude))
         self.__webinclude = webinclude
 
         if weight is not None:
-            if not isinstance(weight, basestring):
-                raise TypeError("expected weight to be a str but it is a %s" % getattr(__builtin__, 'type')(weight))
-            if len(weight) < 1:
-                raise ValueError("expected len(weight) to be >= 1, was %d" % len(weight))
+            if not isinstance(weight, decimal.Decimal):
+                raise TypeError("expected weight to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(weight))
+            if weight <= 0:
+                raise ValueError("expected weight to be > 0, was %s" % weight)
         self.__weight = weight
 
         if weightin is not None:
-            if not isinstance(weightin, basestring):
-                raise TypeError("expected weightin to be a str but it is a %s" % getattr(__builtin__, 'type')(weightin))
-            if len(weightin) < 1:
-                raise ValueError("expected len(weightin) to be >= 1, was %d" % len(weightin))
+            if not isinstance(weightin, decimal.Decimal):
+                raise TypeError("expected weightin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(weightin))
+            if weightin <= 0:
+                raise ValueError("expected weightin to be > 0, was %s" % weightin)
         self.__weightin = weightin
 
         if weightlb is not None:
             if not isinstance(weightlb, decimal.Decimal):
                 raise TypeError("expected weightlb to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(weightlb))
+            if weightlb <= 0:
+                raise ValueError("expected weightlb to be > 0, was %s" % weightlb)
         self.__weightlb = weightlb
 
         if width is not None:
             if not isinstance(width, decimal.Decimal):
                 raise TypeError("expected width to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(width))
+            if width <= 0:
+                raise ValueError("expected width to be > 0, was %s" % width)
         self.__width = width
 
         if widthft is not None:
             if not isinstance(widthft, decimal.Decimal):
                 raise TypeError("expected widthft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(widthft))
+            if widthft <= 0:
+                raise ValueError("expected widthft to be > 0, was %s" % widthft)
         self.__widthft = widthft
 
         if widthin is not None:
             if not isinstance(widthin, decimal.Decimal):
                 raise TypeError("expected widthin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(widthin))
+            if widthin <= 0:
+                raise ValueError("expected widthin to be > 0, was %s" % widthin)
         self.__widthin = widthin
 
         if xcord is not None:
@@ -10697,6 +11436,8 @@ class Object(object):
                 raise TypeError("expected xcord to be a str but it is a %s" % getattr(__builtin__, 'type')(xcord))
             if len(xcord) < 1:
                 raise ValueError("expected len(xcord) to be >= 1, was %d" % len(xcord))
+            if xcord.isspace():
+                raise ValueError("expected xcord not to be blank")
         self.__xcord = xcord
 
         if ycord is not None:
@@ -10704,6 +11445,8 @@ class Object(object):
                 raise TypeError("expected ycord to be a str but it is a %s" % getattr(__builtin__, 'type')(ycord))
             if len(ycord) < 1:
                 raise ValueError("expected len(ycord) to be >= 1, was %d" % len(ycord))
+            if ycord.isspace():
+                raise ValueError("expected ycord not to be blank")
         self.__ycord = ycord
 
         if zcord is not None:
@@ -10711,6 +11454,8 @@ class Object(object):
                 raise TypeError("expected zcord to be a str but it is a %s" % getattr(__builtin__, 'type')(zcord))
             if len(zcord) < 1:
                 raise ValueError("expected len(zcord) to be >= 1, was %d" % len(zcord))
+            if zcord.isspace():
+                raise ValueError("expected zcord not to be blank")
         self.__zcord = zcord
 
     def __eq__(self, other):
@@ -11244,7 +11989,7 @@ class Object(object):
         if self.catdate is not None:
             field_reprs.append('catdate=' + repr(self.catdate))
         if self.cattype is not None:
-            field_reprs.append('cattype=' + repr(self.cattype))
+            field_reprs.append('cattype=' + "'" + self.cattype.encode('ascii', 'replace') + "'")
         if self.chemcomp is not None:
             field_reprs.append('chemcomp=' + "'" + self.chemcomp.encode('ascii', 'replace') + "'")
         if self.circum is not None:
@@ -11316,7 +12061,7 @@ class Object(object):
         if self.dispvalue is not None:
             field_reprs.append('dispvalue=' + "'" + self.dispvalue.encode('ascii', 'replace') + "'")
         if self.earlydate is not None:
-            field_reprs.append('earlydate=' + repr(self.earlydate))
+            field_reprs.append('earlydate=' + "'" + self.earlydate.encode('ascii', 'replace') + "'")
         if self.elements is not None:
             field_reprs.append('elements=' + "'" + self.elements.encode('ascii', 'replace') + "'")
         if self.epoch is not None:
@@ -11422,7 +12167,7 @@ class Object(object):
         if self.kingdom is not None:
             field_reprs.append('kingdom=' + "'" + self.kingdom.encode('ascii', 'replace') + "'")
         if self.latedate is not None:
-            field_reprs.append('latedate=' + repr(self.latedate))
+            field_reprs.append('latedate=' + "'" + self.latedate.encode('ascii', 'replace') + "'")
         if self.legal is not None:
             field_reprs.append('legal=' + "'" + self.legal.encode('ascii', 'replace') + "'")
         if self.length is not None:
@@ -11498,7 +12243,7 @@ class Object(object):
         if self.othername is not None:
             field_reprs.append('othername=' + "'" + self.othername.encode('ascii', 'replace') + "'")
         if self.otherno is not None:
-            field_reprs.append('otherno=' + repr(self.otherno))
+            field_reprs.append('otherno=' + "'" + self.otherno.encode('ascii', 'replace') + "'")
         if self.outdate is not None:
             field_reprs.append('outdate=' + repr(self.outdate))
         if self.owned is not None:
@@ -11682,7 +12427,7 @@ class Object(object):
         if self.unit is not None:
             field_reprs.append('unit=' + "'" + self.unit.encode('ascii', 'replace') + "'")
         if self.updated is not None:
-            field_reprs.append('updated=' + "'" + self.updated.encode('ascii', 'replace') + "'")
+            field_reprs.append('updated=' + repr(self.updated))
         if self.updatedby is not None:
             field_reprs.append('updatedby=' + "'" + self.updatedby.encode('ascii', 'replace') + "'")
         if self.used is not None:
@@ -11692,11 +12437,11 @@ class Object(object):
         if self.varieties is not None:
             field_reprs.append('varieties=' + "'" + self.varieties.encode('ascii', 'replace') + "'")
         if self.webinclude is not None:
-            field_reprs.append('webinclude=' + "'" + self.webinclude.encode('ascii', 'replace') + "'")
+            field_reprs.append('webinclude=' + repr(self.webinclude))
         if self.weight is not None:
-            field_reprs.append('weight=' + "'" + self.weight.encode('ascii', 'replace') + "'")
+            field_reprs.append('weight=' + repr(self.weight))
         if self.weightin is not None:
-            field_reprs.append('weightin=' + "'" + self.weightin.encode('ascii', 'replace') + "'")
+            field_reprs.append('weightin=' + repr(self.weightin))
         if self.weightlb is not None:
             field_reprs.append('weightlb=' + repr(self.weightlb))
         if self.width is not None:
@@ -11740,7 +12485,7 @@ class Object(object):
         if self.catdate is not None:
             field_reprs.append('catdate=' + repr(self.catdate))
         if self.cattype is not None:
-            field_reprs.append('cattype=' + repr(self.cattype))
+            field_reprs.append('cattype=' + "'" + self.cattype.encode('ascii', 'replace') + "'")
         if self.chemcomp is not None:
             field_reprs.append('chemcomp=' + "'" + self.chemcomp.encode('ascii', 'replace') + "'")
         if self.circum is not None:
@@ -11812,7 +12557,7 @@ class Object(object):
         if self.dispvalue is not None:
             field_reprs.append('dispvalue=' + "'" + self.dispvalue.encode('ascii', 'replace') + "'")
         if self.earlydate is not None:
-            field_reprs.append('earlydate=' + repr(self.earlydate))
+            field_reprs.append('earlydate=' + "'" + self.earlydate.encode('ascii', 'replace') + "'")
         if self.elements is not None:
             field_reprs.append('elements=' + "'" + self.elements.encode('ascii', 'replace') + "'")
         if self.epoch is not None:
@@ -11918,7 +12663,7 @@ class Object(object):
         if self.kingdom is not None:
             field_reprs.append('kingdom=' + "'" + self.kingdom.encode('ascii', 'replace') + "'")
         if self.latedate is not None:
-            field_reprs.append('latedate=' + repr(self.latedate))
+            field_reprs.append('latedate=' + "'" + self.latedate.encode('ascii', 'replace') + "'")
         if self.legal is not None:
             field_reprs.append('legal=' + "'" + self.legal.encode('ascii', 'replace') + "'")
         if self.length is not None:
@@ -11994,7 +12739,7 @@ class Object(object):
         if self.othername is not None:
             field_reprs.append('othername=' + "'" + self.othername.encode('ascii', 'replace') + "'")
         if self.otherno is not None:
-            field_reprs.append('otherno=' + repr(self.otherno))
+            field_reprs.append('otherno=' + "'" + self.otherno.encode('ascii', 'replace') + "'")
         if self.outdate is not None:
             field_reprs.append('outdate=' + repr(self.outdate))
         if self.owned is not None:
@@ -12178,7 +12923,7 @@ class Object(object):
         if self.unit is not None:
             field_reprs.append('unit=' + "'" + self.unit.encode('ascii', 'replace') + "'")
         if self.updated is not None:
-            field_reprs.append('updated=' + "'" + self.updated.encode('ascii', 'replace') + "'")
+            field_reprs.append('updated=' + repr(self.updated))
         if self.updatedby is not None:
             field_reprs.append('updatedby=' + "'" + self.updatedby.encode('ascii', 'replace') + "'")
         if self.used is not None:
@@ -12188,11 +12933,11 @@ class Object(object):
         if self.varieties is not None:
             field_reprs.append('varieties=' + "'" + self.varieties.encode('ascii', 'replace') + "'")
         if self.webinclude is not None:
-            field_reprs.append('webinclude=' + "'" + self.webinclude.encode('ascii', 'replace') + "'")
+            field_reprs.append('webinclude=' + repr(self.webinclude))
         if self.weight is not None:
-            field_reprs.append('weight=' + "'" + self.weight.encode('ascii', 'replace') + "'")
+            field_reprs.append('weight=' + repr(self.weight))
         if self.weightin is not None:
-            field_reprs.append('weightin=' + "'" + self.weightin.encode('ascii', 'replace') + "'")
+            field_reprs.append('weightin=' + repr(self.weightin))
         if self.weightlb is not None:
             field_reprs.append('weightlb=' + repr(self.weightlb))
         if self.width is not None:
@@ -12326,7 +13071,7 @@ class Object(object):
     @property
     def cattype(self):
         '''
-        :rtype: int
+        :rtype: str
         '''
 
         return self.__cattype
@@ -12614,7 +13359,7 @@ class Object(object):
     @property
     def earlydate(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: str
         '''
 
         return self.__earlydate
@@ -12966,7 +13711,7 @@ class Object(object):
     @property
     def inscrtype(self):
         '''
-        :rtype: int
+        :rtype: object
         '''
 
         return self.__inscrtype
@@ -13038,7 +13783,7 @@ class Object(object):
     @property
     def latedate(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: str
         '''
 
         return self.__latedate
@@ -13342,7 +14087,7 @@ class Object(object):
     @property
     def otherno(self):
         '''
-        :rtype: int
+        :rtype: str
         '''
 
         return self.__otherno
@@ -13529,7 +14274,7 @@ class Object(object):
                     pass
             elif ifield_name == 'cattype':
                 try:
-                    init_kwds['cattype'] = iprot.read_i32()
+                    init_kwds['cattype'] = iprot.read_string()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'chemcomp':
@@ -13709,8 +14454,8 @@ class Object(object):
                     pass
             elif ifield_name == 'earlydate':
                 try:
-                    init_kwds['earlydate'] = iprot.read_date_time()
-                except (TypeError,):
+                    init_kwds['earlydate'] = iprot.read_string()
+                except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'elements':
                 try:
@@ -13928,10 +14673,7 @@ class Object(object):
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'inscrtype':
-                try:
-                    init_kwds['inscrtype'] = iprot.read_i32()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['inscrtype'] = iprot.read_variant()
             elif ifield_name == 'insdate':
                 try:
                     init_kwds['insdate'] = iprot.read_date_time()
@@ -13974,8 +14716,8 @@ class Object(object):
                     pass
             elif ifield_name == 'latedate':
                 try:
-                    init_kwds['latedate'] = iprot.read_date_time()
-                except (TypeError,):
+                    init_kwds['latedate'] = iprot.read_string()
+                except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'legal':
                 try:
@@ -14164,7 +14906,7 @@ class Object(object):
                     pass
             elif ifield_name == 'otherno':
                 try:
-                    init_kwds['otherno'] = iprot.read_i32()
+                    init_kwds['otherno'] = iprot.read_string()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'outdate':
@@ -14558,8 +15300,8 @@ class Object(object):
                     pass
             elif ifield_name == 'updated':
                 try:
-                    init_kwds['updated'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['updated'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'updatedby':
                 try:
@@ -14583,18 +15325,18 @@ class Object(object):
                     pass
             elif ifield_name == 'webinclude':
                 try:
-                    init_kwds['webinclude'] = iprot.read_string()
+                    init_kwds['webinclude'] = iprot.read_bool()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'weight':
                 try:
-                    init_kwds['weight'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['weight'] = iprot.read_decimal()
+                except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'weightin':
                 try:
-                    init_kwds['weightin'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['weightin'] = iprot.read_decimal()
+                except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'weightlb':
                 try:
@@ -14996,7 +15738,7 @@ class Object(object):
         :type caption: str or None
         :type catby: str or None
         :type catdate: datetime.datetime or None
-        :type cattype: int or None
+        :type cattype: str or None
         :type chemcomp: str or None
         :type circum: Decimal or None
         :type circumft: Decimal or None
@@ -15032,7 +15774,7 @@ class Object(object):
         :type dimnotes: str or None
         :type dimtype: int or None
         :type dispvalue: str or None
-        :type earlydate: datetime.datetime or None
+        :type earlydate: str or None
         :type elements: str or None
         :type epoch: str or None
         :type era: str or None
@@ -15076,7 +15818,7 @@ class Object(object):
         :type inscrtech: str or None
         :type inscrtext: str or None
         :type inscrtrans: str or None
-        :type inscrtype: int or None
+        :type inscrtype: object or None
         :type insdate: datetime.datetime or None
         :type insphone: str or None
         :type inspremium: str or None
@@ -15085,7 +15827,7 @@ class Object(object):
         :type invnby: str or None
         :type invndate: datetime.datetime or None
         :type kingdom: str or None
-        :type latedate: datetime.datetime or None
+        :type latedate: str or None
         :type legal: str or None
         :type length: Decimal or None
         :type lengthft: Decimal or None
@@ -15123,7 +15865,7 @@ class Object(object):
         :type oldno: int or None
         :type origin: str or None
         :type othername: str or None
-        :type otherno: int or None
+        :type otherno: str or None
         :type outdate: datetime.datetime or None
         :type owned: str or None
         :type parent: str or None
@@ -15215,14 +15957,14 @@ class Object(object):
         :type udf8: object or None
         :type udf9: object or None
         :type unit: str or None
-        :type updated: str or None
+        :type updated: datetime.datetime or None
         :type updatedby: str or None
         :type used: str or None
         :type valuedate: datetime.datetime or None
         :type varieties: str or None
-        :type webinclude: str or None
-        :type weight: str or None
-        :type weightin: str or None
+        :type webinclude: bool or None
+        :type weight: Decimal or None
+        :type weightin: Decimal or None
         :type weightlb: Decimal or None
         :type width: Decimal or None
         :type widthft: Decimal or None
@@ -16258,7 +17000,7 @@ class Object(object):
     @property
     def updated(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__updated
@@ -16298,7 +17040,7 @@ class Object(object):
     @property
     def webinclude(self):
         '''
-        :rtype: str
+        :rtype: bool
         '''
 
         return self.__webinclude
@@ -16306,7 +17048,7 @@ class Object(object):
     @property
     def weight(self):
         '''
-        :rtype: str
+        :rtype: Decimal
         '''
 
         return self.__weight
@@ -16314,7 +17056,7 @@ class Object(object):
     @property
     def weightin(self):
         '''
-        :rtype: str
+        :rtype: Decimal
         '''
 
         return self.__weightin
@@ -16422,8 +17164,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.cattype is not None:
-            oprot.write_field_begin(name='cattype', type=8, id=None)
-            oprot.write_i32(self.cattype)
+            oprot.write_field_begin(name='cattype', type=11, id=None)
+            oprot.write_string(self.cattype)
             oprot.write_field_end()
 
         if self.chemcomp is not None:
@@ -16602,8 +17344,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.earlydate is not None:
-            oprot.write_field_begin(name='earlydate', type=10, id=None)
-            oprot.write_date_time(self.earlydate)
+            oprot.write_field_begin(name='earlydate', type=11, id=None)
+            oprot.write_string(self.earlydate)
             oprot.write_field_end()
 
         if self.elements is not None:
@@ -16822,8 +17564,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.inscrtype is not None:
-            oprot.write_field_begin(name='inscrtype', type=8, id=None)
-            oprot.write_i32(self.inscrtype)
+            oprot.write_field_begin(name='inscrtype', type=12, id=None)
+            oprot.write_variant(self.inscrtype)
             oprot.write_field_end()
 
         if self.insdate is not None:
@@ -16867,8 +17609,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.latedate is not None:
-            oprot.write_field_begin(name='latedate', type=10, id=None)
-            oprot.write_date_time(self.latedate)
+            oprot.write_field_begin(name='latedate', type=11, id=None)
+            oprot.write_string(self.latedate)
             oprot.write_field_end()
 
         if self.legal is not None:
@@ -17057,8 +17799,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.otherno is not None:
-            oprot.write_field_begin(name='otherno', type=8, id=None)
-            oprot.write_i32(self.otherno)
+            oprot.write_field_begin(name='otherno', type=11, id=None)
+            oprot.write_string(self.otherno)
             oprot.write_field_end()
 
         if self.outdate is not None:
@@ -17517,8 +18259,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.updated is not None:
-            oprot.write_field_begin(name='updated', type=11, id=None)
-            oprot.write_string(self.updated)
+            oprot.write_field_begin(name='updated', type=10, id=None)
+            oprot.write_date_time(self.updated)
             oprot.write_field_end()
 
         if self.updatedby is not None:
@@ -17542,18 +18284,18 @@ class Object(object):
             oprot.write_field_end()
 
         if self.webinclude is not None:
-            oprot.write_field_begin(name='webinclude', type=11, id=None)
-            oprot.write_string(self.webinclude)
+            oprot.write_field_begin(name='webinclude', type=2, id=None)
+            oprot.write_bool(self.webinclude)
             oprot.write_field_end()
 
         if self.weight is not None:
             oprot.write_field_begin(name='weight', type=11, id=None)
-            oprot.write_string(self.weight)
+            oprot.write_decimal(self.weight)
             oprot.write_field_end()
 
         if self.weightin is not None:
             oprot.write_field_begin(name='weightin', type=11, id=None)
-            oprot.write_string(self.weightin)
+            oprot.write_decimal(self.weightin)
             oprot.write_field_end()
 
         if self.weightlb is not None:
