@@ -466,28 +466,28 @@ class Object(object):
             :type tlocfield4: str or None
             :type tlocfield5: str or None
             :type tlocfield6: str or None
-            :type udf1: str or None
-            :type udf10: str or None
-            :type udf11: str or None
-            :type udf12: str or None
-            :type udf13: str or None
-            :type udf14: str or None
-            :type udf15: str or None
-            :type udf16: str or None
-            :type udf17: str or None
-            :type udf18: str or None
-            :type udf19: str or None
-            :type udf2: str or None
-            :type udf20: str or None
-            :type udf21: str or None
-            :type udf22: str or None
-            :type udf3: str or None
-            :type udf4: str or None
-            :type udf5: str or None
-            :type udf6: str or None
-            :type udf7: str or None
-            :type udf8: str or None
-            :type udf9: str or None
+            :type udf1: object or None
+            :type udf10: object or None
+            :type udf11: object or None
+            :type udf12: object or None
+            :type udf13: object or None
+            :type udf14: object or None
+            :type udf15: object or None
+            :type udf16: object or None
+            :type udf17: object or None
+            :type udf18: object or None
+            :type udf19: object or None
+            :type udf2: object or None
+            :type udf20: object or None
+            :type udf21: object or None
+            :type udf22: object or None
+            :type udf3: object or None
+            :type udf4: object or None
+            :type udf5: object or None
+            :type udf6: object or None
+            :type udf7: object or None
+            :type udf8: object or None
+            :type udf9: object or None
             :type unit: str or None
             :type updated: str or None
             :type updatedby: str or None
@@ -4738,287 +4738,199 @@ class Object(object):
 
         def set_udf1(self, udf1):
             '''
-            :type udf1: str or None
+            :type udf1: object or None
             '''
 
-            if udf1 is not None:
-                if not isinstance(udf1, basestring):
-                    raise TypeError("expected udf1 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf1))
-                if len(udf1) < 1:
-                    raise ValueError("expected len(udf1) to be >= 1, was %d" % len(udf1))
+
             self.__udf1 = udf1
             return self
 
         def set_udf10(self, udf10):
             '''
-            :type udf10: str or None
+            :type udf10: object or None
             '''
 
-            if udf10 is not None:
-                if not isinstance(udf10, basestring):
-                    raise TypeError("expected udf10 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf10))
-                if len(udf10) < 1:
-                    raise ValueError("expected len(udf10) to be >= 1, was %d" % len(udf10))
+
             self.__udf10 = udf10
             return self
 
         def set_udf11(self, udf11):
             '''
-            :type udf11: str or None
+            :type udf11: object or None
             '''
 
-            if udf11 is not None:
-                if not isinstance(udf11, basestring):
-                    raise TypeError("expected udf11 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf11))
-                if len(udf11) < 1:
-                    raise ValueError("expected len(udf11) to be >= 1, was %d" % len(udf11))
+
             self.__udf11 = udf11
             return self
 
         def set_udf12(self, udf12):
             '''
-            :type udf12: str or None
+            :type udf12: object or None
             '''
 
-            if udf12 is not None:
-                if not isinstance(udf12, basestring):
-                    raise TypeError("expected udf12 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf12))
-                if len(udf12) < 1:
-                    raise ValueError("expected len(udf12) to be >= 1, was %d" % len(udf12))
+
             self.__udf12 = udf12
             return self
 
         def set_udf13(self, udf13):
             '''
-            :type udf13: str or None
+            :type udf13: object or None
             '''
 
-            if udf13 is not None:
-                if not isinstance(udf13, basestring):
-                    raise TypeError("expected udf13 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf13))
-                if len(udf13) < 1:
-                    raise ValueError("expected len(udf13) to be >= 1, was %d" % len(udf13))
+
             self.__udf13 = udf13
             return self
 
         def set_udf14(self, udf14):
             '''
-            :type udf14: str or None
+            :type udf14: object or None
             '''
 
-            if udf14 is not None:
-                if not isinstance(udf14, basestring):
-                    raise TypeError("expected udf14 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf14))
-                if len(udf14) < 1:
-                    raise ValueError("expected len(udf14) to be >= 1, was %d" % len(udf14))
+
             self.__udf14 = udf14
             return self
 
         def set_udf15(self, udf15):
             '''
-            :type udf15: str or None
+            :type udf15: object or None
             '''
 
-            if udf15 is not None:
-                if not isinstance(udf15, basestring):
-                    raise TypeError("expected udf15 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf15))
-                if len(udf15) < 1:
-                    raise ValueError("expected len(udf15) to be >= 1, was %d" % len(udf15))
+
             self.__udf15 = udf15
             return self
 
         def set_udf16(self, udf16):
             '''
-            :type udf16: str or None
+            :type udf16: object or None
             '''
 
-            if udf16 is not None:
-                if not isinstance(udf16, basestring):
-                    raise TypeError("expected udf16 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf16))
-                if len(udf16) < 1:
-                    raise ValueError("expected len(udf16) to be >= 1, was %d" % len(udf16))
+
             self.__udf16 = udf16
             return self
 
         def set_udf17(self, udf17):
             '''
-            :type udf17: str or None
+            :type udf17: object or None
             '''
 
-            if udf17 is not None:
-                if not isinstance(udf17, basestring):
-                    raise TypeError("expected udf17 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf17))
-                if len(udf17) < 1:
-                    raise ValueError("expected len(udf17) to be >= 1, was %d" % len(udf17))
+
             self.__udf17 = udf17
             return self
 
         def set_udf18(self, udf18):
             '''
-            :type udf18: str or None
+            :type udf18: object or None
             '''
 
-            if udf18 is not None:
-                if not isinstance(udf18, basestring):
-                    raise TypeError("expected udf18 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf18))
-                if len(udf18) < 1:
-                    raise ValueError("expected len(udf18) to be >= 1, was %d" % len(udf18))
+
             self.__udf18 = udf18
             return self
 
         def set_udf19(self, udf19):
             '''
-            :type udf19: str or None
+            :type udf19: object or None
             '''
 
-            if udf19 is not None:
-                if not isinstance(udf19, basestring):
-                    raise TypeError("expected udf19 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf19))
-                if len(udf19) < 1:
-                    raise ValueError("expected len(udf19) to be >= 1, was %d" % len(udf19))
+
             self.__udf19 = udf19
             return self
 
         def set_udf2(self, udf2):
             '''
-            :type udf2: str or None
+            :type udf2: object or None
             '''
 
-            if udf2 is not None:
-                if not isinstance(udf2, basestring):
-                    raise TypeError("expected udf2 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf2))
-                if len(udf2) < 1:
-                    raise ValueError("expected len(udf2) to be >= 1, was %d" % len(udf2))
+
             self.__udf2 = udf2
             return self
 
         def set_udf20(self, udf20):
             '''
-            :type udf20: str or None
+            :type udf20: object or None
             '''
 
-            if udf20 is not None:
-                if not isinstance(udf20, basestring):
-                    raise TypeError("expected udf20 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf20))
-                if len(udf20) < 1:
-                    raise ValueError("expected len(udf20) to be >= 1, was %d" % len(udf20))
+
             self.__udf20 = udf20
             return self
 
         def set_udf21(self, udf21):
             '''
-            :type udf21: str or None
+            :type udf21: object or None
             '''
 
-            if udf21 is not None:
-                if not isinstance(udf21, basestring):
-                    raise TypeError("expected udf21 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf21))
-                if len(udf21) < 1:
-                    raise ValueError("expected len(udf21) to be >= 1, was %d" % len(udf21))
+
             self.__udf21 = udf21
             return self
 
         def set_udf22(self, udf22):
             '''
-            :type udf22: str or None
+            :type udf22: object or None
             '''
 
-            if udf22 is not None:
-                if not isinstance(udf22, basestring):
-                    raise TypeError("expected udf22 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf22))
-                if len(udf22) < 1:
-                    raise ValueError("expected len(udf22) to be >= 1, was %d" % len(udf22))
+
             self.__udf22 = udf22
             return self
 
         def set_udf3(self, udf3):
             '''
-            :type udf3: str or None
+            :type udf3: object or None
             '''
 
-            if udf3 is not None:
-                if not isinstance(udf3, basestring):
-                    raise TypeError("expected udf3 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf3))
-                if len(udf3) < 1:
-                    raise ValueError("expected len(udf3) to be >= 1, was %d" % len(udf3))
+
             self.__udf3 = udf3
             return self
 
         def set_udf4(self, udf4):
             '''
-            :type udf4: str or None
+            :type udf4: object or None
             '''
 
-            if udf4 is not None:
-                if not isinstance(udf4, basestring):
-                    raise TypeError("expected udf4 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf4))
-                if len(udf4) < 1:
-                    raise ValueError("expected len(udf4) to be >= 1, was %d" % len(udf4))
+
             self.__udf4 = udf4
             return self
 
         def set_udf5(self, udf5):
             '''
-            :type udf5: str or None
+            :type udf5: object or None
             '''
 
-            if udf5 is not None:
-                if not isinstance(udf5, basestring):
-                    raise TypeError("expected udf5 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf5))
-                if len(udf5) < 1:
-                    raise ValueError("expected len(udf5) to be >= 1, was %d" % len(udf5))
+
             self.__udf5 = udf5
             return self
 
         def set_udf6(self, udf6):
             '''
-            :type udf6: str or None
+            :type udf6: object or None
             '''
 
-            if udf6 is not None:
-                if not isinstance(udf6, basestring):
-                    raise TypeError("expected udf6 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf6))
-                if len(udf6) < 1:
-                    raise ValueError("expected len(udf6) to be >= 1, was %d" % len(udf6))
+
             self.__udf6 = udf6
             return self
 
         def set_udf7(self, udf7):
             '''
-            :type udf7: str or None
+            :type udf7: object or None
             '''
 
-            if udf7 is not None:
-                if not isinstance(udf7, basestring):
-                    raise TypeError("expected udf7 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf7))
-                if len(udf7) < 1:
-                    raise ValueError("expected len(udf7) to be >= 1, was %d" % len(udf7))
+
             self.__udf7 = udf7
             return self
 
         def set_udf8(self, udf8):
             '''
-            :type udf8: str or None
+            :type udf8: object or None
             '''
 
-            if udf8 is not None:
-                if not isinstance(udf8, basestring):
-                    raise TypeError("expected udf8 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf8))
-                if len(udf8) < 1:
-                    raise ValueError("expected len(udf8) to be >= 1, was %d" % len(udf8))
+
             self.__udf8 = udf8
             return self
 
         def set_udf9(self, udf9):
             '''
-            :type udf9: str or None
+            :type udf9: object or None
             '''
 
-            if udf9 is not None:
-                if not isinstance(udf9, basestring):
-                    raise TypeError("expected udf9 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf9))
-                if len(udf9) < 1:
-                    raise ValueError("expected len(udf9) to be >= 1, was %d" % len(udf9))
+
             self.__udf9 = udf9
             return self
 
@@ -5503,7 +5415,7 @@ class Object(object):
         @property
         def udf1(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf1
@@ -5511,7 +5423,7 @@ class Object(object):
         @property
         def udf10(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf10
@@ -5519,7 +5431,7 @@ class Object(object):
         @property
         def udf11(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf11
@@ -5527,7 +5439,7 @@ class Object(object):
         @property
         def udf12(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf12
@@ -5535,7 +5447,7 @@ class Object(object):
         @property
         def udf13(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf13
@@ -5543,7 +5455,7 @@ class Object(object):
         @property
         def udf14(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf14
@@ -5551,7 +5463,7 @@ class Object(object):
         @property
         def udf15(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf15
@@ -5559,7 +5471,7 @@ class Object(object):
         @property
         def udf16(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf16
@@ -5567,7 +5479,7 @@ class Object(object):
         @property
         def udf17(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf17
@@ -5575,7 +5487,7 @@ class Object(object):
         @property
         def udf18(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf18
@@ -5583,7 +5495,7 @@ class Object(object):
         @property
         def udf19(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf19
@@ -5591,7 +5503,7 @@ class Object(object):
         @property
         def udf2(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf2
@@ -5599,7 +5511,7 @@ class Object(object):
         @property
         def udf20(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf20
@@ -5607,7 +5519,7 @@ class Object(object):
         @property
         def udf21(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf21
@@ -5615,7 +5527,7 @@ class Object(object):
         @property
         def udf22(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf22
@@ -5623,7 +5535,7 @@ class Object(object):
         @property
         def udf3(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf3
@@ -5631,7 +5543,7 @@ class Object(object):
         @property
         def udf4(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf4
@@ -5639,7 +5551,7 @@ class Object(object):
         @property
         def udf5(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf5
@@ -5647,7 +5559,7 @@ class Object(object):
         @property
         def udf6(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf6
@@ -5655,7 +5567,7 @@ class Object(object):
         @property
         def udf7(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf7
@@ -5663,7 +5575,7 @@ class Object(object):
         @property
         def udf8(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf8
@@ -5671,7 +5583,7 @@ class Object(object):
         @property
         def udf9(self):
             '''
-            :rtype: str
+            :rtype: object
             '''
 
             return self.__udf9
@@ -5894,28 +5806,28 @@ class Object(object):
             :type tlocfield4: str or None
             :type tlocfield5: str or None
             :type tlocfield6: str or None
-            :type udf1: str or None
-            :type udf10: str or None
-            :type udf11: str or None
-            :type udf12: str or None
-            :type udf13: str or None
-            :type udf14: str or None
-            :type udf15: str or None
-            :type udf16: str or None
-            :type udf17: str or None
-            :type udf18: str or None
-            :type udf19: str or None
-            :type udf2: str or None
-            :type udf20: str or None
-            :type udf21: str or None
-            :type udf22: str or None
-            :type udf3: str or None
-            :type udf4: str or None
-            :type udf5: str or None
-            :type udf6: str or None
-            :type udf7: str or None
-            :type udf8: str or None
-            :type udf9: str or None
+            :type udf1: object or None
+            :type udf10: object or None
+            :type udf11: object or None
+            :type udf12: object or None
+            :type udf13: object or None
+            :type udf14: object or None
+            :type udf15: object or None
+            :type udf16: object or None
+            :type udf17: object or None
+            :type udf18: object or None
+            :type udf19: object or None
+            :type udf2: object or None
+            :type udf20: object or None
+            :type udf21: object or None
+            :type udf22: object or None
+            :type udf3: object or None
+            :type udf4: object or None
+            :type udf5: object or None
+            :type udf6: object or None
+            :type udf7: object or None
+            :type udf8: object or None
+            :type udf9: object or None
             :type unit: str or None
             :type updated: str or None
             :type updatedby: str or None
@@ -7975,7 +7887,7 @@ class Object(object):
         @udf1.setter
         def udf1(self, udf1):
             '''
-            :type udf1: str or None
+            :type udf1: object or None
             '''
 
             self.set_udf1(udf1)
@@ -7983,7 +7895,7 @@ class Object(object):
         @udf10.setter
         def udf10(self, udf10):
             '''
-            :type udf10: str or None
+            :type udf10: object or None
             '''
 
             self.set_udf10(udf10)
@@ -7991,7 +7903,7 @@ class Object(object):
         @udf11.setter
         def udf11(self, udf11):
             '''
-            :type udf11: str or None
+            :type udf11: object or None
             '''
 
             self.set_udf11(udf11)
@@ -7999,7 +7911,7 @@ class Object(object):
         @udf12.setter
         def udf12(self, udf12):
             '''
-            :type udf12: str or None
+            :type udf12: object or None
             '''
 
             self.set_udf12(udf12)
@@ -8007,7 +7919,7 @@ class Object(object):
         @udf13.setter
         def udf13(self, udf13):
             '''
-            :type udf13: str or None
+            :type udf13: object or None
             '''
 
             self.set_udf13(udf13)
@@ -8015,7 +7927,7 @@ class Object(object):
         @udf14.setter
         def udf14(self, udf14):
             '''
-            :type udf14: str or None
+            :type udf14: object or None
             '''
 
             self.set_udf14(udf14)
@@ -8023,7 +7935,7 @@ class Object(object):
         @udf15.setter
         def udf15(self, udf15):
             '''
-            :type udf15: str or None
+            :type udf15: object or None
             '''
 
             self.set_udf15(udf15)
@@ -8031,7 +7943,7 @@ class Object(object):
         @udf16.setter
         def udf16(self, udf16):
             '''
-            :type udf16: str or None
+            :type udf16: object or None
             '''
 
             self.set_udf16(udf16)
@@ -8039,7 +7951,7 @@ class Object(object):
         @udf17.setter
         def udf17(self, udf17):
             '''
-            :type udf17: str or None
+            :type udf17: object or None
             '''
 
             self.set_udf17(udf17)
@@ -8047,7 +7959,7 @@ class Object(object):
         @udf18.setter
         def udf18(self, udf18):
             '''
-            :type udf18: str or None
+            :type udf18: object or None
             '''
 
             self.set_udf18(udf18)
@@ -8055,7 +7967,7 @@ class Object(object):
         @udf19.setter
         def udf19(self, udf19):
             '''
-            :type udf19: str or None
+            :type udf19: object or None
             '''
 
             self.set_udf19(udf19)
@@ -8063,7 +7975,7 @@ class Object(object):
         @udf2.setter
         def udf2(self, udf2):
             '''
-            :type udf2: str or None
+            :type udf2: object or None
             '''
 
             self.set_udf2(udf2)
@@ -8071,7 +7983,7 @@ class Object(object):
         @udf20.setter
         def udf20(self, udf20):
             '''
-            :type udf20: str or None
+            :type udf20: object or None
             '''
 
             self.set_udf20(udf20)
@@ -8079,7 +7991,7 @@ class Object(object):
         @udf21.setter
         def udf21(self, udf21):
             '''
-            :type udf21: str or None
+            :type udf21: object or None
             '''
 
             self.set_udf21(udf21)
@@ -8087,7 +7999,7 @@ class Object(object):
         @udf22.setter
         def udf22(self, udf22):
             '''
-            :type udf22: str or None
+            :type udf22: object or None
             '''
 
             self.set_udf22(udf22)
@@ -8095,7 +8007,7 @@ class Object(object):
         @udf3.setter
         def udf3(self, udf3):
             '''
-            :type udf3: str or None
+            :type udf3: object or None
             '''
 
             self.set_udf3(udf3)
@@ -8103,7 +8015,7 @@ class Object(object):
         @udf4.setter
         def udf4(self, udf4):
             '''
-            :type udf4: str or None
+            :type udf4: object or None
             '''
 
             self.set_udf4(udf4)
@@ -8111,7 +8023,7 @@ class Object(object):
         @udf5.setter
         def udf5(self, udf5):
             '''
-            :type udf5: str or None
+            :type udf5: object or None
             '''
 
             self.set_udf5(udf5)
@@ -8119,7 +8031,7 @@ class Object(object):
         @udf6.setter
         def udf6(self, udf6):
             '''
-            :type udf6: str or None
+            :type udf6: object or None
             '''
 
             self.set_udf6(udf6)
@@ -8127,7 +8039,7 @@ class Object(object):
         @udf7.setter
         def udf7(self, udf7):
             '''
-            :type udf7: str or None
+            :type udf7: object or None
             '''
 
             self.set_udf7(udf7)
@@ -8135,7 +8047,7 @@ class Object(object):
         @udf8.setter
         def udf8(self, udf8):
             '''
-            :type udf8: str or None
+            :type udf8: object or None
             '''
 
             self.set_udf8(udf8)
@@ -8143,7 +8055,7 @@ class Object(object):
         @udf9.setter
         def udf9(self, udf9):
             '''
-            :type udf9: str or None
+            :type udf9: object or None
             '''
 
             self.set_udf9(udf9)
@@ -8748,28 +8660,28 @@ class Object(object):
     FieldMetadata.TLOCFIELD4 = FieldMetadata('tlocfield4', str)
     FieldMetadata.TLOCFIELD5 = FieldMetadata('tlocfield5', str)
     FieldMetadata.TLOCFIELD6 = FieldMetadata('tlocfield6', str)
-    FieldMetadata.UDF1 = FieldMetadata('udf1', str)
-    FieldMetadata.UDF10 = FieldMetadata('udf10', str)
-    FieldMetadata.UDF11 = FieldMetadata('udf11', str)
-    FieldMetadata.UDF12 = FieldMetadata('udf12', str)
-    FieldMetadata.UDF13 = FieldMetadata('udf13', str)
-    FieldMetadata.UDF14 = FieldMetadata('udf14', str)
-    FieldMetadata.UDF15 = FieldMetadata('udf15', str)
-    FieldMetadata.UDF16 = FieldMetadata('udf16', str)
-    FieldMetadata.UDF17 = FieldMetadata('udf17', str)
-    FieldMetadata.UDF18 = FieldMetadata('udf18', str)
-    FieldMetadata.UDF19 = FieldMetadata('udf19', str)
-    FieldMetadata.UDF2 = FieldMetadata('udf2', str)
-    FieldMetadata.UDF20 = FieldMetadata('udf20', str)
-    FieldMetadata.UDF21 = FieldMetadata('udf21', str)
-    FieldMetadata.UDF22 = FieldMetadata('udf22', str)
-    FieldMetadata.UDF3 = FieldMetadata('udf3', str)
-    FieldMetadata.UDF4 = FieldMetadata('udf4', str)
-    FieldMetadata.UDF5 = FieldMetadata('udf5', str)
-    FieldMetadata.UDF6 = FieldMetadata('udf6', str)
-    FieldMetadata.UDF7 = FieldMetadata('udf7', str)
-    FieldMetadata.UDF8 = FieldMetadata('udf8', str)
-    FieldMetadata.UDF9 = FieldMetadata('udf9', str)
+    FieldMetadata.UDF1 = FieldMetadata('udf1', object)
+    FieldMetadata.UDF10 = FieldMetadata('udf10', object)
+    FieldMetadata.UDF11 = FieldMetadata('udf11', object)
+    FieldMetadata.UDF12 = FieldMetadata('udf12', object)
+    FieldMetadata.UDF13 = FieldMetadata('udf13', object)
+    FieldMetadata.UDF14 = FieldMetadata('udf14', object)
+    FieldMetadata.UDF15 = FieldMetadata('udf15', object)
+    FieldMetadata.UDF16 = FieldMetadata('udf16', object)
+    FieldMetadata.UDF17 = FieldMetadata('udf17', object)
+    FieldMetadata.UDF18 = FieldMetadata('udf18', object)
+    FieldMetadata.UDF19 = FieldMetadata('udf19', object)
+    FieldMetadata.UDF2 = FieldMetadata('udf2', object)
+    FieldMetadata.UDF20 = FieldMetadata('udf20', object)
+    FieldMetadata.UDF21 = FieldMetadata('udf21', object)
+    FieldMetadata.UDF22 = FieldMetadata('udf22', object)
+    FieldMetadata.UDF3 = FieldMetadata('udf3', object)
+    FieldMetadata.UDF4 = FieldMetadata('udf4', object)
+    FieldMetadata.UDF5 = FieldMetadata('udf5', object)
+    FieldMetadata.UDF6 = FieldMetadata('udf6', object)
+    FieldMetadata.UDF7 = FieldMetadata('udf7', object)
+    FieldMetadata.UDF8 = FieldMetadata('udf8', object)
+    FieldMetadata.UDF9 = FieldMetadata('udf9', object)
     FieldMetadata.UNIT = FieldMetadata('unit', str)
     FieldMetadata.UPDATED = FieldMetadata('updated', str)
     FieldMetadata.UPDATEDBY = FieldMetadata('updatedby', str)
@@ -9245,28 +9157,28 @@ class Object(object):
         :type tlocfield4: str or None
         :type tlocfield5: str or None
         :type tlocfield6: str or None
-        :type udf1: str or None
-        :type udf10: str or None
-        :type udf11: str or None
-        :type udf12: str or None
-        :type udf13: str or None
-        :type udf14: str or None
-        :type udf15: str or None
-        :type udf16: str or None
-        :type udf17: str or None
-        :type udf18: str or None
-        :type udf19: str or None
-        :type udf2: str or None
-        :type udf20: str or None
-        :type udf21: str or None
-        :type udf22: str or None
-        :type udf3: str or None
-        :type udf4: str or None
-        :type udf5: str or None
-        :type udf6: str or None
-        :type udf7: str or None
-        :type udf8: str or None
-        :type udf9: str or None
+        :type udf1: object or None
+        :type udf10: object or None
+        :type udf11: object or None
+        :type udf12: object or None
+        :type udf13: object or None
+        :type udf14: object or None
+        :type udf15: object or None
+        :type udf16: object or None
+        :type udf17: object or None
+        :type udf18: object or None
+        :type udf19: object or None
+        :type udf2: object or None
+        :type udf20: object or None
+        :type udf21: object or None
+        :type udf22: object or None
+        :type udf3: object or None
+        :type udf4: object or None
+        :type udf5: object or None
+        :type udf6: object or None
+        :type udf7: object or None
+        :type udf8: object or None
+        :type udf9: object or None
         :type unit: str or None
         :type updated: str or None
         :type updatedby: str or None
@@ -10633,158 +10545,70 @@ class Object(object):
                 raise ValueError("expected len(tlocfield6) to be >= 1, was %d" % len(tlocfield6))
         self.__tlocfield6 = tlocfield6
 
-        if udf1 is not None:
-            if not isinstance(udf1, basestring):
-                raise TypeError("expected udf1 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf1))
-            if len(udf1) < 1:
-                raise ValueError("expected len(udf1) to be >= 1, was %d" % len(udf1))
+
         self.__udf1 = udf1
 
-        if udf10 is not None:
-            if not isinstance(udf10, basestring):
-                raise TypeError("expected udf10 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf10))
-            if len(udf10) < 1:
-                raise ValueError("expected len(udf10) to be >= 1, was %d" % len(udf10))
+
         self.__udf10 = udf10
 
-        if udf11 is not None:
-            if not isinstance(udf11, basestring):
-                raise TypeError("expected udf11 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf11))
-            if len(udf11) < 1:
-                raise ValueError("expected len(udf11) to be >= 1, was %d" % len(udf11))
+
         self.__udf11 = udf11
 
-        if udf12 is not None:
-            if not isinstance(udf12, basestring):
-                raise TypeError("expected udf12 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf12))
-            if len(udf12) < 1:
-                raise ValueError("expected len(udf12) to be >= 1, was %d" % len(udf12))
+
         self.__udf12 = udf12
 
-        if udf13 is not None:
-            if not isinstance(udf13, basestring):
-                raise TypeError("expected udf13 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf13))
-            if len(udf13) < 1:
-                raise ValueError("expected len(udf13) to be >= 1, was %d" % len(udf13))
+
         self.__udf13 = udf13
 
-        if udf14 is not None:
-            if not isinstance(udf14, basestring):
-                raise TypeError("expected udf14 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf14))
-            if len(udf14) < 1:
-                raise ValueError("expected len(udf14) to be >= 1, was %d" % len(udf14))
+
         self.__udf14 = udf14
 
-        if udf15 is not None:
-            if not isinstance(udf15, basestring):
-                raise TypeError("expected udf15 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf15))
-            if len(udf15) < 1:
-                raise ValueError("expected len(udf15) to be >= 1, was %d" % len(udf15))
+
         self.__udf15 = udf15
 
-        if udf16 is not None:
-            if not isinstance(udf16, basestring):
-                raise TypeError("expected udf16 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf16))
-            if len(udf16) < 1:
-                raise ValueError("expected len(udf16) to be >= 1, was %d" % len(udf16))
+
         self.__udf16 = udf16
 
-        if udf17 is not None:
-            if not isinstance(udf17, basestring):
-                raise TypeError("expected udf17 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf17))
-            if len(udf17) < 1:
-                raise ValueError("expected len(udf17) to be >= 1, was %d" % len(udf17))
+
         self.__udf17 = udf17
 
-        if udf18 is not None:
-            if not isinstance(udf18, basestring):
-                raise TypeError("expected udf18 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf18))
-            if len(udf18) < 1:
-                raise ValueError("expected len(udf18) to be >= 1, was %d" % len(udf18))
+
         self.__udf18 = udf18
 
-        if udf19 is not None:
-            if not isinstance(udf19, basestring):
-                raise TypeError("expected udf19 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf19))
-            if len(udf19) < 1:
-                raise ValueError("expected len(udf19) to be >= 1, was %d" % len(udf19))
+
         self.__udf19 = udf19
 
-        if udf2 is not None:
-            if not isinstance(udf2, basestring):
-                raise TypeError("expected udf2 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf2))
-            if len(udf2) < 1:
-                raise ValueError("expected len(udf2) to be >= 1, was %d" % len(udf2))
+
         self.__udf2 = udf2
 
-        if udf20 is not None:
-            if not isinstance(udf20, basestring):
-                raise TypeError("expected udf20 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf20))
-            if len(udf20) < 1:
-                raise ValueError("expected len(udf20) to be >= 1, was %d" % len(udf20))
+
         self.__udf20 = udf20
 
-        if udf21 is not None:
-            if not isinstance(udf21, basestring):
-                raise TypeError("expected udf21 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf21))
-            if len(udf21) < 1:
-                raise ValueError("expected len(udf21) to be >= 1, was %d" % len(udf21))
+
         self.__udf21 = udf21
 
-        if udf22 is not None:
-            if not isinstance(udf22, basestring):
-                raise TypeError("expected udf22 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf22))
-            if len(udf22) < 1:
-                raise ValueError("expected len(udf22) to be >= 1, was %d" % len(udf22))
+
         self.__udf22 = udf22
 
-        if udf3 is not None:
-            if not isinstance(udf3, basestring):
-                raise TypeError("expected udf3 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf3))
-            if len(udf3) < 1:
-                raise ValueError("expected len(udf3) to be >= 1, was %d" % len(udf3))
+
         self.__udf3 = udf3
 
-        if udf4 is not None:
-            if not isinstance(udf4, basestring):
-                raise TypeError("expected udf4 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf4))
-            if len(udf4) < 1:
-                raise ValueError("expected len(udf4) to be >= 1, was %d" % len(udf4))
+
         self.__udf4 = udf4
 
-        if udf5 is not None:
-            if not isinstance(udf5, basestring):
-                raise TypeError("expected udf5 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf5))
-            if len(udf5) < 1:
-                raise ValueError("expected len(udf5) to be >= 1, was %d" % len(udf5))
+
         self.__udf5 = udf5
 
-        if udf6 is not None:
-            if not isinstance(udf6, basestring):
-                raise TypeError("expected udf6 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf6))
-            if len(udf6) < 1:
-                raise ValueError("expected len(udf6) to be >= 1, was %d" % len(udf6))
+
         self.__udf6 = udf6
 
-        if udf7 is not None:
-            if not isinstance(udf7, basestring):
-                raise TypeError("expected udf7 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf7))
-            if len(udf7) < 1:
-                raise ValueError("expected len(udf7) to be >= 1, was %d" % len(udf7))
+
         self.__udf7 = udf7
 
-        if udf8 is not None:
-            if not isinstance(udf8, basestring):
-                raise TypeError("expected udf8 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf8))
-            if len(udf8) < 1:
-                raise ValueError("expected len(udf8) to be >= 1, was %d" % len(udf8))
+
         self.__udf8 = udf8
 
-        if udf9 is not None:
-            if not isinstance(udf9, basestring):
-                raise TypeError("expected udf9 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf9))
-            if len(udf9) < 1:
-                raise ValueError("expected len(udf9) to be >= 1, was %d" % len(udf9))
+
         self.__udf9 = udf9
 
         if unit is not None:
@@ -11812,49 +11636,49 @@ class Object(object):
         if self.tlocfield6 is not None:
             field_reprs.append('tlocfield6=' + "'" + self.tlocfield6.encode('ascii', 'replace') + "'")
         if self.udf1 is not None:
-            field_reprs.append('udf1=' + "'" + self.udf1.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf1=' + repr(self.udf1))
         if self.udf10 is not None:
-            field_reprs.append('udf10=' + "'" + self.udf10.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf10=' + repr(self.udf10))
         if self.udf11 is not None:
-            field_reprs.append('udf11=' + "'" + self.udf11.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf11=' + repr(self.udf11))
         if self.udf12 is not None:
-            field_reprs.append('udf12=' + "'" + self.udf12.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf12=' + repr(self.udf12))
         if self.udf13 is not None:
-            field_reprs.append('udf13=' + "'" + self.udf13.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf13=' + repr(self.udf13))
         if self.udf14 is not None:
-            field_reprs.append('udf14=' + "'" + self.udf14.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf14=' + repr(self.udf14))
         if self.udf15 is not None:
-            field_reprs.append('udf15=' + "'" + self.udf15.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf15=' + repr(self.udf15))
         if self.udf16 is not None:
-            field_reprs.append('udf16=' + "'" + self.udf16.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf16=' + repr(self.udf16))
         if self.udf17 is not None:
-            field_reprs.append('udf17=' + "'" + self.udf17.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf17=' + repr(self.udf17))
         if self.udf18 is not None:
-            field_reprs.append('udf18=' + "'" + self.udf18.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf18=' + repr(self.udf18))
         if self.udf19 is not None:
-            field_reprs.append('udf19=' + "'" + self.udf19.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf19=' + repr(self.udf19))
         if self.udf2 is not None:
-            field_reprs.append('udf2=' + "'" + self.udf2.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf2=' + repr(self.udf2))
         if self.udf20 is not None:
-            field_reprs.append('udf20=' + "'" + self.udf20.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf20=' + repr(self.udf20))
         if self.udf21 is not None:
-            field_reprs.append('udf21=' + "'" + self.udf21.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf21=' + repr(self.udf21))
         if self.udf22 is not None:
-            field_reprs.append('udf22=' + "'" + self.udf22.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf22=' + repr(self.udf22))
         if self.udf3 is not None:
-            field_reprs.append('udf3=' + "'" + self.udf3.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf3=' + repr(self.udf3))
         if self.udf4 is not None:
-            field_reprs.append('udf4=' + "'" + self.udf4.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf4=' + repr(self.udf4))
         if self.udf5 is not None:
-            field_reprs.append('udf5=' + "'" + self.udf5.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf5=' + repr(self.udf5))
         if self.udf6 is not None:
-            field_reprs.append('udf6=' + "'" + self.udf6.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf6=' + repr(self.udf6))
         if self.udf7 is not None:
-            field_reprs.append('udf7=' + "'" + self.udf7.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf7=' + repr(self.udf7))
         if self.udf8 is not None:
-            field_reprs.append('udf8=' + "'" + self.udf8.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf8=' + repr(self.udf8))
         if self.udf9 is not None:
-            field_reprs.append('udf9=' + "'" + self.udf9.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf9=' + repr(self.udf9))
         if self.unit is not None:
             field_reprs.append('unit=' + "'" + self.unit.encode('ascii', 'replace') + "'")
         if self.updated is not None:
@@ -12308,49 +12132,49 @@ class Object(object):
         if self.tlocfield6 is not None:
             field_reprs.append('tlocfield6=' + "'" + self.tlocfield6.encode('ascii', 'replace') + "'")
         if self.udf1 is not None:
-            field_reprs.append('udf1=' + "'" + self.udf1.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf1=' + repr(self.udf1))
         if self.udf10 is not None:
-            field_reprs.append('udf10=' + "'" + self.udf10.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf10=' + repr(self.udf10))
         if self.udf11 is not None:
-            field_reprs.append('udf11=' + "'" + self.udf11.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf11=' + repr(self.udf11))
         if self.udf12 is not None:
-            field_reprs.append('udf12=' + "'" + self.udf12.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf12=' + repr(self.udf12))
         if self.udf13 is not None:
-            field_reprs.append('udf13=' + "'" + self.udf13.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf13=' + repr(self.udf13))
         if self.udf14 is not None:
-            field_reprs.append('udf14=' + "'" + self.udf14.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf14=' + repr(self.udf14))
         if self.udf15 is not None:
-            field_reprs.append('udf15=' + "'" + self.udf15.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf15=' + repr(self.udf15))
         if self.udf16 is not None:
-            field_reprs.append('udf16=' + "'" + self.udf16.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf16=' + repr(self.udf16))
         if self.udf17 is not None:
-            field_reprs.append('udf17=' + "'" + self.udf17.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf17=' + repr(self.udf17))
         if self.udf18 is not None:
-            field_reprs.append('udf18=' + "'" + self.udf18.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf18=' + repr(self.udf18))
         if self.udf19 is not None:
-            field_reprs.append('udf19=' + "'" + self.udf19.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf19=' + repr(self.udf19))
         if self.udf2 is not None:
-            field_reprs.append('udf2=' + "'" + self.udf2.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf2=' + repr(self.udf2))
         if self.udf20 is not None:
-            field_reprs.append('udf20=' + "'" + self.udf20.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf20=' + repr(self.udf20))
         if self.udf21 is not None:
-            field_reprs.append('udf21=' + "'" + self.udf21.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf21=' + repr(self.udf21))
         if self.udf22 is not None:
-            field_reprs.append('udf22=' + "'" + self.udf22.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf22=' + repr(self.udf22))
         if self.udf3 is not None:
-            field_reprs.append('udf3=' + "'" + self.udf3.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf3=' + repr(self.udf3))
         if self.udf4 is not None:
-            field_reprs.append('udf4=' + "'" + self.udf4.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf4=' + repr(self.udf4))
         if self.udf5 is not None:
-            field_reprs.append('udf5=' + "'" + self.udf5.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf5=' + repr(self.udf5))
         if self.udf6 is not None:
-            field_reprs.append('udf6=' + "'" + self.udf6.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf6=' + repr(self.udf6))
         if self.udf7 is not None:
-            field_reprs.append('udf7=' + "'" + self.udf7.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf7=' + repr(self.udf7))
         if self.udf8 is not None:
-            field_reprs.append('udf8=' + "'" + self.udf8.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf8=' + repr(self.udf8))
         if self.udf9 is not None:
-            field_reprs.append('udf9=' + "'" + self.udf9.encode('ascii', 'replace') + "'")
+            field_reprs.append('udf9=' + repr(self.udf9))
         if self.unit is not None:
             field_reprs.append('unit=' + "'" + self.unit.encode('ascii', 'replace') + "'")
         if self.updated is not None:
@@ -14684,115 +14508,49 @@ class Object(object):
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'udf1':
-                try:
-                    init_kwds['udf1'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf1'] = iprot.read_variant()
             elif ifield_name == 'udf10':
-                try:
-                    init_kwds['udf10'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf10'] = iprot.read_variant()
             elif ifield_name == 'udf11':
-                try:
-                    init_kwds['udf11'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf11'] = iprot.read_variant()
             elif ifield_name == 'udf12':
-                try:
-                    init_kwds['udf12'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf12'] = iprot.read_variant()
             elif ifield_name == 'udf13':
-                try:
-                    init_kwds['udf13'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf13'] = iprot.read_variant()
             elif ifield_name == 'udf14':
-                try:
-                    init_kwds['udf14'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf14'] = iprot.read_variant()
             elif ifield_name == 'udf15':
-                try:
-                    init_kwds['udf15'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf15'] = iprot.read_variant()
             elif ifield_name == 'udf16':
-                try:
-                    init_kwds['udf16'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf16'] = iprot.read_variant()
             elif ifield_name == 'udf17':
-                try:
-                    init_kwds['udf17'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf17'] = iprot.read_variant()
             elif ifield_name == 'udf18':
-                try:
-                    init_kwds['udf18'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf18'] = iprot.read_variant()
             elif ifield_name == 'udf19':
-                try:
-                    init_kwds['udf19'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf19'] = iprot.read_variant()
             elif ifield_name == 'udf2':
-                try:
-                    init_kwds['udf2'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf2'] = iprot.read_variant()
             elif ifield_name == 'udf20':
-                try:
-                    init_kwds['udf20'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf20'] = iprot.read_variant()
             elif ifield_name == 'udf21':
-                try:
-                    init_kwds['udf21'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf21'] = iprot.read_variant()
             elif ifield_name == 'udf22':
-                try:
-                    init_kwds['udf22'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf22'] = iprot.read_variant()
             elif ifield_name == 'udf3':
-                try:
-                    init_kwds['udf3'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf3'] = iprot.read_variant()
             elif ifield_name == 'udf4':
-                try:
-                    init_kwds['udf4'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf4'] = iprot.read_variant()
             elif ifield_name == 'udf5':
-                try:
-                    init_kwds['udf5'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf5'] = iprot.read_variant()
             elif ifield_name == 'udf6':
-                try:
-                    init_kwds['udf6'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf6'] = iprot.read_variant()
             elif ifield_name == 'udf7':
-                try:
-                    init_kwds['udf7'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf7'] = iprot.read_variant()
             elif ifield_name == 'udf8':
-                try:
-                    init_kwds['udf8'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf8'] = iprot.read_variant()
             elif ifield_name == 'udf9':
-                try:
-                    init_kwds['udf9'] = iprot.read_string()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['udf9'] = iprot.read_variant()
             elif ifield_name == 'unit':
                 try:
                     init_kwds['unit'] = iprot.read_string()
@@ -15434,28 +15192,28 @@ class Object(object):
         :type tlocfield4: str or None
         :type tlocfield5: str or None
         :type tlocfield6: str or None
-        :type udf1: str or None
-        :type udf10: str or None
-        :type udf11: str or None
-        :type udf12: str or None
-        :type udf13: str or None
-        :type udf14: str or None
-        :type udf15: str or None
-        :type udf16: str or None
-        :type udf17: str or None
-        :type udf18: str or None
-        :type udf19: str or None
-        :type udf2: str or None
-        :type udf20: str or None
-        :type udf21: str or None
-        :type udf22: str or None
-        :type udf3: str or None
-        :type udf4: str or None
-        :type udf5: str or None
-        :type udf6: str or None
-        :type udf7: str or None
-        :type udf8: str or None
-        :type udf9: str or None
+        :type udf1: object or None
+        :type udf10: object or None
+        :type udf11: object or None
+        :type udf12: object or None
+        :type udf13: object or None
+        :type udf14: object or None
+        :type udf15: object or None
+        :type udf16: object or None
+        :type udf17: object or None
+        :type udf18: object or None
+        :type udf19: object or None
+        :type udf2: object or None
+        :type udf20: object or None
+        :type udf21: object or None
+        :type udf22: object or None
+        :type udf3: object or None
+        :type udf4: object or None
+        :type udf5: object or None
+        :type udf6: object or None
+        :type udf7: object or None
+        :type udf8: object or None
+        :type udf9: object or None
         :type unit: str or None
         :type updated: str or None
         :type updatedby: str or None
@@ -16316,7 +16074,7 @@ class Object(object):
     @property
     def udf1(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf1
@@ -16324,7 +16082,7 @@ class Object(object):
     @property
     def udf10(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf10
@@ -16332,7 +16090,7 @@ class Object(object):
     @property
     def udf11(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf11
@@ -16340,7 +16098,7 @@ class Object(object):
     @property
     def udf12(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf12
@@ -16348,7 +16106,7 @@ class Object(object):
     @property
     def udf13(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf13
@@ -16356,7 +16114,7 @@ class Object(object):
     @property
     def udf14(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf14
@@ -16364,7 +16122,7 @@ class Object(object):
     @property
     def udf15(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf15
@@ -16372,7 +16130,7 @@ class Object(object):
     @property
     def udf16(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf16
@@ -16380,7 +16138,7 @@ class Object(object):
     @property
     def udf17(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf17
@@ -16388,7 +16146,7 @@ class Object(object):
     @property
     def udf18(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf18
@@ -16396,7 +16154,7 @@ class Object(object):
     @property
     def udf19(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf19
@@ -16404,7 +16162,7 @@ class Object(object):
     @property
     def udf2(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf2
@@ -16412,7 +16170,7 @@ class Object(object):
     @property
     def udf20(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf20
@@ -16420,7 +16178,7 @@ class Object(object):
     @property
     def udf21(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf21
@@ -16428,7 +16186,7 @@ class Object(object):
     @property
     def udf22(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf22
@@ -16436,7 +16194,7 @@ class Object(object):
     @property
     def udf3(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf3
@@ -16444,7 +16202,7 @@ class Object(object):
     @property
     def udf4(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf4
@@ -16452,7 +16210,7 @@ class Object(object):
     @property
     def udf5(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf5
@@ -16460,7 +16218,7 @@ class Object(object):
     @property
     def udf6(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf6
@@ -16468,7 +16226,7 @@ class Object(object):
     @property
     def udf7(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf7
@@ -16476,7 +16234,7 @@ class Object(object):
     @property
     def udf8(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf8
@@ -16484,7 +16242,7 @@ class Object(object):
     @property
     def udf9(self):
         '''
-        :rtype: str
+        :rtype: object
         '''
 
         return self.__udf9
@@ -17644,113 +17402,113 @@ class Object(object):
             oprot.write_field_end()
 
         if self.udf1 is not None:
-            oprot.write_field_begin(name='udf1', type=11, id=None)
-            oprot.write_string(self.udf1)
+            oprot.write_field_begin(name='udf1', type=12, id=None)
+            oprot.write_variant(self.udf1)
             oprot.write_field_end()
 
         if self.udf10 is not None:
-            oprot.write_field_begin(name='udf10', type=11, id=None)
-            oprot.write_string(self.udf10)
+            oprot.write_field_begin(name='udf10', type=12, id=None)
+            oprot.write_variant(self.udf10)
             oprot.write_field_end()
 
         if self.udf11 is not None:
-            oprot.write_field_begin(name='udf11', type=11, id=None)
-            oprot.write_string(self.udf11)
+            oprot.write_field_begin(name='udf11', type=12, id=None)
+            oprot.write_variant(self.udf11)
             oprot.write_field_end()
 
         if self.udf12 is not None:
-            oprot.write_field_begin(name='udf12', type=11, id=None)
-            oprot.write_string(self.udf12)
+            oprot.write_field_begin(name='udf12', type=12, id=None)
+            oprot.write_variant(self.udf12)
             oprot.write_field_end()
 
         if self.udf13 is not None:
-            oprot.write_field_begin(name='udf13', type=11, id=None)
-            oprot.write_string(self.udf13)
+            oprot.write_field_begin(name='udf13', type=12, id=None)
+            oprot.write_variant(self.udf13)
             oprot.write_field_end()
 
         if self.udf14 is not None:
-            oprot.write_field_begin(name='udf14', type=11, id=None)
-            oprot.write_string(self.udf14)
+            oprot.write_field_begin(name='udf14', type=12, id=None)
+            oprot.write_variant(self.udf14)
             oprot.write_field_end()
 
         if self.udf15 is not None:
-            oprot.write_field_begin(name='udf15', type=11, id=None)
-            oprot.write_string(self.udf15)
+            oprot.write_field_begin(name='udf15', type=12, id=None)
+            oprot.write_variant(self.udf15)
             oprot.write_field_end()
 
         if self.udf16 is not None:
-            oprot.write_field_begin(name='udf16', type=11, id=None)
-            oprot.write_string(self.udf16)
+            oprot.write_field_begin(name='udf16', type=12, id=None)
+            oprot.write_variant(self.udf16)
             oprot.write_field_end()
 
         if self.udf17 is not None:
-            oprot.write_field_begin(name='udf17', type=11, id=None)
-            oprot.write_string(self.udf17)
+            oprot.write_field_begin(name='udf17', type=12, id=None)
+            oprot.write_variant(self.udf17)
             oprot.write_field_end()
 
         if self.udf18 is not None:
-            oprot.write_field_begin(name='udf18', type=11, id=None)
-            oprot.write_string(self.udf18)
+            oprot.write_field_begin(name='udf18', type=12, id=None)
+            oprot.write_variant(self.udf18)
             oprot.write_field_end()
 
         if self.udf19 is not None:
-            oprot.write_field_begin(name='udf19', type=11, id=None)
-            oprot.write_string(self.udf19)
+            oprot.write_field_begin(name='udf19', type=12, id=None)
+            oprot.write_variant(self.udf19)
             oprot.write_field_end()
 
         if self.udf2 is not None:
-            oprot.write_field_begin(name='udf2', type=11, id=None)
-            oprot.write_string(self.udf2)
+            oprot.write_field_begin(name='udf2', type=12, id=None)
+            oprot.write_variant(self.udf2)
             oprot.write_field_end()
 
         if self.udf20 is not None:
-            oprot.write_field_begin(name='udf20', type=11, id=None)
-            oprot.write_string(self.udf20)
+            oprot.write_field_begin(name='udf20', type=12, id=None)
+            oprot.write_variant(self.udf20)
             oprot.write_field_end()
 
         if self.udf21 is not None:
-            oprot.write_field_begin(name='udf21', type=11, id=None)
-            oprot.write_string(self.udf21)
+            oprot.write_field_begin(name='udf21', type=12, id=None)
+            oprot.write_variant(self.udf21)
             oprot.write_field_end()
 
         if self.udf22 is not None:
-            oprot.write_field_begin(name='udf22', type=11, id=None)
-            oprot.write_string(self.udf22)
+            oprot.write_field_begin(name='udf22', type=12, id=None)
+            oprot.write_variant(self.udf22)
             oprot.write_field_end()
 
         if self.udf3 is not None:
-            oprot.write_field_begin(name='udf3', type=11, id=None)
-            oprot.write_string(self.udf3)
+            oprot.write_field_begin(name='udf3', type=12, id=None)
+            oprot.write_variant(self.udf3)
             oprot.write_field_end()
 
         if self.udf4 is not None:
-            oprot.write_field_begin(name='udf4', type=11, id=None)
-            oprot.write_string(self.udf4)
+            oprot.write_field_begin(name='udf4', type=12, id=None)
+            oprot.write_variant(self.udf4)
             oprot.write_field_end()
 
         if self.udf5 is not None:
-            oprot.write_field_begin(name='udf5', type=11, id=None)
-            oprot.write_string(self.udf5)
+            oprot.write_field_begin(name='udf5', type=12, id=None)
+            oprot.write_variant(self.udf5)
             oprot.write_field_end()
 
         if self.udf6 is not None:
-            oprot.write_field_begin(name='udf6', type=11, id=None)
-            oprot.write_string(self.udf6)
+            oprot.write_field_begin(name='udf6', type=12, id=None)
+            oprot.write_variant(self.udf6)
             oprot.write_field_end()
 
         if self.udf7 is not None:
-            oprot.write_field_begin(name='udf7', type=11, id=None)
-            oprot.write_string(self.udf7)
+            oprot.write_field_begin(name='udf7', type=12, id=None)
+            oprot.write_variant(self.udf7)
             oprot.write_field_end()
 
         if self.udf8 is not None:
-            oprot.write_field_begin(name='udf8', type=11, id=None)
-            oprot.write_string(self.udf8)
+            oprot.write_field_begin(name='udf8', type=12, id=None)
+            oprot.write_variant(self.udf8)
             oprot.write_field_end()
 
         if self.udf9 is not None:
-            oprot.write_field_begin(name='udf9', type=11, id=None)
-            oprot.write_string(self.udf9)
+            oprot.write_field_begin(name='udf9', type=12, id=None)
+            oprot.write_variant(self.udf9)
             oprot.write_field_end()
 
         if self.unit is not None:

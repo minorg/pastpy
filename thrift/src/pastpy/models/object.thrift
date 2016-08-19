@@ -5,6 +5,7 @@ include "pastpy/models/recas.thrift"
 include "pastpy/models/status.thrift"
 include "thryft/native/date_time.thrift"
 include "thryft/native/decimal.thrift"
+include "thryft/native/variant.thrift"
 
 struct Object {
     // @validation {"minLength": 1}
@@ -577,71 +578,49 @@ struct Object {
     // @validation {"minLength": 1}
     optional string tlocfield6;
 
-    // @validation {"minLength": 1}
-    optional string udf1;
+    optional variant.Variant udf1;
 
-    // @validation {"minLength": 1}
-    optional string udf10;
+    optional variant.Variant udf10;
 
-    // @validation {"minLength": 1}
-    optional string udf11;
+    optional variant.Variant udf11;
 
-    // @validation {"minLength": 1}
-    optional string udf12;
+    optional variant.Variant udf12;
 
-    // @validation {"minLength": 1}
-    optional string udf13;
+    optional variant.Variant udf13;
 
-    // @validation {"minLength": 1}
-    optional string udf14;
+    optional variant.Variant udf14;
 
-    // @validation {"minLength": 1}
-    optional string udf15;
+    optional variant.Variant udf15;
 
-    // @validation {"minLength": 1}
-    optional string udf16;
+    optional variant.Variant udf16;
 
-    // @validation {"minLength": 1}
-    optional string udf17;
+    optional variant.Variant udf17;
 
-    // @validation {"minLength": 1}
-    optional string udf18;
+    optional variant.Variant udf18;
 
-    // @validation {"minLength": 1}
-    optional string udf19;
+    optional variant.Variant udf19;
 
-    // @validation {"minLength": 1}
-    optional string udf2;
+    optional variant.Variant udf2;
 
-    // @validation {"minLength": 1}
-    optional string udf20;
+    optional variant.Variant udf20;
 
-    // @validation {"minLength": 1}
-    optional string udf21;
+    optional variant.Variant udf21;
 
-    // @validation {"minLength": 1}
-    optional string udf22;
+    optional variant.Variant udf22;
 
-    // @validation {"minLength": 1}
-    optional string udf3;
+    optional variant.Variant udf3;
 
-    // @validation {"minLength": 1}
-    optional string udf4;
+    optional variant.Variant udf4;
 
-    // @validation {"minLength": 1}
-    optional string udf5;
+    optional variant.Variant udf5;
 
-    // @validation {"minLength": 1}
-    optional string udf6;
+    optional variant.Variant udf6;
 
-    // @validation {"minLength": 1}
-    optional string udf7;
+    optional variant.Variant udf7;
 
-    // @validation {"minLength": 1}
-    optional string udf8;
+    optional variant.Variant udf8;
 
-    // @validation {"minLength": 1}
-    optional string udf9;
+    optional variant.Variant udf9;
 
     // @validation {"minLength": 1}
     optional string unit;

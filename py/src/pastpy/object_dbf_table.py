@@ -41,5 +41,11 @@ class ObjectDbfTable(_DbfTable):
                     except (TypeError, ValueError), e:
                         raise TypeError("unable to coerce %s (%s) to a %s: %s" % (field_value, type(field_value), field_metadata.type, e))
 
-            getattr(object_builder, 'set_' + field_name)(field_value)
+            try:
+                getattr(object_builder, 'set_' + field_name)(field_value)
+            except TypeError, e:
+                raise TypeError("%(field_value)s: %(e)s" % locals())
+            except ValueError, e:
+                raise TypeError("%(field_value)s: %(e)s" % locals())
+
         return object_builder.build()
