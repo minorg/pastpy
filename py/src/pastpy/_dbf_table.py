@@ -9,14 +9,16 @@ class _DbfTable(object):
     def _map_record(self, record):
         raise NotImplementedError
 
-    def _map_record_field(self, field_metadata, field_name, field_value):
+    def _map_record_field(self, field_name, field_value, struct_builder, struct_type):
         if field_value is None:
-            return field_value
+            return
 
         if isinstance(field_value, basestring):
             field_value = field_value.strip()
             if len(field_value) == 0:
-                return None
+                return
+
+        field_metadata = getattr(getattr(struct_type, 'FieldMetadata'), field_name.upper())
 
         if field_metadata.type == datetime:
             if isinstance(field_value, date):
@@ -25,10 +27,10 @@ class _DbfTable(object):
                 pass
             elif isinstance(field_value, basestring):
                 logging.warn("unable to parse %(field_name)s=%(field_value)s (basestring)" % locals())
-                return None
+                return
             elif isinstance(field_value, int):
                 if field_value == 0:
-                    return None
+                    return
                 raise NotImplementedError("%(field_name)s: %(field_value)s" % locals())
         elif field_metadata.type == object:
             pass
@@ -44,13 +46,21 @@ class _DbfTable(object):
                     field_value_type = type(field_value)
                     field_metadata_type = field_metadata.type
                     logging.warn("unable to convert %(field_name)s=%(field_value)s (%(field_value_type)s) to %(field_metadata_type)s: %(e)s" % locals())
-                    return None
+                    return
             else:
                 try:
                     field_value = field_metadata.type(field_value)
                 except (TypeError, ValueError), e:
                     raise TypeError("unable to coerce %s=%s (%s) to a %s: %s" % (field_name, field_value, type(field_value), field_metadata.type, e))
-        return field_value
+
+        try:
+            getattr(struct_builder, 'set_' + field_name)(field_value)
+        except TypeError, e:
+            raise TypeError("%(field_value)s: %(e)s" % locals())
+        except ValueError, e:
+            if field_metadata.validation is not None:
+                return
+            raise ValueError("%(field_value)s: %(e)s" % locals())
 
     def __enter__(self):
         pass
