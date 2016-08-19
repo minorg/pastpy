@@ -265,14 +265,14 @@ class Object(object):
             :type appnotes: str or None
             :type appraisor: str or None
             :type assemzone: str or None
-            :type bagno: str or None
-            :type boxno: str or None
+            :type bagno: int or None
+            :type boxno: int or None
             :type caption: str or None
             :type catby: str or None
             :type catdate: datetime.datetime or None
-            :type cattype: str or None
+            :type cattype: int or None
             :type chemcomp: str or None
-            :type circum: str or None
+            :type circum: Decimal or None
             :type circumft: Decimal or None
             :type circumin: Decimal or None
             :type classes: str or None
@@ -296,22 +296,22 @@ class Object(object):
             :type date: str or None
             :type datingmeth: str or None
             :type datum: str or None
-            :type depth: str or None
+            :type depth: Decimal or None
             :type depthft: Decimal or None
             :type depthin: Decimal or None
             :type descrip: str or None
-            :type diameter: str or None
+            :type diameter: Decimal or None
             :type diameterft: Decimal or None
             :type diameterin: Decimal or None
             :type dimnotes: str or None
-            :type dimtype: str or None
+            :type dimtype: int or None
             :type dispvalue: str or None
-            :type earlydate: str or None
+            :type earlydate: datetime.datetime or None
             :type elements: str or None
             :type epoch: str or None
             :type era: str or None
             :type event: str or None
-            :type excavadate: str or None
+            :type excavadate: datetime.datetime or None
             :type excavateby: str or None
             :type exhibitno: int or None
             :type exhlabel1: str or None
@@ -321,7 +321,7 @@ class Object(object):
             :type exhstart: str or None
             :type family: str or None
             :type feature: str or None
-            :type flagdate: str or None
+            :type flagdate: datetime.datetime or None
             :type flagnotes: str or None
             :type flagreason: str or None
             :type formation: str or None
@@ -335,12 +335,12 @@ class Object(object):
             :type grainsize: str or None
             :type habitat: str or None
             :type hardness: str or None
-            :type height: str or None
+            :type height: Decimal or None
             :type heightft: Decimal or None
             :type heightin: Decimal or None
             :type homeloc: str or None
             :type idby: str or None
-            :type iddate: str or None
+            :type iddate: datetime.datetime or None
             :type imagefile: str or None
             :type imageno: int or None
             :type imagesize: str or None
@@ -350,26 +350,26 @@ class Object(object):
             :type inscrtech: str or None
             :type inscrtext: str or None
             :type inscrtrans: str or None
-            :type inscrtype: str or None
-            :type insdate: str or None
+            :type inscrtype: int or None
+            :type insdate: datetime.datetime or None
             :type insphone: str or None
             :type inspremium: str or None
             :type insrep: str or None
             :type insvalue: Decimal or None
             :type invnby: str or None
-            :type invndate: str or None
+            :type invndate: datetime.datetime or None
             :type kingdom: str or None
-            :type latedate: str or None
+            :type latedate: datetime.datetime or None
             :type legal: str or None
-            :type length: str or None
+            :type length: Decimal or None
             :type lengthft: Decimal or None
             :type lengthin: Decimal or None
             :type level: str or None
             :type lithofacie: str or None
             :type loancond: str or None
             :type loandue: str or None
-            :type loaninno: str or None
-            :type loanno: str or None
+            :type loaninno: int or None
+            :type loanno: int or None
             :type locfield1: str or None
             :type locfield2: str or None
             :type locfield3: str or None
@@ -379,7 +379,7 @@ class Object(object):
             :type luster: str or None
             :type made: str or None
             :type maintcycle: str or None
-            :type maintdate: str or None
+            :type maintdate: datetime.datetime or None
             :type maintnote: str or None
             :type material: str or None
             :type medium: str or None
@@ -398,35 +398,35 @@ class Object(object):
             :type origin: str or None
             :type othername: str or None
             :type otherno: int or None
-            :type outdate: str or None
+            :type outdate: datetime.datetime or None
             :type owned: str or None
             :type parent: str or None
             :type people: str or None
             :type period: str or None
             :type phylum: str or None
-            :type policyno: str or None
+            :type policyno: int or None
             :type preparator: str or None
-            :type prepdate: str or None
+            :type prepdate: datetime.datetime or None
             :type preserve: str or None
             :type pressure: str or None
             :type provenance: str or None
             :type pubnotes: str or None
             :type recas: pastpy.models.recas.Recas or None
-            :type recdate: str or None
+            :type recdate: datetime.datetime or None
             :type recfrom: str or None
             :type relnotes: str or None
             :type repatby: str or None
             :type repatclaim: str or None
-            :type repatdate: str or None
+            :type repatdate: datetime.datetime or None
             :type repatdisp: str or None
             :type repathand: str or None
             :type repatnotes: str or None
             :type repatnotic: str or None
-            :type repattype: str or None
+            :type repattype: int or None
             :type rockclass: str or None
             :type rockcolor: str or None
             :type rockorigin: str or None
-            :type rocktype: str or None
+            :type rocktype: int or None
             :type role: str or None
             :type role2: str or None
             :type role3: str or None
@@ -435,7 +435,7 @@ class Object(object):
             :type signedname: str or None
             :type signloc: str or None
             :type site: str or None
-            :type siteno: str or None
+            :type siteno: int or None
             :type specgrav: str or None
             :type species: str or None
             :type sprocess: str or None
@@ -452,7 +452,7 @@ class Object(object):
             :type technique: str or None
             :type tempauthor: str or None
             :type tempby: str or None
-            :type tempdate: str or None
+            :type tempdate: datetime.datetime or None
             :type temperatur: str or None
             :type temploc: str or None
             :type tempnotes: str or None
@@ -492,13 +492,13 @@ class Object(object):
             :type updated: str or None
             :type updatedby: str or None
             :type used: str or None
-            :type valuedate: str or None
+            :type valuedate: datetime.datetime or None
             :type varieties: str or None
             :type webinclude: str or None
             :type weight: str or None
             :type weightin: str or None
             :type weightlb: Decimal or None
-            :type width: str or None
+            :type width: Decimal or None
             :type widthft: Decimal or None
             :type widthin: Decimal or None
             :type xcord: str or None
@@ -815,7 +815,7 @@ class Object(object):
         @property
         def bagno(self):
             '''
-            :rtype: str
+            :rtype: int
             '''
 
             return self.__bagno
@@ -823,7 +823,7 @@ class Object(object):
         @property
         def boxno(self):
             '''
-            :rtype: str
+            :rtype: int
             '''
 
             return self.__boxno
@@ -855,7 +855,7 @@ class Object(object):
         @property
         def cattype(self):
             '''
-            :rtype: str
+            :rtype: int
             '''
 
             return self.__cattype
@@ -871,7 +871,7 @@ class Object(object):
         @property
         def circum(self):
             '''
-            :rtype: str
+            :rtype: Decimal
             '''
 
             return self.__circum
@@ -1063,7 +1063,7 @@ class Object(object):
         @property
         def depth(self):
             '''
-            :rtype: str
+            :rtype: Decimal
             '''
 
             return self.__depth
@@ -1095,7 +1095,7 @@ class Object(object):
         @property
         def diameter(self):
             '''
-            :rtype: str
+            :rtype: Decimal
             '''
 
             return self.__diameter
@@ -1127,7 +1127,7 @@ class Object(object):
         @property
         def dimtype(self):
             '''
-            :rtype: str
+            :rtype: int
             '''
 
             return self.__dimtype
@@ -1143,7 +1143,7 @@ class Object(object):
         @property
         def earlydate(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__earlydate
@@ -1183,7 +1183,7 @@ class Object(object):
         @property
         def excavadate(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__excavadate
@@ -1263,7 +1263,7 @@ class Object(object):
         @property
         def flagdate(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__flagdate
@@ -1375,7 +1375,7 @@ class Object(object):
         @property
         def height(self):
             '''
-            :rtype: str
+            :rtype: Decimal
             '''
 
             return self.__height
@@ -1415,7 +1415,7 @@ class Object(object):
         @property
         def iddate(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__iddate
@@ -1495,7 +1495,7 @@ class Object(object):
         @property
         def inscrtype(self):
             '''
-            :rtype: str
+            :rtype: int
             '''
 
             return self.__inscrtype
@@ -1503,7 +1503,7 @@ class Object(object):
         @property
         def insdate(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__insdate
@@ -1551,7 +1551,7 @@ class Object(object):
         @property
         def invndate(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__invndate
@@ -1567,7 +1567,7 @@ class Object(object):
         @property
         def latedate(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__latedate
@@ -1583,7 +1583,7 @@ class Object(object):
         @property
         def length(self):
             '''
-            :rtype: str
+            :rtype: Decimal
             '''
 
             return self.__length
@@ -1639,7 +1639,7 @@ class Object(object):
         @property
         def loaninno(self):
             '''
-            :rtype: str
+            :rtype: int
             '''
 
             return self.__loaninno
@@ -1647,7 +1647,7 @@ class Object(object):
         @property
         def loanno(self):
             '''
-            :rtype: str
+            :rtype: int
             '''
 
             return self.__loanno
@@ -1727,7 +1727,7 @@ class Object(object):
         @property
         def maintdate(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__maintdate
@@ -1879,7 +1879,7 @@ class Object(object):
         @property
         def outdate(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__outdate
@@ -1927,7 +1927,7 @@ class Object(object):
         @property
         def policyno(self):
             '''
-            :rtype: str
+            :rtype: int
             '''
 
             return self.__policyno
@@ -1943,7 +1943,7 @@ class Object(object):
         @property
         def prepdate(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__prepdate
@@ -1991,7 +1991,7 @@ class Object(object):
         @property
         def recdate(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__recdate
@@ -2031,7 +2031,7 @@ class Object(object):
         @property
         def repatdate(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__repatdate
@@ -2071,7 +2071,7 @@ class Object(object):
         @property
         def repattype(self):
             '''
-            :rtype: str
+            :rtype: int
             '''
 
             return self.__repattype
@@ -2103,7 +2103,7 @@ class Object(object):
         @property
         def rocktype(self):
             '''
-            :rtype: str
+            :rtype: int
             '''
 
             return self.__rocktype
@@ -2198,7 +2198,7 @@ class Object(object):
 
         def set_bagno(self, bagno):
             '''
-            :type bagno: str or None
+            :type bagno: int or None
             '''
 
             self.__bagno = bagno
@@ -2206,7 +2206,7 @@ class Object(object):
 
         def set_boxno(self, boxno):
             '''
-            :type boxno: str or None
+            :type boxno: int or None
             '''
 
             self.__boxno = boxno
@@ -2238,7 +2238,7 @@ class Object(object):
 
         def set_cattype(self, cattype):
             '''
-            :type cattype: str or None
+            :type cattype: int or None
             '''
 
             self.__cattype = cattype
@@ -2254,7 +2254,7 @@ class Object(object):
 
         def set_circum(self, circum):
             '''
-            :type circum: str or None
+            :type circum: Decimal or None
             '''
 
             self.__circum = circum
@@ -2446,7 +2446,7 @@ class Object(object):
 
         def set_depth(self, depth):
             '''
-            :type depth: str or None
+            :type depth: Decimal or None
             '''
 
             self.__depth = depth
@@ -2478,7 +2478,7 @@ class Object(object):
 
         def set_diameter(self, diameter):
             '''
-            :type diameter: str or None
+            :type diameter: Decimal or None
             '''
 
             self.__diameter = diameter
@@ -2510,7 +2510,7 @@ class Object(object):
 
         def set_dimtype(self, dimtype):
             '''
-            :type dimtype: str or None
+            :type dimtype: int or None
             '''
 
             self.__dimtype = dimtype
@@ -2526,7 +2526,7 @@ class Object(object):
 
         def set_earlydate(self, earlydate):
             '''
-            :type earlydate: str or None
+            :type earlydate: datetime.datetime or None
             '''
 
             self.__earlydate = earlydate
@@ -2566,7 +2566,7 @@ class Object(object):
 
         def set_excavadate(self, excavadate):
             '''
-            :type excavadate: str or None
+            :type excavadate: datetime.datetime or None
             '''
 
             self.__excavadate = excavadate
@@ -2646,7 +2646,7 @@ class Object(object):
 
         def set_flagdate(self, flagdate):
             '''
-            :type flagdate: str or None
+            :type flagdate: datetime.datetime or None
             '''
 
             self.__flagdate = flagdate
@@ -2758,7 +2758,7 @@ class Object(object):
 
         def set_height(self, height):
             '''
-            :type height: str or None
+            :type height: Decimal or None
             '''
 
             self.__height = height
@@ -2798,7 +2798,7 @@ class Object(object):
 
         def set_iddate(self, iddate):
             '''
-            :type iddate: str or None
+            :type iddate: datetime.datetime or None
             '''
 
             self.__iddate = iddate
@@ -2878,7 +2878,7 @@ class Object(object):
 
         def set_inscrtype(self, inscrtype):
             '''
-            :type inscrtype: str or None
+            :type inscrtype: int or None
             '''
 
             self.__inscrtype = inscrtype
@@ -2886,7 +2886,7 @@ class Object(object):
 
         def set_insdate(self, insdate):
             '''
-            :type insdate: str or None
+            :type insdate: datetime.datetime or None
             '''
 
             self.__insdate = insdate
@@ -2934,7 +2934,7 @@ class Object(object):
 
         def set_invndate(self, invndate):
             '''
-            :type invndate: str or None
+            :type invndate: datetime.datetime or None
             '''
 
             self.__invndate = invndate
@@ -2950,7 +2950,7 @@ class Object(object):
 
         def set_latedate(self, latedate):
             '''
-            :type latedate: str or None
+            :type latedate: datetime.datetime or None
             '''
 
             self.__latedate = latedate
@@ -2966,7 +2966,7 @@ class Object(object):
 
         def set_length(self, length):
             '''
-            :type length: str or None
+            :type length: Decimal or None
             '''
 
             self.__length = length
@@ -3022,7 +3022,7 @@ class Object(object):
 
         def set_loaninno(self, loaninno):
             '''
-            :type loaninno: str or None
+            :type loaninno: int or None
             '''
 
             self.__loaninno = loaninno
@@ -3030,7 +3030,7 @@ class Object(object):
 
         def set_loanno(self, loanno):
             '''
-            :type loanno: str or None
+            :type loanno: int or None
             '''
 
             self.__loanno = loanno
@@ -3110,7 +3110,7 @@ class Object(object):
 
         def set_maintdate(self, maintdate):
             '''
-            :type maintdate: str or None
+            :type maintdate: datetime.datetime or None
             '''
 
             self.__maintdate = maintdate
@@ -3262,7 +3262,7 @@ class Object(object):
 
         def set_outdate(self, outdate):
             '''
-            :type outdate: str or None
+            :type outdate: datetime.datetime or None
             '''
 
             self.__outdate = outdate
@@ -3310,7 +3310,7 @@ class Object(object):
 
         def set_policyno(self, policyno):
             '''
-            :type policyno: str or None
+            :type policyno: int or None
             '''
 
             self.__policyno = policyno
@@ -3326,7 +3326,7 @@ class Object(object):
 
         def set_prepdate(self, prepdate):
             '''
-            :type prepdate: str or None
+            :type prepdate: datetime.datetime or None
             '''
 
             self.__prepdate = prepdate
@@ -3374,7 +3374,7 @@ class Object(object):
 
         def set_recdate(self, recdate):
             '''
-            :type recdate: str or None
+            :type recdate: datetime.datetime or None
             '''
 
             self.__recdate = recdate
@@ -3414,7 +3414,7 @@ class Object(object):
 
         def set_repatdate(self, repatdate):
             '''
-            :type repatdate: str or None
+            :type repatdate: datetime.datetime or None
             '''
 
             self.__repatdate = repatdate
@@ -3454,7 +3454,7 @@ class Object(object):
 
         def set_repattype(self, repattype):
             '''
-            :type repattype: str or None
+            :type repattype: int or None
             '''
 
             self.__repattype = repattype
@@ -3486,7 +3486,7 @@ class Object(object):
 
         def set_rocktype(self, rocktype):
             '''
-            :type rocktype: str or None
+            :type rocktype: int or None
             '''
 
             self.__rocktype = rocktype
@@ -3558,7 +3558,7 @@ class Object(object):
 
         def set_siteno(self, siteno):
             '''
-            :type siteno: str or None
+            :type siteno: int or None
             '''
 
             self.__siteno = siteno
@@ -3694,7 +3694,7 @@ class Object(object):
 
         def set_tempdate(self, tempdate):
             '''
-            :type tempdate: str or None
+            :type tempdate: datetime.datetime or None
             '''
 
             self.__tempdate = tempdate
@@ -4014,7 +4014,7 @@ class Object(object):
 
         def set_valuedate(self, valuedate):
             '''
-            :type valuedate: str or None
+            :type valuedate: datetime.datetime or None
             '''
 
             self.__valuedate = valuedate
@@ -4062,7 +4062,7 @@ class Object(object):
 
         def set_width(self, width):
             '''
-            :type width: str or None
+            :type width: Decimal or None
             '''
 
             self.__width = width
@@ -4143,7 +4143,7 @@ class Object(object):
         @property
         def siteno(self):
             '''
-            :rtype: str
+            :rtype: int
             '''
 
             return self.__siteno
@@ -4279,7 +4279,7 @@ class Object(object):
         @property
         def tempdate(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__tempdate
@@ -4581,14 +4581,14 @@ class Object(object):
             :type appnotes: str or None
             :type appraisor: str or None
             :type assemzone: str or None
-            :type bagno: str or None
-            :type boxno: str or None
+            :type bagno: int or None
+            :type boxno: int or None
             :type caption: str or None
             :type catby: str or None
             :type catdate: datetime.datetime or None
-            :type cattype: str or None
+            :type cattype: int or None
             :type chemcomp: str or None
-            :type circum: str or None
+            :type circum: Decimal or None
             :type circumft: Decimal or None
             :type circumin: Decimal or None
             :type classes: str or None
@@ -4612,22 +4612,22 @@ class Object(object):
             :type date: str or None
             :type datingmeth: str or None
             :type datum: str or None
-            :type depth: str or None
+            :type depth: Decimal or None
             :type depthft: Decimal or None
             :type depthin: Decimal or None
             :type descrip: str or None
-            :type diameter: str or None
+            :type diameter: Decimal or None
             :type diameterft: Decimal or None
             :type diameterin: Decimal or None
             :type dimnotes: str or None
-            :type dimtype: str or None
+            :type dimtype: int or None
             :type dispvalue: str or None
-            :type earlydate: str or None
+            :type earlydate: datetime.datetime or None
             :type elements: str or None
             :type epoch: str or None
             :type era: str or None
             :type event: str or None
-            :type excavadate: str or None
+            :type excavadate: datetime.datetime or None
             :type excavateby: str or None
             :type exhibitno: int or None
             :type exhlabel1: str or None
@@ -4637,7 +4637,7 @@ class Object(object):
             :type exhstart: str or None
             :type family: str or None
             :type feature: str or None
-            :type flagdate: str or None
+            :type flagdate: datetime.datetime or None
             :type flagnotes: str or None
             :type flagreason: str or None
             :type formation: str or None
@@ -4651,12 +4651,12 @@ class Object(object):
             :type grainsize: str or None
             :type habitat: str or None
             :type hardness: str or None
-            :type height: str or None
+            :type height: Decimal or None
             :type heightft: Decimal or None
             :type heightin: Decimal or None
             :type homeloc: str or None
             :type idby: str or None
-            :type iddate: str or None
+            :type iddate: datetime.datetime or None
             :type imagefile: str or None
             :type imageno: int or None
             :type imagesize: str or None
@@ -4666,26 +4666,26 @@ class Object(object):
             :type inscrtech: str or None
             :type inscrtext: str or None
             :type inscrtrans: str or None
-            :type inscrtype: str or None
-            :type insdate: str or None
+            :type inscrtype: int or None
+            :type insdate: datetime.datetime or None
             :type insphone: str or None
             :type inspremium: str or None
             :type insrep: str or None
             :type insvalue: Decimal or None
             :type invnby: str or None
-            :type invndate: str or None
+            :type invndate: datetime.datetime or None
             :type kingdom: str or None
-            :type latedate: str or None
+            :type latedate: datetime.datetime or None
             :type legal: str or None
-            :type length: str or None
+            :type length: Decimal or None
             :type lengthft: Decimal or None
             :type lengthin: Decimal or None
             :type level: str or None
             :type lithofacie: str or None
             :type loancond: str or None
             :type loandue: str or None
-            :type loaninno: str or None
-            :type loanno: str or None
+            :type loaninno: int or None
+            :type loanno: int or None
             :type locfield1: str or None
             :type locfield2: str or None
             :type locfield3: str or None
@@ -4695,7 +4695,7 @@ class Object(object):
             :type luster: str or None
             :type made: str or None
             :type maintcycle: str or None
-            :type maintdate: str or None
+            :type maintdate: datetime.datetime or None
             :type maintnote: str or None
             :type material: str or None
             :type medium: str or None
@@ -4714,35 +4714,35 @@ class Object(object):
             :type origin: str or None
             :type othername: str or None
             :type otherno: int or None
-            :type outdate: str or None
+            :type outdate: datetime.datetime or None
             :type owned: str or None
             :type parent: str or None
             :type people: str or None
             :type period: str or None
             :type phylum: str or None
-            :type policyno: str or None
+            :type policyno: int or None
             :type preparator: str or None
-            :type prepdate: str or None
+            :type prepdate: datetime.datetime or None
             :type preserve: str or None
             :type pressure: str or None
             :type provenance: str or None
             :type pubnotes: str or None
             :type recas: pastpy.models.recas.Recas or None
-            :type recdate: str or None
+            :type recdate: datetime.datetime or None
             :type recfrom: str or None
             :type relnotes: str or None
             :type repatby: str or None
             :type repatclaim: str or None
-            :type repatdate: str or None
+            :type repatdate: datetime.datetime or None
             :type repatdisp: str or None
             :type repathand: str or None
             :type repatnotes: str or None
             :type repatnotic: str or None
-            :type repattype: str or None
+            :type repattype: int or None
             :type rockclass: str or None
             :type rockcolor: str or None
             :type rockorigin: str or None
-            :type rocktype: str or None
+            :type rocktype: int or None
             :type role: str or None
             :type role2: str or None
             :type role3: str or None
@@ -4751,7 +4751,7 @@ class Object(object):
             :type signedname: str or None
             :type signloc: str or None
             :type site: str or None
-            :type siteno: str or None
+            :type siteno: int or None
             :type specgrav: str or None
             :type species: str or None
             :type sprocess: str or None
@@ -4768,7 +4768,7 @@ class Object(object):
             :type technique: str or None
             :type tempauthor: str or None
             :type tempby: str or None
-            :type tempdate: str or None
+            :type tempdate: datetime.datetime or None
             :type temperatur: str or None
             :type temploc: str or None
             :type tempnotes: str or None
@@ -4808,13 +4808,13 @@ class Object(object):
             :type updated: str or None
             :type updatedby: str or None
             :type used: str or None
-            :type valuedate: str or None
+            :type valuedate: datetime.datetime or None
             :type varieties: str or None
             :type webinclude: str or None
             :type weight: str or None
             :type weightin: str or None
             :type weightlb: Decimal or None
-            :type width: str or None
+            :type width: Decimal or None
             :type widthft: Decimal or None
             :type widthin: Decimal or None
             :type xcord: str or None
@@ -5103,7 +5103,7 @@ class Object(object):
         @property
         def valuedate(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__valuedate
@@ -5151,7 +5151,7 @@ class Object(object):
         @property
         def width(self):
             '''
-            :rtype: str
+            :rtype: Decimal
             '''
 
             return self.__width
@@ -5255,7 +5255,7 @@ class Object(object):
         @bagno.setter
         def bagno(self, bagno):
             '''
-            :type bagno: str or None
+            :type bagno: int or None
             '''
 
             self.set_bagno(bagno)
@@ -5263,7 +5263,7 @@ class Object(object):
         @boxno.setter
         def boxno(self, boxno):
             '''
-            :type boxno: str or None
+            :type boxno: int or None
             '''
 
             self.set_boxno(boxno)
@@ -5295,7 +5295,7 @@ class Object(object):
         @cattype.setter
         def cattype(self, cattype):
             '''
-            :type cattype: str or None
+            :type cattype: int or None
             '''
 
             self.set_cattype(cattype)
@@ -5311,7 +5311,7 @@ class Object(object):
         @circum.setter
         def circum(self, circum):
             '''
-            :type circum: str or None
+            :type circum: Decimal or None
             '''
 
             self.set_circum(circum)
@@ -5503,7 +5503,7 @@ class Object(object):
         @depth.setter
         def depth(self, depth):
             '''
-            :type depth: str or None
+            :type depth: Decimal or None
             '''
 
             self.set_depth(depth)
@@ -5535,7 +5535,7 @@ class Object(object):
         @diameter.setter
         def diameter(self, diameter):
             '''
-            :type diameter: str or None
+            :type diameter: Decimal or None
             '''
 
             self.set_diameter(diameter)
@@ -5567,7 +5567,7 @@ class Object(object):
         @dimtype.setter
         def dimtype(self, dimtype):
             '''
-            :type dimtype: str or None
+            :type dimtype: int or None
             '''
 
             self.set_dimtype(dimtype)
@@ -5583,7 +5583,7 @@ class Object(object):
         @earlydate.setter
         def earlydate(self, earlydate):
             '''
-            :type earlydate: str or None
+            :type earlydate: datetime.datetime or None
             '''
 
             self.set_earlydate(earlydate)
@@ -5623,7 +5623,7 @@ class Object(object):
         @excavadate.setter
         def excavadate(self, excavadate):
             '''
-            :type excavadate: str or None
+            :type excavadate: datetime.datetime or None
             '''
 
             self.set_excavadate(excavadate)
@@ -5703,7 +5703,7 @@ class Object(object):
         @flagdate.setter
         def flagdate(self, flagdate):
             '''
-            :type flagdate: str or None
+            :type flagdate: datetime.datetime or None
             '''
 
             self.set_flagdate(flagdate)
@@ -5815,7 +5815,7 @@ class Object(object):
         @height.setter
         def height(self, height):
             '''
-            :type height: str or None
+            :type height: Decimal or None
             '''
 
             self.set_height(height)
@@ -5855,7 +5855,7 @@ class Object(object):
         @iddate.setter
         def iddate(self, iddate):
             '''
-            :type iddate: str or None
+            :type iddate: datetime.datetime or None
             '''
 
             self.set_iddate(iddate)
@@ -5935,7 +5935,7 @@ class Object(object):
         @inscrtype.setter
         def inscrtype(self, inscrtype):
             '''
-            :type inscrtype: str or None
+            :type inscrtype: int or None
             '''
 
             self.set_inscrtype(inscrtype)
@@ -5943,7 +5943,7 @@ class Object(object):
         @insdate.setter
         def insdate(self, insdate):
             '''
-            :type insdate: str or None
+            :type insdate: datetime.datetime or None
             '''
 
             self.set_insdate(insdate)
@@ -5991,7 +5991,7 @@ class Object(object):
         @invndate.setter
         def invndate(self, invndate):
             '''
-            :type invndate: str or None
+            :type invndate: datetime.datetime or None
             '''
 
             self.set_invndate(invndate)
@@ -6007,7 +6007,7 @@ class Object(object):
         @latedate.setter
         def latedate(self, latedate):
             '''
-            :type latedate: str or None
+            :type latedate: datetime.datetime or None
             '''
 
             self.set_latedate(latedate)
@@ -6023,7 +6023,7 @@ class Object(object):
         @length.setter
         def length(self, length):
             '''
-            :type length: str or None
+            :type length: Decimal or None
             '''
 
             self.set_length(length)
@@ -6079,7 +6079,7 @@ class Object(object):
         @loaninno.setter
         def loaninno(self, loaninno):
             '''
-            :type loaninno: str or None
+            :type loaninno: int or None
             '''
 
             self.set_loaninno(loaninno)
@@ -6087,7 +6087,7 @@ class Object(object):
         @loanno.setter
         def loanno(self, loanno):
             '''
-            :type loanno: str or None
+            :type loanno: int or None
             '''
 
             self.set_loanno(loanno)
@@ -6167,7 +6167,7 @@ class Object(object):
         @maintdate.setter
         def maintdate(self, maintdate):
             '''
-            :type maintdate: str or None
+            :type maintdate: datetime.datetime or None
             '''
 
             self.set_maintdate(maintdate)
@@ -6319,7 +6319,7 @@ class Object(object):
         @outdate.setter
         def outdate(self, outdate):
             '''
-            :type outdate: str or None
+            :type outdate: datetime.datetime or None
             '''
 
             self.set_outdate(outdate)
@@ -6367,7 +6367,7 @@ class Object(object):
         @policyno.setter
         def policyno(self, policyno):
             '''
-            :type policyno: str or None
+            :type policyno: int or None
             '''
 
             self.set_policyno(policyno)
@@ -6383,7 +6383,7 @@ class Object(object):
         @prepdate.setter
         def prepdate(self, prepdate):
             '''
-            :type prepdate: str or None
+            :type prepdate: datetime.datetime or None
             '''
 
             self.set_prepdate(prepdate)
@@ -6431,7 +6431,7 @@ class Object(object):
         @recdate.setter
         def recdate(self, recdate):
             '''
-            :type recdate: str or None
+            :type recdate: datetime.datetime or None
             '''
 
             self.set_recdate(recdate)
@@ -6471,7 +6471,7 @@ class Object(object):
         @repatdate.setter
         def repatdate(self, repatdate):
             '''
-            :type repatdate: str or None
+            :type repatdate: datetime.datetime or None
             '''
 
             self.set_repatdate(repatdate)
@@ -6511,7 +6511,7 @@ class Object(object):
         @repattype.setter
         def repattype(self, repattype):
             '''
-            :type repattype: str or None
+            :type repattype: int or None
             '''
 
             self.set_repattype(repattype)
@@ -6543,7 +6543,7 @@ class Object(object):
         @rocktype.setter
         def rocktype(self, rocktype):
             '''
-            :type rocktype: str or None
+            :type rocktype: int or None
             '''
 
             self.set_rocktype(rocktype)
@@ -6615,7 +6615,7 @@ class Object(object):
         @siteno.setter
         def siteno(self, siteno):
             '''
-            :type siteno: str or None
+            :type siteno: int or None
             '''
 
             self.set_siteno(siteno)
@@ -6751,7 +6751,7 @@ class Object(object):
         @tempdate.setter
         def tempdate(self, tempdate):
             '''
-            :type tempdate: str or None
+            :type tempdate: datetime.datetime or None
             '''
 
             self.set_tempdate(tempdate)
@@ -7071,7 +7071,7 @@ class Object(object):
         @valuedate.setter
         def valuedate(self, valuedate):
             '''
-            :type valuedate: str or None
+            :type valuedate: datetime.datetime or None
             '''
 
             self.set_valuedate(valuedate)
@@ -7119,7 +7119,7 @@ class Object(object):
         @width.setter
         def width(self, width):
             '''
-            :type width: str or None
+            :type width: Decimal or None
             '''
 
             self.set_width(width)
@@ -7435,14 +7435,14 @@ class Object(object):
     FieldMetadata.APPNOTES = FieldMetadata('appnotes', str)
     FieldMetadata.APPRAISOR = FieldMetadata('appraisor', str)
     FieldMetadata.ASSEMZONE = FieldMetadata('assemzone', str)
-    FieldMetadata.BAGNO = FieldMetadata('bagno', str)
-    FieldMetadata.BOXNO = FieldMetadata('boxno', str)
+    FieldMetadata.BAGNO = FieldMetadata('bagno', int)
+    FieldMetadata.BOXNO = FieldMetadata('boxno', int)
     FieldMetadata.CAPTION = FieldMetadata('caption', str)
     FieldMetadata.CATBY = FieldMetadata('catby', str)
     FieldMetadata.CATDATE = FieldMetadata('catdate', datetime.datetime)
-    FieldMetadata.CATTYPE = FieldMetadata('cattype', str)
+    FieldMetadata.CATTYPE = FieldMetadata('cattype', int)
     FieldMetadata.CHEMCOMP = FieldMetadata('chemcomp', str)
-    FieldMetadata.CIRCUM = FieldMetadata('circum', str)
+    FieldMetadata.CIRCUM = FieldMetadata('circum', decimal.Decimal)
     FieldMetadata.CIRCUMFT = FieldMetadata('circumft', decimal.Decimal)
     FieldMetadata.CIRCUMIN = FieldMetadata('circumin', decimal.Decimal)
     FieldMetadata.CLASSES = FieldMetadata('classes', str)
@@ -7466,22 +7466,22 @@ class Object(object):
     FieldMetadata.DATE = FieldMetadata('date', str)
     FieldMetadata.DATINGMETH = FieldMetadata('datingmeth', str)
     FieldMetadata.DATUM = FieldMetadata('datum', str)
-    FieldMetadata.DEPTH = FieldMetadata('depth', str)
+    FieldMetadata.DEPTH = FieldMetadata('depth', decimal.Decimal)
     FieldMetadata.DEPTHFT = FieldMetadata('depthft', decimal.Decimal)
     FieldMetadata.DEPTHIN = FieldMetadata('depthin', decimal.Decimal)
     FieldMetadata.DESCRIP = FieldMetadata('descrip', str)
-    FieldMetadata.DIAMETER = FieldMetadata('diameter', str)
+    FieldMetadata.DIAMETER = FieldMetadata('diameter', decimal.Decimal)
     FieldMetadata.DIAMETERFT = FieldMetadata('diameterft', decimal.Decimal)
     FieldMetadata.DIAMETERIN = FieldMetadata('diameterin', decimal.Decimal)
     FieldMetadata.DIMNOTES = FieldMetadata('dimnotes', str)
-    FieldMetadata.DIMTYPE = FieldMetadata('dimtype', str)
+    FieldMetadata.DIMTYPE = FieldMetadata('dimtype', int)
     FieldMetadata.DISPVALUE = FieldMetadata('dispvalue', str)
-    FieldMetadata.EARLYDATE = FieldMetadata('earlydate', str)
+    FieldMetadata.EARLYDATE = FieldMetadata('earlydate', datetime.datetime)
     FieldMetadata.ELEMENTS = FieldMetadata('elements', str)
     FieldMetadata.EPOCH = FieldMetadata('epoch', str)
     FieldMetadata.ERA = FieldMetadata('era', str)
     FieldMetadata.EVENT = FieldMetadata('event', str)
-    FieldMetadata.EXCAVADATE = FieldMetadata('excavadate', str)
+    FieldMetadata.EXCAVADATE = FieldMetadata('excavadate', datetime.datetime)
     FieldMetadata.EXCAVATEBY = FieldMetadata('excavateby', str)
     FieldMetadata.EXHIBITNO = FieldMetadata('exhibitno', int)
     FieldMetadata.EXHLABEL1 = FieldMetadata('exhlabel1', str)
@@ -7491,7 +7491,7 @@ class Object(object):
     FieldMetadata.EXHSTART = FieldMetadata('exhstart', str)
     FieldMetadata.FAMILY = FieldMetadata('family', str)
     FieldMetadata.FEATURE = FieldMetadata('feature', str)
-    FieldMetadata.FLAGDATE = FieldMetadata('flagdate', str)
+    FieldMetadata.FLAGDATE = FieldMetadata('flagdate', datetime.datetime)
     FieldMetadata.FLAGNOTES = FieldMetadata('flagnotes', str)
     FieldMetadata.FLAGREASON = FieldMetadata('flagreason', str)
     FieldMetadata.FORMATION = FieldMetadata('formation', str)
@@ -7505,12 +7505,12 @@ class Object(object):
     FieldMetadata.GRAINSIZE = FieldMetadata('grainsize', str)
     FieldMetadata.HABITAT = FieldMetadata('habitat', str)
     FieldMetadata.HARDNESS = FieldMetadata('hardness', str)
-    FieldMetadata.HEIGHT = FieldMetadata('height', str)
+    FieldMetadata.HEIGHT = FieldMetadata('height', decimal.Decimal)
     FieldMetadata.HEIGHTFT = FieldMetadata('heightft', decimal.Decimal)
     FieldMetadata.HEIGHTIN = FieldMetadata('heightin', decimal.Decimal)
     FieldMetadata.HOMELOC = FieldMetadata('homeloc', str)
     FieldMetadata.IDBY = FieldMetadata('idby', str)
-    FieldMetadata.IDDATE = FieldMetadata('iddate', str)
+    FieldMetadata.IDDATE = FieldMetadata('iddate', datetime.datetime)
     FieldMetadata.IMAGEFILE = FieldMetadata('imagefile', str)
     FieldMetadata.IMAGENO = FieldMetadata('imageno', int)
     FieldMetadata.IMAGESIZE = FieldMetadata('imagesize', str)
@@ -7520,26 +7520,26 @@ class Object(object):
     FieldMetadata.INSCRTECH = FieldMetadata('inscrtech', str)
     FieldMetadata.INSCRTEXT = FieldMetadata('inscrtext', str)
     FieldMetadata.INSCRTRANS = FieldMetadata('inscrtrans', str)
-    FieldMetadata.INSCRTYPE = FieldMetadata('inscrtype', str)
-    FieldMetadata.INSDATE = FieldMetadata('insdate', str)
+    FieldMetadata.INSCRTYPE = FieldMetadata('inscrtype', int)
+    FieldMetadata.INSDATE = FieldMetadata('insdate', datetime.datetime)
     FieldMetadata.INSPHONE = FieldMetadata('insphone', str)
     FieldMetadata.INSPREMIUM = FieldMetadata('inspremium', str)
     FieldMetadata.INSREP = FieldMetadata('insrep', str)
     FieldMetadata.INSVALUE = FieldMetadata('insvalue', decimal.Decimal)
     FieldMetadata.INVNBY = FieldMetadata('invnby', str)
-    FieldMetadata.INVNDATE = FieldMetadata('invndate', str)
+    FieldMetadata.INVNDATE = FieldMetadata('invndate', datetime.datetime)
     FieldMetadata.KINGDOM = FieldMetadata('kingdom', str)
-    FieldMetadata.LATEDATE = FieldMetadata('latedate', str)
+    FieldMetadata.LATEDATE = FieldMetadata('latedate', datetime.datetime)
     FieldMetadata.LEGAL = FieldMetadata('legal', str)
-    FieldMetadata.LENGTH = FieldMetadata('length', str)
+    FieldMetadata.LENGTH = FieldMetadata('length', decimal.Decimal)
     FieldMetadata.LENGTHFT = FieldMetadata('lengthft', decimal.Decimal)
     FieldMetadata.LENGTHIN = FieldMetadata('lengthin', decimal.Decimal)
     FieldMetadata.LEVEL = FieldMetadata('level', str)
     FieldMetadata.LITHOFACIE = FieldMetadata('lithofacie', str)
     FieldMetadata.LOANCOND = FieldMetadata('loancond', str)
     FieldMetadata.LOANDUE = FieldMetadata('loandue', str)
-    FieldMetadata.LOANINNO = FieldMetadata('loaninno', str)
-    FieldMetadata.LOANNO = FieldMetadata('loanno', str)
+    FieldMetadata.LOANINNO = FieldMetadata('loaninno', int)
+    FieldMetadata.LOANNO = FieldMetadata('loanno', int)
     FieldMetadata.LOCFIELD1 = FieldMetadata('locfield1', str)
     FieldMetadata.LOCFIELD2 = FieldMetadata('locfield2', str)
     FieldMetadata.LOCFIELD3 = FieldMetadata('locfield3', str)
@@ -7549,7 +7549,7 @@ class Object(object):
     FieldMetadata.LUSTER = FieldMetadata('luster', str)
     FieldMetadata.MADE = FieldMetadata('made', str)
     FieldMetadata.MAINTCYCLE = FieldMetadata('maintcycle', str)
-    FieldMetadata.MAINTDATE = FieldMetadata('maintdate', str)
+    FieldMetadata.MAINTDATE = FieldMetadata('maintdate', datetime.datetime)
     FieldMetadata.MAINTNOTE = FieldMetadata('maintnote', str)
     FieldMetadata.MATERIAL = FieldMetadata('material', str)
     FieldMetadata.MEDIUM = FieldMetadata('medium', str)
@@ -7568,35 +7568,35 @@ class Object(object):
     FieldMetadata.ORIGIN = FieldMetadata('origin', str)
     FieldMetadata.OTHERNAME = FieldMetadata('othername', str)
     FieldMetadata.OTHERNO = FieldMetadata('otherno', int)
-    FieldMetadata.OUTDATE = FieldMetadata('outdate', str)
+    FieldMetadata.OUTDATE = FieldMetadata('outdate', datetime.datetime)
     FieldMetadata.OWNED = FieldMetadata('owned', str)
     FieldMetadata.PARENT = FieldMetadata('parent', str)
     FieldMetadata.PEOPLE = FieldMetadata('people', str)
     FieldMetadata.PERIOD = FieldMetadata('period', str)
     FieldMetadata.PHYLUM = FieldMetadata('phylum', str)
-    FieldMetadata.POLICYNO = FieldMetadata('policyno', str)
+    FieldMetadata.POLICYNO = FieldMetadata('policyno', int)
     FieldMetadata.PREPARATOR = FieldMetadata('preparator', str)
-    FieldMetadata.PREPDATE = FieldMetadata('prepdate', str)
+    FieldMetadata.PREPDATE = FieldMetadata('prepdate', datetime.datetime)
     FieldMetadata.PRESERVE = FieldMetadata('preserve', str)
     FieldMetadata.PRESSURE = FieldMetadata('pressure', str)
     FieldMetadata.PROVENANCE = FieldMetadata('provenance', str)
     FieldMetadata.PUBNOTES = FieldMetadata('pubnotes', str)
     FieldMetadata.RECAS = FieldMetadata('recas', pastpy.models.recas.Recas)
-    FieldMetadata.RECDATE = FieldMetadata('recdate', str)
+    FieldMetadata.RECDATE = FieldMetadata('recdate', datetime.datetime)
     FieldMetadata.RECFROM = FieldMetadata('recfrom', str)
     FieldMetadata.RELNOTES = FieldMetadata('relnotes', str)
     FieldMetadata.REPATBY = FieldMetadata('repatby', str)
     FieldMetadata.REPATCLAIM = FieldMetadata('repatclaim', str)
-    FieldMetadata.REPATDATE = FieldMetadata('repatdate', str)
+    FieldMetadata.REPATDATE = FieldMetadata('repatdate', datetime.datetime)
     FieldMetadata.REPATDISP = FieldMetadata('repatdisp', str)
     FieldMetadata.REPATHAND = FieldMetadata('repathand', str)
     FieldMetadata.REPATNOTES = FieldMetadata('repatnotes', str)
     FieldMetadata.REPATNOTIC = FieldMetadata('repatnotic', str)
-    FieldMetadata.REPATTYPE = FieldMetadata('repattype', str)
+    FieldMetadata.REPATTYPE = FieldMetadata('repattype', int)
     FieldMetadata.ROCKCLASS = FieldMetadata('rockclass', str)
     FieldMetadata.ROCKCOLOR = FieldMetadata('rockcolor', str)
     FieldMetadata.ROCKORIGIN = FieldMetadata('rockorigin', str)
-    FieldMetadata.ROCKTYPE = FieldMetadata('rocktype', str)
+    FieldMetadata.ROCKTYPE = FieldMetadata('rocktype', int)
     FieldMetadata.ROLE = FieldMetadata('role', str)
     FieldMetadata.ROLE2 = FieldMetadata('role2', str)
     FieldMetadata.ROLE3 = FieldMetadata('role3', str)
@@ -7605,7 +7605,7 @@ class Object(object):
     FieldMetadata.SIGNEDNAME = FieldMetadata('signedname', str)
     FieldMetadata.SIGNLOC = FieldMetadata('signloc', str)
     FieldMetadata.SITE = FieldMetadata('site', str)
-    FieldMetadata.SITENO = FieldMetadata('siteno', str)
+    FieldMetadata.SITENO = FieldMetadata('siteno', int)
     FieldMetadata.SPECGRAV = FieldMetadata('specgrav', str)
     FieldMetadata.SPECIES = FieldMetadata('species', str)
     FieldMetadata.SPROCESS = FieldMetadata('sprocess', str)
@@ -7622,7 +7622,7 @@ class Object(object):
     FieldMetadata.TECHNIQUE = FieldMetadata('technique', str)
     FieldMetadata.TEMPAUTHOR = FieldMetadata('tempauthor', str)
     FieldMetadata.TEMPBY = FieldMetadata('tempby', str)
-    FieldMetadata.TEMPDATE = FieldMetadata('tempdate', str)
+    FieldMetadata.TEMPDATE = FieldMetadata('tempdate', datetime.datetime)
     FieldMetadata.TEMPERATUR = FieldMetadata('temperatur', str)
     FieldMetadata.TEMPLOC = FieldMetadata('temploc', str)
     FieldMetadata.TEMPNOTES = FieldMetadata('tempnotes', str)
@@ -7662,13 +7662,13 @@ class Object(object):
     FieldMetadata.UPDATED = FieldMetadata('updated', str)
     FieldMetadata.UPDATEDBY = FieldMetadata('updatedby', str)
     FieldMetadata.USED = FieldMetadata('used', str)
-    FieldMetadata.VALUEDATE = FieldMetadata('valuedate', str)
+    FieldMetadata.VALUEDATE = FieldMetadata('valuedate', datetime.datetime)
     FieldMetadata.VARIETIES = FieldMetadata('varieties', str)
     FieldMetadata.WEBINCLUDE = FieldMetadata('webinclude', str)
     FieldMetadata.WEIGHT = FieldMetadata('weight', str)
     FieldMetadata.WEIGHTIN = FieldMetadata('weightin', str)
     FieldMetadata.WEIGHTLB = FieldMetadata('weightlb', decimal.Decimal)
-    FieldMetadata.WIDTH = FieldMetadata('width', str)
+    FieldMetadata.WIDTH = FieldMetadata('width', decimal.Decimal)
     FieldMetadata.WIDTHFT = FieldMetadata('widthft', decimal.Decimal)
     FieldMetadata.WIDTHIN = FieldMetadata('widthin', decimal.Decimal)
     FieldMetadata.XCORD = FieldMetadata('xcord', str)
@@ -7932,14 +7932,14 @@ class Object(object):
         :type appnotes: str or None
         :type appraisor: str or None
         :type assemzone: str or None
-        :type bagno: str or None
-        :type boxno: str or None
+        :type bagno: int or None
+        :type boxno: int or None
         :type caption: str or None
         :type catby: str or None
         :type catdate: datetime.datetime or None
-        :type cattype: str or None
+        :type cattype: int or None
         :type chemcomp: str or None
-        :type circum: str or None
+        :type circum: Decimal or None
         :type circumft: Decimal or None
         :type circumin: Decimal or None
         :type classes: str or None
@@ -7963,22 +7963,22 @@ class Object(object):
         :type date: str or None
         :type datingmeth: str or None
         :type datum: str or None
-        :type depth: str or None
+        :type depth: Decimal or None
         :type depthft: Decimal or None
         :type depthin: Decimal or None
         :type descrip: str or None
-        :type diameter: str or None
+        :type diameter: Decimal or None
         :type diameterft: Decimal or None
         :type diameterin: Decimal or None
         :type dimnotes: str or None
-        :type dimtype: str or None
+        :type dimtype: int or None
         :type dispvalue: str or None
-        :type earlydate: str or None
+        :type earlydate: datetime.datetime or None
         :type elements: str or None
         :type epoch: str or None
         :type era: str or None
         :type event: str or None
-        :type excavadate: str or None
+        :type excavadate: datetime.datetime or None
         :type excavateby: str or None
         :type exhibitno: int or None
         :type exhlabel1: str or None
@@ -7988,7 +7988,7 @@ class Object(object):
         :type exhstart: str or None
         :type family: str or None
         :type feature: str or None
-        :type flagdate: str or None
+        :type flagdate: datetime.datetime or None
         :type flagnotes: str or None
         :type flagreason: str or None
         :type formation: str or None
@@ -8002,12 +8002,12 @@ class Object(object):
         :type grainsize: str or None
         :type habitat: str or None
         :type hardness: str or None
-        :type height: str or None
+        :type height: Decimal or None
         :type heightft: Decimal or None
         :type heightin: Decimal or None
         :type homeloc: str or None
         :type idby: str or None
-        :type iddate: str or None
+        :type iddate: datetime.datetime or None
         :type imagefile: str or None
         :type imageno: int or None
         :type imagesize: str or None
@@ -8017,26 +8017,26 @@ class Object(object):
         :type inscrtech: str or None
         :type inscrtext: str or None
         :type inscrtrans: str or None
-        :type inscrtype: str or None
-        :type insdate: str or None
+        :type inscrtype: int or None
+        :type insdate: datetime.datetime or None
         :type insphone: str or None
         :type inspremium: str or None
         :type insrep: str or None
         :type insvalue: Decimal or None
         :type invnby: str or None
-        :type invndate: str or None
+        :type invndate: datetime.datetime or None
         :type kingdom: str or None
-        :type latedate: str or None
+        :type latedate: datetime.datetime or None
         :type legal: str or None
-        :type length: str or None
+        :type length: Decimal or None
         :type lengthft: Decimal or None
         :type lengthin: Decimal or None
         :type level: str or None
         :type lithofacie: str or None
         :type loancond: str or None
         :type loandue: str or None
-        :type loaninno: str or None
-        :type loanno: str or None
+        :type loaninno: int or None
+        :type loanno: int or None
         :type locfield1: str or None
         :type locfield2: str or None
         :type locfield3: str or None
@@ -8046,7 +8046,7 @@ class Object(object):
         :type luster: str or None
         :type made: str or None
         :type maintcycle: str or None
-        :type maintdate: str or None
+        :type maintdate: datetime.datetime or None
         :type maintnote: str or None
         :type material: str or None
         :type medium: str or None
@@ -8065,35 +8065,35 @@ class Object(object):
         :type origin: str or None
         :type othername: str or None
         :type otherno: int or None
-        :type outdate: str or None
+        :type outdate: datetime.datetime or None
         :type owned: str or None
         :type parent: str or None
         :type people: str or None
         :type period: str or None
         :type phylum: str or None
-        :type policyno: str or None
+        :type policyno: int or None
         :type preparator: str or None
-        :type prepdate: str or None
+        :type prepdate: datetime.datetime or None
         :type preserve: str or None
         :type pressure: str or None
         :type provenance: str or None
         :type pubnotes: str or None
         :type recas: pastpy.models.recas.Recas or None
-        :type recdate: str or None
+        :type recdate: datetime.datetime or None
         :type recfrom: str or None
         :type relnotes: str or None
         :type repatby: str or None
         :type repatclaim: str or None
-        :type repatdate: str or None
+        :type repatdate: datetime.datetime or None
         :type repatdisp: str or None
         :type repathand: str or None
         :type repatnotes: str or None
         :type repatnotic: str or None
-        :type repattype: str or None
+        :type repattype: int or None
         :type rockclass: str or None
         :type rockcolor: str or None
         :type rockorigin: str or None
-        :type rocktype: str or None
+        :type rocktype: int or None
         :type role: str or None
         :type role2: str or None
         :type role3: str or None
@@ -8102,7 +8102,7 @@ class Object(object):
         :type signedname: str or None
         :type signloc: str or None
         :type site: str or None
-        :type siteno: str or None
+        :type siteno: int or None
         :type specgrav: str or None
         :type species: str or None
         :type sprocess: str or None
@@ -8119,7 +8119,7 @@ class Object(object):
         :type technique: str or None
         :type tempauthor: str or None
         :type tempby: str or None
-        :type tempdate: str or None
+        :type tempdate: datetime.datetime or None
         :type temperatur: str or None
         :type temploc: str or None
         :type tempnotes: str or None
@@ -8159,13 +8159,13 @@ class Object(object):
         :type updated: str or None
         :type updatedby: str or None
         :type used: str or None
-        :type valuedate: str or None
+        :type valuedate: datetime.datetime or None
         :type varieties: str or None
         :type webinclude: str or None
         :type weight: str or None
         :type weightin: str or None
         :type weightlb: Decimal or None
-        :type width: str or None
+        :type width: Decimal or None
         :type widthft: Decimal or None
         :type widthin: Decimal or None
         :type xcord: str or None
@@ -8221,17 +8221,13 @@ class Object(object):
         self.__assemzone = assemzone
 
         if bagno is not None:
-            if not isinstance(bagno, basestring):
-                raise TypeError("expected bagno to be a str but it is a %s" % getattr(__builtin__, 'type')(bagno))
-            if len(bagno) < 1:
-                raise ValueError("expected len(bagno) to be >= 1, was %d" % len(bagno))
+            if not isinstance(bagno, int):
+                raise TypeError("expected bagno to be a int but it is a %s" % getattr(__builtin__, 'type')(bagno))
         self.__bagno = bagno
 
         if boxno is not None:
-            if not isinstance(boxno, basestring):
-                raise TypeError("expected boxno to be a str but it is a %s" % getattr(__builtin__, 'type')(boxno))
-            if len(boxno) < 1:
-                raise ValueError("expected len(boxno) to be >= 1, was %d" % len(boxno))
+            if not isinstance(boxno, int):
+                raise TypeError("expected boxno to be a int but it is a %s" % getattr(__builtin__, 'type')(boxno))
         self.__boxno = boxno
 
         if caption is not None:
@@ -8254,10 +8250,8 @@ class Object(object):
         self.__catdate = catdate
 
         if cattype is not None:
-            if not isinstance(cattype, basestring):
-                raise TypeError("expected cattype to be a str but it is a %s" % getattr(__builtin__, 'type')(cattype))
-            if len(cattype) < 1:
-                raise ValueError("expected len(cattype) to be >= 1, was %d" % len(cattype))
+            if not isinstance(cattype, int):
+                raise TypeError("expected cattype to be a int but it is a %s" % getattr(__builtin__, 'type')(cattype))
         self.__cattype = cattype
 
         if chemcomp is not None:
@@ -8268,10 +8262,8 @@ class Object(object):
         self.__chemcomp = chemcomp
 
         if circum is not None:
-            if not isinstance(circum, basestring):
-                raise TypeError("expected circum to be a str but it is a %s" % getattr(__builtin__, 'type')(circum))
-            if len(circum) < 1:
-                raise ValueError("expected len(circum) to be >= 1, was %d" % len(circum))
+            if not isinstance(circum, decimal.Decimal):
+                raise TypeError("expected circum to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(circum))
         self.__circum = circum
 
         if circumft is not None:
@@ -8422,10 +8414,8 @@ class Object(object):
         self.__datum = datum
 
         if depth is not None:
-            if not isinstance(depth, basestring):
-                raise TypeError("expected depth to be a str but it is a %s" % getattr(__builtin__, 'type')(depth))
-            if len(depth) < 1:
-                raise ValueError("expected len(depth) to be >= 1, was %d" % len(depth))
+            if not isinstance(depth, decimal.Decimal):
+                raise TypeError("expected depth to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(depth))
         self.__depth = depth
 
         if depthft is not None:
@@ -8446,10 +8436,8 @@ class Object(object):
         self.__descrip = descrip
 
         if diameter is not None:
-            if not isinstance(diameter, basestring):
-                raise TypeError("expected diameter to be a str but it is a %s" % getattr(__builtin__, 'type')(diameter))
-            if len(diameter) < 1:
-                raise ValueError("expected len(diameter) to be >= 1, was %d" % len(diameter))
+            if not isinstance(diameter, decimal.Decimal):
+                raise TypeError("expected diameter to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(diameter))
         self.__diameter = diameter
 
         if diameterft is not None:
@@ -8470,10 +8458,8 @@ class Object(object):
         self.__dimnotes = dimnotes
 
         if dimtype is not None:
-            if not isinstance(dimtype, basestring):
-                raise TypeError("expected dimtype to be a str but it is a %s" % getattr(__builtin__, 'type')(dimtype))
-            if len(dimtype) < 1:
-                raise ValueError("expected len(dimtype) to be >= 1, was %d" % len(dimtype))
+            if not isinstance(dimtype, int):
+                raise TypeError("expected dimtype to be a int but it is a %s" % getattr(__builtin__, 'type')(dimtype))
         self.__dimtype = dimtype
 
         if dispvalue is not None:
@@ -8484,10 +8470,8 @@ class Object(object):
         self.__dispvalue = dispvalue
 
         if earlydate is not None:
-            if not isinstance(earlydate, basestring):
-                raise TypeError("expected earlydate to be a str but it is a %s" % getattr(__builtin__, 'type')(earlydate))
-            if len(earlydate) < 1:
-                raise ValueError("expected len(earlydate) to be >= 1, was %d" % len(earlydate))
+            if not isinstance(earlydate, datetime.datetime):
+                raise TypeError("expected earlydate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(earlydate))
         self.__earlydate = earlydate
 
         if elements is not None:
@@ -8519,10 +8503,8 @@ class Object(object):
         self.__event = event
 
         if excavadate is not None:
-            if not isinstance(excavadate, basestring):
-                raise TypeError("expected excavadate to be a str but it is a %s" % getattr(__builtin__, 'type')(excavadate))
-            if len(excavadate) < 1:
-                raise ValueError("expected len(excavadate) to be >= 1, was %d" % len(excavadate))
+            if not isinstance(excavadate, datetime.datetime):
+                raise TypeError("expected excavadate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(excavadate))
         self.__excavadate = excavadate
 
         if excavateby is not None:
@@ -8587,10 +8569,8 @@ class Object(object):
         self.__feature = feature
 
         if flagdate is not None:
-            if not isinstance(flagdate, basestring):
-                raise TypeError("expected flagdate to be a str but it is a %s" % getattr(__builtin__, 'type')(flagdate))
-            if len(flagdate) < 1:
-                raise ValueError("expected len(flagdate) to be >= 1, was %d" % len(flagdate))
+            if not isinstance(flagdate, datetime.datetime):
+                raise TypeError("expected flagdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(flagdate))
         self.__flagdate = flagdate
 
         if flagnotes is not None:
@@ -8685,10 +8665,8 @@ class Object(object):
         self.__hardness = hardness
 
         if height is not None:
-            if not isinstance(height, basestring):
-                raise TypeError("expected height to be a str but it is a %s" % getattr(__builtin__, 'type')(height))
-            if len(height) < 1:
-                raise ValueError("expected len(height) to be >= 1, was %d" % len(height))
+            if not isinstance(height, decimal.Decimal):
+                raise TypeError("expected height to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(height))
         self.__height = height
 
         if heightft is not None:
@@ -8716,10 +8694,8 @@ class Object(object):
         self.__idby = idby
 
         if iddate is not None:
-            if not isinstance(iddate, basestring):
-                raise TypeError("expected iddate to be a str but it is a %s" % getattr(__builtin__, 'type')(iddate))
-            if len(iddate) < 1:
-                raise ValueError("expected len(iddate) to be >= 1, was %d" % len(iddate))
+            if not isinstance(iddate, datetime.datetime):
+                raise TypeError("expected iddate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(iddate))
         self.__iddate = iddate
 
         if imagefile is not None:
@@ -8784,17 +8760,13 @@ class Object(object):
         self.__inscrtrans = inscrtrans
 
         if inscrtype is not None:
-            if not isinstance(inscrtype, basestring):
-                raise TypeError("expected inscrtype to be a str but it is a %s" % getattr(__builtin__, 'type')(inscrtype))
-            if len(inscrtype) < 1:
-                raise ValueError("expected len(inscrtype) to be >= 1, was %d" % len(inscrtype))
+            if not isinstance(inscrtype, int):
+                raise TypeError("expected inscrtype to be a int but it is a %s" % getattr(__builtin__, 'type')(inscrtype))
         self.__inscrtype = inscrtype
 
         if insdate is not None:
-            if not isinstance(insdate, basestring):
-                raise TypeError("expected insdate to be a str but it is a %s" % getattr(__builtin__, 'type')(insdate))
-            if len(insdate) < 1:
-                raise ValueError("expected len(insdate) to be >= 1, was %d" % len(insdate))
+            if not isinstance(insdate, datetime.datetime):
+                raise TypeError("expected insdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(insdate))
         self.__insdate = insdate
 
         if insphone is not None:
@@ -8831,10 +8803,8 @@ class Object(object):
         self.__invnby = invnby
 
         if invndate is not None:
-            if not isinstance(invndate, basestring):
-                raise TypeError("expected invndate to be a str but it is a %s" % getattr(__builtin__, 'type')(invndate))
-            if len(invndate) < 1:
-                raise ValueError("expected len(invndate) to be >= 1, was %d" % len(invndate))
+            if not isinstance(invndate, datetime.datetime):
+                raise TypeError("expected invndate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(invndate))
         self.__invndate = invndate
 
         if kingdom is not None:
@@ -8845,10 +8815,8 @@ class Object(object):
         self.__kingdom = kingdom
 
         if latedate is not None:
-            if not isinstance(latedate, basestring):
-                raise TypeError("expected latedate to be a str but it is a %s" % getattr(__builtin__, 'type')(latedate))
-            if len(latedate) < 1:
-                raise ValueError("expected len(latedate) to be >= 1, was %d" % len(latedate))
+            if not isinstance(latedate, datetime.datetime):
+                raise TypeError("expected latedate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(latedate))
         self.__latedate = latedate
 
         if legal is not None:
@@ -8859,10 +8827,8 @@ class Object(object):
         self.__legal = legal
 
         if length is not None:
-            if not isinstance(length, basestring):
-                raise TypeError("expected length to be a str but it is a %s" % getattr(__builtin__, 'type')(length))
-            if len(length) < 1:
-                raise ValueError("expected len(length) to be >= 1, was %d" % len(length))
+            if not isinstance(length, decimal.Decimal):
+                raise TypeError("expected length to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(length))
         self.__length = length
 
         if lengthft is not None:
@@ -8904,17 +8870,13 @@ class Object(object):
         self.__loandue = loandue
 
         if loaninno is not None:
-            if not isinstance(loaninno, basestring):
-                raise TypeError("expected loaninno to be a str but it is a %s" % getattr(__builtin__, 'type')(loaninno))
-            if len(loaninno) < 1:
-                raise ValueError("expected len(loaninno) to be >= 1, was %d" % len(loaninno))
+            if not isinstance(loaninno, int):
+                raise TypeError("expected loaninno to be a int but it is a %s" % getattr(__builtin__, 'type')(loaninno))
         self.__loaninno = loaninno
 
         if loanno is not None:
-            if not isinstance(loanno, basestring):
-                raise TypeError("expected loanno to be a str but it is a %s" % getattr(__builtin__, 'type')(loanno))
-            if len(loanno) < 1:
-                raise ValueError("expected len(loanno) to be >= 1, was %d" % len(loanno))
+            if not isinstance(loanno, int):
+                raise TypeError("expected loanno to be a int but it is a %s" % getattr(__builtin__, 'type')(loanno))
         self.__loanno = loanno
 
         if locfield1 is not None:
@@ -8981,10 +8943,8 @@ class Object(object):
         self.__maintcycle = maintcycle
 
         if maintdate is not None:
-            if not isinstance(maintdate, basestring):
-                raise TypeError("expected maintdate to be a str but it is a %s" % getattr(__builtin__, 'type')(maintdate))
-            if len(maintdate) < 1:
-                raise ValueError("expected len(maintdate) to be >= 1, was %d" % len(maintdate))
+            if not isinstance(maintdate, datetime.datetime):
+                raise TypeError("expected maintdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(maintdate))
         self.__maintdate = maintdate
 
         if maintnote is not None:
@@ -9110,10 +9070,8 @@ class Object(object):
         self.__otherno = otherno
 
         if outdate is not None:
-            if not isinstance(outdate, basestring):
-                raise TypeError("expected outdate to be a str but it is a %s" % getattr(__builtin__, 'type')(outdate))
-            if len(outdate) < 1:
-                raise ValueError("expected len(outdate) to be >= 1, was %d" % len(outdate))
+            if not isinstance(outdate, datetime.datetime):
+                raise TypeError("expected outdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(outdate))
         self.__outdate = outdate
 
         if owned is not None:
@@ -9152,10 +9110,8 @@ class Object(object):
         self.__phylum = phylum
 
         if policyno is not None:
-            if not isinstance(policyno, basestring):
-                raise TypeError("expected policyno to be a str but it is a %s" % getattr(__builtin__, 'type')(policyno))
-            if len(policyno) < 1:
-                raise ValueError("expected len(policyno) to be >= 1, was %d" % len(policyno))
+            if not isinstance(policyno, int):
+                raise TypeError("expected policyno to be a int but it is a %s" % getattr(__builtin__, 'type')(policyno))
         self.__policyno = policyno
 
         if preparator is not None:
@@ -9166,10 +9122,8 @@ class Object(object):
         self.__preparator = preparator
 
         if prepdate is not None:
-            if not isinstance(prepdate, basestring):
-                raise TypeError("expected prepdate to be a str but it is a %s" % getattr(__builtin__, 'type')(prepdate))
-            if len(prepdate) < 1:
-                raise ValueError("expected len(prepdate) to be >= 1, was %d" % len(prepdate))
+            if not isinstance(prepdate, datetime.datetime):
+                raise TypeError("expected prepdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(prepdate))
         self.__prepdate = prepdate
 
         if preserve is not None:
@@ -9206,10 +9160,8 @@ class Object(object):
         self.__recas = recas
 
         if recdate is not None:
-            if not isinstance(recdate, basestring):
-                raise TypeError("expected recdate to be a str but it is a %s" % getattr(__builtin__, 'type')(recdate))
-            if len(recdate) < 1:
-                raise ValueError("expected len(recdate) to be >= 1, was %d" % len(recdate))
+            if not isinstance(recdate, datetime.datetime):
+                raise TypeError("expected recdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(recdate))
         self.__recdate = recdate
 
         if recfrom is not None:
@@ -9241,10 +9193,8 @@ class Object(object):
         self.__repatclaim = repatclaim
 
         if repatdate is not None:
-            if not isinstance(repatdate, basestring):
-                raise TypeError("expected repatdate to be a str but it is a %s" % getattr(__builtin__, 'type')(repatdate))
-            if len(repatdate) < 1:
-                raise ValueError("expected len(repatdate) to be >= 1, was %d" % len(repatdate))
+            if not isinstance(repatdate, datetime.datetime):
+                raise TypeError("expected repatdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(repatdate))
         self.__repatdate = repatdate
 
         if repatdisp is not None:
@@ -9276,10 +9226,8 @@ class Object(object):
         self.__repatnotic = repatnotic
 
         if repattype is not None:
-            if not isinstance(repattype, basestring):
-                raise TypeError("expected repattype to be a str but it is a %s" % getattr(__builtin__, 'type')(repattype))
-            if len(repattype) < 1:
-                raise ValueError("expected len(repattype) to be >= 1, was %d" % len(repattype))
+            if not isinstance(repattype, int):
+                raise TypeError("expected repattype to be a int but it is a %s" % getattr(__builtin__, 'type')(repattype))
         self.__repattype = repattype
 
         if rockclass is not None:
@@ -9304,10 +9252,8 @@ class Object(object):
         self.__rockorigin = rockorigin
 
         if rocktype is not None:
-            if not isinstance(rocktype, basestring):
-                raise TypeError("expected rocktype to be a str but it is a %s" % getattr(__builtin__, 'type')(rocktype))
-            if len(rocktype) < 1:
-                raise ValueError("expected len(rocktype) to be >= 1, was %d" % len(rocktype))
+            if not isinstance(rocktype, int):
+                raise TypeError("expected rocktype to be a int but it is a %s" % getattr(__builtin__, 'type')(rocktype))
         self.__rocktype = rocktype
 
         if role is not None:
@@ -9367,10 +9313,8 @@ class Object(object):
         self.__site = site
 
         if siteno is not None:
-            if not isinstance(siteno, basestring):
-                raise TypeError("expected siteno to be a str but it is a %s" % getattr(__builtin__, 'type')(siteno))
-            if len(siteno) < 1:
-                raise ValueError("expected len(siteno) to be >= 1, was %d" % len(siteno))
+            if not isinstance(siteno, int):
+                raise TypeError("expected siteno to be a int but it is a %s" % getattr(__builtin__, 'type')(siteno))
         self.__siteno = siteno
 
         if specgrav is not None:
@@ -9482,10 +9426,8 @@ class Object(object):
         self.__tempby = tempby
 
         if tempdate is not None:
-            if not isinstance(tempdate, basestring):
-                raise TypeError("expected tempdate to be a str but it is a %s" % getattr(__builtin__, 'type')(tempdate))
-            if len(tempdate) < 1:
-                raise ValueError("expected len(tempdate) to be >= 1, was %d" % len(tempdate))
+            if not isinstance(tempdate, datetime.datetime):
+                raise TypeError("expected tempdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(tempdate))
         self.__tempdate = tempdate
 
         if temperatur is not None:
@@ -9762,10 +9704,8 @@ class Object(object):
         self.__used = used
 
         if valuedate is not None:
-            if not isinstance(valuedate, basestring):
-                raise TypeError("expected valuedate to be a str but it is a %s" % getattr(__builtin__, 'type')(valuedate))
-            if len(valuedate) < 1:
-                raise ValueError("expected len(valuedate) to be >= 1, was %d" % len(valuedate))
+            if not isinstance(valuedate, datetime.datetime):
+                raise TypeError("expected valuedate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(valuedate))
         self.__valuedate = valuedate
 
         if varieties is not None:
@@ -9802,10 +9742,8 @@ class Object(object):
         self.__weightlb = weightlb
 
         if width is not None:
-            if not isinstance(width, basestring):
-                raise TypeError("expected width to be a str but it is a %s" % getattr(__builtin__, 'type')(width))
-            if len(width) < 1:
-                raise ValueError("expected len(width) to be >= 1, was %d" % len(width))
+            if not isinstance(width, decimal.Decimal):
+                raise TypeError("expected width to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(width))
         self.__width = width
 
         if widthft is not None:
@@ -10360,9 +10298,9 @@ class Object(object):
         if self.assemzone is not None:
             field_reprs.append('assemzone=' + "'" + self.assemzone.encode('ascii', 'replace') + "'")
         if self.bagno is not None:
-            field_reprs.append('bagno=' + "'" + self.bagno.encode('ascii', 'replace') + "'")
+            field_reprs.append('bagno=' + repr(self.bagno))
         if self.boxno is not None:
-            field_reprs.append('boxno=' + "'" + self.boxno.encode('ascii', 'replace') + "'")
+            field_reprs.append('boxno=' + repr(self.boxno))
         if self.caption is not None:
             field_reprs.append('caption=' + "'" + self.caption.encode('ascii', 'replace') + "'")
         if self.catby is not None:
@@ -10370,11 +10308,11 @@ class Object(object):
         if self.catdate is not None:
             field_reprs.append('catdate=' + repr(self.catdate))
         if self.cattype is not None:
-            field_reprs.append('cattype=' + "'" + self.cattype.encode('ascii', 'replace') + "'")
+            field_reprs.append('cattype=' + repr(self.cattype))
         if self.chemcomp is not None:
             field_reprs.append('chemcomp=' + "'" + self.chemcomp.encode('ascii', 'replace') + "'")
         if self.circum is not None:
-            field_reprs.append('circum=' + "'" + self.circum.encode('ascii', 'replace') + "'")
+            field_reprs.append('circum=' + repr(self.circum))
         if self.circumft is not None:
             field_reprs.append('circumft=' + repr(self.circumft))
         if self.circumin is not None:
@@ -10422,7 +10360,7 @@ class Object(object):
         if self.datum is not None:
             field_reprs.append('datum=' + "'" + self.datum.encode('ascii', 'replace') + "'")
         if self.depth is not None:
-            field_reprs.append('depth=' + "'" + self.depth.encode('ascii', 'replace') + "'")
+            field_reprs.append('depth=' + repr(self.depth))
         if self.depthft is not None:
             field_reprs.append('depthft=' + repr(self.depthft))
         if self.depthin is not None:
@@ -10430,7 +10368,7 @@ class Object(object):
         if self.descrip is not None:
             field_reprs.append('descrip=' + "'" + self.descrip.encode('ascii', 'replace') + "'")
         if self.diameter is not None:
-            field_reprs.append('diameter=' + "'" + self.diameter.encode('ascii', 'replace') + "'")
+            field_reprs.append('diameter=' + repr(self.diameter))
         if self.diameterft is not None:
             field_reprs.append('diameterft=' + repr(self.diameterft))
         if self.diameterin is not None:
@@ -10438,11 +10376,11 @@ class Object(object):
         if self.dimnotes is not None:
             field_reprs.append('dimnotes=' + "'" + self.dimnotes.encode('ascii', 'replace') + "'")
         if self.dimtype is not None:
-            field_reprs.append('dimtype=' + "'" + self.dimtype.encode('ascii', 'replace') + "'")
+            field_reprs.append('dimtype=' + repr(self.dimtype))
         if self.dispvalue is not None:
             field_reprs.append('dispvalue=' + "'" + self.dispvalue.encode('ascii', 'replace') + "'")
         if self.earlydate is not None:
-            field_reprs.append('earlydate=' + "'" + self.earlydate.encode('ascii', 'replace') + "'")
+            field_reprs.append('earlydate=' + repr(self.earlydate))
         if self.elements is not None:
             field_reprs.append('elements=' + "'" + self.elements.encode('ascii', 'replace') + "'")
         if self.epoch is not None:
@@ -10452,7 +10390,7 @@ class Object(object):
         if self.event is not None:
             field_reprs.append('event=' + "'" + self.event.encode('ascii', 'replace') + "'")
         if self.excavadate is not None:
-            field_reprs.append('excavadate=' + "'" + self.excavadate.encode('ascii', 'replace') + "'")
+            field_reprs.append('excavadate=' + repr(self.excavadate))
         if self.excavateby is not None:
             field_reprs.append('excavateby=' + "'" + self.excavateby.encode('ascii', 'replace') + "'")
         if self.exhibitno is not None:
@@ -10472,7 +10410,7 @@ class Object(object):
         if self.feature is not None:
             field_reprs.append('feature=' + "'" + self.feature.encode('ascii', 'replace') + "'")
         if self.flagdate is not None:
-            field_reprs.append('flagdate=' + "'" + self.flagdate.encode('ascii', 'replace') + "'")
+            field_reprs.append('flagdate=' + repr(self.flagdate))
         if self.flagnotes is not None:
             field_reprs.append('flagnotes=' + "'" + self.flagnotes.encode('ascii', 'replace') + "'")
         if self.flagreason is not None:
@@ -10500,7 +10438,7 @@ class Object(object):
         if self.hardness is not None:
             field_reprs.append('hardness=' + "'" + self.hardness.encode('ascii', 'replace') + "'")
         if self.height is not None:
-            field_reprs.append('height=' + "'" + self.height.encode('ascii', 'replace') + "'")
+            field_reprs.append('height=' + repr(self.height))
         if self.heightft is not None:
             field_reprs.append('heightft=' + repr(self.heightft))
         if self.heightin is not None:
@@ -10510,7 +10448,7 @@ class Object(object):
         if self.idby is not None:
             field_reprs.append('idby=' + "'" + self.idby.encode('ascii', 'replace') + "'")
         if self.iddate is not None:
-            field_reprs.append('iddate=' + "'" + self.iddate.encode('ascii', 'replace') + "'")
+            field_reprs.append('iddate=' + repr(self.iddate))
         if self.imagefile is not None:
             field_reprs.append('imagefile=' + "'" + self.imagefile.encode('ascii', 'replace') + "'")
         if self.imageno is not None:
@@ -10530,9 +10468,9 @@ class Object(object):
         if self.inscrtrans is not None:
             field_reprs.append('inscrtrans=' + "'" + self.inscrtrans.encode('ascii', 'replace') + "'")
         if self.inscrtype is not None:
-            field_reprs.append('inscrtype=' + "'" + self.inscrtype.encode('ascii', 'replace') + "'")
+            field_reprs.append('inscrtype=' + repr(self.inscrtype))
         if self.insdate is not None:
-            field_reprs.append('insdate=' + "'" + self.insdate.encode('ascii', 'replace') + "'")
+            field_reprs.append('insdate=' + repr(self.insdate))
         if self.insphone is not None:
             field_reprs.append('insphone=' + "'" + self.insphone.encode('ascii', 'replace') + "'")
         if self.inspremium is not None:
@@ -10544,15 +10482,15 @@ class Object(object):
         if self.invnby is not None:
             field_reprs.append('invnby=' + "'" + self.invnby.encode('ascii', 'replace') + "'")
         if self.invndate is not None:
-            field_reprs.append('invndate=' + "'" + self.invndate.encode('ascii', 'replace') + "'")
+            field_reprs.append('invndate=' + repr(self.invndate))
         if self.kingdom is not None:
             field_reprs.append('kingdom=' + "'" + self.kingdom.encode('ascii', 'replace') + "'")
         if self.latedate is not None:
-            field_reprs.append('latedate=' + "'" + self.latedate.encode('ascii', 'replace') + "'")
+            field_reprs.append('latedate=' + repr(self.latedate))
         if self.legal is not None:
             field_reprs.append('legal=' + "'" + self.legal.encode('ascii', 'replace') + "'")
         if self.length is not None:
-            field_reprs.append('length=' + "'" + self.length.encode('ascii', 'replace') + "'")
+            field_reprs.append('length=' + repr(self.length))
         if self.lengthft is not None:
             field_reprs.append('lengthft=' + repr(self.lengthft))
         if self.lengthin is not None:
@@ -10566,9 +10504,9 @@ class Object(object):
         if self.loandue is not None:
             field_reprs.append('loandue=' + "'" + self.loandue.encode('ascii', 'replace') + "'")
         if self.loaninno is not None:
-            field_reprs.append('loaninno=' + "'" + self.loaninno.encode('ascii', 'replace') + "'")
+            field_reprs.append('loaninno=' + repr(self.loaninno))
         if self.loanno is not None:
-            field_reprs.append('loanno=' + "'" + self.loanno.encode('ascii', 'replace') + "'")
+            field_reprs.append('loanno=' + repr(self.loanno))
         if self.locfield1 is not None:
             field_reprs.append('locfield1=' + "'" + self.locfield1.encode('ascii', 'replace') + "'")
         if self.locfield2 is not None:
@@ -10588,7 +10526,7 @@ class Object(object):
         if self.maintcycle is not None:
             field_reprs.append('maintcycle=' + "'" + self.maintcycle.encode('ascii', 'replace') + "'")
         if self.maintdate is not None:
-            field_reprs.append('maintdate=' + "'" + self.maintdate.encode('ascii', 'replace') + "'")
+            field_reprs.append('maintdate=' + repr(self.maintdate))
         if self.maintnote is not None:
             field_reprs.append('maintnote=' + "'" + self.maintnote.encode('ascii', 'replace') + "'")
         if self.material is not None:
@@ -10626,7 +10564,7 @@ class Object(object):
         if self.otherno is not None:
             field_reprs.append('otherno=' + repr(self.otherno))
         if self.outdate is not None:
-            field_reprs.append('outdate=' + "'" + self.outdate.encode('ascii', 'replace') + "'")
+            field_reprs.append('outdate=' + repr(self.outdate))
         if self.owned is not None:
             field_reprs.append('owned=' + "'" + self.owned.encode('ascii', 'replace') + "'")
         if self.parent is not None:
@@ -10638,11 +10576,11 @@ class Object(object):
         if self.phylum is not None:
             field_reprs.append('phylum=' + "'" + self.phylum.encode('ascii', 'replace') + "'")
         if self.policyno is not None:
-            field_reprs.append('policyno=' + "'" + self.policyno.encode('ascii', 'replace') + "'")
+            field_reprs.append('policyno=' + repr(self.policyno))
         if self.preparator is not None:
             field_reprs.append('preparator=' + "'" + self.preparator.encode('ascii', 'replace') + "'")
         if self.prepdate is not None:
-            field_reprs.append('prepdate=' + "'" + self.prepdate.encode('ascii', 'replace') + "'")
+            field_reprs.append('prepdate=' + repr(self.prepdate))
         if self.preserve is not None:
             field_reprs.append('preserve=' + "'" + self.preserve.encode('ascii', 'replace') + "'")
         if self.pressure is not None:
@@ -10654,7 +10592,7 @@ class Object(object):
         if self.recas is not None:
             field_reprs.append('recas=' + repr(self.recas))
         if self.recdate is not None:
-            field_reprs.append('recdate=' + "'" + self.recdate.encode('ascii', 'replace') + "'")
+            field_reprs.append('recdate=' + repr(self.recdate))
         if self.recfrom is not None:
             field_reprs.append('recfrom=' + "'" + self.recfrom.encode('ascii', 'replace') + "'")
         if self.relnotes is not None:
@@ -10664,7 +10602,7 @@ class Object(object):
         if self.repatclaim is not None:
             field_reprs.append('repatclaim=' + "'" + self.repatclaim.encode('ascii', 'replace') + "'")
         if self.repatdate is not None:
-            field_reprs.append('repatdate=' + "'" + self.repatdate.encode('ascii', 'replace') + "'")
+            field_reprs.append('repatdate=' + repr(self.repatdate))
         if self.repatdisp is not None:
             field_reprs.append('repatdisp=' + "'" + self.repatdisp.encode('ascii', 'replace') + "'")
         if self.repathand is not None:
@@ -10674,7 +10612,7 @@ class Object(object):
         if self.repatnotic is not None:
             field_reprs.append('repatnotic=' + "'" + self.repatnotic.encode('ascii', 'replace') + "'")
         if self.repattype is not None:
-            field_reprs.append('repattype=' + "'" + self.repattype.encode('ascii', 'replace') + "'")
+            field_reprs.append('repattype=' + repr(self.repattype))
         if self.rockclass is not None:
             field_reprs.append('rockclass=' + "'" + self.rockclass.encode('ascii', 'replace') + "'")
         if self.rockcolor is not None:
@@ -10682,7 +10620,7 @@ class Object(object):
         if self.rockorigin is not None:
             field_reprs.append('rockorigin=' + "'" + self.rockorigin.encode('ascii', 'replace') + "'")
         if self.rocktype is not None:
-            field_reprs.append('rocktype=' + "'" + self.rocktype.encode('ascii', 'replace') + "'")
+            field_reprs.append('rocktype=' + repr(self.rocktype))
         if self.role is not None:
             field_reprs.append('role=' + "'" + self.role.encode('ascii', 'replace') + "'")
         if self.role2 is not None:
@@ -10700,7 +10638,7 @@ class Object(object):
         if self.site is not None:
             field_reprs.append('site=' + "'" + self.site.encode('ascii', 'replace') + "'")
         if self.siteno is not None:
-            field_reprs.append('siteno=' + "'" + self.siteno.encode('ascii', 'replace') + "'")
+            field_reprs.append('siteno=' + repr(self.siteno))
         if self.specgrav is not None:
             field_reprs.append('specgrav=' + "'" + self.specgrav.encode('ascii', 'replace') + "'")
         if self.species is not None:
@@ -10734,7 +10672,7 @@ class Object(object):
         if self.tempby is not None:
             field_reprs.append('tempby=' + "'" + self.tempby.encode('ascii', 'replace') + "'")
         if self.tempdate is not None:
-            field_reprs.append('tempdate=' + "'" + self.tempdate.encode('ascii', 'replace') + "'")
+            field_reprs.append('tempdate=' + repr(self.tempdate))
         if self.temperatur is not None:
             field_reprs.append('temperatur=' + "'" + self.temperatur.encode('ascii', 'replace') + "'")
         if self.temploc is not None:
@@ -10814,7 +10752,7 @@ class Object(object):
         if self.used is not None:
             field_reprs.append('used=' + "'" + self.used.encode('ascii', 'replace') + "'")
         if self.valuedate is not None:
-            field_reprs.append('valuedate=' + "'" + self.valuedate.encode('ascii', 'replace') + "'")
+            field_reprs.append('valuedate=' + repr(self.valuedate))
         if self.varieties is not None:
             field_reprs.append('varieties=' + "'" + self.varieties.encode('ascii', 'replace') + "'")
         if self.webinclude is not None:
@@ -10826,7 +10764,7 @@ class Object(object):
         if self.weightlb is not None:
             field_reprs.append('weightlb=' + repr(self.weightlb))
         if self.width is not None:
-            field_reprs.append('width=' + "'" + self.width.encode('ascii', 'replace') + "'")
+            field_reprs.append('width=' + repr(self.width))
         if self.widthft is not None:
             field_reprs.append('widthft=' + repr(self.widthft))
         if self.widthin is not None:
@@ -10856,9 +10794,9 @@ class Object(object):
         if self.assemzone is not None:
             field_reprs.append('assemzone=' + "'" + self.assemzone.encode('ascii', 'replace') + "'")
         if self.bagno is not None:
-            field_reprs.append('bagno=' + "'" + self.bagno.encode('ascii', 'replace') + "'")
+            field_reprs.append('bagno=' + repr(self.bagno))
         if self.boxno is not None:
-            field_reprs.append('boxno=' + "'" + self.boxno.encode('ascii', 'replace') + "'")
+            field_reprs.append('boxno=' + repr(self.boxno))
         if self.caption is not None:
             field_reprs.append('caption=' + "'" + self.caption.encode('ascii', 'replace') + "'")
         if self.catby is not None:
@@ -10866,11 +10804,11 @@ class Object(object):
         if self.catdate is not None:
             field_reprs.append('catdate=' + repr(self.catdate))
         if self.cattype is not None:
-            field_reprs.append('cattype=' + "'" + self.cattype.encode('ascii', 'replace') + "'")
+            field_reprs.append('cattype=' + repr(self.cattype))
         if self.chemcomp is not None:
             field_reprs.append('chemcomp=' + "'" + self.chemcomp.encode('ascii', 'replace') + "'")
         if self.circum is not None:
-            field_reprs.append('circum=' + "'" + self.circum.encode('ascii', 'replace') + "'")
+            field_reprs.append('circum=' + repr(self.circum))
         if self.circumft is not None:
             field_reprs.append('circumft=' + repr(self.circumft))
         if self.circumin is not None:
@@ -10918,7 +10856,7 @@ class Object(object):
         if self.datum is not None:
             field_reprs.append('datum=' + "'" + self.datum.encode('ascii', 'replace') + "'")
         if self.depth is not None:
-            field_reprs.append('depth=' + "'" + self.depth.encode('ascii', 'replace') + "'")
+            field_reprs.append('depth=' + repr(self.depth))
         if self.depthft is not None:
             field_reprs.append('depthft=' + repr(self.depthft))
         if self.depthin is not None:
@@ -10926,7 +10864,7 @@ class Object(object):
         if self.descrip is not None:
             field_reprs.append('descrip=' + "'" + self.descrip.encode('ascii', 'replace') + "'")
         if self.diameter is not None:
-            field_reprs.append('diameter=' + "'" + self.diameter.encode('ascii', 'replace') + "'")
+            field_reprs.append('diameter=' + repr(self.diameter))
         if self.diameterft is not None:
             field_reprs.append('diameterft=' + repr(self.diameterft))
         if self.diameterin is not None:
@@ -10934,11 +10872,11 @@ class Object(object):
         if self.dimnotes is not None:
             field_reprs.append('dimnotes=' + "'" + self.dimnotes.encode('ascii', 'replace') + "'")
         if self.dimtype is not None:
-            field_reprs.append('dimtype=' + "'" + self.dimtype.encode('ascii', 'replace') + "'")
+            field_reprs.append('dimtype=' + repr(self.dimtype))
         if self.dispvalue is not None:
             field_reprs.append('dispvalue=' + "'" + self.dispvalue.encode('ascii', 'replace') + "'")
         if self.earlydate is not None:
-            field_reprs.append('earlydate=' + "'" + self.earlydate.encode('ascii', 'replace') + "'")
+            field_reprs.append('earlydate=' + repr(self.earlydate))
         if self.elements is not None:
             field_reprs.append('elements=' + "'" + self.elements.encode('ascii', 'replace') + "'")
         if self.epoch is not None:
@@ -10948,7 +10886,7 @@ class Object(object):
         if self.event is not None:
             field_reprs.append('event=' + "'" + self.event.encode('ascii', 'replace') + "'")
         if self.excavadate is not None:
-            field_reprs.append('excavadate=' + "'" + self.excavadate.encode('ascii', 'replace') + "'")
+            field_reprs.append('excavadate=' + repr(self.excavadate))
         if self.excavateby is not None:
             field_reprs.append('excavateby=' + "'" + self.excavateby.encode('ascii', 'replace') + "'")
         if self.exhibitno is not None:
@@ -10968,7 +10906,7 @@ class Object(object):
         if self.feature is not None:
             field_reprs.append('feature=' + "'" + self.feature.encode('ascii', 'replace') + "'")
         if self.flagdate is not None:
-            field_reprs.append('flagdate=' + "'" + self.flagdate.encode('ascii', 'replace') + "'")
+            field_reprs.append('flagdate=' + repr(self.flagdate))
         if self.flagnotes is not None:
             field_reprs.append('flagnotes=' + "'" + self.flagnotes.encode('ascii', 'replace') + "'")
         if self.flagreason is not None:
@@ -10996,7 +10934,7 @@ class Object(object):
         if self.hardness is not None:
             field_reprs.append('hardness=' + "'" + self.hardness.encode('ascii', 'replace') + "'")
         if self.height is not None:
-            field_reprs.append('height=' + "'" + self.height.encode('ascii', 'replace') + "'")
+            field_reprs.append('height=' + repr(self.height))
         if self.heightft is not None:
             field_reprs.append('heightft=' + repr(self.heightft))
         if self.heightin is not None:
@@ -11006,7 +10944,7 @@ class Object(object):
         if self.idby is not None:
             field_reprs.append('idby=' + "'" + self.idby.encode('ascii', 'replace') + "'")
         if self.iddate is not None:
-            field_reprs.append('iddate=' + "'" + self.iddate.encode('ascii', 'replace') + "'")
+            field_reprs.append('iddate=' + repr(self.iddate))
         if self.imagefile is not None:
             field_reprs.append('imagefile=' + "'" + self.imagefile.encode('ascii', 'replace') + "'")
         if self.imageno is not None:
@@ -11026,9 +10964,9 @@ class Object(object):
         if self.inscrtrans is not None:
             field_reprs.append('inscrtrans=' + "'" + self.inscrtrans.encode('ascii', 'replace') + "'")
         if self.inscrtype is not None:
-            field_reprs.append('inscrtype=' + "'" + self.inscrtype.encode('ascii', 'replace') + "'")
+            field_reprs.append('inscrtype=' + repr(self.inscrtype))
         if self.insdate is not None:
-            field_reprs.append('insdate=' + "'" + self.insdate.encode('ascii', 'replace') + "'")
+            field_reprs.append('insdate=' + repr(self.insdate))
         if self.insphone is not None:
             field_reprs.append('insphone=' + "'" + self.insphone.encode('ascii', 'replace') + "'")
         if self.inspremium is not None:
@@ -11040,15 +10978,15 @@ class Object(object):
         if self.invnby is not None:
             field_reprs.append('invnby=' + "'" + self.invnby.encode('ascii', 'replace') + "'")
         if self.invndate is not None:
-            field_reprs.append('invndate=' + "'" + self.invndate.encode('ascii', 'replace') + "'")
+            field_reprs.append('invndate=' + repr(self.invndate))
         if self.kingdom is not None:
             field_reprs.append('kingdom=' + "'" + self.kingdom.encode('ascii', 'replace') + "'")
         if self.latedate is not None:
-            field_reprs.append('latedate=' + "'" + self.latedate.encode('ascii', 'replace') + "'")
+            field_reprs.append('latedate=' + repr(self.latedate))
         if self.legal is not None:
             field_reprs.append('legal=' + "'" + self.legal.encode('ascii', 'replace') + "'")
         if self.length is not None:
-            field_reprs.append('length=' + "'" + self.length.encode('ascii', 'replace') + "'")
+            field_reprs.append('length=' + repr(self.length))
         if self.lengthft is not None:
             field_reprs.append('lengthft=' + repr(self.lengthft))
         if self.lengthin is not None:
@@ -11062,9 +11000,9 @@ class Object(object):
         if self.loandue is not None:
             field_reprs.append('loandue=' + "'" + self.loandue.encode('ascii', 'replace') + "'")
         if self.loaninno is not None:
-            field_reprs.append('loaninno=' + "'" + self.loaninno.encode('ascii', 'replace') + "'")
+            field_reprs.append('loaninno=' + repr(self.loaninno))
         if self.loanno is not None:
-            field_reprs.append('loanno=' + "'" + self.loanno.encode('ascii', 'replace') + "'")
+            field_reprs.append('loanno=' + repr(self.loanno))
         if self.locfield1 is not None:
             field_reprs.append('locfield1=' + "'" + self.locfield1.encode('ascii', 'replace') + "'")
         if self.locfield2 is not None:
@@ -11084,7 +11022,7 @@ class Object(object):
         if self.maintcycle is not None:
             field_reprs.append('maintcycle=' + "'" + self.maintcycle.encode('ascii', 'replace') + "'")
         if self.maintdate is not None:
-            field_reprs.append('maintdate=' + "'" + self.maintdate.encode('ascii', 'replace') + "'")
+            field_reprs.append('maintdate=' + repr(self.maintdate))
         if self.maintnote is not None:
             field_reprs.append('maintnote=' + "'" + self.maintnote.encode('ascii', 'replace') + "'")
         if self.material is not None:
@@ -11122,7 +11060,7 @@ class Object(object):
         if self.otherno is not None:
             field_reprs.append('otherno=' + repr(self.otherno))
         if self.outdate is not None:
-            field_reprs.append('outdate=' + "'" + self.outdate.encode('ascii', 'replace') + "'")
+            field_reprs.append('outdate=' + repr(self.outdate))
         if self.owned is not None:
             field_reprs.append('owned=' + "'" + self.owned.encode('ascii', 'replace') + "'")
         if self.parent is not None:
@@ -11134,11 +11072,11 @@ class Object(object):
         if self.phylum is not None:
             field_reprs.append('phylum=' + "'" + self.phylum.encode('ascii', 'replace') + "'")
         if self.policyno is not None:
-            field_reprs.append('policyno=' + "'" + self.policyno.encode('ascii', 'replace') + "'")
+            field_reprs.append('policyno=' + repr(self.policyno))
         if self.preparator is not None:
             field_reprs.append('preparator=' + "'" + self.preparator.encode('ascii', 'replace') + "'")
         if self.prepdate is not None:
-            field_reprs.append('prepdate=' + "'" + self.prepdate.encode('ascii', 'replace') + "'")
+            field_reprs.append('prepdate=' + repr(self.prepdate))
         if self.preserve is not None:
             field_reprs.append('preserve=' + "'" + self.preserve.encode('ascii', 'replace') + "'")
         if self.pressure is not None:
@@ -11150,7 +11088,7 @@ class Object(object):
         if self.recas is not None:
             field_reprs.append('recas=' + repr(self.recas))
         if self.recdate is not None:
-            field_reprs.append('recdate=' + "'" + self.recdate.encode('ascii', 'replace') + "'")
+            field_reprs.append('recdate=' + repr(self.recdate))
         if self.recfrom is not None:
             field_reprs.append('recfrom=' + "'" + self.recfrom.encode('ascii', 'replace') + "'")
         if self.relnotes is not None:
@@ -11160,7 +11098,7 @@ class Object(object):
         if self.repatclaim is not None:
             field_reprs.append('repatclaim=' + "'" + self.repatclaim.encode('ascii', 'replace') + "'")
         if self.repatdate is not None:
-            field_reprs.append('repatdate=' + "'" + self.repatdate.encode('ascii', 'replace') + "'")
+            field_reprs.append('repatdate=' + repr(self.repatdate))
         if self.repatdisp is not None:
             field_reprs.append('repatdisp=' + "'" + self.repatdisp.encode('ascii', 'replace') + "'")
         if self.repathand is not None:
@@ -11170,7 +11108,7 @@ class Object(object):
         if self.repatnotic is not None:
             field_reprs.append('repatnotic=' + "'" + self.repatnotic.encode('ascii', 'replace') + "'")
         if self.repattype is not None:
-            field_reprs.append('repattype=' + "'" + self.repattype.encode('ascii', 'replace') + "'")
+            field_reprs.append('repattype=' + repr(self.repattype))
         if self.rockclass is not None:
             field_reprs.append('rockclass=' + "'" + self.rockclass.encode('ascii', 'replace') + "'")
         if self.rockcolor is not None:
@@ -11178,7 +11116,7 @@ class Object(object):
         if self.rockorigin is not None:
             field_reprs.append('rockorigin=' + "'" + self.rockorigin.encode('ascii', 'replace') + "'")
         if self.rocktype is not None:
-            field_reprs.append('rocktype=' + "'" + self.rocktype.encode('ascii', 'replace') + "'")
+            field_reprs.append('rocktype=' + repr(self.rocktype))
         if self.role is not None:
             field_reprs.append('role=' + "'" + self.role.encode('ascii', 'replace') + "'")
         if self.role2 is not None:
@@ -11196,7 +11134,7 @@ class Object(object):
         if self.site is not None:
             field_reprs.append('site=' + "'" + self.site.encode('ascii', 'replace') + "'")
         if self.siteno is not None:
-            field_reprs.append('siteno=' + "'" + self.siteno.encode('ascii', 'replace') + "'")
+            field_reprs.append('siteno=' + repr(self.siteno))
         if self.specgrav is not None:
             field_reprs.append('specgrav=' + "'" + self.specgrav.encode('ascii', 'replace') + "'")
         if self.species is not None:
@@ -11230,7 +11168,7 @@ class Object(object):
         if self.tempby is not None:
             field_reprs.append('tempby=' + "'" + self.tempby.encode('ascii', 'replace') + "'")
         if self.tempdate is not None:
-            field_reprs.append('tempdate=' + "'" + self.tempdate.encode('ascii', 'replace') + "'")
+            field_reprs.append('tempdate=' + repr(self.tempdate))
         if self.temperatur is not None:
             field_reprs.append('temperatur=' + "'" + self.temperatur.encode('ascii', 'replace') + "'")
         if self.temploc is not None:
@@ -11310,7 +11248,7 @@ class Object(object):
         if self.used is not None:
             field_reprs.append('used=' + "'" + self.used.encode('ascii', 'replace') + "'")
         if self.valuedate is not None:
-            field_reprs.append('valuedate=' + "'" + self.valuedate.encode('ascii', 'replace') + "'")
+            field_reprs.append('valuedate=' + repr(self.valuedate))
         if self.varieties is not None:
             field_reprs.append('varieties=' + "'" + self.varieties.encode('ascii', 'replace') + "'")
         if self.webinclude is not None:
@@ -11322,7 +11260,7 @@ class Object(object):
         if self.weightlb is not None:
             field_reprs.append('weightlb=' + repr(self.weightlb))
         if self.width is not None:
-            field_reprs.append('width=' + "'" + self.width.encode('ascii', 'replace') + "'")
+            field_reprs.append('width=' + repr(self.width))
         if self.widthft is not None:
             field_reprs.append('widthft=' + repr(self.widthft))
         if self.widthin is not None:
@@ -11412,7 +11350,7 @@ class Object(object):
     @property
     def bagno(self):
         '''
-        :rtype: str
+        :rtype: int
         '''
 
         return self.__bagno
@@ -11420,7 +11358,7 @@ class Object(object):
     @property
     def boxno(self):
         '''
-        :rtype: str
+        :rtype: int
         '''
 
         return self.__boxno
@@ -11452,7 +11390,7 @@ class Object(object):
     @property
     def cattype(self):
         '''
-        :rtype: str
+        :rtype: int
         '''
 
         return self.__cattype
@@ -11468,7 +11406,7 @@ class Object(object):
     @property
     def circum(self):
         '''
-        :rtype: str
+        :rtype: Decimal
         '''
 
         return self.__circum
@@ -11660,7 +11598,7 @@ class Object(object):
     @property
     def depth(self):
         '''
-        :rtype: str
+        :rtype: Decimal
         '''
 
         return self.__depth
@@ -11692,7 +11630,7 @@ class Object(object):
     @property
     def diameter(self):
         '''
-        :rtype: str
+        :rtype: Decimal
         '''
 
         return self.__diameter
@@ -11724,7 +11662,7 @@ class Object(object):
     @property
     def dimtype(self):
         '''
-        :rtype: str
+        :rtype: int
         '''
 
         return self.__dimtype
@@ -11740,7 +11678,7 @@ class Object(object):
     @property
     def earlydate(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__earlydate
@@ -11780,7 +11718,7 @@ class Object(object):
     @property
     def excavadate(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__excavadate
@@ -11860,7 +11798,7 @@ class Object(object):
     @property
     def flagdate(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__flagdate
@@ -11972,7 +11910,7 @@ class Object(object):
     @property
     def height(self):
         '''
-        :rtype: str
+        :rtype: Decimal
         '''
 
         return self.__height
@@ -12012,7 +11950,7 @@ class Object(object):
     @property
     def iddate(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__iddate
@@ -12092,7 +12030,7 @@ class Object(object):
     @property
     def inscrtype(self):
         '''
-        :rtype: str
+        :rtype: int
         '''
 
         return self.__inscrtype
@@ -12100,7 +12038,7 @@ class Object(object):
     @property
     def insdate(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__insdate
@@ -12148,7 +12086,7 @@ class Object(object):
     @property
     def invndate(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__invndate
@@ -12164,7 +12102,7 @@ class Object(object):
     @property
     def latedate(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__latedate
@@ -12180,7 +12118,7 @@ class Object(object):
     @property
     def length(self):
         '''
-        :rtype: str
+        :rtype: Decimal
         '''
 
         return self.__length
@@ -12236,7 +12174,7 @@ class Object(object):
     @property
     def loaninno(self):
         '''
-        :rtype: str
+        :rtype: int
         '''
 
         return self.__loaninno
@@ -12244,7 +12182,7 @@ class Object(object):
     @property
     def loanno(self):
         '''
-        :rtype: str
+        :rtype: int
         '''
 
         return self.__loanno
@@ -12324,7 +12262,7 @@ class Object(object):
     @property
     def maintdate(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__maintdate
@@ -12476,7 +12414,7 @@ class Object(object):
     @property
     def outdate(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__outdate
@@ -12524,7 +12462,7 @@ class Object(object):
     @property
     def policyno(self):
         '''
-        :rtype: str
+        :rtype: int
         '''
 
         return self.__policyno
@@ -12540,7 +12478,7 @@ class Object(object):
     @property
     def prepdate(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__prepdate
@@ -12630,12 +12568,12 @@ class Object(object):
                     pass
             elif ifield_name == 'bagno':
                 try:
-                    init_kwds['bagno'] = iprot.read_string()
+                    init_kwds['bagno'] = iprot.read_i32()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'boxno':
                 try:
-                    init_kwds['boxno'] = iprot.read_string()
+                    init_kwds['boxno'] = iprot.read_i32()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'caption':
@@ -12655,7 +12593,7 @@ class Object(object):
                     pass
             elif ifield_name == 'cattype':
                 try:
-                    init_kwds['cattype'] = iprot.read_string()
+                    init_kwds['cattype'] = iprot.read_i32()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'chemcomp':
@@ -12665,8 +12603,8 @@ class Object(object):
                     pass
             elif ifield_name == 'circum':
                 try:
-                    init_kwds['circum'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['circum'] = iprot.read_decimal()
+                except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'circumft':
                 try:
@@ -12785,8 +12723,8 @@ class Object(object):
                     pass
             elif ifield_name == 'depth':
                 try:
-                    init_kwds['depth'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['depth'] = iprot.read_decimal()
+                except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'depthft':
                 try:
@@ -12805,8 +12743,8 @@ class Object(object):
                     pass
             elif ifield_name == 'diameter':
                 try:
-                    init_kwds['diameter'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['diameter'] = iprot.read_decimal()
+                except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'diameterft':
                 try:
@@ -12825,7 +12763,7 @@ class Object(object):
                     pass
             elif ifield_name == 'dimtype':
                 try:
-                    init_kwds['dimtype'] = iprot.read_string()
+                    init_kwds['dimtype'] = iprot.read_i32()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'dispvalue':
@@ -12835,8 +12773,8 @@ class Object(object):
                     pass
             elif ifield_name == 'earlydate':
                 try:
-                    init_kwds['earlydate'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['earlydate'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'elements':
                 try:
@@ -12860,8 +12798,8 @@ class Object(object):
                     pass
             elif ifield_name == 'excavadate':
                 try:
-                    init_kwds['excavadate'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['excavadate'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'excavateby':
                 try:
@@ -12910,8 +12848,8 @@ class Object(object):
                     pass
             elif ifield_name == 'flagdate':
                 try:
-                    init_kwds['flagdate'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['flagdate'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'flagnotes':
                 try:
@@ -12980,8 +12918,8 @@ class Object(object):
                     pass
             elif ifield_name == 'height':
                 try:
-                    init_kwds['height'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['height'] = iprot.read_decimal()
+                except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'heightft':
                 try:
@@ -13005,8 +12943,8 @@ class Object(object):
                     pass
             elif ifield_name == 'iddate':
                 try:
-                    init_kwds['iddate'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['iddate'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'imagefile':
                 try:
@@ -13055,13 +12993,13 @@ class Object(object):
                     pass
             elif ifield_name == 'inscrtype':
                 try:
-                    init_kwds['inscrtype'] = iprot.read_string()
+                    init_kwds['inscrtype'] = iprot.read_i32()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'insdate':
                 try:
-                    init_kwds['insdate'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['insdate'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'insphone':
                 try:
@@ -13090,8 +13028,8 @@ class Object(object):
                     pass
             elif ifield_name == 'invndate':
                 try:
-                    init_kwds['invndate'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['invndate'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'kingdom':
                 try:
@@ -13100,8 +13038,8 @@ class Object(object):
                     pass
             elif ifield_name == 'latedate':
                 try:
-                    init_kwds['latedate'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['latedate'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'legal':
                 try:
@@ -13110,8 +13048,8 @@ class Object(object):
                     pass
             elif ifield_name == 'length':
                 try:
-                    init_kwds['length'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['length'] = iprot.read_decimal()
+                except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'lengthft':
                 try:
@@ -13145,12 +13083,12 @@ class Object(object):
                     pass
             elif ifield_name == 'loaninno':
                 try:
-                    init_kwds['loaninno'] = iprot.read_string()
+                    init_kwds['loaninno'] = iprot.read_i32()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'loanno':
                 try:
-                    init_kwds['loanno'] = iprot.read_string()
+                    init_kwds['loanno'] = iprot.read_i32()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'locfield1':
@@ -13200,8 +13138,8 @@ class Object(object):
                     pass
             elif ifield_name == 'maintdate':
                 try:
-                    init_kwds['maintdate'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['maintdate'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'maintnote':
                 try:
@@ -13295,8 +13233,8 @@ class Object(object):
                     pass
             elif ifield_name == 'outdate':
                 try:
-                    init_kwds['outdate'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['outdate'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'owned':
                 try:
@@ -13325,7 +13263,7 @@ class Object(object):
                     pass
             elif ifield_name == 'policyno':
                 try:
-                    init_kwds['policyno'] = iprot.read_string()
+                    init_kwds['policyno'] = iprot.read_i32()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'preparator':
@@ -13335,8 +13273,8 @@ class Object(object):
                     pass
             elif ifield_name == 'prepdate':
                 try:
-                    init_kwds['prepdate'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['prepdate'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'preserve':
                 try:
@@ -13365,8 +13303,8 @@ class Object(object):
                     pass
             elif ifield_name == 'recdate':
                 try:
-                    init_kwds['recdate'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['recdate'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'recfrom':
                 try:
@@ -13390,8 +13328,8 @@ class Object(object):
                     pass
             elif ifield_name == 'repatdate':
                 try:
-                    init_kwds['repatdate'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['repatdate'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'repatdisp':
                 try:
@@ -13415,7 +13353,7 @@ class Object(object):
                     pass
             elif ifield_name == 'repattype':
                 try:
-                    init_kwds['repattype'] = iprot.read_string()
+                    init_kwds['repattype'] = iprot.read_i32()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'rockclass':
@@ -13435,7 +13373,7 @@ class Object(object):
                     pass
             elif ifield_name == 'rocktype':
                 try:
-                    init_kwds['rocktype'] = iprot.read_string()
+                    init_kwds['rocktype'] = iprot.read_i32()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'role':
@@ -13480,7 +13418,7 @@ class Object(object):
                     pass
             elif ifield_name == 'siteno':
                 try:
-                    init_kwds['siteno'] = iprot.read_string()
+                    init_kwds['siteno'] = iprot.read_i32()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'specgrav':
@@ -13565,8 +13503,8 @@ class Object(object):
                     pass
             elif ifield_name == 'tempdate':
                 try:
-                    init_kwds['tempdate'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['tempdate'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'temperatur':
                 try:
@@ -13765,8 +13703,8 @@ class Object(object):
                     pass
             elif ifield_name == 'valuedate':
                 try:
-                    init_kwds['valuedate'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['valuedate'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'varieties':
                 try:
@@ -13795,8 +13733,8 @@ class Object(object):
                     pass
             elif ifield_name == 'width':
                 try:
-                    init_kwds['width'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['width'] = iprot.read_decimal()
+                except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'widthft':
                 try:
@@ -13839,7 +13777,7 @@ class Object(object):
     @property
     def recdate(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__recdate
@@ -13879,7 +13817,7 @@ class Object(object):
     @property
     def repatdate(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__repatdate
@@ -13919,7 +13857,7 @@ class Object(object):
     @property
     def repattype(self):
         '''
-        :rtype: str
+        :rtype: int
         '''
 
         return self.__repattype
@@ -14183,14 +14121,14 @@ class Object(object):
         :type appnotes: str or None
         :type appraisor: str or None
         :type assemzone: str or None
-        :type bagno: str or None
-        :type boxno: str or None
+        :type bagno: int or None
+        :type boxno: int or None
         :type caption: str or None
         :type catby: str or None
         :type catdate: datetime.datetime or None
-        :type cattype: str or None
+        :type cattype: int or None
         :type chemcomp: str or None
-        :type circum: str or None
+        :type circum: Decimal or None
         :type circumft: Decimal or None
         :type circumin: Decimal or None
         :type classes: str or None
@@ -14214,22 +14152,22 @@ class Object(object):
         :type date: str or None
         :type datingmeth: str or None
         :type datum: str or None
-        :type depth: str or None
+        :type depth: Decimal or None
         :type depthft: Decimal or None
         :type depthin: Decimal or None
         :type descrip: str or None
-        :type diameter: str or None
+        :type diameter: Decimal or None
         :type diameterft: Decimal or None
         :type diameterin: Decimal or None
         :type dimnotes: str or None
-        :type dimtype: str or None
+        :type dimtype: int or None
         :type dispvalue: str or None
-        :type earlydate: str or None
+        :type earlydate: datetime.datetime or None
         :type elements: str or None
         :type epoch: str or None
         :type era: str or None
         :type event: str or None
-        :type excavadate: str or None
+        :type excavadate: datetime.datetime or None
         :type excavateby: str or None
         :type exhibitno: int or None
         :type exhlabel1: str or None
@@ -14239,7 +14177,7 @@ class Object(object):
         :type exhstart: str or None
         :type family: str or None
         :type feature: str or None
-        :type flagdate: str or None
+        :type flagdate: datetime.datetime or None
         :type flagnotes: str or None
         :type flagreason: str or None
         :type formation: str or None
@@ -14253,12 +14191,12 @@ class Object(object):
         :type grainsize: str or None
         :type habitat: str or None
         :type hardness: str or None
-        :type height: str or None
+        :type height: Decimal or None
         :type heightft: Decimal or None
         :type heightin: Decimal or None
         :type homeloc: str or None
         :type idby: str or None
-        :type iddate: str or None
+        :type iddate: datetime.datetime or None
         :type imagefile: str or None
         :type imageno: int or None
         :type imagesize: str or None
@@ -14268,26 +14206,26 @@ class Object(object):
         :type inscrtech: str or None
         :type inscrtext: str or None
         :type inscrtrans: str or None
-        :type inscrtype: str or None
-        :type insdate: str or None
+        :type inscrtype: int or None
+        :type insdate: datetime.datetime or None
         :type insphone: str or None
         :type inspremium: str or None
         :type insrep: str or None
         :type insvalue: Decimal or None
         :type invnby: str or None
-        :type invndate: str or None
+        :type invndate: datetime.datetime or None
         :type kingdom: str or None
-        :type latedate: str or None
+        :type latedate: datetime.datetime or None
         :type legal: str or None
-        :type length: str or None
+        :type length: Decimal or None
         :type lengthft: Decimal or None
         :type lengthin: Decimal or None
         :type level: str or None
         :type lithofacie: str or None
         :type loancond: str or None
         :type loandue: str or None
-        :type loaninno: str or None
-        :type loanno: str or None
+        :type loaninno: int or None
+        :type loanno: int or None
         :type locfield1: str or None
         :type locfield2: str or None
         :type locfield3: str or None
@@ -14297,7 +14235,7 @@ class Object(object):
         :type luster: str or None
         :type made: str or None
         :type maintcycle: str or None
-        :type maintdate: str or None
+        :type maintdate: datetime.datetime or None
         :type maintnote: str or None
         :type material: str or None
         :type medium: str or None
@@ -14316,35 +14254,35 @@ class Object(object):
         :type origin: str or None
         :type othername: str or None
         :type otherno: int or None
-        :type outdate: str or None
+        :type outdate: datetime.datetime or None
         :type owned: str or None
         :type parent: str or None
         :type people: str or None
         :type period: str or None
         :type phylum: str or None
-        :type policyno: str or None
+        :type policyno: int or None
         :type preparator: str or None
-        :type prepdate: str or None
+        :type prepdate: datetime.datetime or None
         :type preserve: str or None
         :type pressure: str or None
         :type provenance: str or None
         :type pubnotes: str or None
         :type recas: pastpy.models.recas.Recas or None
-        :type recdate: str or None
+        :type recdate: datetime.datetime or None
         :type recfrom: str or None
         :type relnotes: str or None
         :type repatby: str or None
         :type repatclaim: str or None
-        :type repatdate: str or None
+        :type repatdate: datetime.datetime or None
         :type repatdisp: str or None
         :type repathand: str or None
         :type repatnotes: str or None
         :type repatnotic: str or None
-        :type repattype: str or None
+        :type repattype: int or None
         :type rockclass: str or None
         :type rockcolor: str or None
         :type rockorigin: str or None
-        :type rocktype: str or None
+        :type rocktype: int or None
         :type role: str or None
         :type role2: str or None
         :type role3: str or None
@@ -14353,7 +14291,7 @@ class Object(object):
         :type signedname: str or None
         :type signloc: str or None
         :type site: str or None
-        :type siteno: str or None
+        :type siteno: int or None
         :type specgrav: str or None
         :type species: str or None
         :type sprocess: str or None
@@ -14370,7 +14308,7 @@ class Object(object):
         :type technique: str or None
         :type tempauthor: str or None
         :type tempby: str or None
-        :type tempdate: str or None
+        :type tempdate: datetime.datetime or None
         :type temperatur: str or None
         :type temploc: str or None
         :type tempnotes: str or None
@@ -14410,13 +14348,13 @@ class Object(object):
         :type updated: str or None
         :type updatedby: str or None
         :type used: str or None
-        :type valuedate: str or None
+        :type valuedate: datetime.datetime or None
         :type varieties: str or None
         :type webinclude: str or None
         :type weight: str or None
         :type weightin: str or None
         :type weightlb: Decimal or None
-        :type width: str or None
+        :type width: Decimal or None
         :type widthft: Decimal or None
         :type widthin: Decimal or None
         :type xcord: str or None
@@ -14946,7 +14884,7 @@ class Object(object):
     @property
     def rocktype(self):
         '''
-        :rtype: str
+        :rtype: int
         '''
 
         return self.__rocktype
@@ -15018,7 +14956,7 @@ class Object(object):
     @property
     def siteno(self):
         '''
-        :rtype: str
+        :rtype: int
         '''
 
         return self.__siteno
@@ -15154,7 +15092,7 @@ class Object(object):
     @property
     def tempdate(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__tempdate
@@ -15474,7 +15412,7 @@ class Object(object):
     @property
     def valuedate(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__valuedate
@@ -15522,7 +15460,7 @@ class Object(object):
     @property
     def width(self):
         '''
-        :rtype: str
+        :rtype: Decimal
         '''
 
         return self.__width
@@ -15589,13 +15527,13 @@ class Object(object):
             oprot.write_field_end()
 
         if self.bagno is not None:
-            oprot.write_field_begin(name='bagno', type=11, id=None)
-            oprot.write_string(self.bagno)
+            oprot.write_field_begin(name='bagno', type=8, id=None)
+            oprot.write_i32(self.bagno)
             oprot.write_field_end()
 
         if self.boxno is not None:
-            oprot.write_field_begin(name='boxno', type=11, id=None)
-            oprot.write_string(self.boxno)
+            oprot.write_field_begin(name='boxno', type=8, id=None)
+            oprot.write_i32(self.boxno)
             oprot.write_field_end()
 
         if self.caption is not None:
@@ -15614,8 +15552,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.cattype is not None:
-            oprot.write_field_begin(name='cattype', type=11, id=None)
-            oprot.write_string(self.cattype)
+            oprot.write_field_begin(name='cattype', type=8, id=None)
+            oprot.write_i32(self.cattype)
             oprot.write_field_end()
 
         if self.chemcomp is not None:
@@ -15625,7 +15563,7 @@ class Object(object):
 
         if self.circum is not None:
             oprot.write_field_begin(name='circum', type=11, id=None)
-            oprot.write_string(self.circum)
+            oprot.write_decimal(self.circum)
             oprot.write_field_end()
 
         if self.circumft is not None:
@@ -15745,7 +15683,7 @@ class Object(object):
 
         if self.depth is not None:
             oprot.write_field_begin(name='depth', type=11, id=None)
-            oprot.write_string(self.depth)
+            oprot.write_decimal(self.depth)
             oprot.write_field_end()
 
         if self.depthft is not None:
@@ -15765,7 +15703,7 @@ class Object(object):
 
         if self.diameter is not None:
             oprot.write_field_begin(name='diameter', type=11, id=None)
-            oprot.write_string(self.diameter)
+            oprot.write_decimal(self.diameter)
             oprot.write_field_end()
 
         if self.diameterft is not None:
@@ -15784,8 +15722,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.dimtype is not None:
-            oprot.write_field_begin(name='dimtype', type=11, id=None)
-            oprot.write_string(self.dimtype)
+            oprot.write_field_begin(name='dimtype', type=8, id=None)
+            oprot.write_i32(self.dimtype)
             oprot.write_field_end()
 
         if self.dispvalue is not None:
@@ -15794,8 +15732,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.earlydate is not None:
-            oprot.write_field_begin(name='earlydate', type=11, id=None)
-            oprot.write_string(self.earlydate)
+            oprot.write_field_begin(name='earlydate', type=10, id=None)
+            oprot.write_date_time(self.earlydate)
             oprot.write_field_end()
 
         if self.elements is not None:
@@ -15819,8 +15757,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.excavadate is not None:
-            oprot.write_field_begin(name='excavadate', type=11, id=None)
-            oprot.write_string(self.excavadate)
+            oprot.write_field_begin(name='excavadate', type=10, id=None)
+            oprot.write_date_time(self.excavadate)
             oprot.write_field_end()
 
         if self.excavateby is not None:
@@ -15869,8 +15807,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.flagdate is not None:
-            oprot.write_field_begin(name='flagdate', type=11, id=None)
-            oprot.write_string(self.flagdate)
+            oprot.write_field_begin(name='flagdate', type=10, id=None)
+            oprot.write_date_time(self.flagdate)
             oprot.write_field_end()
 
         if self.flagnotes is not None:
@@ -15940,7 +15878,7 @@ class Object(object):
 
         if self.height is not None:
             oprot.write_field_begin(name='height', type=11, id=None)
-            oprot.write_string(self.height)
+            oprot.write_decimal(self.height)
             oprot.write_field_end()
 
         if self.heightft is not None:
@@ -15964,8 +15902,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.iddate is not None:
-            oprot.write_field_begin(name='iddate', type=11, id=None)
-            oprot.write_string(self.iddate)
+            oprot.write_field_begin(name='iddate', type=10, id=None)
+            oprot.write_date_time(self.iddate)
             oprot.write_field_end()
 
         if self.imagefile is not None:
@@ -16014,13 +15952,13 @@ class Object(object):
             oprot.write_field_end()
 
         if self.inscrtype is not None:
-            oprot.write_field_begin(name='inscrtype', type=11, id=None)
-            oprot.write_string(self.inscrtype)
+            oprot.write_field_begin(name='inscrtype', type=8, id=None)
+            oprot.write_i32(self.inscrtype)
             oprot.write_field_end()
 
         if self.insdate is not None:
-            oprot.write_field_begin(name='insdate', type=11, id=None)
-            oprot.write_string(self.insdate)
+            oprot.write_field_begin(name='insdate', type=10, id=None)
+            oprot.write_date_time(self.insdate)
             oprot.write_field_end()
 
         if self.insphone is not None:
@@ -16049,8 +15987,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.invndate is not None:
-            oprot.write_field_begin(name='invndate', type=11, id=None)
-            oprot.write_string(self.invndate)
+            oprot.write_field_begin(name='invndate', type=10, id=None)
+            oprot.write_date_time(self.invndate)
             oprot.write_field_end()
 
         if self.kingdom is not None:
@@ -16059,8 +15997,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.latedate is not None:
-            oprot.write_field_begin(name='latedate', type=11, id=None)
-            oprot.write_string(self.latedate)
+            oprot.write_field_begin(name='latedate', type=10, id=None)
+            oprot.write_date_time(self.latedate)
             oprot.write_field_end()
 
         if self.legal is not None:
@@ -16070,7 +16008,7 @@ class Object(object):
 
         if self.length is not None:
             oprot.write_field_begin(name='length', type=11, id=None)
-            oprot.write_string(self.length)
+            oprot.write_decimal(self.length)
             oprot.write_field_end()
 
         if self.lengthft is not None:
@@ -16104,13 +16042,13 @@ class Object(object):
             oprot.write_field_end()
 
         if self.loaninno is not None:
-            oprot.write_field_begin(name='loaninno', type=11, id=None)
-            oprot.write_string(self.loaninno)
+            oprot.write_field_begin(name='loaninno', type=8, id=None)
+            oprot.write_i32(self.loaninno)
             oprot.write_field_end()
 
         if self.loanno is not None:
-            oprot.write_field_begin(name='loanno', type=11, id=None)
-            oprot.write_string(self.loanno)
+            oprot.write_field_begin(name='loanno', type=8, id=None)
+            oprot.write_i32(self.loanno)
             oprot.write_field_end()
 
         if self.locfield1 is not None:
@@ -16159,8 +16097,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.maintdate is not None:
-            oprot.write_field_begin(name='maintdate', type=11, id=None)
-            oprot.write_string(self.maintdate)
+            oprot.write_field_begin(name='maintdate', type=10, id=None)
+            oprot.write_date_time(self.maintdate)
             oprot.write_field_end()
 
         if self.maintnote is not None:
@@ -16254,8 +16192,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.outdate is not None:
-            oprot.write_field_begin(name='outdate', type=11, id=None)
-            oprot.write_string(self.outdate)
+            oprot.write_field_begin(name='outdate', type=10, id=None)
+            oprot.write_date_time(self.outdate)
             oprot.write_field_end()
 
         if self.owned is not None:
@@ -16284,8 +16222,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.policyno is not None:
-            oprot.write_field_begin(name='policyno', type=11, id=None)
-            oprot.write_string(self.policyno)
+            oprot.write_field_begin(name='policyno', type=8, id=None)
+            oprot.write_i32(self.policyno)
             oprot.write_field_end()
 
         if self.preparator is not None:
@@ -16294,8 +16232,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.prepdate is not None:
-            oprot.write_field_begin(name='prepdate', type=11, id=None)
-            oprot.write_string(self.prepdate)
+            oprot.write_field_begin(name='prepdate', type=10, id=None)
+            oprot.write_date_time(self.prepdate)
             oprot.write_field_end()
 
         if self.preserve is not None:
@@ -16324,8 +16262,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.recdate is not None:
-            oprot.write_field_begin(name='recdate', type=11, id=None)
-            oprot.write_string(self.recdate)
+            oprot.write_field_begin(name='recdate', type=10, id=None)
+            oprot.write_date_time(self.recdate)
             oprot.write_field_end()
 
         if self.recfrom is not None:
@@ -16349,8 +16287,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.repatdate is not None:
-            oprot.write_field_begin(name='repatdate', type=11, id=None)
-            oprot.write_string(self.repatdate)
+            oprot.write_field_begin(name='repatdate', type=10, id=None)
+            oprot.write_date_time(self.repatdate)
             oprot.write_field_end()
 
         if self.repatdisp is not None:
@@ -16374,8 +16312,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.repattype is not None:
-            oprot.write_field_begin(name='repattype', type=11, id=None)
-            oprot.write_string(self.repattype)
+            oprot.write_field_begin(name='repattype', type=8, id=None)
+            oprot.write_i32(self.repattype)
             oprot.write_field_end()
 
         if self.rockclass is not None:
@@ -16394,8 +16332,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.rocktype is not None:
-            oprot.write_field_begin(name='rocktype', type=11, id=None)
-            oprot.write_string(self.rocktype)
+            oprot.write_field_begin(name='rocktype', type=8, id=None)
+            oprot.write_i32(self.rocktype)
             oprot.write_field_end()
 
         if self.role is not None:
@@ -16439,8 +16377,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.siteno is not None:
-            oprot.write_field_begin(name='siteno', type=11, id=None)
-            oprot.write_string(self.siteno)
+            oprot.write_field_begin(name='siteno', type=8, id=None)
+            oprot.write_i32(self.siteno)
             oprot.write_field_end()
 
         if self.specgrav is not None:
@@ -16524,8 +16462,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.tempdate is not None:
-            oprot.write_field_begin(name='tempdate', type=11, id=None)
-            oprot.write_string(self.tempdate)
+            oprot.write_field_begin(name='tempdate', type=10, id=None)
+            oprot.write_date_time(self.tempdate)
             oprot.write_field_end()
 
         if self.temperatur is not None:
@@ -16724,8 +16662,8 @@ class Object(object):
             oprot.write_field_end()
 
         if self.valuedate is not None:
-            oprot.write_field_begin(name='valuedate', type=11, id=None)
-            oprot.write_string(self.valuedate)
+            oprot.write_field_begin(name='valuedate', type=10, id=None)
+            oprot.write_date_time(self.valuedate)
             oprot.write_field_end()
 
         if self.varieties is not None:
@@ -16755,7 +16693,7 @@ class Object(object):
 
         if self.width is not None:
             oprot.write_field_begin(name='width', type=11, id=None)
-            oprot.write_string(self.width)
+            oprot.write_decimal(self.width)
             oprot.write_field_end()
 
         if self.widthft is not None:

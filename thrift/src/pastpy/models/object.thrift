@@ -27,11 +27,9 @@ struct Object {
     // @validation {"minLength": 1}
     optional string assemzone;
 
-    // @validation {"minLength": 1}
-    optional string bagno;
+    optional i32 bagno;
 
-    // @validation {"minLength": 1}
-    optional string boxno;
+    optional i32 boxno;
 
     // @validation {"minLength": 1}
     optional string caption;
@@ -41,14 +39,12 @@ struct Object {
 
     optional date_time.DateTime catdate;
 
-    // @validation {"minLength": 1}
-    optional string cattype;
+    optional i32 cattype;
 
     // @validation {"minLength": 1}
     optional string chemcomp;
 
-    // @validation {"minLength": 1}
-    optional string circum;
+    optional decimal.Decimal circum;
 
     optional decimal.Decimal circumft;
 
@@ -112,8 +108,7 @@ struct Object {
     // @validation {"minLength": 1}
     optional string datum;
 
-    // @validation {"minLength": 1}
-    optional string depth;
+    optional decimal.Decimal depth;
 
     optional decimal.Decimal depthft;
 
@@ -122,8 +117,7 @@ struct Object {
     // @validation {"minLength": 1}
     optional string descrip;
 
-    // @validation {"minLength": 1}
-    optional string diameter;
+    optional decimal.Decimal diameter;
 
     optional decimal.Decimal diameterft;
 
@@ -132,14 +126,12 @@ struct Object {
     // @validation {"minLength": 1}
     optional string dimnotes;
 
-    // @validation {"minLength": 1}
-    optional string dimtype;
+    optional i32 dimtype;
 
     // @validation {"minLength": 1}
     optional string dispvalue;
 
-    // @validation {"minLength": 1}
-    optional string earlydate;
+    optional date_time.DateTime earlydate;
 
     // @validation {"minLength": 1}
     optional string elements;
@@ -153,8 +145,7 @@ struct Object {
     // @validation {"minLength": 1}
     optional string event;
 
-    // @validation {"minLength": 1}
-    optional string excavadate;
+    optional date_time.DateTime excavadate;
 
     // @validation {"minLength": 1}
     optional string excavateby;
@@ -182,8 +173,7 @@ struct Object {
     // @validation {"minLength": 1}
     optional string feature;
 
-    // @validation {"minLength": 1}
-    optional string flagdate;
+    optional date_time.DateTime flagdate;
 
     // @validation {"minLength": 1}
     optional string flagnotes;
@@ -224,8 +214,7 @@ struct Object {
     // @validation {"minLength": 1}
     optional string hardness;
 
-    // @validation {"minLength": 1}
-    optional string height;
+    optional decimal.Decimal height;
 
     optional decimal.Decimal heightft;
 
@@ -237,8 +226,7 @@ struct Object {
     // @validation {"minLength": 1}
     optional string idby;
 
-    // @validation {"minLength": 1}
-    optional string iddate;
+    optional date_time.DateTime iddate;
 
     // @validation {"minLength": 1}
     optional string imagefile;
@@ -266,11 +254,9 @@ struct Object {
     // @validation {"minLength": 1}
     optional string inscrtrans;
 
-    // @validation {"minLength": 1}
-    optional string inscrtype;
+    optional i32 inscrtype;
 
-    // @validation {"minLength": 1}
-    optional string insdate;
+    optional date_time.DateTime insdate;
 
     // @validation {"minLength": 1}
     optional string insphone;
@@ -286,20 +272,17 @@ struct Object {
     // @validation {"minLength": 1}
     optional string invnby;
 
-    // @validation {"minLength": 1}
-    optional string invndate;
+    optional date_time.DateTime invndate;
 
     // @validation {"minLength": 1}
     optional string kingdom;
 
-    // @validation {"minLength": 1}
-    optional string latedate;
+    optional date_time.DateTime latedate;
 
     // @validation {"minLength": 1}
     optional string legal;
 
-    // @validation {"minLength": 1}
-    optional string length;
+    optional decimal.Decimal length;
 
     optional decimal.Decimal lengthft;
 
@@ -317,11 +300,9 @@ struct Object {
     // @validation {"minLength": 1}
     optional string loandue;
 
-    // @validation {"minLength": 1}
-    optional string loaninno;
+    optional i32 loaninno;
 
-    // @validation {"minLength": 1}
-    optional string loanno;
+    optional i32 loanno;
 
     // @validation {"minLength": 1}
     optional string locfield1;
@@ -350,8 +331,7 @@ struct Object {
     // @validation {"minLength": 1}
     optional string maintcycle;
 
-    // @validation {"minLength": 1}
-    optional string maintdate;
+    optional date_time.DateTime maintdate;
 
     // @validation {"minLength": 1}
     optional string maintnote;
@@ -405,8 +385,7 @@ struct Object {
 
     optional i32 otherno;
 
-    // @validation {"minLength": 1}
-    optional string outdate;
+    optional date_time.DateTime outdate;
 
     // @validation {"minLength": 1}
     optional string owned;
@@ -423,14 +402,12 @@ struct Object {
     // @validation {"minLength": 1}
     optional string phylum;
 
-    // @validation {"minLength": 1}
-    optional string policyno;
+    optional i32 policyno;
 
     // @validation {"minLength": 1}
     optional string preparator;
 
-    // @validation {"minLength": 1}
-    optional string prepdate;
+    optional date_time.DateTime prepdate;
 
     // @validation {"minLength": 1}
     optional string preserve;
@@ -446,8 +423,7 @@ struct Object {
 
     optional recas.Recas recas;
 
-    // @validation {"minLength": 1}
-    optional string recdate;
+    optional date_time.DateTime recdate;
 
     // @validation {"minLength": 1}
     optional string recfrom;
@@ -461,8 +437,7 @@ struct Object {
     // @validation {"minLength": 1}
     optional string repatclaim;
 
-    // @validation {"minLength": 1}
-    optional string repatdate;
+    optional date_time.DateTime repatdate;
 
     // @validation {"minLength": 1}
     optional string repatdisp;
@@ -476,8 +451,7 @@ struct Object {
     // @validation {"minLength": 1}
     optional string repatnotic;
 
-    // @validation {"minLength": 1}
-    optional string repattype;
+    optional i32 repattype;
 
     // @validation {"minLength": 1}
     optional string rockclass;
@@ -488,8 +462,7 @@ struct Object {
     // @validation {"minLength": 1}
     optional string rockorigin;
 
-    // @validation {"minLength": 1}
-    optional string rocktype;
+    optional i32 rocktype;
 
     // @validation {"minLength": 1}
     optional string role;
@@ -515,8 +488,7 @@ struct Object {
     // @validation {"minLength": 1}
     optional string site;
 
-    // @validation {"minLength": 1}
-    optional string siteno;
+    optional i32 siteno;
 
     // @validation {"minLength": 1}
     optional string specgrav;
@@ -564,8 +536,7 @@ struct Object {
     // @validation {"minLength": 1}
     optional string tempby;
 
-    // @validation {"minLength": 1}
-    optional string tempdate;
+    optional date_time.DateTime tempdate;
 
     // @validation {"minLength": 1}
     optional string temperatur;
@@ -684,8 +655,7 @@ struct Object {
     // @validation {"minLength": 1}
     optional string used;
 
-    // @validation {"minLength": 1}
-    optional string valuedate;
+    optional date_time.DateTime valuedate;
 
     // @validation {"minLength": 1}
     optional string varieties;
@@ -701,8 +671,7 @@ struct Object {
 
     optional decimal.Decimal weightlb;
 
-    // @validation {"minLength": 1}
-    optional string width;
+    optional decimal.Decimal width;
 
     optional decimal.Decimal widthft;
 

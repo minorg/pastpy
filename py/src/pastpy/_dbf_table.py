@@ -1,11 +1,19 @@
 class _DbfTable(object):
     def __init__(self, table):
         self.__table = table
-        for field_name in table.field_names:
-            print "    // @validation {\"minLength\": 1}\n    optional string %s;\n" % field_name
 
     def _map_record(self, record):
         raise NotImplementedError
+
+    def __enter__(self):
+        pass
+
+    def __exit__(self):
+        self.__table.close()
+
+    @property
+    def field_names(self):
+        return self.__table.field_names
 
     @classmethod
     def open(cls, dbf_file_path):
@@ -21,3 +29,7 @@ class _DbfTable(object):
         for record in self.__table:
             yield self._map_record(record)
         raise StopIteration
+
+    def thrift_field_names(self):
+        for field_name in self.field_names:
+            yield "    // @validation {\"minLength\": 1}\n    optional string %s;\n" % field_name
