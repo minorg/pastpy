@@ -2145,6 +2145,11 @@ class Object(object):
             :type accessno: str or None
             '''
 
+            if accessno is not None:
+                if not isinstance(accessno, basestring):
+                    raise TypeError("expected accessno to be a str but it is a %s" % getattr(__builtin__, 'type')(accessno))
+                if len(accessno) < 1:
+                    raise ValueError("expected len(accessno) to be >= 1, was %d" % len(accessno))
             self.__accessno = accessno
             return self
 
@@ -2153,6 +2158,11 @@ class Object(object):
             :type accessory: str or None
             '''
 
+            if accessory is not None:
+                if not isinstance(accessory, basestring):
+                    raise TypeError("expected accessory to be a str but it is a %s" % getattr(__builtin__, 'type')(accessory))
+                if len(accessory) < 1:
+                    raise ValueError("expected len(accessory) to be >= 1, was %d" % len(accessory))
             self.__accessory = accessory
             return self
 
@@ -2161,6 +2171,9 @@ class Object(object):
             :type acqvalue: Decimal or None
             '''
 
+            if acqvalue is not None:
+                if not isinstance(acqvalue, decimal.Decimal):
+                    raise TypeError("expected acqvalue to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(acqvalue))
             self.__acqvalue = acqvalue
             return self
 
@@ -2169,6 +2182,11 @@ class Object(object):
             :type age: str or None
             '''
 
+            if age is not None:
+                if not isinstance(age, basestring):
+                    raise TypeError("expected age to be a str but it is a %s" % getattr(__builtin__, 'type')(age))
+                if len(age) < 1:
+                    raise ValueError("expected len(age) to be >= 1, was %d" % len(age))
             self.__age = age
             return self
 
@@ -2177,6 +2195,11 @@ class Object(object):
             :type appnotes: str or None
             '''
 
+            if appnotes is not None:
+                if not isinstance(appnotes, basestring):
+                    raise TypeError("expected appnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(appnotes))
+                if len(appnotes) < 1:
+                    raise ValueError("expected len(appnotes) to be >= 1, was %d" % len(appnotes))
             self.__appnotes = appnotes
             return self
 
@@ -2185,6 +2208,11 @@ class Object(object):
             :type appraisor: str or None
             '''
 
+            if appraisor is not None:
+                if not isinstance(appraisor, basestring):
+                    raise TypeError("expected appraisor to be a str but it is a %s" % getattr(__builtin__, 'type')(appraisor))
+                if len(appraisor) < 1:
+                    raise ValueError("expected len(appraisor) to be >= 1, was %d" % len(appraisor))
             self.__appraisor = appraisor
             return self
 
@@ -2193,6 +2221,11 @@ class Object(object):
             :type assemzone: str or None
             '''
 
+            if assemzone is not None:
+                if not isinstance(assemzone, basestring):
+                    raise TypeError("expected assemzone to be a str but it is a %s" % getattr(__builtin__, 'type')(assemzone))
+                if len(assemzone) < 1:
+                    raise ValueError("expected len(assemzone) to be >= 1, was %d" % len(assemzone))
             self.__assemzone = assemzone
             return self
 
@@ -2201,6 +2234,9 @@ class Object(object):
             :type bagno: int or None
             '''
 
+            if bagno is not None:
+                if not isinstance(bagno, int):
+                    raise TypeError("expected bagno to be a int but it is a %s" % getattr(__builtin__, 'type')(bagno))
             self.__bagno = bagno
             return self
 
@@ -2209,6 +2245,9 @@ class Object(object):
             :type boxno: int or None
             '''
 
+            if boxno is not None:
+                if not isinstance(boxno, int):
+                    raise TypeError("expected boxno to be a int but it is a %s" % getattr(__builtin__, 'type')(boxno))
             self.__boxno = boxno
             return self
 
@@ -2217,6 +2256,11 @@ class Object(object):
             :type caption: str or None
             '''
 
+            if caption is not None:
+                if not isinstance(caption, basestring):
+                    raise TypeError("expected caption to be a str but it is a %s" % getattr(__builtin__, 'type')(caption))
+                if len(caption) < 1:
+                    raise ValueError("expected len(caption) to be >= 1, was %d" % len(caption))
             self.__caption = caption
             return self
 
@@ -2225,6 +2269,11 @@ class Object(object):
             :type catby: str or None
             '''
 
+            if catby is not None:
+                if not isinstance(catby, basestring):
+                    raise TypeError("expected catby to be a str but it is a %s" % getattr(__builtin__, 'type')(catby))
+                if len(catby) < 1:
+                    raise ValueError("expected len(catby) to be >= 1, was %d" % len(catby))
             self.__catby = catby
             return self
 
@@ -2233,6 +2282,9 @@ class Object(object):
             :type catdate: datetime.datetime or None
             '''
 
+            if catdate is not None:
+                if not isinstance(catdate, datetime.datetime):
+                    raise TypeError("expected catdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(catdate))
             self.__catdate = catdate
             return self
 
@@ -2241,6 +2293,9 @@ class Object(object):
             :type cattype: int or None
             '''
 
+            if cattype is not None:
+                if not isinstance(cattype, int):
+                    raise TypeError("expected cattype to be a int but it is a %s" % getattr(__builtin__, 'type')(cattype))
             self.__cattype = cattype
             return self
 
@@ -2249,6 +2304,11 @@ class Object(object):
             :type chemcomp: str or None
             '''
 
+            if chemcomp is not None:
+                if not isinstance(chemcomp, basestring):
+                    raise TypeError("expected chemcomp to be a str but it is a %s" % getattr(__builtin__, 'type')(chemcomp))
+                if len(chemcomp) < 1:
+                    raise ValueError("expected len(chemcomp) to be >= 1, was %d" % len(chemcomp))
             self.__chemcomp = chemcomp
             return self
 
@@ -2257,6 +2317,9 @@ class Object(object):
             :type circum: Decimal or None
             '''
 
+            if circum is not None:
+                if not isinstance(circum, decimal.Decimal):
+                    raise TypeError("expected circum to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(circum))
             self.__circum = circum
             return self
 
@@ -2265,6 +2328,9 @@ class Object(object):
             :type circumft: Decimal or None
             '''
 
+            if circumft is not None:
+                if not isinstance(circumft, decimal.Decimal):
+                    raise TypeError("expected circumft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(circumft))
             self.__circumft = circumft
             return self
 
@@ -2273,6 +2339,9 @@ class Object(object):
             :type circumin: Decimal or None
             '''
 
+            if circumin is not None:
+                if not isinstance(circumin, decimal.Decimal):
+                    raise TypeError("expected circumin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(circumin))
             self.__circumin = circumin
             return self
 
@@ -2281,6 +2350,11 @@ class Object(object):
             :type classes: str or None
             '''
 
+            if classes is not None:
+                if not isinstance(classes, basestring):
+                    raise TypeError("expected classes to be a str but it is a %s" % getattr(__builtin__, 'type')(classes))
+                if len(classes) < 1:
+                    raise ValueError("expected len(classes) to be >= 1, was %d" % len(classes))
             self.__classes = classes
             return self
 
@@ -2289,6 +2363,9 @@ class Object(object):
             :type colldate: datetime.datetime or None
             '''
 
+            if colldate is not None:
+                if not isinstance(colldate, datetime.datetime):
+                    raise TypeError("expected colldate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(colldate))
             self.__colldate = colldate
             return self
 
@@ -2297,6 +2374,11 @@ class Object(object):
             :type collection: str or None
             '''
 
+            if collection is not None:
+                if not isinstance(collection, basestring):
+                    raise TypeError("expected collection to be a str but it is a %s" % getattr(__builtin__, 'type')(collection))
+                if len(collection) < 1:
+                    raise ValueError("expected len(collection) to be >= 1, was %d" % len(collection))
             self.__collection = collection
             return self
 
@@ -2305,6 +2387,11 @@ class Object(object):
             :type collector: str or None
             '''
 
+            if collector is not None:
+                if not isinstance(collector, basestring):
+                    raise TypeError("expected collector to be a str but it is a %s" % getattr(__builtin__, 'type')(collector))
+                if len(collector) < 1:
+                    raise ValueError("expected len(collector) to be >= 1, was %d" % len(collector))
             self.__collector = collector
             return self
 
@@ -2313,6 +2400,9 @@ class Object(object):
             :type conddate: datetime.datetime or None
             '''
 
+            if conddate is not None:
+                if not isinstance(conddate, datetime.datetime):
+                    raise TypeError("expected conddate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(conddate))
             self.__conddate = conddate
             return self
 
@@ -2321,6 +2411,11 @@ class Object(object):
             :type condexam: str or None
             '''
 
+            if condexam is not None:
+                if not isinstance(condexam, basestring):
+                    raise TypeError("expected condexam to be a str but it is a %s" % getattr(__builtin__, 'type')(condexam))
+                if len(condexam) < 1:
+                    raise ValueError("expected len(condexam) to be >= 1, was %d" % len(condexam))
             self.__condexam = condexam
             return self
 
@@ -2329,6 +2424,9 @@ class Object(object):
             :type condition: pastpy.models.condition.Condition or None
             '''
 
+            if condition is not None:
+                if not isinstance(condition, pastpy.models.condition.Condition):
+                    raise TypeError("expected condition to be a pastpy.models.condition.Condition but it is a %s" % getattr(__builtin__, 'type')(condition))
             self.__condition = condition
             return self
 
@@ -2337,6 +2435,11 @@ class Object(object):
             :type condnotes: str or None
             '''
 
+            if condnotes is not None:
+                if not isinstance(condnotes, basestring):
+                    raise TypeError("expected condnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(condnotes))
+                if len(condnotes) < 1:
+                    raise ValueError("expected len(condnotes) to be >= 1, was %d" % len(condnotes))
             self.__condnotes = condnotes
             return self
 
@@ -2345,6 +2448,11 @@ class Object(object):
             :type count: str or None
             '''
 
+            if count is not None:
+                if not isinstance(count, basestring):
+                    raise TypeError("expected count to be a str but it is a %s" % getattr(__builtin__, 'type')(count))
+                if len(count) < 1:
+                    raise ValueError("expected len(count) to be >= 1, was %d" % len(count))
             self.__count = count
             return self
 
@@ -2353,6 +2461,11 @@ class Object(object):
             :type creator: str or None
             '''
 
+            if creator is not None:
+                if not isinstance(creator, basestring):
+                    raise TypeError("expected creator to be a str but it is a %s" % getattr(__builtin__, 'type')(creator))
+                if len(creator) < 1:
+                    raise ValueError("expected len(creator) to be >= 1, was %d" % len(creator))
             self.__creator = creator
             return self
 
@@ -2361,6 +2474,11 @@ class Object(object):
             :type creator2: str or None
             '''
 
+            if creator2 is not None:
+                if not isinstance(creator2, basestring):
+                    raise TypeError("expected creator2 to be a str but it is a %s" % getattr(__builtin__, 'type')(creator2))
+                if len(creator2) < 1:
+                    raise ValueError("expected len(creator2) to be >= 1, was %d" % len(creator2))
             self.__creator2 = creator2
             return self
 
@@ -2369,6 +2487,11 @@ class Object(object):
             :type creator3: str or None
             '''
 
+            if creator3 is not None:
+                if not isinstance(creator3, basestring):
+                    raise TypeError("expected creator3 to be a str but it is a %s" % getattr(__builtin__, 'type')(creator3))
+                if len(creator3) < 1:
+                    raise ValueError("expected len(creator3) to be >= 1, was %d" % len(creator3))
             self.__creator3 = creator3
             return self
 
@@ -2377,6 +2500,11 @@ class Object(object):
             :type credit: str or None
             '''
 
+            if credit is not None:
+                if not isinstance(credit, basestring):
+                    raise TypeError("expected credit to be a str but it is a %s" % getattr(__builtin__, 'type')(credit))
+                if len(credit) < 1:
+                    raise ValueError("expected len(credit) to be >= 1, was %d" % len(credit))
             self.__credit = credit
             return self
 
@@ -2385,6 +2513,11 @@ class Object(object):
             :type crystal: str or None
             '''
 
+            if crystal is not None:
+                if not isinstance(crystal, basestring):
+                    raise TypeError("expected crystal to be a str but it is a %s" % getattr(__builtin__, 'type')(crystal))
+                if len(crystal) < 1:
+                    raise ValueError("expected len(crystal) to be >= 1, was %d" % len(crystal))
             self.__crystal = crystal
             return self
 
@@ -2393,6 +2526,11 @@ class Object(object):
             :type culture: str or None
             '''
 
+            if culture is not None:
+                if not isinstance(culture, basestring):
+                    raise TypeError("expected culture to be a str but it is a %s" % getattr(__builtin__, 'type')(culture))
+                if len(culture) < 1:
+                    raise ValueError("expected len(culture) to be >= 1, was %d" % len(culture))
             self.__culture = culture
             return self
 
@@ -2401,6 +2539,9 @@ class Object(object):
             :type curvalmax: Decimal or None
             '''
 
+            if curvalmax is not None:
+                if not isinstance(curvalmax, decimal.Decimal):
+                    raise TypeError("expected curvalmax to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(curvalmax))
             self.__curvalmax = curvalmax
             return self
 
@@ -2409,6 +2550,9 @@ class Object(object):
             :type curvalue: Decimal or None
             '''
 
+            if curvalue is not None:
+                if not isinstance(curvalue, decimal.Decimal):
+                    raise TypeError("expected curvalue to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(curvalue))
             self.__curvalue = curvalue
             return self
 
@@ -2417,6 +2561,11 @@ class Object(object):
             :type dataset: str or None
             '''
 
+            if dataset is not None:
+                if not isinstance(dataset, basestring):
+                    raise TypeError("expected dataset to be a str but it is a %s" % getattr(__builtin__, 'type')(dataset))
+                if len(dataset) < 1:
+                    raise ValueError("expected len(dataset) to be >= 1, was %d" % len(dataset))
             self.__dataset = dataset
             return self
 
@@ -2425,6 +2574,11 @@ class Object(object):
             :type date: str or None
             '''
 
+            if date is not None:
+                if not isinstance(date, basestring):
+                    raise TypeError("expected date to be a str but it is a %s" % getattr(__builtin__, 'type')(date))
+                if len(date) < 1:
+                    raise ValueError("expected len(date) to be >= 1, was %d" % len(date))
             self.__date = date
             return self
 
@@ -2433,6 +2587,11 @@ class Object(object):
             :type datingmeth: str or None
             '''
 
+            if datingmeth is not None:
+                if not isinstance(datingmeth, basestring):
+                    raise TypeError("expected datingmeth to be a str but it is a %s" % getattr(__builtin__, 'type')(datingmeth))
+                if len(datingmeth) < 1:
+                    raise ValueError("expected len(datingmeth) to be >= 1, was %d" % len(datingmeth))
             self.__datingmeth = datingmeth
             return self
 
@@ -2441,6 +2600,11 @@ class Object(object):
             :type datum: str or None
             '''
 
+            if datum is not None:
+                if not isinstance(datum, basestring):
+                    raise TypeError("expected datum to be a str but it is a %s" % getattr(__builtin__, 'type')(datum))
+                if len(datum) < 1:
+                    raise ValueError("expected len(datum) to be >= 1, was %d" % len(datum))
             self.__datum = datum
             return self
 
@@ -2449,6 +2613,9 @@ class Object(object):
             :type depth: Decimal or None
             '''
 
+            if depth is not None:
+                if not isinstance(depth, decimal.Decimal):
+                    raise TypeError("expected depth to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(depth))
             self.__depth = depth
             return self
 
@@ -2457,6 +2624,9 @@ class Object(object):
             :type depthft: Decimal or None
             '''
 
+            if depthft is not None:
+                if not isinstance(depthft, decimal.Decimal):
+                    raise TypeError("expected depthft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(depthft))
             self.__depthft = depthft
             return self
 
@@ -2465,6 +2635,9 @@ class Object(object):
             :type depthin: Decimal or None
             '''
 
+            if depthin is not None:
+                if not isinstance(depthin, decimal.Decimal):
+                    raise TypeError("expected depthin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(depthin))
             self.__depthin = depthin
             return self
 
@@ -2473,6 +2646,11 @@ class Object(object):
             :type descrip: str or None
             '''
 
+            if descrip is not None:
+                if not isinstance(descrip, basestring):
+                    raise TypeError("expected descrip to be a str but it is a %s" % getattr(__builtin__, 'type')(descrip))
+                if len(descrip) < 1:
+                    raise ValueError("expected len(descrip) to be >= 1, was %d" % len(descrip))
             self.__descrip = descrip
             return self
 
@@ -2481,6 +2659,9 @@ class Object(object):
             :type diameter: Decimal or None
             '''
 
+            if diameter is not None:
+                if not isinstance(diameter, decimal.Decimal):
+                    raise TypeError("expected diameter to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(diameter))
             self.__diameter = diameter
             return self
 
@@ -2489,6 +2670,9 @@ class Object(object):
             :type diameterft: Decimal or None
             '''
 
+            if diameterft is not None:
+                if not isinstance(diameterft, decimal.Decimal):
+                    raise TypeError("expected diameterft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(diameterft))
             self.__diameterft = diameterft
             return self
 
@@ -2497,6 +2681,9 @@ class Object(object):
             :type diameterin: Decimal or None
             '''
 
+            if diameterin is not None:
+                if not isinstance(diameterin, decimal.Decimal):
+                    raise TypeError("expected diameterin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(diameterin))
             self.__diameterin = diameterin
             return self
 
@@ -2505,6 +2692,11 @@ class Object(object):
             :type dimnotes: str or None
             '''
 
+            if dimnotes is not None:
+                if not isinstance(dimnotes, basestring):
+                    raise TypeError("expected dimnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(dimnotes))
+                if len(dimnotes) < 1:
+                    raise ValueError("expected len(dimnotes) to be >= 1, was %d" % len(dimnotes))
             self.__dimnotes = dimnotes
             return self
 
@@ -2513,6 +2705,9 @@ class Object(object):
             :type dimtype: int or None
             '''
 
+            if dimtype is not None:
+                if not isinstance(dimtype, int):
+                    raise TypeError("expected dimtype to be a int but it is a %s" % getattr(__builtin__, 'type')(dimtype))
             self.__dimtype = dimtype
             return self
 
@@ -2521,6 +2716,11 @@ class Object(object):
             :type dispvalue: str or None
             '''
 
+            if dispvalue is not None:
+                if not isinstance(dispvalue, basestring):
+                    raise TypeError("expected dispvalue to be a str but it is a %s" % getattr(__builtin__, 'type')(dispvalue))
+                if len(dispvalue) < 1:
+                    raise ValueError("expected len(dispvalue) to be >= 1, was %d" % len(dispvalue))
             self.__dispvalue = dispvalue
             return self
 
@@ -2529,6 +2729,9 @@ class Object(object):
             :type earlydate: datetime.datetime or None
             '''
 
+            if earlydate is not None:
+                if not isinstance(earlydate, datetime.datetime):
+                    raise TypeError("expected earlydate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(earlydate))
             self.__earlydate = earlydate
             return self
 
@@ -2537,6 +2740,11 @@ class Object(object):
             :type elements: str or None
             '''
 
+            if elements is not None:
+                if not isinstance(elements, basestring):
+                    raise TypeError("expected elements to be a str but it is a %s" % getattr(__builtin__, 'type')(elements))
+                if len(elements) < 1:
+                    raise ValueError("expected len(elements) to be >= 1, was %d" % len(elements))
             self.__elements = elements
             return self
 
@@ -2545,6 +2753,11 @@ class Object(object):
             :type epoch: str or None
             '''
 
+            if epoch is not None:
+                if not isinstance(epoch, basestring):
+                    raise TypeError("expected epoch to be a str but it is a %s" % getattr(__builtin__, 'type')(epoch))
+                if len(epoch) < 1:
+                    raise ValueError("expected len(epoch) to be >= 1, was %d" % len(epoch))
             self.__epoch = epoch
             return self
 
@@ -2553,6 +2766,11 @@ class Object(object):
             :type era: str or None
             '''
 
+            if era is not None:
+                if not isinstance(era, basestring):
+                    raise TypeError("expected era to be a str but it is a %s" % getattr(__builtin__, 'type')(era))
+                if len(era) < 1:
+                    raise ValueError("expected len(era) to be >= 1, was %d" % len(era))
             self.__era = era
             return self
 
@@ -2561,6 +2779,11 @@ class Object(object):
             :type event: str or None
             '''
 
+            if event is not None:
+                if not isinstance(event, basestring):
+                    raise TypeError("expected event to be a str but it is a %s" % getattr(__builtin__, 'type')(event))
+                if len(event) < 1:
+                    raise ValueError("expected len(event) to be >= 1, was %d" % len(event))
             self.__event = event
             return self
 
@@ -2569,6 +2792,9 @@ class Object(object):
             :type excavadate: datetime.datetime or None
             '''
 
+            if excavadate is not None:
+                if not isinstance(excavadate, datetime.datetime):
+                    raise TypeError("expected excavadate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(excavadate))
             self.__excavadate = excavadate
             return self
 
@@ -2577,6 +2803,11 @@ class Object(object):
             :type excavateby: str or None
             '''
 
+            if excavateby is not None:
+                if not isinstance(excavateby, basestring):
+                    raise TypeError("expected excavateby to be a str but it is a %s" % getattr(__builtin__, 'type')(excavateby))
+                if len(excavateby) < 1:
+                    raise ValueError("expected len(excavateby) to be >= 1, was %d" % len(excavateby))
             self.__excavateby = excavateby
             return self
 
@@ -2585,6 +2816,9 @@ class Object(object):
             :type exhibitno: int or None
             '''
 
+            if exhibitno is not None:
+                if not isinstance(exhibitno, int):
+                    raise TypeError("expected exhibitno to be a int but it is a %s" % getattr(__builtin__, 'type')(exhibitno))
             self.__exhibitno = exhibitno
             return self
 
@@ -2593,6 +2827,11 @@ class Object(object):
             :type exhlabel1: str or None
             '''
 
+            if exhlabel1 is not None:
+                if not isinstance(exhlabel1, basestring):
+                    raise TypeError("expected exhlabel1 to be a str but it is a %s" % getattr(__builtin__, 'type')(exhlabel1))
+                if len(exhlabel1) < 1:
+                    raise ValueError("expected len(exhlabel1) to be >= 1, was %d" % len(exhlabel1))
             self.__exhlabel1 = exhlabel1
             return self
 
@@ -2601,6 +2840,11 @@ class Object(object):
             :type exhlabel2: str or None
             '''
 
+            if exhlabel2 is not None:
+                if not isinstance(exhlabel2, basestring):
+                    raise TypeError("expected exhlabel2 to be a str but it is a %s" % getattr(__builtin__, 'type')(exhlabel2))
+                if len(exhlabel2) < 1:
+                    raise ValueError("expected len(exhlabel2) to be >= 1, was %d" % len(exhlabel2))
             self.__exhlabel2 = exhlabel2
             return self
 
@@ -2609,6 +2853,11 @@ class Object(object):
             :type exhlabel3: str or None
             '''
 
+            if exhlabel3 is not None:
+                if not isinstance(exhlabel3, basestring):
+                    raise TypeError("expected exhlabel3 to be a str but it is a %s" % getattr(__builtin__, 'type')(exhlabel3))
+                if len(exhlabel3) < 1:
+                    raise ValueError("expected len(exhlabel3) to be >= 1, was %d" % len(exhlabel3))
             self.__exhlabel3 = exhlabel3
             return self
 
@@ -2617,6 +2866,11 @@ class Object(object):
             :type exhlabel4: str or None
             '''
 
+            if exhlabel4 is not None:
+                if not isinstance(exhlabel4, basestring):
+                    raise TypeError("expected exhlabel4 to be a str but it is a %s" % getattr(__builtin__, 'type')(exhlabel4))
+                if len(exhlabel4) < 1:
+                    raise ValueError("expected len(exhlabel4) to be >= 1, was %d" % len(exhlabel4))
             self.__exhlabel4 = exhlabel4
             return self
 
@@ -2625,6 +2879,11 @@ class Object(object):
             :type exhstart: str or None
             '''
 
+            if exhstart is not None:
+                if not isinstance(exhstart, basestring):
+                    raise TypeError("expected exhstart to be a str but it is a %s" % getattr(__builtin__, 'type')(exhstart))
+                if len(exhstart) < 1:
+                    raise ValueError("expected len(exhstart) to be >= 1, was %d" % len(exhstart))
             self.__exhstart = exhstart
             return self
 
@@ -2633,6 +2892,11 @@ class Object(object):
             :type family: str or None
             '''
 
+            if family is not None:
+                if not isinstance(family, basestring):
+                    raise TypeError("expected family to be a str but it is a %s" % getattr(__builtin__, 'type')(family))
+                if len(family) < 1:
+                    raise ValueError("expected len(family) to be >= 1, was %d" % len(family))
             self.__family = family
             return self
 
@@ -2641,6 +2905,11 @@ class Object(object):
             :type feature: str or None
             '''
 
+            if feature is not None:
+                if not isinstance(feature, basestring):
+                    raise TypeError("expected feature to be a str but it is a %s" % getattr(__builtin__, 'type')(feature))
+                if len(feature) < 1:
+                    raise ValueError("expected len(feature) to be >= 1, was %d" % len(feature))
             self.__feature = feature
             return self
 
@@ -2649,6 +2918,9 @@ class Object(object):
             :type flagdate: datetime.datetime or None
             '''
 
+            if flagdate is not None:
+                if not isinstance(flagdate, datetime.datetime):
+                    raise TypeError("expected flagdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(flagdate))
             self.__flagdate = flagdate
             return self
 
@@ -2657,6 +2929,11 @@ class Object(object):
             :type flagnotes: str or None
             '''
 
+            if flagnotes is not None:
+                if not isinstance(flagnotes, basestring):
+                    raise TypeError("expected flagnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(flagnotes))
+                if len(flagnotes) < 1:
+                    raise ValueError("expected len(flagnotes) to be >= 1, was %d" % len(flagnotes))
             self.__flagnotes = flagnotes
             return self
 
@@ -2665,6 +2942,11 @@ class Object(object):
             :type flagreason: str or None
             '''
 
+            if flagreason is not None:
+                if not isinstance(flagreason, basestring):
+                    raise TypeError("expected flagreason to be a str but it is a %s" % getattr(__builtin__, 'type')(flagreason))
+                if len(flagreason) < 1:
+                    raise ValueError("expected len(flagreason) to be >= 1, was %d" % len(flagreason))
             self.__flagreason = flagreason
             return self
 
@@ -2673,6 +2955,11 @@ class Object(object):
             :type formation: str or None
             '''
 
+            if formation is not None:
+                if not isinstance(formation, basestring):
+                    raise TypeError("expected formation to be a str but it is a %s" % getattr(__builtin__, 'type')(formation))
+                if len(formation) < 1:
+                    raise ValueError("expected len(formation) to be >= 1, was %d" % len(formation))
             self.__formation = formation
             return self
 
@@ -2681,6 +2968,11 @@ class Object(object):
             :type fossils: str or None
             '''
 
+            if fossils is not None:
+                if not isinstance(fossils, basestring):
+                    raise TypeError("expected fossils to be a str but it is a %s" % getattr(__builtin__, 'type')(fossils))
+                if len(fossils) < 1:
+                    raise ValueError("expected len(fossils) to be >= 1, was %d" % len(fossils))
             self.__fossils = fossils
             return self
 
@@ -2689,6 +2981,11 @@ class Object(object):
             :type found: str or None
             '''
 
+            if found is not None:
+                if not isinstance(found, basestring):
+                    raise TypeError("expected found to be a str but it is a %s" % getattr(__builtin__, 'type')(found))
+                if len(found) < 1:
+                    raise ValueError("expected len(found) to be >= 1, was %d" % len(found))
             self.__found = found
             return self
 
@@ -2697,6 +2994,11 @@ class Object(object):
             :type fracture: str or None
             '''
 
+            if fracture is not None:
+                if not isinstance(fracture, basestring):
+                    raise TypeError("expected fracture to be a str but it is a %s" % getattr(__builtin__, 'type')(fracture))
+                if len(fracture) < 1:
+                    raise ValueError("expected len(fracture) to be >= 1, was %d" % len(fracture))
             self.__fracture = fracture
             return self
 
@@ -2705,6 +3007,11 @@ class Object(object):
             :type frame: str or None
             '''
 
+            if frame is not None:
+                if not isinstance(frame, basestring):
+                    raise TypeError("expected frame to be a str but it is a %s" % getattr(__builtin__, 'type')(frame))
+                if len(frame) < 1:
+                    raise ValueError("expected len(frame) to be >= 1, was %d" % len(frame))
             self.__frame = frame
             return self
 
@@ -2713,6 +3020,11 @@ class Object(object):
             :type framesize: str or None
             '''
 
+            if framesize is not None:
+                if not isinstance(framesize, basestring):
+                    raise TypeError("expected framesize to be a str but it is a %s" % getattr(__builtin__, 'type')(framesize))
+                if len(framesize) < 1:
+                    raise ValueError("expected len(framesize) to be >= 1, was %d" % len(framesize))
             self.__framesize = framesize
             return self
 
@@ -2721,6 +3033,11 @@ class Object(object):
             :type genus: str or None
             '''
 
+            if genus is not None:
+                if not isinstance(genus, basestring):
+                    raise TypeError("expected genus to be a str but it is a %s" % getattr(__builtin__, 'type')(genus))
+                if len(genus) < 1:
+                    raise ValueError("expected len(genus) to be >= 1, was %d" % len(genus))
             self.__genus = genus
             return self
 
@@ -2729,6 +3046,11 @@ class Object(object):
             :type gparent: str or None
             '''
 
+            if gparent is not None:
+                if not isinstance(gparent, basestring):
+                    raise TypeError("expected gparent to be a str but it is a %s" % getattr(__builtin__, 'type')(gparent))
+                if len(gparent) < 1:
+                    raise ValueError("expected len(gparent) to be >= 1, was %d" % len(gparent))
             self.__gparent = gparent
             return self
 
@@ -2737,6 +3059,11 @@ class Object(object):
             :type grainsize: str or None
             '''
 
+            if grainsize is not None:
+                if not isinstance(grainsize, basestring):
+                    raise TypeError("expected grainsize to be a str but it is a %s" % getattr(__builtin__, 'type')(grainsize))
+                if len(grainsize) < 1:
+                    raise ValueError("expected len(grainsize) to be >= 1, was %d" % len(grainsize))
             self.__grainsize = grainsize
             return self
 
@@ -2745,6 +3072,11 @@ class Object(object):
             :type habitat: str or None
             '''
 
+            if habitat is not None:
+                if not isinstance(habitat, basestring):
+                    raise TypeError("expected habitat to be a str but it is a %s" % getattr(__builtin__, 'type')(habitat))
+                if len(habitat) < 1:
+                    raise ValueError("expected len(habitat) to be >= 1, was %d" % len(habitat))
             self.__habitat = habitat
             return self
 
@@ -2753,6 +3085,11 @@ class Object(object):
             :type hardness: str or None
             '''
 
+            if hardness is not None:
+                if not isinstance(hardness, basestring):
+                    raise TypeError("expected hardness to be a str but it is a %s" % getattr(__builtin__, 'type')(hardness))
+                if len(hardness) < 1:
+                    raise ValueError("expected len(hardness) to be >= 1, was %d" % len(hardness))
             self.__hardness = hardness
             return self
 
@@ -2761,6 +3098,9 @@ class Object(object):
             :type height: Decimal or None
             '''
 
+            if height is not None:
+                if not isinstance(height, decimal.Decimal):
+                    raise TypeError("expected height to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(height))
             self.__height = height
             return self
 
@@ -2769,6 +3109,9 @@ class Object(object):
             :type heightft: Decimal or None
             '''
 
+            if heightft is not None:
+                if not isinstance(heightft, decimal.Decimal):
+                    raise TypeError("expected heightft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(heightft))
             self.__heightft = heightft
             return self
 
@@ -2777,6 +3120,9 @@ class Object(object):
             :type heightin: Decimal or None
             '''
 
+            if heightin is not None:
+                if not isinstance(heightin, decimal.Decimal):
+                    raise TypeError("expected heightin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(heightin))
             self.__heightin = heightin
             return self
 
@@ -2785,6 +3131,11 @@ class Object(object):
             :type homeloc: str or None
             '''
 
+            if homeloc is not None:
+                if not isinstance(homeloc, basestring):
+                    raise TypeError("expected homeloc to be a str but it is a %s" % getattr(__builtin__, 'type')(homeloc))
+                if len(homeloc) < 1:
+                    raise ValueError("expected len(homeloc) to be >= 1, was %d" % len(homeloc))
             self.__homeloc = homeloc
             return self
 
@@ -2793,6 +3144,11 @@ class Object(object):
             :type idby: str or None
             '''
 
+            if idby is not None:
+                if not isinstance(idby, basestring):
+                    raise TypeError("expected idby to be a str but it is a %s" % getattr(__builtin__, 'type')(idby))
+                if len(idby) < 1:
+                    raise ValueError("expected len(idby) to be >= 1, was %d" % len(idby))
             self.__idby = idby
             return self
 
@@ -2801,6 +3157,9 @@ class Object(object):
             :type iddate: datetime.datetime or None
             '''
 
+            if iddate is not None:
+                if not isinstance(iddate, datetime.datetime):
+                    raise TypeError("expected iddate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(iddate))
             self.__iddate = iddate
             return self
 
@@ -2809,6 +3168,11 @@ class Object(object):
             :type imagefile: str or None
             '''
 
+            if imagefile is not None:
+                if not isinstance(imagefile, basestring):
+                    raise TypeError("expected imagefile to be a str but it is a %s" % getattr(__builtin__, 'type')(imagefile))
+                if len(imagefile) < 1:
+                    raise ValueError("expected len(imagefile) to be >= 1, was %d" % len(imagefile))
             self.__imagefile = imagefile
             return self
 
@@ -2817,6 +3181,9 @@ class Object(object):
             :type imageno: int or None
             '''
 
+            if imageno is not None:
+                if not isinstance(imageno, int):
+                    raise TypeError("expected imageno to be a int but it is a %s" % getattr(__builtin__, 'type')(imageno))
             self.__imageno = imageno
             return self
 
@@ -2825,6 +3192,11 @@ class Object(object):
             :type imagesize: str or None
             '''
 
+            if imagesize is not None:
+                if not isinstance(imagesize, basestring):
+                    raise TypeError("expected imagesize to be a str but it is a %s" % getattr(__builtin__, 'type')(imagesize))
+                if len(imagesize) < 1:
+                    raise ValueError("expected len(imagesize) to be >= 1, was %d" % len(imagesize))
             self.__imagesize = imagesize
             return self
 
@@ -2833,6 +3205,11 @@ class Object(object):
             :type inscomp: str or None
             '''
 
+            if inscomp is not None:
+                if not isinstance(inscomp, basestring):
+                    raise TypeError("expected inscomp to be a str but it is a %s" % getattr(__builtin__, 'type')(inscomp))
+                if len(inscomp) < 1:
+                    raise ValueError("expected len(inscomp) to be >= 1, was %d" % len(inscomp))
             self.__inscomp = inscomp
             return self
 
@@ -2841,6 +3218,11 @@ class Object(object):
             :type inscrlang: str or None
             '''
 
+            if inscrlang is not None:
+                if not isinstance(inscrlang, basestring):
+                    raise TypeError("expected inscrlang to be a str but it is a %s" % getattr(__builtin__, 'type')(inscrlang))
+                if len(inscrlang) < 1:
+                    raise ValueError("expected len(inscrlang) to be >= 1, was %d" % len(inscrlang))
             self.__inscrlang = inscrlang
             return self
 
@@ -2849,6 +3231,11 @@ class Object(object):
             :type inscrpos: str or None
             '''
 
+            if inscrpos is not None:
+                if not isinstance(inscrpos, basestring):
+                    raise TypeError("expected inscrpos to be a str but it is a %s" % getattr(__builtin__, 'type')(inscrpos))
+                if len(inscrpos) < 1:
+                    raise ValueError("expected len(inscrpos) to be >= 1, was %d" % len(inscrpos))
             self.__inscrpos = inscrpos
             return self
 
@@ -2857,6 +3244,11 @@ class Object(object):
             :type inscrtech: str or None
             '''
 
+            if inscrtech is not None:
+                if not isinstance(inscrtech, basestring):
+                    raise TypeError("expected inscrtech to be a str but it is a %s" % getattr(__builtin__, 'type')(inscrtech))
+                if len(inscrtech) < 1:
+                    raise ValueError("expected len(inscrtech) to be >= 1, was %d" % len(inscrtech))
             self.__inscrtech = inscrtech
             return self
 
@@ -2865,6 +3257,11 @@ class Object(object):
             :type inscrtext: str or None
             '''
 
+            if inscrtext is not None:
+                if not isinstance(inscrtext, basestring):
+                    raise TypeError("expected inscrtext to be a str but it is a %s" % getattr(__builtin__, 'type')(inscrtext))
+                if len(inscrtext) < 1:
+                    raise ValueError("expected len(inscrtext) to be >= 1, was %d" % len(inscrtext))
             self.__inscrtext = inscrtext
             return self
 
@@ -2873,6 +3270,11 @@ class Object(object):
             :type inscrtrans: str or None
             '''
 
+            if inscrtrans is not None:
+                if not isinstance(inscrtrans, basestring):
+                    raise TypeError("expected inscrtrans to be a str but it is a %s" % getattr(__builtin__, 'type')(inscrtrans))
+                if len(inscrtrans) < 1:
+                    raise ValueError("expected len(inscrtrans) to be >= 1, was %d" % len(inscrtrans))
             self.__inscrtrans = inscrtrans
             return self
 
@@ -2881,6 +3283,9 @@ class Object(object):
             :type inscrtype: int or None
             '''
 
+            if inscrtype is not None:
+                if not isinstance(inscrtype, int):
+                    raise TypeError("expected inscrtype to be a int but it is a %s" % getattr(__builtin__, 'type')(inscrtype))
             self.__inscrtype = inscrtype
             return self
 
@@ -2889,6 +3294,9 @@ class Object(object):
             :type insdate: datetime.datetime or None
             '''
 
+            if insdate is not None:
+                if not isinstance(insdate, datetime.datetime):
+                    raise TypeError("expected insdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(insdate))
             self.__insdate = insdate
             return self
 
@@ -2897,6 +3305,11 @@ class Object(object):
             :type insphone: str or None
             '''
 
+            if insphone is not None:
+                if not isinstance(insphone, basestring):
+                    raise TypeError("expected insphone to be a str but it is a %s" % getattr(__builtin__, 'type')(insphone))
+                if len(insphone) < 1:
+                    raise ValueError("expected len(insphone) to be >= 1, was %d" % len(insphone))
             self.__insphone = insphone
             return self
 
@@ -2905,6 +3318,11 @@ class Object(object):
             :type inspremium: str or None
             '''
 
+            if inspremium is not None:
+                if not isinstance(inspremium, basestring):
+                    raise TypeError("expected inspremium to be a str but it is a %s" % getattr(__builtin__, 'type')(inspremium))
+                if len(inspremium) < 1:
+                    raise ValueError("expected len(inspremium) to be >= 1, was %d" % len(inspremium))
             self.__inspremium = inspremium
             return self
 
@@ -2913,6 +3331,11 @@ class Object(object):
             :type insrep: str or None
             '''
 
+            if insrep is not None:
+                if not isinstance(insrep, basestring):
+                    raise TypeError("expected insrep to be a str but it is a %s" % getattr(__builtin__, 'type')(insrep))
+                if len(insrep) < 1:
+                    raise ValueError("expected len(insrep) to be >= 1, was %d" % len(insrep))
             self.__insrep = insrep
             return self
 
@@ -2921,6 +3344,9 @@ class Object(object):
             :type insvalue: Decimal or None
             '''
 
+            if insvalue is not None:
+                if not isinstance(insvalue, decimal.Decimal):
+                    raise TypeError("expected insvalue to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(insvalue))
             self.__insvalue = insvalue
             return self
 
@@ -2929,6 +3355,11 @@ class Object(object):
             :type invnby: str or None
             '''
 
+            if invnby is not None:
+                if not isinstance(invnby, basestring):
+                    raise TypeError("expected invnby to be a str but it is a %s" % getattr(__builtin__, 'type')(invnby))
+                if len(invnby) < 1:
+                    raise ValueError("expected len(invnby) to be >= 1, was %d" % len(invnby))
             self.__invnby = invnby
             return self
 
@@ -2937,6 +3368,9 @@ class Object(object):
             :type invndate: datetime.datetime or None
             '''
 
+            if invndate is not None:
+                if not isinstance(invndate, datetime.datetime):
+                    raise TypeError("expected invndate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(invndate))
             self.__invndate = invndate
             return self
 
@@ -2945,6 +3379,11 @@ class Object(object):
             :type kingdom: str or None
             '''
 
+            if kingdom is not None:
+                if not isinstance(kingdom, basestring):
+                    raise TypeError("expected kingdom to be a str but it is a %s" % getattr(__builtin__, 'type')(kingdom))
+                if len(kingdom) < 1:
+                    raise ValueError("expected len(kingdom) to be >= 1, was %d" % len(kingdom))
             self.__kingdom = kingdom
             return self
 
@@ -2953,6 +3392,9 @@ class Object(object):
             :type latedate: datetime.datetime or None
             '''
 
+            if latedate is not None:
+                if not isinstance(latedate, datetime.datetime):
+                    raise TypeError("expected latedate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(latedate))
             self.__latedate = latedate
             return self
 
@@ -2961,6 +3403,11 @@ class Object(object):
             :type legal: str or None
             '''
 
+            if legal is not None:
+                if not isinstance(legal, basestring):
+                    raise TypeError("expected legal to be a str but it is a %s" % getattr(__builtin__, 'type')(legal))
+                if len(legal) < 1:
+                    raise ValueError("expected len(legal) to be >= 1, was %d" % len(legal))
             self.__legal = legal
             return self
 
@@ -2969,6 +3416,9 @@ class Object(object):
             :type length: Decimal or None
             '''
 
+            if length is not None:
+                if not isinstance(length, decimal.Decimal):
+                    raise TypeError("expected length to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(length))
             self.__length = length
             return self
 
@@ -2977,6 +3427,9 @@ class Object(object):
             :type lengthft: Decimal or None
             '''
 
+            if lengthft is not None:
+                if not isinstance(lengthft, decimal.Decimal):
+                    raise TypeError("expected lengthft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(lengthft))
             self.__lengthft = lengthft
             return self
 
@@ -2985,6 +3438,9 @@ class Object(object):
             :type lengthin: Decimal or None
             '''
 
+            if lengthin is not None:
+                if not isinstance(lengthin, decimal.Decimal):
+                    raise TypeError("expected lengthin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(lengthin))
             self.__lengthin = lengthin
             return self
 
@@ -2993,6 +3449,11 @@ class Object(object):
             :type level: str or None
             '''
 
+            if level is not None:
+                if not isinstance(level, basestring):
+                    raise TypeError("expected level to be a str but it is a %s" % getattr(__builtin__, 'type')(level))
+                if len(level) < 1:
+                    raise ValueError("expected len(level) to be >= 1, was %d" % len(level))
             self.__level = level
             return self
 
@@ -3001,6 +3462,11 @@ class Object(object):
             :type lithofacie: str or None
             '''
 
+            if lithofacie is not None:
+                if not isinstance(lithofacie, basestring):
+                    raise TypeError("expected lithofacie to be a str but it is a %s" % getattr(__builtin__, 'type')(lithofacie))
+                if len(lithofacie) < 1:
+                    raise ValueError("expected len(lithofacie) to be >= 1, was %d" % len(lithofacie))
             self.__lithofacie = lithofacie
             return self
 
@@ -3009,6 +3475,11 @@ class Object(object):
             :type loancond: str or None
             '''
 
+            if loancond is not None:
+                if not isinstance(loancond, basestring):
+                    raise TypeError("expected loancond to be a str but it is a %s" % getattr(__builtin__, 'type')(loancond))
+                if len(loancond) < 1:
+                    raise ValueError("expected len(loancond) to be >= 1, was %d" % len(loancond))
             self.__loancond = loancond
             return self
 
@@ -3017,6 +3488,11 @@ class Object(object):
             :type loandue: str or None
             '''
 
+            if loandue is not None:
+                if not isinstance(loandue, basestring):
+                    raise TypeError("expected loandue to be a str but it is a %s" % getattr(__builtin__, 'type')(loandue))
+                if len(loandue) < 1:
+                    raise ValueError("expected len(loandue) to be >= 1, was %d" % len(loandue))
             self.__loandue = loandue
             return self
 
@@ -3025,6 +3501,9 @@ class Object(object):
             :type loaninno: int or None
             '''
 
+            if loaninno is not None:
+                if not isinstance(loaninno, int):
+                    raise TypeError("expected loaninno to be a int but it is a %s" % getattr(__builtin__, 'type')(loaninno))
             self.__loaninno = loaninno
             return self
 
@@ -3033,6 +3512,9 @@ class Object(object):
             :type loanno: int or None
             '''
 
+            if loanno is not None:
+                if not isinstance(loanno, int):
+                    raise TypeError("expected loanno to be a int but it is a %s" % getattr(__builtin__, 'type')(loanno))
             self.__loanno = loanno
             return self
 
@@ -3041,6 +3523,11 @@ class Object(object):
             :type locfield1: str or None
             '''
 
+            if locfield1 is not None:
+                if not isinstance(locfield1, basestring):
+                    raise TypeError("expected locfield1 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield1))
+                if len(locfield1) < 1:
+                    raise ValueError("expected len(locfield1) to be >= 1, was %d" % len(locfield1))
             self.__locfield1 = locfield1
             return self
 
@@ -3049,6 +3536,11 @@ class Object(object):
             :type locfield2: str or None
             '''
 
+            if locfield2 is not None:
+                if not isinstance(locfield2, basestring):
+                    raise TypeError("expected locfield2 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield2))
+                if len(locfield2) < 1:
+                    raise ValueError("expected len(locfield2) to be >= 1, was %d" % len(locfield2))
             self.__locfield2 = locfield2
             return self
 
@@ -3057,6 +3549,11 @@ class Object(object):
             :type locfield3: str or None
             '''
 
+            if locfield3 is not None:
+                if not isinstance(locfield3, basestring):
+                    raise TypeError("expected locfield3 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield3))
+                if len(locfield3) < 1:
+                    raise ValueError("expected len(locfield3) to be >= 1, was %d" % len(locfield3))
             self.__locfield3 = locfield3
             return self
 
@@ -3065,6 +3562,11 @@ class Object(object):
             :type locfield4: str or None
             '''
 
+            if locfield4 is not None:
+                if not isinstance(locfield4, basestring):
+                    raise TypeError("expected locfield4 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield4))
+                if len(locfield4) < 1:
+                    raise ValueError("expected len(locfield4) to be >= 1, was %d" % len(locfield4))
             self.__locfield4 = locfield4
             return self
 
@@ -3073,6 +3575,11 @@ class Object(object):
             :type locfield5: str or None
             '''
 
+            if locfield5 is not None:
+                if not isinstance(locfield5, basestring):
+                    raise TypeError("expected locfield5 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield5))
+                if len(locfield5) < 1:
+                    raise ValueError("expected len(locfield5) to be >= 1, was %d" % len(locfield5))
             self.__locfield5 = locfield5
             return self
 
@@ -3081,6 +3588,11 @@ class Object(object):
             :type locfield6: str or None
             '''
 
+            if locfield6 is not None:
+                if not isinstance(locfield6, basestring):
+                    raise TypeError("expected locfield6 to be a str but it is a %s" % getattr(__builtin__, 'type')(locfield6))
+                if len(locfield6) < 1:
+                    raise ValueError("expected len(locfield6) to be >= 1, was %d" % len(locfield6))
             self.__locfield6 = locfield6
             return self
 
@@ -3089,6 +3601,11 @@ class Object(object):
             :type luster: str or None
             '''
 
+            if luster is not None:
+                if not isinstance(luster, basestring):
+                    raise TypeError("expected luster to be a str but it is a %s" % getattr(__builtin__, 'type')(luster))
+                if len(luster) < 1:
+                    raise ValueError("expected len(luster) to be >= 1, was %d" % len(luster))
             self.__luster = luster
             return self
 
@@ -3097,6 +3614,11 @@ class Object(object):
             :type made: str or None
             '''
 
+            if made is not None:
+                if not isinstance(made, basestring):
+                    raise TypeError("expected made to be a str but it is a %s" % getattr(__builtin__, 'type')(made))
+                if len(made) < 1:
+                    raise ValueError("expected len(made) to be >= 1, was %d" % len(made))
             self.__made = made
             return self
 
@@ -3105,6 +3627,11 @@ class Object(object):
             :type maintcycle: str or None
             '''
 
+            if maintcycle is not None:
+                if not isinstance(maintcycle, basestring):
+                    raise TypeError("expected maintcycle to be a str but it is a %s" % getattr(__builtin__, 'type')(maintcycle))
+                if len(maintcycle) < 1:
+                    raise ValueError("expected len(maintcycle) to be >= 1, was %d" % len(maintcycle))
             self.__maintcycle = maintcycle
             return self
 
@@ -3113,6 +3640,9 @@ class Object(object):
             :type maintdate: datetime.datetime or None
             '''
 
+            if maintdate is not None:
+                if not isinstance(maintdate, datetime.datetime):
+                    raise TypeError("expected maintdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(maintdate))
             self.__maintdate = maintdate
             return self
 
@@ -3121,6 +3651,11 @@ class Object(object):
             :type maintnote: str or None
             '''
 
+            if maintnote is not None:
+                if not isinstance(maintnote, basestring):
+                    raise TypeError("expected maintnote to be a str but it is a %s" % getattr(__builtin__, 'type')(maintnote))
+                if len(maintnote) < 1:
+                    raise ValueError("expected len(maintnote) to be >= 1, was %d" % len(maintnote))
             self.__maintnote = maintnote
             return self
 
@@ -3129,6 +3664,11 @@ class Object(object):
             :type material: str or None
             '''
 
+            if material is not None:
+                if not isinstance(material, basestring):
+                    raise TypeError("expected material to be a str but it is a %s" % getattr(__builtin__, 'type')(material))
+                if len(material) < 1:
+                    raise ValueError("expected len(material) to be >= 1, was %d" % len(material))
             self.__material = material
             return self
 
@@ -3137,6 +3677,11 @@ class Object(object):
             :type medium: str or None
             '''
 
+            if medium is not None:
+                if not isinstance(medium, basestring):
+                    raise TypeError("expected medium to be a str but it is a %s" % getattr(__builtin__, 'type')(medium))
+                if len(medium) < 1:
+                    raise ValueError("expected len(medium) to be >= 1, was %d" % len(medium))
             self.__medium = medium
             return self
 
@@ -3145,6 +3690,11 @@ class Object(object):
             :type member: str or None
             '''
 
+            if member is not None:
+                if not isinstance(member, basestring):
+                    raise TypeError("expected member to be a str but it is a %s" % getattr(__builtin__, 'type')(member))
+                if len(member) < 1:
+                    raise ValueError("expected len(member) to be >= 1, was %d" % len(member))
             self.__member = member
             return self
 
@@ -3153,6 +3703,11 @@ class Object(object):
             :type mmark: str or None
             '''
 
+            if mmark is not None:
+                if not isinstance(mmark, basestring):
+                    raise TypeError("expected mmark to be a str but it is a %s" % getattr(__builtin__, 'type')(mmark))
+                if len(mmark) < 1:
+                    raise ValueError("expected len(mmark) to be >= 1, was %d" % len(mmark))
             self.__mmark = mmark
             return self
 
@@ -3161,6 +3716,11 @@ class Object(object):
             :type nhclass: str or None
             '''
 
+            if nhclass is not None:
+                if not isinstance(nhclass, basestring):
+                    raise TypeError("expected nhclass to be a str but it is a %s" % getattr(__builtin__, 'type')(nhclass))
+                if len(nhclass) < 1:
+                    raise ValueError("expected len(nhclass) to be >= 1, was %d" % len(nhclass))
             self.__nhclass = nhclass
             return self
 
@@ -3169,6 +3729,11 @@ class Object(object):
             :type nhorder: str or None
             '''
 
+            if nhorder is not None:
+                if not isinstance(nhorder, basestring):
+                    raise TypeError("expected nhorder to be a str but it is a %s" % getattr(__builtin__, 'type')(nhorder))
+                if len(nhorder) < 1:
+                    raise ValueError("expected len(nhorder) to be >= 1, was %d" % len(nhorder))
             self.__nhorder = nhorder
             return self
 
@@ -3177,6 +3742,11 @@ class Object(object):
             :type notes: str or None
             '''
 
+            if notes is not None:
+                if not isinstance(notes, basestring):
+                    raise TypeError("expected notes to be a str but it is a %s" % getattr(__builtin__, 'type')(notes))
+                if len(notes) < 1:
+                    raise ValueError("expected len(notes) to be >= 1, was %d" % len(notes))
             self.__notes = notes
             return self
 
@@ -3185,6 +3755,11 @@ class Object(object):
             :type objectid: str or None
             '''
 
+            if objectid is not None:
+                if not isinstance(objectid, basestring):
+                    raise TypeError("expected objectid to be a str but it is a %s" % getattr(__builtin__, 'type')(objectid))
+                if len(objectid) < 1:
+                    raise ValueError("expected len(objectid) to be >= 1, was %d" % len(objectid))
             self.__objectid = objectid
             return self
 
@@ -3193,6 +3768,11 @@ class Object(object):
             :type objname: str or None
             '''
 
+            if objname is not None:
+                if not isinstance(objname, basestring):
+                    raise TypeError("expected objname to be a str but it is a %s" % getattr(__builtin__, 'type')(objname))
+                if len(objname) < 1:
+                    raise ValueError("expected len(objname) to be >= 1, was %d" % len(objname))
             self.__objname = objname
             return self
 
@@ -3201,6 +3781,11 @@ class Object(object):
             :type objname2: str or None
             '''
 
+            if objname2 is not None:
+                if not isinstance(objname2, basestring):
+                    raise TypeError("expected objname2 to be a str but it is a %s" % getattr(__builtin__, 'type')(objname2))
+                if len(objname2) < 1:
+                    raise ValueError("expected len(objname2) to be >= 1, was %d" % len(objname2))
             self.__objname2 = objname2
             return self
 
@@ -3209,6 +3794,11 @@ class Object(object):
             :type objname3: str or None
             '''
 
+            if objname3 is not None:
+                if not isinstance(objname3, basestring):
+                    raise TypeError("expected objname3 to be a str but it is a %s" % getattr(__builtin__, 'type')(objname3))
+                if len(objname3) < 1:
+                    raise ValueError("expected len(objname3) to be >= 1, was %d" % len(objname3))
             self.__objname3 = objname3
             return self
 
@@ -3217,6 +3807,11 @@ class Object(object):
             :type objnames: str or None
             '''
 
+            if objnames is not None:
+                if not isinstance(objnames, basestring):
+                    raise TypeError("expected objnames to be a str but it is a %s" % getattr(__builtin__, 'type')(objnames))
+                if len(objnames) < 1:
+                    raise ValueError("expected len(objnames) to be >= 1, was %d" % len(objnames))
             self.__objnames = objnames
             return self
 
@@ -3225,6 +3820,11 @@ class Object(object):
             :type occurrence: str or None
             '''
 
+            if occurrence is not None:
+                if not isinstance(occurrence, basestring):
+                    raise TypeError("expected occurrence to be a str but it is a %s" % getattr(__builtin__, 'type')(occurrence))
+                if len(occurrence) < 1:
+                    raise ValueError("expected len(occurrence) to be >= 1, was %d" % len(occurrence))
             self.__occurrence = occurrence
             return self
 
@@ -3233,6 +3833,9 @@ class Object(object):
             :type oldno: int or None
             '''
 
+            if oldno is not None:
+                if not isinstance(oldno, int):
+                    raise TypeError("expected oldno to be a int but it is a %s" % getattr(__builtin__, 'type')(oldno))
             self.__oldno = oldno
             return self
 
@@ -3241,6 +3844,11 @@ class Object(object):
             :type origin: str or None
             '''
 
+            if origin is not None:
+                if not isinstance(origin, basestring):
+                    raise TypeError("expected origin to be a str but it is a %s" % getattr(__builtin__, 'type')(origin))
+                if len(origin) < 1:
+                    raise ValueError("expected len(origin) to be >= 1, was %d" % len(origin))
             self.__origin = origin
             return self
 
@@ -3249,6 +3857,11 @@ class Object(object):
             :type othername: str or None
             '''
 
+            if othername is not None:
+                if not isinstance(othername, basestring):
+                    raise TypeError("expected othername to be a str but it is a %s" % getattr(__builtin__, 'type')(othername))
+                if len(othername) < 1:
+                    raise ValueError("expected len(othername) to be >= 1, was %d" % len(othername))
             self.__othername = othername
             return self
 
@@ -3257,6 +3870,9 @@ class Object(object):
             :type otherno: int or None
             '''
 
+            if otherno is not None:
+                if not isinstance(otherno, int):
+                    raise TypeError("expected otherno to be a int but it is a %s" % getattr(__builtin__, 'type')(otherno))
             self.__otherno = otherno
             return self
 
@@ -3265,6 +3881,9 @@ class Object(object):
             :type outdate: datetime.datetime or None
             '''
 
+            if outdate is not None:
+                if not isinstance(outdate, datetime.datetime):
+                    raise TypeError("expected outdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(outdate))
             self.__outdate = outdate
             return self
 
@@ -3273,6 +3892,11 @@ class Object(object):
             :type owned: str or None
             '''
 
+            if owned is not None:
+                if not isinstance(owned, basestring):
+                    raise TypeError("expected owned to be a str but it is a %s" % getattr(__builtin__, 'type')(owned))
+                if len(owned) < 1:
+                    raise ValueError("expected len(owned) to be >= 1, was %d" % len(owned))
             self.__owned = owned
             return self
 
@@ -3281,6 +3905,11 @@ class Object(object):
             :type parent: str or None
             '''
 
+            if parent is not None:
+                if not isinstance(parent, basestring):
+                    raise TypeError("expected parent to be a str but it is a %s" % getattr(__builtin__, 'type')(parent))
+                if len(parent) < 1:
+                    raise ValueError("expected len(parent) to be >= 1, was %d" % len(parent))
             self.__parent = parent
             return self
 
@@ -3289,6 +3918,11 @@ class Object(object):
             :type people: str or None
             '''
 
+            if people is not None:
+                if not isinstance(people, basestring):
+                    raise TypeError("expected people to be a str but it is a %s" % getattr(__builtin__, 'type')(people))
+                if len(people) < 1:
+                    raise ValueError("expected len(people) to be >= 1, was %d" % len(people))
             self.__people = people
             return self
 
@@ -3297,6 +3931,11 @@ class Object(object):
             :type period: str or None
             '''
 
+            if period is not None:
+                if not isinstance(period, basestring):
+                    raise TypeError("expected period to be a str but it is a %s" % getattr(__builtin__, 'type')(period))
+                if len(period) < 1:
+                    raise ValueError("expected len(period) to be >= 1, was %d" % len(period))
             self.__period = period
             return self
 
@@ -3305,6 +3944,11 @@ class Object(object):
             :type phylum: str or None
             '''
 
+            if phylum is not None:
+                if not isinstance(phylum, basestring):
+                    raise TypeError("expected phylum to be a str but it is a %s" % getattr(__builtin__, 'type')(phylum))
+                if len(phylum) < 1:
+                    raise ValueError("expected len(phylum) to be >= 1, was %d" % len(phylum))
             self.__phylum = phylum
             return self
 
@@ -3313,6 +3957,9 @@ class Object(object):
             :type policyno: int or None
             '''
 
+            if policyno is not None:
+                if not isinstance(policyno, int):
+                    raise TypeError("expected policyno to be a int but it is a %s" % getattr(__builtin__, 'type')(policyno))
             self.__policyno = policyno
             return self
 
@@ -3321,6 +3968,11 @@ class Object(object):
             :type preparator: str or None
             '''
 
+            if preparator is not None:
+                if not isinstance(preparator, basestring):
+                    raise TypeError("expected preparator to be a str but it is a %s" % getattr(__builtin__, 'type')(preparator))
+                if len(preparator) < 1:
+                    raise ValueError("expected len(preparator) to be >= 1, was %d" % len(preparator))
             self.__preparator = preparator
             return self
 
@@ -3329,6 +3981,9 @@ class Object(object):
             :type prepdate: datetime.datetime or None
             '''
 
+            if prepdate is not None:
+                if not isinstance(prepdate, datetime.datetime):
+                    raise TypeError("expected prepdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(prepdate))
             self.__prepdate = prepdate
             return self
 
@@ -3337,6 +3992,11 @@ class Object(object):
             :type preserve: str or None
             '''
 
+            if preserve is not None:
+                if not isinstance(preserve, basestring):
+                    raise TypeError("expected preserve to be a str but it is a %s" % getattr(__builtin__, 'type')(preserve))
+                if len(preserve) < 1:
+                    raise ValueError("expected len(preserve) to be >= 1, was %d" % len(preserve))
             self.__preserve = preserve
             return self
 
@@ -3345,6 +4005,11 @@ class Object(object):
             :type pressure: str or None
             '''
 
+            if pressure is not None:
+                if not isinstance(pressure, basestring):
+                    raise TypeError("expected pressure to be a str but it is a %s" % getattr(__builtin__, 'type')(pressure))
+                if len(pressure) < 1:
+                    raise ValueError("expected len(pressure) to be >= 1, was %d" % len(pressure))
             self.__pressure = pressure
             return self
 
@@ -3353,6 +4018,11 @@ class Object(object):
             :type provenance: str or None
             '''
 
+            if provenance is not None:
+                if not isinstance(provenance, basestring):
+                    raise TypeError("expected provenance to be a str but it is a %s" % getattr(__builtin__, 'type')(provenance))
+                if len(provenance) < 1:
+                    raise ValueError("expected len(provenance) to be >= 1, was %d" % len(provenance))
             self.__provenance = provenance
             return self
 
@@ -3361,6 +4031,11 @@ class Object(object):
             :type pubnotes: str or None
             '''
 
+            if pubnotes is not None:
+                if not isinstance(pubnotes, basestring):
+                    raise TypeError("expected pubnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(pubnotes))
+                if len(pubnotes) < 1:
+                    raise ValueError("expected len(pubnotes) to be >= 1, was %d" % len(pubnotes))
             self.__pubnotes = pubnotes
             return self
 
@@ -3369,6 +4044,9 @@ class Object(object):
             :type recas: pastpy.models.recas.Recas or None
             '''
 
+            if recas is not None:
+                if not isinstance(recas, pastpy.models.recas.Recas):
+                    raise TypeError("expected recas to be a pastpy.models.recas.Recas but it is a %s" % getattr(__builtin__, 'type')(recas))
             self.__recas = recas
             return self
 
@@ -3377,6 +4055,9 @@ class Object(object):
             :type recdate: datetime.datetime or None
             '''
 
+            if recdate is not None:
+                if not isinstance(recdate, datetime.datetime):
+                    raise TypeError("expected recdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(recdate))
             self.__recdate = recdate
             return self
 
@@ -3385,6 +4066,11 @@ class Object(object):
             :type recfrom: str or None
             '''
 
+            if recfrom is not None:
+                if not isinstance(recfrom, basestring):
+                    raise TypeError("expected recfrom to be a str but it is a %s" % getattr(__builtin__, 'type')(recfrom))
+                if len(recfrom) < 1:
+                    raise ValueError("expected len(recfrom) to be >= 1, was %d" % len(recfrom))
             self.__recfrom = recfrom
             return self
 
@@ -3393,6 +4079,11 @@ class Object(object):
             :type relnotes: str or None
             '''
 
+            if relnotes is not None:
+                if not isinstance(relnotes, basestring):
+                    raise TypeError("expected relnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(relnotes))
+                if len(relnotes) < 1:
+                    raise ValueError("expected len(relnotes) to be >= 1, was %d" % len(relnotes))
             self.__relnotes = relnotes
             return self
 
@@ -3401,6 +4092,11 @@ class Object(object):
             :type repatby: str or None
             '''
 
+            if repatby is not None:
+                if not isinstance(repatby, basestring):
+                    raise TypeError("expected repatby to be a str but it is a %s" % getattr(__builtin__, 'type')(repatby))
+                if len(repatby) < 1:
+                    raise ValueError("expected len(repatby) to be >= 1, was %d" % len(repatby))
             self.__repatby = repatby
             return self
 
@@ -3409,6 +4105,11 @@ class Object(object):
             :type repatclaim: str or None
             '''
 
+            if repatclaim is not None:
+                if not isinstance(repatclaim, basestring):
+                    raise TypeError("expected repatclaim to be a str but it is a %s" % getattr(__builtin__, 'type')(repatclaim))
+                if len(repatclaim) < 1:
+                    raise ValueError("expected len(repatclaim) to be >= 1, was %d" % len(repatclaim))
             self.__repatclaim = repatclaim
             return self
 
@@ -3417,6 +4118,9 @@ class Object(object):
             :type repatdate: datetime.datetime or None
             '''
 
+            if repatdate is not None:
+                if not isinstance(repatdate, datetime.datetime):
+                    raise TypeError("expected repatdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(repatdate))
             self.__repatdate = repatdate
             return self
 
@@ -3425,6 +4129,11 @@ class Object(object):
             :type repatdisp: str or None
             '''
 
+            if repatdisp is not None:
+                if not isinstance(repatdisp, basestring):
+                    raise TypeError("expected repatdisp to be a str but it is a %s" % getattr(__builtin__, 'type')(repatdisp))
+                if len(repatdisp) < 1:
+                    raise ValueError("expected len(repatdisp) to be >= 1, was %d" % len(repatdisp))
             self.__repatdisp = repatdisp
             return self
 
@@ -3433,6 +4142,11 @@ class Object(object):
             :type repathand: str or None
             '''
 
+            if repathand is not None:
+                if not isinstance(repathand, basestring):
+                    raise TypeError("expected repathand to be a str but it is a %s" % getattr(__builtin__, 'type')(repathand))
+                if len(repathand) < 1:
+                    raise ValueError("expected len(repathand) to be >= 1, was %d" % len(repathand))
             self.__repathand = repathand
             return self
 
@@ -3441,6 +4155,11 @@ class Object(object):
             :type repatnotes: str or None
             '''
 
+            if repatnotes is not None:
+                if not isinstance(repatnotes, basestring):
+                    raise TypeError("expected repatnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(repatnotes))
+                if len(repatnotes) < 1:
+                    raise ValueError("expected len(repatnotes) to be >= 1, was %d" % len(repatnotes))
             self.__repatnotes = repatnotes
             return self
 
@@ -3449,6 +4168,11 @@ class Object(object):
             :type repatnotic: str or None
             '''
 
+            if repatnotic is not None:
+                if not isinstance(repatnotic, basestring):
+                    raise TypeError("expected repatnotic to be a str but it is a %s" % getattr(__builtin__, 'type')(repatnotic))
+                if len(repatnotic) < 1:
+                    raise ValueError("expected len(repatnotic) to be >= 1, was %d" % len(repatnotic))
             self.__repatnotic = repatnotic
             return self
 
@@ -3457,6 +4181,9 @@ class Object(object):
             :type repattype: int or None
             '''
 
+            if repattype is not None:
+                if not isinstance(repattype, int):
+                    raise TypeError("expected repattype to be a int but it is a %s" % getattr(__builtin__, 'type')(repattype))
             self.__repattype = repattype
             return self
 
@@ -3465,6 +4192,11 @@ class Object(object):
             :type rockclass: str or None
             '''
 
+            if rockclass is not None:
+                if not isinstance(rockclass, basestring):
+                    raise TypeError("expected rockclass to be a str but it is a %s" % getattr(__builtin__, 'type')(rockclass))
+                if len(rockclass) < 1:
+                    raise ValueError("expected len(rockclass) to be >= 1, was %d" % len(rockclass))
             self.__rockclass = rockclass
             return self
 
@@ -3473,6 +4205,11 @@ class Object(object):
             :type rockcolor: str or None
             '''
 
+            if rockcolor is not None:
+                if not isinstance(rockcolor, basestring):
+                    raise TypeError("expected rockcolor to be a str but it is a %s" % getattr(__builtin__, 'type')(rockcolor))
+                if len(rockcolor) < 1:
+                    raise ValueError("expected len(rockcolor) to be >= 1, was %d" % len(rockcolor))
             self.__rockcolor = rockcolor
             return self
 
@@ -3481,6 +4218,11 @@ class Object(object):
             :type rockorigin: str or None
             '''
 
+            if rockorigin is not None:
+                if not isinstance(rockorigin, basestring):
+                    raise TypeError("expected rockorigin to be a str but it is a %s" % getattr(__builtin__, 'type')(rockorigin))
+                if len(rockorigin) < 1:
+                    raise ValueError("expected len(rockorigin) to be >= 1, was %d" % len(rockorigin))
             self.__rockorigin = rockorigin
             return self
 
@@ -3489,6 +4231,9 @@ class Object(object):
             :type rocktype: int or None
             '''
 
+            if rocktype is not None:
+                if not isinstance(rocktype, int):
+                    raise TypeError("expected rocktype to be a int but it is a %s" % getattr(__builtin__, 'type')(rocktype))
             self.__rocktype = rocktype
             return self
 
@@ -3497,6 +4242,11 @@ class Object(object):
             :type role: str or None
             '''
 
+            if role is not None:
+                if not isinstance(role, basestring):
+                    raise TypeError("expected role to be a str but it is a %s" % getattr(__builtin__, 'type')(role))
+                if len(role) < 1:
+                    raise ValueError("expected len(role) to be >= 1, was %d" % len(role))
             self.__role = role
             return self
 
@@ -3505,6 +4255,11 @@ class Object(object):
             :type role2: str or None
             '''
 
+            if role2 is not None:
+                if not isinstance(role2, basestring):
+                    raise TypeError("expected role2 to be a str but it is a %s" % getattr(__builtin__, 'type')(role2))
+                if len(role2) < 1:
+                    raise ValueError("expected len(role2) to be >= 1, was %d" % len(role2))
             self.__role2 = role2
             return self
 
@@ -3513,6 +4268,11 @@ class Object(object):
             :type role3: str or None
             '''
 
+            if role3 is not None:
+                if not isinstance(role3, basestring):
+                    raise TypeError("expected role3 to be a str but it is a %s" % getattr(__builtin__, 'type')(role3))
+                if len(role3) < 1:
+                    raise ValueError("expected len(role3) to be >= 1, was %d" % len(role3))
             self.__role3 = role3
             return self
 
@@ -3521,6 +4281,11 @@ class Object(object):
             :type school: str or None
             '''
 
+            if school is not None:
+                if not isinstance(school, basestring):
+                    raise TypeError("expected school to be a str but it is a %s" % getattr(__builtin__, 'type')(school))
+                if len(school) < 1:
+                    raise ValueError("expected len(school) to be >= 1, was %d" % len(school))
             self.__school = school
             return self
 
@@ -3529,6 +4294,11 @@ class Object(object):
             :type sex: str or None
             '''
 
+            if sex is not None:
+                if not isinstance(sex, basestring):
+                    raise TypeError("expected sex to be a str but it is a %s" % getattr(__builtin__, 'type')(sex))
+                if len(sex) < 1:
+                    raise ValueError("expected len(sex) to be >= 1, was %d" % len(sex))
             self.__sex = sex
             return self
 
@@ -3537,6 +4307,11 @@ class Object(object):
             :type signedname: str or None
             '''
 
+            if signedname is not None:
+                if not isinstance(signedname, basestring):
+                    raise TypeError("expected signedname to be a str but it is a %s" % getattr(__builtin__, 'type')(signedname))
+                if len(signedname) < 1:
+                    raise ValueError("expected len(signedname) to be >= 1, was %d" % len(signedname))
             self.__signedname = signedname
             return self
 
@@ -3545,6 +4320,11 @@ class Object(object):
             :type signloc: str or None
             '''
 
+            if signloc is not None:
+                if not isinstance(signloc, basestring):
+                    raise TypeError("expected signloc to be a str but it is a %s" % getattr(__builtin__, 'type')(signloc))
+                if len(signloc) < 1:
+                    raise ValueError("expected len(signloc) to be >= 1, was %d" % len(signloc))
             self.__signloc = signloc
             return self
 
@@ -3553,6 +4333,11 @@ class Object(object):
             :type site: str or None
             '''
 
+            if site is not None:
+                if not isinstance(site, basestring):
+                    raise TypeError("expected site to be a str but it is a %s" % getattr(__builtin__, 'type')(site))
+                if len(site) < 1:
+                    raise ValueError("expected len(site) to be >= 1, was %d" % len(site))
             self.__site = site
             return self
 
@@ -3561,6 +4346,9 @@ class Object(object):
             :type siteno: int or None
             '''
 
+            if siteno is not None:
+                if not isinstance(siteno, int):
+                    raise TypeError("expected siteno to be a int but it is a %s" % getattr(__builtin__, 'type')(siteno))
             self.__siteno = siteno
             return self
 
@@ -3569,6 +4357,11 @@ class Object(object):
             :type specgrav: str or None
             '''
 
+            if specgrav is not None:
+                if not isinstance(specgrav, basestring):
+                    raise TypeError("expected specgrav to be a str but it is a %s" % getattr(__builtin__, 'type')(specgrav))
+                if len(specgrav) < 1:
+                    raise ValueError("expected len(specgrav) to be >= 1, was %d" % len(specgrav))
             self.__specgrav = specgrav
             return self
 
@@ -3577,6 +4370,11 @@ class Object(object):
             :type species: str or None
             '''
 
+            if species is not None:
+                if not isinstance(species, basestring):
+                    raise TypeError("expected species to be a str but it is a %s" % getattr(__builtin__, 'type')(species))
+                if len(species) < 1:
+                    raise ValueError("expected len(species) to be >= 1, was %d" % len(species))
             self.__species = species
             return self
 
@@ -3585,6 +4383,11 @@ class Object(object):
             :type sprocess: str or None
             '''
 
+            if sprocess is not None:
+                if not isinstance(sprocess, basestring):
+                    raise TypeError("expected sprocess to be a str but it is a %s" % getattr(__builtin__, 'type')(sprocess))
+                if len(sprocess) < 1:
+                    raise ValueError("expected len(sprocess) to be >= 1, was %d" % len(sprocess))
             self.__sprocess = sprocess
             return self
 
@@ -3593,6 +4396,11 @@ class Object(object):
             :type stage: str or None
             '''
 
+            if stage is not None:
+                if not isinstance(stage, basestring):
+                    raise TypeError("expected stage to be a str but it is a %s" % getattr(__builtin__, 'type')(stage))
+                if len(stage) < 1:
+                    raise ValueError("expected len(stage) to be >= 1, was %d" % len(stage))
             self.__stage = stage
             return self
 
@@ -3601,6 +4409,9 @@ class Object(object):
             :type status: pastpy.models.status.Status or None
             '''
 
+            if status is not None:
+                if not isinstance(status, pastpy.models.status.Status):
+                    raise TypeError("expected status to be a pastpy.models.status.Status but it is a %s" % getattr(__builtin__, 'type')(status))
             self.__status = status
             return self
 
@@ -3609,6 +4420,11 @@ class Object(object):
             :type statusby: str or None
             '''
 
+            if statusby is not None:
+                if not isinstance(statusby, basestring):
+                    raise TypeError("expected statusby to be a str but it is a %s" % getattr(__builtin__, 'type')(statusby))
+                if len(statusby) < 1:
+                    raise ValueError("expected len(statusby) to be >= 1, was %d" % len(statusby))
             self.__statusby = statusby
             return self
 
@@ -3617,6 +4433,9 @@ class Object(object):
             :type statusdate: datetime.datetime or None
             '''
 
+            if statusdate is not None:
+                if not isinstance(statusdate, datetime.datetime):
+                    raise TypeError("expected statusdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(statusdate))
             self.__statusdate = statusdate
             return self
 
@@ -3625,6 +4444,11 @@ class Object(object):
             :type sterms: str or None
             '''
 
+            if sterms is not None:
+                if not isinstance(sterms, basestring):
+                    raise TypeError("expected sterms to be a str but it is a %s" % getattr(__builtin__, 'type')(sterms))
+                if len(sterms) < 1:
+                    raise ValueError("expected len(sterms) to be >= 1, was %d" % len(sterms))
             self.__sterms = sterms
             return self
 
@@ -3633,6 +4457,11 @@ class Object(object):
             :type stratum: str or None
             '''
 
+            if stratum is not None:
+                if not isinstance(stratum, basestring):
+                    raise TypeError("expected stratum to be a str but it is a %s" % getattr(__builtin__, 'type')(stratum))
+                if len(stratum) < 1:
+                    raise ValueError("expected len(stratum) to be >= 1, was %d" % len(stratum))
             self.__stratum = stratum
             return self
 
@@ -3641,6 +4470,11 @@ class Object(object):
             :type streak: str or None
             '''
 
+            if streak is not None:
+                if not isinstance(streak, basestring):
+                    raise TypeError("expected streak to be a str but it is a %s" % getattr(__builtin__, 'type')(streak))
+                if len(streak) < 1:
+                    raise ValueError("expected len(streak) to be >= 1, was %d" % len(streak))
             self.__streak = streak
             return self
 
@@ -3649,6 +4483,11 @@ class Object(object):
             :type subfamily: str or None
             '''
 
+            if subfamily is not None:
+                if not isinstance(subfamily, basestring):
+                    raise TypeError("expected subfamily to be a str but it is a %s" % getattr(__builtin__, 'type')(subfamily))
+                if len(subfamily) < 1:
+                    raise ValueError("expected len(subfamily) to be >= 1, was %d" % len(subfamily))
             self.__subfamily = subfamily
             return self
 
@@ -3657,6 +4496,11 @@ class Object(object):
             :type subjects: str or None
             '''
 
+            if subjects is not None:
+                if not isinstance(subjects, basestring):
+                    raise TypeError("expected subjects to be a str but it is a %s" % getattr(__builtin__, 'type')(subjects))
+                if len(subjects) < 1:
+                    raise ValueError("expected len(subjects) to be >= 1, was %d" % len(subjects))
             self.__subjects = subjects
             return self
 
@@ -3665,6 +4509,11 @@ class Object(object):
             :type subspecies: str or None
             '''
 
+            if subspecies is not None:
+                if not isinstance(subspecies, basestring):
+                    raise TypeError("expected subspecies to be a str but it is a %s" % getattr(__builtin__, 'type')(subspecies))
+                if len(subspecies) < 1:
+                    raise ValueError("expected len(subspecies) to be >= 1, was %d" % len(subspecies))
             self.__subspecies = subspecies
             return self
 
@@ -3673,6 +4522,11 @@ class Object(object):
             :type technique: str or None
             '''
 
+            if technique is not None:
+                if not isinstance(technique, basestring):
+                    raise TypeError("expected technique to be a str but it is a %s" % getattr(__builtin__, 'type')(technique))
+                if len(technique) < 1:
+                    raise ValueError("expected len(technique) to be >= 1, was %d" % len(technique))
             self.__technique = technique
             return self
 
@@ -3681,6 +4535,11 @@ class Object(object):
             :type tempauthor: str or None
             '''
 
+            if tempauthor is not None:
+                if not isinstance(tempauthor, basestring):
+                    raise TypeError("expected tempauthor to be a str but it is a %s" % getattr(__builtin__, 'type')(tempauthor))
+                if len(tempauthor) < 1:
+                    raise ValueError("expected len(tempauthor) to be >= 1, was %d" % len(tempauthor))
             self.__tempauthor = tempauthor
             return self
 
@@ -3689,6 +4548,11 @@ class Object(object):
             :type tempby: str or None
             '''
 
+            if tempby is not None:
+                if not isinstance(tempby, basestring):
+                    raise TypeError("expected tempby to be a str but it is a %s" % getattr(__builtin__, 'type')(tempby))
+                if len(tempby) < 1:
+                    raise ValueError("expected len(tempby) to be >= 1, was %d" % len(tempby))
             self.__tempby = tempby
             return self
 
@@ -3697,6 +4561,9 @@ class Object(object):
             :type tempdate: datetime.datetime or None
             '''
 
+            if tempdate is not None:
+                if not isinstance(tempdate, datetime.datetime):
+                    raise TypeError("expected tempdate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(tempdate))
             self.__tempdate = tempdate
             return self
 
@@ -3705,6 +4572,11 @@ class Object(object):
             :type temperatur: str or None
             '''
 
+            if temperatur is not None:
+                if not isinstance(temperatur, basestring):
+                    raise TypeError("expected temperatur to be a str but it is a %s" % getattr(__builtin__, 'type')(temperatur))
+                if len(temperatur) < 1:
+                    raise ValueError("expected len(temperatur) to be >= 1, was %d" % len(temperatur))
             self.__temperatur = temperatur
             return self
 
@@ -3713,6 +4585,11 @@ class Object(object):
             :type temploc: str or None
             '''
 
+            if temploc is not None:
+                if not isinstance(temploc, basestring):
+                    raise TypeError("expected temploc to be a str but it is a %s" % getattr(__builtin__, 'type')(temploc))
+                if len(temploc) < 1:
+                    raise ValueError("expected len(temploc) to be >= 1, was %d" % len(temploc))
             self.__temploc = temploc
             return self
 
@@ -3721,6 +4598,11 @@ class Object(object):
             :type tempnotes: str or None
             '''
 
+            if tempnotes is not None:
+                if not isinstance(tempnotes, basestring):
+                    raise TypeError("expected tempnotes to be a str but it is a %s" % getattr(__builtin__, 'type')(tempnotes))
+                if len(tempnotes) < 1:
+                    raise ValueError("expected len(tempnotes) to be >= 1, was %d" % len(tempnotes))
             self.__tempnotes = tempnotes
             return self
 
@@ -3729,6 +4611,11 @@ class Object(object):
             :type tempreason: str or None
             '''
 
+            if tempreason is not None:
+                if not isinstance(tempreason, basestring):
+                    raise TypeError("expected tempreason to be a str but it is a %s" % getattr(__builtin__, 'type')(tempreason))
+                if len(tempreason) < 1:
+                    raise ValueError("expected len(tempreason) to be >= 1, was %d" % len(tempreason))
             self.__tempreason = tempreason
             return self
 
@@ -3737,6 +4624,11 @@ class Object(object):
             :type tempuntil: str or None
             '''
 
+            if tempuntil is not None:
+                if not isinstance(tempuntil, basestring):
+                    raise TypeError("expected tempuntil to be a str but it is a %s" % getattr(__builtin__, 'type')(tempuntil))
+                if len(tempuntil) < 1:
+                    raise ValueError("expected len(tempuntil) to be >= 1, was %d" % len(tempuntil))
             self.__tempuntil = tempuntil
             return self
 
@@ -3745,6 +4637,11 @@ class Object(object):
             :type texture: str or None
             '''
 
+            if texture is not None:
+                if not isinstance(texture, basestring):
+                    raise TypeError("expected texture to be a str but it is a %s" % getattr(__builtin__, 'type')(texture))
+                if len(texture) < 1:
+                    raise ValueError("expected len(texture) to be >= 1, was %d" % len(texture))
             self.__texture = texture
             return self
 
@@ -3753,6 +4650,11 @@ class Object(object):
             :type title: str or None
             '''
 
+            if title is not None:
+                if not isinstance(title, basestring):
+                    raise TypeError("expected title to be a str but it is a %s" % getattr(__builtin__, 'type')(title))
+                if len(title) < 1:
+                    raise ValueError("expected len(title) to be >= 1, was %d" % len(title))
             self.__title = title
             return self
 
@@ -3761,6 +4663,11 @@ class Object(object):
             :type tlocfield1: str or None
             '''
 
+            if tlocfield1 is not None:
+                if not isinstance(tlocfield1, basestring):
+                    raise TypeError("expected tlocfield1 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield1))
+                if len(tlocfield1) < 1:
+                    raise ValueError("expected len(tlocfield1) to be >= 1, was %d" % len(tlocfield1))
             self.__tlocfield1 = tlocfield1
             return self
 
@@ -3769,6 +4676,11 @@ class Object(object):
             :type tlocfield2: str or None
             '''
 
+            if tlocfield2 is not None:
+                if not isinstance(tlocfield2, basestring):
+                    raise TypeError("expected tlocfield2 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield2))
+                if len(tlocfield2) < 1:
+                    raise ValueError("expected len(tlocfield2) to be >= 1, was %d" % len(tlocfield2))
             self.__tlocfield2 = tlocfield2
             return self
 
@@ -3777,6 +4689,11 @@ class Object(object):
             :type tlocfield3: str or None
             '''
 
+            if tlocfield3 is not None:
+                if not isinstance(tlocfield3, basestring):
+                    raise TypeError("expected tlocfield3 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield3))
+                if len(tlocfield3) < 1:
+                    raise ValueError("expected len(tlocfield3) to be >= 1, was %d" % len(tlocfield3))
             self.__tlocfield3 = tlocfield3
             return self
 
@@ -3785,6 +4702,11 @@ class Object(object):
             :type tlocfield4: str or None
             '''
 
+            if tlocfield4 is not None:
+                if not isinstance(tlocfield4, basestring):
+                    raise TypeError("expected tlocfield4 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield4))
+                if len(tlocfield4) < 1:
+                    raise ValueError("expected len(tlocfield4) to be >= 1, was %d" % len(tlocfield4))
             self.__tlocfield4 = tlocfield4
             return self
 
@@ -3793,6 +4715,11 @@ class Object(object):
             :type tlocfield5: str or None
             '''
 
+            if tlocfield5 is not None:
+                if not isinstance(tlocfield5, basestring):
+                    raise TypeError("expected tlocfield5 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield5))
+                if len(tlocfield5) < 1:
+                    raise ValueError("expected len(tlocfield5) to be >= 1, was %d" % len(tlocfield5))
             self.__tlocfield5 = tlocfield5
             return self
 
@@ -3801,6 +4728,11 @@ class Object(object):
             :type tlocfield6: str or None
             '''
 
+            if tlocfield6 is not None:
+                if not isinstance(tlocfield6, basestring):
+                    raise TypeError("expected tlocfield6 to be a str but it is a %s" % getattr(__builtin__, 'type')(tlocfield6))
+                if len(tlocfield6) < 1:
+                    raise ValueError("expected len(tlocfield6) to be >= 1, was %d" % len(tlocfield6))
             self.__tlocfield6 = tlocfield6
             return self
 
@@ -3809,6 +4741,11 @@ class Object(object):
             :type udf1: str or None
             '''
 
+            if udf1 is not None:
+                if not isinstance(udf1, basestring):
+                    raise TypeError("expected udf1 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf1))
+                if len(udf1) < 1:
+                    raise ValueError("expected len(udf1) to be >= 1, was %d" % len(udf1))
             self.__udf1 = udf1
             return self
 
@@ -3817,6 +4754,11 @@ class Object(object):
             :type udf10: str or None
             '''
 
+            if udf10 is not None:
+                if not isinstance(udf10, basestring):
+                    raise TypeError("expected udf10 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf10))
+                if len(udf10) < 1:
+                    raise ValueError("expected len(udf10) to be >= 1, was %d" % len(udf10))
             self.__udf10 = udf10
             return self
 
@@ -3825,6 +4767,11 @@ class Object(object):
             :type udf11: str or None
             '''
 
+            if udf11 is not None:
+                if not isinstance(udf11, basestring):
+                    raise TypeError("expected udf11 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf11))
+                if len(udf11) < 1:
+                    raise ValueError("expected len(udf11) to be >= 1, was %d" % len(udf11))
             self.__udf11 = udf11
             return self
 
@@ -3833,6 +4780,11 @@ class Object(object):
             :type udf12: str or None
             '''
 
+            if udf12 is not None:
+                if not isinstance(udf12, basestring):
+                    raise TypeError("expected udf12 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf12))
+                if len(udf12) < 1:
+                    raise ValueError("expected len(udf12) to be >= 1, was %d" % len(udf12))
             self.__udf12 = udf12
             return self
 
@@ -3841,6 +4793,11 @@ class Object(object):
             :type udf13: str or None
             '''
 
+            if udf13 is not None:
+                if not isinstance(udf13, basestring):
+                    raise TypeError("expected udf13 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf13))
+                if len(udf13) < 1:
+                    raise ValueError("expected len(udf13) to be >= 1, was %d" % len(udf13))
             self.__udf13 = udf13
             return self
 
@@ -3849,6 +4806,11 @@ class Object(object):
             :type udf14: str or None
             '''
 
+            if udf14 is not None:
+                if not isinstance(udf14, basestring):
+                    raise TypeError("expected udf14 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf14))
+                if len(udf14) < 1:
+                    raise ValueError("expected len(udf14) to be >= 1, was %d" % len(udf14))
             self.__udf14 = udf14
             return self
 
@@ -3857,6 +4819,11 @@ class Object(object):
             :type udf15: str or None
             '''
 
+            if udf15 is not None:
+                if not isinstance(udf15, basestring):
+                    raise TypeError("expected udf15 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf15))
+                if len(udf15) < 1:
+                    raise ValueError("expected len(udf15) to be >= 1, was %d" % len(udf15))
             self.__udf15 = udf15
             return self
 
@@ -3865,6 +4832,11 @@ class Object(object):
             :type udf16: str or None
             '''
 
+            if udf16 is not None:
+                if not isinstance(udf16, basestring):
+                    raise TypeError("expected udf16 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf16))
+                if len(udf16) < 1:
+                    raise ValueError("expected len(udf16) to be >= 1, was %d" % len(udf16))
             self.__udf16 = udf16
             return self
 
@@ -3873,6 +4845,11 @@ class Object(object):
             :type udf17: str or None
             '''
 
+            if udf17 is not None:
+                if not isinstance(udf17, basestring):
+                    raise TypeError("expected udf17 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf17))
+                if len(udf17) < 1:
+                    raise ValueError("expected len(udf17) to be >= 1, was %d" % len(udf17))
             self.__udf17 = udf17
             return self
 
@@ -3881,6 +4858,11 @@ class Object(object):
             :type udf18: str or None
             '''
 
+            if udf18 is not None:
+                if not isinstance(udf18, basestring):
+                    raise TypeError("expected udf18 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf18))
+                if len(udf18) < 1:
+                    raise ValueError("expected len(udf18) to be >= 1, was %d" % len(udf18))
             self.__udf18 = udf18
             return self
 
@@ -3889,6 +4871,11 @@ class Object(object):
             :type udf19: str or None
             '''
 
+            if udf19 is not None:
+                if not isinstance(udf19, basestring):
+                    raise TypeError("expected udf19 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf19))
+                if len(udf19) < 1:
+                    raise ValueError("expected len(udf19) to be >= 1, was %d" % len(udf19))
             self.__udf19 = udf19
             return self
 
@@ -3897,6 +4884,11 @@ class Object(object):
             :type udf2: str or None
             '''
 
+            if udf2 is not None:
+                if not isinstance(udf2, basestring):
+                    raise TypeError("expected udf2 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf2))
+                if len(udf2) < 1:
+                    raise ValueError("expected len(udf2) to be >= 1, was %d" % len(udf2))
             self.__udf2 = udf2
             return self
 
@@ -3905,6 +4897,11 @@ class Object(object):
             :type udf20: str or None
             '''
 
+            if udf20 is not None:
+                if not isinstance(udf20, basestring):
+                    raise TypeError("expected udf20 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf20))
+                if len(udf20) < 1:
+                    raise ValueError("expected len(udf20) to be >= 1, was %d" % len(udf20))
             self.__udf20 = udf20
             return self
 
@@ -3913,6 +4910,11 @@ class Object(object):
             :type udf21: str or None
             '''
 
+            if udf21 is not None:
+                if not isinstance(udf21, basestring):
+                    raise TypeError("expected udf21 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf21))
+                if len(udf21) < 1:
+                    raise ValueError("expected len(udf21) to be >= 1, was %d" % len(udf21))
             self.__udf21 = udf21
             return self
 
@@ -3921,6 +4923,11 @@ class Object(object):
             :type udf22: str or None
             '''
 
+            if udf22 is not None:
+                if not isinstance(udf22, basestring):
+                    raise TypeError("expected udf22 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf22))
+                if len(udf22) < 1:
+                    raise ValueError("expected len(udf22) to be >= 1, was %d" % len(udf22))
             self.__udf22 = udf22
             return self
 
@@ -3929,6 +4936,11 @@ class Object(object):
             :type udf3: str or None
             '''
 
+            if udf3 is not None:
+                if not isinstance(udf3, basestring):
+                    raise TypeError("expected udf3 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf3))
+                if len(udf3) < 1:
+                    raise ValueError("expected len(udf3) to be >= 1, was %d" % len(udf3))
             self.__udf3 = udf3
             return self
 
@@ -3937,6 +4949,11 @@ class Object(object):
             :type udf4: str or None
             '''
 
+            if udf4 is not None:
+                if not isinstance(udf4, basestring):
+                    raise TypeError("expected udf4 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf4))
+                if len(udf4) < 1:
+                    raise ValueError("expected len(udf4) to be >= 1, was %d" % len(udf4))
             self.__udf4 = udf4
             return self
 
@@ -3945,6 +4962,11 @@ class Object(object):
             :type udf5: str or None
             '''
 
+            if udf5 is not None:
+                if not isinstance(udf5, basestring):
+                    raise TypeError("expected udf5 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf5))
+                if len(udf5) < 1:
+                    raise ValueError("expected len(udf5) to be >= 1, was %d" % len(udf5))
             self.__udf5 = udf5
             return self
 
@@ -3953,6 +4975,11 @@ class Object(object):
             :type udf6: str or None
             '''
 
+            if udf6 is not None:
+                if not isinstance(udf6, basestring):
+                    raise TypeError("expected udf6 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf6))
+                if len(udf6) < 1:
+                    raise ValueError("expected len(udf6) to be >= 1, was %d" % len(udf6))
             self.__udf6 = udf6
             return self
 
@@ -3961,6 +4988,11 @@ class Object(object):
             :type udf7: str or None
             '''
 
+            if udf7 is not None:
+                if not isinstance(udf7, basestring):
+                    raise TypeError("expected udf7 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf7))
+                if len(udf7) < 1:
+                    raise ValueError("expected len(udf7) to be >= 1, was %d" % len(udf7))
             self.__udf7 = udf7
             return self
 
@@ -3969,6 +5001,11 @@ class Object(object):
             :type udf8: str or None
             '''
 
+            if udf8 is not None:
+                if not isinstance(udf8, basestring):
+                    raise TypeError("expected udf8 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf8))
+                if len(udf8) < 1:
+                    raise ValueError("expected len(udf8) to be >= 1, was %d" % len(udf8))
             self.__udf8 = udf8
             return self
 
@@ -3977,6 +5014,11 @@ class Object(object):
             :type udf9: str or None
             '''
 
+            if udf9 is not None:
+                if not isinstance(udf9, basestring):
+                    raise TypeError("expected udf9 to be a str but it is a %s" % getattr(__builtin__, 'type')(udf9))
+                if len(udf9) < 1:
+                    raise ValueError("expected len(udf9) to be >= 1, was %d" % len(udf9))
             self.__udf9 = udf9
             return self
 
@@ -3985,6 +5027,11 @@ class Object(object):
             :type unit: str or None
             '''
 
+            if unit is not None:
+                if not isinstance(unit, basestring):
+                    raise TypeError("expected unit to be a str but it is a %s" % getattr(__builtin__, 'type')(unit))
+                if len(unit) < 1:
+                    raise ValueError("expected len(unit) to be >= 1, was %d" % len(unit))
             self.__unit = unit
             return self
 
@@ -3993,6 +5040,11 @@ class Object(object):
             :type updated: str or None
             '''
 
+            if updated is not None:
+                if not isinstance(updated, basestring):
+                    raise TypeError("expected updated to be a str but it is a %s" % getattr(__builtin__, 'type')(updated))
+                if len(updated) < 1:
+                    raise ValueError("expected len(updated) to be >= 1, was %d" % len(updated))
             self.__updated = updated
             return self
 
@@ -4001,6 +5053,11 @@ class Object(object):
             :type updatedby: str or None
             '''
 
+            if updatedby is not None:
+                if not isinstance(updatedby, basestring):
+                    raise TypeError("expected updatedby to be a str but it is a %s" % getattr(__builtin__, 'type')(updatedby))
+                if len(updatedby) < 1:
+                    raise ValueError("expected len(updatedby) to be >= 1, was %d" % len(updatedby))
             self.__updatedby = updatedby
             return self
 
@@ -4009,6 +5066,11 @@ class Object(object):
             :type used: str or None
             '''
 
+            if used is not None:
+                if not isinstance(used, basestring):
+                    raise TypeError("expected used to be a str but it is a %s" % getattr(__builtin__, 'type')(used))
+                if len(used) < 1:
+                    raise ValueError("expected len(used) to be >= 1, was %d" % len(used))
             self.__used = used
             return self
 
@@ -4017,6 +5079,9 @@ class Object(object):
             :type valuedate: datetime.datetime or None
             '''
 
+            if valuedate is not None:
+                if not isinstance(valuedate, datetime.datetime):
+                    raise TypeError("expected valuedate to be a datetime.datetime but it is a %s" % getattr(__builtin__, 'type')(valuedate))
             self.__valuedate = valuedate
             return self
 
@@ -4025,6 +5090,11 @@ class Object(object):
             :type varieties: str or None
             '''
 
+            if varieties is not None:
+                if not isinstance(varieties, basestring):
+                    raise TypeError("expected varieties to be a str but it is a %s" % getattr(__builtin__, 'type')(varieties))
+                if len(varieties) < 1:
+                    raise ValueError("expected len(varieties) to be >= 1, was %d" % len(varieties))
             self.__varieties = varieties
             return self
 
@@ -4033,6 +5103,11 @@ class Object(object):
             :type webinclude: str or None
             '''
 
+            if webinclude is not None:
+                if not isinstance(webinclude, basestring):
+                    raise TypeError("expected webinclude to be a str but it is a %s" % getattr(__builtin__, 'type')(webinclude))
+                if len(webinclude) < 1:
+                    raise ValueError("expected len(webinclude) to be >= 1, was %d" % len(webinclude))
             self.__webinclude = webinclude
             return self
 
@@ -4041,6 +5116,11 @@ class Object(object):
             :type weight: str or None
             '''
 
+            if weight is not None:
+                if not isinstance(weight, basestring):
+                    raise TypeError("expected weight to be a str but it is a %s" % getattr(__builtin__, 'type')(weight))
+                if len(weight) < 1:
+                    raise ValueError("expected len(weight) to be >= 1, was %d" % len(weight))
             self.__weight = weight
             return self
 
@@ -4049,6 +5129,11 @@ class Object(object):
             :type weightin: str or None
             '''
 
+            if weightin is not None:
+                if not isinstance(weightin, basestring):
+                    raise TypeError("expected weightin to be a str but it is a %s" % getattr(__builtin__, 'type')(weightin))
+                if len(weightin) < 1:
+                    raise ValueError("expected len(weightin) to be >= 1, was %d" % len(weightin))
             self.__weightin = weightin
             return self
 
@@ -4057,6 +5142,9 @@ class Object(object):
             :type weightlb: Decimal or None
             '''
 
+            if weightlb is not None:
+                if not isinstance(weightlb, decimal.Decimal):
+                    raise TypeError("expected weightlb to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(weightlb))
             self.__weightlb = weightlb
             return self
 
@@ -4065,6 +5153,9 @@ class Object(object):
             :type width: Decimal or None
             '''
 
+            if width is not None:
+                if not isinstance(width, decimal.Decimal):
+                    raise TypeError("expected width to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(width))
             self.__width = width
             return self
 
@@ -4073,6 +5164,9 @@ class Object(object):
             :type widthft: Decimal or None
             '''
 
+            if widthft is not None:
+                if not isinstance(widthft, decimal.Decimal):
+                    raise TypeError("expected widthft to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(widthft))
             self.__widthft = widthft
             return self
 
@@ -4081,6 +5175,9 @@ class Object(object):
             :type widthin: Decimal or None
             '''
 
+            if widthin is not None:
+                if not isinstance(widthin, decimal.Decimal):
+                    raise TypeError("expected widthin to be a Decimal but it is a %s" % getattr(__builtin__, 'type')(widthin))
             self.__widthin = widthin
             return self
 
@@ -4089,6 +5186,11 @@ class Object(object):
             :type xcord: str or None
             '''
 
+            if xcord is not None:
+                if not isinstance(xcord, basestring):
+                    raise TypeError("expected xcord to be a str but it is a %s" % getattr(__builtin__, 'type')(xcord))
+                if len(xcord) < 1:
+                    raise ValueError("expected len(xcord) to be >= 1, was %d" % len(xcord))
             self.__xcord = xcord
             return self
 
@@ -4097,6 +5199,11 @@ class Object(object):
             :type ycord: str or None
             '''
 
+            if ycord is not None:
+                if not isinstance(ycord, basestring):
+                    raise TypeError("expected ycord to be a str but it is a %s" % getattr(__builtin__, 'type')(ycord))
+                if len(ycord) < 1:
+                    raise ValueError("expected len(ycord) to be >= 1, was %d" % len(ycord))
             self.__ycord = ycord
             return self
 
@@ -4105,6 +5212,11 @@ class Object(object):
             :type zcord: str or None
             '''
 
+            if zcord is not None:
+                if not isinstance(zcord, basestring):
+                    raise TypeError("expected zcord to be a str but it is a %s" % getattr(__builtin__, 'type')(zcord))
+                if len(zcord) < 1:
+                    raise ValueError("expected len(zcord) to be >= 1, was %d" % len(zcord))
             self.__zcord = zcord
             return self
 
