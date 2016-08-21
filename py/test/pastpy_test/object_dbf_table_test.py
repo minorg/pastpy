@@ -1,6 +1,7 @@
 import os.path
 import unittest
 
+from pastpy.models.object import Object
 from pastpy.object_dbf_table import ObjectDbfTable
 
 
@@ -13,9 +14,13 @@ class ObjectDbfTableTest(unittest.TestCase):
         self.__open()
 
     def test_records(self):
+        records_by_objectid = {}
         for record in self.__open().records():
-            pass
-#             print record
-#             print
-#             assert isinstance(record, Object)
-
+            assert isinstance(record, Object)
+            if record.objectid is None:
+                continue
+            records_by_objectid.setdefault(record.objectid, []).append(record)
+        for objectid, records in records_by_objectid.iteritems():
+            for record in records:
+                if record.imagefile is not None:
+                    print record
