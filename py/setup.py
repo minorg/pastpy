@@ -55,13 +55,4 @@ setup(
         # If any package contains *.txt or *.rst files, include them:
         'pastpy.commands.site_template': ['*.mustache'],
     },
-
-    # To provide executable scripts, use entry points in preference to the
-    # "scripts" keyword. Entry points provide cross-platform support and allow
-    # pip to create the appropriate form of executable for the target platform.
-    entry_points={
-        'console_scripts': [
-            'pastpy=pastpy.main:main',
-        ],
-    },
 )
