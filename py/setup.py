@@ -46,6 +46,8 @@ setup(
         'Programming Language :: Python :: 2.7',
     ],
 
+    install_requires=('dbf',),
+
     # What does your project relate to?
     keywords='pastperfect',
 
