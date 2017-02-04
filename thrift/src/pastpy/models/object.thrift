@@ -1,8 +1,8 @@
 namespace * pastpy.models
 
+include "pastpy/models/cardinal_direction.thrift"
+include "pastpy/models/cat.thrift"
 include "pastpy/models/condition.thrift"
-include "pastpy/models/recas.thrift"
-include "pastpy/models/status.thrift"
 include "thryft/native/date_time.thrift"
 include "thryft/native/decimal.thrift"
 include "thryft/native/variant.thrift"
@@ -34,6 +34,8 @@ struct Object {
 
     // @validation {"blank": false, "minLength": 1}
     optional string caption;
+
+    optional cat.Cat cat;
 
     // @validation {"blank": false, "minLength": 1}
     optional string catby;
@@ -157,24 +159,20 @@ struct Object {
     // @validation {"blank": false, "minLength": 1}
     optional string event;
 
+    optional cardinal_direction.CardinalDirection ew;
+
     optional date_time.DateTime excavadate;
 
     // @validation {"blank": false, "minLength": 1}
     optional string excavateby;
 
+    // @validation {"blank": false, "minLength": 1}
+    optional string exhibitid;
+
     optional i32 exhibitno;
 
-    // @validation {"blank": false, "minLength": 1}
-    optional string exhlabel1;
-
-    // @validation {"blank": false, "minLength": 1}
-    optional string exhlabel2;
-
-    // @validation {"blank": false, "minLength": 1}
-    optional string exhlabel3;
-
-    // @validation {"blank": false, "minLength": 1}
-    optional string exhlabel4;
+    // @validation {"minLength": 1}
+    optional map<i32, string> exhlabel;
 
     // @validation {"blank": false, "minLength": 1}
     optional string exhstart;
@@ -292,6 +290,9 @@ struct Object {
     // @validation {"blank": false, "minLength": 1}
     optional string kingdom;
 
+    // @validation {"minExclusive": 0}
+    optional decimal.Decimal latdeg;
+
     // @validation {"blank": false, "minLength": 1}
     optional string latedate;
 
@@ -319,27 +320,21 @@ struct Object {
     // @validation {"blank": false, "minLength": 1}
     optional string loandue;
 
-    optional i32 loaninno;
+    // @validation {"blank": false, "minLength": 1}
+    optional string loanid;
+
+    // @validation {"blank": false, "minLength": 1}
+    optional string loaninno;
 
     optional i32 loanno;
 
-    // @validation {"blank": false, "minLength": 1}
-    optional string locfield1;
+    optional date_time.DateTime loanrenew;
 
-    // @validation {"blank": false, "minLength": 1}
-    optional string locfield2;
+    // @validation {"minLength": 1}
+    optional map<i32, string> locfield;
 
-    // @validation {"blank": false, "minLength": 1}
-    optional string locfield3;
-
-    // @validation {"blank": false, "minLength": 1}
-    optional string locfield4;
-
-    // @validation {"blank": false, "minLength": 1}
-    optional string locfield5;
-
-    // @validation {"blank": false, "minLength": 1}
-    optional string locfield6;
+    // @validation {"minExclusive": 0}
+    optional decimal.Decimal longdeg;
 
     // @validation {"blank": false, "minLength": 1}
     optional string luster;
@@ -376,6 +371,8 @@ struct Object {
     // @validation {"blank": false, "minLength": 1}
     optional string notes;
 
+    optional cardinal_direction.CardinalDirection ns;
+
     // @validation {"blank": false, "minLength": 1}
     optional string objectid;
 
@@ -394,7 +391,8 @@ struct Object {
     // @validation {"blank": false, "minLength": 1}
     optional string occurrence;
 
-    optional i32 oldno;
+    // @validation {"blank": false, "minLength": 1}
+    optional string oldno;
 
     // @validation {"blank": false, "minLength": 1}
     optional string origin;
@@ -422,7 +420,11 @@ struct Object {
     // @validation {"blank": false, "minLength": 1}
     optional string phylum;
 
-    optional i32 policyno;
+    // @validation {"blank": false, "minLength": 1}
+    optional string policyno;
+
+    // @validation {"blank": false, "minLength": 1}
+    optional string ppid;
 
     // @validation {"blank": false, "minLength": 1}
     optional string preparator;
@@ -441,7 +443,8 @@ struct Object {
     // @validation {"blank": false, "minLength": 1}
     optional string pubnotes;
 
-    optional recas.Recas recas;
+    // @validation {"blank": false, "minLength": 1}
+    optional string recas;
 
     optional date_time.DateTime recdate;
 
@@ -449,7 +452,12 @@ struct Object {
     optional string recfrom;
 
     // @validation {"blank": false, "minLength": 1}
+    optional string relation;
+
+    // @validation {"blank": false, "minLength": 1}
     optional string relnotes;
+
+    optional date_time.DateTime renewuntil;
 
     // @validation {"blank": false, "minLength": 1}
     optional string repatby;
@@ -508,7 +516,8 @@ struct Object {
     // @validation {"blank": false, "minLength": 1}
     optional string site;
 
-    optional i32 siteno;
+    // @validation {"blank": false, "minLength": 1}
+    optional string siteno;
 
     // @validation {"blank": false, "minLength": 1}
     optional string specgrav;
@@ -522,7 +531,8 @@ struct Object {
     // @validation {"blank": false, "minLength": 1}
     optional string stage;
 
-    optional status.Status status;
+    // @validation {"blank": false, "minLength": 1}
+    optional string status;
 
     // @validation {"blank": false, "minLength": 1}
     optional string statusby;
@@ -579,67 +589,11 @@ struct Object {
     // @validation {"blank": false, "minLength": 1}
     optional string title;
 
-    // @validation {"blank": false, "minLength": 1}
-    optional string tlocfield1;
+    // @validation {"minLength": 1}
+    optional map<i32, string> tlocfield;
 
-    // @validation {"blank": false, "minLength": 1}
-    optional string tlocfield2;
-
-    // @validation {"blank": false, "minLength": 1}
-    optional string tlocfield3;
-
-    // @validation {"blank": false, "minLength": 1}
-    optional string tlocfield4;
-
-    // @validation {"blank": false, "minLength": 1}
-    optional string tlocfield5;
-
-    // @validation {"blank": false, "minLength": 1}
-    optional string tlocfield6;
-
-    optional variant.Variant udf1;
-
-    optional variant.Variant udf10;
-
-    optional variant.Variant udf11;
-
-    optional variant.Variant udf12;
-
-    optional variant.Variant udf13;
-
-    optional variant.Variant udf14;
-
-    optional variant.Variant udf15;
-
-    optional variant.Variant udf16;
-
-    optional variant.Variant udf17;
-
-    optional variant.Variant udf18;
-
-    optional variant.Variant udf19;
-
-    optional variant.Variant udf2;
-
-    optional variant.Variant udf20;
-
-    optional variant.Variant udf21;
-
-    optional variant.Variant udf22;
-
-    optional variant.Variant udf3;
-
-    optional variant.Variant udf4;
-
-    optional variant.Variant udf5;
-
-    optional variant.Variant udf6;
-
-    optional variant.Variant udf7;
-
-    optional variant.Variant udf8;
-
-    optional variant.Variant udf9;
+     // @validation {"minLength": 1}
+    optional map<i32, variant.Variant> udf;
 
     // @validation {"blank": false, "minLength": 1}
     optional string unit;
@@ -685,4 +639,10 @@ struct Object {
 
     // @validation {"blank": false, "minLength": 1}
     optional string zcord;
+
+    // @validation {"blank": false, "minLength": 1}
+    optional string zsorter;
+
+    // @validation {"blank": false, "minLength": 1}
+    optional string zsorterx;
 }

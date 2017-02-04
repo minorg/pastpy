@@ -8,13 +8,6 @@ MY_DIR_PATH = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(MY_DIR_PATH, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
-data_dir_path = os.path.join(MY_DIR_PATH, 'data')
-data_files = []
-for root_dir_path, _, file_names in os.walk(data_dir_path):
-    for file_name in file_names:
-        data_files.append(os.path.relpath(os.path.join(root_dir_path, file_name), MY_DIR_PATH))
-
-
 setup(
     author='Minor Gordon',
     author_email='pastpy@minorgordon.net',
@@ -23,7 +16,7 @@ setup(
     license='BSD',
     long_description=long_description,
     url='https://github.com/minorg/pastpy',
-    version='1.0.0',
+    version='1.0.1',
 
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
@@ -46,15 +39,11 @@ setup(
         'Programming Language :: Python :: 2.7',
     ],
 
-    install_requires=('dbf',),
+    install_requires=('dbf','enum34'),
 
     # What does your project relate to?
     keywords='pastperfect',
 
     packages=find_packages('src'),
     package_dir = {'':'src'},
-    package_data = {
-        # If any package contains *.txt or *.rst files, include them:
-        'pastpy.commands.site_template': ['*.mustache'],
-    },
 )

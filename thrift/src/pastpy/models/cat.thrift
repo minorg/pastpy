@@ -1,5 +1,5 @@
 namespace * pastpy.models
 
-enum Recas {
-    GIFT
+enum Cat {
+    O
 }

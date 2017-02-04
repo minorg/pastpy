@@ -1,5 +1,5 @@
-class Recas(object):
-    GIFT = None
+class Cat(object):
+    O = None
 
     def __init__(self, name, value):
         object.__init__(self)
@@ -17,12 +17,12 @@ class Recas(object):
 
     @classmethod
     def value_of(cls, name):
-        if name == 'GIFT' or name == '0':
-            return getattr(Recas, 'GIFT')
+        if name == 'O' or name == '0':
+            return getattr(Cat, 'O')
         raise ValueError(name)
 
     @classmethod
     def values(cls):
-        return (Recas.GIFT,)
+        return (Cat.O,)
 
-Recas.GIFT = Recas('GIFT', 0)
+Cat.O = Cat('O', 0)

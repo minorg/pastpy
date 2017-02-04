@@ -6,42 +6,49 @@ class _DbfTable(object):
     def __init__(self, table):
         self.__table = table
 
-    def _map_record(self, record):
-        raise NotImplementedError
-
-    def _map_record_field(self, field_name, field_value, struct_builder, struct_type):
-        if field_value is None:
-            return
-
-        if isinstance(field_value, basestring):
-            field_value = field_value.strip()
-            if len(field_value) == 0:
-                return
-
-        field_metadata = getattr(getattr(struct_type, 'FieldMetadata'), field_name.upper())
-
+    def _coerce_record_field(
+        self,
+        field_metadata,
+        field_value,
+        field_number=None,
+        existing_field_value=None
+    ):
+        field_name = field_metadata.name
         if field_metadata.type == datetime:
             if isinstance(field_value, date):
-                field_value = datetime(year=field_value.year, month=field_value.month, day=field_value.day)
+                return datetime(year=field_value.year, month=field_value.month, day=field_value.day)
             elif isinstance(field_value, datetime):
-                pass
+                return field_value
             elif isinstance(field_value, basestring):
+                for strptime_format in ('%m/%d/%Y', '%Y'):
+                    try:
+                        return datetime.strptime(field_value, strptime_format)
+                    except ValueError:
+                        pass
                 logging.warn("unable to parse %(field_name)s=%(field_value)s (basestring)" % locals())
                 return
             elif isinstance(field_value, int):
                 if field_value == 0:
                     return
                 raise NotImplementedError("%(field_name)s: %(field_value)s" % locals())
-        elif field_metadata.type == object:
-            pass
+        elif field_metadata.type == dict:
+            if existing_field_value is None:
+                existing_field_value = {}
+            assert field_number is not None
+            assert not field_number in existing_field_value
+            existing_field_value[field_number] = field_value
+            print existing_field_value
+            return existing_field_value
+            raise NotImplementedError("%(field_name)s: %(field_value)s" % locals())
         elif field_metadata.type == str:
             if not isinstance(field_value, basestring):
                 logging.info("converting %s=%s (%s) to string", field_name, field_value, type(field_value))
-                field_value = str(field_value)
+                return str(field_value)
+            return field_value
         else:
             if hasattr(field_metadata.type, 'value_of'):
                 try:
-                    field_value = field_metadata.type.value_of(str(field_value).upper().replace(' ', '_'))
+                    return field_metadata.type.value_of(str(field_value).upper().replace(' ', '_'))
                 except ValueError, e:
                     field_value_type = type(field_value)
                     field_metadata_type = field_metadata.type
@@ -49,18 +56,52 @@ class _DbfTable(object):
                     return
             else:
                 try:
-                    field_value = field_metadata.type(field_value)
+                    return field_metadata.type(field_value)
                 except (TypeError, ValueError), e:
                     raise TypeError("unable to coerce %s=%s (%s) to a %s: %s" % (field_name, field_value, type(field_value), field_metadata.type, e))
 
+    def _map_record(self, record):
+        raise NotImplementedError
+
+    def _map_record_field(self, field_name, field_value, struct_builder, struct_type):
+        if field_value is None:
+            return
+        elif isinstance(field_value, basestring):
+            field_value = field_value.strip()
+            if len(field_value) == 0:
+                return
+
+        field_name_base = field_name
+        field_number = None
+        for i in xrange(2, 0, -1):
+            try:
+                field_number = int(field_name[-1 * i:])
+                field_name_base = field_name[:-1 * i]
+                break
+            except ValueError:
+                pass
+        field_metadata = getattr(getattr(struct_type, 'FieldMetadata'), field_name_base.upper())
+
+        existing_field_value = getattr(struct_builder, field_name_base)
+
+        new_field_value = \
+            self._coerce_record_field(
+                existing_field_value=existing_field_value,
+                field_number=field_number,
+                field_metadata=field_metadata,
+                field_value=field_value,
+            )
+        if new_field_value is None:
+            return
+
         try:
-            getattr(struct_builder, 'set_' + field_name)(field_value)
+            getattr(struct_builder, 'set_' + field_name_base)(new_field_value)
         except TypeError, e:
-            raise TypeError("%(field_value)s: %(e)s" % locals())
+            raise TypeError("%(new_field_value)s: %(e)s" % locals())
         except ValueError, e:
             if field_metadata.validation is not None:
                 return
-            raise ValueError("%(field_value)s: %(e)s" % locals())
+            raise ValueError("%(new_field_value)s: %(e)s" % locals())
 
     def __enter__(self):
         pass

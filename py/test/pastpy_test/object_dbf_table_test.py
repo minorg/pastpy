@@ -1,4 +1,3 @@
-import os.path
 import unittest
 
 from pastpy.models.object import Object
@@ -7,7 +6,8 @@ from pastpy.object_dbf_table import ObjectDbfTable
 
 class ObjectDbfTableTest(unittest.TestCase):
     def __open(self):
-        dbf_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'devdata', 'buffalostate', 'ftt', 'PPSdata_objects.dbf'))
+        #dbf_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'devdata', 'buffalostate', 'ftt', 'PPSdata_objects.dbf'))
+        dbf_file_path = "c:\\pp5eval\\Data\\OBJECTS.DBF"
         return ObjectDbfTable.open(dbf_file_path)
 
     def test_open(self):
@@ -20,7 +20,7 @@ class ObjectDbfTableTest(unittest.TestCase):
             if record.objectid is None:
                 continue
             records_by_objectid.setdefault(record.objectid, []).append(record)
-        for objectid, records in records_by_objectid.iteritems():
+        for objectid, records in records_by_objectid.iteritems():  # @UnusedVariable
             for record in records:
                 if record.imagefile is not None:
                     print record
