@@ -2,9 +2,9 @@ from __future__ import absolute_import; import decimal
 from itertools import ifilterfalse
 import __builtin__
 import datetime
-import pastpy.models.cardinal_direction
-import pastpy.models.cat
-import pastpy.models.condition
+import pastpy.lib.models.cardinal_direction
+import pastpy.lib.models.cat
+import pastpy.lib.models.condition
 
 
 class ObjectRecord(object):
@@ -248,7 +248,7 @@ class ObjectRecord(object):
             :type bagno: int or None
             :type boxno: int or None
             :type caption: str or None
-            :type cat: pastpy.models.cat.Cat or None
+            :type cat: pastpy.lib.models.cat.Cat or None
             :type catby: str or None
             :type catdate: datetime.datetime or None
             :type cattype: str or None
@@ -262,7 +262,7 @@ class ObjectRecord(object):
             :type collector: str or None
             :type conddate: datetime.datetime or None
             :type condexam: str or None
-            :type condition: pastpy.models.condition.Condition or None
+            :type condition: pastpy.lib.models.condition.Condition or None
             :type condnotes: str or None
             :type count: str or None
             :type creator: str or None
@@ -292,7 +292,7 @@ class ObjectRecord(object):
             :type epoch: str or None
             :type era: str or None
             :type event: str or None
-            :type ew: pastpy.models.cardinal_direction.CardinalDirection or None
+            :type ew: pastpy.lib.models.cardinal_direction.CardinalDirection or None
             :type excavadate: datetime.datetime or None
             :type excavateby: str or None
             :type exhibitid: str or None
@@ -367,7 +367,7 @@ class ObjectRecord(object):
             :type nhclass: str or None
             :type nhorder: str or None
             :type notes: str or None
-            :type ns: pastpy.models.cardinal_direction.CardinalDirection or None
+            :type ns: pastpy.lib.models.cardinal_direction.CardinalDirection or None
             :type objectid: str or None
             :type objname: str or None
             :type objname2: str or None
@@ -777,7 +777,7 @@ class ObjectRecord(object):
         @property
         def cat(self):
             '''
-            :rtype: pastpy.models.cat.Cat
+            :rtype: pastpy.lib.models.cat.Cat
             '''
 
             return self.__cat
@@ -889,7 +889,7 @@ class ObjectRecord(object):
         @property
         def condition(self):
             '''
-            :rtype: pastpy.models.condition.Condition
+            :rtype: pastpy.lib.models.condition.Condition
             '''
 
             return self.__condition
@@ -1129,7 +1129,7 @@ class ObjectRecord(object):
         @property
         def ew(self):
             '''
-            :rtype: pastpy.models.cardinal_direction.CardinalDirection
+            :rtype: pastpy.lib.models.cardinal_direction.CardinalDirection
             '''
 
             return self.__ew
@@ -1729,7 +1729,7 @@ class ObjectRecord(object):
         @property
         def ns(self):
             '''
-            :rtype: pastpy.models.cardinal_direction.CardinalDirection
+            :rtype: pastpy.lib.models.cardinal_direction.CardinalDirection
             '''
 
             return self.__ns
@@ -2242,12 +2242,12 @@ class ObjectRecord(object):
 
         def set_cat(self, cat):
             '''
-            :type cat: pastpy.models.cat.Cat or None
+            :type cat: pastpy.lib.models.cat.Cat or None
             '''
 
             if cat is not None:
-                if not isinstance(cat, pastpy.models.cat.Cat):
-                    raise TypeError("expected cat to be a pastpy.models.cat.Cat but it is a %s" % getattr(__builtin__, 'type')(cat))
+                if not isinstance(cat, pastpy.lib.models.cat.Cat):
+                    raise TypeError("expected cat to be a pastpy.lib.models.cat.Cat but it is a %s" % getattr(__builtin__, 'type')(cat))
             self.__cat = cat
             return self
 
@@ -2430,12 +2430,12 @@ class ObjectRecord(object):
 
         def set_condition(self, condition):
             '''
-            :type condition: pastpy.models.condition.Condition or None
+            :type condition: pastpy.lib.models.condition.Condition or None
             '''
 
             if condition is not None:
-                if not isinstance(condition, pastpy.models.condition.Condition):
-                    raise TypeError("expected condition to be a pastpy.models.condition.Condition but it is a %s" % getattr(__builtin__, 'type')(condition))
+                if not isinstance(condition, pastpy.lib.models.condition.Condition):
+                    raise TypeError("expected condition to be a pastpy.lib.models.condition.Condition but it is a %s" % getattr(__builtin__, 'type')(condition))
             self.__condition = condition
             return self
 
@@ -2852,12 +2852,12 @@ class ObjectRecord(object):
 
         def set_ew(self, ew):
             '''
-            :type ew: pastpy.models.cardinal_direction.CardinalDirection or None
+            :type ew: pastpy.lib.models.cardinal_direction.CardinalDirection or None
             '''
 
             if ew is not None:
-                if not isinstance(ew, pastpy.models.cardinal_direction.CardinalDirection):
-                    raise TypeError("expected ew to be a pastpy.models.cardinal_direction.CardinalDirection but it is a %s" % getattr(__builtin__, 'type')(ew))
+                if not isinstance(ew, pastpy.lib.models.cardinal_direction.CardinalDirection):
+                    raise TypeError("expected ew to be a pastpy.lib.models.cardinal_direction.CardinalDirection but it is a %s" % getattr(__builtin__, 'type')(ew))
             self.__ew = ew
             return self
 
@@ -3903,12 +3903,12 @@ class ObjectRecord(object):
 
         def set_ns(self, ns):
             '''
-            :type ns: pastpy.models.cardinal_direction.CardinalDirection or None
+            :type ns: pastpy.lib.models.cardinal_direction.CardinalDirection or None
             '''
 
             if ns is not None:
-                if not isinstance(ns, pastpy.models.cardinal_direction.CardinalDirection):
-                    raise TypeError("expected ns to be a pastpy.models.cardinal_direction.CardinalDirection but it is a %s" % getattr(__builtin__, 'type')(ns))
+                if not isinstance(ns, pastpy.lib.models.cardinal_direction.CardinalDirection):
+                    raise TypeError("expected ns to be a pastpy.lib.models.cardinal_direction.CardinalDirection but it is a %s" % getattr(__builtin__, 'type')(ns))
             self.__ns = ns
             return self
 
@@ -5541,7 +5541,7 @@ class ObjectRecord(object):
             :type bagno: int or None
             :type boxno: int or None
             :type caption: str or None
-            :type cat: pastpy.models.cat.Cat or None
+            :type cat: pastpy.lib.models.cat.Cat or None
             :type catby: str or None
             :type catdate: datetime.datetime or None
             :type cattype: str or None
@@ -5555,7 +5555,7 @@ class ObjectRecord(object):
             :type collector: str or None
             :type conddate: datetime.datetime or None
             :type condexam: str or None
-            :type condition: pastpy.models.condition.Condition or None
+            :type condition: pastpy.lib.models.condition.Condition or None
             :type condnotes: str or None
             :type count: str or None
             :type creator: str or None
@@ -5585,7 +5585,7 @@ class ObjectRecord(object):
             :type epoch: str or None
             :type era: str or None
             :type event: str or None
-            :type ew: pastpy.models.cardinal_direction.CardinalDirection or None
+            :type ew: pastpy.lib.models.cardinal_direction.CardinalDirection or None
             :type excavadate: datetime.datetime or None
             :type excavateby: str or None
             :type exhibitid: str or None
@@ -5660,7 +5660,7 @@ class ObjectRecord(object):
             :type nhclass: str or None
             :type nhorder: str or None
             :type notes: str or None
-            :type ns: pastpy.models.cardinal_direction.CardinalDirection or None
+            :type ns: pastpy.lib.models.cardinal_direction.CardinalDirection or None
             :type objectid: str or None
             :type objname: str or None
             :type objname2: str or None
@@ -6210,7 +6210,7 @@ class ObjectRecord(object):
         @cat.setter
         def cat(self, cat):
             '''
-            :type cat: pastpy.models.cat.Cat or None
+            :type cat: pastpy.lib.models.cat.Cat or None
             '''
 
             self.set_cat(cat)
@@ -6322,7 +6322,7 @@ class ObjectRecord(object):
         @condition.setter
         def condition(self, condition):
             '''
-            :type condition: pastpy.models.condition.Condition or None
+            :type condition: pastpy.lib.models.condition.Condition or None
             '''
 
             self.set_condition(condition)
@@ -6562,7 +6562,7 @@ class ObjectRecord(object):
         @ew.setter
         def ew(self, ew):
             '''
-            :type ew: pastpy.models.cardinal_direction.CardinalDirection or None
+            :type ew: pastpy.lib.models.cardinal_direction.CardinalDirection or None
             '''
 
             self.set_ew(ew)
@@ -7162,7 +7162,7 @@ class ObjectRecord(object):
         @ns.setter
         def ns(self, ns):
             '''
-            :type ns: pastpy.models.cardinal_direction.CardinalDirection or None
+            :type ns: pastpy.lib.models.cardinal_direction.CardinalDirection or None
             '''
 
             self.set_ns(ns)
@@ -8192,7 +8192,7 @@ class ObjectRecord(object):
     FieldMetadata.BAGNO = FieldMetadata('bagno', int, None)
     FieldMetadata.BOXNO = FieldMetadata('boxno', int, None)
     FieldMetadata.CAPTION = FieldMetadata('caption', str, {u'blank': False, u'minLength': 1})
-    FieldMetadata.CAT = FieldMetadata('cat', pastpy.models.cat.Cat, None)
+    FieldMetadata.CAT = FieldMetadata('cat', pastpy.lib.models.cat.Cat, None)
     FieldMetadata.CATBY = FieldMetadata('catby', str, {u'blank': False, u'minLength': 1})
     FieldMetadata.CATDATE = FieldMetadata('catdate', datetime.datetime, None)
     FieldMetadata.CATTYPE = FieldMetadata('cattype', str, {u'blank': False, u'minLength': 1})
@@ -8206,7 +8206,7 @@ class ObjectRecord(object):
     FieldMetadata.COLLECTOR = FieldMetadata('collector', str, {u'blank': False, u'minLength': 1})
     FieldMetadata.CONDDATE = FieldMetadata('conddate', datetime.datetime, None)
     FieldMetadata.CONDEXAM = FieldMetadata('condexam', str, {u'blank': False, u'minLength': 1})
-    FieldMetadata.CONDITION = FieldMetadata('condition', pastpy.models.condition.Condition, None)
+    FieldMetadata.CONDITION = FieldMetadata('condition', pastpy.lib.models.condition.Condition, None)
     FieldMetadata.CONDNOTES = FieldMetadata('condnotes', str, {u'blank': False, u'minLength': 1})
     FieldMetadata.COUNT = FieldMetadata('count', str, {u'blank': False, u'minLength': 1})
     FieldMetadata.CREATOR = FieldMetadata('creator', str, {u'blank': False, u'minLength': 1})
@@ -8236,7 +8236,7 @@ class ObjectRecord(object):
     FieldMetadata.EPOCH = FieldMetadata('epoch', str, {u'blank': False, u'minLength': 1})
     FieldMetadata.ERA = FieldMetadata('era', str, {u'blank': False, u'minLength': 1})
     FieldMetadata.EVENT = FieldMetadata('event', str, {u'blank': False, u'minLength': 1})
-    FieldMetadata.EW = FieldMetadata('ew', pastpy.models.cardinal_direction.CardinalDirection, None)
+    FieldMetadata.EW = FieldMetadata('ew', pastpy.lib.models.cardinal_direction.CardinalDirection, None)
     FieldMetadata.EXCAVADATE = FieldMetadata('excavadate', datetime.datetime, None)
     FieldMetadata.EXCAVATEBY = FieldMetadata('excavateby', str, {u'blank': False, u'minLength': 1})
     FieldMetadata.EXHIBITID = FieldMetadata('exhibitid', str, {u'blank': False, u'minLength': 1})
@@ -8311,7 +8311,7 @@ class ObjectRecord(object):
     FieldMetadata.NHCLASS = FieldMetadata('nhclass', str, {u'blank': False, u'minLength': 1})
     FieldMetadata.NHORDER = FieldMetadata('nhorder', str, {u'blank': False, u'minLength': 1})
     FieldMetadata.NOTES = FieldMetadata('notes', str, {u'blank': False, u'minLength': 1})
-    FieldMetadata.NS = FieldMetadata('ns', pastpy.models.cardinal_direction.CardinalDirection, None)
+    FieldMetadata.NS = FieldMetadata('ns', pastpy.lib.models.cardinal_direction.CardinalDirection, None)
     FieldMetadata.OBJECTID = FieldMetadata('objectid', str, {u'blank': False, u'minLength': 1})
     FieldMetadata.OBJNAME = FieldMetadata('objname', str, {u'blank': False, u'minLength': 1})
     FieldMetadata.OBJNAME2 = FieldMetadata('objname2', str, {u'blank': False, u'minLength': 1})
@@ -8647,7 +8647,7 @@ class ObjectRecord(object):
         :type bagno: int or None
         :type boxno: int or None
         :type caption: str or None
-        :type cat: pastpy.models.cat.Cat or None
+        :type cat: pastpy.lib.models.cat.Cat or None
         :type catby: str or None
         :type catdate: datetime.datetime or None
         :type cattype: str or None
@@ -8661,7 +8661,7 @@ class ObjectRecord(object):
         :type collector: str or None
         :type conddate: datetime.datetime or None
         :type condexam: str or None
-        :type condition: pastpy.models.condition.Condition or None
+        :type condition: pastpy.lib.models.condition.Condition or None
         :type condnotes: str or None
         :type count: str or None
         :type creator: str or None
@@ -8691,7 +8691,7 @@ class ObjectRecord(object):
         :type epoch: str or None
         :type era: str or None
         :type event: str or None
-        :type ew: pastpy.models.cardinal_direction.CardinalDirection or None
+        :type ew: pastpy.lib.models.cardinal_direction.CardinalDirection or None
         :type excavadate: datetime.datetime or None
         :type excavateby: str or None
         :type exhibitid: str or None
@@ -8766,7 +8766,7 @@ class ObjectRecord(object):
         :type nhclass: str or None
         :type nhorder: str or None
         :type notes: str or None
-        :type ns: pastpy.models.cardinal_direction.CardinalDirection or None
+        :type ns: pastpy.lib.models.cardinal_direction.CardinalDirection or None
         :type objectid: str or None
         :type objname: str or None
         :type objname2: str or None
@@ -8943,8 +8943,8 @@ class ObjectRecord(object):
         self.__caption = caption
 
         if cat is not None:
-            if not isinstance(cat, pastpy.models.cat.Cat):
-                raise TypeError("expected cat to be a pastpy.models.cat.Cat but it is a %s" % getattr(__builtin__, 'type')(cat))
+            if not isinstance(cat, pastpy.lib.models.cat.Cat):
+                raise TypeError("expected cat to be a pastpy.lib.models.cat.Cat but it is a %s" % getattr(__builtin__, 'type')(cat))
         self.__cat = cat
 
         if catby is not None:
@@ -9047,8 +9047,8 @@ class ObjectRecord(object):
         self.__condexam = condexam
 
         if condition is not None:
-            if not isinstance(condition, pastpy.models.condition.Condition):
-                raise TypeError("expected condition to be a pastpy.models.condition.Condition but it is a %s" % getattr(__builtin__, 'type')(condition))
+            if not isinstance(condition, pastpy.lib.models.condition.Condition):
+                raise TypeError("expected condition to be a pastpy.lib.models.condition.Condition but it is a %s" % getattr(__builtin__, 'type')(condition))
         self.__condition = condition
 
         if condnotes is not None:
@@ -9289,8 +9289,8 @@ class ObjectRecord(object):
         self.__event = event
 
         if ew is not None:
-            if not isinstance(ew, pastpy.models.cardinal_direction.CardinalDirection):
-                raise TypeError("expected ew to be a pastpy.models.cardinal_direction.CardinalDirection but it is a %s" % getattr(__builtin__, 'type')(ew))
+            if not isinstance(ew, pastpy.lib.models.cardinal_direction.CardinalDirection):
+                raise TypeError("expected ew to be a pastpy.lib.models.cardinal_direction.CardinalDirection but it is a %s" % getattr(__builtin__, 'type')(ew))
         self.__ew = ew
 
         if excavadate is not None:
@@ -9890,8 +9890,8 @@ class ObjectRecord(object):
         self.__notes = notes
 
         if ns is not None:
-            if not isinstance(ns, pastpy.models.cardinal_direction.CardinalDirection):
-                raise TypeError("expected ns to be a pastpy.models.cardinal_direction.CardinalDirection but it is a %s" % getattr(__builtin__, 'type')(ns))
+            if not isinstance(ns, pastpy.lib.models.cardinal_direction.CardinalDirection):
+                raise TypeError("expected ns to be a pastpy.lib.models.cardinal_direction.CardinalDirection but it is a %s" % getattr(__builtin__, 'type')(ns))
         self.__ns = ns
 
         if objectid is not None:
@@ -12138,7 +12138,7 @@ class ObjectRecord(object):
     @property
     def cat(self):
         '''
-        :rtype: pastpy.models.cat.Cat
+        :rtype: pastpy.lib.models.cat.Cat
         '''
 
         return self.__cat
@@ -12250,7 +12250,7 @@ class ObjectRecord(object):
     @property
     def condition(self):
         '''
-        :rtype: pastpy.models.condition.Condition
+        :rtype: pastpy.lib.models.condition.Condition
         '''
 
         return self.__condition
@@ -12490,7 +12490,7 @@ class ObjectRecord(object):
     @property
     def ew(self):
         '''
-        :rtype: pastpy.models.cardinal_direction.CardinalDirection
+        :rtype: pastpy.lib.models.cardinal_direction.CardinalDirection
         '''
 
         return self.__ew
@@ -13090,7 +13090,7 @@ class ObjectRecord(object):
     @property
     def ns(self):
         '''
-        :rtype: pastpy.models.cardinal_direction.CardinalDirection
+        :rtype: pastpy.lib.models.cardinal_direction.CardinalDirection
         '''
 
         return self.__ns
@@ -13293,7 +13293,7 @@ class ObjectRecord(object):
         Read a new object from the given input protocol and return the object.
 
         :type iprot: thryft.protocol._input_protocol._InputProtocol
-        :rtype: pastpy.models.object_record.ObjectRecord
+        :rtype: pastpy.lib.models.object_record.ObjectRecord
         '''
 
         init_kwds = {}
@@ -13355,7 +13355,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'cat':
                 try:
-                    init_kwds['cat'] = pastpy.models.cat.Cat.value_of(iprot.read_string().strip().upper())
+                    init_kwds['cat'] = pastpy.lib.models.cat.Cat.value_of(iprot.read_string().strip().upper())
                 except (TypeError,):
                     pass
             elif ifield_name == 'catby':
@@ -13425,7 +13425,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'condition':
                 try:
-                    init_kwds['condition'] = pastpy.models.condition.Condition.value_of(iprot.read_string().strip().upper())
+                    init_kwds['condition'] = pastpy.lib.models.condition.Condition.value_of(iprot.read_string().strip().upper())
                 except (TypeError,):
                     pass
             elif ifield_name == 'condnotes':
@@ -13575,7 +13575,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'ew':
                 try:
-                    init_kwds['ew'] = pastpy.models.cardinal_direction.CardinalDirection.value_of(iprot.read_string().strip().upper())
+                    init_kwds['ew'] = pastpy.lib.models.cardinal_direction.CardinalDirection.value_of(iprot.read_string().strip().upper())
                 except (TypeError,):
                     pass
             elif ifield_name == 'excavadate':
@@ -13941,7 +13941,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'ns':
                 try:
-                    init_kwds['ns'] = pastpy.models.cardinal_direction.CardinalDirection.value_of(iprot.read_string().strip().upper())
+                    init_kwds['ns'] = pastpy.lib.models.cardinal_direction.CardinalDirection.value_of(iprot.read_string().strip().upper())
                 except (TypeError,):
                     pass
             elif ifield_name == 'objectid':
@@ -14771,7 +14771,7 @@ class ObjectRecord(object):
         :type bagno: int or None
         :type boxno: int or None
         :type caption: str or None
-        :type cat: pastpy.models.cat.Cat or None
+        :type cat: pastpy.lib.models.cat.Cat or None
         :type catby: str or None
         :type catdate: datetime.datetime or None
         :type cattype: str or None
@@ -14785,7 +14785,7 @@ class ObjectRecord(object):
         :type collector: str or None
         :type conddate: datetime.datetime or None
         :type condexam: str or None
-        :type condition: pastpy.models.condition.Condition or None
+        :type condition: pastpy.lib.models.condition.Condition or None
         :type condnotes: str or None
         :type count: str or None
         :type creator: str or None
@@ -14815,7 +14815,7 @@ class ObjectRecord(object):
         :type epoch: str or None
         :type era: str or None
         :type event: str or None
-        :type ew: pastpy.models.cardinal_direction.CardinalDirection or None
+        :type ew: pastpy.lib.models.cardinal_direction.CardinalDirection or None
         :type excavadate: datetime.datetime or None
         :type excavateby: str or None
         :type exhibitid: str or None
@@ -14890,7 +14890,7 @@ class ObjectRecord(object):
         :type nhclass: str or None
         :type nhorder: str or None
         :type notes: str or None
-        :type ns: pastpy.models.cardinal_direction.CardinalDirection or None
+        :type ns: pastpy.lib.models.cardinal_direction.CardinalDirection or None
         :type objectid: str or None
         :type objname: str or None
         :type objname2: str or None
@@ -14986,7 +14986,7 @@ class ObjectRecord(object):
         :type zcord: str or None
         :type zsorter: str or None
         :type zsorterx: str or None
-        :rtype: pastpy.models.object_record.ObjectRecord
+        :rtype: pastpy.lib.models.object_record.ObjectRecord
         '''
 
         if accessno is None:
@@ -15862,7 +15862,7 @@ class ObjectRecord(object):
         Write this object to the given output protocol and return self.
 
         :type oprot: thryft.protocol._output_protocol._OutputProtocol
-        :rtype: pastpy.models.object_record.ObjectRecord
+        :rtype: pastpy.lib.models.object_record.ObjectRecord
         '''
 
         oprot.write_struct_begin('ObjectRecord')

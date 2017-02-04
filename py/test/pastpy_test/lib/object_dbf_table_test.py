@@ -1,7 +1,7 @@
 import unittest
 
-from pastpy.models.object_record import ObjectRecord
-from pastpy.object_dbf_table import ObjectDbfTable
+from pastpy.lib.models.object_record import ObjectRecord
+from pastpy.lib.object_dbf_table import ObjectDbfTable
 
 
 class ObjectDbfTableTest(unittest.TestCase):
