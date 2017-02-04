@@ -1,15 +1,15 @@
 from pastpy._dbf_table import _DbfTable
-from pastpy.models.object import Object
+from pastpy.models.object_record import ObjectRecord
 
 
 class ObjectDbfTable(_DbfTable):
     def _map_record(self, record):
-        object_builder = Object.Builder()
+        object_record_builder = ObjectRecord.Builder()
         for field_name in self.field_names:
             self._map_record_field(
                 field_name=field_name,
                 field_value=record[field_name],
-                struct_builder=object_builder,
-                struct_type=Object
+                struct_builder=object_record_builder,
+                struct_type=ObjectRecord
             )
-        return object_builder.build()
+        return object_record_builder.build()

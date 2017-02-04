@@ -1,6 +1,6 @@
 import unittest
 
-from pastpy.models.object import Object
+from pastpy.models.object_record import ObjectRecord
 from pastpy.object_dbf_table import ObjectDbfTable
 
 
@@ -16,7 +16,7 @@ class ObjectDbfTableTest(unittest.TestCase):
     def test_records(self):
         records_by_objectid = {}
         for record in self.__open().records():
-            assert isinstance(record, Object)
+            assert isinstance(record, ObjectRecord)
             if record.objectid is None:
                 continue
             records_by_objectid.setdefault(record.objectid, []).append(record)

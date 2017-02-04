@@ -7,7 +7,7 @@ include "thryft/native/date_time.thrift"
 include "thryft/native/decimal.thrift"
 include "thryft/native/variant.thrift"
 
-struct Object {
+struct ObjectRecord {
     // @validation {"blank": false, "minLength": 1}
     optional string accessno;
 
