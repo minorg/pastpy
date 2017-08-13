@@ -23,6 +23,7 @@ class Main(thryft.main.Main):
     def __init__(self, **kwds):
         thryft.main.Main.__init__(
             self,
+            document_root_dir_path=os.path.join(ROOT_DIR_PATH, 'thrift', 'src'),
             include_dir_paths=(
                 os.path.join(ROOT_DIR_PATH, 'thrift', 'src'),
             ),
@@ -39,10 +40,8 @@ class Main(thryft.main.Main):
     def _compile(self):
         self._clean()
 
-        thrift_src_root_dir_path = os.path.join(ROOT_DIR_PATH, 'thrift', 'src')
-
         for thrift_subdir_name in ('lib',):
-            thrift_src_dir_path = os.path.join(thrift_src_root_dir_path, 'pastpy', thrift_subdir_name)
+            thrift_src_dir_path = os.path.join(self.document_root_dir_path, 'pastpy', thrift_subdir_name)
             if not os.path.isdir(thrift_src_dir_path):
                 continue
 
@@ -50,7 +49,6 @@ class Main(thryft.main.Main):
 #                 thrift_file_name = os.path.split(thrift_file_path)[1]
 
                 compile_kwds = {
-                    'document_root_dir_path': thrift_src_root_dir_path,
                     'thrift_file_path': thrift_file_path
                 }
 
@@ -61,7 +59,7 @@ class Main(thryft.main.Main):
 
                 self._compile_thrift_file(
                     generator=PyGenerator(),
-                    out=os.path.join(ROOT_DIR_PATH, 'py', 'src'),
+                    out=os.path.join(ROOT_DIR_PATH, 'py', thrift_subdir_name, 'src'),
                     **compile_kwds
                 )
 
