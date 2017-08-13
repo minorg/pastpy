@@ -38,8 +38,6 @@ class Main(thryft.main.Main):
                 shutil.rmtree(dir_path)
 
     def _compile(self):
-        self._clean()
-
         for thrift_subdir_name in ('lib',):
             thrift_src_dir_path = os.path.join(self.document_root_dir_path, 'pastpy', thrift_subdir_name)
             if not os.path.isdir(thrift_src_dir_path):
@@ -59,7 +57,7 @@ class Main(thryft.main.Main):
 
                 self._compile_thrift_file(
                     generator=PyGenerator(),
-                    out=os.path.join(ROOT_DIR_PATH, 'py', thrift_subdir_name, 'src'),
+                    out=os.path.join(ROOT_DIR_PATH, 'py', 'src'),
                     **compile_kwds
                 )
 
