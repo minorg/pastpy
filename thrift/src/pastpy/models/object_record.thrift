@@ -1,4 +1,4 @@
-namespace * pastpy.lib.models
+namespace * pastpy.models
 
 include "pastpy/lib/models/cardinal_direction.thrift"
 include "pastpy/lib/models/cat.thrift"

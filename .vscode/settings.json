@@ -1,4 +1,10 @@
 {
+    "files.exclude": {
+        "**/build": true,
+        "**/dist": true,
+        "**/.git": true,
+        "**/*.pyc": true
+    },
     "python.unitTest.unittestArgs": [
         "discover",
         "-v",

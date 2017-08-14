@@ -1,4 +1,4 @@
-namespace * pastpy.lib.models
+namespace * pastpy.models
 
 enum Condition {
     EXCELLENT,

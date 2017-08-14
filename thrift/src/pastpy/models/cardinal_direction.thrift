@@ -1,4 +1,4 @@
-namespace * pastpy.lib.models
+namespace * pastpy
 
 enum CardinalDirection {
     E, N, S, W

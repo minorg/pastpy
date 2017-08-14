@@ -32,34 +32,27 @@ class Main(thryft.main.Main):
 
     def _clean(self):
         for dir_path in (
-             os.path.join(ROOT_DIR_PATH, 'py', 'src', 'pastpy', 'lib', 'models'),
+             os.path.join(ROOT_DIR_PATH, 'py', 'src', 'pastpy', 'models'),
         ):
             if os.path.isdir(dir_path):
                 shutil.rmtree(dir_path)
 
     def _compile(self):
-        for thrift_subdir_name in ('lib',):
-            thrift_src_dir_path = os.path.join(self.document_root_dir_path, 'pastpy', thrift_subdir_name)
-            if not os.path.isdir(thrift_src_dir_path):
-                continue
+        for thrift_file_path in self._get_thrift_file_paths(self.document_root_dir_path):
+            compile_kwds = {
+                'thrift_file_path': thrift_file_path
+            }
 
-            for thrift_file_path in self._get_thrift_file_paths(thrift_src_dir_path):
-#                 thrift_file_name = os.path.split(thrift_file_path)[1]
+            self._compile_thrift_file(
+                generator=LintGenerator(),
+                **compile_kwds
+            )
 
-                compile_kwds = {
-                    'thrift_file_path': thrift_file_path
-                }
-
-                self._compile_thrift_file(
-                    generator=LintGenerator(),
-                    **compile_kwds
-                )
-
-                self._compile_thrift_file(
-                    generator=PyGenerator(),
-                    out=os.path.join(ROOT_DIR_PATH, 'py', 'src'),
-                    **compile_kwds
-                )
+            self._compile_thrift_file(
+                generator=PyGenerator(),
+                out=os.path.join(ROOT_DIR_PATH, 'py', 'src'),
+                **compile_kwds
+            )
 
 assert __name__ == '__main__'
 Main.main()
