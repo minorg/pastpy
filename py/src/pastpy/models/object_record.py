@@ -2920,7 +2920,7 @@ class ObjectRecord(object):
             '''
 
             if exhlabel is not None:
-                if not (isinstance(exhlabel, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), exhlabel.iteritems()))) == 0):
+                if not (isinstance(exhlabel, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), exhlabel.items()))) == 0):
                     raise TypeError("expected exhlabel to be a dict(int: str) but it is a %s" % builtins.type(exhlabel))
                 if len(exhlabel) < 1:
                     raise ValueError("expected len(exhlabel) to be >= 1, was %d" % len(exhlabel))
@@ -3706,7 +3706,7 @@ class ObjectRecord(object):
             '''
 
             if locfield is not None:
-                if not (isinstance(locfield, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), locfield.iteritems()))) == 0):
+                if not (isinstance(locfield, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), locfield.items()))) == 0):
                     raise TypeError("expected locfield to be a dict(int: str) but it is a %s" % builtins.type(locfield))
                 if len(locfield) < 1:
                     raise ValueError("expected len(locfield) to be >= 1, was %d" % len(locfield))
@@ -5008,7 +5008,7 @@ class ObjectRecord(object):
             '''
 
             if tlocfield is not None:
-                if not (isinstance(tlocfield, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), tlocfield.iteritems()))) == 0):
+                if not (isinstance(tlocfield, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), tlocfield.items()))) == 0):
                     raise TypeError("expected tlocfield to be a dict(int: str) but it is a %s" % builtins.type(tlocfield))
                 if len(tlocfield) < 1:
                     raise ValueError("expected len(tlocfield) to be >= 1, was %d" % len(tlocfield))
@@ -5021,7 +5021,7 @@ class ObjectRecord(object):
             '''
 
             if udf is not None:
-                if not (isinstance(udf, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and True, udf.iteritems()))) == 0):
+                if not (isinstance(udf, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and True, udf.items()))) == 0):
                     raise TypeError("expected udf to be a dict(int: object) but it is a %s" % builtins.type(udf))
                 if len(udf) < 1:
                     raise ValueError("expected len(udf) to be >= 1, was %d" % len(udf))
@@ -5986,7 +5986,7 @@ class ObjectRecord(object):
                 self.set_zsorter(object_record.zsorter)
                 self.set_zsorterx(object_record.zsorterx)
             elif isinstance(object_record, dict):
-                for key, value in object_record.iteritems():
+                for key, value in object_record.items():
                     getattr(self, 'set_' + key)(value)
             else:
                 raise TypeError(object_record)
@@ -9323,7 +9323,7 @@ class ObjectRecord(object):
         self.__exhibitno = exhibitno
 
         if exhlabel is not None:
-            if not (isinstance(exhlabel, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), exhlabel.iteritems()))) == 0):
+            if not (isinstance(exhlabel, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), exhlabel.items()))) == 0):
                 raise TypeError("expected exhlabel to be a dict(int: str) but it is a %s" % builtins.type(exhlabel))
             if len(exhlabel) < 1:
                 raise ValueError("expected len(exhlabel) to be >= 1, was %d" % len(exhlabel))
@@ -9773,7 +9773,7 @@ class ObjectRecord(object):
         self.__loanrenew = loanrenew
 
         if locfield is not None:
-            if not (isinstance(locfield, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), locfield.iteritems()))) == 0):
+            if not (isinstance(locfield, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), locfield.items()))) == 0):
                 raise TypeError("expected locfield to be a dict(int: str) but it is a %s" % builtins.type(locfield))
             if len(locfield) < 1:
                 raise ValueError("expected len(locfield) to be >= 1, was %d" % len(locfield))
@@ -10535,14 +10535,14 @@ class ObjectRecord(object):
         self.__title = title
 
         if tlocfield is not None:
-            if not (isinstance(tlocfield, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), tlocfield.iteritems()))) == 0):
+            if not (isinstance(tlocfield, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), tlocfield.items()))) == 0):
                 raise TypeError("expected tlocfield to be a dict(int: str) but it is a %s" % builtins.type(tlocfield))
             if len(tlocfield) < 1:
                 raise ValueError("expected len(tlocfield) to be >= 1, was %d" % len(tlocfield))
         self.__tlocfield = tlocfield.copy() if tlocfield is not None else None
 
         if udf is not None:
-            if not (isinstance(udf, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and True, udf.iteritems()))) == 0):
+            if not (isinstance(udf, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and True, udf.items()))) == 0):
                 raise TypeError("expected udf to be a dict(int: object) but it is a %s" % builtins.type(udf))
             if len(udf) < 1:
                 raise ValueError("expected len(udf) to be >= 1, was %d" % len(udf))
@@ -16166,7 +16166,7 @@ class ObjectRecord(object):
         if self.exhlabel is not None:
             oprot.write_field_begin(name='exhlabel', type=13, id=None)
             oprot.write_map_begin(8, len(self.exhlabel), 11)
-            for __key0, __value0 in self.exhlabel.iteritems():
+            for __key0, __value0 in self.exhlabel.items():
                 oprot.write_i32(__key0)
                 oprot.write_string(__value0)
             oprot.write_map_end()
@@ -16450,7 +16450,7 @@ class ObjectRecord(object):
         if self.locfield is not None:
             oprot.write_field_begin(name='locfield', type=13, id=None)
             oprot.write_map_begin(8, len(self.locfield), 11)
-            for __key0, __value0 in self.locfield.iteritems():
+            for __key0, __value0 in self.locfield.items():
                 oprot.write_i32(__key0)
                 oprot.write_string(__value0)
             oprot.write_map_end()
@@ -16904,7 +16904,7 @@ class ObjectRecord(object):
         if self.tlocfield is not None:
             oprot.write_field_begin(name='tlocfield', type=13, id=None)
             oprot.write_map_begin(8, len(self.tlocfield), 11)
-            for __key0, __value0 in self.tlocfield.iteritems():
+            for __key0, __value0 in self.tlocfield.items():
                 oprot.write_i32(__key0)
                 oprot.write_string(__value0)
             oprot.write_map_end()
@@ -16913,7 +16913,7 @@ class ObjectRecord(object):
         if self.udf is not None:
             oprot.write_field_begin(name='udf', type=13, id=None)
             oprot.write_map_begin(8, len(self.udf), 12)
-            for __key0, __value0 in self.udf.iteritems():
+            for __key0, __value0 in self.udf.items():
                 oprot.write_i32(__key0)
                 oprot.write_variant(__value0)
             oprot.write_map_end()
