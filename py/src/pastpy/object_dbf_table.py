@@ -1,5 +1,5 @@
-from pastpy.lib._dbf_table import _DbfTable
-from pastpy.lib.models.object_record import ObjectRecord
+from pastpy._dbf_table import _DbfTable
+from pastpy.models.object_record import ObjectRecord
 
 
 class ObjectDbfTable(_DbfTable):
