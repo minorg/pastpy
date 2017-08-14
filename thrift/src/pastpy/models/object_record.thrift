@@ -1,8 +1,8 @@
 namespace * pastpy.models
 
-include "pastpy/lib/models/cardinal_direction.thrift"
-include "pastpy/lib/models/cat.thrift"
-include "pastpy/lib/models/condition.thrift"
+include "pastpy/models/cardinal_direction.thrift"
+include "pastpy/models/cat.thrift"
+include "pastpy/models/condition.thrift"
 include "thryft/native/date_time.thrift"
 include "thryft/native/decimal.thrift"
 include "thryft/native/variant.thrift"
