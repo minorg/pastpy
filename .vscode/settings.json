@@ -9,5 +9,5 @@
         "py"
     ],
     "python.unitTest.nosetestsEnabled": true,
-    "python.linting.enabled": false
+    "python.autoComplete.extraPaths": ["${workspaceRoot}/lib/py/src", "${workspaceRoot}/gui/py/src"]
 }
