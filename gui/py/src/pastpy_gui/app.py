@@ -1,7 +1,4 @@
-import sys; print(sys.path)
-
 import wx
-
 from my_frame import MyFrame
 
 app = wx.App(False)

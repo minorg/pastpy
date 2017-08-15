@@ -9,5 +9,11 @@
         "py"
     ],
     "python.unitTest.nosetestsEnabled": true,
-    "python.autoComplete.extraPaths": ["${workspaceRoot}/lib/py/src", "${workspaceRoot}/gui/py/src"]
+    "python.autoComplete.extraPaths": [
+        "${workspaceRoot}/lib/py/src",
+        "${workspaceRoot}/gui/py/src"
+    ],
+    "python.linting.pep8Enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintArgs": ["--disable=C0111", "--disable=C0103", "--disable=E0401", "--disable=E1101"]
 }
