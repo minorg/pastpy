@@ -37,9 +37,9 @@ class _DbfTable(object):
             assert field_number is not None
             assert not field_number in existing_field_value
             existing_field_value[field_number] = field_value
-            print(existing_field_value)
+            # print(existing_field_value)
             return existing_field_value
-            raise NotImplementedError("%(field_name)s: %(field_value)s" % locals())
+            # raise NotImplementedError("%(field_name)s: %(field_value)s" % locals())
         elif field_metadata.type == str:
             if not isinstance(field_value, str):
                 logging.info("converting %s=%s (%s) to string", field_name, field_value, type(field_value))
