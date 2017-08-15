@@ -20,7 +20,8 @@ class ObjectDbfTableTest(unittest.TestCase):
             if record.objectid is None:
                 continue
             records_by_objectid.setdefault(record.objectid, []).append(record)
-        for objectid, records in records_by_objectid.iteritems():  # @UnusedVariable
+        for objectid, records in records_by_objectid.items():  # @UnusedVariable
             for record in records:
                 if record.imagefile is not None:
-                    print(record)
+                    pass
+                    # print(record)

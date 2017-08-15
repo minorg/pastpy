@@ -5,13 +5,9 @@
         "**/.git": true,
         "**/*.pyc": true
     },
-    "python.unitTest.unittestArgs": [
-        "discover",
-        "-v",
-        "-s",
-        ".\\py\test\\pastpy_test\\lib",
-        "-p",
-        "*_test.py"
+    "python.unitTest.nosetestArgs": [
+        "py"
     ],
-    "python.unitTest.unittestEnabled": true
+    "python.unitTest.nosetestsEnabled": true,
+    "python.linting.enabled": false
 }
