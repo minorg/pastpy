@@ -6,7 +6,8 @@
         "**/*.pyc": true
     },
     "python.unitTest.nosetestArgs": [
-        "py"
+        "lib/py",
+        "site_generator/py"
     ],
     "python.unitTest.nosetestsEnabled": true,
     "python.autoComplete.extraPaths": [
