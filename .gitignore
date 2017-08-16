@@ -1,3 +1,4 @@
 devdata
 .noseids
+__pycache__/
 /temp/
