@@ -9,13 +9,32 @@ class AppFrame(wx.Frame):
     def __init__(self):
         wx.Frame.__init__(self, None, title='PastPy')
 
+        self.SetBackgroundColour(wx.WHITE)
         self.SetMenuBar(self._create_menu_bar())
 
-        sizer = wx.BoxSizer(orient=wx.VERTICAL)
-        sizer.Add(self._add_control_panel(), flag=wx.EXPAND)
-        sizer.Add(self._add_log_panel(), flag=wx.EXPAND)
-        self.SetAutoLayout(True)
-        self.SetSizerAndFit(sizer)
+        vertical_sizer = wx.BoxSizer(orient=wx.VERTICAL)
+
+        vertical_sizer.AddSpacer(10)
+
+        title_label = wx.StaticText(
+            parent=self, label='PastPy', style=wx.ALIGN_CENTRE_HORIZONTAL)
+        title_label.SetFont(wx.Font(24, wx.DECORATIVE, wx.NORMAL, wx.BOLD))
+        vertical_sizer.Add(
+            title_label, flag=wx.ALIGN_CENTER_HORIZONTAL | wx.EXPAND)
+
+        vertical_sizer.AddSpacer(10)
+
+        vertical_sizer.Add(self._add_control_panel(), flag=wx.EXPAND)
+
+        vertical_sizer.AddSpacer(100)
+
+        vertical_sizer.Add(self._add_log_panel(), flag=wx.EXPAND)
+
+        horizontal_sizer = wx.BoxSizer(orient=wx.HORIZONTAL)
+        horizontal_sizer.AddStretchSpacer(prop=1)
+        horizontal_sizer.Add(vertical_sizer, proportion=4)
+        horizontal_sizer.AddStretchSpacer(prop=1)
+        self.SetSizerAndFit(horizontal_sizer)
 
         self.Show(True)
         self.Maximize(True)
