@@ -104,9 +104,9 @@ class _DbfTable(object):
             raise ValueError("%(new_field_value)s: %(e)s" % locals())
 
     def __enter__(self):
-        pass
+        return self
 
-    def __exit__(self):
+    def __exit__(self, *args, **kwds):
         self.__table.close()
 
     @property

@@ -3,10 +3,11 @@ import pystache
 import sys
 
 try:
-    import pastpy
+    __import__('pastpy')
 except ImportError:
     sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'lib', 'py', 'src')))
-    import pastpy
+    __import__('pastpy')
+from pastpy.object_dbf_table import ObjectDbfTable
 
 
 class SiteGenerator(object):
@@ -21,22 +22,18 @@ class SiteGenerator(object):
         if template_dir_path is None:
             template_dir_path = \
                 os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'mustache'))
-        self.__template_dir_path = template_dir_path
+        self.__renderer = \
+            pystache.Renderer(
+                missing_tags='strict',
+                search_dirs=(template_dir_path,)
+            )
 
     def generate(self):
         if not os.path.isdir(self.__output_dir_path):
             os.makedirs(self.__output_dir_path)
 
-        renderer = \
-            pystache.Renderer(
-                missing_tags='strict',
-                search_dirs=(self.__template_dir_path,)
-            )
-        for file_base_name in ('index',):
-            rendered = renderer.render_name(file_base_name + '.html')
-            out_file_path = os.path.join(self.__output_dir_path, file_base_name + '.html')
-            with open(out_file_path, 'w+') as out_file:
-                out_file.write(rendered)
+        self.__render_index()
+        self.__render_objects()
 
     @classmethod
     def main(cls):
@@ -53,6 +50,24 @@ class SiteGenerator(object):
             pp_install_dir_path=args.pp_install_dir_path,
             template_dir_path=args.template_dir_path
         ).generate()
+
+    def __read_objects(self):
+        with ObjectDbfTable.open(os.path.join(self.__pp_install_dir_path, 'Data', 'OBJECTS.DBF')) as table:
+            for object_record in table.records():
+                print(object_record)
+                break
+
+    def __render_file(self, file_base_name, context):
+        rendered = self.__renderer.render_name(file_base_name + '.html')
+        out_file_path = os.path.join(self.__output_dir_path, file_base_name + '.html')
+        with open(out_file_path, 'w+') as out_file:
+            out_file.write(rendered)
+
+    def __render_index(self):
+        self.__render_file('index', {})
+
+    def __render_objects(self):
+        objects = self.__read_objects()
 
 
 if __name__ == '__main__':
