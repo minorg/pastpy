@@ -1,6 +1,6 @@
 import wx
-from my_frame import MyFrame
+from app_frame import AppFrame
 
-app = wx.App(False)
-frame = MyFrame(None, 'PastPy')
+app = wx.App(redirect=False, useBestVisual=True)
+frame = AppFrame()
 app.MainLoop()

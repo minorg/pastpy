@@ -26,5 +26,10 @@
     "python.linting.pep8Args": [
         "--ignore=E501"
     ],
-    "python.linting.flake8Args": ["--ignore", "E501"]
+    "python.linting.flake8Args": [
+        "--ignore",
+        "E501"
+    ],
+    "python.autoComplete.addBrackets": true,
+    "editor.formatOnSave": true
 }
