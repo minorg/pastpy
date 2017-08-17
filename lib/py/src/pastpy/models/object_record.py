@@ -11151,35 +11151,35 @@ class ObjectRecord(object):
     def __repr__(self):
         field_reprs = []
         if self.accessno is not None:
-            field_reprs.append('accessno=' + "'" + self.accessno.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('accessno=' + "'" + self.accessno.encode('ascii', 'replace').decode('ascii') + "'")
         if self.accessory is not None:
-            field_reprs.append('accessory=' + "'" + self.accessory.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('accessory=' + "'" + self.accessory.encode('ascii', 'replace').decode('ascii') + "'")
         if self.acqvalue is not None:
             field_reprs.append('acqvalue=' + repr(self.acqvalue))
         if self.age is not None:
-            field_reprs.append('age=' + "'" + self.age.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('age=' + "'" + self.age.encode('ascii', 'replace').decode('ascii') + "'")
         if self.appnotes is not None:
-            field_reprs.append('appnotes=' + "'" + self.appnotes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('appnotes=' + "'" + self.appnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.appraisor is not None:
-            field_reprs.append('appraisor=' + "'" + self.appraisor.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('appraisor=' + "'" + self.appraisor.encode('ascii', 'replace').decode('ascii') + "'")
         if self.assemzone is not None:
-            field_reprs.append('assemzone=' + "'" + self.assemzone.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('assemzone=' + "'" + self.assemzone.encode('ascii', 'replace').decode('ascii') + "'")
         if self.bagno is not None:
             field_reprs.append('bagno=' + repr(self.bagno))
         if self.boxno is not None:
             field_reprs.append('boxno=' + repr(self.boxno))
         if self.caption is not None:
-            field_reprs.append('caption=' + "'" + self.caption.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('caption=' + "'" + self.caption.encode('ascii', 'replace').decode('ascii') + "'")
         if self.cat is not None:
             field_reprs.append('cat=' + repr(self.cat))
         if self.catby is not None:
-            field_reprs.append('catby=' + "'" + self.catby.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('catby=' + "'" + self.catby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.catdate is not None:
             field_reprs.append('catdate=' + repr(self.catdate))
         if self.cattype is not None:
-            field_reprs.append('cattype=' + "'" + self.cattype.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('cattype=' + "'" + self.cattype.encode('ascii', 'replace').decode('ascii') + "'")
         if self.chemcomp is not None:
-            field_reprs.append('chemcomp=' + "'" + self.chemcomp.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('chemcomp=' + "'" + self.chemcomp.encode('ascii', 'replace').decode('ascii') + "'")
         if self.circum is not None:
             field_reprs.append('circum=' + repr(self.circum))
         if self.circumft is not None:
@@ -11187,47 +11187,47 @@ class ObjectRecord(object):
         if self.circumin is not None:
             field_reprs.append('circumin=' + repr(self.circumin))
         if self.classes is not None:
-            field_reprs.append('classes=' + "'" + self.classes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('classes=' + "'" + self.classes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.colldate is not None:
             field_reprs.append('colldate=' + repr(self.colldate))
         if self.collection is not None:
-            field_reprs.append('collection=' + "'" + self.collection.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('collection=' + "'" + self.collection.encode('ascii', 'replace').decode('ascii') + "'")
         if self.collector is not None:
-            field_reprs.append('collector=' + "'" + self.collector.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('collector=' + "'" + self.collector.encode('ascii', 'replace').decode('ascii') + "'")
         if self.conddate is not None:
             field_reprs.append('conddate=' + repr(self.conddate))
         if self.condexam is not None:
-            field_reprs.append('condexam=' + "'" + self.condexam.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('condexam=' + "'" + self.condexam.encode('ascii', 'replace').decode('ascii') + "'")
         if self.condition is not None:
             field_reprs.append('condition=' + repr(self.condition))
         if self.condnotes is not None:
-            field_reprs.append('condnotes=' + "'" + self.condnotes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('condnotes=' + "'" + self.condnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.count is not None:
-            field_reprs.append('count=' + "'" + self.count.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('count=' + "'" + self.count.encode('ascii', 'replace').decode('ascii') + "'")
         if self.creator is not None:
-            field_reprs.append('creator=' + "'" + self.creator.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('creator=' + "'" + self.creator.encode('ascii', 'replace').decode('ascii') + "'")
         if self.creator2 is not None:
-            field_reprs.append('creator2=' + "'" + self.creator2.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('creator2=' + "'" + self.creator2.encode('ascii', 'replace').decode('ascii') + "'")
         if self.creator3 is not None:
-            field_reprs.append('creator3=' + "'" + self.creator3.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('creator3=' + "'" + self.creator3.encode('ascii', 'replace').decode('ascii') + "'")
         if self.credit is not None:
-            field_reprs.append('credit=' + "'" + self.credit.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('credit=' + "'" + self.credit.encode('ascii', 'replace').decode('ascii') + "'")
         if self.crystal is not None:
-            field_reprs.append('crystal=' + "'" + self.crystal.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('crystal=' + "'" + self.crystal.encode('ascii', 'replace').decode('ascii') + "'")
         if self.culture is not None:
-            field_reprs.append('culture=' + "'" + self.culture.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('culture=' + "'" + self.culture.encode('ascii', 'replace').decode('ascii') + "'")
         if self.curvalmax is not None:
             field_reprs.append('curvalmax=' + repr(self.curvalmax))
         if self.curvalue is not None:
             field_reprs.append('curvalue=' + repr(self.curvalue))
         if self.dataset is not None:
-            field_reprs.append('dataset=' + "'" + self.dataset.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('dataset=' + "'" + self.dataset.encode('ascii', 'replace').decode('ascii') + "'")
         if self.date is not None:
-            field_reprs.append('date=' + "'" + self.date.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('date=' + "'" + self.date.encode('ascii', 'replace').decode('ascii') + "'")
         if self.datingmeth is not None:
-            field_reprs.append('datingmeth=' + "'" + self.datingmeth.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('datingmeth=' + "'" + self.datingmeth.encode('ascii', 'replace').decode('ascii') + "'")
         if self.datum is not None:
-            field_reprs.append('datum=' + "'" + self.datum.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('datum=' + "'" + self.datum.encode('ascii', 'replace').decode('ascii') + "'")
         if self.depth is not None:
             field_reprs.append('depth=' + repr(self.depth))
         if self.depthft is not None:
@@ -11235,7 +11235,7 @@ class ObjectRecord(object):
         if self.depthin is not None:
             field_reprs.append('depthin=' + repr(self.depthin))
         if self.descrip is not None:
-            field_reprs.append('descrip=' + "'" + self.descrip.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('descrip=' + "'" + self.descrip.encode('ascii', 'replace').decode('ascii') + "'")
         if self.diameter is not None:
             field_reprs.append('diameter=' + repr(self.diameter))
         if self.diameterft is not None:
@@ -11243,67 +11243,67 @@ class ObjectRecord(object):
         if self.diameterin is not None:
             field_reprs.append('diameterin=' + repr(self.diameterin))
         if self.dimnotes is not None:
-            field_reprs.append('dimnotes=' + "'" + self.dimnotes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('dimnotes=' + "'" + self.dimnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.dimtype is not None:
             field_reprs.append('dimtype=' + repr(self.dimtype))
         if self.dispvalue is not None:
-            field_reprs.append('dispvalue=' + "'" + self.dispvalue.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('dispvalue=' + "'" + self.dispvalue.encode('ascii', 'replace').decode('ascii') + "'")
         if self.earlydate is not None:
-            field_reprs.append('earlydate=' + "'" + self.earlydate.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('earlydate=' + "'" + self.earlydate.encode('ascii', 'replace').decode('ascii') + "'")
         if self.elements is not None:
-            field_reprs.append('elements=' + "'" + self.elements.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('elements=' + "'" + self.elements.encode('ascii', 'replace').decode('ascii') + "'")
         if self.epoch is not None:
-            field_reprs.append('epoch=' + "'" + self.epoch.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('epoch=' + "'" + self.epoch.encode('ascii', 'replace').decode('ascii') + "'")
         if self.era is not None:
-            field_reprs.append('era=' + "'" + self.era.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('era=' + "'" + self.era.encode('ascii', 'replace').decode('ascii') + "'")
         if self.event is not None:
-            field_reprs.append('event=' + "'" + self.event.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('event=' + "'" + self.event.encode('ascii', 'replace').decode('ascii') + "'")
         if self.ew is not None:
             field_reprs.append('ew=' + repr(self.ew))
         if self.excavadate is not None:
             field_reprs.append('excavadate=' + repr(self.excavadate))
         if self.excavateby is not None:
-            field_reprs.append('excavateby=' + "'" + self.excavateby.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('excavateby=' + "'" + self.excavateby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.exhibitid is not None:
-            field_reprs.append('exhibitid=' + "'" + self.exhibitid.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('exhibitid=' + "'" + self.exhibitid.encode('ascii', 'replace').decode('ascii') + "'")
         if self.exhibitno is not None:
             field_reprs.append('exhibitno=' + repr(self.exhibitno))
         if self.exhlabel is not None:
             field_reprs.append('exhlabel=' + repr(self.exhlabel))
         if self.exhstart is not None:
-            field_reprs.append('exhstart=' + "'" + self.exhstart.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('exhstart=' + "'" + self.exhstart.encode('ascii', 'replace').decode('ascii') + "'")
         if self.family is not None:
-            field_reprs.append('family=' + "'" + self.family.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('family=' + "'" + self.family.encode('ascii', 'replace').decode('ascii') + "'")
         if self.feature is not None:
-            field_reprs.append('feature=' + "'" + self.feature.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('feature=' + "'" + self.feature.encode('ascii', 'replace').decode('ascii') + "'")
         if self.flagdate is not None:
             field_reprs.append('flagdate=' + repr(self.flagdate))
         if self.flagnotes is not None:
-            field_reprs.append('flagnotes=' + "'" + self.flagnotes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('flagnotes=' + "'" + self.flagnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.flagreason is not None:
-            field_reprs.append('flagreason=' + "'" + self.flagreason.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('flagreason=' + "'" + self.flagreason.encode('ascii', 'replace').decode('ascii') + "'")
         if self.formation is not None:
-            field_reprs.append('formation=' + "'" + self.formation.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('formation=' + "'" + self.formation.encode('ascii', 'replace').decode('ascii') + "'")
         if self.fossils is not None:
-            field_reprs.append('fossils=' + "'" + self.fossils.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('fossils=' + "'" + self.fossils.encode('ascii', 'replace').decode('ascii') + "'")
         if self.found is not None:
-            field_reprs.append('found=' + "'" + self.found.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('found=' + "'" + self.found.encode('ascii', 'replace').decode('ascii') + "'")
         if self.fracture is not None:
-            field_reprs.append('fracture=' + "'" + self.fracture.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('fracture=' + "'" + self.fracture.encode('ascii', 'replace').decode('ascii') + "'")
         if self.frame is not None:
-            field_reprs.append('frame=' + "'" + self.frame.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('frame=' + "'" + self.frame.encode('ascii', 'replace').decode('ascii') + "'")
         if self.framesize is not None:
-            field_reprs.append('framesize=' + "'" + self.framesize.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('framesize=' + "'" + self.framesize.encode('ascii', 'replace').decode('ascii') + "'")
         if self.genus is not None:
-            field_reprs.append('genus=' + "'" + self.genus.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('genus=' + "'" + self.genus.encode('ascii', 'replace').decode('ascii') + "'")
         if self.gparent is not None:
-            field_reprs.append('gparent=' + "'" + self.gparent.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('gparent=' + "'" + self.gparent.encode('ascii', 'replace').decode('ascii') + "'")
         if self.grainsize is not None:
-            field_reprs.append('grainsize=' + "'" + self.grainsize.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('grainsize=' + "'" + self.grainsize.encode('ascii', 'replace').decode('ascii') + "'")
         if self.habitat is not None:
-            field_reprs.append('habitat=' + "'" + self.habitat.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('habitat=' + "'" + self.habitat.encode('ascii', 'replace').decode('ascii') + "'")
         if self.hardness is not None:
-            field_reprs.append('hardness=' + "'" + self.hardness.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('hardness=' + "'" + self.hardness.encode('ascii', 'replace').decode('ascii') + "'")
         if self.height is not None:
             field_reprs.append('height=' + repr(self.height))
         if self.heightft is not None:
@@ -11311,53 +11311,53 @@ class ObjectRecord(object):
         if self.heightin is not None:
             field_reprs.append('heightin=' + repr(self.heightin))
         if self.homeloc is not None:
-            field_reprs.append('homeloc=' + "'" + self.homeloc.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('homeloc=' + "'" + self.homeloc.encode('ascii', 'replace').decode('ascii') + "'")
         if self.idby is not None:
-            field_reprs.append('idby=' + "'" + self.idby.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('idby=' + "'" + self.idby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.iddate is not None:
             field_reprs.append('iddate=' + repr(self.iddate))
         if self.imagefile is not None:
-            field_reprs.append('imagefile=' + "'" + self.imagefile.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('imagefile=' + "'" + self.imagefile.encode('ascii', 'replace').decode('ascii') + "'")
         if self.imageno is not None:
             field_reprs.append('imageno=' + repr(self.imageno))
         if self.imagesize is not None:
-            field_reprs.append('imagesize=' + "'" + self.imagesize.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('imagesize=' + "'" + self.imagesize.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inscomp is not None:
-            field_reprs.append('inscomp=' + "'" + self.inscomp.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('inscomp=' + "'" + self.inscomp.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inscrlang is not None:
-            field_reprs.append('inscrlang=' + "'" + self.inscrlang.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('inscrlang=' + "'" + self.inscrlang.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inscrpos is not None:
-            field_reprs.append('inscrpos=' + "'" + self.inscrpos.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('inscrpos=' + "'" + self.inscrpos.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inscrtech is not None:
-            field_reprs.append('inscrtech=' + "'" + self.inscrtech.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('inscrtech=' + "'" + self.inscrtech.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inscrtext is not None:
-            field_reprs.append('inscrtext=' + "'" + self.inscrtext.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('inscrtext=' + "'" + self.inscrtext.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inscrtrans is not None:
-            field_reprs.append('inscrtrans=' + "'" + self.inscrtrans.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('inscrtrans=' + "'" + self.inscrtrans.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inscrtype is not None:
             field_reprs.append('inscrtype=' + repr(self.inscrtype))
         if self.insdate is not None:
             field_reprs.append('insdate=' + repr(self.insdate))
         if self.insphone is not None:
-            field_reprs.append('insphone=' + "'" + self.insphone.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('insphone=' + "'" + self.insphone.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inspremium is not None:
-            field_reprs.append('inspremium=' + "'" + self.inspremium.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('inspremium=' + "'" + self.inspremium.encode('ascii', 'replace').decode('ascii') + "'")
         if self.insrep is not None:
-            field_reprs.append('insrep=' + "'" + self.insrep.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('insrep=' + "'" + self.insrep.encode('ascii', 'replace').decode('ascii') + "'")
         if self.insvalue is not None:
             field_reprs.append('insvalue=' + repr(self.insvalue))
         if self.invnby is not None:
-            field_reprs.append('invnby=' + "'" + self.invnby.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('invnby=' + "'" + self.invnby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.invndate is not None:
             field_reprs.append('invndate=' + repr(self.invndate))
         if self.kingdom is not None:
-            field_reprs.append('kingdom=' + "'" + self.kingdom.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('kingdom=' + "'" + self.kingdom.encode('ascii', 'replace').decode('ascii') + "'")
         if self.latdeg is not None:
             field_reprs.append('latdeg=' + repr(self.latdeg))
         if self.latedate is not None:
-            field_reprs.append('latedate=' + "'" + self.latedate.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('latedate=' + "'" + self.latedate.encode('ascii', 'replace').decode('ascii') + "'")
         if self.legal is not None:
-            field_reprs.append('legal=' + "'" + self.legal.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('legal=' + "'" + self.legal.encode('ascii', 'replace').decode('ascii') + "'")
         if self.length is not None:
             field_reprs.append('length=' + repr(self.length))
         if self.lengthft is not None:
@@ -11365,17 +11365,17 @@ class ObjectRecord(object):
         if self.lengthin is not None:
             field_reprs.append('lengthin=' + repr(self.lengthin))
         if self.level is not None:
-            field_reprs.append('level=' + "'" + self.level.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('level=' + "'" + self.level.encode('ascii', 'replace').decode('ascii') + "'")
         if self.lithofacie is not None:
-            field_reprs.append('lithofacie=' + "'" + self.lithofacie.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('lithofacie=' + "'" + self.lithofacie.encode('ascii', 'replace').decode('ascii') + "'")
         if self.loancond is not None:
-            field_reprs.append('loancond=' + "'" + self.loancond.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('loancond=' + "'" + self.loancond.encode('ascii', 'replace').decode('ascii') + "'")
         if self.loandue is not None:
-            field_reprs.append('loandue=' + "'" + self.loandue.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('loandue=' + "'" + self.loandue.encode('ascii', 'replace').decode('ascii') + "'")
         if self.loanid is not None:
-            field_reprs.append('loanid=' + "'" + self.loanid.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('loanid=' + "'" + self.loanid.encode('ascii', 'replace').decode('ascii') + "'")
         if self.loaninno is not None:
-            field_reprs.append('loaninno=' + "'" + self.loaninno.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('loaninno=' + "'" + self.loaninno.encode('ascii', 'replace').decode('ascii') + "'")
         if self.loanno is not None:
             field_reprs.append('loanno=' + repr(self.loanno))
         if self.loanrenew is not None:
@@ -11385,197 +11385,197 @@ class ObjectRecord(object):
         if self.longdeg is not None:
             field_reprs.append('longdeg=' + repr(self.longdeg))
         if self.luster is not None:
-            field_reprs.append('luster=' + "'" + self.luster.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('luster=' + "'" + self.luster.encode('ascii', 'replace').decode('ascii') + "'")
         if self.made is not None:
-            field_reprs.append('made=' + "'" + self.made.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('made=' + "'" + self.made.encode('ascii', 'replace').decode('ascii') + "'")
         if self.maintcycle is not None:
-            field_reprs.append('maintcycle=' + "'" + self.maintcycle.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('maintcycle=' + "'" + self.maintcycle.encode('ascii', 'replace').decode('ascii') + "'")
         if self.maintdate is not None:
             field_reprs.append('maintdate=' + repr(self.maintdate))
         if self.maintnote is not None:
-            field_reprs.append('maintnote=' + "'" + self.maintnote.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('maintnote=' + "'" + self.maintnote.encode('ascii', 'replace').decode('ascii') + "'")
         if self.material is not None:
-            field_reprs.append('material=' + "'" + self.material.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('material=' + "'" + self.material.encode('ascii', 'replace').decode('ascii') + "'")
         if self.medium is not None:
-            field_reprs.append('medium=' + "'" + self.medium.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('medium=' + "'" + self.medium.encode('ascii', 'replace').decode('ascii') + "'")
         if self.member is not None:
-            field_reprs.append('member=' + "'" + self.member.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('member=' + "'" + self.member.encode('ascii', 'replace').decode('ascii') + "'")
         if self.mmark is not None:
-            field_reprs.append('mmark=' + "'" + self.mmark.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('mmark=' + "'" + self.mmark.encode('ascii', 'replace').decode('ascii') + "'")
         if self.nhclass is not None:
-            field_reprs.append('nhclass=' + "'" + self.nhclass.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('nhclass=' + "'" + self.nhclass.encode('ascii', 'replace').decode('ascii') + "'")
         if self.nhorder is not None:
-            field_reprs.append('nhorder=' + "'" + self.nhorder.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('nhorder=' + "'" + self.nhorder.encode('ascii', 'replace').decode('ascii') + "'")
         if self.notes is not None:
-            field_reprs.append('notes=' + "'" + self.notes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('notes=' + "'" + self.notes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.ns is not None:
             field_reprs.append('ns=' + repr(self.ns))
         if self.objectid is not None:
-            field_reprs.append('objectid=' + "'" + self.objectid.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('objectid=' + "'" + self.objectid.encode('ascii', 'replace').decode('ascii') + "'")
         if self.objname is not None:
-            field_reprs.append('objname=' + "'" + self.objname.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('objname=' + "'" + self.objname.encode('ascii', 'replace').decode('ascii') + "'")
         if self.objname2 is not None:
-            field_reprs.append('objname2=' + "'" + self.objname2.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('objname2=' + "'" + self.objname2.encode('ascii', 'replace').decode('ascii') + "'")
         if self.objname3 is not None:
-            field_reprs.append('objname3=' + "'" + self.objname3.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('objname3=' + "'" + self.objname3.encode('ascii', 'replace').decode('ascii') + "'")
         if self.objnames is not None:
-            field_reprs.append('objnames=' + "'" + self.objnames.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('objnames=' + "'" + self.objnames.encode('ascii', 'replace').decode('ascii') + "'")
         if self.occurrence is not None:
-            field_reprs.append('occurrence=' + "'" + self.occurrence.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('occurrence=' + "'" + self.occurrence.encode('ascii', 'replace').decode('ascii') + "'")
         if self.oldno is not None:
-            field_reprs.append('oldno=' + "'" + self.oldno.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('oldno=' + "'" + self.oldno.encode('ascii', 'replace').decode('ascii') + "'")
         if self.origin is not None:
-            field_reprs.append('origin=' + "'" + self.origin.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('origin=' + "'" + self.origin.encode('ascii', 'replace').decode('ascii') + "'")
         if self.othername is not None:
-            field_reprs.append('othername=' + "'" + self.othername.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('othername=' + "'" + self.othername.encode('ascii', 'replace').decode('ascii') + "'")
         if self.otherno is not None:
-            field_reprs.append('otherno=' + "'" + self.otherno.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('otherno=' + "'" + self.otherno.encode('ascii', 'replace').decode('ascii') + "'")
         if self.outdate is not None:
             field_reprs.append('outdate=' + repr(self.outdate))
         if self.owned is not None:
-            field_reprs.append('owned=' + "'" + self.owned.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('owned=' + "'" + self.owned.encode('ascii', 'replace').decode('ascii') + "'")
         if self.parent is not None:
-            field_reprs.append('parent=' + "'" + self.parent.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('parent=' + "'" + self.parent.encode('ascii', 'replace').decode('ascii') + "'")
         if self.people is not None:
-            field_reprs.append('people=' + "'" + self.people.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('people=' + "'" + self.people.encode('ascii', 'replace').decode('ascii') + "'")
         if self.period is not None:
-            field_reprs.append('period=' + "'" + self.period.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('period=' + "'" + self.period.encode('ascii', 'replace').decode('ascii') + "'")
         if self.phylum is not None:
-            field_reprs.append('phylum=' + "'" + self.phylum.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('phylum=' + "'" + self.phylum.encode('ascii', 'replace').decode('ascii') + "'")
         if self.policyno is not None:
-            field_reprs.append('policyno=' + "'" + self.policyno.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('policyno=' + "'" + self.policyno.encode('ascii', 'replace').decode('ascii') + "'")
         if self.ppid is not None:
-            field_reprs.append('ppid=' + "'" + self.ppid.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('ppid=' + "'" + self.ppid.encode('ascii', 'replace').decode('ascii') + "'")
         if self.preparator is not None:
-            field_reprs.append('preparator=' + "'" + self.preparator.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('preparator=' + "'" + self.preparator.encode('ascii', 'replace').decode('ascii') + "'")
         if self.prepdate is not None:
             field_reprs.append('prepdate=' + repr(self.prepdate))
         if self.preserve is not None:
-            field_reprs.append('preserve=' + "'" + self.preserve.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('preserve=' + "'" + self.preserve.encode('ascii', 'replace').decode('ascii') + "'")
         if self.pressure is not None:
-            field_reprs.append('pressure=' + "'" + self.pressure.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('pressure=' + "'" + self.pressure.encode('ascii', 'replace').decode('ascii') + "'")
         if self.provenance is not None:
-            field_reprs.append('provenance=' + "'" + self.provenance.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('provenance=' + "'" + self.provenance.encode('ascii', 'replace').decode('ascii') + "'")
         if self.pubnotes is not None:
-            field_reprs.append('pubnotes=' + "'" + self.pubnotes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('pubnotes=' + "'" + self.pubnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.recas is not None:
-            field_reprs.append('recas=' + "'" + self.recas.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('recas=' + "'" + self.recas.encode('ascii', 'replace').decode('ascii') + "'")
         if self.recdate is not None:
             field_reprs.append('recdate=' + repr(self.recdate))
         if self.recfrom is not None:
-            field_reprs.append('recfrom=' + "'" + self.recfrom.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('recfrom=' + "'" + self.recfrom.encode('ascii', 'replace').decode('ascii') + "'")
         if self.relation is not None:
-            field_reprs.append('relation=' + "'" + self.relation.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('relation=' + "'" + self.relation.encode('ascii', 'replace').decode('ascii') + "'")
         if self.relnotes is not None:
-            field_reprs.append('relnotes=' + "'" + self.relnotes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('relnotes=' + "'" + self.relnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.renewuntil is not None:
             field_reprs.append('renewuntil=' + repr(self.renewuntil))
         if self.repatby is not None:
-            field_reprs.append('repatby=' + "'" + self.repatby.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('repatby=' + "'" + self.repatby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.repatclaim is not None:
-            field_reprs.append('repatclaim=' + "'" + self.repatclaim.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('repatclaim=' + "'" + self.repatclaim.encode('ascii', 'replace').decode('ascii') + "'")
         if self.repatdate is not None:
             field_reprs.append('repatdate=' + repr(self.repatdate))
         if self.repatdisp is not None:
-            field_reprs.append('repatdisp=' + "'" + self.repatdisp.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('repatdisp=' + "'" + self.repatdisp.encode('ascii', 'replace').decode('ascii') + "'")
         if self.repathand is not None:
-            field_reprs.append('repathand=' + "'" + self.repathand.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('repathand=' + "'" + self.repathand.encode('ascii', 'replace').decode('ascii') + "'")
         if self.repatnotes is not None:
-            field_reprs.append('repatnotes=' + "'" + self.repatnotes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('repatnotes=' + "'" + self.repatnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.repatnotic is not None:
-            field_reprs.append('repatnotic=' + "'" + self.repatnotic.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('repatnotic=' + "'" + self.repatnotic.encode('ascii', 'replace').decode('ascii') + "'")
         if self.repattype is not None:
             field_reprs.append('repattype=' + repr(self.repattype))
         if self.rockclass is not None:
-            field_reprs.append('rockclass=' + "'" + self.rockclass.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('rockclass=' + "'" + self.rockclass.encode('ascii', 'replace').decode('ascii') + "'")
         if self.rockcolor is not None:
-            field_reprs.append('rockcolor=' + "'" + self.rockcolor.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('rockcolor=' + "'" + self.rockcolor.encode('ascii', 'replace').decode('ascii') + "'")
         if self.rockorigin is not None:
-            field_reprs.append('rockorigin=' + "'" + self.rockorigin.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('rockorigin=' + "'" + self.rockorigin.encode('ascii', 'replace').decode('ascii') + "'")
         if self.rocktype is not None:
             field_reprs.append('rocktype=' + repr(self.rocktype))
         if self.role is not None:
-            field_reprs.append('role=' + "'" + self.role.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('role=' + "'" + self.role.encode('ascii', 'replace').decode('ascii') + "'")
         if self.role2 is not None:
-            field_reprs.append('role2=' + "'" + self.role2.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('role2=' + "'" + self.role2.encode('ascii', 'replace').decode('ascii') + "'")
         if self.role3 is not None:
-            field_reprs.append('role3=' + "'" + self.role3.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('role3=' + "'" + self.role3.encode('ascii', 'replace').decode('ascii') + "'")
         if self.school is not None:
-            field_reprs.append('school=' + "'" + self.school.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('school=' + "'" + self.school.encode('ascii', 'replace').decode('ascii') + "'")
         if self.sex is not None:
-            field_reprs.append('sex=' + "'" + self.sex.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('sex=' + "'" + self.sex.encode('ascii', 'replace').decode('ascii') + "'")
         if self.signedname is not None:
-            field_reprs.append('signedname=' + "'" + self.signedname.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('signedname=' + "'" + self.signedname.encode('ascii', 'replace').decode('ascii') + "'")
         if self.signloc is not None:
-            field_reprs.append('signloc=' + "'" + self.signloc.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('signloc=' + "'" + self.signloc.encode('ascii', 'replace').decode('ascii') + "'")
         if self.site is not None:
-            field_reprs.append('site=' + "'" + self.site.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('site=' + "'" + self.site.encode('ascii', 'replace').decode('ascii') + "'")
         if self.siteno is not None:
-            field_reprs.append('siteno=' + "'" + self.siteno.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('siteno=' + "'" + self.siteno.encode('ascii', 'replace').decode('ascii') + "'")
         if self.specgrav is not None:
-            field_reprs.append('specgrav=' + "'" + self.specgrav.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('specgrav=' + "'" + self.specgrav.encode('ascii', 'replace').decode('ascii') + "'")
         if self.species is not None:
-            field_reprs.append('species=' + "'" + self.species.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('species=' + "'" + self.species.encode('ascii', 'replace').decode('ascii') + "'")
         if self.sprocess is not None:
-            field_reprs.append('sprocess=' + "'" + self.sprocess.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('sprocess=' + "'" + self.sprocess.encode('ascii', 'replace').decode('ascii') + "'")
         if self.stage is not None:
-            field_reprs.append('stage=' + "'" + self.stage.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('stage=' + "'" + self.stage.encode('ascii', 'replace').decode('ascii') + "'")
         if self.status is not None:
-            field_reprs.append('status=' + "'" + self.status.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('status=' + "'" + self.status.encode('ascii', 'replace').decode('ascii') + "'")
         if self.statusby is not None:
-            field_reprs.append('statusby=' + "'" + self.statusby.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('statusby=' + "'" + self.statusby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.statusdate is not None:
             field_reprs.append('statusdate=' + repr(self.statusdate))
         if self.sterms is not None:
-            field_reprs.append('sterms=' + "'" + self.sterms.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('sterms=' + "'" + self.sterms.encode('ascii', 'replace').decode('ascii') + "'")
         if self.stratum is not None:
-            field_reprs.append('stratum=' + "'" + self.stratum.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('stratum=' + "'" + self.stratum.encode('ascii', 'replace').decode('ascii') + "'")
         if self.streak is not None:
-            field_reprs.append('streak=' + "'" + self.streak.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('streak=' + "'" + self.streak.encode('ascii', 'replace').decode('ascii') + "'")
         if self.subfamily is not None:
-            field_reprs.append('subfamily=' + "'" + self.subfamily.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('subfamily=' + "'" + self.subfamily.encode('ascii', 'replace').decode('ascii') + "'")
         if self.subjects is not None:
-            field_reprs.append('subjects=' + "'" + self.subjects.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('subjects=' + "'" + self.subjects.encode('ascii', 'replace').decode('ascii') + "'")
         if self.subspecies is not None:
-            field_reprs.append('subspecies=' + "'" + self.subspecies.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('subspecies=' + "'" + self.subspecies.encode('ascii', 'replace').decode('ascii') + "'")
         if self.technique is not None:
-            field_reprs.append('technique=' + "'" + self.technique.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('technique=' + "'" + self.technique.encode('ascii', 'replace').decode('ascii') + "'")
         if self.tempauthor is not None:
-            field_reprs.append('tempauthor=' + "'" + self.tempauthor.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('tempauthor=' + "'" + self.tempauthor.encode('ascii', 'replace').decode('ascii') + "'")
         if self.tempby is not None:
-            field_reprs.append('tempby=' + "'" + self.tempby.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('tempby=' + "'" + self.tempby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.tempdate is not None:
             field_reprs.append('tempdate=' + repr(self.tempdate))
         if self.temperatur is not None:
-            field_reprs.append('temperatur=' + "'" + self.temperatur.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('temperatur=' + "'" + self.temperatur.encode('ascii', 'replace').decode('ascii') + "'")
         if self.temploc is not None:
-            field_reprs.append('temploc=' + "'" + self.temploc.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('temploc=' + "'" + self.temploc.encode('ascii', 'replace').decode('ascii') + "'")
         if self.tempnotes is not None:
-            field_reprs.append('tempnotes=' + "'" + self.tempnotes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('tempnotes=' + "'" + self.tempnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.tempreason is not None:
-            field_reprs.append('tempreason=' + "'" + self.tempreason.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('tempreason=' + "'" + self.tempreason.encode('ascii', 'replace').decode('ascii') + "'")
         if self.tempuntil is not None:
-            field_reprs.append('tempuntil=' + "'" + self.tempuntil.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('tempuntil=' + "'" + self.tempuntil.encode('ascii', 'replace').decode('ascii') + "'")
         if self.texture is not None:
-            field_reprs.append('texture=' + "'" + self.texture.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('texture=' + "'" + self.texture.encode('ascii', 'replace').decode('ascii') + "'")
         if self.title is not None:
-            field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').decode('ascii') + "'")
         if self.tlocfield is not None:
             field_reprs.append('tlocfield=' + repr(self.tlocfield))
         if self.udf is not None:
             field_reprs.append('udf=' + repr(self.udf))
         if self.unit is not None:
-            field_reprs.append('unit=' + "'" + self.unit.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('unit=' + "'" + self.unit.encode('ascii', 'replace').decode('ascii') + "'")
         if self.updated is not None:
             field_reprs.append('updated=' + repr(self.updated))
         if self.updatedby is not None:
-            field_reprs.append('updatedby=' + "'" + self.updatedby.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('updatedby=' + "'" + self.updatedby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.used is not None:
-            field_reprs.append('used=' + "'" + self.used.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('used=' + "'" + self.used.encode('ascii', 'replace').decode('ascii') + "'")
         if self.valuedate is not None:
             field_reprs.append('valuedate=' + repr(self.valuedate))
         if self.varieties is not None:
-            field_reprs.append('varieties=' + "'" + self.varieties.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('varieties=' + "'" + self.varieties.encode('ascii', 'replace').decode('ascii') + "'")
         if self.webinclude is not None:
             field_reprs.append('webinclude=' + repr(self.webinclude))
         if self.weight is not None:
@@ -11591,49 +11591,49 @@ class ObjectRecord(object):
         if self.widthin is not None:
             field_reprs.append('widthin=' + repr(self.widthin))
         if self.xcord is not None:
-            field_reprs.append('xcord=' + "'" + self.xcord.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('xcord=' + "'" + self.xcord.encode('ascii', 'replace').decode('ascii') + "'")
         if self.ycord is not None:
-            field_reprs.append('ycord=' + "'" + self.ycord.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('ycord=' + "'" + self.ycord.encode('ascii', 'replace').decode('ascii') + "'")
         if self.zcord is not None:
-            field_reprs.append('zcord=' + "'" + self.zcord.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('zcord=' + "'" + self.zcord.encode('ascii', 'replace').decode('ascii') + "'")
         if self.zsorter is not None:
-            field_reprs.append('zsorter=' + "'" + self.zsorter.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('zsorter=' + "'" + self.zsorter.encode('ascii', 'replace').decode('ascii') + "'")
         if self.zsorterx is not None:
-            field_reprs.append('zsorterx=' + "'" + self.zsorterx.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('zsorterx=' + "'" + self.zsorterx.encode('ascii', 'replace').decode('ascii') + "'")
         return 'ObjectRecord(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
         field_reprs = []
         if self.accessno is not None:
-            field_reprs.append('accessno=' + "'" + self.accessno.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('accessno=' + "'" + self.accessno.encode('ascii', 'replace').decode('ascii') + "'")
         if self.accessory is not None:
-            field_reprs.append('accessory=' + "'" + self.accessory.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('accessory=' + "'" + self.accessory.encode('ascii', 'replace').decode('ascii') + "'")
         if self.acqvalue is not None:
             field_reprs.append('acqvalue=' + repr(self.acqvalue))
         if self.age is not None:
-            field_reprs.append('age=' + "'" + self.age.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('age=' + "'" + self.age.encode('ascii', 'replace').decode('ascii') + "'")
         if self.appnotes is not None:
-            field_reprs.append('appnotes=' + "'" + self.appnotes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('appnotes=' + "'" + self.appnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.appraisor is not None:
-            field_reprs.append('appraisor=' + "'" + self.appraisor.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('appraisor=' + "'" + self.appraisor.encode('ascii', 'replace').decode('ascii') + "'")
         if self.assemzone is not None:
-            field_reprs.append('assemzone=' + "'" + self.assemzone.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('assemzone=' + "'" + self.assemzone.encode('ascii', 'replace').decode('ascii') + "'")
         if self.bagno is not None:
             field_reprs.append('bagno=' + repr(self.bagno))
         if self.boxno is not None:
             field_reprs.append('boxno=' + repr(self.boxno))
         if self.caption is not None:
-            field_reprs.append('caption=' + "'" + self.caption.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('caption=' + "'" + self.caption.encode('ascii', 'replace').decode('ascii') + "'")
         if self.cat is not None:
             field_reprs.append('cat=' + repr(self.cat))
         if self.catby is not None:
-            field_reprs.append('catby=' + "'" + self.catby.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('catby=' + "'" + self.catby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.catdate is not None:
             field_reprs.append('catdate=' + repr(self.catdate))
         if self.cattype is not None:
-            field_reprs.append('cattype=' + "'" + self.cattype.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('cattype=' + "'" + self.cattype.encode('ascii', 'replace').decode('ascii') + "'")
         if self.chemcomp is not None:
-            field_reprs.append('chemcomp=' + "'" + self.chemcomp.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('chemcomp=' + "'" + self.chemcomp.encode('ascii', 'replace').decode('ascii') + "'")
         if self.circum is not None:
             field_reprs.append('circum=' + repr(self.circum))
         if self.circumft is not None:
@@ -11641,47 +11641,47 @@ class ObjectRecord(object):
         if self.circumin is not None:
             field_reprs.append('circumin=' + repr(self.circumin))
         if self.classes is not None:
-            field_reprs.append('classes=' + "'" + self.classes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('classes=' + "'" + self.classes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.colldate is not None:
             field_reprs.append('colldate=' + repr(self.colldate))
         if self.collection is not None:
-            field_reprs.append('collection=' + "'" + self.collection.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('collection=' + "'" + self.collection.encode('ascii', 'replace').decode('ascii') + "'")
         if self.collector is not None:
-            field_reprs.append('collector=' + "'" + self.collector.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('collector=' + "'" + self.collector.encode('ascii', 'replace').decode('ascii') + "'")
         if self.conddate is not None:
             field_reprs.append('conddate=' + repr(self.conddate))
         if self.condexam is not None:
-            field_reprs.append('condexam=' + "'" + self.condexam.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('condexam=' + "'" + self.condexam.encode('ascii', 'replace').decode('ascii') + "'")
         if self.condition is not None:
             field_reprs.append('condition=' + repr(self.condition))
         if self.condnotes is not None:
-            field_reprs.append('condnotes=' + "'" + self.condnotes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('condnotes=' + "'" + self.condnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.count is not None:
-            field_reprs.append('count=' + "'" + self.count.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('count=' + "'" + self.count.encode('ascii', 'replace').decode('ascii') + "'")
         if self.creator is not None:
-            field_reprs.append('creator=' + "'" + self.creator.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('creator=' + "'" + self.creator.encode('ascii', 'replace').decode('ascii') + "'")
         if self.creator2 is not None:
-            field_reprs.append('creator2=' + "'" + self.creator2.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('creator2=' + "'" + self.creator2.encode('ascii', 'replace').decode('ascii') + "'")
         if self.creator3 is not None:
-            field_reprs.append('creator3=' + "'" + self.creator3.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('creator3=' + "'" + self.creator3.encode('ascii', 'replace').decode('ascii') + "'")
         if self.credit is not None:
-            field_reprs.append('credit=' + "'" + self.credit.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('credit=' + "'" + self.credit.encode('ascii', 'replace').decode('ascii') + "'")
         if self.crystal is not None:
-            field_reprs.append('crystal=' + "'" + self.crystal.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('crystal=' + "'" + self.crystal.encode('ascii', 'replace').decode('ascii') + "'")
         if self.culture is not None:
-            field_reprs.append('culture=' + "'" + self.culture.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('culture=' + "'" + self.culture.encode('ascii', 'replace').decode('ascii') + "'")
         if self.curvalmax is not None:
             field_reprs.append('curvalmax=' + repr(self.curvalmax))
         if self.curvalue is not None:
             field_reprs.append('curvalue=' + repr(self.curvalue))
         if self.dataset is not None:
-            field_reprs.append('dataset=' + "'" + self.dataset.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('dataset=' + "'" + self.dataset.encode('ascii', 'replace').decode('ascii') + "'")
         if self.date is not None:
-            field_reprs.append('date=' + "'" + self.date.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('date=' + "'" + self.date.encode('ascii', 'replace').decode('ascii') + "'")
         if self.datingmeth is not None:
-            field_reprs.append('datingmeth=' + "'" + self.datingmeth.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('datingmeth=' + "'" + self.datingmeth.encode('ascii', 'replace').decode('ascii') + "'")
         if self.datum is not None:
-            field_reprs.append('datum=' + "'" + self.datum.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('datum=' + "'" + self.datum.encode('ascii', 'replace').decode('ascii') + "'")
         if self.depth is not None:
             field_reprs.append('depth=' + repr(self.depth))
         if self.depthft is not None:
@@ -11689,7 +11689,7 @@ class ObjectRecord(object):
         if self.depthin is not None:
             field_reprs.append('depthin=' + repr(self.depthin))
         if self.descrip is not None:
-            field_reprs.append('descrip=' + "'" + self.descrip.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('descrip=' + "'" + self.descrip.encode('ascii', 'replace').decode('ascii') + "'")
         if self.diameter is not None:
             field_reprs.append('diameter=' + repr(self.diameter))
         if self.diameterft is not None:
@@ -11697,67 +11697,67 @@ class ObjectRecord(object):
         if self.diameterin is not None:
             field_reprs.append('diameterin=' + repr(self.diameterin))
         if self.dimnotes is not None:
-            field_reprs.append('dimnotes=' + "'" + self.dimnotes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('dimnotes=' + "'" + self.dimnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.dimtype is not None:
             field_reprs.append('dimtype=' + repr(self.dimtype))
         if self.dispvalue is not None:
-            field_reprs.append('dispvalue=' + "'" + self.dispvalue.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('dispvalue=' + "'" + self.dispvalue.encode('ascii', 'replace').decode('ascii') + "'")
         if self.earlydate is not None:
-            field_reprs.append('earlydate=' + "'" + self.earlydate.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('earlydate=' + "'" + self.earlydate.encode('ascii', 'replace').decode('ascii') + "'")
         if self.elements is not None:
-            field_reprs.append('elements=' + "'" + self.elements.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('elements=' + "'" + self.elements.encode('ascii', 'replace').decode('ascii') + "'")
         if self.epoch is not None:
-            field_reprs.append('epoch=' + "'" + self.epoch.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('epoch=' + "'" + self.epoch.encode('ascii', 'replace').decode('ascii') + "'")
         if self.era is not None:
-            field_reprs.append('era=' + "'" + self.era.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('era=' + "'" + self.era.encode('ascii', 'replace').decode('ascii') + "'")
         if self.event is not None:
-            field_reprs.append('event=' + "'" + self.event.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('event=' + "'" + self.event.encode('ascii', 'replace').decode('ascii') + "'")
         if self.ew is not None:
             field_reprs.append('ew=' + repr(self.ew))
         if self.excavadate is not None:
             field_reprs.append('excavadate=' + repr(self.excavadate))
         if self.excavateby is not None:
-            field_reprs.append('excavateby=' + "'" + self.excavateby.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('excavateby=' + "'" + self.excavateby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.exhibitid is not None:
-            field_reprs.append('exhibitid=' + "'" + self.exhibitid.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('exhibitid=' + "'" + self.exhibitid.encode('ascii', 'replace').decode('ascii') + "'")
         if self.exhibitno is not None:
             field_reprs.append('exhibitno=' + repr(self.exhibitno))
         if self.exhlabel is not None:
             field_reprs.append('exhlabel=' + repr(self.exhlabel))
         if self.exhstart is not None:
-            field_reprs.append('exhstart=' + "'" + self.exhstart.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('exhstart=' + "'" + self.exhstart.encode('ascii', 'replace').decode('ascii') + "'")
         if self.family is not None:
-            field_reprs.append('family=' + "'" + self.family.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('family=' + "'" + self.family.encode('ascii', 'replace').decode('ascii') + "'")
         if self.feature is not None:
-            field_reprs.append('feature=' + "'" + self.feature.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('feature=' + "'" + self.feature.encode('ascii', 'replace').decode('ascii') + "'")
         if self.flagdate is not None:
             field_reprs.append('flagdate=' + repr(self.flagdate))
         if self.flagnotes is not None:
-            field_reprs.append('flagnotes=' + "'" + self.flagnotes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('flagnotes=' + "'" + self.flagnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.flagreason is not None:
-            field_reprs.append('flagreason=' + "'" + self.flagreason.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('flagreason=' + "'" + self.flagreason.encode('ascii', 'replace').decode('ascii') + "'")
         if self.formation is not None:
-            field_reprs.append('formation=' + "'" + self.formation.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('formation=' + "'" + self.formation.encode('ascii', 'replace').decode('ascii') + "'")
         if self.fossils is not None:
-            field_reprs.append('fossils=' + "'" + self.fossils.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('fossils=' + "'" + self.fossils.encode('ascii', 'replace').decode('ascii') + "'")
         if self.found is not None:
-            field_reprs.append('found=' + "'" + self.found.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('found=' + "'" + self.found.encode('ascii', 'replace').decode('ascii') + "'")
         if self.fracture is not None:
-            field_reprs.append('fracture=' + "'" + self.fracture.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('fracture=' + "'" + self.fracture.encode('ascii', 'replace').decode('ascii') + "'")
         if self.frame is not None:
-            field_reprs.append('frame=' + "'" + self.frame.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('frame=' + "'" + self.frame.encode('ascii', 'replace').decode('ascii') + "'")
         if self.framesize is not None:
-            field_reprs.append('framesize=' + "'" + self.framesize.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('framesize=' + "'" + self.framesize.encode('ascii', 'replace').decode('ascii') + "'")
         if self.genus is not None:
-            field_reprs.append('genus=' + "'" + self.genus.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('genus=' + "'" + self.genus.encode('ascii', 'replace').decode('ascii') + "'")
         if self.gparent is not None:
-            field_reprs.append('gparent=' + "'" + self.gparent.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('gparent=' + "'" + self.gparent.encode('ascii', 'replace').decode('ascii') + "'")
         if self.grainsize is not None:
-            field_reprs.append('grainsize=' + "'" + self.grainsize.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('grainsize=' + "'" + self.grainsize.encode('ascii', 'replace').decode('ascii') + "'")
         if self.habitat is not None:
-            field_reprs.append('habitat=' + "'" + self.habitat.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('habitat=' + "'" + self.habitat.encode('ascii', 'replace').decode('ascii') + "'")
         if self.hardness is not None:
-            field_reprs.append('hardness=' + "'" + self.hardness.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('hardness=' + "'" + self.hardness.encode('ascii', 'replace').decode('ascii') + "'")
         if self.height is not None:
             field_reprs.append('height=' + repr(self.height))
         if self.heightft is not None:
@@ -11765,53 +11765,53 @@ class ObjectRecord(object):
         if self.heightin is not None:
             field_reprs.append('heightin=' + repr(self.heightin))
         if self.homeloc is not None:
-            field_reprs.append('homeloc=' + "'" + self.homeloc.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('homeloc=' + "'" + self.homeloc.encode('ascii', 'replace').decode('ascii') + "'")
         if self.idby is not None:
-            field_reprs.append('idby=' + "'" + self.idby.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('idby=' + "'" + self.idby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.iddate is not None:
             field_reprs.append('iddate=' + repr(self.iddate))
         if self.imagefile is not None:
-            field_reprs.append('imagefile=' + "'" + self.imagefile.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('imagefile=' + "'" + self.imagefile.encode('ascii', 'replace').decode('ascii') + "'")
         if self.imageno is not None:
             field_reprs.append('imageno=' + repr(self.imageno))
         if self.imagesize is not None:
-            field_reprs.append('imagesize=' + "'" + self.imagesize.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('imagesize=' + "'" + self.imagesize.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inscomp is not None:
-            field_reprs.append('inscomp=' + "'" + self.inscomp.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('inscomp=' + "'" + self.inscomp.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inscrlang is not None:
-            field_reprs.append('inscrlang=' + "'" + self.inscrlang.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('inscrlang=' + "'" + self.inscrlang.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inscrpos is not None:
-            field_reprs.append('inscrpos=' + "'" + self.inscrpos.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('inscrpos=' + "'" + self.inscrpos.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inscrtech is not None:
-            field_reprs.append('inscrtech=' + "'" + self.inscrtech.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('inscrtech=' + "'" + self.inscrtech.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inscrtext is not None:
-            field_reprs.append('inscrtext=' + "'" + self.inscrtext.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('inscrtext=' + "'" + self.inscrtext.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inscrtrans is not None:
-            field_reprs.append('inscrtrans=' + "'" + self.inscrtrans.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('inscrtrans=' + "'" + self.inscrtrans.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inscrtype is not None:
             field_reprs.append('inscrtype=' + repr(self.inscrtype))
         if self.insdate is not None:
             field_reprs.append('insdate=' + repr(self.insdate))
         if self.insphone is not None:
-            field_reprs.append('insphone=' + "'" + self.insphone.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('insphone=' + "'" + self.insphone.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inspremium is not None:
-            field_reprs.append('inspremium=' + "'" + self.inspremium.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('inspremium=' + "'" + self.inspremium.encode('ascii', 'replace').decode('ascii') + "'")
         if self.insrep is not None:
-            field_reprs.append('insrep=' + "'" + self.insrep.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('insrep=' + "'" + self.insrep.encode('ascii', 'replace').decode('ascii') + "'")
         if self.insvalue is not None:
             field_reprs.append('insvalue=' + repr(self.insvalue))
         if self.invnby is not None:
-            field_reprs.append('invnby=' + "'" + self.invnby.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('invnby=' + "'" + self.invnby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.invndate is not None:
             field_reprs.append('invndate=' + repr(self.invndate))
         if self.kingdom is not None:
-            field_reprs.append('kingdom=' + "'" + self.kingdom.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('kingdom=' + "'" + self.kingdom.encode('ascii', 'replace').decode('ascii') + "'")
         if self.latdeg is not None:
             field_reprs.append('latdeg=' + repr(self.latdeg))
         if self.latedate is not None:
-            field_reprs.append('latedate=' + "'" + self.latedate.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('latedate=' + "'" + self.latedate.encode('ascii', 'replace').decode('ascii') + "'")
         if self.legal is not None:
-            field_reprs.append('legal=' + "'" + self.legal.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('legal=' + "'" + self.legal.encode('ascii', 'replace').decode('ascii') + "'")
         if self.length is not None:
             field_reprs.append('length=' + repr(self.length))
         if self.lengthft is not None:
@@ -11819,17 +11819,17 @@ class ObjectRecord(object):
         if self.lengthin is not None:
             field_reprs.append('lengthin=' + repr(self.lengthin))
         if self.level is not None:
-            field_reprs.append('level=' + "'" + self.level.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('level=' + "'" + self.level.encode('ascii', 'replace').decode('ascii') + "'")
         if self.lithofacie is not None:
-            field_reprs.append('lithofacie=' + "'" + self.lithofacie.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('lithofacie=' + "'" + self.lithofacie.encode('ascii', 'replace').decode('ascii') + "'")
         if self.loancond is not None:
-            field_reprs.append('loancond=' + "'" + self.loancond.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('loancond=' + "'" + self.loancond.encode('ascii', 'replace').decode('ascii') + "'")
         if self.loandue is not None:
-            field_reprs.append('loandue=' + "'" + self.loandue.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('loandue=' + "'" + self.loandue.encode('ascii', 'replace').decode('ascii') + "'")
         if self.loanid is not None:
-            field_reprs.append('loanid=' + "'" + self.loanid.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('loanid=' + "'" + self.loanid.encode('ascii', 'replace').decode('ascii') + "'")
         if self.loaninno is not None:
-            field_reprs.append('loaninno=' + "'" + self.loaninno.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('loaninno=' + "'" + self.loaninno.encode('ascii', 'replace').decode('ascii') + "'")
         if self.loanno is not None:
             field_reprs.append('loanno=' + repr(self.loanno))
         if self.loanrenew is not None:
@@ -11839,197 +11839,197 @@ class ObjectRecord(object):
         if self.longdeg is not None:
             field_reprs.append('longdeg=' + repr(self.longdeg))
         if self.luster is not None:
-            field_reprs.append('luster=' + "'" + self.luster.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('luster=' + "'" + self.luster.encode('ascii', 'replace').decode('ascii') + "'")
         if self.made is not None:
-            field_reprs.append('made=' + "'" + self.made.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('made=' + "'" + self.made.encode('ascii', 'replace').decode('ascii') + "'")
         if self.maintcycle is not None:
-            field_reprs.append('maintcycle=' + "'" + self.maintcycle.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('maintcycle=' + "'" + self.maintcycle.encode('ascii', 'replace').decode('ascii') + "'")
         if self.maintdate is not None:
             field_reprs.append('maintdate=' + repr(self.maintdate))
         if self.maintnote is not None:
-            field_reprs.append('maintnote=' + "'" + self.maintnote.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('maintnote=' + "'" + self.maintnote.encode('ascii', 'replace').decode('ascii') + "'")
         if self.material is not None:
-            field_reprs.append('material=' + "'" + self.material.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('material=' + "'" + self.material.encode('ascii', 'replace').decode('ascii') + "'")
         if self.medium is not None:
-            field_reprs.append('medium=' + "'" + self.medium.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('medium=' + "'" + self.medium.encode('ascii', 'replace').decode('ascii') + "'")
         if self.member is not None:
-            field_reprs.append('member=' + "'" + self.member.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('member=' + "'" + self.member.encode('ascii', 'replace').decode('ascii') + "'")
         if self.mmark is not None:
-            field_reprs.append('mmark=' + "'" + self.mmark.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('mmark=' + "'" + self.mmark.encode('ascii', 'replace').decode('ascii') + "'")
         if self.nhclass is not None:
-            field_reprs.append('nhclass=' + "'" + self.nhclass.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('nhclass=' + "'" + self.nhclass.encode('ascii', 'replace').decode('ascii') + "'")
         if self.nhorder is not None:
-            field_reprs.append('nhorder=' + "'" + self.nhorder.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('nhorder=' + "'" + self.nhorder.encode('ascii', 'replace').decode('ascii') + "'")
         if self.notes is not None:
-            field_reprs.append('notes=' + "'" + self.notes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('notes=' + "'" + self.notes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.ns is not None:
             field_reprs.append('ns=' + repr(self.ns))
         if self.objectid is not None:
-            field_reprs.append('objectid=' + "'" + self.objectid.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('objectid=' + "'" + self.objectid.encode('ascii', 'replace').decode('ascii') + "'")
         if self.objname is not None:
-            field_reprs.append('objname=' + "'" + self.objname.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('objname=' + "'" + self.objname.encode('ascii', 'replace').decode('ascii') + "'")
         if self.objname2 is not None:
-            field_reprs.append('objname2=' + "'" + self.objname2.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('objname2=' + "'" + self.objname2.encode('ascii', 'replace').decode('ascii') + "'")
         if self.objname3 is not None:
-            field_reprs.append('objname3=' + "'" + self.objname3.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('objname3=' + "'" + self.objname3.encode('ascii', 'replace').decode('ascii') + "'")
         if self.objnames is not None:
-            field_reprs.append('objnames=' + "'" + self.objnames.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('objnames=' + "'" + self.objnames.encode('ascii', 'replace').decode('ascii') + "'")
         if self.occurrence is not None:
-            field_reprs.append('occurrence=' + "'" + self.occurrence.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('occurrence=' + "'" + self.occurrence.encode('ascii', 'replace').decode('ascii') + "'")
         if self.oldno is not None:
-            field_reprs.append('oldno=' + "'" + self.oldno.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('oldno=' + "'" + self.oldno.encode('ascii', 'replace').decode('ascii') + "'")
         if self.origin is not None:
-            field_reprs.append('origin=' + "'" + self.origin.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('origin=' + "'" + self.origin.encode('ascii', 'replace').decode('ascii') + "'")
         if self.othername is not None:
-            field_reprs.append('othername=' + "'" + self.othername.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('othername=' + "'" + self.othername.encode('ascii', 'replace').decode('ascii') + "'")
         if self.otherno is not None:
-            field_reprs.append('otherno=' + "'" + self.otherno.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('otherno=' + "'" + self.otherno.encode('ascii', 'replace').decode('ascii') + "'")
         if self.outdate is not None:
             field_reprs.append('outdate=' + repr(self.outdate))
         if self.owned is not None:
-            field_reprs.append('owned=' + "'" + self.owned.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('owned=' + "'" + self.owned.encode('ascii', 'replace').decode('ascii') + "'")
         if self.parent is not None:
-            field_reprs.append('parent=' + "'" + self.parent.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('parent=' + "'" + self.parent.encode('ascii', 'replace').decode('ascii') + "'")
         if self.people is not None:
-            field_reprs.append('people=' + "'" + self.people.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('people=' + "'" + self.people.encode('ascii', 'replace').decode('ascii') + "'")
         if self.period is not None:
-            field_reprs.append('period=' + "'" + self.period.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('period=' + "'" + self.period.encode('ascii', 'replace').decode('ascii') + "'")
         if self.phylum is not None:
-            field_reprs.append('phylum=' + "'" + self.phylum.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('phylum=' + "'" + self.phylum.encode('ascii', 'replace').decode('ascii') + "'")
         if self.policyno is not None:
-            field_reprs.append('policyno=' + "'" + self.policyno.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('policyno=' + "'" + self.policyno.encode('ascii', 'replace').decode('ascii') + "'")
         if self.ppid is not None:
-            field_reprs.append('ppid=' + "'" + self.ppid.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('ppid=' + "'" + self.ppid.encode('ascii', 'replace').decode('ascii') + "'")
         if self.preparator is not None:
-            field_reprs.append('preparator=' + "'" + self.preparator.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('preparator=' + "'" + self.preparator.encode('ascii', 'replace').decode('ascii') + "'")
         if self.prepdate is not None:
             field_reprs.append('prepdate=' + repr(self.prepdate))
         if self.preserve is not None:
-            field_reprs.append('preserve=' + "'" + self.preserve.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('preserve=' + "'" + self.preserve.encode('ascii', 'replace').decode('ascii') + "'")
         if self.pressure is not None:
-            field_reprs.append('pressure=' + "'" + self.pressure.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('pressure=' + "'" + self.pressure.encode('ascii', 'replace').decode('ascii') + "'")
         if self.provenance is not None:
-            field_reprs.append('provenance=' + "'" + self.provenance.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('provenance=' + "'" + self.provenance.encode('ascii', 'replace').decode('ascii') + "'")
         if self.pubnotes is not None:
-            field_reprs.append('pubnotes=' + "'" + self.pubnotes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('pubnotes=' + "'" + self.pubnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.recas is not None:
-            field_reprs.append('recas=' + "'" + self.recas.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('recas=' + "'" + self.recas.encode('ascii', 'replace').decode('ascii') + "'")
         if self.recdate is not None:
             field_reprs.append('recdate=' + repr(self.recdate))
         if self.recfrom is not None:
-            field_reprs.append('recfrom=' + "'" + self.recfrom.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('recfrom=' + "'" + self.recfrom.encode('ascii', 'replace').decode('ascii') + "'")
         if self.relation is not None:
-            field_reprs.append('relation=' + "'" + self.relation.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('relation=' + "'" + self.relation.encode('ascii', 'replace').decode('ascii') + "'")
         if self.relnotes is not None:
-            field_reprs.append('relnotes=' + "'" + self.relnotes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('relnotes=' + "'" + self.relnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.renewuntil is not None:
             field_reprs.append('renewuntil=' + repr(self.renewuntil))
         if self.repatby is not None:
-            field_reprs.append('repatby=' + "'" + self.repatby.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('repatby=' + "'" + self.repatby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.repatclaim is not None:
-            field_reprs.append('repatclaim=' + "'" + self.repatclaim.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('repatclaim=' + "'" + self.repatclaim.encode('ascii', 'replace').decode('ascii') + "'")
         if self.repatdate is not None:
             field_reprs.append('repatdate=' + repr(self.repatdate))
         if self.repatdisp is not None:
-            field_reprs.append('repatdisp=' + "'" + self.repatdisp.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('repatdisp=' + "'" + self.repatdisp.encode('ascii', 'replace').decode('ascii') + "'")
         if self.repathand is not None:
-            field_reprs.append('repathand=' + "'" + self.repathand.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('repathand=' + "'" + self.repathand.encode('ascii', 'replace').decode('ascii') + "'")
         if self.repatnotes is not None:
-            field_reprs.append('repatnotes=' + "'" + self.repatnotes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('repatnotes=' + "'" + self.repatnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.repatnotic is not None:
-            field_reprs.append('repatnotic=' + "'" + self.repatnotic.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('repatnotic=' + "'" + self.repatnotic.encode('ascii', 'replace').decode('ascii') + "'")
         if self.repattype is not None:
             field_reprs.append('repattype=' + repr(self.repattype))
         if self.rockclass is not None:
-            field_reprs.append('rockclass=' + "'" + self.rockclass.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('rockclass=' + "'" + self.rockclass.encode('ascii', 'replace').decode('ascii') + "'")
         if self.rockcolor is not None:
-            field_reprs.append('rockcolor=' + "'" + self.rockcolor.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('rockcolor=' + "'" + self.rockcolor.encode('ascii', 'replace').decode('ascii') + "'")
         if self.rockorigin is not None:
-            field_reprs.append('rockorigin=' + "'" + self.rockorigin.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('rockorigin=' + "'" + self.rockorigin.encode('ascii', 'replace').decode('ascii') + "'")
         if self.rocktype is not None:
             field_reprs.append('rocktype=' + repr(self.rocktype))
         if self.role is not None:
-            field_reprs.append('role=' + "'" + self.role.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('role=' + "'" + self.role.encode('ascii', 'replace').decode('ascii') + "'")
         if self.role2 is not None:
-            field_reprs.append('role2=' + "'" + self.role2.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('role2=' + "'" + self.role2.encode('ascii', 'replace').decode('ascii') + "'")
         if self.role3 is not None:
-            field_reprs.append('role3=' + "'" + self.role3.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('role3=' + "'" + self.role3.encode('ascii', 'replace').decode('ascii') + "'")
         if self.school is not None:
-            field_reprs.append('school=' + "'" + self.school.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('school=' + "'" + self.school.encode('ascii', 'replace').decode('ascii') + "'")
         if self.sex is not None:
-            field_reprs.append('sex=' + "'" + self.sex.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('sex=' + "'" + self.sex.encode('ascii', 'replace').decode('ascii') + "'")
         if self.signedname is not None:
-            field_reprs.append('signedname=' + "'" + self.signedname.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('signedname=' + "'" + self.signedname.encode('ascii', 'replace').decode('ascii') + "'")
         if self.signloc is not None:
-            field_reprs.append('signloc=' + "'" + self.signloc.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('signloc=' + "'" + self.signloc.encode('ascii', 'replace').decode('ascii') + "'")
         if self.site is not None:
-            field_reprs.append('site=' + "'" + self.site.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('site=' + "'" + self.site.encode('ascii', 'replace').decode('ascii') + "'")
         if self.siteno is not None:
-            field_reprs.append('siteno=' + "'" + self.siteno.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('siteno=' + "'" + self.siteno.encode('ascii', 'replace').decode('ascii') + "'")
         if self.specgrav is not None:
-            field_reprs.append('specgrav=' + "'" + self.specgrav.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('specgrav=' + "'" + self.specgrav.encode('ascii', 'replace').decode('ascii') + "'")
         if self.species is not None:
-            field_reprs.append('species=' + "'" + self.species.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('species=' + "'" + self.species.encode('ascii', 'replace').decode('ascii') + "'")
         if self.sprocess is not None:
-            field_reprs.append('sprocess=' + "'" + self.sprocess.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('sprocess=' + "'" + self.sprocess.encode('ascii', 'replace').decode('ascii') + "'")
         if self.stage is not None:
-            field_reprs.append('stage=' + "'" + self.stage.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('stage=' + "'" + self.stage.encode('ascii', 'replace').decode('ascii') + "'")
         if self.status is not None:
-            field_reprs.append('status=' + "'" + self.status.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('status=' + "'" + self.status.encode('ascii', 'replace').decode('ascii') + "'")
         if self.statusby is not None:
-            field_reprs.append('statusby=' + "'" + self.statusby.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('statusby=' + "'" + self.statusby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.statusdate is not None:
             field_reprs.append('statusdate=' + repr(self.statusdate))
         if self.sterms is not None:
-            field_reprs.append('sterms=' + "'" + self.sterms.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('sterms=' + "'" + self.sterms.encode('ascii', 'replace').decode('ascii') + "'")
         if self.stratum is not None:
-            field_reprs.append('stratum=' + "'" + self.stratum.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('stratum=' + "'" + self.stratum.encode('ascii', 'replace').decode('ascii') + "'")
         if self.streak is not None:
-            field_reprs.append('streak=' + "'" + self.streak.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('streak=' + "'" + self.streak.encode('ascii', 'replace').decode('ascii') + "'")
         if self.subfamily is not None:
-            field_reprs.append('subfamily=' + "'" + self.subfamily.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('subfamily=' + "'" + self.subfamily.encode('ascii', 'replace').decode('ascii') + "'")
         if self.subjects is not None:
-            field_reprs.append('subjects=' + "'" + self.subjects.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('subjects=' + "'" + self.subjects.encode('ascii', 'replace').decode('ascii') + "'")
         if self.subspecies is not None:
-            field_reprs.append('subspecies=' + "'" + self.subspecies.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('subspecies=' + "'" + self.subspecies.encode('ascii', 'replace').decode('ascii') + "'")
         if self.technique is not None:
-            field_reprs.append('technique=' + "'" + self.technique.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('technique=' + "'" + self.technique.encode('ascii', 'replace').decode('ascii') + "'")
         if self.tempauthor is not None:
-            field_reprs.append('tempauthor=' + "'" + self.tempauthor.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('tempauthor=' + "'" + self.tempauthor.encode('ascii', 'replace').decode('ascii') + "'")
         if self.tempby is not None:
-            field_reprs.append('tempby=' + "'" + self.tempby.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('tempby=' + "'" + self.tempby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.tempdate is not None:
             field_reprs.append('tempdate=' + repr(self.tempdate))
         if self.temperatur is not None:
-            field_reprs.append('temperatur=' + "'" + self.temperatur.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('temperatur=' + "'" + self.temperatur.encode('ascii', 'replace').decode('ascii') + "'")
         if self.temploc is not None:
-            field_reprs.append('temploc=' + "'" + self.temploc.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('temploc=' + "'" + self.temploc.encode('ascii', 'replace').decode('ascii') + "'")
         if self.tempnotes is not None:
-            field_reprs.append('tempnotes=' + "'" + self.tempnotes.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('tempnotes=' + "'" + self.tempnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.tempreason is not None:
-            field_reprs.append('tempreason=' + "'" + self.tempreason.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('tempreason=' + "'" + self.tempreason.encode('ascii', 'replace').decode('ascii') + "'")
         if self.tempuntil is not None:
-            field_reprs.append('tempuntil=' + "'" + self.tempuntil.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('tempuntil=' + "'" + self.tempuntil.encode('ascii', 'replace').decode('ascii') + "'")
         if self.texture is not None:
-            field_reprs.append('texture=' + "'" + self.texture.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('texture=' + "'" + self.texture.encode('ascii', 'replace').decode('ascii') + "'")
         if self.title is not None:
-            field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').decode('ascii') + "'")
         if self.tlocfield is not None:
             field_reprs.append('tlocfield=' + repr(self.tlocfield))
         if self.udf is not None:
             field_reprs.append('udf=' + repr(self.udf))
         if self.unit is not None:
-            field_reprs.append('unit=' + "'" + self.unit.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('unit=' + "'" + self.unit.encode('ascii', 'replace').decode('ascii') + "'")
         if self.updated is not None:
             field_reprs.append('updated=' + repr(self.updated))
         if self.updatedby is not None:
-            field_reprs.append('updatedby=' + "'" + self.updatedby.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('updatedby=' + "'" + self.updatedby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.used is not None:
-            field_reprs.append('used=' + "'" + self.used.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('used=' + "'" + self.used.encode('ascii', 'replace').decode('ascii') + "'")
         if self.valuedate is not None:
             field_reprs.append('valuedate=' + repr(self.valuedate))
         if self.varieties is not None:
-            field_reprs.append('varieties=' + "'" + self.varieties.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('varieties=' + "'" + self.varieties.encode('ascii', 'replace').decode('ascii') + "'")
         if self.webinclude is not None:
             field_reprs.append('webinclude=' + repr(self.webinclude))
         if self.weight is not None:
@@ -12045,15 +12045,15 @@ class ObjectRecord(object):
         if self.widthin is not None:
             field_reprs.append('widthin=' + repr(self.widthin))
         if self.xcord is not None:
-            field_reprs.append('xcord=' + "'" + self.xcord.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('xcord=' + "'" + self.xcord.encode('ascii', 'replace').decode('ascii') + "'")
         if self.ycord is not None:
-            field_reprs.append('ycord=' + "'" + self.ycord.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('ycord=' + "'" + self.ycord.encode('ascii', 'replace').decode('ascii') + "'")
         if self.zcord is not None:
-            field_reprs.append('zcord=' + "'" + self.zcord.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('zcord=' + "'" + self.zcord.encode('ascii', 'replace').decode('ascii') + "'")
         if self.zsorter is not None:
-            field_reprs.append('zsorter=' + "'" + self.zsorter.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('zsorter=' + "'" + self.zsorter.encode('ascii', 'replace').decode('ascii') + "'")
         if self.zsorterx is not None:
-            field_reprs.append('zsorterx=' + "'" + self.zsorterx.encode('ascii', 'replace').encode('ascii') + "'")
+            field_reprs.append('zsorterx=' + "'" + self.zsorterx.encode('ascii', 'replace').decode('ascii') + "'")
         return 'ObjectRecord(' + ', '.join(field_reprs) + ')'
 
     @property
