@@ -3,15 +3,17 @@ import wx
 
 class ControlPanel(wx.Panel):
     def __init__(self, parent):
-        wx.Panel.__init__(self, parent, wx.ID_ANY)
+        wx.Panel.__init__(self, parent)
 
-        box_sizer = wx.BoxSizer(orient=wx.HORIZONTAL)
-        box_sizer.Add(wx.StaticText(
-            parent=self, label="PastPerfect installation directory"))
+        sizer = wx.FlexGridSizer(2)
+        sizer.Add(wx.StaticText(
+            parent=self, label="PastPerfect installation directory"), flag=wx.EXPAND)
         self.__text_ctrl = wx.TextCtrl(parent=self)
         self.__text_ctrl.Bind(wx.EVT_LEFT_DOWN, self.__on_text_ctrl_click)
-        box_sizer.Add(self.__text_ctrl)
-        self.SetSizer(box_sizer)
+        sizer.Add(self.__text_ctrl, flag=wx.EXPAND)
+        sizer.AddGrowableCol(1)
+        self.SetAutoLayout(True)
+        self.SetSizerAndFit(sizer)
         self.__pp_install_dir_path = None
 
     def __on_text_ctrl_click(self, _event):

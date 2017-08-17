@@ -11,10 +11,11 @@ class AppFrame(wx.Frame):
 
         self.SetMenuBar(self._create_menu_bar())
 
-        box_sizer = wx.BoxSizer(orient=wx.VERTICAL)
-        box_sizer.Add(self._add_control_panel(), flag=wx.EXPAND)
-        box_sizer.Add(self._add_log_panel(), flag=wx.EXPAND)
-        self.SetSizer(box_sizer)
+        sizer = wx.BoxSizer(orient=wx.VERTICAL)
+        sizer.Add(self._add_control_panel(), flag=wx.EXPAND)
+        sizer.Add(self._add_log_panel(), flag=wx.EXPAND)
+        self.SetAutoLayout(True)
+        self.SetSizerAndFit(sizer)
 
         self.Show(True)
         self.Maximize(True)
