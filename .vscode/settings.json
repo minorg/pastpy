@@ -1,5 +1,5 @@
 {
-    "files.eol": "\n",    
+    "files.eol": "\n",
     "files.exclude": {
         "**/build": true,
         "**/dist": true,
@@ -17,5 +17,14 @@
     ],
     "python.linting.pep8Enabled": true,
     "python.linting.flake8Enabled": true,
-    "python.linting.pylintArgs": ["--disable=C0111", "--disable=C0103", "--disable=E0401", "--disable=E1101"]
+    "python.linting.pylintArgs": [
+        "--disable=C0111",
+        "--disable=C0103",
+        "--disable=E0401",
+        "--disable=E1101"
+    ],
+    "python.linting.pep8Args": [
+        "--ignore=E501"
+    ],
+    "python.linting.flake8Args": ["--ignore", "E501"]
 }
