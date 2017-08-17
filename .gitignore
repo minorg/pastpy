@@ -2,3 +2,4 @@ devdata
 .noseids
 __pycache__/
 /temp/
+/.vscode/.ropeproject/objectdb
