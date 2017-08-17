@@ -9,8 +9,9 @@ class LogPanel(wx.Panel):
         box_sizer.Add(wx.StaticText(self, label="Log"))
         self.__text_ctrl = wx.TextCtrl(self, wx.ID_ANY,
                                        style=wx.TE_MULTILINE | wx.TE_READONLY | wx.HSCROLL)
-        box_sizer.Add(self.__text_ctrl, 1, wx.EXPAND)
+        box_sizer.Add(self.__text_ctrl, flag=wx.EXPAND)
         self.SetSizer(box_sizer)
+        self.SetFocus()
 
     def write(self, string):
         self.__text_ctrl.WriteText(string)

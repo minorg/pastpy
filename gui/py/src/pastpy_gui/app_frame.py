@@ -1,3 +1,4 @@
+from control_panel import ControlPanel
 from log_panel import LogPanel
 import logging
 import sys
@@ -8,14 +9,21 @@ class AppFrame(wx.Frame):
     def __init__(self):
         wx.Frame.__init__(self, None, title='PastPy')
 
-        self._add_log_panel()
         self.SetMenuBar(self._create_menu_bar())
+
+        box_sizer = wx.BoxSizer(orient=wx.VERTICAL)
+        box_sizer.Add(self._add_control_panel(), flag=wx.EXPAND)
+        box_sizer.Add(self._add_log_panel(), flag=wx.EXPAND)
+        self.SetSizer(box_sizer)
 
         self.Show(True)
         self.Maximize(True)
 
+    def _add_control_panel(self):
+        return ControlPanel(parent=self)
+
     def _add_log_panel(self):
-        log_panel = LogPanel(self)
+        log_panel = LogPanel(parent=self)
         sys.stdout = log_panel
         sys.stderr = log_panel
         root_logger = logging.getLogger()
@@ -25,6 +33,7 @@ class AppFrame(wx.Frame):
         handler.setFormatter(logging.Formatter(
             '%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
         root_logger.addHandler(handler)
+        return log_panel
 
     def _create_menu_bar(self):
         file_menu = wx.Menu()
