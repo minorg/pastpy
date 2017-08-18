@@ -9,7 +9,7 @@ class AppFrame(wx.Frame):
     def __init__(self):
         wx.Frame.__init__(self, None, title='PastPy')
 
-        # self.SetBackgroundColour(wx.WHITE)
+        self.SetBackgroundColour(wx.WHITE)
         self.SetMenuBar(self._create_menu_bar())
 
         vertical_sizer = wx.BoxSizer(orient=wx.VERTICAL)
@@ -26,13 +26,13 @@ class AppFrame(wx.Frame):
 
         vertical_sizer.Add(self._add_site_generator_panel(), flag=wx.EXPAND)
 
-        vertical_sizer.AddSpacer(100)
+        vertical_sizer.AddSpacer(40)
 
         vertical_sizer.Add(self._add_log_panel(), flag=wx.EXPAND)
 
         horizontal_sizer = wx.BoxSizer(orient=wx.HORIZONTAL)
         horizontal_sizer.AddStretchSpacer(prop=1)
-        horizontal_sizer.Add(vertical_sizer, proportion=4, flag=wx.EXPAND)
+        horizontal_sizer.Add(vertical_sizer, proportion=8, flag=wx.EXPAND)
         horizontal_sizer.AddStretchSpacer(prop=1)
         self.SetSizerAndFit(horizontal_sizer)
 
