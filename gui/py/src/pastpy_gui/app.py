@@ -1,5 +1,5 @@
 import wx
-from app_frame import AppFrame
+from views.app_frame import AppFrame
 import logging
 
 

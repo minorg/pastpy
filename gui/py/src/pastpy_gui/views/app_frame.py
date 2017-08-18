@@ -1,5 +1,5 @@
-from control_panel import ControlPanel
-from log_panel import LogPanel
+from .log_panel import LogPanel
+from .site_generator_panel import SiteGeneratorPanel
 import logging
 import sys
 import wx
@@ -9,7 +9,7 @@ class AppFrame(wx.Frame):
     def __init__(self):
         wx.Frame.__init__(self, None, title='PastPy')
 
-        self.SetBackgroundColour(wx.WHITE)
+        # self.SetBackgroundColour(wx.WHITE)
         self.SetMenuBar(self._create_menu_bar())
 
         vertical_sizer = wx.BoxSizer(orient=wx.VERTICAL)
@@ -24,7 +24,7 @@ class AppFrame(wx.Frame):
 
         vertical_sizer.AddSpacer(10)
 
-        vertical_sizer.Add(self._add_control_panel(), flag=wx.EXPAND)
+        vertical_sizer.Add(self._add_site_generator_panel(), flag=wx.EXPAND)
 
         vertical_sizer.AddSpacer(100)
 
@@ -32,15 +32,15 @@ class AppFrame(wx.Frame):
 
         horizontal_sizer = wx.BoxSizer(orient=wx.HORIZONTAL)
         horizontal_sizer.AddStretchSpacer(prop=1)
-        horizontal_sizer.Add(vertical_sizer, proportion=4)
+        horizontal_sizer.Add(vertical_sizer, proportion=4, flag=wx.EXPAND)
         horizontal_sizer.AddStretchSpacer(prop=1)
         self.SetSizerAndFit(horizontal_sizer)
 
         self.Show(True)
         self.Maximize(True)
 
-    def _add_control_panel(self):
-        return ControlPanel(parent=self)
+    def _add_site_generator_panel(self):
+        return SiteGeneratorPanel(parent=self)
 
     def _add_log_panel(self):
         log_panel = LogPanel(parent=self)
