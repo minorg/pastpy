@@ -1,3 +1,5 @@
+import logging
+import sys
 import wx
 
 
@@ -7,8 +9,24 @@ class LogPanel(wx.Panel):
 
         vertical_sizer = wx.BoxSizer(orient=wx.VERTICAL)
         vertical_sizer.AddSpacer(10)
-        vertical_sizer.Add(wx.StaticText(self, label="Log"),
+
+        title_sizer = wx.BoxSizer(orient=wx.HORIZONTAL)
+        checkbox = wx.CheckBox(parent=self, label='Enable debug logging')
+
+        def on_checkbox(event):
+            if event.IsChecked():
+                logging.getLogger().setLevel(logging.DEBUG)
+                logging.debug('enabled debug logging')
+            else:
+                logging.getLogger().setLevel(logging.INFO)
+                logging.debug('disabled debug logging')
+                logging.info('disabled debug logging')
+        checkbox.Bind(wx.EVT_CHECKBOX, on_checkbox)
+        title_sizer.Add(wx.StaticText(parent=self, label="Log"),
+                        flag=wx.ALIGN_CENTRE_HORIZONTAL)
+        vertical_sizer.Add(title_sizer,
                            flag=wx.ALIGN_CENTRE_HORIZONTAL)
+
         vertical_sizer.AddSpacer(10)
         self.__text_ctrl = wx.TextCtrl(self,
                                        size=wx.Size(
@@ -24,5 +42,15 @@ class LogPanel(wx.Panel):
 
         self.SetSizerAndFit(vertical_sizer)
 
+        sys.stdout = self
+        sys.stderr = self
+        root_logger = logging.getLogger()
+        for handler in list(root_logger.handlers):
+            root_logger.removeHandler(handler)
+        handler = logging.StreamHandler(sys.stdout)
+        handler.setFormatter(logging.Formatter(
+            '%(asctime)s - %(levelname)s - %(message)s'))
+        root_logger.addHandler(handler)
+
     def write(self, string):
-        self.__text_ctrl.WriteText(string)
+        self.__text_ctrl.SetValue(self.__text_ctrl.GetValue() + string)

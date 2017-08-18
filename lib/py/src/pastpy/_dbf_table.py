@@ -25,24 +25,27 @@ class _DbfTable(object):
                         return datetime.strptime(field_value, strptime_format)
                     except ValueError:
                         pass
-                logging.warn("unable to parse %(field_name)s=%(field_value)s (basestring)" % locals())
+                logging.warn(
+                    "unable to parse %(field_name)s=%(field_value)s (basestring)" % locals())
                 return
             elif isinstance(field_value, int):
                 if field_value == 0:
                     return
-                raise NotImplementedError("%(field_name)s: %(field_value)s" % locals())
+                raise NotImplementedError(
+                    "%(field_name)s: %(field_value)s" % locals())
         elif field_metadata.type == dict:
             if existing_field_value is None:
                 existing_field_value = {}
             assert field_number is not None
-            assert not field_number in existing_field_value
+            assert field_number not in existing_field_value
             existing_field_value[field_number] = field_value
             # print(existing_field_value)
             return existing_field_value
             # raise NotImplementedError("%(field_name)s: %(field_value)s" % locals())
         elif field_metadata.type == str:
             if not isinstance(field_value, str):
-                logging.info("converting %s=%s (%s) to string", field_name, field_value, type(field_value))
+                logging.debug("converting %s=%s (%s) to string",
+                              field_name, field_value, type(field_value))
                 return str(field_value)
             return field_value
         else:
@@ -52,13 +55,15 @@ class _DbfTable(object):
                 except ValueError as e:
                     field_value_type = type(field_value)
                     field_metadata_type = field_metadata.type
-                    logging.warn("unable to convert %(field_name)s=%(field_value)s (%(field_value_type)s) to %(field_metadata_type)s: %(e)s" % locals())
+                    logging.warn(
+                        "unable to convert %(field_name)s=%(field_value)s (%(field_value_type)s) to %(field_metadata_type)s: %(e)s" % locals())
                     return
             else:
                 try:
                     return field_metadata.type(field_value)
                 except (TypeError, ValueError) as e:
-                    raise TypeError("unable to coerce %s=%s (%s) to a %s: %s" % (field_name, field_value, type(field_value), field_metadata.type, e))
+                    raise TypeError("unable to coerce %s=%s (%s) to a %s: %s" % (
+                        field_name, field_value, type(field_value), field_metadata.type, e))
 
     def _map_record(self, record):
         raise NotImplementedError
@@ -80,7 +85,8 @@ class _DbfTable(object):
                 break
             except ValueError:
                 pass
-        field_metadata = getattr(getattr(struct_type, 'FieldMetadata'), field_name_base.upper())
+        field_metadata = getattr(
+            getattr(struct_type, 'FieldMetadata'), field_name_base.upper())
 
         existing_field_value = getattr(struct_builder, field_name_base)
 

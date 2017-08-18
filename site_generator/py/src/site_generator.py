@@ -177,6 +177,7 @@ class SiteGenerator(object):
             self.__output_dir_path, file_base_name + '.html')
         with open(out_file_path, 'w+') as out_file:
             out_file.write(rendered)
+            logging.info("wrote %s", out_file_path)
 
     def __render_index(self):
         self.__render_file('index', {})

@@ -43,17 +43,7 @@ class AppFrame(wx.Frame):
         return SiteGeneratorPanel(parent=self)
 
     def _add_log_panel(self):
-        log_panel = LogPanel(parent=self)
-        sys.stdout = log_panel
-        sys.stderr = log_panel
-        root_logger = logging.getLogger()
-        for handler in list(root_logger.handlers):
-            root_logger.removeHandler(handler)
-        handler = logging.StreamHandler(sys.stdout)
-        handler.setFormatter(logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
-        root_logger.addHandler(handler)
-        return log_panel
+        return LogPanel(parent=self)
 
     def _create_menu_bar(self):
         file_menu = wx.Menu()

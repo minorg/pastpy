@@ -1,4 +1,5 @@
 import logging
+import os.path
 from site_generator import SiteGenerator
 from models.site_generator_model import SiteGeneratorModel
 import wx
@@ -39,18 +40,25 @@ class SiteGeneratorPanel(wx.Panel):
             button = wx.Button(self, label='Generate site')
 
             def on_button_click(event):
-                if self._output_dir_path is None:
-                    logging.warn("Must set output directory path")
-                    event.Skip()
-                    return
-                elif self._pp_install_dir_path is None:
-                    logging.warn(
-                        "Must set PastPerfect installation directory path")
-                    event.Skip()
+                try:
+                    generator = \
+                        SiteGenerator(output_dir_path=self.model.output_dir_path,
+                                      pp_images_dir_path=self.model.pp_images_dir_path,
+                                      pp_objects_dbf_file_path=self.model.pp_objects_dbf_file_path,
+                                      pp_install_dir_path=self.model.pp_install_dir_path,
+                                      template_dir_path=self.model.template_dir_path)
+                    generator.generate()
+                    logging.info("done")
+                except:
+                    logging.error("error creating generator: ", exc_info=True)
                     return
 
-                SiteGenerator(output_dir_path=self._output_dir_path,
-                              pp_install_dir_path=self._pp_install_dir_path).generate()
+                try:
+                    import webbrowser
+                except ImportError:
+                    return
+                webbrowser.open(os.path.join(
+                    self.model.output_dir_path, 'index.html'))
 
             button.Bind(wx.EVT_LEFT_DOWN, on_button_click)
 
@@ -130,7 +138,8 @@ class SiteGeneratorPanel(wx.Panel):
                 instructions = instructions + " Leave blank to use all objects."
             return self._add_file_path_input(
                 instructions=instructions,
-                label='PastPerfect objects database',
+                label='PastPerfect objects database' +
+                (' (optional)' if optional else ''),
                 model_property_name='pp_objects_dbf_file_path',
                 wildcard="DBF files (*.dbf)|*.dbf"
             )
