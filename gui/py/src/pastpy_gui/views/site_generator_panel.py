@@ -152,6 +152,13 @@ class SiteGeneratorPanel(wx.Panel):
 
             self._add_pp_objects_dbf_file_path(optional=False)
 
+            self._add_dir_path_input(
+                instructions="Directory where HTML templates reside. Defaults to %s. If you wish to change the generated site, copy the contents of the default directory to a new directory, modify the templates, and set the path to the new directory here." %
+                SiteGenerator.TEMPLATE_DIR_PATH_DEFAULT,
+                label='Template directory path',
+                model_property_name='template_dir_path',
+                style=wx.DD_DIR_MUST_EXIST)
+
     class BasicPanel(NotebookPanel):
         def _add_inputs(self):
             self._add_dir_path_input(
