@@ -72,6 +72,7 @@ class RecordField(object):
         name = self.name
         thrift_type = self.thrift_type
         return """\
+    // %(dbf_type)s
     optional %(thrift_type)s %(name)s;""" % locals()
 
     @property
