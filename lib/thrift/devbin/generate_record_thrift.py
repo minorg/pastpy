@@ -9,7 +9,7 @@ THRIFT_DIR_PATH = os.path.join(os.path.dirname(
 class RecordField(object):
     THRIFT_IMPORTS_BY_TYPE = {
         'date_time.DateTime': 'include "thryft/native/date_time.thrift"',
-        'decimal.decimal': 'include "thryft/native/decimal.thrift"',
+        'decimal.Decimal': 'include "thryft/native/decimal.thrift"',
     }
 
     # DBF type is C for char, et al.

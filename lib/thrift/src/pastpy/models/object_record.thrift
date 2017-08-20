@@ -1,6 +1,7 @@
 namespace * pastpy.models
 
 include "thryft/native/date_time.thrift"
+include "thryft/native/decimal.thrift"
 
 struct ObjectRecord {
     // C,15

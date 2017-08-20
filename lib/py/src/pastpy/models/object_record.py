@@ -1,11 +1,7 @@
 from __future__ import absolute_import; import decimal
 from collections import OrderedDict
-from itertools import filterfalse
 import builtins
 import datetime
-import pastpy.models.cardinal_direction
-import pastpy.models.cat
-import pastpy.models.condition
 
 
 class ObjectRecord(object):
@@ -71,7 +67,10 @@ class ObjectRecord(object):
             excavateby=None,
             exhibitid=None,
             exhibitno=None,
-            exhlabel=None,
+            exhlabel1=None,
+            exhlabel2=None,
+            exhlabel3=None,
+            exhlabel4=None,
             exhstart=None,
             family=None,
             feature=None,
@@ -127,7 +126,12 @@ class ObjectRecord(object):
             loaninno=None,
             loanno=None,
             loanrenew=None,
-            locfield=None,
+            locfield1=None,
+            locfield2=None,
+            locfield3=None,
+            locfield4=None,
+            locfield5=None,
+            locfield6=None,
             longdeg=None,
             luster=None,
             made=None,
@@ -166,6 +170,7 @@ class ObjectRecord(object):
             pressure=None,
             provenance=None,
             pubnotes=None,
+            qrurl=None,
             recas=None,
             recdate=None,
             recfrom=None,
@@ -189,6 +194,7 @@ class ObjectRecord(object):
             role3=None,
             school=None,
             sex=None,
+            sgflag=None,
             signedname=None,
             signloc=None,
             site=None,
@@ -217,14 +223,45 @@ class ObjectRecord(object):
             tempuntil=None,
             texture=None,
             title=None,
-            tlocfield=None,
-            udf=None,
+            tlocfield1=None,
+            tlocfield2=None,
+            tlocfield3=None,
+            tlocfield4=None,
+            tlocfield5=None,
+            tlocfield6=None,
+            udf1=None,
+            udf10=None,
+            udf11=None,
+            udf12=None,
+            udf13=None,
+            udf14=None,
+            udf15=None,
+            udf16=None,
+            udf17=None,
+            udf18=None,
+            udf19=None,
+            udf2=None,
+            udf20=None,
+            udf21=None,
+            udf22=None,
+            udf3=None,
+            udf4=None,
+            udf5=None,
+            udf6=None,
+            udf7=None,
+            udf8=None,
+            udf9=None,
             unit=None,
             updated=None,
             updatedby=None,
             used=None,
             valuedate=None,
             varieties=None,
+            vexhtml=None,
+            vexlabel1=None,
+            vexlabel2=None,
+            vexlabel3=None,
+            vexlabel4=None,
             webinclude=None,
             weight=None,
             weightin=None,
@@ -246,10 +283,10 @@ class ObjectRecord(object):
             :type appnotes: str or None
             :type appraisor: str or None
             :type assemzone: str or None
-            :type bagno: int or None
-            :type boxno: int or None
+            :type bagno: str or None
+            :type boxno: str or None
             :type caption: str or None
-            :type cat: pastpy.models.cat.Cat or None
+            :type cat: str or None
             :type catby: str or None
             :type catdate: datetime.datetime or None
             :type cattype: str or None
@@ -263,7 +300,7 @@ class ObjectRecord(object):
             :type collector: str or None
             :type conddate: datetime.datetime or None
             :type condexam: str or None
-            :type condition: pastpy.models.condition.Condition or None
+            :type condition: str or None
             :type condnotes: str or None
             :type count: str or None
             :type creator: str or None
@@ -288,18 +325,21 @@ class ObjectRecord(object):
             :type dimnotes: str or None
             :type dimtype: int or None
             :type dispvalue: str or None
-            :type earlydate: str or None
+            :type earlydate: int or None
             :type elements: str or None
             :type epoch: str or None
             :type era: str or None
             :type event: str or None
-            :type ew: pastpy.models.cardinal_direction.CardinalDirection or None
+            :type ew: str or None
             :type excavadate: datetime.datetime or None
             :type excavateby: str or None
             :type exhibitid: str or None
             :type exhibitno: int or None
-            :type exhlabel: dict(int: str) or None
-            :type exhstart: str or None
+            :type exhlabel1: str or None
+            :type exhlabel2: str or None
+            :type exhlabel3: str or None
+            :type exhlabel4: str or None
+            :type exhstart: datetime.datetime or None
             :type family: str or None
             :type feature: str or None
             :type flagdate: datetime.datetime or None
@@ -331,7 +371,7 @@ class ObjectRecord(object):
             :type inscrtech: str or None
             :type inscrtext: str or None
             :type inscrtrans: str or None
-            :type inscrtype: object or None
+            :type inscrtype: str or None
             :type insdate: datetime.datetime or None
             :type insphone: str or None
             :type inspremium: str or None
@@ -341,7 +381,7 @@ class ObjectRecord(object):
             :type invndate: datetime.datetime or None
             :type kingdom: str or None
             :type latdeg: Decimal or None
-            :type latedate: str or None
+            :type latedate: int or None
             :type legal: str or None
             :type length: Decimal or None
             :type lengthft: Decimal or None
@@ -349,12 +389,17 @@ class ObjectRecord(object):
             :type level: str or None
             :type lithofacie: str or None
             :type loancond: str or None
-            :type loandue: str or None
+            :type loandue: datetime.datetime or None
             :type loanid: str or None
             :type loaninno: str or None
             :type loanno: int or None
             :type loanrenew: datetime.datetime or None
-            :type locfield: dict(int: str) or None
+            :type locfield1: str or None
+            :type locfield2: str or None
+            :type locfield3: str or None
+            :type locfield4: str or None
+            :type locfield5: str or None
+            :type locfield6: str or None
             :type longdeg: Decimal or None
             :type luster: str or None
             :type made: str or None
@@ -368,7 +413,7 @@ class ObjectRecord(object):
             :type nhclass: str or None
             :type nhorder: str or None
             :type notes: str or None
-            :type ns: pastpy.models.cardinal_direction.CardinalDirection or None
+            :type ns: str or None
             :type objectid: str or None
             :type objname: str or None
             :type objname2: str or None
@@ -393,8 +438,9 @@ class ObjectRecord(object):
             :type pressure: str or None
             :type provenance: str or None
             :type pubnotes: str or None
+            :type qrurl: str or None
             :type recas: str or None
-            :type recdate: datetime.datetime or None
+            :type recdate: str or None
             :type recfrom: str or None
             :type relation: str or None
             :type relnotes: str or None
@@ -405,17 +451,18 @@ class ObjectRecord(object):
             :type repatdisp: str or None
             :type repathand: str or None
             :type repatnotes: str or None
-            :type repatnotic: str or None
-            :type repattype: int or None
+            :type repatnotic: datetime.datetime or None
+            :type repattype: str or None
             :type rockclass: str or None
             :type rockcolor: str or None
             :type rockorigin: str or None
-            :type rocktype: int or None
+            :type rocktype: str or None
             :type role: str or None
             :type role2: str or None
             :type role3: str or None
             :type school: str or None
             :type sex: str or None
+            :type sgflag: str or None
             :type signedname: str or None
             :type signloc: str or None
             :type site: str or None
@@ -444,14 +491,45 @@ class ObjectRecord(object):
             :type tempuntil: str or None
             :type texture: str or None
             :type title: str or None
-            :type tlocfield: dict(int: str) or None
-            :type udf: dict(int: object) or None
+            :type tlocfield1: str or None
+            :type tlocfield2: str or None
+            :type tlocfield3: str or None
+            :type tlocfield4: str or None
+            :type tlocfield5: str or None
+            :type tlocfield6: str or None
+            :type udf1: str or None
+            :type udf10: str or None
+            :type udf11: str or None
+            :type udf12: str or None
+            :type udf13: int or None
+            :type udf14: Decimal or None
+            :type udf15: Decimal or None
+            :type udf16: Decimal or None
+            :type udf17: Decimal or None
+            :type udf18: datetime.datetime or None
+            :type udf19: datetime.datetime or None
+            :type udf2: str or None
+            :type udf20: datetime.datetime or None
+            :type udf21: str or None
+            :type udf22: str or None
+            :type udf3: str or None
+            :type udf4: str or None
+            :type udf5: str or None
+            :type udf6: str or None
+            :type udf7: str or None
+            :type udf8: str or None
+            :type udf9: str or None
             :type unit: str or None
             :type updated: datetime.datetime or None
             :type updatedby: str or None
             :type used: str or None
             :type valuedate: datetime.datetime or None
             :type varieties: str or None
+            :type vexhtml: str or None
+            :type vexlabel1: str or None
+            :type vexlabel2: str or None
+            :type vexlabel3: str or None
+            :type vexlabel4: str or None
             :type webinclude: bool or None
             :type weight: Decimal or None
             :type weightin: Decimal or None
@@ -459,9 +537,9 @@ class ObjectRecord(object):
             :type width: Decimal or None
             :type widthft: Decimal or None
             :type widthin: Decimal or None
-            :type xcord: str or None
-            :type ycord: str or None
-            :type zcord: str or None
+            :type xcord: Decimal or None
+            :type ycord: Decimal or None
+            :type zcord: Decimal or None
             :type zsorter: str or None
             :type zsorterx: str or None
             '''
@@ -525,7 +603,10 @@ class ObjectRecord(object):
             self.__excavateby = excavateby
             self.__exhibitid = exhibitid
             self.__exhibitno = exhibitno
-            self.__exhlabel = exhlabel
+            self.__exhlabel1 = exhlabel1
+            self.__exhlabel2 = exhlabel2
+            self.__exhlabel3 = exhlabel3
+            self.__exhlabel4 = exhlabel4
             self.__exhstart = exhstart
             self.__family = family
             self.__feature = feature
@@ -581,7 +662,12 @@ class ObjectRecord(object):
             self.__loaninno = loaninno
             self.__loanno = loanno
             self.__loanrenew = loanrenew
-            self.__locfield = locfield
+            self.__locfield1 = locfield1
+            self.__locfield2 = locfield2
+            self.__locfield3 = locfield3
+            self.__locfield4 = locfield4
+            self.__locfield5 = locfield5
+            self.__locfield6 = locfield6
             self.__longdeg = longdeg
             self.__luster = luster
             self.__made = made
@@ -620,6 +706,7 @@ class ObjectRecord(object):
             self.__pressure = pressure
             self.__provenance = provenance
             self.__pubnotes = pubnotes
+            self.__qrurl = qrurl
             self.__recas = recas
             self.__recdate = recdate
             self.__recfrom = recfrom
@@ -643,6 +730,7 @@ class ObjectRecord(object):
             self.__role3 = role3
             self.__school = school
             self.__sex = sex
+            self.__sgflag = sgflag
             self.__signedname = signedname
             self.__signloc = signloc
             self.__site = site
@@ -671,14 +759,45 @@ class ObjectRecord(object):
             self.__tempuntil = tempuntil
             self.__texture = texture
             self.__title = title
-            self.__tlocfield = tlocfield
-            self.__udf = udf
+            self.__tlocfield1 = tlocfield1
+            self.__tlocfield2 = tlocfield2
+            self.__tlocfield3 = tlocfield3
+            self.__tlocfield4 = tlocfield4
+            self.__tlocfield5 = tlocfield5
+            self.__tlocfield6 = tlocfield6
+            self.__udf1 = udf1
+            self.__udf10 = udf10
+            self.__udf11 = udf11
+            self.__udf12 = udf12
+            self.__udf13 = udf13
+            self.__udf14 = udf14
+            self.__udf15 = udf15
+            self.__udf16 = udf16
+            self.__udf17 = udf17
+            self.__udf18 = udf18
+            self.__udf19 = udf19
+            self.__udf2 = udf2
+            self.__udf20 = udf20
+            self.__udf21 = udf21
+            self.__udf22 = udf22
+            self.__udf3 = udf3
+            self.__udf4 = udf4
+            self.__udf5 = udf5
+            self.__udf6 = udf6
+            self.__udf7 = udf7
+            self.__udf8 = udf8
+            self.__udf9 = udf9
             self.__unit = unit
             self.__updated = updated
             self.__updatedby = updatedby
             self.__used = used
             self.__valuedate = valuedate
             self.__varieties = varieties
+            self.__vexhtml = vexhtml
+            self.__vexlabel1 = vexlabel1
+            self.__vexlabel2 = vexlabel2
+            self.__vexlabel3 = vexlabel3
+            self.__vexlabel4 = vexlabel4
             self.__webinclude = webinclude
             self.__weight = weight
             self.__weightin = weightin
@@ -693,7 +812,7 @@ class ObjectRecord(object):
             self.__zsorterx = zsorterx
 
         def build(self):
-            return ObjectRecord(accessno=self.__accessno, accessory=self.__accessory, acqvalue=self.__acqvalue, age=self.__age, appnotes=self.__appnotes, appraisor=self.__appraisor, assemzone=self.__assemzone, bagno=self.__bagno, boxno=self.__boxno, caption=self.__caption, cat=self.__cat, catby=self.__catby, catdate=self.__catdate, cattype=self.__cattype, chemcomp=self.__chemcomp, circum=self.__circum, circumft=self.__circumft, circumin=self.__circumin, classes=self.__classes, colldate=self.__colldate, collection=self.__collection, collector=self.__collector, conddate=self.__conddate, condexam=self.__condexam, condition=self.__condition, condnotes=self.__condnotes, count=self.__count, creator=self.__creator, creator2=self.__creator2, creator3=self.__creator3, credit=self.__credit, crystal=self.__crystal, culture=self.__culture, curvalmax=self.__curvalmax, curvalue=self.__curvalue, dataset=self.__dataset, date=self.__date, datingmeth=self.__datingmeth, datum=self.__datum, depth=self.__depth, depthft=self.__depthft, depthin=self.__depthin, descrip=self.__descrip, diameter=self.__diameter, diameterft=self.__diameterft, diameterin=self.__diameterin, dimnotes=self.__dimnotes, dimtype=self.__dimtype, dispvalue=self.__dispvalue, earlydate=self.__earlydate, elements=self.__elements, epoch=self.__epoch, era=self.__era, event=self.__event, ew=self.__ew, excavadate=self.__excavadate, excavateby=self.__excavateby, exhibitid=self.__exhibitid, exhibitno=self.__exhibitno, exhlabel=self.__exhlabel, exhstart=self.__exhstart, family=self.__family, feature=self.__feature, flagdate=self.__flagdate, flagnotes=self.__flagnotes, flagreason=self.__flagreason, formation=self.__formation, fossils=self.__fossils, found=self.__found, fracture=self.__fracture, frame=self.__frame, framesize=self.__framesize, genus=self.__genus, gparent=self.__gparent, grainsize=self.__grainsize, habitat=self.__habitat, hardness=self.__hardness, height=self.__height, heightft=self.__heightft, heightin=self.__heightin, homeloc=self.__homeloc, idby=self.__idby, iddate=self.__iddate, imagefile=self.__imagefile, imageno=self.__imageno, imagesize=self.__imagesize, inscomp=self.__inscomp, inscrlang=self.__inscrlang, inscrpos=self.__inscrpos, inscrtech=self.__inscrtech, inscrtext=self.__inscrtext, inscrtrans=self.__inscrtrans, inscrtype=self.__inscrtype, insdate=self.__insdate, insphone=self.__insphone, inspremium=self.__inspremium, insrep=self.__insrep, insvalue=self.__insvalue, invnby=self.__invnby, invndate=self.__invndate, kingdom=self.__kingdom, latdeg=self.__latdeg, latedate=self.__latedate, legal=self.__legal, length=self.__length, lengthft=self.__lengthft, lengthin=self.__lengthin, level=self.__level, lithofacie=self.__lithofacie, loancond=self.__loancond, loandue=self.__loandue, loanid=self.__loanid, loaninno=self.__loaninno, loanno=self.__loanno, loanrenew=self.__loanrenew, locfield=self.__locfield, longdeg=self.__longdeg, luster=self.__luster, made=self.__made, maintcycle=self.__maintcycle, maintdate=self.__maintdate, maintnote=self.__maintnote, material=self.__material, medium=self.__medium, member=self.__member, mmark=self.__mmark, nhclass=self.__nhclass, nhorder=self.__nhorder, notes=self.__notes, ns=self.__ns, objectid=self.__objectid, objname=self.__objname, objname2=self.__objname2, objname3=self.__objname3, objnames=self.__objnames, occurrence=self.__occurrence, oldno=self.__oldno, origin=self.__origin, othername=self.__othername, otherno=self.__otherno, outdate=self.__outdate, owned=self.__owned, parent=self.__parent, people=self.__people, period=self.__period, phylum=self.__phylum, policyno=self.__policyno, ppid=self.__ppid, preparator=self.__preparator, prepdate=self.__prepdate, preserve=self.__preserve, pressure=self.__pressure, provenance=self.__provenance, pubnotes=self.__pubnotes, recas=self.__recas, recdate=self.__recdate, recfrom=self.__recfrom, relation=self.__relation, relnotes=self.__relnotes, renewuntil=self.__renewuntil, repatby=self.__repatby, repatclaim=self.__repatclaim, repatdate=self.__repatdate, repatdisp=self.__repatdisp, repathand=self.__repathand, repatnotes=self.__repatnotes, repatnotic=self.__repatnotic, repattype=self.__repattype, rockclass=self.__rockclass, rockcolor=self.__rockcolor, rockorigin=self.__rockorigin, rocktype=self.__rocktype, role=self.__role, role2=self.__role2, role3=self.__role3, school=self.__school, sex=self.__sex, signedname=self.__signedname, signloc=self.__signloc, site=self.__site, siteno=self.__siteno, specgrav=self.__specgrav, species=self.__species, sprocess=self.__sprocess, stage=self.__stage, status=self.__status, statusby=self.__statusby, statusdate=self.__statusdate, sterms=self.__sterms, stratum=self.__stratum, streak=self.__streak, subfamily=self.__subfamily, subjects=self.__subjects, subspecies=self.__subspecies, technique=self.__technique, tempauthor=self.__tempauthor, tempby=self.__tempby, tempdate=self.__tempdate, temperatur=self.__temperatur, temploc=self.__temploc, tempnotes=self.__tempnotes, tempreason=self.__tempreason, tempuntil=self.__tempuntil, texture=self.__texture, title=self.__title, tlocfield=self.__tlocfield, udf=self.__udf, unit=self.__unit, updated=self.__updated, updatedby=self.__updatedby, used=self.__used, valuedate=self.__valuedate, varieties=self.__varieties, webinclude=self.__webinclude, weight=self.__weight, weightin=self.__weightin, weightlb=self.__weightlb, width=self.__width, widthft=self.__widthft, widthin=self.__widthin, xcord=self.__xcord, ycord=self.__ycord, zcord=self.__zcord, zsorter=self.__zsorter, zsorterx=self.__zsorterx)
+            return ObjectRecord(accessno=self.__accessno, accessory=self.__accessory, acqvalue=self.__acqvalue, age=self.__age, appnotes=self.__appnotes, appraisor=self.__appraisor, assemzone=self.__assemzone, bagno=self.__bagno, boxno=self.__boxno, caption=self.__caption, cat=self.__cat, catby=self.__catby, catdate=self.__catdate, cattype=self.__cattype, chemcomp=self.__chemcomp, circum=self.__circum, circumft=self.__circumft, circumin=self.__circumin, classes=self.__classes, colldate=self.__colldate, collection=self.__collection, collector=self.__collector, conddate=self.__conddate, condexam=self.__condexam, condition=self.__condition, condnotes=self.__condnotes, count=self.__count, creator=self.__creator, creator2=self.__creator2, creator3=self.__creator3, credit=self.__credit, crystal=self.__crystal, culture=self.__culture, curvalmax=self.__curvalmax, curvalue=self.__curvalue, dataset=self.__dataset, date=self.__date, datingmeth=self.__datingmeth, datum=self.__datum, depth=self.__depth, depthft=self.__depthft, depthin=self.__depthin, descrip=self.__descrip, diameter=self.__diameter, diameterft=self.__diameterft, diameterin=self.__diameterin, dimnotes=self.__dimnotes, dimtype=self.__dimtype, dispvalue=self.__dispvalue, earlydate=self.__earlydate, elements=self.__elements, epoch=self.__epoch, era=self.__era, event=self.__event, ew=self.__ew, excavadate=self.__excavadate, excavateby=self.__excavateby, exhibitid=self.__exhibitid, exhibitno=self.__exhibitno, exhlabel1=self.__exhlabel1, exhlabel2=self.__exhlabel2, exhlabel3=self.__exhlabel3, exhlabel4=self.__exhlabel4, exhstart=self.__exhstart, family=self.__family, feature=self.__feature, flagdate=self.__flagdate, flagnotes=self.__flagnotes, flagreason=self.__flagreason, formation=self.__formation, fossils=self.__fossils, found=self.__found, fracture=self.__fracture, frame=self.__frame, framesize=self.__framesize, genus=self.__genus, gparent=self.__gparent, grainsize=self.__grainsize, habitat=self.__habitat, hardness=self.__hardness, height=self.__height, heightft=self.__heightft, heightin=self.__heightin, homeloc=self.__homeloc, idby=self.__idby, iddate=self.__iddate, imagefile=self.__imagefile, imageno=self.__imageno, imagesize=self.__imagesize, inscomp=self.__inscomp, inscrlang=self.__inscrlang, inscrpos=self.__inscrpos, inscrtech=self.__inscrtech, inscrtext=self.__inscrtext, inscrtrans=self.__inscrtrans, inscrtype=self.__inscrtype, insdate=self.__insdate, insphone=self.__insphone, inspremium=self.__inspremium, insrep=self.__insrep, insvalue=self.__insvalue, invnby=self.__invnby, invndate=self.__invndate, kingdom=self.__kingdom, latdeg=self.__latdeg, latedate=self.__latedate, legal=self.__legal, length=self.__length, lengthft=self.__lengthft, lengthin=self.__lengthin, level=self.__level, lithofacie=self.__lithofacie, loancond=self.__loancond, loandue=self.__loandue, loanid=self.__loanid, loaninno=self.__loaninno, loanno=self.__loanno, loanrenew=self.__loanrenew, locfield1=self.__locfield1, locfield2=self.__locfield2, locfield3=self.__locfield3, locfield4=self.__locfield4, locfield5=self.__locfield5, locfield6=self.__locfield6, longdeg=self.__longdeg, luster=self.__luster, made=self.__made, maintcycle=self.__maintcycle, maintdate=self.__maintdate, maintnote=self.__maintnote, material=self.__material, medium=self.__medium, member=self.__member, mmark=self.__mmark, nhclass=self.__nhclass, nhorder=self.__nhorder, notes=self.__notes, ns=self.__ns, objectid=self.__objectid, objname=self.__objname, objname2=self.__objname2, objname3=self.__objname3, objnames=self.__objnames, occurrence=self.__occurrence, oldno=self.__oldno, origin=self.__origin, othername=self.__othername, otherno=self.__otherno, outdate=self.__outdate, owned=self.__owned, parent=self.__parent, people=self.__people, period=self.__period, phylum=self.__phylum, policyno=self.__policyno, ppid=self.__ppid, preparator=self.__preparator, prepdate=self.__prepdate, preserve=self.__preserve, pressure=self.__pressure, provenance=self.__provenance, pubnotes=self.__pubnotes, qrurl=self.__qrurl, recas=self.__recas, recdate=self.__recdate, recfrom=self.__recfrom, relation=self.__relation, relnotes=self.__relnotes, renewuntil=self.__renewuntil, repatby=self.__repatby, repatclaim=self.__repatclaim, repatdate=self.__repatdate, repatdisp=self.__repatdisp, repathand=self.__repathand, repatnotes=self.__repatnotes, repatnotic=self.__repatnotic, repattype=self.__repattype, rockclass=self.__rockclass, rockcolor=self.__rockcolor, rockorigin=self.__rockorigin, rocktype=self.__rocktype, role=self.__role, role2=self.__role2, role3=self.__role3, school=self.__school, sex=self.__sex, sgflag=self.__sgflag, signedname=self.__signedname, signloc=self.__signloc, site=self.__site, siteno=self.__siteno, specgrav=self.__specgrav, species=self.__species, sprocess=self.__sprocess, stage=self.__stage, status=self.__status, statusby=self.__statusby, statusdate=self.__statusdate, sterms=self.__sterms, stratum=self.__stratum, streak=self.__streak, subfamily=self.__subfamily, subjects=self.__subjects, subspecies=self.__subspecies, technique=self.__technique, tempauthor=self.__tempauthor, tempby=self.__tempby, tempdate=self.__tempdate, temperatur=self.__temperatur, temploc=self.__temploc, tempnotes=self.__tempnotes, tempreason=self.__tempreason, tempuntil=self.__tempuntil, texture=self.__texture, title=self.__title, tlocfield1=self.__tlocfield1, tlocfield2=self.__tlocfield2, tlocfield3=self.__tlocfield3, tlocfield4=self.__tlocfield4, tlocfield5=self.__tlocfield5, tlocfield6=self.__tlocfield6, udf1=self.__udf1, udf10=self.__udf10, udf11=self.__udf11, udf12=self.__udf12, udf13=self.__udf13, udf14=self.__udf14, udf15=self.__udf15, udf16=self.__udf16, udf17=self.__udf17, udf18=self.__udf18, udf19=self.__udf19, udf2=self.__udf2, udf20=self.__udf20, udf21=self.__udf21, udf22=self.__udf22, udf3=self.__udf3, udf4=self.__udf4, udf5=self.__udf5, udf6=self.__udf6, udf7=self.__udf7, udf8=self.__udf8, udf9=self.__udf9, unit=self.__unit, updated=self.__updated, updatedby=self.__updatedby, used=self.__used, valuedate=self.__valuedate, varieties=self.__varieties, vexhtml=self.__vexhtml, vexlabel1=self.__vexlabel1, vexlabel2=self.__vexlabel2, vexlabel3=self.__vexlabel3, vexlabel4=self.__vexlabel4, webinclude=self.__webinclude, weight=self.__weight, weightin=self.__weightin, weightlb=self.__weightlb, width=self.__width, widthft=self.__widthft, widthin=self.__widthin, xcord=self.__xcord, ycord=self.__ycord, zcord=self.__zcord, zsorter=self.__zsorter, zsorterx=self.__zsorterx)
 
         @property
         def accessno(self):
@@ -754,7 +873,7 @@ class ObjectRecord(object):
         @property
         def bagno(self):
             '''
-            :rtype: int
+            :rtype: str
             '''
 
             return self.__bagno
@@ -762,7 +881,7 @@ class ObjectRecord(object):
         @property
         def boxno(self):
             '''
-            :rtype: int
+            :rtype: str
             '''
 
             return self.__boxno
@@ -778,7 +897,7 @@ class ObjectRecord(object):
         @property
         def cat(self):
             '''
-            :rtype: pastpy.models.cat.Cat
+            :rtype: str
             '''
 
             return self.__cat
@@ -890,7 +1009,7 @@ class ObjectRecord(object):
         @property
         def condition(self):
             '''
-            :rtype: pastpy.models.condition.Condition
+            :rtype: str
             '''
 
             return self.__condition
@@ -1090,7 +1209,7 @@ class ObjectRecord(object):
         @property
         def earlydate(self):
             '''
-            :rtype: str
+            :rtype: int
             '''
 
             return self.__earlydate
@@ -1130,7 +1249,7 @@ class ObjectRecord(object):
         @property
         def ew(self):
             '''
-            :rtype: pastpy.models.cardinal_direction.CardinalDirection
+            :rtype: str
             '''
 
             return self.__ew
@@ -1168,17 +1287,41 @@ class ObjectRecord(object):
             return self.__exhibitno
 
         @property
-        def exhlabel(self):
+        def exhlabel1(self):
             '''
-            :rtype: dict(int: str)
+            :rtype: str
             '''
 
-            return self.__exhlabel.copy() if self.__exhlabel is not None else None
+            return self.__exhlabel1
+
+        @property
+        def exhlabel2(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__exhlabel2
+
+        @property
+        def exhlabel3(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__exhlabel3
+
+        @property
+        def exhlabel4(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__exhlabel4
 
         @property
         def exhstart(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__exhstart
@@ -1434,7 +1577,7 @@ class ObjectRecord(object):
         @property
         def inscrtype(self):
             '''
-            :rtype: object
+            :rtype: str
             '''
 
             return self.__inscrtype
@@ -1514,7 +1657,7 @@ class ObjectRecord(object):
         @property
         def latedate(self):
             '''
-            :rtype: str
+            :rtype: int
             '''
 
             return self.__latedate
@@ -1578,7 +1721,7 @@ class ObjectRecord(object):
         @property
         def loandue(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__loandue
@@ -1616,12 +1759,52 @@ class ObjectRecord(object):
             return self.__loanrenew
 
         @property
-        def locfield(self):
+        def locfield1(self):
             '''
-            :rtype: dict(int: str)
+            :rtype: str
             '''
 
-            return self.__locfield.copy() if self.__locfield is not None else None
+            return self.__locfield1
+
+        @property
+        def locfield2(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__locfield2
+
+        @property
+        def locfield3(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__locfield3
+
+        @property
+        def locfield4(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__locfield4
+
+        @property
+        def locfield5(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__locfield5
+
+        @property
+        def locfield6(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__locfield6
 
         @property
         def longdeg(self):
@@ -1730,7 +1913,7 @@ class ObjectRecord(object):
         @property
         def ns(self):
             '''
-            :rtype: pastpy.models.cardinal_direction.CardinalDirection
+            :rtype: str
             '''
 
             return self.__ns
@@ -1928,6 +2111,14 @@ class ObjectRecord(object):
             return self.__pubnotes
 
         @property
+        def qrurl(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__qrurl
+
+        @property
         def recas(self):
             '''
             :rtype: str
@@ -1938,7 +2129,7 @@ class ObjectRecord(object):
         @property
         def recdate(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: str
             '''
 
             return self.__recdate
@@ -2026,7 +2217,7 @@ class ObjectRecord(object):
         @property
         def repatnotic(self):
             '''
-            :rtype: str
+            :rtype: datetime.datetime
             '''
 
             return self.__repatnotic
@@ -2034,7 +2225,7 @@ class ObjectRecord(object):
         @property
         def repattype(self):
             '''
-            :rtype: int
+            :rtype: str
             '''
 
             return self.__repattype
@@ -2066,7 +2257,7 @@ class ObjectRecord(object):
         @property
         def rocktype(self):
             '''
-            :rtype: int
+            :rtype: str
             '''
 
             return self.__rocktype
@@ -2111,10 +2302,6 @@ class ObjectRecord(object):
             if accessno is not None:
                 if not isinstance(accessno, str):
                     raise TypeError("expected accessno to be a str but it is a %s" % builtins.type(accessno))
-                if accessno.isspace():
-                    raise ValueError("expected accessno not to be blank")
-                if len(accessno) < 1:
-                    raise ValueError("expected len(accessno) to be >= 1, was %d" % len(accessno))
             self.__accessno = accessno
             return self
 
@@ -2126,10 +2313,6 @@ class ObjectRecord(object):
             if accessory is not None:
                 if not isinstance(accessory, str):
                     raise TypeError("expected accessory to be a str but it is a %s" % builtins.type(accessory))
-                if accessory.isspace():
-                    raise ValueError("expected accessory not to be blank")
-                if len(accessory) < 1:
-                    raise ValueError("expected len(accessory) to be >= 1, was %d" % len(accessory))
             self.__accessory = accessory
             return self
 
@@ -2152,10 +2335,6 @@ class ObjectRecord(object):
             if age is not None:
                 if not isinstance(age, str):
                     raise TypeError("expected age to be a str but it is a %s" % builtins.type(age))
-                if age.isspace():
-                    raise ValueError("expected age not to be blank")
-                if len(age) < 1:
-                    raise ValueError("expected len(age) to be >= 1, was %d" % len(age))
             self.__age = age
             return self
 
@@ -2167,10 +2346,6 @@ class ObjectRecord(object):
             if appnotes is not None:
                 if not isinstance(appnotes, str):
                     raise TypeError("expected appnotes to be a str but it is a %s" % builtins.type(appnotes))
-                if appnotes.isspace():
-                    raise ValueError("expected appnotes not to be blank")
-                if len(appnotes) < 1:
-                    raise ValueError("expected len(appnotes) to be >= 1, was %d" % len(appnotes))
             self.__appnotes = appnotes
             return self
 
@@ -2182,10 +2357,6 @@ class ObjectRecord(object):
             if appraisor is not None:
                 if not isinstance(appraisor, str):
                     raise TypeError("expected appraisor to be a str but it is a %s" % builtins.type(appraisor))
-                if appraisor.isspace():
-                    raise ValueError("expected appraisor not to be blank")
-                if len(appraisor) < 1:
-                    raise ValueError("expected len(appraisor) to be >= 1, was %d" % len(appraisor))
             self.__appraisor = appraisor
             return self
 
@@ -2197,32 +2368,28 @@ class ObjectRecord(object):
             if assemzone is not None:
                 if not isinstance(assemzone, str):
                     raise TypeError("expected assemzone to be a str but it is a %s" % builtins.type(assemzone))
-                if assemzone.isspace():
-                    raise ValueError("expected assemzone not to be blank")
-                if len(assemzone) < 1:
-                    raise ValueError("expected len(assemzone) to be >= 1, was %d" % len(assemzone))
             self.__assemzone = assemzone
             return self
 
         def set_bagno(self, bagno):
             '''
-            :type bagno: int or None
+            :type bagno: str or None
             '''
 
             if bagno is not None:
-                if not isinstance(bagno, int):
-                    raise TypeError("expected bagno to be a int but it is a %s" % builtins.type(bagno))
+                if not isinstance(bagno, str):
+                    raise TypeError("expected bagno to be a str but it is a %s" % builtins.type(bagno))
             self.__bagno = bagno
             return self
 
         def set_boxno(self, boxno):
             '''
-            :type boxno: int or None
+            :type boxno: str or None
             '''
 
             if boxno is not None:
-                if not isinstance(boxno, int):
-                    raise TypeError("expected boxno to be a int but it is a %s" % builtins.type(boxno))
+                if not isinstance(boxno, str):
+                    raise TypeError("expected boxno to be a str but it is a %s" % builtins.type(boxno))
             self.__boxno = boxno
             return self
 
@@ -2234,21 +2401,17 @@ class ObjectRecord(object):
             if caption is not None:
                 if not isinstance(caption, str):
                     raise TypeError("expected caption to be a str but it is a %s" % builtins.type(caption))
-                if caption.isspace():
-                    raise ValueError("expected caption not to be blank")
-                if len(caption) < 1:
-                    raise ValueError("expected len(caption) to be >= 1, was %d" % len(caption))
             self.__caption = caption
             return self
 
         def set_cat(self, cat):
             '''
-            :type cat: pastpy.models.cat.Cat or None
+            :type cat: str or None
             '''
 
             if cat is not None:
-                if not isinstance(cat, pastpy.models.cat.Cat):
-                    raise TypeError("expected cat to be a pastpy.models.cat.Cat but it is a %s" % builtins.type(cat))
+                if not isinstance(cat, str):
+                    raise TypeError("expected cat to be a str but it is a %s" % builtins.type(cat))
             self.__cat = cat
             return self
 
@@ -2260,10 +2423,6 @@ class ObjectRecord(object):
             if catby is not None:
                 if not isinstance(catby, str):
                     raise TypeError("expected catby to be a str but it is a %s" % builtins.type(catby))
-                if catby.isspace():
-                    raise ValueError("expected catby not to be blank")
-                if len(catby) < 1:
-                    raise ValueError("expected len(catby) to be >= 1, was %d" % len(catby))
             self.__catby = catby
             return self
 
@@ -2286,10 +2445,6 @@ class ObjectRecord(object):
             if cattype is not None:
                 if not isinstance(cattype, str):
                     raise TypeError("expected cattype to be a str but it is a %s" % builtins.type(cattype))
-                if cattype.isspace():
-                    raise ValueError("expected cattype not to be blank")
-                if len(cattype) < 1:
-                    raise ValueError("expected len(cattype) to be >= 1, was %d" % len(cattype))
             self.__cattype = cattype
             return self
 
@@ -2301,10 +2456,6 @@ class ObjectRecord(object):
             if chemcomp is not None:
                 if not isinstance(chemcomp, str):
                     raise TypeError("expected chemcomp to be a str but it is a %s" % builtins.type(chemcomp))
-                if chemcomp.isspace():
-                    raise ValueError("expected chemcomp not to be blank")
-                if len(chemcomp) < 1:
-                    raise ValueError("expected len(chemcomp) to be >= 1, was %d" % len(chemcomp))
             self.__chemcomp = chemcomp
             return self
 
@@ -2316,8 +2467,6 @@ class ObjectRecord(object):
             if circum is not None:
                 if not isinstance(circum, decimal.Decimal):
                     raise TypeError("expected circum to be a Decimal but it is a %s" % builtins.type(circum))
-                if circum <= 0:
-                    raise ValueError("expected circum to be > 0, was %s" % circum)
             self.__circum = circum
             return self
 
@@ -2329,8 +2478,6 @@ class ObjectRecord(object):
             if circumft is not None:
                 if not isinstance(circumft, decimal.Decimal):
                     raise TypeError("expected circumft to be a Decimal but it is a %s" % builtins.type(circumft))
-                if circumft <= 0:
-                    raise ValueError("expected circumft to be > 0, was %s" % circumft)
             self.__circumft = circumft
             return self
 
@@ -2342,8 +2489,6 @@ class ObjectRecord(object):
             if circumin is not None:
                 if not isinstance(circumin, decimal.Decimal):
                     raise TypeError("expected circumin to be a Decimal but it is a %s" % builtins.type(circumin))
-                if circumin <= 0:
-                    raise ValueError("expected circumin to be > 0, was %s" % circumin)
             self.__circumin = circumin
             return self
 
@@ -2355,10 +2500,6 @@ class ObjectRecord(object):
             if classes is not None:
                 if not isinstance(classes, str):
                     raise TypeError("expected classes to be a str but it is a %s" % builtins.type(classes))
-                if classes.isspace():
-                    raise ValueError("expected classes not to be blank")
-                if len(classes) < 1:
-                    raise ValueError("expected len(classes) to be >= 1, was %d" % len(classes))
             self.__classes = classes
             return self
 
@@ -2381,10 +2522,6 @@ class ObjectRecord(object):
             if collection is not None:
                 if not isinstance(collection, str):
                     raise TypeError("expected collection to be a str but it is a %s" % builtins.type(collection))
-                if collection.isspace():
-                    raise ValueError("expected collection not to be blank")
-                if len(collection) < 1:
-                    raise ValueError("expected len(collection) to be >= 1, was %d" % len(collection))
             self.__collection = collection
             return self
 
@@ -2396,10 +2533,6 @@ class ObjectRecord(object):
             if collector is not None:
                 if not isinstance(collector, str):
                     raise TypeError("expected collector to be a str but it is a %s" % builtins.type(collector))
-                if collector.isspace():
-                    raise ValueError("expected collector not to be blank")
-                if len(collector) < 1:
-                    raise ValueError("expected len(collector) to be >= 1, was %d" % len(collector))
             self.__collector = collector
             return self
 
@@ -2422,21 +2555,17 @@ class ObjectRecord(object):
             if condexam is not None:
                 if not isinstance(condexam, str):
                     raise TypeError("expected condexam to be a str but it is a %s" % builtins.type(condexam))
-                if condexam.isspace():
-                    raise ValueError("expected condexam not to be blank")
-                if len(condexam) < 1:
-                    raise ValueError("expected len(condexam) to be >= 1, was %d" % len(condexam))
             self.__condexam = condexam
             return self
 
         def set_condition(self, condition):
             '''
-            :type condition: pastpy.models.condition.Condition or None
+            :type condition: str or None
             '''
 
             if condition is not None:
-                if not isinstance(condition, pastpy.models.condition.Condition):
-                    raise TypeError("expected condition to be a pastpy.models.condition.Condition but it is a %s" % builtins.type(condition))
+                if not isinstance(condition, str):
+                    raise TypeError("expected condition to be a str but it is a %s" % builtins.type(condition))
             self.__condition = condition
             return self
 
@@ -2448,10 +2577,6 @@ class ObjectRecord(object):
             if condnotes is not None:
                 if not isinstance(condnotes, str):
                     raise TypeError("expected condnotes to be a str but it is a %s" % builtins.type(condnotes))
-                if condnotes.isspace():
-                    raise ValueError("expected condnotes not to be blank")
-                if len(condnotes) < 1:
-                    raise ValueError("expected len(condnotes) to be >= 1, was %d" % len(condnotes))
             self.__condnotes = condnotes
             return self
 
@@ -2463,10 +2588,6 @@ class ObjectRecord(object):
             if count is not None:
                 if not isinstance(count, str):
                     raise TypeError("expected count to be a str but it is a %s" % builtins.type(count))
-                if count.isspace():
-                    raise ValueError("expected count not to be blank")
-                if len(count) < 1:
-                    raise ValueError("expected len(count) to be >= 1, was %d" % len(count))
             self.__count = count
             return self
 
@@ -2478,10 +2599,6 @@ class ObjectRecord(object):
             if creator is not None:
                 if not isinstance(creator, str):
                     raise TypeError("expected creator to be a str but it is a %s" % builtins.type(creator))
-                if creator.isspace():
-                    raise ValueError("expected creator not to be blank")
-                if len(creator) < 1:
-                    raise ValueError("expected len(creator) to be >= 1, was %d" % len(creator))
             self.__creator = creator
             return self
 
@@ -2493,10 +2610,6 @@ class ObjectRecord(object):
             if creator2 is not None:
                 if not isinstance(creator2, str):
                     raise TypeError("expected creator2 to be a str but it is a %s" % builtins.type(creator2))
-                if creator2.isspace():
-                    raise ValueError("expected creator2 not to be blank")
-                if len(creator2) < 1:
-                    raise ValueError("expected len(creator2) to be >= 1, was %d" % len(creator2))
             self.__creator2 = creator2
             return self
 
@@ -2508,10 +2621,6 @@ class ObjectRecord(object):
             if creator3 is not None:
                 if not isinstance(creator3, str):
                     raise TypeError("expected creator3 to be a str but it is a %s" % builtins.type(creator3))
-                if creator3.isspace():
-                    raise ValueError("expected creator3 not to be blank")
-                if len(creator3) < 1:
-                    raise ValueError("expected len(creator3) to be >= 1, was %d" % len(creator3))
             self.__creator3 = creator3
             return self
 
@@ -2523,10 +2632,6 @@ class ObjectRecord(object):
             if credit is not None:
                 if not isinstance(credit, str):
                     raise TypeError("expected credit to be a str but it is a %s" % builtins.type(credit))
-                if credit.isspace():
-                    raise ValueError("expected credit not to be blank")
-                if len(credit) < 1:
-                    raise ValueError("expected len(credit) to be >= 1, was %d" % len(credit))
             self.__credit = credit
             return self
 
@@ -2538,10 +2643,6 @@ class ObjectRecord(object):
             if crystal is not None:
                 if not isinstance(crystal, str):
                     raise TypeError("expected crystal to be a str but it is a %s" % builtins.type(crystal))
-                if crystal.isspace():
-                    raise ValueError("expected crystal not to be blank")
-                if len(crystal) < 1:
-                    raise ValueError("expected len(crystal) to be >= 1, was %d" % len(crystal))
             self.__crystal = crystal
             return self
 
@@ -2553,10 +2654,6 @@ class ObjectRecord(object):
             if culture is not None:
                 if not isinstance(culture, str):
                     raise TypeError("expected culture to be a str but it is a %s" % builtins.type(culture))
-                if culture.isspace():
-                    raise ValueError("expected culture not to be blank")
-                if len(culture) < 1:
-                    raise ValueError("expected len(culture) to be >= 1, was %d" % len(culture))
             self.__culture = culture
             return self
 
@@ -2590,10 +2687,6 @@ class ObjectRecord(object):
             if dataset is not None:
                 if not isinstance(dataset, str):
                     raise TypeError("expected dataset to be a str but it is a %s" % builtins.type(dataset))
-                if dataset.isspace():
-                    raise ValueError("expected dataset not to be blank")
-                if len(dataset) < 1:
-                    raise ValueError("expected len(dataset) to be >= 1, was %d" % len(dataset))
             self.__dataset = dataset
             return self
 
@@ -2605,10 +2698,6 @@ class ObjectRecord(object):
             if date is not None:
                 if not isinstance(date, str):
                     raise TypeError("expected date to be a str but it is a %s" % builtins.type(date))
-                if date.isspace():
-                    raise ValueError("expected date not to be blank")
-                if len(date) < 1:
-                    raise ValueError("expected len(date) to be >= 1, was %d" % len(date))
             self.__date = date
             return self
 
@@ -2620,10 +2709,6 @@ class ObjectRecord(object):
             if datingmeth is not None:
                 if not isinstance(datingmeth, str):
                     raise TypeError("expected datingmeth to be a str but it is a %s" % builtins.type(datingmeth))
-                if datingmeth.isspace():
-                    raise ValueError("expected datingmeth not to be blank")
-                if len(datingmeth) < 1:
-                    raise ValueError("expected len(datingmeth) to be >= 1, was %d" % len(datingmeth))
             self.__datingmeth = datingmeth
             return self
 
@@ -2635,10 +2720,6 @@ class ObjectRecord(object):
             if datum is not None:
                 if not isinstance(datum, str):
                     raise TypeError("expected datum to be a str but it is a %s" % builtins.type(datum))
-                if datum.isspace():
-                    raise ValueError("expected datum not to be blank")
-                if len(datum) < 1:
-                    raise ValueError("expected len(datum) to be >= 1, was %d" % len(datum))
             self.__datum = datum
             return self
 
@@ -2650,8 +2731,6 @@ class ObjectRecord(object):
             if depth is not None:
                 if not isinstance(depth, decimal.Decimal):
                     raise TypeError("expected depth to be a Decimal but it is a %s" % builtins.type(depth))
-                if depth <= 0:
-                    raise ValueError("expected depth to be > 0, was %s" % depth)
             self.__depth = depth
             return self
 
@@ -2663,8 +2742,6 @@ class ObjectRecord(object):
             if depthft is not None:
                 if not isinstance(depthft, decimal.Decimal):
                     raise TypeError("expected depthft to be a Decimal but it is a %s" % builtins.type(depthft))
-                if depthft <= 0:
-                    raise ValueError("expected depthft to be > 0, was %s" % depthft)
             self.__depthft = depthft
             return self
 
@@ -2676,8 +2753,6 @@ class ObjectRecord(object):
             if depthin is not None:
                 if not isinstance(depthin, decimal.Decimal):
                     raise TypeError("expected depthin to be a Decimal but it is a %s" % builtins.type(depthin))
-                if depthin <= 0:
-                    raise ValueError("expected depthin to be > 0, was %s" % depthin)
             self.__depthin = depthin
             return self
 
@@ -2689,10 +2764,6 @@ class ObjectRecord(object):
             if descrip is not None:
                 if not isinstance(descrip, str):
                     raise TypeError("expected descrip to be a str but it is a %s" % builtins.type(descrip))
-                if descrip.isspace():
-                    raise ValueError("expected descrip not to be blank")
-                if len(descrip) < 1:
-                    raise ValueError("expected len(descrip) to be >= 1, was %d" % len(descrip))
             self.__descrip = descrip
             return self
 
@@ -2704,8 +2775,6 @@ class ObjectRecord(object):
             if diameter is not None:
                 if not isinstance(diameter, decimal.Decimal):
                     raise TypeError("expected diameter to be a Decimal but it is a %s" % builtins.type(diameter))
-                if diameter <= 0:
-                    raise ValueError("expected diameter to be > 0, was %s" % diameter)
             self.__diameter = diameter
             return self
 
@@ -2717,8 +2786,6 @@ class ObjectRecord(object):
             if diameterft is not None:
                 if not isinstance(diameterft, decimal.Decimal):
                     raise TypeError("expected diameterft to be a Decimal but it is a %s" % builtins.type(diameterft))
-                if diameterft <= 0:
-                    raise ValueError("expected diameterft to be > 0, was %s" % diameterft)
             self.__diameterft = diameterft
             return self
 
@@ -2730,8 +2797,6 @@ class ObjectRecord(object):
             if diameterin is not None:
                 if not isinstance(diameterin, decimal.Decimal):
                     raise TypeError("expected diameterin to be a Decimal but it is a %s" % builtins.type(diameterin))
-                if diameterin <= 0:
-                    raise ValueError("expected diameterin to be > 0, was %s" % diameterin)
             self.__diameterin = diameterin
             return self
 
@@ -2743,10 +2808,6 @@ class ObjectRecord(object):
             if dimnotes is not None:
                 if not isinstance(dimnotes, str):
                     raise TypeError("expected dimnotes to be a str but it is a %s" % builtins.type(dimnotes))
-                if dimnotes.isspace():
-                    raise ValueError("expected dimnotes not to be blank")
-                if len(dimnotes) < 1:
-                    raise ValueError("expected len(dimnotes) to be >= 1, was %d" % len(dimnotes))
             self.__dimnotes = dimnotes
             return self
 
@@ -2769,25 +2830,17 @@ class ObjectRecord(object):
             if dispvalue is not None:
                 if not isinstance(dispvalue, str):
                     raise TypeError("expected dispvalue to be a str but it is a %s" % builtins.type(dispvalue))
-                if dispvalue.isspace():
-                    raise ValueError("expected dispvalue not to be blank")
-                if len(dispvalue) < 1:
-                    raise ValueError("expected len(dispvalue) to be >= 1, was %d" % len(dispvalue))
             self.__dispvalue = dispvalue
             return self
 
         def set_earlydate(self, earlydate):
             '''
-            :type earlydate: str or None
+            :type earlydate: int or None
             '''
 
             if earlydate is not None:
-                if not isinstance(earlydate, str):
-                    raise TypeError("expected earlydate to be a str but it is a %s" % builtins.type(earlydate))
-                if earlydate.isspace():
-                    raise ValueError("expected earlydate not to be blank")
-                if len(earlydate) < 1:
-                    raise ValueError("expected len(earlydate) to be >= 1, was %d" % len(earlydate))
+                if not isinstance(earlydate, int):
+                    raise TypeError("expected earlydate to be a int but it is a %s" % builtins.type(earlydate))
             self.__earlydate = earlydate
             return self
 
@@ -2799,10 +2852,6 @@ class ObjectRecord(object):
             if elements is not None:
                 if not isinstance(elements, str):
                     raise TypeError("expected elements to be a str but it is a %s" % builtins.type(elements))
-                if elements.isspace():
-                    raise ValueError("expected elements not to be blank")
-                if len(elements) < 1:
-                    raise ValueError("expected len(elements) to be >= 1, was %d" % len(elements))
             self.__elements = elements
             return self
 
@@ -2814,10 +2863,6 @@ class ObjectRecord(object):
             if epoch is not None:
                 if not isinstance(epoch, str):
                     raise TypeError("expected epoch to be a str but it is a %s" % builtins.type(epoch))
-                if epoch.isspace():
-                    raise ValueError("expected epoch not to be blank")
-                if len(epoch) < 1:
-                    raise ValueError("expected len(epoch) to be >= 1, was %d" % len(epoch))
             self.__epoch = epoch
             return self
 
@@ -2829,10 +2874,6 @@ class ObjectRecord(object):
             if era is not None:
                 if not isinstance(era, str):
                     raise TypeError("expected era to be a str but it is a %s" % builtins.type(era))
-                if era.isspace():
-                    raise ValueError("expected era not to be blank")
-                if len(era) < 1:
-                    raise ValueError("expected len(era) to be >= 1, was %d" % len(era))
             self.__era = era
             return self
 
@@ -2844,21 +2885,17 @@ class ObjectRecord(object):
             if event is not None:
                 if not isinstance(event, str):
                     raise TypeError("expected event to be a str but it is a %s" % builtins.type(event))
-                if event.isspace():
-                    raise ValueError("expected event not to be blank")
-                if len(event) < 1:
-                    raise ValueError("expected len(event) to be >= 1, was %d" % len(event))
             self.__event = event
             return self
 
         def set_ew(self, ew):
             '''
-            :type ew: pastpy.models.cardinal_direction.CardinalDirection or None
+            :type ew: str or None
             '''
 
             if ew is not None:
-                if not isinstance(ew, pastpy.models.cardinal_direction.CardinalDirection):
-                    raise TypeError("expected ew to be a pastpy.models.cardinal_direction.CardinalDirection but it is a %s" % builtins.type(ew))
+                if not isinstance(ew, str):
+                    raise TypeError("expected ew to be a str but it is a %s" % builtins.type(ew))
             self.__ew = ew
             return self
 
@@ -2881,10 +2918,6 @@ class ObjectRecord(object):
             if excavateby is not None:
                 if not isinstance(excavateby, str):
                     raise TypeError("expected excavateby to be a str but it is a %s" % builtins.type(excavateby))
-                if excavateby.isspace():
-                    raise ValueError("expected excavateby not to be blank")
-                if len(excavateby) < 1:
-                    raise ValueError("expected len(excavateby) to be >= 1, was %d" % len(excavateby))
             self.__excavateby = excavateby
             return self
 
@@ -2896,10 +2929,6 @@ class ObjectRecord(object):
             if exhibitid is not None:
                 if not isinstance(exhibitid, str):
                     raise TypeError("expected exhibitid to be a str but it is a %s" % builtins.type(exhibitid))
-                if exhibitid.isspace():
-                    raise ValueError("expected exhibitid not to be blank")
-                if len(exhibitid) < 1:
-                    raise ValueError("expected len(exhibitid) to be >= 1, was %d" % len(exhibitid))
             self.__exhibitid = exhibitid
             return self
 
@@ -2914,31 +2943,58 @@ class ObjectRecord(object):
             self.__exhibitno = exhibitno
             return self
 
-        def set_exhlabel(self, exhlabel):
+        def set_exhlabel1(self, exhlabel1):
             '''
-            :type exhlabel: dict(int: str) or None
+            :type exhlabel1: str or None
             '''
 
-            if exhlabel is not None:
-                if not (isinstance(exhlabel, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), exhlabel.items()))) == 0):
-                    raise TypeError("expected exhlabel to be a dict(int: str) but it is a %s" % builtins.type(exhlabel))
-                if len(exhlabel) < 1:
-                    raise ValueError("expected len(exhlabel) to be >= 1, was %d" % len(exhlabel))
-            self.__exhlabel = exhlabel
+            if exhlabel1 is not None:
+                if not isinstance(exhlabel1, str):
+                    raise TypeError("expected exhlabel1 to be a str but it is a %s" % builtins.type(exhlabel1))
+            self.__exhlabel1 = exhlabel1
+            return self
+
+        def set_exhlabel2(self, exhlabel2):
+            '''
+            :type exhlabel2: str or None
+            '''
+
+            if exhlabel2 is not None:
+                if not isinstance(exhlabel2, str):
+                    raise TypeError("expected exhlabel2 to be a str but it is a %s" % builtins.type(exhlabel2))
+            self.__exhlabel2 = exhlabel2
+            return self
+
+        def set_exhlabel3(self, exhlabel3):
+            '''
+            :type exhlabel3: str or None
+            '''
+
+            if exhlabel3 is not None:
+                if not isinstance(exhlabel3, str):
+                    raise TypeError("expected exhlabel3 to be a str but it is a %s" % builtins.type(exhlabel3))
+            self.__exhlabel3 = exhlabel3
+            return self
+
+        def set_exhlabel4(self, exhlabel4):
+            '''
+            :type exhlabel4: str or None
+            '''
+
+            if exhlabel4 is not None:
+                if not isinstance(exhlabel4, str):
+                    raise TypeError("expected exhlabel4 to be a str but it is a %s" % builtins.type(exhlabel4))
+            self.__exhlabel4 = exhlabel4
             return self
 
         def set_exhstart(self, exhstart):
             '''
-            :type exhstart: str or None
+            :type exhstart: datetime.datetime or None
             '''
 
             if exhstart is not None:
-                if not isinstance(exhstart, str):
-                    raise TypeError("expected exhstart to be a str but it is a %s" % builtins.type(exhstart))
-                if exhstart.isspace():
-                    raise ValueError("expected exhstart not to be blank")
-                if len(exhstart) < 1:
-                    raise ValueError("expected len(exhstart) to be >= 1, was %d" % len(exhstart))
+                if not isinstance(exhstart, datetime.datetime):
+                    raise TypeError("expected exhstart to be a datetime.datetime but it is a %s" % builtins.type(exhstart))
             self.__exhstart = exhstart
             return self
 
@@ -2950,10 +3006,6 @@ class ObjectRecord(object):
             if family is not None:
                 if not isinstance(family, str):
                     raise TypeError("expected family to be a str but it is a %s" % builtins.type(family))
-                if family.isspace():
-                    raise ValueError("expected family not to be blank")
-                if len(family) < 1:
-                    raise ValueError("expected len(family) to be >= 1, was %d" % len(family))
             self.__family = family
             return self
 
@@ -2965,10 +3017,6 @@ class ObjectRecord(object):
             if feature is not None:
                 if not isinstance(feature, str):
                     raise TypeError("expected feature to be a str but it is a %s" % builtins.type(feature))
-                if feature.isspace():
-                    raise ValueError("expected feature not to be blank")
-                if len(feature) < 1:
-                    raise ValueError("expected len(feature) to be >= 1, was %d" % len(feature))
             self.__feature = feature
             return self
 
@@ -2991,10 +3039,6 @@ class ObjectRecord(object):
             if flagnotes is not None:
                 if not isinstance(flagnotes, str):
                     raise TypeError("expected flagnotes to be a str but it is a %s" % builtins.type(flagnotes))
-                if flagnotes.isspace():
-                    raise ValueError("expected flagnotes not to be blank")
-                if len(flagnotes) < 1:
-                    raise ValueError("expected len(flagnotes) to be >= 1, was %d" % len(flagnotes))
             self.__flagnotes = flagnotes
             return self
 
@@ -3006,10 +3050,6 @@ class ObjectRecord(object):
             if flagreason is not None:
                 if not isinstance(flagreason, str):
                     raise TypeError("expected flagreason to be a str but it is a %s" % builtins.type(flagreason))
-                if flagreason.isspace():
-                    raise ValueError("expected flagreason not to be blank")
-                if len(flagreason) < 1:
-                    raise ValueError("expected len(flagreason) to be >= 1, was %d" % len(flagreason))
             self.__flagreason = flagreason
             return self
 
@@ -3021,10 +3061,6 @@ class ObjectRecord(object):
             if formation is not None:
                 if not isinstance(formation, str):
                     raise TypeError("expected formation to be a str but it is a %s" % builtins.type(formation))
-                if formation.isspace():
-                    raise ValueError("expected formation not to be blank")
-                if len(formation) < 1:
-                    raise ValueError("expected len(formation) to be >= 1, was %d" % len(formation))
             self.__formation = formation
             return self
 
@@ -3036,10 +3072,6 @@ class ObjectRecord(object):
             if fossils is not None:
                 if not isinstance(fossils, str):
                     raise TypeError("expected fossils to be a str but it is a %s" % builtins.type(fossils))
-                if fossils.isspace():
-                    raise ValueError("expected fossils not to be blank")
-                if len(fossils) < 1:
-                    raise ValueError("expected len(fossils) to be >= 1, was %d" % len(fossils))
             self.__fossils = fossils
             return self
 
@@ -3051,10 +3083,6 @@ class ObjectRecord(object):
             if found is not None:
                 if not isinstance(found, str):
                     raise TypeError("expected found to be a str but it is a %s" % builtins.type(found))
-                if found.isspace():
-                    raise ValueError("expected found not to be blank")
-                if len(found) < 1:
-                    raise ValueError("expected len(found) to be >= 1, was %d" % len(found))
             self.__found = found
             return self
 
@@ -3066,10 +3094,6 @@ class ObjectRecord(object):
             if fracture is not None:
                 if not isinstance(fracture, str):
                     raise TypeError("expected fracture to be a str but it is a %s" % builtins.type(fracture))
-                if fracture.isspace():
-                    raise ValueError("expected fracture not to be blank")
-                if len(fracture) < 1:
-                    raise ValueError("expected len(fracture) to be >= 1, was %d" % len(fracture))
             self.__fracture = fracture
             return self
 
@@ -3081,10 +3105,6 @@ class ObjectRecord(object):
             if frame is not None:
                 if not isinstance(frame, str):
                     raise TypeError("expected frame to be a str but it is a %s" % builtins.type(frame))
-                if frame.isspace():
-                    raise ValueError("expected frame not to be blank")
-                if len(frame) < 1:
-                    raise ValueError("expected len(frame) to be >= 1, was %d" % len(frame))
             self.__frame = frame
             return self
 
@@ -3096,10 +3116,6 @@ class ObjectRecord(object):
             if framesize is not None:
                 if not isinstance(framesize, str):
                     raise TypeError("expected framesize to be a str but it is a %s" % builtins.type(framesize))
-                if framesize.isspace():
-                    raise ValueError("expected framesize not to be blank")
-                if len(framesize) < 1:
-                    raise ValueError("expected len(framesize) to be >= 1, was %d" % len(framesize))
             self.__framesize = framesize
             return self
 
@@ -3111,10 +3127,6 @@ class ObjectRecord(object):
             if genus is not None:
                 if not isinstance(genus, str):
                     raise TypeError("expected genus to be a str but it is a %s" % builtins.type(genus))
-                if genus.isspace():
-                    raise ValueError("expected genus not to be blank")
-                if len(genus) < 1:
-                    raise ValueError("expected len(genus) to be >= 1, was %d" % len(genus))
             self.__genus = genus
             return self
 
@@ -3126,10 +3138,6 @@ class ObjectRecord(object):
             if gparent is not None:
                 if not isinstance(gparent, str):
                     raise TypeError("expected gparent to be a str but it is a %s" % builtins.type(gparent))
-                if gparent.isspace():
-                    raise ValueError("expected gparent not to be blank")
-                if len(gparent) < 1:
-                    raise ValueError("expected len(gparent) to be >= 1, was %d" % len(gparent))
             self.__gparent = gparent
             return self
 
@@ -3141,10 +3149,6 @@ class ObjectRecord(object):
             if grainsize is not None:
                 if not isinstance(grainsize, str):
                     raise TypeError("expected grainsize to be a str but it is a %s" % builtins.type(grainsize))
-                if grainsize.isspace():
-                    raise ValueError("expected grainsize not to be blank")
-                if len(grainsize) < 1:
-                    raise ValueError("expected len(grainsize) to be >= 1, was %d" % len(grainsize))
             self.__grainsize = grainsize
             return self
 
@@ -3156,10 +3160,6 @@ class ObjectRecord(object):
             if habitat is not None:
                 if not isinstance(habitat, str):
                     raise TypeError("expected habitat to be a str but it is a %s" % builtins.type(habitat))
-                if habitat.isspace():
-                    raise ValueError("expected habitat not to be blank")
-                if len(habitat) < 1:
-                    raise ValueError("expected len(habitat) to be >= 1, was %d" % len(habitat))
             self.__habitat = habitat
             return self
 
@@ -3171,10 +3171,6 @@ class ObjectRecord(object):
             if hardness is not None:
                 if not isinstance(hardness, str):
                     raise TypeError("expected hardness to be a str but it is a %s" % builtins.type(hardness))
-                if hardness.isspace():
-                    raise ValueError("expected hardness not to be blank")
-                if len(hardness) < 1:
-                    raise ValueError("expected len(hardness) to be >= 1, was %d" % len(hardness))
             self.__hardness = hardness
             return self
 
@@ -3186,8 +3182,6 @@ class ObjectRecord(object):
             if height is not None:
                 if not isinstance(height, decimal.Decimal):
                     raise TypeError("expected height to be a Decimal but it is a %s" % builtins.type(height))
-                if height <= 0:
-                    raise ValueError("expected height to be > 0, was %s" % height)
             self.__height = height
             return self
 
@@ -3199,8 +3193,6 @@ class ObjectRecord(object):
             if heightft is not None:
                 if not isinstance(heightft, decimal.Decimal):
                     raise TypeError("expected heightft to be a Decimal but it is a %s" % builtins.type(heightft))
-                if heightft <= 0:
-                    raise ValueError("expected heightft to be > 0, was %s" % heightft)
             self.__heightft = heightft
             return self
 
@@ -3212,8 +3204,6 @@ class ObjectRecord(object):
             if heightin is not None:
                 if not isinstance(heightin, decimal.Decimal):
                     raise TypeError("expected heightin to be a Decimal but it is a %s" % builtins.type(heightin))
-                if heightin <= 0:
-                    raise ValueError("expected heightin to be > 0, was %s" % heightin)
             self.__heightin = heightin
             return self
 
@@ -3225,10 +3215,6 @@ class ObjectRecord(object):
             if homeloc is not None:
                 if not isinstance(homeloc, str):
                     raise TypeError("expected homeloc to be a str but it is a %s" % builtins.type(homeloc))
-                if homeloc.isspace():
-                    raise ValueError("expected homeloc not to be blank")
-                if len(homeloc) < 1:
-                    raise ValueError("expected len(homeloc) to be >= 1, was %d" % len(homeloc))
             self.__homeloc = homeloc
             return self
 
@@ -3240,10 +3226,6 @@ class ObjectRecord(object):
             if idby is not None:
                 if not isinstance(idby, str):
                     raise TypeError("expected idby to be a str but it is a %s" % builtins.type(idby))
-                if idby.isspace():
-                    raise ValueError("expected idby not to be blank")
-                if len(idby) < 1:
-                    raise ValueError("expected len(idby) to be >= 1, was %d" % len(idby))
             self.__idby = idby
             return self
 
@@ -3266,10 +3248,6 @@ class ObjectRecord(object):
             if imagefile is not None:
                 if not isinstance(imagefile, str):
                     raise TypeError("expected imagefile to be a str but it is a %s" % builtins.type(imagefile))
-                if imagefile.isspace():
-                    raise ValueError("expected imagefile not to be blank")
-                if len(imagefile) < 1:
-                    raise ValueError("expected len(imagefile) to be >= 1, was %d" % len(imagefile))
             self.__imagefile = imagefile
             return self
 
@@ -3292,10 +3270,6 @@ class ObjectRecord(object):
             if imagesize is not None:
                 if not isinstance(imagesize, str):
                     raise TypeError("expected imagesize to be a str but it is a %s" % builtins.type(imagesize))
-                if imagesize.isspace():
-                    raise ValueError("expected imagesize not to be blank")
-                if len(imagesize) < 1:
-                    raise ValueError("expected len(imagesize) to be >= 1, was %d" % len(imagesize))
             self.__imagesize = imagesize
             return self
 
@@ -3307,10 +3281,6 @@ class ObjectRecord(object):
             if inscomp is not None:
                 if not isinstance(inscomp, str):
                     raise TypeError("expected inscomp to be a str but it is a %s" % builtins.type(inscomp))
-                if inscomp.isspace():
-                    raise ValueError("expected inscomp not to be blank")
-                if len(inscomp) < 1:
-                    raise ValueError("expected len(inscomp) to be >= 1, was %d" % len(inscomp))
             self.__inscomp = inscomp
             return self
 
@@ -3322,10 +3292,6 @@ class ObjectRecord(object):
             if inscrlang is not None:
                 if not isinstance(inscrlang, str):
                     raise TypeError("expected inscrlang to be a str but it is a %s" % builtins.type(inscrlang))
-                if inscrlang.isspace():
-                    raise ValueError("expected inscrlang not to be blank")
-                if len(inscrlang) < 1:
-                    raise ValueError("expected len(inscrlang) to be >= 1, was %d" % len(inscrlang))
             self.__inscrlang = inscrlang
             return self
 
@@ -3337,10 +3303,6 @@ class ObjectRecord(object):
             if inscrpos is not None:
                 if not isinstance(inscrpos, str):
                     raise TypeError("expected inscrpos to be a str but it is a %s" % builtins.type(inscrpos))
-                if inscrpos.isspace():
-                    raise ValueError("expected inscrpos not to be blank")
-                if len(inscrpos) < 1:
-                    raise ValueError("expected len(inscrpos) to be >= 1, was %d" % len(inscrpos))
             self.__inscrpos = inscrpos
             return self
 
@@ -3352,10 +3314,6 @@ class ObjectRecord(object):
             if inscrtech is not None:
                 if not isinstance(inscrtech, str):
                     raise TypeError("expected inscrtech to be a str but it is a %s" % builtins.type(inscrtech))
-                if inscrtech.isspace():
-                    raise ValueError("expected inscrtech not to be blank")
-                if len(inscrtech) < 1:
-                    raise ValueError("expected len(inscrtech) to be >= 1, was %d" % len(inscrtech))
             self.__inscrtech = inscrtech
             return self
 
@@ -3367,10 +3325,6 @@ class ObjectRecord(object):
             if inscrtext is not None:
                 if not isinstance(inscrtext, str):
                     raise TypeError("expected inscrtext to be a str but it is a %s" % builtins.type(inscrtext))
-                if inscrtext.isspace():
-                    raise ValueError("expected inscrtext not to be blank")
-                if len(inscrtext) < 1:
-                    raise ValueError("expected len(inscrtext) to be >= 1, was %d" % len(inscrtext))
             self.__inscrtext = inscrtext
             return self
 
@@ -3382,19 +3336,17 @@ class ObjectRecord(object):
             if inscrtrans is not None:
                 if not isinstance(inscrtrans, str):
                     raise TypeError("expected inscrtrans to be a str but it is a %s" % builtins.type(inscrtrans))
-                if inscrtrans.isspace():
-                    raise ValueError("expected inscrtrans not to be blank")
-                if len(inscrtrans) < 1:
-                    raise ValueError("expected len(inscrtrans) to be >= 1, was %d" % len(inscrtrans))
             self.__inscrtrans = inscrtrans
             return self
 
         def set_inscrtype(self, inscrtype):
             '''
-            :type inscrtype: object or None
+            :type inscrtype: str or None
             '''
 
-
+            if inscrtype is not None:
+                if not isinstance(inscrtype, str):
+                    raise TypeError("expected inscrtype to be a str but it is a %s" % builtins.type(inscrtype))
             self.__inscrtype = inscrtype
             return self
 
@@ -3417,10 +3369,6 @@ class ObjectRecord(object):
             if insphone is not None:
                 if not isinstance(insphone, str):
                     raise TypeError("expected insphone to be a str but it is a %s" % builtins.type(insphone))
-                if insphone.isspace():
-                    raise ValueError("expected insphone not to be blank")
-                if len(insphone) < 1:
-                    raise ValueError("expected len(insphone) to be >= 1, was %d" % len(insphone))
             self.__insphone = insphone
             return self
 
@@ -3432,10 +3380,6 @@ class ObjectRecord(object):
             if inspremium is not None:
                 if not isinstance(inspremium, str):
                     raise TypeError("expected inspremium to be a str but it is a %s" % builtins.type(inspremium))
-                if inspremium.isspace():
-                    raise ValueError("expected inspremium not to be blank")
-                if len(inspremium) < 1:
-                    raise ValueError("expected len(inspremium) to be >= 1, was %d" % len(inspremium))
             self.__inspremium = inspremium
             return self
 
@@ -3447,10 +3391,6 @@ class ObjectRecord(object):
             if insrep is not None:
                 if not isinstance(insrep, str):
                     raise TypeError("expected insrep to be a str but it is a %s" % builtins.type(insrep))
-                if insrep.isspace():
-                    raise ValueError("expected insrep not to be blank")
-                if len(insrep) < 1:
-                    raise ValueError("expected len(insrep) to be >= 1, was %d" % len(insrep))
             self.__insrep = insrep
             return self
 
@@ -3473,10 +3413,6 @@ class ObjectRecord(object):
             if invnby is not None:
                 if not isinstance(invnby, str):
                     raise TypeError("expected invnby to be a str but it is a %s" % builtins.type(invnby))
-                if invnby.isspace():
-                    raise ValueError("expected invnby not to be blank")
-                if len(invnby) < 1:
-                    raise ValueError("expected len(invnby) to be >= 1, was %d" % len(invnby))
             self.__invnby = invnby
             return self
 
@@ -3499,10 +3435,6 @@ class ObjectRecord(object):
             if kingdom is not None:
                 if not isinstance(kingdom, str):
                     raise TypeError("expected kingdom to be a str but it is a %s" % builtins.type(kingdom))
-                if kingdom.isspace():
-                    raise ValueError("expected kingdom not to be blank")
-                if len(kingdom) < 1:
-                    raise ValueError("expected len(kingdom) to be >= 1, was %d" % len(kingdom))
             self.__kingdom = kingdom
             return self
 
@@ -3514,23 +3446,17 @@ class ObjectRecord(object):
             if latdeg is not None:
                 if not isinstance(latdeg, decimal.Decimal):
                     raise TypeError("expected latdeg to be a Decimal but it is a %s" % builtins.type(latdeg))
-                if latdeg <= 0:
-                    raise ValueError("expected latdeg to be > 0, was %s" % latdeg)
             self.__latdeg = latdeg
             return self
 
         def set_latedate(self, latedate):
             '''
-            :type latedate: str or None
+            :type latedate: int or None
             '''
 
             if latedate is not None:
-                if not isinstance(latedate, str):
-                    raise TypeError("expected latedate to be a str but it is a %s" % builtins.type(latedate))
-                if latedate.isspace():
-                    raise ValueError("expected latedate not to be blank")
-                if len(latedate) < 1:
-                    raise ValueError("expected len(latedate) to be >= 1, was %d" % len(latedate))
+                if not isinstance(latedate, int):
+                    raise TypeError("expected latedate to be a int but it is a %s" % builtins.type(latedate))
             self.__latedate = latedate
             return self
 
@@ -3542,10 +3468,6 @@ class ObjectRecord(object):
             if legal is not None:
                 if not isinstance(legal, str):
                     raise TypeError("expected legal to be a str but it is a %s" % builtins.type(legal))
-                if legal.isspace():
-                    raise ValueError("expected legal not to be blank")
-                if len(legal) < 1:
-                    raise ValueError("expected len(legal) to be >= 1, was %d" % len(legal))
             self.__legal = legal
             return self
 
@@ -3557,8 +3479,6 @@ class ObjectRecord(object):
             if length is not None:
                 if not isinstance(length, decimal.Decimal):
                     raise TypeError("expected length to be a Decimal but it is a %s" % builtins.type(length))
-                if length <= 0:
-                    raise ValueError("expected length to be > 0, was %s" % length)
             self.__length = length
             return self
 
@@ -3570,8 +3490,6 @@ class ObjectRecord(object):
             if lengthft is not None:
                 if not isinstance(lengthft, decimal.Decimal):
                     raise TypeError("expected lengthft to be a Decimal but it is a %s" % builtins.type(lengthft))
-                if lengthft <= 0:
-                    raise ValueError("expected lengthft to be > 0, was %s" % lengthft)
             self.__lengthft = lengthft
             return self
 
@@ -3583,8 +3501,6 @@ class ObjectRecord(object):
             if lengthin is not None:
                 if not isinstance(lengthin, decimal.Decimal):
                     raise TypeError("expected lengthin to be a Decimal but it is a %s" % builtins.type(lengthin))
-                if lengthin <= 0:
-                    raise ValueError("expected lengthin to be > 0, was %s" % lengthin)
             self.__lengthin = lengthin
             return self
 
@@ -3596,10 +3512,6 @@ class ObjectRecord(object):
             if level is not None:
                 if not isinstance(level, str):
                     raise TypeError("expected level to be a str but it is a %s" % builtins.type(level))
-                if level.isspace():
-                    raise ValueError("expected level not to be blank")
-                if len(level) < 1:
-                    raise ValueError("expected len(level) to be >= 1, was %d" % len(level))
             self.__level = level
             return self
 
@@ -3611,10 +3523,6 @@ class ObjectRecord(object):
             if lithofacie is not None:
                 if not isinstance(lithofacie, str):
                     raise TypeError("expected lithofacie to be a str but it is a %s" % builtins.type(lithofacie))
-                if lithofacie.isspace():
-                    raise ValueError("expected lithofacie not to be blank")
-                if len(lithofacie) < 1:
-                    raise ValueError("expected len(lithofacie) to be >= 1, was %d" % len(lithofacie))
             self.__lithofacie = lithofacie
             return self
 
@@ -3626,25 +3534,17 @@ class ObjectRecord(object):
             if loancond is not None:
                 if not isinstance(loancond, str):
                     raise TypeError("expected loancond to be a str but it is a %s" % builtins.type(loancond))
-                if loancond.isspace():
-                    raise ValueError("expected loancond not to be blank")
-                if len(loancond) < 1:
-                    raise ValueError("expected len(loancond) to be >= 1, was %d" % len(loancond))
             self.__loancond = loancond
             return self
 
         def set_loandue(self, loandue):
             '''
-            :type loandue: str or None
+            :type loandue: datetime.datetime or None
             '''
 
             if loandue is not None:
-                if not isinstance(loandue, str):
-                    raise TypeError("expected loandue to be a str but it is a %s" % builtins.type(loandue))
-                if loandue.isspace():
-                    raise ValueError("expected loandue not to be blank")
-                if len(loandue) < 1:
-                    raise ValueError("expected len(loandue) to be >= 1, was %d" % len(loandue))
+                if not isinstance(loandue, datetime.datetime):
+                    raise TypeError("expected loandue to be a datetime.datetime but it is a %s" % builtins.type(loandue))
             self.__loandue = loandue
             return self
 
@@ -3656,10 +3556,6 @@ class ObjectRecord(object):
             if loanid is not None:
                 if not isinstance(loanid, str):
                     raise TypeError("expected loanid to be a str but it is a %s" % builtins.type(loanid))
-                if loanid.isspace():
-                    raise ValueError("expected loanid not to be blank")
-                if len(loanid) < 1:
-                    raise ValueError("expected len(loanid) to be >= 1, was %d" % len(loanid))
             self.__loanid = loanid
             return self
 
@@ -3671,10 +3567,6 @@ class ObjectRecord(object):
             if loaninno is not None:
                 if not isinstance(loaninno, str):
                     raise TypeError("expected loaninno to be a str but it is a %s" % builtins.type(loaninno))
-                if loaninno.isspace():
-                    raise ValueError("expected loaninno not to be blank")
-                if len(loaninno) < 1:
-                    raise ValueError("expected len(loaninno) to be >= 1, was %d" % len(loaninno))
             self.__loaninno = loaninno
             return self
 
@@ -3700,17 +3592,70 @@ class ObjectRecord(object):
             self.__loanrenew = loanrenew
             return self
 
-        def set_locfield(self, locfield):
+        def set_locfield1(self, locfield1):
             '''
-            :type locfield: dict(int: str) or None
+            :type locfield1: str or None
             '''
 
-            if locfield is not None:
-                if not (isinstance(locfield, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), locfield.items()))) == 0):
-                    raise TypeError("expected locfield to be a dict(int: str) but it is a %s" % builtins.type(locfield))
-                if len(locfield) < 1:
-                    raise ValueError("expected len(locfield) to be >= 1, was %d" % len(locfield))
-            self.__locfield = locfield
+            if locfield1 is not None:
+                if not isinstance(locfield1, str):
+                    raise TypeError("expected locfield1 to be a str but it is a %s" % builtins.type(locfield1))
+            self.__locfield1 = locfield1
+            return self
+
+        def set_locfield2(self, locfield2):
+            '''
+            :type locfield2: str or None
+            '''
+
+            if locfield2 is not None:
+                if not isinstance(locfield2, str):
+                    raise TypeError("expected locfield2 to be a str but it is a %s" % builtins.type(locfield2))
+            self.__locfield2 = locfield2
+            return self
+
+        def set_locfield3(self, locfield3):
+            '''
+            :type locfield3: str or None
+            '''
+
+            if locfield3 is not None:
+                if not isinstance(locfield3, str):
+                    raise TypeError("expected locfield3 to be a str but it is a %s" % builtins.type(locfield3))
+            self.__locfield3 = locfield3
+            return self
+
+        def set_locfield4(self, locfield4):
+            '''
+            :type locfield4: str or None
+            '''
+
+            if locfield4 is not None:
+                if not isinstance(locfield4, str):
+                    raise TypeError("expected locfield4 to be a str but it is a %s" % builtins.type(locfield4))
+            self.__locfield4 = locfield4
+            return self
+
+        def set_locfield5(self, locfield5):
+            '''
+            :type locfield5: str or None
+            '''
+
+            if locfield5 is not None:
+                if not isinstance(locfield5, str):
+                    raise TypeError("expected locfield5 to be a str but it is a %s" % builtins.type(locfield5))
+            self.__locfield5 = locfield5
+            return self
+
+        def set_locfield6(self, locfield6):
+            '''
+            :type locfield6: str or None
+            '''
+
+            if locfield6 is not None:
+                if not isinstance(locfield6, str):
+                    raise TypeError("expected locfield6 to be a str but it is a %s" % builtins.type(locfield6))
+            self.__locfield6 = locfield6
             return self
 
         def set_longdeg(self, longdeg):
@@ -3721,8 +3666,6 @@ class ObjectRecord(object):
             if longdeg is not None:
                 if not isinstance(longdeg, decimal.Decimal):
                     raise TypeError("expected longdeg to be a Decimal but it is a %s" % builtins.type(longdeg))
-                if longdeg <= 0:
-                    raise ValueError("expected longdeg to be > 0, was %s" % longdeg)
             self.__longdeg = longdeg
             return self
 
@@ -3734,10 +3677,6 @@ class ObjectRecord(object):
             if luster is not None:
                 if not isinstance(luster, str):
                     raise TypeError("expected luster to be a str but it is a %s" % builtins.type(luster))
-                if luster.isspace():
-                    raise ValueError("expected luster not to be blank")
-                if len(luster) < 1:
-                    raise ValueError("expected len(luster) to be >= 1, was %d" % len(luster))
             self.__luster = luster
             return self
 
@@ -3749,10 +3688,6 @@ class ObjectRecord(object):
             if made is not None:
                 if not isinstance(made, str):
                     raise TypeError("expected made to be a str but it is a %s" % builtins.type(made))
-                if made.isspace():
-                    raise ValueError("expected made not to be blank")
-                if len(made) < 1:
-                    raise ValueError("expected len(made) to be >= 1, was %d" % len(made))
             self.__made = made
             return self
 
@@ -3764,10 +3699,6 @@ class ObjectRecord(object):
             if maintcycle is not None:
                 if not isinstance(maintcycle, str):
                     raise TypeError("expected maintcycle to be a str but it is a %s" % builtins.type(maintcycle))
-                if maintcycle.isspace():
-                    raise ValueError("expected maintcycle not to be blank")
-                if len(maintcycle) < 1:
-                    raise ValueError("expected len(maintcycle) to be >= 1, was %d" % len(maintcycle))
             self.__maintcycle = maintcycle
             return self
 
@@ -3790,10 +3721,6 @@ class ObjectRecord(object):
             if maintnote is not None:
                 if not isinstance(maintnote, str):
                     raise TypeError("expected maintnote to be a str but it is a %s" % builtins.type(maintnote))
-                if maintnote.isspace():
-                    raise ValueError("expected maintnote not to be blank")
-                if len(maintnote) < 1:
-                    raise ValueError("expected len(maintnote) to be >= 1, was %d" % len(maintnote))
             self.__maintnote = maintnote
             return self
 
@@ -3805,10 +3732,6 @@ class ObjectRecord(object):
             if material is not None:
                 if not isinstance(material, str):
                     raise TypeError("expected material to be a str but it is a %s" % builtins.type(material))
-                if material.isspace():
-                    raise ValueError("expected material not to be blank")
-                if len(material) < 1:
-                    raise ValueError("expected len(material) to be >= 1, was %d" % len(material))
             self.__material = material
             return self
 
@@ -3820,10 +3743,6 @@ class ObjectRecord(object):
             if medium is not None:
                 if not isinstance(medium, str):
                     raise TypeError("expected medium to be a str but it is a %s" % builtins.type(medium))
-                if medium.isspace():
-                    raise ValueError("expected medium not to be blank")
-                if len(medium) < 1:
-                    raise ValueError("expected len(medium) to be >= 1, was %d" % len(medium))
             self.__medium = medium
             return self
 
@@ -3835,10 +3754,6 @@ class ObjectRecord(object):
             if member is not None:
                 if not isinstance(member, str):
                     raise TypeError("expected member to be a str but it is a %s" % builtins.type(member))
-                if member.isspace():
-                    raise ValueError("expected member not to be blank")
-                if len(member) < 1:
-                    raise ValueError("expected len(member) to be >= 1, was %d" % len(member))
             self.__member = member
             return self
 
@@ -3850,10 +3765,6 @@ class ObjectRecord(object):
             if mmark is not None:
                 if not isinstance(mmark, str):
                     raise TypeError("expected mmark to be a str but it is a %s" % builtins.type(mmark))
-                if mmark.isspace():
-                    raise ValueError("expected mmark not to be blank")
-                if len(mmark) < 1:
-                    raise ValueError("expected len(mmark) to be >= 1, was %d" % len(mmark))
             self.__mmark = mmark
             return self
 
@@ -3865,10 +3776,6 @@ class ObjectRecord(object):
             if nhclass is not None:
                 if not isinstance(nhclass, str):
                     raise TypeError("expected nhclass to be a str but it is a %s" % builtins.type(nhclass))
-                if nhclass.isspace():
-                    raise ValueError("expected nhclass not to be blank")
-                if len(nhclass) < 1:
-                    raise ValueError("expected len(nhclass) to be >= 1, was %d" % len(nhclass))
             self.__nhclass = nhclass
             return self
 
@@ -3880,10 +3787,6 @@ class ObjectRecord(object):
             if nhorder is not None:
                 if not isinstance(nhorder, str):
                     raise TypeError("expected nhorder to be a str but it is a %s" % builtins.type(nhorder))
-                if nhorder.isspace():
-                    raise ValueError("expected nhorder not to be blank")
-                if len(nhorder) < 1:
-                    raise ValueError("expected len(nhorder) to be >= 1, was %d" % len(nhorder))
             self.__nhorder = nhorder
             return self
 
@@ -3895,21 +3798,17 @@ class ObjectRecord(object):
             if notes is not None:
                 if not isinstance(notes, str):
                     raise TypeError("expected notes to be a str but it is a %s" % builtins.type(notes))
-                if notes.isspace():
-                    raise ValueError("expected notes not to be blank")
-                if len(notes) < 1:
-                    raise ValueError("expected len(notes) to be >= 1, was %d" % len(notes))
             self.__notes = notes
             return self
 
         def set_ns(self, ns):
             '''
-            :type ns: pastpy.models.cardinal_direction.CardinalDirection or None
+            :type ns: str or None
             '''
 
             if ns is not None:
-                if not isinstance(ns, pastpy.models.cardinal_direction.CardinalDirection):
-                    raise TypeError("expected ns to be a pastpy.models.cardinal_direction.CardinalDirection but it is a %s" % builtins.type(ns))
+                if not isinstance(ns, str):
+                    raise TypeError("expected ns to be a str but it is a %s" % builtins.type(ns))
             self.__ns = ns
             return self
 
@@ -3921,10 +3820,6 @@ class ObjectRecord(object):
             if objectid is not None:
                 if not isinstance(objectid, str):
                     raise TypeError("expected objectid to be a str but it is a %s" % builtins.type(objectid))
-                if objectid.isspace():
-                    raise ValueError("expected objectid not to be blank")
-                if len(objectid) < 1:
-                    raise ValueError("expected len(objectid) to be >= 1, was %d" % len(objectid))
             self.__objectid = objectid
             return self
 
@@ -3936,10 +3831,6 @@ class ObjectRecord(object):
             if objname is not None:
                 if not isinstance(objname, str):
                     raise TypeError("expected objname to be a str but it is a %s" % builtins.type(objname))
-                if objname.isspace():
-                    raise ValueError("expected objname not to be blank")
-                if len(objname) < 1:
-                    raise ValueError("expected len(objname) to be >= 1, was %d" % len(objname))
             self.__objname = objname
             return self
 
@@ -3951,10 +3842,6 @@ class ObjectRecord(object):
             if objname2 is not None:
                 if not isinstance(objname2, str):
                     raise TypeError("expected objname2 to be a str but it is a %s" % builtins.type(objname2))
-                if objname2.isspace():
-                    raise ValueError("expected objname2 not to be blank")
-                if len(objname2) < 1:
-                    raise ValueError("expected len(objname2) to be >= 1, was %d" % len(objname2))
             self.__objname2 = objname2
             return self
 
@@ -3966,10 +3853,6 @@ class ObjectRecord(object):
             if objname3 is not None:
                 if not isinstance(objname3, str):
                     raise TypeError("expected objname3 to be a str but it is a %s" % builtins.type(objname3))
-                if objname3.isspace():
-                    raise ValueError("expected objname3 not to be blank")
-                if len(objname3) < 1:
-                    raise ValueError("expected len(objname3) to be >= 1, was %d" % len(objname3))
             self.__objname3 = objname3
             return self
 
@@ -3981,10 +3864,6 @@ class ObjectRecord(object):
             if objnames is not None:
                 if not isinstance(objnames, str):
                     raise TypeError("expected objnames to be a str but it is a %s" % builtins.type(objnames))
-                if objnames.isspace():
-                    raise ValueError("expected objnames not to be blank")
-                if len(objnames) < 1:
-                    raise ValueError("expected len(objnames) to be >= 1, was %d" % len(objnames))
             self.__objnames = objnames
             return self
 
@@ -3996,10 +3875,6 @@ class ObjectRecord(object):
             if occurrence is not None:
                 if not isinstance(occurrence, str):
                     raise TypeError("expected occurrence to be a str but it is a %s" % builtins.type(occurrence))
-                if occurrence.isspace():
-                    raise ValueError("expected occurrence not to be blank")
-                if len(occurrence) < 1:
-                    raise ValueError("expected len(occurrence) to be >= 1, was %d" % len(occurrence))
             self.__occurrence = occurrence
             return self
 
@@ -4011,10 +3886,6 @@ class ObjectRecord(object):
             if oldno is not None:
                 if not isinstance(oldno, str):
                     raise TypeError("expected oldno to be a str but it is a %s" % builtins.type(oldno))
-                if oldno.isspace():
-                    raise ValueError("expected oldno not to be blank")
-                if len(oldno) < 1:
-                    raise ValueError("expected len(oldno) to be >= 1, was %d" % len(oldno))
             self.__oldno = oldno
             return self
 
@@ -4026,10 +3897,6 @@ class ObjectRecord(object):
             if origin is not None:
                 if not isinstance(origin, str):
                     raise TypeError("expected origin to be a str but it is a %s" % builtins.type(origin))
-                if origin.isspace():
-                    raise ValueError("expected origin not to be blank")
-                if len(origin) < 1:
-                    raise ValueError("expected len(origin) to be >= 1, was %d" % len(origin))
             self.__origin = origin
             return self
 
@@ -4041,10 +3908,6 @@ class ObjectRecord(object):
             if othername is not None:
                 if not isinstance(othername, str):
                     raise TypeError("expected othername to be a str but it is a %s" % builtins.type(othername))
-                if othername.isspace():
-                    raise ValueError("expected othername not to be blank")
-                if len(othername) < 1:
-                    raise ValueError("expected len(othername) to be >= 1, was %d" % len(othername))
             self.__othername = othername
             return self
 
@@ -4056,10 +3919,6 @@ class ObjectRecord(object):
             if otherno is not None:
                 if not isinstance(otherno, str):
                     raise TypeError("expected otherno to be a str but it is a %s" % builtins.type(otherno))
-                if otherno.isspace():
-                    raise ValueError("expected otherno not to be blank")
-                if len(otherno) < 1:
-                    raise ValueError("expected len(otherno) to be >= 1, was %d" % len(otherno))
             self.__otherno = otherno
             return self
 
@@ -4082,10 +3941,6 @@ class ObjectRecord(object):
             if owned is not None:
                 if not isinstance(owned, str):
                     raise TypeError("expected owned to be a str but it is a %s" % builtins.type(owned))
-                if owned.isspace():
-                    raise ValueError("expected owned not to be blank")
-                if len(owned) < 1:
-                    raise ValueError("expected len(owned) to be >= 1, was %d" % len(owned))
             self.__owned = owned
             return self
 
@@ -4097,10 +3952,6 @@ class ObjectRecord(object):
             if parent is not None:
                 if not isinstance(parent, str):
                     raise TypeError("expected parent to be a str but it is a %s" % builtins.type(parent))
-                if parent.isspace():
-                    raise ValueError("expected parent not to be blank")
-                if len(parent) < 1:
-                    raise ValueError("expected len(parent) to be >= 1, was %d" % len(parent))
             self.__parent = parent
             return self
 
@@ -4112,10 +3963,6 @@ class ObjectRecord(object):
             if people is not None:
                 if not isinstance(people, str):
                     raise TypeError("expected people to be a str but it is a %s" % builtins.type(people))
-                if people.isspace():
-                    raise ValueError("expected people not to be blank")
-                if len(people) < 1:
-                    raise ValueError("expected len(people) to be >= 1, was %d" % len(people))
             self.__people = people
             return self
 
@@ -4127,10 +3974,6 @@ class ObjectRecord(object):
             if period is not None:
                 if not isinstance(period, str):
                     raise TypeError("expected period to be a str but it is a %s" % builtins.type(period))
-                if period.isspace():
-                    raise ValueError("expected period not to be blank")
-                if len(period) < 1:
-                    raise ValueError("expected len(period) to be >= 1, was %d" % len(period))
             self.__period = period
             return self
 
@@ -4142,10 +3985,6 @@ class ObjectRecord(object):
             if phylum is not None:
                 if not isinstance(phylum, str):
                     raise TypeError("expected phylum to be a str but it is a %s" % builtins.type(phylum))
-                if phylum.isspace():
-                    raise ValueError("expected phylum not to be blank")
-                if len(phylum) < 1:
-                    raise ValueError("expected len(phylum) to be >= 1, was %d" % len(phylum))
             self.__phylum = phylum
             return self
 
@@ -4157,10 +3996,6 @@ class ObjectRecord(object):
             if policyno is not None:
                 if not isinstance(policyno, str):
                     raise TypeError("expected policyno to be a str but it is a %s" % builtins.type(policyno))
-                if policyno.isspace():
-                    raise ValueError("expected policyno not to be blank")
-                if len(policyno) < 1:
-                    raise ValueError("expected len(policyno) to be >= 1, was %d" % len(policyno))
             self.__policyno = policyno
             return self
 
@@ -4172,10 +4007,6 @@ class ObjectRecord(object):
             if ppid is not None:
                 if not isinstance(ppid, str):
                     raise TypeError("expected ppid to be a str but it is a %s" % builtins.type(ppid))
-                if ppid.isspace():
-                    raise ValueError("expected ppid not to be blank")
-                if len(ppid) < 1:
-                    raise ValueError("expected len(ppid) to be >= 1, was %d" % len(ppid))
             self.__ppid = ppid
             return self
 
@@ -4187,10 +4018,6 @@ class ObjectRecord(object):
             if preparator is not None:
                 if not isinstance(preparator, str):
                     raise TypeError("expected preparator to be a str but it is a %s" % builtins.type(preparator))
-                if preparator.isspace():
-                    raise ValueError("expected preparator not to be blank")
-                if len(preparator) < 1:
-                    raise ValueError("expected len(preparator) to be >= 1, was %d" % len(preparator))
             self.__preparator = preparator
             return self
 
@@ -4213,10 +4040,6 @@ class ObjectRecord(object):
             if preserve is not None:
                 if not isinstance(preserve, str):
                     raise TypeError("expected preserve to be a str but it is a %s" % builtins.type(preserve))
-                if preserve.isspace():
-                    raise ValueError("expected preserve not to be blank")
-                if len(preserve) < 1:
-                    raise ValueError("expected len(preserve) to be >= 1, was %d" % len(preserve))
             self.__preserve = preserve
             return self
 
@@ -4228,10 +4051,6 @@ class ObjectRecord(object):
             if pressure is not None:
                 if not isinstance(pressure, str):
                     raise TypeError("expected pressure to be a str but it is a %s" % builtins.type(pressure))
-                if pressure.isspace():
-                    raise ValueError("expected pressure not to be blank")
-                if len(pressure) < 1:
-                    raise ValueError("expected len(pressure) to be >= 1, was %d" % len(pressure))
             self.__pressure = pressure
             return self
 
@@ -4243,10 +4062,6 @@ class ObjectRecord(object):
             if provenance is not None:
                 if not isinstance(provenance, str):
                     raise TypeError("expected provenance to be a str but it is a %s" % builtins.type(provenance))
-                if provenance.isspace():
-                    raise ValueError("expected provenance not to be blank")
-                if len(provenance) < 1:
-                    raise ValueError("expected len(provenance) to be >= 1, was %d" % len(provenance))
             self.__provenance = provenance
             return self
 
@@ -4258,11 +4073,18 @@ class ObjectRecord(object):
             if pubnotes is not None:
                 if not isinstance(pubnotes, str):
                     raise TypeError("expected pubnotes to be a str but it is a %s" % builtins.type(pubnotes))
-                if pubnotes.isspace():
-                    raise ValueError("expected pubnotes not to be blank")
-                if len(pubnotes) < 1:
-                    raise ValueError("expected len(pubnotes) to be >= 1, was %d" % len(pubnotes))
             self.__pubnotes = pubnotes
+            return self
+
+        def set_qrurl(self, qrurl):
+            '''
+            :type qrurl: str or None
+            '''
+
+            if qrurl is not None:
+                if not isinstance(qrurl, str):
+                    raise TypeError("expected qrurl to be a str but it is a %s" % builtins.type(qrurl))
+            self.__qrurl = qrurl
             return self
 
         def set_recas(self, recas):
@@ -4273,21 +4095,17 @@ class ObjectRecord(object):
             if recas is not None:
                 if not isinstance(recas, str):
                     raise TypeError("expected recas to be a str but it is a %s" % builtins.type(recas))
-                if recas.isspace():
-                    raise ValueError("expected recas not to be blank")
-                if len(recas) < 1:
-                    raise ValueError("expected len(recas) to be >= 1, was %d" % len(recas))
             self.__recas = recas
             return self
 
         def set_recdate(self, recdate):
             '''
-            :type recdate: datetime.datetime or None
+            :type recdate: str or None
             '''
 
             if recdate is not None:
-                if not isinstance(recdate, datetime.datetime):
-                    raise TypeError("expected recdate to be a datetime.datetime but it is a %s" % builtins.type(recdate))
+                if not isinstance(recdate, str):
+                    raise TypeError("expected recdate to be a str but it is a %s" % builtins.type(recdate))
             self.__recdate = recdate
             return self
 
@@ -4299,10 +4117,6 @@ class ObjectRecord(object):
             if recfrom is not None:
                 if not isinstance(recfrom, str):
                     raise TypeError("expected recfrom to be a str but it is a %s" % builtins.type(recfrom))
-                if recfrom.isspace():
-                    raise ValueError("expected recfrom not to be blank")
-                if len(recfrom) < 1:
-                    raise ValueError("expected len(recfrom) to be >= 1, was %d" % len(recfrom))
             self.__recfrom = recfrom
             return self
 
@@ -4314,10 +4128,6 @@ class ObjectRecord(object):
             if relation is not None:
                 if not isinstance(relation, str):
                     raise TypeError("expected relation to be a str but it is a %s" % builtins.type(relation))
-                if relation.isspace():
-                    raise ValueError("expected relation not to be blank")
-                if len(relation) < 1:
-                    raise ValueError("expected len(relation) to be >= 1, was %d" % len(relation))
             self.__relation = relation
             return self
 
@@ -4329,10 +4139,6 @@ class ObjectRecord(object):
             if relnotes is not None:
                 if not isinstance(relnotes, str):
                     raise TypeError("expected relnotes to be a str but it is a %s" % builtins.type(relnotes))
-                if relnotes.isspace():
-                    raise ValueError("expected relnotes not to be blank")
-                if len(relnotes) < 1:
-                    raise ValueError("expected len(relnotes) to be >= 1, was %d" % len(relnotes))
             self.__relnotes = relnotes
             return self
 
@@ -4355,10 +4161,6 @@ class ObjectRecord(object):
             if repatby is not None:
                 if not isinstance(repatby, str):
                     raise TypeError("expected repatby to be a str but it is a %s" % builtins.type(repatby))
-                if repatby.isspace():
-                    raise ValueError("expected repatby not to be blank")
-                if len(repatby) < 1:
-                    raise ValueError("expected len(repatby) to be >= 1, was %d" % len(repatby))
             self.__repatby = repatby
             return self
 
@@ -4370,10 +4172,6 @@ class ObjectRecord(object):
             if repatclaim is not None:
                 if not isinstance(repatclaim, str):
                     raise TypeError("expected repatclaim to be a str but it is a %s" % builtins.type(repatclaim))
-                if repatclaim.isspace():
-                    raise ValueError("expected repatclaim not to be blank")
-                if len(repatclaim) < 1:
-                    raise ValueError("expected len(repatclaim) to be >= 1, was %d" % len(repatclaim))
             self.__repatclaim = repatclaim
             return self
 
@@ -4396,10 +4194,6 @@ class ObjectRecord(object):
             if repatdisp is not None:
                 if not isinstance(repatdisp, str):
                     raise TypeError("expected repatdisp to be a str but it is a %s" % builtins.type(repatdisp))
-                if repatdisp.isspace():
-                    raise ValueError("expected repatdisp not to be blank")
-                if len(repatdisp) < 1:
-                    raise ValueError("expected len(repatdisp) to be >= 1, was %d" % len(repatdisp))
             self.__repatdisp = repatdisp
             return self
 
@@ -4411,10 +4205,6 @@ class ObjectRecord(object):
             if repathand is not None:
                 if not isinstance(repathand, str):
                     raise TypeError("expected repathand to be a str but it is a %s" % builtins.type(repathand))
-                if repathand.isspace():
-                    raise ValueError("expected repathand not to be blank")
-                if len(repathand) < 1:
-                    raise ValueError("expected len(repathand) to be >= 1, was %d" % len(repathand))
             self.__repathand = repathand
             return self
 
@@ -4426,36 +4216,28 @@ class ObjectRecord(object):
             if repatnotes is not None:
                 if not isinstance(repatnotes, str):
                     raise TypeError("expected repatnotes to be a str but it is a %s" % builtins.type(repatnotes))
-                if repatnotes.isspace():
-                    raise ValueError("expected repatnotes not to be blank")
-                if len(repatnotes) < 1:
-                    raise ValueError("expected len(repatnotes) to be >= 1, was %d" % len(repatnotes))
             self.__repatnotes = repatnotes
             return self
 
         def set_repatnotic(self, repatnotic):
             '''
-            :type repatnotic: str or None
+            :type repatnotic: datetime.datetime or None
             '''
 
             if repatnotic is not None:
-                if not isinstance(repatnotic, str):
-                    raise TypeError("expected repatnotic to be a str but it is a %s" % builtins.type(repatnotic))
-                if repatnotic.isspace():
-                    raise ValueError("expected repatnotic not to be blank")
-                if len(repatnotic) < 1:
-                    raise ValueError("expected len(repatnotic) to be >= 1, was %d" % len(repatnotic))
+                if not isinstance(repatnotic, datetime.datetime):
+                    raise TypeError("expected repatnotic to be a datetime.datetime but it is a %s" % builtins.type(repatnotic))
             self.__repatnotic = repatnotic
             return self
 
         def set_repattype(self, repattype):
             '''
-            :type repattype: int or None
+            :type repattype: str or None
             '''
 
             if repattype is not None:
-                if not isinstance(repattype, int):
-                    raise TypeError("expected repattype to be a int but it is a %s" % builtins.type(repattype))
+                if not isinstance(repattype, str):
+                    raise TypeError("expected repattype to be a str but it is a %s" % builtins.type(repattype))
             self.__repattype = repattype
             return self
 
@@ -4467,10 +4249,6 @@ class ObjectRecord(object):
             if rockclass is not None:
                 if not isinstance(rockclass, str):
                     raise TypeError("expected rockclass to be a str but it is a %s" % builtins.type(rockclass))
-                if rockclass.isspace():
-                    raise ValueError("expected rockclass not to be blank")
-                if len(rockclass) < 1:
-                    raise ValueError("expected len(rockclass) to be >= 1, was %d" % len(rockclass))
             self.__rockclass = rockclass
             return self
 
@@ -4482,10 +4260,6 @@ class ObjectRecord(object):
             if rockcolor is not None:
                 if not isinstance(rockcolor, str):
                     raise TypeError("expected rockcolor to be a str but it is a %s" % builtins.type(rockcolor))
-                if rockcolor.isspace():
-                    raise ValueError("expected rockcolor not to be blank")
-                if len(rockcolor) < 1:
-                    raise ValueError("expected len(rockcolor) to be >= 1, was %d" % len(rockcolor))
             self.__rockcolor = rockcolor
             return self
 
@@ -4497,21 +4271,17 @@ class ObjectRecord(object):
             if rockorigin is not None:
                 if not isinstance(rockorigin, str):
                     raise TypeError("expected rockorigin to be a str but it is a %s" % builtins.type(rockorigin))
-                if rockorigin.isspace():
-                    raise ValueError("expected rockorigin not to be blank")
-                if len(rockorigin) < 1:
-                    raise ValueError("expected len(rockorigin) to be >= 1, was %d" % len(rockorigin))
             self.__rockorigin = rockorigin
             return self
 
         def set_rocktype(self, rocktype):
             '''
-            :type rocktype: int or None
+            :type rocktype: str or None
             '''
 
             if rocktype is not None:
-                if not isinstance(rocktype, int):
-                    raise TypeError("expected rocktype to be a int but it is a %s" % builtins.type(rocktype))
+                if not isinstance(rocktype, str):
+                    raise TypeError("expected rocktype to be a str but it is a %s" % builtins.type(rocktype))
             self.__rocktype = rocktype
             return self
 
@@ -4523,10 +4293,6 @@ class ObjectRecord(object):
             if role is not None:
                 if not isinstance(role, str):
                     raise TypeError("expected role to be a str but it is a %s" % builtins.type(role))
-                if role.isspace():
-                    raise ValueError("expected role not to be blank")
-                if len(role) < 1:
-                    raise ValueError("expected len(role) to be >= 1, was %d" % len(role))
             self.__role = role
             return self
 
@@ -4538,10 +4304,6 @@ class ObjectRecord(object):
             if role2 is not None:
                 if not isinstance(role2, str):
                     raise TypeError("expected role2 to be a str but it is a %s" % builtins.type(role2))
-                if role2.isspace():
-                    raise ValueError("expected role2 not to be blank")
-                if len(role2) < 1:
-                    raise ValueError("expected len(role2) to be >= 1, was %d" % len(role2))
             self.__role2 = role2
             return self
 
@@ -4553,10 +4315,6 @@ class ObjectRecord(object):
             if role3 is not None:
                 if not isinstance(role3, str):
                     raise TypeError("expected role3 to be a str but it is a %s" % builtins.type(role3))
-                if role3.isspace():
-                    raise ValueError("expected role3 not to be blank")
-                if len(role3) < 1:
-                    raise ValueError("expected len(role3) to be >= 1, was %d" % len(role3))
             self.__role3 = role3
             return self
 
@@ -4568,10 +4326,6 @@ class ObjectRecord(object):
             if school is not None:
                 if not isinstance(school, str):
                     raise TypeError("expected school to be a str but it is a %s" % builtins.type(school))
-                if school.isspace():
-                    raise ValueError("expected school not to be blank")
-                if len(school) < 1:
-                    raise ValueError("expected len(school) to be >= 1, was %d" % len(school))
             self.__school = school
             return self
 
@@ -4583,11 +4337,18 @@ class ObjectRecord(object):
             if sex is not None:
                 if not isinstance(sex, str):
                     raise TypeError("expected sex to be a str but it is a %s" % builtins.type(sex))
-                if sex.isspace():
-                    raise ValueError("expected sex not to be blank")
-                if len(sex) < 1:
-                    raise ValueError("expected len(sex) to be >= 1, was %d" % len(sex))
             self.__sex = sex
+            return self
+
+        def set_sgflag(self, sgflag):
+            '''
+            :type sgflag: str or None
+            '''
+
+            if sgflag is not None:
+                if not isinstance(sgflag, str):
+                    raise TypeError("expected sgflag to be a str but it is a %s" % builtins.type(sgflag))
+            self.__sgflag = sgflag
             return self
 
         def set_signedname(self, signedname):
@@ -4598,10 +4359,6 @@ class ObjectRecord(object):
             if signedname is not None:
                 if not isinstance(signedname, str):
                     raise TypeError("expected signedname to be a str but it is a %s" % builtins.type(signedname))
-                if signedname.isspace():
-                    raise ValueError("expected signedname not to be blank")
-                if len(signedname) < 1:
-                    raise ValueError("expected len(signedname) to be >= 1, was %d" % len(signedname))
             self.__signedname = signedname
             return self
 
@@ -4613,10 +4370,6 @@ class ObjectRecord(object):
             if signloc is not None:
                 if not isinstance(signloc, str):
                     raise TypeError("expected signloc to be a str but it is a %s" % builtins.type(signloc))
-                if signloc.isspace():
-                    raise ValueError("expected signloc not to be blank")
-                if len(signloc) < 1:
-                    raise ValueError("expected len(signloc) to be >= 1, was %d" % len(signloc))
             self.__signloc = signloc
             return self
 
@@ -4628,10 +4381,6 @@ class ObjectRecord(object):
             if site is not None:
                 if not isinstance(site, str):
                     raise TypeError("expected site to be a str but it is a %s" % builtins.type(site))
-                if site.isspace():
-                    raise ValueError("expected site not to be blank")
-                if len(site) < 1:
-                    raise ValueError("expected len(site) to be >= 1, was %d" % len(site))
             self.__site = site
             return self
 
@@ -4643,10 +4392,6 @@ class ObjectRecord(object):
             if siteno is not None:
                 if not isinstance(siteno, str):
                     raise TypeError("expected siteno to be a str but it is a %s" % builtins.type(siteno))
-                if siteno.isspace():
-                    raise ValueError("expected siteno not to be blank")
-                if len(siteno) < 1:
-                    raise ValueError("expected len(siteno) to be >= 1, was %d" % len(siteno))
             self.__siteno = siteno
             return self
 
@@ -4658,10 +4403,6 @@ class ObjectRecord(object):
             if specgrav is not None:
                 if not isinstance(specgrav, str):
                     raise TypeError("expected specgrav to be a str but it is a %s" % builtins.type(specgrav))
-                if specgrav.isspace():
-                    raise ValueError("expected specgrav not to be blank")
-                if len(specgrav) < 1:
-                    raise ValueError("expected len(specgrav) to be >= 1, was %d" % len(specgrav))
             self.__specgrav = specgrav
             return self
 
@@ -4673,10 +4414,6 @@ class ObjectRecord(object):
             if species is not None:
                 if not isinstance(species, str):
                     raise TypeError("expected species to be a str but it is a %s" % builtins.type(species))
-                if species.isspace():
-                    raise ValueError("expected species not to be blank")
-                if len(species) < 1:
-                    raise ValueError("expected len(species) to be >= 1, was %d" % len(species))
             self.__species = species
             return self
 
@@ -4688,10 +4425,6 @@ class ObjectRecord(object):
             if sprocess is not None:
                 if not isinstance(sprocess, str):
                     raise TypeError("expected sprocess to be a str but it is a %s" % builtins.type(sprocess))
-                if sprocess.isspace():
-                    raise ValueError("expected sprocess not to be blank")
-                if len(sprocess) < 1:
-                    raise ValueError("expected len(sprocess) to be >= 1, was %d" % len(sprocess))
             self.__sprocess = sprocess
             return self
 
@@ -4703,10 +4436,6 @@ class ObjectRecord(object):
             if stage is not None:
                 if not isinstance(stage, str):
                     raise TypeError("expected stage to be a str but it is a %s" % builtins.type(stage))
-                if stage.isspace():
-                    raise ValueError("expected stage not to be blank")
-                if len(stage) < 1:
-                    raise ValueError("expected len(stage) to be >= 1, was %d" % len(stage))
             self.__stage = stage
             return self
 
@@ -4718,10 +4447,6 @@ class ObjectRecord(object):
             if status is not None:
                 if not isinstance(status, str):
                     raise TypeError("expected status to be a str but it is a %s" % builtins.type(status))
-                if status.isspace():
-                    raise ValueError("expected status not to be blank")
-                if len(status) < 1:
-                    raise ValueError("expected len(status) to be >= 1, was %d" % len(status))
             self.__status = status
             return self
 
@@ -4733,10 +4458,6 @@ class ObjectRecord(object):
             if statusby is not None:
                 if not isinstance(statusby, str):
                     raise TypeError("expected statusby to be a str but it is a %s" % builtins.type(statusby))
-                if statusby.isspace():
-                    raise ValueError("expected statusby not to be blank")
-                if len(statusby) < 1:
-                    raise ValueError("expected len(statusby) to be >= 1, was %d" % len(statusby))
             self.__statusby = statusby
             return self
 
@@ -4759,10 +4480,6 @@ class ObjectRecord(object):
             if sterms is not None:
                 if not isinstance(sterms, str):
                     raise TypeError("expected sterms to be a str but it is a %s" % builtins.type(sterms))
-                if sterms.isspace():
-                    raise ValueError("expected sterms not to be blank")
-                if len(sterms) < 1:
-                    raise ValueError("expected len(sterms) to be >= 1, was %d" % len(sterms))
             self.__sterms = sterms
             return self
 
@@ -4774,10 +4491,6 @@ class ObjectRecord(object):
             if stratum is not None:
                 if not isinstance(stratum, str):
                     raise TypeError("expected stratum to be a str but it is a %s" % builtins.type(stratum))
-                if stratum.isspace():
-                    raise ValueError("expected stratum not to be blank")
-                if len(stratum) < 1:
-                    raise ValueError("expected len(stratum) to be >= 1, was %d" % len(stratum))
             self.__stratum = stratum
             return self
 
@@ -4789,10 +4502,6 @@ class ObjectRecord(object):
             if streak is not None:
                 if not isinstance(streak, str):
                     raise TypeError("expected streak to be a str but it is a %s" % builtins.type(streak))
-                if streak.isspace():
-                    raise ValueError("expected streak not to be blank")
-                if len(streak) < 1:
-                    raise ValueError("expected len(streak) to be >= 1, was %d" % len(streak))
             self.__streak = streak
             return self
 
@@ -4804,10 +4513,6 @@ class ObjectRecord(object):
             if subfamily is not None:
                 if not isinstance(subfamily, str):
                     raise TypeError("expected subfamily to be a str but it is a %s" % builtins.type(subfamily))
-                if subfamily.isspace():
-                    raise ValueError("expected subfamily not to be blank")
-                if len(subfamily) < 1:
-                    raise ValueError("expected len(subfamily) to be >= 1, was %d" % len(subfamily))
             self.__subfamily = subfamily
             return self
 
@@ -4819,10 +4524,6 @@ class ObjectRecord(object):
             if subjects is not None:
                 if not isinstance(subjects, str):
                     raise TypeError("expected subjects to be a str but it is a %s" % builtins.type(subjects))
-                if subjects.isspace():
-                    raise ValueError("expected subjects not to be blank")
-                if len(subjects) < 1:
-                    raise ValueError("expected len(subjects) to be >= 1, was %d" % len(subjects))
             self.__subjects = subjects
             return self
 
@@ -4834,10 +4535,6 @@ class ObjectRecord(object):
             if subspecies is not None:
                 if not isinstance(subspecies, str):
                     raise TypeError("expected subspecies to be a str but it is a %s" % builtins.type(subspecies))
-                if subspecies.isspace():
-                    raise ValueError("expected subspecies not to be blank")
-                if len(subspecies) < 1:
-                    raise ValueError("expected len(subspecies) to be >= 1, was %d" % len(subspecies))
             self.__subspecies = subspecies
             return self
 
@@ -4849,10 +4546,6 @@ class ObjectRecord(object):
             if technique is not None:
                 if not isinstance(technique, str):
                     raise TypeError("expected technique to be a str but it is a %s" % builtins.type(technique))
-                if technique.isspace():
-                    raise ValueError("expected technique not to be blank")
-                if len(technique) < 1:
-                    raise ValueError("expected len(technique) to be >= 1, was %d" % len(technique))
             self.__technique = technique
             return self
 
@@ -4864,10 +4557,6 @@ class ObjectRecord(object):
             if tempauthor is not None:
                 if not isinstance(tempauthor, str):
                     raise TypeError("expected tempauthor to be a str but it is a %s" % builtins.type(tempauthor))
-                if tempauthor.isspace():
-                    raise ValueError("expected tempauthor not to be blank")
-                if len(tempauthor) < 1:
-                    raise ValueError("expected len(tempauthor) to be >= 1, was %d" % len(tempauthor))
             self.__tempauthor = tempauthor
             return self
 
@@ -4879,10 +4568,6 @@ class ObjectRecord(object):
             if tempby is not None:
                 if not isinstance(tempby, str):
                     raise TypeError("expected tempby to be a str but it is a %s" % builtins.type(tempby))
-                if tempby.isspace():
-                    raise ValueError("expected tempby not to be blank")
-                if len(tempby) < 1:
-                    raise ValueError("expected len(tempby) to be >= 1, was %d" % len(tempby))
             self.__tempby = tempby
             return self
 
@@ -4905,10 +4590,6 @@ class ObjectRecord(object):
             if temperatur is not None:
                 if not isinstance(temperatur, str):
                     raise TypeError("expected temperatur to be a str but it is a %s" % builtins.type(temperatur))
-                if temperatur.isspace():
-                    raise ValueError("expected temperatur not to be blank")
-                if len(temperatur) < 1:
-                    raise ValueError("expected len(temperatur) to be >= 1, was %d" % len(temperatur))
             self.__temperatur = temperatur
             return self
 
@@ -4920,10 +4601,6 @@ class ObjectRecord(object):
             if temploc is not None:
                 if not isinstance(temploc, str):
                     raise TypeError("expected temploc to be a str but it is a %s" % builtins.type(temploc))
-                if temploc.isspace():
-                    raise ValueError("expected temploc not to be blank")
-                if len(temploc) < 1:
-                    raise ValueError("expected len(temploc) to be >= 1, was %d" % len(temploc))
             self.__temploc = temploc
             return self
 
@@ -4935,10 +4612,6 @@ class ObjectRecord(object):
             if tempnotes is not None:
                 if not isinstance(tempnotes, str):
                     raise TypeError("expected tempnotes to be a str but it is a %s" % builtins.type(tempnotes))
-                if tempnotes.isspace():
-                    raise ValueError("expected tempnotes not to be blank")
-                if len(tempnotes) < 1:
-                    raise ValueError("expected len(tempnotes) to be >= 1, was %d" % len(tempnotes))
             self.__tempnotes = tempnotes
             return self
 
@@ -4950,10 +4623,6 @@ class ObjectRecord(object):
             if tempreason is not None:
                 if not isinstance(tempreason, str):
                     raise TypeError("expected tempreason to be a str but it is a %s" % builtins.type(tempreason))
-                if tempreason.isspace():
-                    raise ValueError("expected tempreason not to be blank")
-                if len(tempreason) < 1:
-                    raise ValueError("expected len(tempreason) to be >= 1, was %d" % len(tempreason))
             self.__tempreason = tempreason
             return self
 
@@ -4965,10 +4634,6 @@ class ObjectRecord(object):
             if tempuntil is not None:
                 if not isinstance(tempuntil, str):
                     raise TypeError("expected tempuntil to be a str but it is a %s" % builtins.type(tempuntil))
-                if tempuntil.isspace():
-                    raise ValueError("expected tempuntil not to be blank")
-                if len(tempuntil) < 1:
-                    raise ValueError("expected len(tempuntil) to be >= 1, was %d" % len(tempuntil))
             self.__tempuntil = tempuntil
             return self
 
@@ -4980,10 +4645,6 @@ class ObjectRecord(object):
             if texture is not None:
                 if not isinstance(texture, str):
                     raise TypeError("expected texture to be a str but it is a %s" % builtins.type(texture))
-                if texture.isspace():
-                    raise ValueError("expected texture not to be blank")
-                if len(texture) < 1:
-                    raise ValueError("expected len(texture) to be >= 1, was %d" % len(texture))
             self.__texture = texture
             return self
 
@@ -4995,37 +4656,315 @@ class ObjectRecord(object):
             if title is not None:
                 if not isinstance(title, str):
                     raise TypeError("expected title to be a str but it is a %s" % builtins.type(title))
-                if title.isspace():
-                    raise ValueError("expected title not to be blank")
-                if len(title) < 1:
-                    raise ValueError("expected len(title) to be >= 1, was %d" % len(title))
             self.__title = title
             return self
 
-        def set_tlocfield(self, tlocfield):
+        def set_tlocfield1(self, tlocfield1):
             '''
-            :type tlocfield: dict(int: str) or None
+            :type tlocfield1: str or None
             '''
 
-            if tlocfield is not None:
-                if not (isinstance(tlocfield, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), tlocfield.items()))) == 0):
-                    raise TypeError("expected tlocfield to be a dict(int: str) but it is a %s" % builtins.type(tlocfield))
-                if len(tlocfield) < 1:
-                    raise ValueError("expected len(tlocfield) to be >= 1, was %d" % len(tlocfield))
-            self.__tlocfield = tlocfield
+            if tlocfield1 is not None:
+                if not isinstance(tlocfield1, str):
+                    raise TypeError("expected tlocfield1 to be a str but it is a %s" % builtins.type(tlocfield1))
+            self.__tlocfield1 = tlocfield1
             return self
 
-        def set_udf(self, udf):
+        def set_tlocfield2(self, tlocfield2):
             '''
-            :type udf: dict(int: object) or None
+            :type tlocfield2: str or None
             '''
 
-            if udf is not None:
-                if not (isinstance(udf, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and True, udf.items()))) == 0):
-                    raise TypeError("expected udf to be a dict(int: object) but it is a %s" % builtins.type(udf))
-                if len(udf) < 1:
-                    raise ValueError("expected len(udf) to be >= 1, was %d" % len(udf))
-            self.__udf = udf
+            if tlocfield2 is not None:
+                if not isinstance(tlocfield2, str):
+                    raise TypeError("expected tlocfield2 to be a str but it is a %s" % builtins.type(tlocfield2))
+            self.__tlocfield2 = tlocfield2
+            return self
+
+        def set_tlocfield3(self, tlocfield3):
+            '''
+            :type tlocfield3: str or None
+            '''
+
+            if tlocfield3 is not None:
+                if not isinstance(tlocfield3, str):
+                    raise TypeError("expected tlocfield3 to be a str but it is a %s" % builtins.type(tlocfield3))
+            self.__tlocfield3 = tlocfield3
+            return self
+
+        def set_tlocfield4(self, tlocfield4):
+            '''
+            :type tlocfield4: str or None
+            '''
+
+            if tlocfield4 is not None:
+                if not isinstance(tlocfield4, str):
+                    raise TypeError("expected tlocfield4 to be a str but it is a %s" % builtins.type(tlocfield4))
+            self.__tlocfield4 = tlocfield4
+            return self
+
+        def set_tlocfield5(self, tlocfield5):
+            '''
+            :type tlocfield5: str or None
+            '''
+
+            if tlocfield5 is not None:
+                if not isinstance(tlocfield5, str):
+                    raise TypeError("expected tlocfield5 to be a str but it is a %s" % builtins.type(tlocfield5))
+            self.__tlocfield5 = tlocfield5
+            return self
+
+        def set_tlocfield6(self, tlocfield6):
+            '''
+            :type tlocfield6: str or None
+            '''
+
+            if tlocfield6 is not None:
+                if not isinstance(tlocfield6, str):
+                    raise TypeError("expected tlocfield6 to be a str but it is a %s" % builtins.type(tlocfield6))
+            self.__tlocfield6 = tlocfield6
+            return self
+
+        def set_udf1(self, udf1):
+            '''
+            :type udf1: str or None
+            '''
+
+            if udf1 is not None:
+                if not isinstance(udf1, str):
+                    raise TypeError("expected udf1 to be a str but it is a %s" % builtins.type(udf1))
+            self.__udf1 = udf1
+            return self
+
+        def set_udf10(self, udf10):
+            '''
+            :type udf10: str or None
+            '''
+
+            if udf10 is not None:
+                if not isinstance(udf10, str):
+                    raise TypeError("expected udf10 to be a str but it is a %s" % builtins.type(udf10))
+            self.__udf10 = udf10
+            return self
+
+        def set_udf11(self, udf11):
+            '''
+            :type udf11: str or None
+            '''
+
+            if udf11 is not None:
+                if not isinstance(udf11, str):
+                    raise TypeError("expected udf11 to be a str but it is a %s" % builtins.type(udf11))
+            self.__udf11 = udf11
+            return self
+
+        def set_udf12(self, udf12):
+            '''
+            :type udf12: str or None
+            '''
+
+            if udf12 is not None:
+                if not isinstance(udf12, str):
+                    raise TypeError("expected udf12 to be a str but it is a %s" % builtins.type(udf12))
+            self.__udf12 = udf12
+            return self
+
+        def set_udf13(self, udf13):
+            '''
+            :type udf13: int or None
+            '''
+
+            if udf13 is not None:
+                if not isinstance(udf13, int):
+                    raise TypeError("expected udf13 to be a int but it is a %s" % builtins.type(udf13))
+            self.__udf13 = udf13
+            return self
+
+        def set_udf14(self, udf14):
+            '''
+            :type udf14: Decimal or None
+            '''
+
+            if udf14 is not None:
+                if not isinstance(udf14, decimal.Decimal):
+                    raise TypeError("expected udf14 to be a Decimal but it is a %s" % builtins.type(udf14))
+            self.__udf14 = udf14
+            return self
+
+        def set_udf15(self, udf15):
+            '''
+            :type udf15: Decimal or None
+            '''
+
+            if udf15 is not None:
+                if not isinstance(udf15, decimal.Decimal):
+                    raise TypeError("expected udf15 to be a Decimal but it is a %s" % builtins.type(udf15))
+            self.__udf15 = udf15
+            return self
+
+        def set_udf16(self, udf16):
+            '''
+            :type udf16: Decimal or None
+            '''
+
+            if udf16 is not None:
+                if not isinstance(udf16, decimal.Decimal):
+                    raise TypeError("expected udf16 to be a Decimal but it is a %s" % builtins.type(udf16))
+            self.__udf16 = udf16
+            return self
+
+        def set_udf17(self, udf17):
+            '''
+            :type udf17: Decimal or None
+            '''
+
+            if udf17 is not None:
+                if not isinstance(udf17, decimal.Decimal):
+                    raise TypeError("expected udf17 to be a Decimal but it is a %s" % builtins.type(udf17))
+            self.__udf17 = udf17
+            return self
+
+        def set_udf18(self, udf18):
+            '''
+            :type udf18: datetime.datetime or None
+            '''
+
+            if udf18 is not None:
+                if not isinstance(udf18, datetime.datetime):
+                    raise TypeError("expected udf18 to be a datetime.datetime but it is a %s" % builtins.type(udf18))
+            self.__udf18 = udf18
+            return self
+
+        def set_udf19(self, udf19):
+            '''
+            :type udf19: datetime.datetime or None
+            '''
+
+            if udf19 is not None:
+                if not isinstance(udf19, datetime.datetime):
+                    raise TypeError("expected udf19 to be a datetime.datetime but it is a %s" % builtins.type(udf19))
+            self.__udf19 = udf19
+            return self
+
+        def set_udf2(self, udf2):
+            '''
+            :type udf2: str or None
+            '''
+
+            if udf2 is not None:
+                if not isinstance(udf2, str):
+                    raise TypeError("expected udf2 to be a str but it is a %s" % builtins.type(udf2))
+            self.__udf2 = udf2
+            return self
+
+        def set_udf20(self, udf20):
+            '''
+            :type udf20: datetime.datetime or None
+            '''
+
+            if udf20 is not None:
+                if not isinstance(udf20, datetime.datetime):
+                    raise TypeError("expected udf20 to be a datetime.datetime but it is a %s" % builtins.type(udf20))
+            self.__udf20 = udf20
+            return self
+
+        def set_udf21(self, udf21):
+            '''
+            :type udf21: str or None
+            '''
+
+            if udf21 is not None:
+                if not isinstance(udf21, str):
+                    raise TypeError("expected udf21 to be a str but it is a %s" % builtins.type(udf21))
+            self.__udf21 = udf21
+            return self
+
+        def set_udf22(self, udf22):
+            '''
+            :type udf22: str or None
+            '''
+
+            if udf22 is not None:
+                if not isinstance(udf22, str):
+                    raise TypeError("expected udf22 to be a str but it is a %s" % builtins.type(udf22))
+            self.__udf22 = udf22
+            return self
+
+        def set_udf3(self, udf3):
+            '''
+            :type udf3: str or None
+            '''
+
+            if udf3 is not None:
+                if not isinstance(udf3, str):
+                    raise TypeError("expected udf3 to be a str but it is a %s" % builtins.type(udf3))
+            self.__udf3 = udf3
+            return self
+
+        def set_udf4(self, udf4):
+            '''
+            :type udf4: str or None
+            '''
+
+            if udf4 is not None:
+                if not isinstance(udf4, str):
+                    raise TypeError("expected udf4 to be a str but it is a %s" % builtins.type(udf4))
+            self.__udf4 = udf4
+            return self
+
+        def set_udf5(self, udf5):
+            '''
+            :type udf5: str or None
+            '''
+
+            if udf5 is not None:
+                if not isinstance(udf5, str):
+                    raise TypeError("expected udf5 to be a str but it is a %s" % builtins.type(udf5))
+            self.__udf5 = udf5
+            return self
+
+        def set_udf6(self, udf6):
+            '''
+            :type udf6: str or None
+            '''
+
+            if udf6 is not None:
+                if not isinstance(udf6, str):
+                    raise TypeError("expected udf6 to be a str but it is a %s" % builtins.type(udf6))
+            self.__udf6 = udf6
+            return self
+
+        def set_udf7(self, udf7):
+            '''
+            :type udf7: str or None
+            '''
+
+            if udf7 is not None:
+                if not isinstance(udf7, str):
+                    raise TypeError("expected udf7 to be a str but it is a %s" % builtins.type(udf7))
+            self.__udf7 = udf7
+            return self
+
+        def set_udf8(self, udf8):
+            '''
+            :type udf8: str or None
+            '''
+
+            if udf8 is not None:
+                if not isinstance(udf8, str):
+                    raise TypeError("expected udf8 to be a str but it is a %s" % builtins.type(udf8))
+            self.__udf8 = udf8
+            return self
+
+        def set_udf9(self, udf9):
+            '''
+            :type udf9: str or None
+            '''
+
+            if udf9 is not None:
+                if not isinstance(udf9, str):
+                    raise TypeError("expected udf9 to be a str but it is a %s" % builtins.type(udf9))
+            self.__udf9 = udf9
             return self
 
         def set_unit(self, unit):
@@ -5036,10 +4975,6 @@ class ObjectRecord(object):
             if unit is not None:
                 if not isinstance(unit, str):
                     raise TypeError("expected unit to be a str but it is a %s" % builtins.type(unit))
-                if unit.isspace():
-                    raise ValueError("expected unit not to be blank")
-                if len(unit) < 1:
-                    raise ValueError("expected len(unit) to be >= 1, was %d" % len(unit))
             self.__unit = unit
             return self
 
@@ -5062,10 +4997,6 @@ class ObjectRecord(object):
             if updatedby is not None:
                 if not isinstance(updatedby, str):
                     raise TypeError("expected updatedby to be a str but it is a %s" % builtins.type(updatedby))
-                if updatedby.isspace():
-                    raise ValueError("expected updatedby not to be blank")
-                if len(updatedby) < 1:
-                    raise ValueError("expected len(updatedby) to be >= 1, was %d" % len(updatedby))
             self.__updatedby = updatedby
             return self
 
@@ -5077,10 +5008,6 @@ class ObjectRecord(object):
             if used is not None:
                 if not isinstance(used, str):
                     raise TypeError("expected used to be a str but it is a %s" % builtins.type(used))
-                if used.isspace():
-                    raise ValueError("expected used not to be blank")
-                if len(used) < 1:
-                    raise ValueError("expected len(used) to be >= 1, was %d" % len(used))
             self.__used = used
             return self
 
@@ -5103,11 +5030,62 @@ class ObjectRecord(object):
             if varieties is not None:
                 if not isinstance(varieties, str):
                     raise TypeError("expected varieties to be a str but it is a %s" % builtins.type(varieties))
-                if varieties.isspace():
-                    raise ValueError("expected varieties not to be blank")
-                if len(varieties) < 1:
-                    raise ValueError("expected len(varieties) to be >= 1, was %d" % len(varieties))
             self.__varieties = varieties
+            return self
+
+        def set_vexhtml(self, vexhtml):
+            '''
+            :type vexhtml: str or None
+            '''
+
+            if vexhtml is not None:
+                if not isinstance(vexhtml, str):
+                    raise TypeError("expected vexhtml to be a str but it is a %s" % builtins.type(vexhtml))
+            self.__vexhtml = vexhtml
+            return self
+
+        def set_vexlabel1(self, vexlabel1):
+            '''
+            :type vexlabel1: str or None
+            '''
+
+            if vexlabel1 is not None:
+                if not isinstance(vexlabel1, str):
+                    raise TypeError("expected vexlabel1 to be a str but it is a %s" % builtins.type(vexlabel1))
+            self.__vexlabel1 = vexlabel1
+            return self
+
+        def set_vexlabel2(self, vexlabel2):
+            '''
+            :type vexlabel2: str or None
+            '''
+
+            if vexlabel2 is not None:
+                if not isinstance(vexlabel2, str):
+                    raise TypeError("expected vexlabel2 to be a str but it is a %s" % builtins.type(vexlabel2))
+            self.__vexlabel2 = vexlabel2
+            return self
+
+        def set_vexlabel3(self, vexlabel3):
+            '''
+            :type vexlabel3: str or None
+            '''
+
+            if vexlabel3 is not None:
+                if not isinstance(vexlabel3, str):
+                    raise TypeError("expected vexlabel3 to be a str but it is a %s" % builtins.type(vexlabel3))
+            self.__vexlabel3 = vexlabel3
+            return self
+
+        def set_vexlabel4(self, vexlabel4):
+            '''
+            :type vexlabel4: str or None
+            '''
+
+            if vexlabel4 is not None:
+                if not isinstance(vexlabel4, str):
+                    raise TypeError("expected vexlabel4 to be a str but it is a %s" % builtins.type(vexlabel4))
+            self.__vexlabel4 = vexlabel4
             return self
 
         def set_webinclude(self, webinclude):
@@ -5129,8 +5107,6 @@ class ObjectRecord(object):
             if weight is not None:
                 if not isinstance(weight, decimal.Decimal):
                     raise TypeError("expected weight to be a Decimal but it is a %s" % builtins.type(weight))
-                if weight <= 0:
-                    raise ValueError("expected weight to be > 0, was %s" % weight)
             self.__weight = weight
             return self
 
@@ -5142,8 +5118,6 @@ class ObjectRecord(object):
             if weightin is not None:
                 if not isinstance(weightin, decimal.Decimal):
                     raise TypeError("expected weightin to be a Decimal but it is a %s" % builtins.type(weightin))
-                if weightin <= 0:
-                    raise ValueError("expected weightin to be > 0, was %s" % weightin)
             self.__weightin = weightin
             return self
 
@@ -5155,8 +5129,6 @@ class ObjectRecord(object):
             if weightlb is not None:
                 if not isinstance(weightlb, decimal.Decimal):
                     raise TypeError("expected weightlb to be a Decimal but it is a %s" % builtins.type(weightlb))
-                if weightlb <= 0:
-                    raise ValueError("expected weightlb to be > 0, was %s" % weightlb)
             self.__weightlb = weightlb
             return self
 
@@ -5168,8 +5140,6 @@ class ObjectRecord(object):
             if width is not None:
                 if not isinstance(width, decimal.Decimal):
                     raise TypeError("expected width to be a Decimal but it is a %s" % builtins.type(width))
-                if width <= 0:
-                    raise ValueError("expected width to be > 0, was %s" % width)
             self.__width = width
             return self
 
@@ -5181,8 +5151,6 @@ class ObjectRecord(object):
             if widthft is not None:
                 if not isinstance(widthft, decimal.Decimal):
                     raise TypeError("expected widthft to be a Decimal but it is a %s" % builtins.type(widthft))
-                if widthft <= 0:
-                    raise ValueError("expected widthft to be > 0, was %s" % widthft)
             self.__widthft = widthft
             return self
 
@@ -5194,53 +5162,39 @@ class ObjectRecord(object):
             if widthin is not None:
                 if not isinstance(widthin, decimal.Decimal):
                     raise TypeError("expected widthin to be a Decimal but it is a %s" % builtins.type(widthin))
-                if widthin <= 0:
-                    raise ValueError("expected widthin to be > 0, was %s" % widthin)
             self.__widthin = widthin
             return self
 
         def set_xcord(self, xcord):
             '''
-            :type xcord: str or None
+            :type xcord: Decimal or None
             '''
 
             if xcord is not None:
-                if not isinstance(xcord, str):
-                    raise TypeError("expected xcord to be a str but it is a %s" % builtins.type(xcord))
-                if xcord.isspace():
-                    raise ValueError("expected xcord not to be blank")
-                if len(xcord) < 1:
-                    raise ValueError("expected len(xcord) to be >= 1, was %d" % len(xcord))
+                if not isinstance(xcord, decimal.Decimal):
+                    raise TypeError("expected xcord to be a Decimal but it is a %s" % builtins.type(xcord))
             self.__xcord = xcord
             return self
 
         def set_ycord(self, ycord):
             '''
-            :type ycord: str or None
+            :type ycord: Decimal or None
             '''
 
             if ycord is not None:
-                if not isinstance(ycord, str):
-                    raise TypeError("expected ycord to be a str but it is a %s" % builtins.type(ycord))
-                if ycord.isspace():
-                    raise ValueError("expected ycord not to be blank")
-                if len(ycord) < 1:
-                    raise ValueError("expected len(ycord) to be >= 1, was %d" % len(ycord))
+                if not isinstance(ycord, decimal.Decimal):
+                    raise TypeError("expected ycord to be a Decimal but it is a %s" % builtins.type(ycord))
             self.__ycord = ycord
             return self
 
         def set_zcord(self, zcord):
             '''
-            :type zcord: str or None
+            :type zcord: Decimal or None
             '''
 
             if zcord is not None:
-                if not isinstance(zcord, str):
-                    raise TypeError("expected zcord to be a str but it is a %s" % builtins.type(zcord))
-                if zcord.isspace():
-                    raise ValueError("expected zcord not to be blank")
-                if len(zcord) < 1:
-                    raise ValueError("expected len(zcord) to be >= 1, was %d" % len(zcord))
+                if not isinstance(zcord, decimal.Decimal):
+                    raise TypeError("expected zcord to be a Decimal but it is a %s" % builtins.type(zcord))
             self.__zcord = zcord
             return self
 
@@ -5252,10 +5206,6 @@ class ObjectRecord(object):
             if zsorter is not None:
                 if not isinstance(zsorter, str):
                     raise TypeError("expected zsorter to be a str but it is a %s" % builtins.type(zsorter))
-                if zsorter.isspace():
-                    raise ValueError("expected zsorter not to be blank")
-                if len(zsorter) < 1:
-                    raise ValueError("expected len(zsorter) to be >= 1, was %d" % len(zsorter))
             self.__zsorter = zsorter
             return self
 
@@ -5267,10 +5217,6 @@ class ObjectRecord(object):
             if zsorterx is not None:
                 if not isinstance(zsorterx, str):
                     raise TypeError("expected zsorterx to be a str but it is a %s" % builtins.type(zsorterx))
-                if zsorterx.isspace():
-                    raise ValueError("expected zsorterx not to be blank")
-                if len(zsorterx) < 1:
-                    raise ValueError("expected len(zsorterx) to be >= 1, was %d" % len(zsorterx))
             self.__zsorterx = zsorterx
             return self
 
@@ -5281,6 +5227,14 @@ class ObjectRecord(object):
             '''
 
             return self.__sex
+
+        @property
+        def sgflag(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__sgflag
 
         @property
         def signedname(self):
@@ -5507,20 +5461,228 @@ class ObjectRecord(object):
             return self.__title
 
         @property
-        def tlocfield(self):
+        def tlocfield1(self):
             '''
-            :rtype: dict(int: str)
+            :rtype: str
             '''
 
-            return self.__tlocfield.copy() if self.__tlocfield is not None else None
+            return self.__tlocfield1
 
         @property
-        def udf(self):
+        def tlocfield2(self):
             '''
-            :rtype: dict(int: object)
+            :rtype: str
             '''
 
-            return self.__udf.copy() if self.__udf is not None else None
+            return self.__tlocfield2
+
+        @property
+        def tlocfield3(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__tlocfield3
+
+        @property
+        def tlocfield4(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__tlocfield4
+
+        @property
+        def tlocfield5(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__tlocfield5
+
+        @property
+        def tlocfield6(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__tlocfield6
+
+        @property
+        def udf1(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__udf1
+
+        @property
+        def udf10(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__udf10
+
+        @property
+        def udf11(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__udf11
+
+        @property
+        def udf12(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__udf12
+
+        @property
+        def udf13(self):
+            '''
+            :rtype: int
+            '''
+
+            return self.__udf13
+
+        @property
+        def udf14(self):
+            '''
+            :rtype: Decimal
+            '''
+
+            return self.__udf14
+
+        @property
+        def udf15(self):
+            '''
+            :rtype: Decimal
+            '''
+
+            return self.__udf15
+
+        @property
+        def udf16(self):
+            '''
+            :rtype: Decimal
+            '''
+
+            return self.__udf16
+
+        @property
+        def udf17(self):
+            '''
+            :rtype: Decimal
+            '''
+
+            return self.__udf17
+
+        @property
+        def udf18(self):
+            '''
+            :rtype: datetime.datetime
+            '''
+
+            return self.__udf18
+
+        @property
+        def udf19(self):
+            '''
+            :rtype: datetime.datetime
+            '''
+
+            return self.__udf19
+
+        @property
+        def udf2(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__udf2
+
+        @property
+        def udf20(self):
+            '''
+            :rtype: datetime.datetime
+            '''
+
+            return self.__udf20
+
+        @property
+        def udf21(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__udf21
+
+        @property
+        def udf22(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__udf22
+
+        @property
+        def udf3(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__udf3
+
+        @property
+        def udf4(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__udf4
+
+        @property
+        def udf5(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__udf5
+
+        @property
+        def udf6(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__udf6
+
+        @property
+        def udf7(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__udf7
+
+        @property
+        def udf8(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__udf8
+
+        @property
+        def udf9(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__udf9
 
         @property
         def unit(self):
@@ -5539,10 +5701,10 @@ class ObjectRecord(object):
             :type appnotes: str or None
             :type appraisor: str or None
             :type assemzone: str or None
-            :type bagno: int or None
-            :type boxno: int or None
+            :type bagno: str or None
+            :type boxno: str or None
             :type caption: str or None
-            :type cat: pastpy.models.cat.Cat or None
+            :type cat: str or None
             :type catby: str or None
             :type catdate: datetime.datetime or None
             :type cattype: str or None
@@ -5556,7 +5718,7 @@ class ObjectRecord(object):
             :type collector: str or None
             :type conddate: datetime.datetime or None
             :type condexam: str or None
-            :type condition: pastpy.models.condition.Condition or None
+            :type condition: str or None
             :type condnotes: str or None
             :type count: str or None
             :type creator: str or None
@@ -5581,18 +5743,21 @@ class ObjectRecord(object):
             :type dimnotes: str or None
             :type dimtype: int or None
             :type dispvalue: str or None
-            :type earlydate: str or None
+            :type earlydate: int or None
             :type elements: str or None
             :type epoch: str or None
             :type era: str or None
             :type event: str or None
-            :type ew: pastpy.models.cardinal_direction.CardinalDirection or None
+            :type ew: str or None
             :type excavadate: datetime.datetime or None
             :type excavateby: str or None
             :type exhibitid: str or None
             :type exhibitno: int or None
-            :type exhlabel: dict(int: str) or None
-            :type exhstart: str or None
+            :type exhlabel1: str or None
+            :type exhlabel2: str or None
+            :type exhlabel3: str or None
+            :type exhlabel4: str or None
+            :type exhstart: datetime.datetime or None
             :type family: str or None
             :type feature: str or None
             :type flagdate: datetime.datetime or None
@@ -5624,7 +5789,7 @@ class ObjectRecord(object):
             :type inscrtech: str or None
             :type inscrtext: str or None
             :type inscrtrans: str or None
-            :type inscrtype: object or None
+            :type inscrtype: str or None
             :type insdate: datetime.datetime or None
             :type insphone: str or None
             :type inspremium: str or None
@@ -5634,7 +5799,7 @@ class ObjectRecord(object):
             :type invndate: datetime.datetime or None
             :type kingdom: str or None
             :type latdeg: Decimal or None
-            :type latedate: str or None
+            :type latedate: int or None
             :type legal: str or None
             :type length: Decimal or None
             :type lengthft: Decimal or None
@@ -5642,12 +5807,17 @@ class ObjectRecord(object):
             :type level: str or None
             :type lithofacie: str or None
             :type loancond: str or None
-            :type loandue: str or None
+            :type loandue: datetime.datetime or None
             :type loanid: str or None
             :type loaninno: str or None
             :type loanno: int or None
             :type loanrenew: datetime.datetime or None
-            :type locfield: dict(int: str) or None
+            :type locfield1: str or None
+            :type locfield2: str or None
+            :type locfield3: str or None
+            :type locfield4: str or None
+            :type locfield5: str or None
+            :type locfield6: str or None
             :type longdeg: Decimal or None
             :type luster: str or None
             :type made: str or None
@@ -5661,7 +5831,7 @@ class ObjectRecord(object):
             :type nhclass: str or None
             :type nhorder: str or None
             :type notes: str or None
-            :type ns: pastpy.models.cardinal_direction.CardinalDirection or None
+            :type ns: str or None
             :type objectid: str or None
             :type objname: str or None
             :type objname2: str or None
@@ -5686,8 +5856,9 @@ class ObjectRecord(object):
             :type pressure: str or None
             :type provenance: str or None
             :type pubnotes: str or None
+            :type qrurl: str or None
             :type recas: str or None
-            :type recdate: datetime.datetime or None
+            :type recdate: str or None
             :type recfrom: str or None
             :type relation: str or None
             :type relnotes: str or None
@@ -5698,17 +5869,18 @@ class ObjectRecord(object):
             :type repatdisp: str or None
             :type repathand: str or None
             :type repatnotes: str or None
-            :type repatnotic: str or None
-            :type repattype: int or None
+            :type repatnotic: datetime.datetime or None
+            :type repattype: str or None
             :type rockclass: str or None
             :type rockcolor: str or None
             :type rockorigin: str or None
-            :type rocktype: int or None
+            :type rocktype: str or None
             :type role: str or None
             :type role2: str or None
             :type role3: str or None
             :type school: str or None
             :type sex: str or None
+            :type sgflag: str or None
             :type signedname: str or None
             :type signloc: str or None
             :type site: str or None
@@ -5737,14 +5909,45 @@ class ObjectRecord(object):
             :type tempuntil: str or None
             :type texture: str or None
             :type title: str or None
-            :type tlocfield: dict(int: str) or None
-            :type udf: dict(int: object) or None
+            :type tlocfield1: str or None
+            :type tlocfield2: str or None
+            :type tlocfield3: str or None
+            :type tlocfield4: str or None
+            :type tlocfield5: str or None
+            :type tlocfield6: str or None
+            :type udf1: str or None
+            :type udf10: str or None
+            :type udf11: str or None
+            :type udf12: str or None
+            :type udf13: int or None
+            :type udf14: Decimal or None
+            :type udf15: Decimal or None
+            :type udf16: Decimal or None
+            :type udf17: Decimal or None
+            :type udf18: datetime.datetime or None
+            :type udf19: datetime.datetime or None
+            :type udf2: str or None
+            :type udf20: datetime.datetime or None
+            :type udf21: str or None
+            :type udf22: str or None
+            :type udf3: str or None
+            :type udf4: str or None
+            :type udf5: str or None
+            :type udf6: str or None
+            :type udf7: str or None
+            :type udf8: str or None
+            :type udf9: str or None
             :type unit: str or None
             :type updated: datetime.datetime or None
             :type updatedby: str or None
             :type used: str or None
             :type valuedate: datetime.datetime or None
             :type varieties: str or None
+            :type vexhtml: str or None
+            :type vexlabel1: str or None
+            :type vexlabel2: str or None
+            :type vexlabel3: str or None
+            :type vexlabel4: str or None
             :type webinclude: bool or None
             :type weight: Decimal or None
             :type weightin: Decimal or None
@@ -5752,9 +5955,9 @@ class ObjectRecord(object):
             :type width: Decimal or None
             :type widthft: Decimal or None
             :type widthin: Decimal or None
-            :type xcord: str or None
-            :type ycord: str or None
-            :type zcord: str or None
+            :type xcord: Decimal or None
+            :type ycord: Decimal or None
+            :type zcord: Decimal or None
             :type zsorter: str or None
             :type zsorterx: str or None
             '''
@@ -5819,7 +6022,10 @@ class ObjectRecord(object):
                 self.set_excavateby(object_record.excavateby)
                 self.set_exhibitid(object_record.exhibitid)
                 self.set_exhibitno(object_record.exhibitno)
-                self.set_exhlabel(object_record.exhlabel)
+                self.set_exhlabel1(object_record.exhlabel1)
+                self.set_exhlabel2(object_record.exhlabel2)
+                self.set_exhlabel3(object_record.exhlabel3)
+                self.set_exhlabel4(object_record.exhlabel4)
                 self.set_exhstart(object_record.exhstart)
                 self.set_family(object_record.family)
                 self.set_feature(object_record.feature)
@@ -5875,7 +6081,12 @@ class ObjectRecord(object):
                 self.set_loaninno(object_record.loaninno)
                 self.set_loanno(object_record.loanno)
                 self.set_loanrenew(object_record.loanrenew)
-                self.set_locfield(object_record.locfield)
+                self.set_locfield1(object_record.locfield1)
+                self.set_locfield2(object_record.locfield2)
+                self.set_locfield3(object_record.locfield3)
+                self.set_locfield4(object_record.locfield4)
+                self.set_locfield5(object_record.locfield5)
+                self.set_locfield6(object_record.locfield6)
                 self.set_longdeg(object_record.longdeg)
                 self.set_luster(object_record.luster)
                 self.set_made(object_record.made)
@@ -5914,6 +6125,7 @@ class ObjectRecord(object):
                 self.set_pressure(object_record.pressure)
                 self.set_provenance(object_record.provenance)
                 self.set_pubnotes(object_record.pubnotes)
+                self.set_qrurl(object_record.qrurl)
                 self.set_recas(object_record.recas)
                 self.set_recdate(object_record.recdate)
                 self.set_recfrom(object_record.recfrom)
@@ -5937,6 +6149,7 @@ class ObjectRecord(object):
                 self.set_role3(object_record.role3)
                 self.set_school(object_record.school)
                 self.set_sex(object_record.sex)
+                self.set_sgflag(object_record.sgflag)
                 self.set_signedname(object_record.signedname)
                 self.set_signloc(object_record.signloc)
                 self.set_site(object_record.site)
@@ -5965,14 +6178,45 @@ class ObjectRecord(object):
                 self.set_tempuntil(object_record.tempuntil)
                 self.set_texture(object_record.texture)
                 self.set_title(object_record.title)
-                self.set_tlocfield(object_record.tlocfield)
-                self.set_udf(object_record.udf)
+                self.set_tlocfield1(object_record.tlocfield1)
+                self.set_tlocfield2(object_record.tlocfield2)
+                self.set_tlocfield3(object_record.tlocfield3)
+                self.set_tlocfield4(object_record.tlocfield4)
+                self.set_tlocfield5(object_record.tlocfield5)
+                self.set_tlocfield6(object_record.tlocfield6)
+                self.set_udf1(object_record.udf1)
+                self.set_udf10(object_record.udf10)
+                self.set_udf11(object_record.udf11)
+                self.set_udf12(object_record.udf12)
+                self.set_udf13(object_record.udf13)
+                self.set_udf14(object_record.udf14)
+                self.set_udf15(object_record.udf15)
+                self.set_udf16(object_record.udf16)
+                self.set_udf17(object_record.udf17)
+                self.set_udf18(object_record.udf18)
+                self.set_udf19(object_record.udf19)
+                self.set_udf2(object_record.udf2)
+                self.set_udf20(object_record.udf20)
+                self.set_udf21(object_record.udf21)
+                self.set_udf22(object_record.udf22)
+                self.set_udf3(object_record.udf3)
+                self.set_udf4(object_record.udf4)
+                self.set_udf5(object_record.udf5)
+                self.set_udf6(object_record.udf6)
+                self.set_udf7(object_record.udf7)
+                self.set_udf8(object_record.udf8)
+                self.set_udf9(object_record.udf9)
                 self.set_unit(object_record.unit)
                 self.set_updated(object_record.updated)
                 self.set_updatedby(object_record.updatedby)
                 self.set_used(object_record.used)
                 self.set_valuedate(object_record.valuedate)
                 self.set_varieties(object_record.varieties)
+                self.set_vexhtml(object_record.vexhtml)
+                self.set_vexlabel1(object_record.vexlabel1)
+                self.set_vexlabel2(object_record.vexlabel2)
+                self.set_vexlabel3(object_record.vexlabel3)
+                self.set_vexlabel4(object_record.vexlabel4)
                 self.set_webinclude(object_record.webinclude)
                 self.set_weight(object_record.weight)
                 self.set_weightin(object_record.weightin)
@@ -6033,6 +6277,46 @@ class ObjectRecord(object):
             return self.__varieties
 
         @property
+        def vexhtml(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__vexhtml
+
+        @property
+        def vexlabel1(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__vexlabel1
+
+        @property
+        def vexlabel2(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__vexlabel2
+
+        @property
+        def vexlabel3(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__vexlabel3
+
+        @property
+        def vexlabel4(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__vexlabel4
+
+        @property
         def webinclude(self):
             '''
             :rtype: bool
@@ -6091,7 +6375,7 @@ class ObjectRecord(object):
         @property
         def xcord(self):
             '''
-            :rtype: str
+            :rtype: Decimal
             '''
 
             return self.__xcord
@@ -6099,7 +6383,7 @@ class ObjectRecord(object):
         @property
         def ycord(self):
             '''
-            :rtype: str
+            :rtype: Decimal
             '''
 
             return self.__ycord
@@ -6107,7 +6391,7 @@ class ObjectRecord(object):
         @property
         def zcord(self):
             '''
-            :rtype: str
+            :rtype: Decimal
             '''
 
             return self.__zcord
@@ -6187,7 +6471,7 @@ class ObjectRecord(object):
         @bagno.setter
         def bagno(self, bagno):
             '''
-            :type bagno: int or None
+            :type bagno: str or None
             '''
 
             self.set_bagno(bagno)
@@ -6195,7 +6479,7 @@ class ObjectRecord(object):
         @boxno.setter
         def boxno(self, boxno):
             '''
-            :type boxno: int or None
+            :type boxno: str or None
             '''
 
             self.set_boxno(boxno)
@@ -6211,7 +6495,7 @@ class ObjectRecord(object):
         @cat.setter
         def cat(self, cat):
             '''
-            :type cat: pastpy.models.cat.Cat or None
+            :type cat: str or None
             '''
 
             self.set_cat(cat)
@@ -6323,7 +6607,7 @@ class ObjectRecord(object):
         @condition.setter
         def condition(self, condition):
             '''
-            :type condition: pastpy.models.condition.Condition or None
+            :type condition: str or None
             '''
 
             self.set_condition(condition)
@@ -6523,7 +6807,7 @@ class ObjectRecord(object):
         @earlydate.setter
         def earlydate(self, earlydate):
             '''
-            :type earlydate: str or None
+            :type earlydate: int or None
             '''
 
             self.set_earlydate(earlydate)
@@ -6563,7 +6847,7 @@ class ObjectRecord(object):
         @ew.setter
         def ew(self, ew):
             '''
-            :type ew: pastpy.models.cardinal_direction.CardinalDirection or None
+            :type ew: str or None
             '''
 
             self.set_ew(ew)
@@ -6600,18 +6884,42 @@ class ObjectRecord(object):
 
             self.set_exhibitno(exhibitno)
 
-        @exhlabel.setter
-        def exhlabel(self, exhlabel):
+        @exhlabel1.setter
+        def exhlabel1(self, exhlabel1):
             '''
-            :type exhlabel: dict(int: str) or None
+            :type exhlabel1: str or None
             '''
 
-            self.set_exhlabel(exhlabel)
+            self.set_exhlabel1(exhlabel1)
+
+        @exhlabel2.setter
+        def exhlabel2(self, exhlabel2):
+            '''
+            :type exhlabel2: str or None
+            '''
+
+            self.set_exhlabel2(exhlabel2)
+
+        @exhlabel3.setter
+        def exhlabel3(self, exhlabel3):
+            '''
+            :type exhlabel3: str or None
+            '''
+
+            self.set_exhlabel3(exhlabel3)
+
+        @exhlabel4.setter
+        def exhlabel4(self, exhlabel4):
+            '''
+            :type exhlabel4: str or None
+            '''
+
+            self.set_exhlabel4(exhlabel4)
 
         @exhstart.setter
         def exhstart(self, exhstart):
             '''
-            :type exhstart: str or None
+            :type exhstart: datetime.datetime or None
             '''
 
             self.set_exhstart(exhstart)
@@ -6867,7 +7175,7 @@ class ObjectRecord(object):
         @inscrtype.setter
         def inscrtype(self, inscrtype):
             '''
-            :type inscrtype: object or None
+            :type inscrtype: str or None
             '''
 
             self.set_inscrtype(inscrtype)
@@ -6947,7 +7255,7 @@ class ObjectRecord(object):
         @latedate.setter
         def latedate(self, latedate):
             '''
-            :type latedate: str or None
+            :type latedate: int or None
             '''
 
             self.set_latedate(latedate)
@@ -7011,7 +7319,7 @@ class ObjectRecord(object):
         @loandue.setter
         def loandue(self, loandue):
             '''
-            :type loandue: str or None
+            :type loandue: datetime.datetime or None
             '''
 
             self.set_loandue(loandue)
@@ -7048,13 +7356,53 @@ class ObjectRecord(object):
 
             self.set_loanrenew(loanrenew)
 
-        @locfield.setter
-        def locfield(self, locfield):
+        @locfield1.setter
+        def locfield1(self, locfield1):
             '''
-            :type locfield: dict(int: str) or None
+            :type locfield1: str or None
             '''
 
-            self.set_locfield(locfield)
+            self.set_locfield1(locfield1)
+
+        @locfield2.setter
+        def locfield2(self, locfield2):
+            '''
+            :type locfield2: str or None
+            '''
+
+            self.set_locfield2(locfield2)
+
+        @locfield3.setter
+        def locfield3(self, locfield3):
+            '''
+            :type locfield3: str or None
+            '''
+
+            self.set_locfield3(locfield3)
+
+        @locfield4.setter
+        def locfield4(self, locfield4):
+            '''
+            :type locfield4: str or None
+            '''
+
+            self.set_locfield4(locfield4)
+
+        @locfield5.setter
+        def locfield5(self, locfield5):
+            '''
+            :type locfield5: str or None
+            '''
+
+            self.set_locfield5(locfield5)
+
+        @locfield6.setter
+        def locfield6(self, locfield6):
+            '''
+            :type locfield6: str or None
+            '''
+
+            self.set_locfield6(locfield6)
 
         @longdeg.setter
         def longdeg(self, longdeg):
@@ -7163,7 +7511,7 @@ class ObjectRecord(object):
         @ns.setter
         def ns(self, ns):
             '''
-            :type ns: pastpy.models.cardinal_direction.CardinalDirection or None
+            :type ns: str or None
             '''
 
             self.set_ns(ns)
@@ -7360,6 +7708,14 @@ class ObjectRecord(object):
 
             self.set_pubnotes(pubnotes)
 
+        @qrurl.setter
+        def qrurl(self, qrurl):
+            '''
+            :type qrurl: str or None
+            '''
+
+            self.set_qrurl(qrurl)
+
         @recas.setter
         def recas(self, recas):
             '''
@@ -7371,7 +7727,7 @@ class ObjectRecord(object):
         @recdate.setter
         def recdate(self, recdate):
             '''
-            :type recdate: datetime.datetime or None
+            :type recdate: str or None
             '''
 
             self.set_recdate(recdate)
@@ -7459,7 +7815,7 @@ class ObjectRecord(object):
         @repatnotic.setter
         def repatnotic(self, repatnotic):
             '''
-            :type repatnotic: str or None
+            :type repatnotic: datetime.datetime or None
             '''
 
             self.set_repatnotic(repatnotic)
@@ -7467,7 +7823,7 @@ class ObjectRecord(object):
         @repattype.setter
         def repattype(self, repattype):
             '''
-            :type repattype: int or None
+            :type repattype: str or None
             '''
 
             self.set_repattype(repattype)
@@ -7499,7 +7855,7 @@ class ObjectRecord(object):
         @rocktype.setter
         def rocktype(self, rocktype):
             '''
-            :type rocktype: int or None
+            :type rocktype: str or None
             '''
 
             self.set_rocktype(rocktype)
@@ -7543,6 +7899,14 @@ class ObjectRecord(object):
             '''
 
             self.set_sex(sex)
+
+        @sgflag.setter
+        def sgflag(self, sgflag):
+            '''
+            :type sgflag: str or None
+            '''
+
+            self.set_sgflag(sgflag)
 
         @signedname.setter
         def signedname(self, signedname):
@@ -7768,21 +8132,229 @@ class ObjectRecord(object):
 
             self.set_title(title)
 
-        @tlocfield.setter
-        def tlocfield(self, tlocfield):
+        @tlocfield1.setter
+        def tlocfield1(self, tlocfield1):
             '''
-            :type tlocfield: dict(int: str) or None
-            '''
-
-            self.set_tlocfield(tlocfield)
-
-        @udf.setter
-        def udf(self, udf):
-            '''
-            :type udf: dict(int: object) or None
+            :type tlocfield1: str or None
             '''
 
-            self.set_udf(udf)
+            self.set_tlocfield1(tlocfield1)
+
+        @tlocfield2.setter
+        def tlocfield2(self, tlocfield2):
+            '''
+            :type tlocfield2: str or None
+            '''
+
+            self.set_tlocfield2(tlocfield2)
+
+        @tlocfield3.setter
+        def tlocfield3(self, tlocfield3):
+            '''
+            :type tlocfield3: str or None
+            '''
+
+            self.set_tlocfield3(tlocfield3)
+
+        @tlocfield4.setter
+        def tlocfield4(self, tlocfield4):
+            '''
+            :type tlocfield4: str or None
+            '''
+
+            self.set_tlocfield4(tlocfield4)
+
+        @tlocfield5.setter
+        def tlocfield5(self, tlocfield5):
+            '''
+            :type tlocfield5: str or None
+            '''
+
+            self.set_tlocfield5(tlocfield5)
+
+        @tlocfield6.setter
+        def tlocfield6(self, tlocfield6):
+            '''
+            :type tlocfield6: str or None
+            '''
+
+            self.set_tlocfield6(tlocfield6)
+
+        @udf1.setter
+        def udf1(self, udf1):
+            '''
+            :type udf1: str or None
+            '''
+
+            self.set_udf1(udf1)
+
+        @udf10.setter
+        def udf10(self, udf10):
+            '''
+            :type udf10: str or None
+            '''
+
+            self.set_udf10(udf10)
+
+        @udf11.setter
+        def udf11(self, udf11):
+            '''
+            :type udf11: str or None
+            '''
+
+            self.set_udf11(udf11)
+
+        @udf12.setter
+        def udf12(self, udf12):
+            '''
+            :type udf12: str or None
+            '''
+
+            self.set_udf12(udf12)
+
+        @udf13.setter
+        def udf13(self, udf13):
+            '''
+            :type udf13: int or None
+            '''
+
+            self.set_udf13(udf13)
+
+        @udf14.setter
+        def udf14(self, udf14):
+            '''
+            :type udf14: Decimal or None
+            '''
+
+            self.set_udf14(udf14)
+
+        @udf15.setter
+        def udf15(self, udf15):
+            '''
+            :type udf15: Decimal or None
+            '''
+
+            self.set_udf15(udf15)
+
+        @udf16.setter
+        def udf16(self, udf16):
+            '''
+            :type udf16: Decimal or None
+            '''
+
+            self.set_udf16(udf16)
+
+        @udf17.setter
+        def udf17(self, udf17):
+            '''
+            :type udf17: Decimal or None
+            '''
+
+            self.set_udf17(udf17)
+
+        @udf18.setter
+        def udf18(self, udf18):
+            '''
+            :type udf18: datetime.datetime or None
+            '''
+
+            self.set_udf18(udf18)
+
+        @udf19.setter
+        def udf19(self, udf19):
+            '''
+            :type udf19: datetime.datetime or None
+            '''
+
+            self.set_udf19(udf19)
+
+        @udf2.setter
+        def udf2(self, udf2):
+            '''
+            :type udf2: str or None
+            '''
+
+            self.set_udf2(udf2)
+
+        @udf20.setter
+        def udf20(self, udf20):
+            '''
+            :type udf20: datetime.datetime or None
+            '''
+
+            self.set_udf20(udf20)
+
+        @udf21.setter
+        def udf21(self, udf21):
+            '''
+            :type udf21: str or None
+            '''
+
+            self.set_udf21(udf21)
+
+        @udf22.setter
+        def udf22(self, udf22):
+            '''
+            :type udf22: str or None
+            '''
+
+            self.set_udf22(udf22)
+
+        @udf3.setter
+        def udf3(self, udf3):
+            '''
+            :type udf3: str or None
+            '''
+
+            self.set_udf3(udf3)
+
+        @udf4.setter
+        def udf4(self, udf4):
+            '''
+            :type udf4: str or None
+            '''
+
+            self.set_udf4(udf4)
+
+        @udf5.setter
+        def udf5(self, udf5):
+            '''
+            :type udf5: str or None
+            '''
+
+            self.set_udf5(udf5)
+
+        @udf6.setter
+        def udf6(self, udf6):
+            '''
+            :type udf6: str or None
+            '''
+
+            self.set_udf6(udf6)
+
+        @udf7.setter
+        def udf7(self, udf7):
+            '''
+            :type udf7: str or None
+            '''
+
+            self.set_udf7(udf7)
+
+        @udf8.setter
+        def udf8(self, udf8):
+            '''
+            :type udf8: str or None
+            '''
+
+            self.set_udf8(udf8)
+
+        @udf9.setter
+        def udf9(self, udf9):
+            '''
+            :type udf9: str or None
+            '''
+
+            self.set_udf9(udf9)
 
         @unit.setter
         def unit(self, unit):
@@ -7831,6 +8403,46 @@ class ObjectRecord(object):
             '''
 
             self.set_varieties(varieties)
+
+        @vexhtml.setter
+        def vexhtml(self, vexhtml):
+            '''
+            :type vexhtml: str or None
+            '''
+
+            self.set_vexhtml(vexhtml)
+
+        @vexlabel1.setter
+        def vexlabel1(self, vexlabel1):
+            '''
+            :type vexlabel1: str or None
+            '''
+
+            self.set_vexlabel1(vexlabel1)
+
+        @vexlabel2.setter
+        def vexlabel2(self, vexlabel2):
+            '''
+            :type vexlabel2: str or None
+            '''
+
+            self.set_vexlabel2(vexlabel2)
+
+        @vexlabel3.setter
+        def vexlabel3(self, vexlabel3):
+            '''
+            :type vexlabel3: str or None
+            '''
+
+            self.set_vexlabel3(vexlabel3)
+
+        @vexlabel4.setter
+        def vexlabel4(self, vexlabel4):
+            '''
+            :type vexlabel4: str or None
+            '''
+
+            self.set_vexlabel4(vexlabel4)
 
         @webinclude.setter
         def webinclude(self, webinclude):
@@ -7891,7 +8503,7 @@ class ObjectRecord(object):
         @xcord.setter
         def xcord(self, xcord):
             '''
-            :type xcord: str or None
+            :type xcord: Decimal or None
             '''
 
             self.set_xcord(xcord)
@@ -7899,7 +8511,7 @@ class ObjectRecord(object):
         @ycord.setter
         def ycord(self, ycord):
             '''
-            :type ycord: str or None
+            :type ycord: Decimal or None
             '''
 
             self.set_ycord(ycord)
@@ -7907,7 +8519,7 @@ class ObjectRecord(object):
         @zcord.setter
         def zcord(self, zcord):
             '''
-            :type zcord: str or None
+            :type zcord: Decimal or None
             '''
 
             self.set_zcord(zcord)
@@ -7988,7 +8600,10 @@ class ObjectRecord(object):
         EXCAVATEBY = None
         EXHIBITID = None
         EXHIBITNO = None
-        EXHLABEL = None
+        EXHLABEL1 = None
+        EXHLABEL2 = None
+        EXHLABEL3 = None
+        EXHLABEL4 = None
         EXHSTART = None
         FAMILY = None
         FEATURE = None
@@ -8044,7 +8659,12 @@ class ObjectRecord(object):
         LOANINNO = None
         LOANNO = None
         LOANRENEW = None
-        LOCFIELD = None
+        LOCFIELD1 = None
+        LOCFIELD2 = None
+        LOCFIELD3 = None
+        LOCFIELD4 = None
+        LOCFIELD5 = None
+        LOCFIELD6 = None
         LONGDEG = None
         LUSTER = None
         MADE = None
@@ -8083,6 +8703,7 @@ class ObjectRecord(object):
         PRESSURE = None
         PROVENANCE = None
         PUBNOTES = None
+        QRURL = None
         RECAS = None
         RECDATE = None
         RECFROM = None
@@ -8106,6 +8727,7 @@ class ObjectRecord(object):
         ROLE3 = None
         SCHOOL = None
         SEX = None
+        SGFLAG = None
         SIGNEDNAME = None
         SIGNLOC = None
         SITE = None
@@ -8134,14 +8756,45 @@ class ObjectRecord(object):
         TEMPUNTIL = None
         TEXTURE = None
         TITLE = None
-        TLOCFIELD = None
-        UDF = None
+        TLOCFIELD1 = None
+        TLOCFIELD2 = None
+        TLOCFIELD3 = None
+        TLOCFIELD4 = None
+        TLOCFIELD5 = None
+        TLOCFIELD6 = None
+        UDF1 = None
+        UDF10 = None
+        UDF11 = None
+        UDF12 = None
+        UDF13 = None
+        UDF14 = None
+        UDF15 = None
+        UDF16 = None
+        UDF17 = None
+        UDF18 = None
+        UDF19 = None
+        UDF2 = None
+        UDF20 = None
+        UDF21 = None
+        UDF22 = None
+        UDF3 = None
+        UDF4 = None
+        UDF5 = None
+        UDF6 = None
+        UDF7 = None
+        UDF8 = None
+        UDF9 = None
         UNIT = None
         UPDATED = None
         UPDATEDBY = None
         USED = None
         VALUEDATE = None
         VARIETIES = None
+        VEXHTML = None
+        VEXLABEL1 = None
+        VEXLABEL2 = None
+        VEXLABEL3 = None
+        VEXLABEL4 = None
         WEBINCLUDE = None
         WEIGHT = None
         WEIGHTIN = None
@@ -8181,233 +8834,274 @@ class ObjectRecord(object):
 
         @classmethod
         def values(cls):
-            return (cls.ACCESSNO, cls.ACCESSORY, cls.ACQVALUE, cls.AGE, cls.APPNOTES, cls.APPRAISOR, cls.ASSEMZONE, cls.BAGNO, cls.BOXNO, cls.CAPTION, cls.CAT, cls.CATBY, cls.CATDATE, cls.CATTYPE, cls.CHEMCOMP, cls.CIRCUM, cls.CIRCUMFT, cls.CIRCUMIN, cls.CLASSES, cls.COLLDATE, cls.COLLECTION, cls.COLLECTOR, cls.CONDDATE, cls.CONDEXAM, cls.CONDITION, cls.CONDNOTES, cls.COUNT, cls.CREATOR, cls.CREATOR2, cls.CREATOR3, cls.CREDIT, cls.CRYSTAL, cls.CULTURE, cls.CURVALMAX, cls.CURVALUE, cls.DATASET, cls.DATE, cls.DATINGMETH, cls.DATUM, cls.DEPTH, cls.DEPTHFT, cls.DEPTHIN, cls.DESCRIP, cls.DIAMETER, cls.DIAMETERFT, cls.DIAMETERIN, cls.DIMNOTES, cls.DIMTYPE, cls.DISPVALUE, cls.EARLYDATE, cls.ELEMENTS, cls.EPOCH, cls.ERA, cls.EVENT, cls.EW, cls.EXCAVADATE, cls.EXCAVATEBY, cls.EXHIBITID, cls.EXHIBITNO, cls.EXHLABEL, cls.EXHSTART, cls.FAMILY, cls.FEATURE, cls.FLAGDATE, cls.FLAGNOTES, cls.FLAGREASON, cls.FORMATION, cls.FOSSILS, cls.FOUND, cls.FRACTURE, cls.FRAME, cls.FRAMESIZE, cls.GENUS, cls.GPARENT, cls.GRAINSIZE, cls.HABITAT, cls.HARDNESS, cls.HEIGHT, cls.HEIGHTFT, cls.HEIGHTIN, cls.HOMELOC, cls.IDBY, cls.IDDATE, cls.IMAGEFILE, cls.IMAGENO, cls.IMAGESIZE, cls.INSCOMP, cls.INSCRLANG, cls.INSCRPOS, cls.INSCRTECH, cls.INSCRTEXT, cls.INSCRTRANS, cls.INSCRTYPE, cls.INSDATE, cls.INSPHONE, cls.INSPREMIUM, cls.INSREP, cls.INSVALUE, cls.INVNBY, cls.INVNDATE, cls.KINGDOM, cls.LATDEG, cls.LATEDATE, cls.LEGAL, cls.LENGTH, cls.LENGTHFT, cls.LENGTHIN, cls.LEVEL, cls.LITHOFACIE, cls.LOANCOND, cls.LOANDUE, cls.LOANID, cls.LOANINNO, cls.LOANNO, cls.LOANRENEW, cls.LOCFIELD, cls.LONGDEG, cls.LUSTER, cls.MADE, cls.MAINTCYCLE, cls.MAINTDATE, cls.MAINTNOTE, cls.MATERIAL, cls.MEDIUM, cls.MEMBER, cls.MMARK, cls.NHCLASS, cls.NHORDER, cls.NOTES, cls.NS, cls.OBJECTID, cls.OBJNAME, cls.OBJNAME2, cls.OBJNAME3, cls.OBJNAMES, cls.OCCURRENCE, cls.OLDNO, cls.ORIGIN, cls.OTHERNAME, cls.OTHERNO, cls.OUTDATE, cls.OWNED, cls.PARENT, cls.PEOPLE, cls.PERIOD, cls.PHYLUM, cls.POLICYNO, cls.PPID, cls.PREPARATOR, cls.PREPDATE, cls.PRESERVE, cls.PRESSURE, cls.PROVENANCE, cls.PUBNOTES, cls.RECAS, cls.RECDATE, cls.RECFROM, cls.RELATION, cls.RELNOTES, cls.RENEWUNTIL, cls.REPATBY, cls.REPATCLAIM, cls.REPATDATE, cls.REPATDISP, cls.REPATHAND, cls.REPATNOTES, cls.REPATNOTIC, cls.REPATTYPE, cls.ROCKCLASS, cls.ROCKCOLOR, cls.ROCKORIGIN, cls.ROCKTYPE, cls.ROLE, cls.ROLE2, cls.ROLE3, cls.SCHOOL, cls.SEX, cls.SIGNEDNAME, cls.SIGNLOC, cls.SITE, cls.SITENO, cls.SPECGRAV, cls.SPECIES, cls.SPROCESS, cls.STAGE, cls.STATUS, cls.STATUSBY, cls.STATUSDATE, cls.STERMS, cls.STRATUM, cls.STREAK, cls.SUBFAMILY, cls.SUBJECTS, cls.SUBSPECIES, cls.TECHNIQUE, cls.TEMPAUTHOR, cls.TEMPBY, cls.TEMPDATE, cls.TEMPERATUR, cls.TEMPLOC, cls.TEMPNOTES, cls.TEMPREASON, cls.TEMPUNTIL, cls.TEXTURE, cls.TITLE, cls.TLOCFIELD, cls.UDF, cls.UNIT, cls.UPDATED, cls.UPDATEDBY, cls.USED, cls.VALUEDATE, cls.VARIETIES, cls.WEBINCLUDE, cls.WEIGHT, cls.WEIGHTIN, cls.WEIGHTLB, cls.WIDTH, cls.WIDTHFT, cls.WIDTHIN, cls.XCORD, cls.YCORD, cls.ZCORD, cls.ZSORTER, cls.ZSORTERX,)
+            return (cls.ACCESSNO, cls.ACCESSORY, cls.ACQVALUE, cls.AGE, cls.APPNOTES, cls.APPRAISOR, cls.ASSEMZONE, cls.BAGNO, cls.BOXNO, cls.CAPTION, cls.CAT, cls.CATBY, cls.CATDATE, cls.CATTYPE, cls.CHEMCOMP, cls.CIRCUM, cls.CIRCUMFT, cls.CIRCUMIN, cls.CLASSES, cls.COLLDATE, cls.COLLECTION, cls.COLLECTOR, cls.CONDDATE, cls.CONDEXAM, cls.CONDITION, cls.CONDNOTES, cls.COUNT, cls.CREATOR, cls.CREATOR2, cls.CREATOR3, cls.CREDIT, cls.CRYSTAL, cls.CULTURE, cls.CURVALMAX, cls.CURVALUE, cls.DATASET, cls.DATE, cls.DATINGMETH, cls.DATUM, cls.DEPTH, cls.DEPTHFT, cls.DEPTHIN, cls.DESCRIP, cls.DIAMETER, cls.DIAMETERFT, cls.DIAMETERIN, cls.DIMNOTES, cls.DIMTYPE, cls.DISPVALUE, cls.EARLYDATE, cls.ELEMENTS, cls.EPOCH, cls.ERA, cls.EVENT, cls.EW, cls.EXCAVADATE, cls.EXCAVATEBY, cls.EXHIBITID, cls.EXHIBITNO, cls.EXHLABEL1, cls.EXHLABEL2, cls.EXHLABEL3, cls.EXHLABEL4, cls.EXHSTART, cls.FAMILY, cls.FEATURE, cls.FLAGDATE, cls.FLAGNOTES, cls.FLAGREASON, cls.FORMATION, cls.FOSSILS, cls.FOUND, cls.FRACTURE, cls.FRAME, cls.FRAMESIZE, cls.GENUS, cls.GPARENT, cls.GRAINSIZE, cls.HABITAT, cls.HARDNESS, cls.HEIGHT, cls.HEIGHTFT, cls.HEIGHTIN, cls.HOMELOC, cls.IDBY, cls.IDDATE, cls.IMAGEFILE, cls.IMAGENO, cls.IMAGESIZE, cls.INSCOMP, cls.INSCRLANG, cls.INSCRPOS, cls.INSCRTECH, cls.INSCRTEXT, cls.INSCRTRANS, cls.INSCRTYPE, cls.INSDATE, cls.INSPHONE, cls.INSPREMIUM, cls.INSREP, cls.INSVALUE, cls.INVNBY, cls.INVNDATE, cls.KINGDOM, cls.LATDEG, cls.LATEDATE, cls.LEGAL, cls.LENGTH, cls.LENGTHFT, cls.LENGTHIN, cls.LEVEL, cls.LITHOFACIE, cls.LOANCOND, cls.LOANDUE, cls.LOANID, cls.LOANINNO, cls.LOANNO, cls.LOANRENEW, cls.LOCFIELD1, cls.LOCFIELD2, cls.LOCFIELD3, cls.LOCFIELD4, cls.LOCFIELD5, cls.LOCFIELD6, cls.LONGDEG, cls.LUSTER, cls.MADE, cls.MAINTCYCLE, cls.MAINTDATE, cls.MAINTNOTE, cls.MATERIAL, cls.MEDIUM, cls.MEMBER, cls.MMARK, cls.NHCLASS, cls.NHORDER, cls.NOTES, cls.NS, cls.OBJECTID, cls.OBJNAME, cls.OBJNAME2, cls.OBJNAME3, cls.OBJNAMES, cls.OCCURRENCE, cls.OLDNO, cls.ORIGIN, cls.OTHERNAME, cls.OTHERNO, cls.OUTDATE, cls.OWNED, cls.PARENT, cls.PEOPLE, cls.PERIOD, cls.PHYLUM, cls.POLICYNO, cls.PPID, cls.PREPARATOR, cls.PREPDATE, cls.PRESERVE, cls.PRESSURE, cls.PROVENANCE, cls.PUBNOTES, cls.QRURL, cls.RECAS, cls.RECDATE, cls.RECFROM, cls.RELATION, cls.RELNOTES, cls.RENEWUNTIL, cls.REPATBY, cls.REPATCLAIM, cls.REPATDATE, cls.REPATDISP, cls.REPATHAND, cls.REPATNOTES, cls.REPATNOTIC, cls.REPATTYPE, cls.ROCKCLASS, cls.ROCKCOLOR, cls.ROCKORIGIN, cls.ROCKTYPE, cls.ROLE, cls.ROLE2, cls.ROLE3, cls.SCHOOL, cls.SEX, cls.SGFLAG, cls.SIGNEDNAME, cls.SIGNLOC, cls.SITE, cls.SITENO, cls.SPECGRAV, cls.SPECIES, cls.SPROCESS, cls.STAGE, cls.STATUS, cls.STATUSBY, cls.STATUSDATE, cls.STERMS, cls.STRATUM, cls.STREAK, cls.SUBFAMILY, cls.SUBJECTS, cls.SUBSPECIES, cls.TECHNIQUE, cls.TEMPAUTHOR, cls.TEMPBY, cls.TEMPDATE, cls.TEMPERATUR, cls.TEMPLOC, cls.TEMPNOTES, cls.TEMPREASON, cls.TEMPUNTIL, cls.TEXTURE, cls.TITLE, cls.TLOCFIELD1, cls.TLOCFIELD2, cls.TLOCFIELD3, cls.TLOCFIELD4, cls.TLOCFIELD5, cls.TLOCFIELD6, cls.UDF1, cls.UDF10, cls.UDF11, cls.UDF12, cls.UDF13, cls.UDF14, cls.UDF15, cls.UDF16, cls.UDF17, cls.UDF18, cls.UDF19, cls.UDF2, cls.UDF20, cls.UDF21, cls.UDF22, cls.UDF3, cls.UDF4, cls.UDF5, cls.UDF6, cls.UDF7, cls.UDF8, cls.UDF9, cls.UNIT, cls.UPDATED, cls.UPDATEDBY, cls.USED, cls.VALUEDATE, cls.VARIETIES, cls.VEXHTML, cls.VEXLABEL1, cls.VEXLABEL2, cls.VEXLABEL3, cls.VEXLABEL4, cls.WEBINCLUDE, cls.WEIGHT, cls.WEIGHTIN, cls.WEIGHTLB, cls.WIDTH, cls.WIDTHFT, cls.WIDTHIN, cls.XCORD, cls.YCORD, cls.ZCORD, cls.ZSORTER, cls.ZSORTERX,)
 
-    FieldMetadata.ACCESSNO = FieldMetadata('accessno', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.ACCESSORY = FieldMetadata('accessory', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.ACCESSNO = FieldMetadata('accessno', str, None)
+    FieldMetadata.ACCESSORY = FieldMetadata('accessory', str, None)
     FieldMetadata.ACQVALUE = FieldMetadata('acqvalue', decimal.Decimal, None)
-    FieldMetadata.AGE = FieldMetadata('age', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.APPNOTES = FieldMetadata('appnotes', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.APPRAISOR = FieldMetadata('appraisor', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.ASSEMZONE = FieldMetadata('assemzone', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.BAGNO = FieldMetadata('bagno', int, None)
-    FieldMetadata.BOXNO = FieldMetadata('boxno', int, None)
-    FieldMetadata.CAPTION = FieldMetadata('caption', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.CAT = FieldMetadata('cat', pastpy.models.cat.Cat, None)
-    FieldMetadata.CATBY = FieldMetadata('catby', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.AGE = FieldMetadata('age', str, None)
+    FieldMetadata.APPNOTES = FieldMetadata('appnotes', str, None)
+    FieldMetadata.APPRAISOR = FieldMetadata('appraisor', str, None)
+    FieldMetadata.ASSEMZONE = FieldMetadata('assemzone', str, None)
+    FieldMetadata.BAGNO = FieldMetadata('bagno', str, None)
+    FieldMetadata.BOXNO = FieldMetadata('boxno', str, None)
+    FieldMetadata.CAPTION = FieldMetadata('caption', str, None)
+    FieldMetadata.CAT = FieldMetadata('cat', str, None)
+    FieldMetadata.CATBY = FieldMetadata('catby', str, None)
     FieldMetadata.CATDATE = FieldMetadata('catdate', datetime.datetime, None)
-    FieldMetadata.CATTYPE = FieldMetadata('cattype', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.CHEMCOMP = FieldMetadata('chemcomp', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.CIRCUM = FieldMetadata('circum', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.CIRCUMFT = FieldMetadata('circumft', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.CIRCUMIN = FieldMetadata('circumin', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.CLASSES = FieldMetadata('classes', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.CATTYPE = FieldMetadata('cattype', str, None)
+    FieldMetadata.CHEMCOMP = FieldMetadata('chemcomp', str, None)
+    FieldMetadata.CIRCUM = FieldMetadata('circum', decimal.Decimal, None)
+    FieldMetadata.CIRCUMFT = FieldMetadata('circumft', decimal.Decimal, None)
+    FieldMetadata.CIRCUMIN = FieldMetadata('circumin', decimal.Decimal, None)
+    FieldMetadata.CLASSES = FieldMetadata('classes', str, None)
     FieldMetadata.COLLDATE = FieldMetadata('colldate', datetime.datetime, None)
-    FieldMetadata.COLLECTION = FieldMetadata('collection', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.COLLECTOR = FieldMetadata('collector', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.COLLECTION = FieldMetadata('collection', str, None)
+    FieldMetadata.COLLECTOR = FieldMetadata('collector', str, None)
     FieldMetadata.CONDDATE = FieldMetadata('conddate', datetime.datetime, None)
-    FieldMetadata.CONDEXAM = FieldMetadata('condexam', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.CONDITION = FieldMetadata('condition', pastpy.models.condition.Condition, None)
-    FieldMetadata.CONDNOTES = FieldMetadata('condnotes', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.COUNT = FieldMetadata('count', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.CREATOR = FieldMetadata('creator', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.CREATOR2 = FieldMetadata('creator2', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.CREATOR3 = FieldMetadata('creator3', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.CREDIT = FieldMetadata('credit', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.CRYSTAL = FieldMetadata('crystal', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.CULTURE = FieldMetadata('culture', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.CONDEXAM = FieldMetadata('condexam', str, None)
+    FieldMetadata.CONDITION = FieldMetadata('condition', str, None)
+    FieldMetadata.CONDNOTES = FieldMetadata('condnotes', str, None)
+    FieldMetadata.COUNT = FieldMetadata('count', str, None)
+    FieldMetadata.CREATOR = FieldMetadata('creator', str, None)
+    FieldMetadata.CREATOR2 = FieldMetadata('creator2', str, None)
+    FieldMetadata.CREATOR3 = FieldMetadata('creator3', str, None)
+    FieldMetadata.CREDIT = FieldMetadata('credit', str, None)
+    FieldMetadata.CRYSTAL = FieldMetadata('crystal', str, None)
+    FieldMetadata.CULTURE = FieldMetadata('culture', str, None)
     FieldMetadata.CURVALMAX = FieldMetadata('curvalmax', decimal.Decimal, None)
     FieldMetadata.CURVALUE = FieldMetadata('curvalue', decimal.Decimal, None)
-    FieldMetadata.DATASET = FieldMetadata('dataset', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.DATE = FieldMetadata('date', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.DATINGMETH = FieldMetadata('datingmeth', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.DATUM = FieldMetadata('datum', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.DEPTH = FieldMetadata('depth', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.DEPTHFT = FieldMetadata('depthft', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.DEPTHIN = FieldMetadata('depthin', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.DESCRIP = FieldMetadata('descrip', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.DIAMETER = FieldMetadata('diameter', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.DIAMETERFT = FieldMetadata('diameterft', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.DIAMETERIN = FieldMetadata('diameterin', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.DIMNOTES = FieldMetadata('dimnotes', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.DATASET = FieldMetadata('dataset', str, None)
+    FieldMetadata.DATE = FieldMetadata('date', str, None)
+    FieldMetadata.DATINGMETH = FieldMetadata('datingmeth', str, None)
+    FieldMetadata.DATUM = FieldMetadata('datum', str, None)
+    FieldMetadata.DEPTH = FieldMetadata('depth', decimal.Decimal, None)
+    FieldMetadata.DEPTHFT = FieldMetadata('depthft', decimal.Decimal, None)
+    FieldMetadata.DEPTHIN = FieldMetadata('depthin', decimal.Decimal, None)
+    FieldMetadata.DESCRIP = FieldMetadata('descrip', str, None)
+    FieldMetadata.DIAMETER = FieldMetadata('diameter', decimal.Decimal, None)
+    FieldMetadata.DIAMETERFT = FieldMetadata('diameterft', decimal.Decimal, None)
+    FieldMetadata.DIAMETERIN = FieldMetadata('diameterin', decimal.Decimal, None)
+    FieldMetadata.DIMNOTES = FieldMetadata('dimnotes', str, None)
     FieldMetadata.DIMTYPE = FieldMetadata('dimtype', int, None)
-    FieldMetadata.DISPVALUE = FieldMetadata('dispvalue', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.EARLYDATE = FieldMetadata('earlydate', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.ELEMENTS = FieldMetadata('elements', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.EPOCH = FieldMetadata('epoch', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.ERA = FieldMetadata('era', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.EVENT = FieldMetadata('event', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.EW = FieldMetadata('ew', pastpy.models.cardinal_direction.CardinalDirection, None)
+    FieldMetadata.DISPVALUE = FieldMetadata('dispvalue', str, None)
+    FieldMetadata.EARLYDATE = FieldMetadata('earlydate', int, None)
+    FieldMetadata.ELEMENTS = FieldMetadata('elements', str, None)
+    FieldMetadata.EPOCH = FieldMetadata('epoch', str, None)
+    FieldMetadata.ERA = FieldMetadata('era', str, None)
+    FieldMetadata.EVENT = FieldMetadata('event', str, None)
+    FieldMetadata.EW = FieldMetadata('ew', str, None)
     FieldMetadata.EXCAVADATE = FieldMetadata('excavadate', datetime.datetime, None)
-    FieldMetadata.EXCAVATEBY = FieldMetadata('excavateby', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.EXHIBITID = FieldMetadata('exhibitid', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.EXCAVATEBY = FieldMetadata('excavateby', str, None)
+    FieldMetadata.EXHIBITID = FieldMetadata('exhibitid', str, None)
     FieldMetadata.EXHIBITNO = FieldMetadata('exhibitno', int, None)
-    FieldMetadata.EXHLABEL = FieldMetadata('exhlabel', dict, OrderedDict([('minLength', 1)]))
-    FieldMetadata.EXHSTART = FieldMetadata('exhstart', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.FAMILY = FieldMetadata('family', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.FEATURE = FieldMetadata('feature', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.EXHLABEL1 = FieldMetadata('exhlabel1', str, None)
+    FieldMetadata.EXHLABEL2 = FieldMetadata('exhlabel2', str, None)
+    FieldMetadata.EXHLABEL3 = FieldMetadata('exhlabel3', str, None)
+    FieldMetadata.EXHLABEL4 = FieldMetadata('exhlabel4', str, None)
+    FieldMetadata.EXHSTART = FieldMetadata('exhstart', datetime.datetime, None)
+    FieldMetadata.FAMILY = FieldMetadata('family', str, None)
+    FieldMetadata.FEATURE = FieldMetadata('feature', str, None)
     FieldMetadata.FLAGDATE = FieldMetadata('flagdate', datetime.datetime, None)
-    FieldMetadata.FLAGNOTES = FieldMetadata('flagnotes', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.FLAGREASON = FieldMetadata('flagreason', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.FORMATION = FieldMetadata('formation', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.FOSSILS = FieldMetadata('fossils', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.FOUND = FieldMetadata('found', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.FRACTURE = FieldMetadata('fracture', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.FRAME = FieldMetadata('frame', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.FRAMESIZE = FieldMetadata('framesize', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.GENUS = FieldMetadata('genus', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.GPARENT = FieldMetadata('gparent', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.GRAINSIZE = FieldMetadata('grainsize', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.HABITAT = FieldMetadata('habitat', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.HARDNESS = FieldMetadata('hardness', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.HEIGHT = FieldMetadata('height', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.HEIGHTFT = FieldMetadata('heightft', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.HEIGHTIN = FieldMetadata('heightin', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.HOMELOC = FieldMetadata('homeloc', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.IDBY = FieldMetadata('idby', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.FLAGNOTES = FieldMetadata('flagnotes', str, None)
+    FieldMetadata.FLAGREASON = FieldMetadata('flagreason', str, None)
+    FieldMetadata.FORMATION = FieldMetadata('formation', str, None)
+    FieldMetadata.FOSSILS = FieldMetadata('fossils', str, None)
+    FieldMetadata.FOUND = FieldMetadata('found', str, None)
+    FieldMetadata.FRACTURE = FieldMetadata('fracture', str, None)
+    FieldMetadata.FRAME = FieldMetadata('frame', str, None)
+    FieldMetadata.FRAMESIZE = FieldMetadata('framesize', str, None)
+    FieldMetadata.GENUS = FieldMetadata('genus', str, None)
+    FieldMetadata.GPARENT = FieldMetadata('gparent', str, None)
+    FieldMetadata.GRAINSIZE = FieldMetadata('grainsize', str, None)
+    FieldMetadata.HABITAT = FieldMetadata('habitat', str, None)
+    FieldMetadata.HARDNESS = FieldMetadata('hardness', str, None)
+    FieldMetadata.HEIGHT = FieldMetadata('height', decimal.Decimal, None)
+    FieldMetadata.HEIGHTFT = FieldMetadata('heightft', decimal.Decimal, None)
+    FieldMetadata.HEIGHTIN = FieldMetadata('heightin', decimal.Decimal, None)
+    FieldMetadata.HOMELOC = FieldMetadata('homeloc', str, None)
+    FieldMetadata.IDBY = FieldMetadata('idby', str, None)
     FieldMetadata.IDDATE = FieldMetadata('iddate', datetime.datetime, None)
-    FieldMetadata.IMAGEFILE = FieldMetadata('imagefile', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.IMAGEFILE = FieldMetadata('imagefile', str, None)
     FieldMetadata.IMAGENO = FieldMetadata('imageno', int, None)
-    FieldMetadata.IMAGESIZE = FieldMetadata('imagesize', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.INSCOMP = FieldMetadata('inscomp', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.INSCRLANG = FieldMetadata('inscrlang', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.INSCRPOS = FieldMetadata('inscrpos', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.INSCRTECH = FieldMetadata('inscrtech', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.INSCRTEXT = FieldMetadata('inscrtext', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.INSCRTRANS = FieldMetadata('inscrtrans', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.INSCRTYPE = FieldMetadata('inscrtype', object, None)
+    FieldMetadata.IMAGESIZE = FieldMetadata('imagesize', str, None)
+    FieldMetadata.INSCOMP = FieldMetadata('inscomp', str, None)
+    FieldMetadata.INSCRLANG = FieldMetadata('inscrlang', str, None)
+    FieldMetadata.INSCRPOS = FieldMetadata('inscrpos', str, None)
+    FieldMetadata.INSCRTECH = FieldMetadata('inscrtech', str, None)
+    FieldMetadata.INSCRTEXT = FieldMetadata('inscrtext', str, None)
+    FieldMetadata.INSCRTRANS = FieldMetadata('inscrtrans', str, None)
+    FieldMetadata.INSCRTYPE = FieldMetadata('inscrtype', str, None)
     FieldMetadata.INSDATE = FieldMetadata('insdate', datetime.datetime, None)
-    FieldMetadata.INSPHONE = FieldMetadata('insphone', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.INSPREMIUM = FieldMetadata('inspremium', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.INSREP = FieldMetadata('insrep', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.INSPHONE = FieldMetadata('insphone', str, None)
+    FieldMetadata.INSPREMIUM = FieldMetadata('inspremium', str, None)
+    FieldMetadata.INSREP = FieldMetadata('insrep', str, None)
     FieldMetadata.INSVALUE = FieldMetadata('insvalue', decimal.Decimal, None)
-    FieldMetadata.INVNBY = FieldMetadata('invnby', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.INVNBY = FieldMetadata('invnby', str, None)
     FieldMetadata.INVNDATE = FieldMetadata('invndate', datetime.datetime, None)
-    FieldMetadata.KINGDOM = FieldMetadata('kingdom', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.LATDEG = FieldMetadata('latdeg', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.LATEDATE = FieldMetadata('latedate', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.LEGAL = FieldMetadata('legal', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.LENGTH = FieldMetadata('length', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.LENGTHFT = FieldMetadata('lengthft', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.LENGTHIN = FieldMetadata('lengthin', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.LEVEL = FieldMetadata('level', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.LITHOFACIE = FieldMetadata('lithofacie', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.LOANCOND = FieldMetadata('loancond', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.LOANDUE = FieldMetadata('loandue', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.LOANID = FieldMetadata('loanid', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.LOANINNO = FieldMetadata('loaninno', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.KINGDOM = FieldMetadata('kingdom', str, None)
+    FieldMetadata.LATDEG = FieldMetadata('latdeg', decimal.Decimal, None)
+    FieldMetadata.LATEDATE = FieldMetadata('latedate', int, None)
+    FieldMetadata.LEGAL = FieldMetadata('legal', str, None)
+    FieldMetadata.LENGTH = FieldMetadata('length', decimal.Decimal, None)
+    FieldMetadata.LENGTHFT = FieldMetadata('lengthft', decimal.Decimal, None)
+    FieldMetadata.LENGTHIN = FieldMetadata('lengthin', decimal.Decimal, None)
+    FieldMetadata.LEVEL = FieldMetadata('level', str, None)
+    FieldMetadata.LITHOFACIE = FieldMetadata('lithofacie', str, None)
+    FieldMetadata.LOANCOND = FieldMetadata('loancond', str, None)
+    FieldMetadata.LOANDUE = FieldMetadata('loandue', datetime.datetime, None)
+    FieldMetadata.LOANID = FieldMetadata('loanid', str, None)
+    FieldMetadata.LOANINNO = FieldMetadata('loaninno', str, None)
     FieldMetadata.LOANNO = FieldMetadata('loanno', int, None)
     FieldMetadata.LOANRENEW = FieldMetadata('loanrenew', datetime.datetime, None)
-    FieldMetadata.LOCFIELD = FieldMetadata('locfield', dict, OrderedDict([('minLength', 1)]))
-    FieldMetadata.LONGDEG = FieldMetadata('longdeg', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.LUSTER = FieldMetadata('luster', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.MADE = FieldMetadata('made', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.MAINTCYCLE = FieldMetadata('maintcycle', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.LOCFIELD1 = FieldMetadata('locfield1', str, None)
+    FieldMetadata.LOCFIELD2 = FieldMetadata('locfield2', str, None)
+    FieldMetadata.LOCFIELD3 = FieldMetadata('locfield3', str, None)
+    FieldMetadata.LOCFIELD4 = FieldMetadata('locfield4', str, None)
+    FieldMetadata.LOCFIELD5 = FieldMetadata('locfield5', str, None)
+    FieldMetadata.LOCFIELD6 = FieldMetadata('locfield6', str, None)
+    FieldMetadata.LONGDEG = FieldMetadata('longdeg', decimal.Decimal, None)
+    FieldMetadata.LUSTER = FieldMetadata('luster', str, None)
+    FieldMetadata.MADE = FieldMetadata('made', str, None)
+    FieldMetadata.MAINTCYCLE = FieldMetadata('maintcycle', str, None)
     FieldMetadata.MAINTDATE = FieldMetadata('maintdate', datetime.datetime, None)
-    FieldMetadata.MAINTNOTE = FieldMetadata('maintnote', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.MATERIAL = FieldMetadata('material', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.MEDIUM = FieldMetadata('medium', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.MEMBER = FieldMetadata('member', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.MMARK = FieldMetadata('mmark', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.NHCLASS = FieldMetadata('nhclass', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.NHORDER = FieldMetadata('nhorder', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.NOTES = FieldMetadata('notes', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.NS = FieldMetadata('ns', pastpy.models.cardinal_direction.CardinalDirection, None)
-    FieldMetadata.OBJECTID = FieldMetadata('objectid', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.OBJNAME = FieldMetadata('objname', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.OBJNAME2 = FieldMetadata('objname2', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.OBJNAME3 = FieldMetadata('objname3', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.OBJNAMES = FieldMetadata('objnames', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.OCCURRENCE = FieldMetadata('occurrence', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.OLDNO = FieldMetadata('oldno', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.ORIGIN = FieldMetadata('origin', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.OTHERNAME = FieldMetadata('othername', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.OTHERNO = FieldMetadata('otherno', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.MAINTNOTE = FieldMetadata('maintnote', str, None)
+    FieldMetadata.MATERIAL = FieldMetadata('material', str, None)
+    FieldMetadata.MEDIUM = FieldMetadata('medium', str, None)
+    FieldMetadata.MEMBER = FieldMetadata('member', str, None)
+    FieldMetadata.MMARK = FieldMetadata('mmark', str, None)
+    FieldMetadata.NHCLASS = FieldMetadata('nhclass', str, None)
+    FieldMetadata.NHORDER = FieldMetadata('nhorder', str, None)
+    FieldMetadata.NOTES = FieldMetadata('notes', str, None)
+    FieldMetadata.NS = FieldMetadata('ns', str, None)
+    FieldMetadata.OBJECTID = FieldMetadata('objectid', str, None)
+    FieldMetadata.OBJNAME = FieldMetadata('objname', str, None)
+    FieldMetadata.OBJNAME2 = FieldMetadata('objname2', str, None)
+    FieldMetadata.OBJNAME3 = FieldMetadata('objname3', str, None)
+    FieldMetadata.OBJNAMES = FieldMetadata('objnames', str, None)
+    FieldMetadata.OCCURRENCE = FieldMetadata('occurrence', str, None)
+    FieldMetadata.OLDNO = FieldMetadata('oldno', str, None)
+    FieldMetadata.ORIGIN = FieldMetadata('origin', str, None)
+    FieldMetadata.OTHERNAME = FieldMetadata('othername', str, None)
+    FieldMetadata.OTHERNO = FieldMetadata('otherno', str, None)
     FieldMetadata.OUTDATE = FieldMetadata('outdate', datetime.datetime, None)
-    FieldMetadata.OWNED = FieldMetadata('owned', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.PARENT = FieldMetadata('parent', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.PEOPLE = FieldMetadata('people', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.PERIOD = FieldMetadata('period', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.PHYLUM = FieldMetadata('phylum', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.POLICYNO = FieldMetadata('policyno', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.PPID = FieldMetadata('ppid', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.PREPARATOR = FieldMetadata('preparator', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.OWNED = FieldMetadata('owned', str, None)
+    FieldMetadata.PARENT = FieldMetadata('parent', str, None)
+    FieldMetadata.PEOPLE = FieldMetadata('people', str, None)
+    FieldMetadata.PERIOD = FieldMetadata('period', str, None)
+    FieldMetadata.PHYLUM = FieldMetadata('phylum', str, None)
+    FieldMetadata.POLICYNO = FieldMetadata('policyno', str, None)
+    FieldMetadata.PPID = FieldMetadata('ppid', str, None)
+    FieldMetadata.PREPARATOR = FieldMetadata('preparator', str, None)
     FieldMetadata.PREPDATE = FieldMetadata('prepdate', datetime.datetime, None)
-    FieldMetadata.PRESERVE = FieldMetadata('preserve', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.PRESSURE = FieldMetadata('pressure', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.PROVENANCE = FieldMetadata('provenance', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.PUBNOTES = FieldMetadata('pubnotes', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.RECAS = FieldMetadata('recas', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.RECDATE = FieldMetadata('recdate', datetime.datetime, None)
-    FieldMetadata.RECFROM = FieldMetadata('recfrom', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.RELATION = FieldMetadata('relation', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.RELNOTES = FieldMetadata('relnotes', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.PRESERVE = FieldMetadata('preserve', str, None)
+    FieldMetadata.PRESSURE = FieldMetadata('pressure', str, None)
+    FieldMetadata.PROVENANCE = FieldMetadata('provenance', str, None)
+    FieldMetadata.PUBNOTES = FieldMetadata('pubnotes', str, None)
+    FieldMetadata.QRURL = FieldMetadata('qrurl', str, None)
+    FieldMetadata.RECAS = FieldMetadata('recas', str, None)
+    FieldMetadata.RECDATE = FieldMetadata('recdate', str, None)
+    FieldMetadata.RECFROM = FieldMetadata('recfrom', str, None)
+    FieldMetadata.RELATION = FieldMetadata('relation', str, None)
+    FieldMetadata.RELNOTES = FieldMetadata('relnotes', str, None)
     FieldMetadata.RENEWUNTIL = FieldMetadata('renewuntil', datetime.datetime, None)
-    FieldMetadata.REPATBY = FieldMetadata('repatby', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.REPATCLAIM = FieldMetadata('repatclaim', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.REPATBY = FieldMetadata('repatby', str, None)
+    FieldMetadata.REPATCLAIM = FieldMetadata('repatclaim', str, None)
     FieldMetadata.REPATDATE = FieldMetadata('repatdate', datetime.datetime, None)
-    FieldMetadata.REPATDISP = FieldMetadata('repatdisp', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.REPATHAND = FieldMetadata('repathand', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.REPATNOTES = FieldMetadata('repatnotes', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.REPATNOTIC = FieldMetadata('repatnotic', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.REPATTYPE = FieldMetadata('repattype', int, None)
-    FieldMetadata.ROCKCLASS = FieldMetadata('rockclass', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.ROCKCOLOR = FieldMetadata('rockcolor', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.ROCKORIGIN = FieldMetadata('rockorigin', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.ROCKTYPE = FieldMetadata('rocktype', int, None)
-    FieldMetadata.ROLE = FieldMetadata('role', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.ROLE2 = FieldMetadata('role2', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.ROLE3 = FieldMetadata('role3', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.SCHOOL = FieldMetadata('school', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.SEX = FieldMetadata('sex', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.SIGNEDNAME = FieldMetadata('signedname', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.SIGNLOC = FieldMetadata('signloc', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.SITE = FieldMetadata('site', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.SITENO = FieldMetadata('siteno', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.SPECGRAV = FieldMetadata('specgrav', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.SPECIES = FieldMetadata('species', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.SPROCESS = FieldMetadata('sprocess', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.STAGE = FieldMetadata('stage', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.STATUS = FieldMetadata('status', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.STATUSBY = FieldMetadata('statusby', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.REPATDISP = FieldMetadata('repatdisp', str, None)
+    FieldMetadata.REPATHAND = FieldMetadata('repathand', str, None)
+    FieldMetadata.REPATNOTES = FieldMetadata('repatnotes', str, None)
+    FieldMetadata.REPATNOTIC = FieldMetadata('repatnotic', datetime.datetime, None)
+    FieldMetadata.REPATTYPE = FieldMetadata('repattype', str, None)
+    FieldMetadata.ROCKCLASS = FieldMetadata('rockclass', str, None)
+    FieldMetadata.ROCKCOLOR = FieldMetadata('rockcolor', str, None)
+    FieldMetadata.ROCKORIGIN = FieldMetadata('rockorigin', str, None)
+    FieldMetadata.ROCKTYPE = FieldMetadata('rocktype', str, None)
+    FieldMetadata.ROLE = FieldMetadata('role', str, None)
+    FieldMetadata.ROLE2 = FieldMetadata('role2', str, None)
+    FieldMetadata.ROLE3 = FieldMetadata('role3', str, None)
+    FieldMetadata.SCHOOL = FieldMetadata('school', str, None)
+    FieldMetadata.SEX = FieldMetadata('sex', str, None)
+    FieldMetadata.SGFLAG = FieldMetadata('sgflag', str, None)
+    FieldMetadata.SIGNEDNAME = FieldMetadata('signedname', str, None)
+    FieldMetadata.SIGNLOC = FieldMetadata('signloc', str, None)
+    FieldMetadata.SITE = FieldMetadata('site', str, None)
+    FieldMetadata.SITENO = FieldMetadata('siteno', str, None)
+    FieldMetadata.SPECGRAV = FieldMetadata('specgrav', str, None)
+    FieldMetadata.SPECIES = FieldMetadata('species', str, None)
+    FieldMetadata.SPROCESS = FieldMetadata('sprocess', str, None)
+    FieldMetadata.STAGE = FieldMetadata('stage', str, None)
+    FieldMetadata.STATUS = FieldMetadata('status', str, None)
+    FieldMetadata.STATUSBY = FieldMetadata('statusby', str, None)
     FieldMetadata.STATUSDATE = FieldMetadata('statusdate', datetime.datetime, None)
-    FieldMetadata.STERMS = FieldMetadata('sterms', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.STRATUM = FieldMetadata('stratum', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.STREAK = FieldMetadata('streak', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.SUBFAMILY = FieldMetadata('subfamily', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.SUBJECTS = FieldMetadata('subjects', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.SUBSPECIES = FieldMetadata('subspecies', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.TECHNIQUE = FieldMetadata('technique', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.TEMPAUTHOR = FieldMetadata('tempauthor', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.TEMPBY = FieldMetadata('tempby', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.STERMS = FieldMetadata('sterms', str, None)
+    FieldMetadata.STRATUM = FieldMetadata('stratum', str, None)
+    FieldMetadata.STREAK = FieldMetadata('streak', str, None)
+    FieldMetadata.SUBFAMILY = FieldMetadata('subfamily', str, None)
+    FieldMetadata.SUBJECTS = FieldMetadata('subjects', str, None)
+    FieldMetadata.SUBSPECIES = FieldMetadata('subspecies', str, None)
+    FieldMetadata.TECHNIQUE = FieldMetadata('technique', str, None)
+    FieldMetadata.TEMPAUTHOR = FieldMetadata('tempauthor', str, None)
+    FieldMetadata.TEMPBY = FieldMetadata('tempby', str, None)
     FieldMetadata.TEMPDATE = FieldMetadata('tempdate', datetime.datetime, None)
-    FieldMetadata.TEMPERATUR = FieldMetadata('temperatur', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.TEMPLOC = FieldMetadata('temploc', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.TEMPNOTES = FieldMetadata('tempnotes', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.TEMPREASON = FieldMetadata('tempreason', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.TEMPUNTIL = FieldMetadata('tempuntil', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.TEXTURE = FieldMetadata('texture', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.TITLE = FieldMetadata('title', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.TLOCFIELD = FieldMetadata('tlocfield', dict, OrderedDict([('minLength', 1)]))
-    FieldMetadata.UDF = FieldMetadata('udf', dict, OrderedDict([('minLength', 1)]))
-    FieldMetadata.UNIT = FieldMetadata('unit', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.TEMPERATUR = FieldMetadata('temperatur', str, None)
+    FieldMetadata.TEMPLOC = FieldMetadata('temploc', str, None)
+    FieldMetadata.TEMPNOTES = FieldMetadata('tempnotes', str, None)
+    FieldMetadata.TEMPREASON = FieldMetadata('tempreason', str, None)
+    FieldMetadata.TEMPUNTIL = FieldMetadata('tempuntil', str, None)
+    FieldMetadata.TEXTURE = FieldMetadata('texture', str, None)
+    FieldMetadata.TITLE = FieldMetadata('title', str, None)
+    FieldMetadata.TLOCFIELD1 = FieldMetadata('tlocfield1', str, None)
+    FieldMetadata.TLOCFIELD2 = FieldMetadata('tlocfield2', str, None)
+    FieldMetadata.TLOCFIELD3 = FieldMetadata('tlocfield3', str, None)
+    FieldMetadata.TLOCFIELD4 = FieldMetadata('tlocfield4', str, None)
+    FieldMetadata.TLOCFIELD5 = FieldMetadata('tlocfield5', str, None)
+    FieldMetadata.TLOCFIELD6 = FieldMetadata('tlocfield6', str, None)
+    FieldMetadata.UDF1 = FieldMetadata('udf1', str, None)
+    FieldMetadata.UDF10 = FieldMetadata('udf10', str, None)
+    FieldMetadata.UDF11 = FieldMetadata('udf11', str, None)
+    FieldMetadata.UDF12 = FieldMetadata('udf12', str, None)
+    FieldMetadata.UDF13 = FieldMetadata('udf13', int, None)
+    FieldMetadata.UDF14 = FieldMetadata('udf14', decimal.Decimal, None)
+    FieldMetadata.UDF15 = FieldMetadata('udf15', decimal.Decimal, None)
+    FieldMetadata.UDF16 = FieldMetadata('udf16', decimal.Decimal, None)
+    FieldMetadata.UDF17 = FieldMetadata('udf17', decimal.Decimal, None)
+    FieldMetadata.UDF18 = FieldMetadata('udf18', datetime.datetime, None)
+    FieldMetadata.UDF19 = FieldMetadata('udf19', datetime.datetime, None)
+    FieldMetadata.UDF2 = FieldMetadata('udf2', str, None)
+    FieldMetadata.UDF20 = FieldMetadata('udf20', datetime.datetime, None)
+    FieldMetadata.UDF21 = FieldMetadata('udf21', str, None)
+    FieldMetadata.UDF22 = FieldMetadata('udf22', str, None)
+    FieldMetadata.UDF3 = FieldMetadata('udf3', str, None)
+    FieldMetadata.UDF4 = FieldMetadata('udf4', str, None)
+    FieldMetadata.UDF5 = FieldMetadata('udf5', str, None)
+    FieldMetadata.UDF6 = FieldMetadata('udf6', str, None)
+    FieldMetadata.UDF7 = FieldMetadata('udf7', str, None)
+    FieldMetadata.UDF8 = FieldMetadata('udf8', str, None)
+    FieldMetadata.UDF9 = FieldMetadata('udf9', str, None)
+    FieldMetadata.UNIT = FieldMetadata('unit', str, None)
     FieldMetadata.UPDATED = FieldMetadata('updated', datetime.datetime, None)
-    FieldMetadata.UPDATEDBY = FieldMetadata('updatedby', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.USED = FieldMetadata('used', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.UPDATEDBY = FieldMetadata('updatedby', str, None)
+    FieldMetadata.USED = FieldMetadata('used', str, None)
     FieldMetadata.VALUEDATE = FieldMetadata('valuedate', datetime.datetime, None)
-    FieldMetadata.VARIETIES = FieldMetadata('varieties', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.VARIETIES = FieldMetadata('varieties', str, None)
+    FieldMetadata.VEXHTML = FieldMetadata('vexhtml', str, None)
+    FieldMetadata.VEXLABEL1 = FieldMetadata('vexlabel1', str, None)
+    FieldMetadata.VEXLABEL2 = FieldMetadata('vexlabel2', str, None)
+    FieldMetadata.VEXLABEL3 = FieldMetadata('vexlabel3', str, None)
+    FieldMetadata.VEXLABEL4 = FieldMetadata('vexlabel4', str, None)
     FieldMetadata.WEBINCLUDE = FieldMetadata('webinclude', bool, None)
-    FieldMetadata.WEIGHT = FieldMetadata('weight', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.WEIGHTIN = FieldMetadata('weightin', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.WEIGHTLB = FieldMetadata('weightlb', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.WIDTH = FieldMetadata('width', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.WIDTHFT = FieldMetadata('widthft', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.WIDTHIN = FieldMetadata('widthin', decimal.Decimal, OrderedDict([('minExclusive', 0)]))
-    FieldMetadata.XCORD = FieldMetadata('xcord', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.YCORD = FieldMetadata('ycord', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.ZCORD = FieldMetadata('zcord', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.ZSORTER = FieldMetadata('zsorter', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.ZSORTERX = FieldMetadata('zsorterx', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.WEIGHT = FieldMetadata('weight', decimal.Decimal, None)
+    FieldMetadata.WEIGHTIN = FieldMetadata('weightin', decimal.Decimal, None)
+    FieldMetadata.WEIGHTLB = FieldMetadata('weightlb', decimal.Decimal, None)
+    FieldMetadata.WIDTH = FieldMetadata('width', decimal.Decimal, None)
+    FieldMetadata.WIDTHFT = FieldMetadata('widthft', decimal.Decimal, None)
+    FieldMetadata.WIDTHIN = FieldMetadata('widthin', decimal.Decimal, None)
+    FieldMetadata.XCORD = FieldMetadata('xcord', decimal.Decimal, None)
+    FieldMetadata.YCORD = FieldMetadata('ycord', decimal.Decimal, None)
+    FieldMetadata.ZCORD = FieldMetadata('zcord', decimal.Decimal, None)
+    FieldMetadata.ZSORTER = FieldMetadata('zsorter', str, None)
+    FieldMetadata.ZSORTERX = FieldMetadata('zsorterx', str, None)
 
     def __init__(
         self,
@@ -8470,7 +9164,10 @@ class ObjectRecord(object):
         excavateby=None,
         exhibitid=None,
         exhibitno=None,
-        exhlabel=None,
+        exhlabel1=None,
+        exhlabel2=None,
+        exhlabel3=None,
+        exhlabel4=None,
         exhstart=None,
         family=None,
         feature=None,
@@ -8526,7 +9223,12 @@ class ObjectRecord(object):
         loaninno=None,
         loanno=None,
         loanrenew=None,
-        locfield=None,
+        locfield1=None,
+        locfield2=None,
+        locfield3=None,
+        locfield4=None,
+        locfield5=None,
+        locfield6=None,
         longdeg=None,
         luster=None,
         made=None,
@@ -8565,6 +9267,7 @@ class ObjectRecord(object):
         pressure=None,
         provenance=None,
         pubnotes=None,
+        qrurl=None,
         recas=None,
         recdate=None,
         recfrom=None,
@@ -8588,6 +9291,7 @@ class ObjectRecord(object):
         role3=None,
         school=None,
         sex=None,
+        sgflag=None,
         signedname=None,
         signloc=None,
         site=None,
@@ -8616,14 +9320,45 @@ class ObjectRecord(object):
         tempuntil=None,
         texture=None,
         title=None,
-        tlocfield=None,
-        udf=None,
+        tlocfield1=None,
+        tlocfield2=None,
+        tlocfield3=None,
+        tlocfield4=None,
+        tlocfield5=None,
+        tlocfield6=None,
+        udf1=None,
+        udf10=None,
+        udf11=None,
+        udf12=None,
+        udf13=None,
+        udf14=None,
+        udf15=None,
+        udf16=None,
+        udf17=None,
+        udf18=None,
+        udf19=None,
+        udf2=None,
+        udf20=None,
+        udf21=None,
+        udf22=None,
+        udf3=None,
+        udf4=None,
+        udf5=None,
+        udf6=None,
+        udf7=None,
+        udf8=None,
+        udf9=None,
         unit=None,
         updated=None,
         updatedby=None,
         used=None,
         valuedate=None,
         varieties=None,
+        vexhtml=None,
+        vexlabel1=None,
+        vexlabel2=None,
+        vexlabel3=None,
+        vexlabel4=None,
         webinclude=None,
         weight=None,
         weightin=None,
@@ -8645,10 +9380,10 @@ class ObjectRecord(object):
         :type appnotes: str or None
         :type appraisor: str or None
         :type assemzone: str or None
-        :type bagno: int or None
-        :type boxno: int or None
+        :type bagno: str or None
+        :type boxno: str or None
         :type caption: str or None
-        :type cat: pastpy.models.cat.Cat or None
+        :type cat: str or None
         :type catby: str or None
         :type catdate: datetime.datetime or None
         :type cattype: str or None
@@ -8662,7 +9397,7 @@ class ObjectRecord(object):
         :type collector: str or None
         :type conddate: datetime.datetime or None
         :type condexam: str or None
-        :type condition: pastpy.models.condition.Condition or None
+        :type condition: str or None
         :type condnotes: str or None
         :type count: str or None
         :type creator: str or None
@@ -8687,18 +9422,21 @@ class ObjectRecord(object):
         :type dimnotes: str or None
         :type dimtype: int or None
         :type dispvalue: str or None
-        :type earlydate: str or None
+        :type earlydate: int or None
         :type elements: str or None
         :type epoch: str or None
         :type era: str or None
         :type event: str or None
-        :type ew: pastpy.models.cardinal_direction.CardinalDirection or None
+        :type ew: str or None
         :type excavadate: datetime.datetime or None
         :type excavateby: str or None
         :type exhibitid: str or None
         :type exhibitno: int or None
-        :type exhlabel: dict(int: str) or None
-        :type exhstart: str or None
+        :type exhlabel1: str or None
+        :type exhlabel2: str or None
+        :type exhlabel3: str or None
+        :type exhlabel4: str or None
+        :type exhstart: datetime.datetime or None
         :type family: str or None
         :type feature: str or None
         :type flagdate: datetime.datetime or None
@@ -8730,7 +9468,7 @@ class ObjectRecord(object):
         :type inscrtech: str or None
         :type inscrtext: str or None
         :type inscrtrans: str or None
-        :type inscrtype: object or None
+        :type inscrtype: str or None
         :type insdate: datetime.datetime or None
         :type insphone: str or None
         :type inspremium: str or None
@@ -8740,7 +9478,7 @@ class ObjectRecord(object):
         :type invndate: datetime.datetime or None
         :type kingdom: str or None
         :type latdeg: Decimal or None
-        :type latedate: str or None
+        :type latedate: int or None
         :type legal: str or None
         :type length: Decimal or None
         :type lengthft: Decimal or None
@@ -8748,12 +9486,17 @@ class ObjectRecord(object):
         :type level: str or None
         :type lithofacie: str or None
         :type loancond: str or None
-        :type loandue: str or None
+        :type loandue: datetime.datetime or None
         :type loanid: str or None
         :type loaninno: str or None
         :type loanno: int or None
         :type loanrenew: datetime.datetime or None
-        :type locfield: dict(int: str) or None
+        :type locfield1: str or None
+        :type locfield2: str or None
+        :type locfield3: str or None
+        :type locfield4: str or None
+        :type locfield5: str or None
+        :type locfield6: str or None
         :type longdeg: Decimal or None
         :type luster: str or None
         :type made: str or None
@@ -8767,7 +9510,7 @@ class ObjectRecord(object):
         :type nhclass: str or None
         :type nhorder: str or None
         :type notes: str or None
-        :type ns: pastpy.models.cardinal_direction.CardinalDirection or None
+        :type ns: str or None
         :type objectid: str or None
         :type objname: str or None
         :type objname2: str or None
@@ -8792,8 +9535,9 @@ class ObjectRecord(object):
         :type pressure: str or None
         :type provenance: str or None
         :type pubnotes: str or None
+        :type qrurl: str or None
         :type recas: str or None
-        :type recdate: datetime.datetime or None
+        :type recdate: str or None
         :type recfrom: str or None
         :type relation: str or None
         :type relnotes: str or None
@@ -8804,17 +9548,18 @@ class ObjectRecord(object):
         :type repatdisp: str or None
         :type repathand: str or None
         :type repatnotes: str or None
-        :type repatnotic: str or None
-        :type repattype: int or None
+        :type repatnotic: datetime.datetime or None
+        :type repattype: str or None
         :type rockclass: str or None
         :type rockcolor: str or None
         :type rockorigin: str or None
-        :type rocktype: int or None
+        :type rocktype: str or None
         :type role: str or None
         :type role2: str or None
         :type role3: str or None
         :type school: str or None
         :type sex: str or None
+        :type sgflag: str or None
         :type signedname: str or None
         :type signloc: str or None
         :type site: str or None
@@ -8843,14 +9588,45 @@ class ObjectRecord(object):
         :type tempuntil: str or None
         :type texture: str or None
         :type title: str or None
-        :type tlocfield: dict(int: str) or None
-        :type udf: dict(int: object) or None
+        :type tlocfield1: str or None
+        :type tlocfield2: str or None
+        :type tlocfield3: str or None
+        :type tlocfield4: str or None
+        :type tlocfield5: str or None
+        :type tlocfield6: str or None
+        :type udf1: str or None
+        :type udf10: str or None
+        :type udf11: str or None
+        :type udf12: str or None
+        :type udf13: int or None
+        :type udf14: Decimal or None
+        :type udf15: Decimal or None
+        :type udf16: Decimal or None
+        :type udf17: Decimal or None
+        :type udf18: datetime.datetime or None
+        :type udf19: datetime.datetime or None
+        :type udf2: str or None
+        :type udf20: datetime.datetime or None
+        :type udf21: str or None
+        :type udf22: str or None
+        :type udf3: str or None
+        :type udf4: str or None
+        :type udf5: str or None
+        :type udf6: str or None
+        :type udf7: str or None
+        :type udf8: str or None
+        :type udf9: str or None
         :type unit: str or None
         :type updated: datetime.datetime or None
         :type updatedby: str or None
         :type used: str or None
         :type valuedate: datetime.datetime or None
         :type varieties: str or None
+        :type vexhtml: str or None
+        :type vexlabel1: str or None
+        :type vexlabel2: str or None
+        :type vexlabel3: str or None
+        :type vexlabel4: str or None
         :type webinclude: bool or None
         :type weight: Decimal or None
         :type weightin: Decimal or None
@@ -8858,9 +9634,9 @@ class ObjectRecord(object):
         :type width: Decimal or None
         :type widthft: Decimal or None
         :type widthin: Decimal or None
-        :type xcord: str or None
-        :type ycord: str or None
-        :type zcord: str or None
+        :type xcord: Decimal or None
+        :type ycord: Decimal or None
+        :type zcord: Decimal or None
         :type zsorter: str or None
         :type zsorterx: str or None
         '''
@@ -8868,19 +9644,11 @@ class ObjectRecord(object):
         if accessno is not None:
             if not isinstance(accessno, str):
                 raise TypeError("expected accessno to be a str but it is a %s" % builtins.type(accessno))
-            if accessno.isspace():
-                raise ValueError("expected accessno not to be blank")
-            if len(accessno) < 1:
-                raise ValueError("expected len(accessno) to be >= 1, was %d" % len(accessno))
         self.__accessno = accessno
 
         if accessory is not None:
             if not isinstance(accessory, str):
                 raise TypeError("expected accessory to be a str but it is a %s" % builtins.type(accessory))
-            if accessory.isspace():
-                raise ValueError("expected accessory not to be blank")
-            if len(accessory) < 1:
-                raise ValueError("expected len(accessory) to be >= 1, was %d" % len(accessory))
         self.__accessory = accessory
 
         if acqvalue is not None:
@@ -8891,70 +9659,46 @@ class ObjectRecord(object):
         if age is not None:
             if not isinstance(age, str):
                 raise TypeError("expected age to be a str but it is a %s" % builtins.type(age))
-            if age.isspace():
-                raise ValueError("expected age not to be blank")
-            if len(age) < 1:
-                raise ValueError("expected len(age) to be >= 1, was %d" % len(age))
         self.__age = age
 
         if appnotes is not None:
             if not isinstance(appnotes, str):
                 raise TypeError("expected appnotes to be a str but it is a %s" % builtins.type(appnotes))
-            if appnotes.isspace():
-                raise ValueError("expected appnotes not to be blank")
-            if len(appnotes) < 1:
-                raise ValueError("expected len(appnotes) to be >= 1, was %d" % len(appnotes))
         self.__appnotes = appnotes
 
         if appraisor is not None:
             if not isinstance(appraisor, str):
                 raise TypeError("expected appraisor to be a str but it is a %s" % builtins.type(appraisor))
-            if appraisor.isspace():
-                raise ValueError("expected appraisor not to be blank")
-            if len(appraisor) < 1:
-                raise ValueError("expected len(appraisor) to be >= 1, was %d" % len(appraisor))
         self.__appraisor = appraisor
 
         if assemzone is not None:
             if not isinstance(assemzone, str):
                 raise TypeError("expected assemzone to be a str but it is a %s" % builtins.type(assemzone))
-            if assemzone.isspace():
-                raise ValueError("expected assemzone not to be blank")
-            if len(assemzone) < 1:
-                raise ValueError("expected len(assemzone) to be >= 1, was %d" % len(assemzone))
         self.__assemzone = assemzone
 
         if bagno is not None:
-            if not isinstance(bagno, int):
-                raise TypeError("expected bagno to be a int but it is a %s" % builtins.type(bagno))
+            if not isinstance(bagno, str):
+                raise TypeError("expected bagno to be a str but it is a %s" % builtins.type(bagno))
         self.__bagno = bagno
 
         if boxno is not None:
-            if not isinstance(boxno, int):
-                raise TypeError("expected boxno to be a int but it is a %s" % builtins.type(boxno))
+            if not isinstance(boxno, str):
+                raise TypeError("expected boxno to be a str but it is a %s" % builtins.type(boxno))
         self.__boxno = boxno
 
         if caption is not None:
             if not isinstance(caption, str):
                 raise TypeError("expected caption to be a str but it is a %s" % builtins.type(caption))
-            if caption.isspace():
-                raise ValueError("expected caption not to be blank")
-            if len(caption) < 1:
-                raise ValueError("expected len(caption) to be >= 1, was %d" % len(caption))
         self.__caption = caption
 
         if cat is not None:
-            if not isinstance(cat, pastpy.models.cat.Cat):
-                raise TypeError("expected cat to be a pastpy.models.cat.Cat but it is a %s" % builtins.type(cat))
+            if not isinstance(cat, str):
+                raise TypeError("expected cat to be a str but it is a %s" % builtins.type(cat))
         self.__cat = cat
 
         if catby is not None:
             if not isinstance(catby, str):
                 raise TypeError("expected catby to be a str but it is a %s" % builtins.type(catby))
-            if catby.isspace():
-                raise ValueError("expected catby not to be blank")
-            if len(catby) < 1:
-                raise ValueError("expected len(catby) to be >= 1, was %d" % len(catby))
         self.__catby = catby
 
         if catdate is not None:
@@ -8965,49 +9709,31 @@ class ObjectRecord(object):
         if cattype is not None:
             if not isinstance(cattype, str):
                 raise TypeError("expected cattype to be a str but it is a %s" % builtins.type(cattype))
-            if cattype.isspace():
-                raise ValueError("expected cattype not to be blank")
-            if len(cattype) < 1:
-                raise ValueError("expected len(cattype) to be >= 1, was %d" % len(cattype))
         self.__cattype = cattype
 
         if chemcomp is not None:
             if not isinstance(chemcomp, str):
                 raise TypeError("expected chemcomp to be a str but it is a %s" % builtins.type(chemcomp))
-            if chemcomp.isspace():
-                raise ValueError("expected chemcomp not to be blank")
-            if len(chemcomp) < 1:
-                raise ValueError("expected len(chemcomp) to be >= 1, was %d" % len(chemcomp))
         self.__chemcomp = chemcomp
 
         if circum is not None:
             if not isinstance(circum, decimal.Decimal):
                 raise TypeError("expected circum to be a Decimal but it is a %s" % builtins.type(circum))
-            if circum <= 0:
-                raise ValueError("expected circum to be > 0, was %s" % circum)
         self.__circum = circum
 
         if circumft is not None:
             if not isinstance(circumft, decimal.Decimal):
                 raise TypeError("expected circumft to be a Decimal but it is a %s" % builtins.type(circumft))
-            if circumft <= 0:
-                raise ValueError("expected circumft to be > 0, was %s" % circumft)
         self.__circumft = circumft
 
         if circumin is not None:
             if not isinstance(circumin, decimal.Decimal):
                 raise TypeError("expected circumin to be a Decimal but it is a %s" % builtins.type(circumin))
-            if circumin <= 0:
-                raise ValueError("expected circumin to be > 0, was %s" % circumin)
         self.__circumin = circumin
 
         if classes is not None:
             if not isinstance(classes, str):
                 raise TypeError("expected classes to be a str but it is a %s" % builtins.type(classes))
-            if classes.isspace():
-                raise ValueError("expected classes not to be blank")
-            if len(classes) < 1:
-                raise ValueError("expected len(classes) to be >= 1, was %d" % len(classes))
         self.__classes = classes
 
         if colldate is not None:
@@ -9018,19 +9744,11 @@ class ObjectRecord(object):
         if collection is not None:
             if not isinstance(collection, str):
                 raise TypeError("expected collection to be a str but it is a %s" % builtins.type(collection))
-            if collection.isspace():
-                raise ValueError("expected collection not to be blank")
-            if len(collection) < 1:
-                raise ValueError("expected len(collection) to be >= 1, was %d" % len(collection))
         self.__collection = collection
 
         if collector is not None:
             if not isinstance(collector, str):
                 raise TypeError("expected collector to be a str but it is a %s" % builtins.type(collector))
-            if collector.isspace():
-                raise ValueError("expected collector not to be blank")
-            if len(collector) < 1:
-                raise ValueError("expected len(collector) to be >= 1, was %d" % len(collector))
         self.__collector = collector
 
         if conddate is not None:
@@ -9041,87 +9759,51 @@ class ObjectRecord(object):
         if condexam is not None:
             if not isinstance(condexam, str):
                 raise TypeError("expected condexam to be a str but it is a %s" % builtins.type(condexam))
-            if condexam.isspace():
-                raise ValueError("expected condexam not to be blank")
-            if len(condexam) < 1:
-                raise ValueError("expected len(condexam) to be >= 1, was %d" % len(condexam))
         self.__condexam = condexam
 
         if condition is not None:
-            if not isinstance(condition, pastpy.models.condition.Condition):
-                raise TypeError("expected condition to be a pastpy.models.condition.Condition but it is a %s" % builtins.type(condition))
+            if not isinstance(condition, str):
+                raise TypeError("expected condition to be a str but it is a %s" % builtins.type(condition))
         self.__condition = condition
 
         if condnotes is not None:
             if not isinstance(condnotes, str):
                 raise TypeError("expected condnotes to be a str but it is a %s" % builtins.type(condnotes))
-            if condnotes.isspace():
-                raise ValueError("expected condnotes not to be blank")
-            if len(condnotes) < 1:
-                raise ValueError("expected len(condnotes) to be >= 1, was %d" % len(condnotes))
         self.__condnotes = condnotes
 
         if count is not None:
             if not isinstance(count, str):
                 raise TypeError("expected count to be a str but it is a %s" % builtins.type(count))
-            if count.isspace():
-                raise ValueError("expected count not to be blank")
-            if len(count) < 1:
-                raise ValueError("expected len(count) to be >= 1, was %d" % len(count))
         self.__count = count
 
         if creator is not None:
             if not isinstance(creator, str):
                 raise TypeError("expected creator to be a str but it is a %s" % builtins.type(creator))
-            if creator.isspace():
-                raise ValueError("expected creator not to be blank")
-            if len(creator) < 1:
-                raise ValueError("expected len(creator) to be >= 1, was %d" % len(creator))
         self.__creator = creator
 
         if creator2 is not None:
             if not isinstance(creator2, str):
                 raise TypeError("expected creator2 to be a str but it is a %s" % builtins.type(creator2))
-            if creator2.isspace():
-                raise ValueError("expected creator2 not to be blank")
-            if len(creator2) < 1:
-                raise ValueError("expected len(creator2) to be >= 1, was %d" % len(creator2))
         self.__creator2 = creator2
 
         if creator3 is not None:
             if not isinstance(creator3, str):
                 raise TypeError("expected creator3 to be a str but it is a %s" % builtins.type(creator3))
-            if creator3.isspace():
-                raise ValueError("expected creator3 not to be blank")
-            if len(creator3) < 1:
-                raise ValueError("expected len(creator3) to be >= 1, was %d" % len(creator3))
         self.__creator3 = creator3
 
         if credit is not None:
             if not isinstance(credit, str):
                 raise TypeError("expected credit to be a str but it is a %s" % builtins.type(credit))
-            if credit.isspace():
-                raise ValueError("expected credit not to be blank")
-            if len(credit) < 1:
-                raise ValueError("expected len(credit) to be >= 1, was %d" % len(credit))
         self.__credit = credit
 
         if crystal is not None:
             if not isinstance(crystal, str):
                 raise TypeError("expected crystal to be a str but it is a %s" % builtins.type(crystal))
-            if crystal.isspace():
-                raise ValueError("expected crystal not to be blank")
-            if len(crystal) < 1:
-                raise ValueError("expected len(crystal) to be >= 1, was %d" % len(crystal))
         self.__crystal = crystal
 
         if culture is not None:
             if not isinstance(culture, str):
                 raise TypeError("expected culture to be a str but it is a %s" % builtins.type(culture))
-            if culture.isspace():
-                raise ValueError("expected culture not to be blank")
-            if len(culture) < 1:
-                raise ValueError("expected len(culture) to be >= 1, was %d" % len(culture))
         self.__culture = culture
 
         if curvalmax is not None:
@@ -9137,97 +9819,61 @@ class ObjectRecord(object):
         if dataset is not None:
             if not isinstance(dataset, str):
                 raise TypeError("expected dataset to be a str but it is a %s" % builtins.type(dataset))
-            if dataset.isspace():
-                raise ValueError("expected dataset not to be blank")
-            if len(dataset) < 1:
-                raise ValueError("expected len(dataset) to be >= 1, was %d" % len(dataset))
         self.__dataset = dataset
 
         if date is not None:
             if not isinstance(date, str):
                 raise TypeError("expected date to be a str but it is a %s" % builtins.type(date))
-            if date.isspace():
-                raise ValueError("expected date not to be blank")
-            if len(date) < 1:
-                raise ValueError("expected len(date) to be >= 1, was %d" % len(date))
         self.__date = date
 
         if datingmeth is not None:
             if not isinstance(datingmeth, str):
                 raise TypeError("expected datingmeth to be a str but it is a %s" % builtins.type(datingmeth))
-            if datingmeth.isspace():
-                raise ValueError("expected datingmeth not to be blank")
-            if len(datingmeth) < 1:
-                raise ValueError("expected len(datingmeth) to be >= 1, was %d" % len(datingmeth))
         self.__datingmeth = datingmeth
 
         if datum is not None:
             if not isinstance(datum, str):
                 raise TypeError("expected datum to be a str but it is a %s" % builtins.type(datum))
-            if datum.isspace():
-                raise ValueError("expected datum not to be blank")
-            if len(datum) < 1:
-                raise ValueError("expected len(datum) to be >= 1, was %d" % len(datum))
         self.__datum = datum
 
         if depth is not None:
             if not isinstance(depth, decimal.Decimal):
                 raise TypeError("expected depth to be a Decimal but it is a %s" % builtins.type(depth))
-            if depth <= 0:
-                raise ValueError("expected depth to be > 0, was %s" % depth)
         self.__depth = depth
 
         if depthft is not None:
             if not isinstance(depthft, decimal.Decimal):
                 raise TypeError("expected depthft to be a Decimal but it is a %s" % builtins.type(depthft))
-            if depthft <= 0:
-                raise ValueError("expected depthft to be > 0, was %s" % depthft)
         self.__depthft = depthft
 
         if depthin is not None:
             if not isinstance(depthin, decimal.Decimal):
                 raise TypeError("expected depthin to be a Decimal but it is a %s" % builtins.type(depthin))
-            if depthin <= 0:
-                raise ValueError("expected depthin to be > 0, was %s" % depthin)
         self.__depthin = depthin
 
         if descrip is not None:
             if not isinstance(descrip, str):
                 raise TypeError("expected descrip to be a str but it is a %s" % builtins.type(descrip))
-            if descrip.isspace():
-                raise ValueError("expected descrip not to be blank")
-            if len(descrip) < 1:
-                raise ValueError("expected len(descrip) to be >= 1, was %d" % len(descrip))
         self.__descrip = descrip
 
         if diameter is not None:
             if not isinstance(diameter, decimal.Decimal):
                 raise TypeError("expected diameter to be a Decimal but it is a %s" % builtins.type(diameter))
-            if diameter <= 0:
-                raise ValueError("expected diameter to be > 0, was %s" % diameter)
         self.__diameter = diameter
 
         if diameterft is not None:
             if not isinstance(diameterft, decimal.Decimal):
                 raise TypeError("expected diameterft to be a Decimal but it is a %s" % builtins.type(diameterft))
-            if diameterft <= 0:
-                raise ValueError("expected diameterft to be > 0, was %s" % diameterft)
         self.__diameterft = diameterft
 
         if diameterin is not None:
             if not isinstance(diameterin, decimal.Decimal):
                 raise TypeError("expected diameterin to be a Decimal but it is a %s" % builtins.type(diameterin))
-            if diameterin <= 0:
-                raise ValueError("expected diameterin to be > 0, was %s" % diameterin)
         self.__diameterin = diameterin
 
         if dimnotes is not None:
             if not isinstance(dimnotes, str):
                 raise TypeError("expected dimnotes to be a str but it is a %s" % builtins.type(dimnotes))
-            if dimnotes.isspace():
-                raise ValueError("expected dimnotes not to be blank")
-            if len(dimnotes) < 1:
-                raise ValueError("expected len(dimnotes) to be >= 1, was %d" % len(dimnotes))
         self.__dimnotes = dimnotes
 
         if dimtype is not None:
@@ -9238,60 +9884,36 @@ class ObjectRecord(object):
         if dispvalue is not None:
             if not isinstance(dispvalue, str):
                 raise TypeError("expected dispvalue to be a str but it is a %s" % builtins.type(dispvalue))
-            if dispvalue.isspace():
-                raise ValueError("expected dispvalue not to be blank")
-            if len(dispvalue) < 1:
-                raise ValueError("expected len(dispvalue) to be >= 1, was %d" % len(dispvalue))
         self.__dispvalue = dispvalue
 
         if earlydate is not None:
-            if not isinstance(earlydate, str):
-                raise TypeError("expected earlydate to be a str but it is a %s" % builtins.type(earlydate))
-            if earlydate.isspace():
-                raise ValueError("expected earlydate not to be blank")
-            if len(earlydate) < 1:
-                raise ValueError("expected len(earlydate) to be >= 1, was %d" % len(earlydate))
+            if not isinstance(earlydate, int):
+                raise TypeError("expected earlydate to be a int but it is a %s" % builtins.type(earlydate))
         self.__earlydate = earlydate
 
         if elements is not None:
             if not isinstance(elements, str):
                 raise TypeError("expected elements to be a str but it is a %s" % builtins.type(elements))
-            if elements.isspace():
-                raise ValueError("expected elements not to be blank")
-            if len(elements) < 1:
-                raise ValueError("expected len(elements) to be >= 1, was %d" % len(elements))
         self.__elements = elements
 
         if epoch is not None:
             if not isinstance(epoch, str):
                 raise TypeError("expected epoch to be a str but it is a %s" % builtins.type(epoch))
-            if epoch.isspace():
-                raise ValueError("expected epoch not to be blank")
-            if len(epoch) < 1:
-                raise ValueError("expected len(epoch) to be >= 1, was %d" % len(epoch))
         self.__epoch = epoch
 
         if era is not None:
             if not isinstance(era, str):
                 raise TypeError("expected era to be a str but it is a %s" % builtins.type(era))
-            if era.isspace():
-                raise ValueError("expected era not to be blank")
-            if len(era) < 1:
-                raise ValueError("expected len(era) to be >= 1, was %d" % len(era))
         self.__era = era
 
         if event is not None:
             if not isinstance(event, str):
                 raise TypeError("expected event to be a str but it is a %s" % builtins.type(event))
-            if event.isspace():
-                raise ValueError("expected event not to be blank")
-            if len(event) < 1:
-                raise ValueError("expected len(event) to be >= 1, was %d" % len(event))
         self.__event = event
 
         if ew is not None:
-            if not isinstance(ew, pastpy.models.cardinal_direction.CardinalDirection):
-                raise TypeError("expected ew to be a pastpy.models.cardinal_direction.CardinalDirection but it is a %s" % builtins.type(ew))
+            if not isinstance(ew, str):
+                raise TypeError("expected ew to be a str but it is a %s" % builtins.type(ew))
         self.__ew = ew
 
         if excavadate is not None:
@@ -9302,19 +9924,11 @@ class ObjectRecord(object):
         if excavateby is not None:
             if not isinstance(excavateby, str):
                 raise TypeError("expected excavateby to be a str but it is a %s" % builtins.type(excavateby))
-            if excavateby.isspace():
-                raise ValueError("expected excavateby not to be blank")
-            if len(excavateby) < 1:
-                raise ValueError("expected len(excavateby) to be >= 1, was %d" % len(excavateby))
         self.__excavateby = excavateby
 
         if exhibitid is not None:
             if not isinstance(exhibitid, str):
                 raise TypeError("expected exhibitid to be a str but it is a %s" % builtins.type(exhibitid))
-            if exhibitid.isspace():
-                raise ValueError("expected exhibitid not to be blank")
-            if len(exhibitid) < 1:
-                raise ValueError("expected len(exhibitid) to be >= 1, was %d" % len(exhibitid))
         self.__exhibitid = exhibitid
 
         if exhibitno is not None:
@@ -9322,38 +9936,39 @@ class ObjectRecord(object):
                 raise TypeError("expected exhibitno to be a int but it is a %s" % builtins.type(exhibitno))
         self.__exhibitno = exhibitno
 
-        if exhlabel is not None:
-            if not (isinstance(exhlabel, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), exhlabel.items()))) == 0):
-                raise TypeError("expected exhlabel to be a dict(int: str) but it is a %s" % builtins.type(exhlabel))
-            if len(exhlabel) < 1:
-                raise ValueError("expected len(exhlabel) to be >= 1, was %d" % len(exhlabel))
-        self.__exhlabel = exhlabel.copy() if exhlabel is not None else None
+        if exhlabel1 is not None:
+            if not isinstance(exhlabel1, str):
+                raise TypeError("expected exhlabel1 to be a str but it is a %s" % builtins.type(exhlabel1))
+        self.__exhlabel1 = exhlabel1
+
+        if exhlabel2 is not None:
+            if not isinstance(exhlabel2, str):
+                raise TypeError("expected exhlabel2 to be a str but it is a %s" % builtins.type(exhlabel2))
+        self.__exhlabel2 = exhlabel2
+
+        if exhlabel3 is not None:
+            if not isinstance(exhlabel3, str):
+                raise TypeError("expected exhlabel3 to be a str but it is a %s" % builtins.type(exhlabel3))
+        self.__exhlabel3 = exhlabel3
+
+        if exhlabel4 is not None:
+            if not isinstance(exhlabel4, str):
+                raise TypeError("expected exhlabel4 to be a str but it is a %s" % builtins.type(exhlabel4))
+        self.__exhlabel4 = exhlabel4
 
         if exhstart is not None:
-            if not isinstance(exhstart, str):
-                raise TypeError("expected exhstart to be a str but it is a %s" % builtins.type(exhstart))
-            if exhstart.isspace():
-                raise ValueError("expected exhstart not to be blank")
-            if len(exhstart) < 1:
-                raise ValueError("expected len(exhstart) to be >= 1, was %d" % len(exhstart))
+            if not isinstance(exhstart, datetime.datetime):
+                raise TypeError("expected exhstart to be a datetime.datetime but it is a %s" % builtins.type(exhstart))
         self.__exhstart = exhstart
 
         if family is not None:
             if not isinstance(family, str):
                 raise TypeError("expected family to be a str but it is a %s" % builtins.type(family))
-            if family.isspace():
-                raise ValueError("expected family not to be blank")
-            if len(family) < 1:
-                raise ValueError("expected len(family) to be >= 1, was %d" % len(family))
         self.__family = family
 
         if feature is not None:
             if not isinstance(feature, str):
                 raise TypeError("expected feature to be a str but it is a %s" % builtins.type(feature))
-            if feature.isspace():
-                raise ValueError("expected feature not to be blank")
-            if len(feature) < 1:
-                raise ValueError("expected len(feature) to be >= 1, was %d" % len(feature))
         self.__feature = feature
 
         if flagdate is not None:
@@ -9364,157 +9979,91 @@ class ObjectRecord(object):
         if flagnotes is not None:
             if not isinstance(flagnotes, str):
                 raise TypeError("expected flagnotes to be a str but it is a %s" % builtins.type(flagnotes))
-            if flagnotes.isspace():
-                raise ValueError("expected flagnotes not to be blank")
-            if len(flagnotes) < 1:
-                raise ValueError("expected len(flagnotes) to be >= 1, was %d" % len(flagnotes))
         self.__flagnotes = flagnotes
 
         if flagreason is not None:
             if not isinstance(flagreason, str):
                 raise TypeError("expected flagreason to be a str but it is a %s" % builtins.type(flagreason))
-            if flagreason.isspace():
-                raise ValueError("expected flagreason not to be blank")
-            if len(flagreason) < 1:
-                raise ValueError("expected len(flagreason) to be >= 1, was %d" % len(flagreason))
         self.__flagreason = flagreason
 
         if formation is not None:
             if not isinstance(formation, str):
                 raise TypeError("expected formation to be a str but it is a %s" % builtins.type(formation))
-            if formation.isspace():
-                raise ValueError("expected formation not to be blank")
-            if len(formation) < 1:
-                raise ValueError("expected len(formation) to be >= 1, was %d" % len(formation))
         self.__formation = formation
 
         if fossils is not None:
             if not isinstance(fossils, str):
                 raise TypeError("expected fossils to be a str but it is a %s" % builtins.type(fossils))
-            if fossils.isspace():
-                raise ValueError("expected fossils not to be blank")
-            if len(fossils) < 1:
-                raise ValueError("expected len(fossils) to be >= 1, was %d" % len(fossils))
         self.__fossils = fossils
 
         if found is not None:
             if not isinstance(found, str):
                 raise TypeError("expected found to be a str but it is a %s" % builtins.type(found))
-            if found.isspace():
-                raise ValueError("expected found not to be blank")
-            if len(found) < 1:
-                raise ValueError("expected len(found) to be >= 1, was %d" % len(found))
         self.__found = found
 
         if fracture is not None:
             if not isinstance(fracture, str):
                 raise TypeError("expected fracture to be a str but it is a %s" % builtins.type(fracture))
-            if fracture.isspace():
-                raise ValueError("expected fracture not to be blank")
-            if len(fracture) < 1:
-                raise ValueError("expected len(fracture) to be >= 1, was %d" % len(fracture))
         self.__fracture = fracture
 
         if frame is not None:
             if not isinstance(frame, str):
                 raise TypeError("expected frame to be a str but it is a %s" % builtins.type(frame))
-            if frame.isspace():
-                raise ValueError("expected frame not to be blank")
-            if len(frame) < 1:
-                raise ValueError("expected len(frame) to be >= 1, was %d" % len(frame))
         self.__frame = frame
 
         if framesize is not None:
             if not isinstance(framesize, str):
                 raise TypeError("expected framesize to be a str but it is a %s" % builtins.type(framesize))
-            if framesize.isspace():
-                raise ValueError("expected framesize not to be blank")
-            if len(framesize) < 1:
-                raise ValueError("expected len(framesize) to be >= 1, was %d" % len(framesize))
         self.__framesize = framesize
 
         if genus is not None:
             if not isinstance(genus, str):
                 raise TypeError("expected genus to be a str but it is a %s" % builtins.type(genus))
-            if genus.isspace():
-                raise ValueError("expected genus not to be blank")
-            if len(genus) < 1:
-                raise ValueError("expected len(genus) to be >= 1, was %d" % len(genus))
         self.__genus = genus
 
         if gparent is not None:
             if not isinstance(gparent, str):
                 raise TypeError("expected gparent to be a str but it is a %s" % builtins.type(gparent))
-            if gparent.isspace():
-                raise ValueError("expected gparent not to be blank")
-            if len(gparent) < 1:
-                raise ValueError("expected len(gparent) to be >= 1, was %d" % len(gparent))
         self.__gparent = gparent
 
         if grainsize is not None:
             if not isinstance(grainsize, str):
                 raise TypeError("expected grainsize to be a str but it is a %s" % builtins.type(grainsize))
-            if grainsize.isspace():
-                raise ValueError("expected grainsize not to be blank")
-            if len(grainsize) < 1:
-                raise ValueError("expected len(grainsize) to be >= 1, was %d" % len(grainsize))
         self.__grainsize = grainsize
 
         if habitat is not None:
             if not isinstance(habitat, str):
                 raise TypeError("expected habitat to be a str but it is a %s" % builtins.type(habitat))
-            if habitat.isspace():
-                raise ValueError("expected habitat not to be blank")
-            if len(habitat) < 1:
-                raise ValueError("expected len(habitat) to be >= 1, was %d" % len(habitat))
         self.__habitat = habitat
 
         if hardness is not None:
             if not isinstance(hardness, str):
                 raise TypeError("expected hardness to be a str but it is a %s" % builtins.type(hardness))
-            if hardness.isspace():
-                raise ValueError("expected hardness not to be blank")
-            if len(hardness) < 1:
-                raise ValueError("expected len(hardness) to be >= 1, was %d" % len(hardness))
         self.__hardness = hardness
 
         if height is not None:
             if not isinstance(height, decimal.Decimal):
                 raise TypeError("expected height to be a Decimal but it is a %s" % builtins.type(height))
-            if height <= 0:
-                raise ValueError("expected height to be > 0, was %s" % height)
         self.__height = height
 
         if heightft is not None:
             if not isinstance(heightft, decimal.Decimal):
                 raise TypeError("expected heightft to be a Decimal but it is a %s" % builtins.type(heightft))
-            if heightft <= 0:
-                raise ValueError("expected heightft to be > 0, was %s" % heightft)
         self.__heightft = heightft
 
         if heightin is not None:
             if not isinstance(heightin, decimal.Decimal):
                 raise TypeError("expected heightin to be a Decimal but it is a %s" % builtins.type(heightin))
-            if heightin <= 0:
-                raise ValueError("expected heightin to be > 0, was %s" % heightin)
         self.__heightin = heightin
 
         if homeloc is not None:
             if not isinstance(homeloc, str):
                 raise TypeError("expected homeloc to be a str but it is a %s" % builtins.type(homeloc))
-            if homeloc.isspace():
-                raise ValueError("expected homeloc not to be blank")
-            if len(homeloc) < 1:
-                raise ValueError("expected len(homeloc) to be >= 1, was %d" % len(homeloc))
         self.__homeloc = homeloc
 
         if idby is not None:
             if not isinstance(idby, str):
                 raise TypeError("expected idby to be a str but it is a %s" % builtins.type(idby))
-            if idby.isspace():
-                raise ValueError("expected idby not to be blank")
-            if len(idby) < 1:
-                raise ValueError("expected len(idby) to be >= 1, was %d" % len(idby))
         self.__idby = idby
 
         if iddate is not None:
@@ -9525,10 +10074,6 @@ class ObjectRecord(object):
         if imagefile is not None:
             if not isinstance(imagefile, str):
                 raise TypeError("expected imagefile to be a str but it is a %s" % builtins.type(imagefile))
-            if imagefile.isspace():
-                raise ValueError("expected imagefile not to be blank")
-            if len(imagefile) < 1:
-                raise ValueError("expected len(imagefile) to be >= 1, was %d" % len(imagefile))
         self.__imagefile = imagefile
 
         if imageno is not None:
@@ -9539,67 +10084,41 @@ class ObjectRecord(object):
         if imagesize is not None:
             if not isinstance(imagesize, str):
                 raise TypeError("expected imagesize to be a str but it is a %s" % builtins.type(imagesize))
-            if imagesize.isspace():
-                raise ValueError("expected imagesize not to be blank")
-            if len(imagesize) < 1:
-                raise ValueError("expected len(imagesize) to be >= 1, was %d" % len(imagesize))
         self.__imagesize = imagesize
 
         if inscomp is not None:
             if not isinstance(inscomp, str):
                 raise TypeError("expected inscomp to be a str but it is a %s" % builtins.type(inscomp))
-            if inscomp.isspace():
-                raise ValueError("expected inscomp not to be blank")
-            if len(inscomp) < 1:
-                raise ValueError("expected len(inscomp) to be >= 1, was %d" % len(inscomp))
         self.__inscomp = inscomp
 
         if inscrlang is not None:
             if not isinstance(inscrlang, str):
                 raise TypeError("expected inscrlang to be a str but it is a %s" % builtins.type(inscrlang))
-            if inscrlang.isspace():
-                raise ValueError("expected inscrlang not to be blank")
-            if len(inscrlang) < 1:
-                raise ValueError("expected len(inscrlang) to be >= 1, was %d" % len(inscrlang))
         self.__inscrlang = inscrlang
 
         if inscrpos is not None:
             if not isinstance(inscrpos, str):
                 raise TypeError("expected inscrpos to be a str but it is a %s" % builtins.type(inscrpos))
-            if inscrpos.isspace():
-                raise ValueError("expected inscrpos not to be blank")
-            if len(inscrpos) < 1:
-                raise ValueError("expected len(inscrpos) to be >= 1, was %d" % len(inscrpos))
         self.__inscrpos = inscrpos
 
         if inscrtech is not None:
             if not isinstance(inscrtech, str):
                 raise TypeError("expected inscrtech to be a str but it is a %s" % builtins.type(inscrtech))
-            if inscrtech.isspace():
-                raise ValueError("expected inscrtech not to be blank")
-            if len(inscrtech) < 1:
-                raise ValueError("expected len(inscrtech) to be >= 1, was %d" % len(inscrtech))
         self.__inscrtech = inscrtech
 
         if inscrtext is not None:
             if not isinstance(inscrtext, str):
                 raise TypeError("expected inscrtext to be a str but it is a %s" % builtins.type(inscrtext))
-            if inscrtext.isspace():
-                raise ValueError("expected inscrtext not to be blank")
-            if len(inscrtext) < 1:
-                raise ValueError("expected len(inscrtext) to be >= 1, was %d" % len(inscrtext))
         self.__inscrtext = inscrtext
 
         if inscrtrans is not None:
             if not isinstance(inscrtrans, str):
                 raise TypeError("expected inscrtrans to be a str but it is a %s" % builtins.type(inscrtrans))
-            if inscrtrans.isspace():
-                raise ValueError("expected inscrtrans not to be blank")
-            if len(inscrtrans) < 1:
-                raise ValueError("expected len(inscrtrans) to be >= 1, was %d" % len(inscrtrans))
         self.__inscrtrans = inscrtrans
 
-
+        if inscrtype is not None:
+            if not isinstance(inscrtype, str):
+                raise TypeError("expected inscrtype to be a str but it is a %s" % builtins.type(inscrtype))
         self.__inscrtype = inscrtype
 
         if insdate is not None:
@@ -9610,28 +10129,16 @@ class ObjectRecord(object):
         if insphone is not None:
             if not isinstance(insphone, str):
                 raise TypeError("expected insphone to be a str but it is a %s" % builtins.type(insphone))
-            if insphone.isspace():
-                raise ValueError("expected insphone not to be blank")
-            if len(insphone) < 1:
-                raise ValueError("expected len(insphone) to be >= 1, was %d" % len(insphone))
         self.__insphone = insphone
 
         if inspremium is not None:
             if not isinstance(inspremium, str):
                 raise TypeError("expected inspremium to be a str but it is a %s" % builtins.type(inspremium))
-            if inspremium.isspace():
-                raise ValueError("expected inspremium not to be blank")
-            if len(inspremium) < 1:
-                raise ValueError("expected len(inspremium) to be >= 1, was %d" % len(inspremium))
         self.__inspremium = inspremium
 
         if insrep is not None:
             if not isinstance(insrep, str):
                 raise TypeError("expected insrep to be a str but it is a %s" % builtins.type(insrep))
-            if insrep.isspace():
-                raise ValueError("expected insrep not to be blank")
-            if len(insrep) < 1:
-                raise ValueError("expected len(insrep) to be >= 1, was %d" % len(insrep))
         self.__insrep = insrep
 
         if insvalue is not None:
@@ -9642,10 +10149,6 @@ class ObjectRecord(object):
         if invnby is not None:
             if not isinstance(invnby, str):
                 raise TypeError("expected invnby to be a str but it is a %s" % builtins.type(invnby))
-            if invnby.isspace():
-                raise ValueError("expected invnby not to be blank")
-            if len(invnby) < 1:
-                raise ValueError("expected len(invnby) to be >= 1, was %d" % len(invnby))
         self.__invnby = invnby
 
         if invndate is not None:
@@ -9656,110 +10159,66 @@ class ObjectRecord(object):
         if kingdom is not None:
             if not isinstance(kingdom, str):
                 raise TypeError("expected kingdom to be a str but it is a %s" % builtins.type(kingdom))
-            if kingdom.isspace():
-                raise ValueError("expected kingdom not to be blank")
-            if len(kingdom) < 1:
-                raise ValueError("expected len(kingdom) to be >= 1, was %d" % len(kingdom))
         self.__kingdom = kingdom
 
         if latdeg is not None:
             if not isinstance(latdeg, decimal.Decimal):
                 raise TypeError("expected latdeg to be a Decimal but it is a %s" % builtins.type(latdeg))
-            if latdeg <= 0:
-                raise ValueError("expected latdeg to be > 0, was %s" % latdeg)
         self.__latdeg = latdeg
 
         if latedate is not None:
-            if not isinstance(latedate, str):
-                raise TypeError("expected latedate to be a str but it is a %s" % builtins.type(latedate))
-            if latedate.isspace():
-                raise ValueError("expected latedate not to be blank")
-            if len(latedate) < 1:
-                raise ValueError("expected len(latedate) to be >= 1, was %d" % len(latedate))
+            if not isinstance(latedate, int):
+                raise TypeError("expected latedate to be a int but it is a %s" % builtins.type(latedate))
         self.__latedate = latedate
 
         if legal is not None:
             if not isinstance(legal, str):
                 raise TypeError("expected legal to be a str but it is a %s" % builtins.type(legal))
-            if legal.isspace():
-                raise ValueError("expected legal not to be blank")
-            if len(legal) < 1:
-                raise ValueError("expected len(legal) to be >= 1, was %d" % len(legal))
         self.__legal = legal
 
         if length is not None:
             if not isinstance(length, decimal.Decimal):
                 raise TypeError("expected length to be a Decimal but it is a %s" % builtins.type(length))
-            if length <= 0:
-                raise ValueError("expected length to be > 0, was %s" % length)
         self.__length = length
 
         if lengthft is not None:
             if not isinstance(lengthft, decimal.Decimal):
                 raise TypeError("expected lengthft to be a Decimal but it is a %s" % builtins.type(lengthft))
-            if lengthft <= 0:
-                raise ValueError("expected lengthft to be > 0, was %s" % lengthft)
         self.__lengthft = lengthft
 
         if lengthin is not None:
             if not isinstance(lengthin, decimal.Decimal):
                 raise TypeError("expected lengthin to be a Decimal but it is a %s" % builtins.type(lengthin))
-            if lengthin <= 0:
-                raise ValueError("expected lengthin to be > 0, was %s" % lengthin)
         self.__lengthin = lengthin
 
         if level is not None:
             if not isinstance(level, str):
                 raise TypeError("expected level to be a str but it is a %s" % builtins.type(level))
-            if level.isspace():
-                raise ValueError("expected level not to be blank")
-            if len(level) < 1:
-                raise ValueError("expected len(level) to be >= 1, was %d" % len(level))
         self.__level = level
 
         if lithofacie is not None:
             if not isinstance(lithofacie, str):
                 raise TypeError("expected lithofacie to be a str but it is a %s" % builtins.type(lithofacie))
-            if lithofacie.isspace():
-                raise ValueError("expected lithofacie not to be blank")
-            if len(lithofacie) < 1:
-                raise ValueError("expected len(lithofacie) to be >= 1, was %d" % len(lithofacie))
         self.__lithofacie = lithofacie
 
         if loancond is not None:
             if not isinstance(loancond, str):
                 raise TypeError("expected loancond to be a str but it is a %s" % builtins.type(loancond))
-            if loancond.isspace():
-                raise ValueError("expected loancond not to be blank")
-            if len(loancond) < 1:
-                raise ValueError("expected len(loancond) to be >= 1, was %d" % len(loancond))
         self.__loancond = loancond
 
         if loandue is not None:
-            if not isinstance(loandue, str):
-                raise TypeError("expected loandue to be a str but it is a %s" % builtins.type(loandue))
-            if loandue.isspace():
-                raise ValueError("expected loandue not to be blank")
-            if len(loandue) < 1:
-                raise ValueError("expected len(loandue) to be >= 1, was %d" % len(loandue))
+            if not isinstance(loandue, datetime.datetime):
+                raise TypeError("expected loandue to be a datetime.datetime but it is a %s" % builtins.type(loandue))
         self.__loandue = loandue
 
         if loanid is not None:
             if not isinstance(loanid, str):
                 raise TypeError("expected loanid to be a str but it is a %s" % builtins.type(loanid))
-            if loanid.isspace():
-                raise ValueError("expected loanid not to be blank")
-            if len(loanid) < 1:
-                raise ValueError("expected len(loanid) to be >= 1, was %d" % len(loanid))
         self.__loanid = loanid
 
         if loaninno is not None:
             if not isinstance(loaninno, str):
                 raise TypeError("expected loaninno to be a str but it is a %s" % builtins.type(loaninno))
-            if loaninno.isspace():
-                raise ValueError("expected loaninno not to be blank")
-            if len(loaninno) < 1:
-                raise ValueError("expected len(loaninno) to be >= 1, was %d" % len(loaninno))
         self.__loaninno = loaninno
 
         if loanno is not None:
@@ -9772,45 +10231,54 @@ class ObjectRecord(object):
                 raise TypeError("expected loanrenew to be a datetime.datetime but it is a %s" % builtins.type(loanrenew))
         self.__loanrenew = loanrenew
 
-        if locfield is not None:
-            if not (isinstance(locfield, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), locfield.items()))) == 0):
-                raise TypeError("expected locfield to be a dict(int: str) but it is a %s" % builtins.type(locfield))
-            if len(locfield) < 1:
-                raise ValueError("expected len(locfield) to be >= 1, was %d" % len(locfield))
-        self.__locfield = locfield.copy() if locfield is not None else None
+        if locfield1 is not None:
+            if not isinstance(locfield1, str):
+                raise TypeError("expected locfield1 to be a str but it is a %s" % builtins.type(locfield1))
+        self.__locfield1 = locfield1
+
+        if locfield2 is not None:
+            if not isinstance(locfield2, str):
+                raise TypeError("expected locfield2 to be a str but it is a %s" % builtins.type(locfield2))
+        self.__locfield2 = locfield2
+
+        if locfield3 is not None:
+            if not isinstance(locfield3, str):
+                raise TypeError("expected locfield3 to be a str but it is a %s" % builtins.type(locfield3))
+        self.__locfield3 = locfield3
+
+        if locfield4 is not None:
+            if not isinstance(locfield4, str):
+                raise TypeError("expected locfield4 to be a str but it is a %s" % builtins.type(locfield4))
+        self.__locfield4 = locfield4
+
+        if locfield5 is not None:
+            if not isinstance(locfield5, str):
+                raise TypeError("expected locfield5 to be a str but it is a %s" % builtins.type(locfield5))
+        self.__locfield5 = locfield5
+
+        if locfield6 is not None:
+            if not isinstance(locfield6, str):
+                raise TypeError("expected locfield6 to be a str but it is a %s" % builtins.type(locfield6))
+        self.__locfield6 = locfield6
 
         if longdeg is not None:
             if not isinstance(longdeg, decimal.Decimal):
                 raise TypeError("expected longdeg to be a Decimal but it is a %s" % builtins.type(longdeg))
-            if longdeg <= 0:
-                raise ValueError("expected longdeg to be > 0, was %s" % longdeg)
         self.__longdeg = longdeg
 
         if luster is not None:
             if not isinstance(luster, str):
                 raise TypeError("expected luster to be a str but it is a %s" % builtins.type(luster))
-            if luster.isspace():
-                raise ValueError("expected luster not to be blank")
-            if len(luster) < 1:
-                raise ValueError("expected len(luster) to be >= 1, was %d" % len(luster))
         self.__luster = luster
 
         if made is not None:
             if not isinstance(made, str):
                 raise TypeError("expected made to be a str but it is a %s" % builtins.type(made))
-            if made.isspace():
-                raise ValueError("expected made not to be blank")
-            if len(made) < 1:
-                raise ValueError("expected len(made) to be >= 1, was %d" % len(made))
         self.__made = made
 
         if maintcycle is not None:
             if not isinstance(maintcycle, str):
                 raise TypeError("expected maintcycle to be a str but it is a %s" % builtins.type(maintcycle))
-            if maintcycle.isspace():
-                raise ValueError("expected maintcycle not to be blank")
-            if len(maintcycle) < 1:
-                raise ValueError("expected len(maintcycle) to be >= 1, was %d" % len(maintcycle))
         self.__maintcycle = maintcycle
 
         if maintdate is not None:
@@ -9821,168 +10289,96 @@ class ObjectRecord(object):
         if maintnote is not None:
             if not isinstance(maintnote, str):
                 raise TypeError("expected maintnote to be a str but it is a %s" % builtins.type(maintnote))
-            if maintnote.isspace():
-                raise ValueError("expected maintnote not to be blank")
-            if len(maintnote) < 1:
-                raise ValueError("expected len(maintnote) to be >= 1, was %d" % len(maintnote))
         self.__maintnote = maintnote
 
         if material is not None:
             if not isinstance(material, str):
                 raise TypeError("expected material to be a str but it is a %s" % builtins.type(material))
-            if material.isspace():
-                raise ValueError("expected material not to be blank")
-            if len(material) < 1:
-                raise ValueError("expected len(material) to be >= 1, was %d" % len(material))
         self.__material = material
 
         if medium is not None:
             if not isinstance(medium, str):
                 raise TypeError("expected medium to be a str but it is a %s" % builtins.type(medium))
-            if medium.isspace():
-                raise ValueError("expected medium not to be blank")
-            if len(medium) < 1:
-                raise ValueError("expected len(medium) to be >= 1, was %d" % len(medium))
         self.__medium = medium
 
         if member is not None:
             if not isinstance(member, str):
                 raise TypeError("expected member to be a str but it is a %s" % builtins.type(member))
-            if member.isspace():
-                raise ValueError("expected member not to be blank")
-            if len(member) < 1:
-                raise ValueError("expected len(member) to be >= 1, was %d" % len(member))
         self.__member = member
 
         if mmark is not None:
             if not isinstance(mmark, str):
                 raise TypeError("expected mmark to be a str but it is a %s" % builtins.type(mmark))
-            if mmark.isspace():
-                raise ValueError("expected mmark not to be blank")
-            if len(mmark) < 1:
-                raise ValueError("expected len(mmark) to be >= 1, was %d" % len(mmark))
         self.__mmark = mmark
 
         if nhclass is not None:
             if not isinstance(nhclass, str):
                 raise TypeError("expected nhclass to be a str but it is a %s" % builtins.type(nhclass))
-            if nhclass.isspace():
-                raise ValueError("expected nhclass not to be blank")
-            if len(nhclass) < 1:
-                raise ValueError("expected len(nhclass) to be >= 1, was %d" % len(nhclass))
         self.__nhclass = nhclass
 
         if nhorder is not None:
             if not isinstance(nhorder, str):
                 raise TypeError("expected nhorder to be a str but it is a %s" % builtins.type(nhorder))
-            if nhorder.isspace():
-                raise ValueError("expected nhorder not to be blank")
-            if len(nhorder) < 1:
-                raise ValueError("expected len(nhorder) to be >= 1, was %d" % len(nhorder))
         self.__nhorder = nhorder
 
         if notes is not None:
             if not isinstance(notes, str):
                 raise TypeError("expected notes to be a str but it is a %s" % builtins.type(notes))
-            if notes.isspace():
-                raise ValueError("expected notes not to be blank")
-            if len(notes) < 1:
-                raise ValueError("expected len(notes) to be >= 1, was %d" % len(notes))
         self.__notes = notes
 
         if ns is not None:
-            if not isinstance(ns, pastpy.models.cardinal_direction.CardinalDirection):
-                raise TypeError("expected ns to be a pastpy.models.cardinal_direction.CardinalDirection but it is a %s" % builtins.type(ns))
+            if not isinstance(ns, str):
+                raise TypeError("expected ns to be a str but it is a %s" % builtins.type(ns))
         self.__ns = ns
 
         if objectid is not None:
             if not isinstance(objectid, str):
                 raise TypeError("expected objectid to be a str but it is a %s" % builtins.type(objectid))
-            if objectid.isspace():
-                raise ValueError("expected objectid not to be blank")
-            if len(objectid) < 1:
-                raise ValueError("expected len(objectid) to be >= 1, was %d" % len(objectid))
         self.__objectid = objectid
 
         if objname is not None:
             if not isinstance(objname, str):
                 raise TypeError("expected objname to be a str but it is a %s" % builtins.type(objname))
-            if objname.isspace():
-                raise ValueError("expected objname not to be blank")
-            if len(objname) < 1:
-                raise ValueError("expected len(objname) to be >= 1, was %d" % len(objname))
         self.__objname = objname
 
         if objname2 is not None:
             if not isinstance(objname2, str):
                 raise TypeError("expected objname2 to be a str but it is a %s" % builtins.type(objname2))
-            if objname2.isspace():
-                raise ValueError("expected objname2 not to be blank")
-            if len(objname2) < 1:
-                raise ValueError("expected len(objname2) to be >= 1, was %d" % len(objname2))
         self.__objname2 = objname2
 
         if objname3 is not None:
             if not isinstance(objname3, str):
                 raise TypeError("expected objname3 to be a str but it is a %s" % builtins.type(objname3))
-            if objname3.isspace():
-                raise ValueError("expected objname3 not to be blank")
-            if len(objname3) < 1:
-                raise ValueError("expected len(objname3) to be >= 1, was %d" % len(objname3))
         self.__objname3 = objname3
 
         if objnames is not None:
             if not isinstance(objnames, str):
                 raise TypeError("expected objnames to be a str but it is a %s" % builtins.type(objnames))
-            if objnames.isspace():
-                raise ValueError("expected objnames not to be blank")
-            if len(objnames) < 1:
-                raise ValueError("expected len(objnames) to be >= 1, was %d" % len(objnames))
         self.__objnames = objnames
 
         if occurrence is not None:
             if not isinstance(occurrence, str):
                 raise TypeError("expected occurrence to be a str but it is a %s" % builtins.type(occurrence))
-            if occurrence.isspace():
-                raise ValueError("expected occurrence not to be blank")
-            if len(occurrence) < 1:
-                raise ValueError("expected len(occurrence) to be >= 1, was %d" % len(occurrence))
         self.__occurrence = occurrence
 
         if oldno is not None:
             if not isinstance(oldno, str):
                 raise TypeError("expected oldno to be a str but it is a %s" % builtins.type(oldno))
-            if oldno.isspace():
-                raise ValueError("expected oldno not to be blank")
-            if len(oldno) < 1:
-                raise ValueError("expected len(oldno) to be >= 1, was %d" % len(oldno))
         self.__oldno = oldno
 
         if origin is not None:
             if not isinstance(origin, str):
                 raise TypeError("expected origin to be a str but it is a %s" % builtins.type(origin))
-            if origin.isspace():
-                raise ValueError("expected origin not to be blank")
-            if len(origin) < 1:
-                raise ValueError("expected len(origin) to be >= 1, was %d" % len(origin))
         self.__origin = origin
 
         if othername is not None:
             if not isinstance(othername, str):
                 raise TypeError("expected othername to be a str but it is a %s" % builtins.type(othername))
-            if othername.isspace():
-                raise ValueError("expected othername not to be blank")
-            if len(othername) < 1:
-                raise ValueError("expected len(othername) to be >= 1, was %d" % len(othername))
         self.__othername = othername
 
         if otherno is not None:
             if not isinstance(otherno, str):
                 raise TypeError("expected otherno to be a str but it is a %s" % builtins.type(otherno))
-            if otherno.isspace():
-                raise ValueError("expected otherno not to be blank")
-            if len(otherno) < 1:
-                raise ValueError("expected len(otherno) to be >= 1, was %d" % len(otherno))
         self.__otherno = otherno
 
         if outdate is not None:
@@ -9993,73 +10389,41 @@ class ObjectRecord(object):
         if owned is not None:
             if not isinstance(owned, str):
                 raise TypeError("expected owned to be a str but it is a %s" % builtins.type(owned))
-            if owned.isspace():
-                raise ValueError("expected owned not to be blank")
-            if len(owned) < 1:
-                raise ValueError("expected len(owned) to be >= 1, was %d" % len(owned))
         self.__owned = owned
 
         if parent is not None:
             if not isinstance(parent, str):
                 raise TypeError("expected parent to be a str but it is a %s" % builtins.type(parent))
-            if parent.isspace():
-                raise ValueError("expected parent not to be blank")
-            if len(parent) < 1:
-                raise ValueError("expected len(parent) to be >= 1, was %d" % len(parent))
         self.__parent = parent
 
         if people is not None:
             if not isinstance(people, str):
                 raise TypeError("expected people to be a str but it is a %s" % builtins.type(people))
-            if people.isspace():
-                raise ValueError("expected people not to be blank")
-            if len(people) < 1:
-                raise ValueError("expected len(people) to be >= 1, was %d" % len(people))
         self.__people = people
 
         if period is not None:
             if not isinstance(period, str):
                 raise TypeError("expected period to be a str but it is a %s" % builtins.type(period))
-            if period.isspace():
-                raise ValueError("expected period not to be blank")
-            if len(period) < 1:
-                raise ValueError("expected len(period) to be >= 1, was %d" % len(period))
         self.__period = period
 
         if phylum is not None:
             if not isinstance(phylum, str):
                 raise TypeError("expected phylum to be a str but it is a %s" % builtins.type(phylum))
-            if phylum.isspace():
-                raise ValueError("expected phylum not to be blank")
-            if len(phylum) < 1:
-                raise ValueError("expected len(phylum) to be >= 1, was %d" % len(phylum))
         self.__phylum = phylum
 
         if policyno is not None:
             if not isinstance(policyno, str):
                 raise TypeError("expected policyno to be a str but it is a %s" % builtins.type(policyno))
-            if policyno.isspace():
-                raise ValueError("expected policyno not to be blank")
-            if len(policyno) < 1:
-                raise ValueError("expected len(policyno) to be >= 1, was %d" % len(policyno))
         self.__policyno = policyno
 
         if ppid is not None:
             if not isinstance(ppid, str):
                 raise TypeError("expected ppid to be a str but it is a %s" % builtins.type(ppid))
-            if ppid.isspace():
-                raise ValueError("expected ppid not to be blank")
-            if len(ppid) < 1:
-                raise ValueError("expected len(ppid) to be >= 1, was %d" % len(ppid))
         self.__ppid = ppid
 
         if preparator is not None:
             if not isinstance(preparator, str):
                 raise TypeError("expected preparator to be a str but it is a %s" % builtins.type(preparator))
-            if preparator.isspace():
-                raise ValueError("expected preparator not to be blank")
-            if len(preparator) < 1:
-                raise ValueError("expected len(preparator) to be >= 1, was %d" % len(preparator))
         self.__preparator = preparator
 
         if prepdate is not None:
@@ -10070,78 +10434,51 @@ class ObjectRecord(object):
         if preserve is not None:
             if not isinstance(preserve, str):
                 raise TypeError("expected preserve to be a str but it is a %s" % builtins.type(preserve))
-            if preserve.isspace():
-                raise ValueError("expected preserve not to be blank")
-            if len(preserve) < 1:
-                raise ValueError("expected len(preserve) to be >= 1, was %d" % len(preserve))
         self.__preserve = preserve
 
         if pressure is not None:
             if not isinstance(pressure, str):
                 raise TypeError("expected pressure to be a str but it is a %s" % builtins.type(pressure))
-            if pressure.isspace():
-                raise ValueError("expected pressure not to be blank")
-            if len(pressure) < 1:
-                raise ValueError("expected len(pressure) to be >= 1, was %d" % len(pressure))
         self.__pressure = pressure
 
         if provenance is not None:
             if not isinstance(provenance, str):
                 raise TypeError("expected provenance to be a str but it is a %s" % builtins.type(provenance))
-            if provenance.isspace():
-                raise ValueError("expected provenance not to be blank")
-            if len(provenance) < 1:
-                raise ValueError("expected len(provenance) to be >= 1, was %d" % len(provenance))
         self.__provenance = provenance
 
         if pubnotes is not None:
             if not isinstance(pubnotes, str):
                 raise TypeError("expected pubnotes to be a str but it is a %s" % builtins.type(pubnotes))
-            if pubnotes.isspace():
-                raise ValueError("expected pubnotes not to be blank")
-            if len(pubnotes) < 1:
-                raise ValueError("expected len(pubnotes) to be >= 1, was %d" % len(pubnotes))
         self.__pubnotes = pubnotes
+
+        if qrurl is not None:
+            if not isinstance(qrurl, str):
+                raise TypeError("expected qrurl to be a str but it is a %s" % builtins.type(qrurl))
+        self.__qrurl = qrurl
 
         if recas is not None:
             if not isinstance(recas, str):
                 raise TypeError("expected recas to be a str but it is a %s" % builtins.type(recas))
-            if recas.isspace():
-                raise ValueError("expected recas not to be blank")
-            if len(recas) < 1:
-                raise ValueError("expected len(recas) to be >= 1, was %d" % len(recas))
         self.__recas = recas
 
         if recdate is not None:
-            if not isinstance(recdate, datetime.datetime):
-                raise TypeError("expected recdate to be a datetime.datetime but it is a %s" % builtins.type(recdate))
+            if not isinstance(recdate, str):
+                raise TypeError("expected recdate to be a str but it is a %s" % builtins.type(recdate))
         self.__recdate = recdate
 
         if recfrom is not None:
             if not isinstance(recfrom, str):
                 raise TypeError("expected recfrom to be a str but it is a %s" % builtins.type(recfrom))
-            if recfrom.isspace():
-                raise ValueError("expected recfrom not to be blank")
-            if len(recfrom) < 1:
-                raise ValueError("expected len(recfrom) to be >= 1, was %d" % len(recfrom))
         self.__recfrom = recfrom
 
         if relation is not None:
             if not isinstance(relation, str):
                 raise TypeError("expected relation to be a str but it is a %s" % builtins.type(relation))
-            if relation.isspace():
-                raise ValueError("expected relation not to be blank")
-            if len(relation) < 1:
-                raise ValueError("expected len(relation) to be >= 1, was %d" % len(relation))
         self.__relation = relation
 
         if relnotes is not None:
             if not isinstance(relnotes, str):
                 raise TypeError("expected relnotes to be a str but it is a %s" % builtins.type(relnotes))
-            if relnotes.isspace():
-                raise ValueError("expected relnotes not to be blank")
-            if len(relnotes) < 1:
-                raise ValueError("expected len(relnotes) to be >= 1, was %d" % len(relnotes))
         self.__relnotes = relnotes
 
         if renewuntil is not None:
@@ -10152,19 +10489,11 @@ class ObjectRecord(object):
         if repatby is not None:
             if not isinstance(repatby, str):
                 raise TypeError("expected repatby to be a str but it is a %s" % builtins.type(repatby))
-            if repatby.isspace():
-                raise ValueError("expected repatby not to be blank")
-            if len(repatby) < 1:
-                raise ValueError("expected len(repatby) to be >= 1, was %d" % len(repatby))
         self.__repatby = repatby
 
         if repatclaim is not None:
             if not isinstance(repatclaim, str):
                 raise TypeError("expected repatclaim to be a str but it is a %s" % builtins.type(repatclaim))
-            if repatclaim.isspace():
-                raise ValueError("expected repatclaim not to be blank")
-            if len(repatclaim) < 1:
-                raise ValueError("expected len(repatclaim) to be >= 1, was %d" % len(repatclaim))
         self.__repatclaim = repatclaim
 
         if repatdate is not None:
@@ -10175,209 +10504,126 @@ class ObjectRecord(object):
         if repatdisp is not None:
             if not isinstance(repatdisp, str):
                 raise TypeError("expected repatdisp to be a str but it is a %s" % builtins.type(repatdisp))
-            if repatdisp.isspace():
-                raise ValueError("expected repatdisp not to be blank")
-            if len(repatdisp) < 1:
-                raise ValueError("expected len(repatdisp) to be >= 1, was %d" % len(repatdisp))
         self.__repatdisp = repatdisp
 
         if repathand is not None:
             if not isinstance(repathand, str):
                 raise TypeError("expected repathand to be a str but it is a %s" % builtins.type(repathand))
-            if repathand.isspace():
-                raise ValueError("expected repathand not to be blank")
-            if len(repathand) < 1:
-                raise ValueError("expected len(repathand) to be >= 1, was %d" % len(repathand))
         self.__repathand = repathand
 
         if repatnotes is not None:
             if not isinstance(repatnotes, str):
                 raise TypeError("expected repatnotes to be a str but it is a %s" % builtins.type(repatnotes))
-            if repatnotes.isspace():
-                raise ValueError("expected repatnotes not to be blank")
-            if len(repatnotes) < 1:
-                raise ValueError("expected len(repatnotes) to be >= 1, was %d" % len(repatnotes))
         self.__repatnotes = repatnotes
 
         if repatnotic is not None:
-            if not isinstance(repatnotic, str):
-                raise TypeError("expected repatnotic to be a str but it is a %s" % builtins.type(repatnotic))
-            if repatnotic.isspace():
-                raise ValueError("expected repatnotic not to be blank")
-            if len(repatnotic) < 1:
-                raise ValueError("expected len(repatnotic) to be >= 1, was %d" % len(repatnotic))
+            if not isinstance(repatnotic, datetime.datetime):
+                raise TypeError("expected repatnotic to be a datetime.datetime but it is a %s" % builtins.type(repatnotic))
         self.__repatnotic = repatnotic
 
         if repattype is not None:
-            if not isinstance(repattype, int):
-                raise TypeError("expected repattype to be a int but it is a %s" % builtins.type(repattype))
+            if not isinstance(repattype, str):
+                raise TypeError("expected repattype to be a str but it is a %s" % builtins.type(repattype))
         self.__repattype = repattype
 
         if rockclass is not None:
             if not isinstance(rockclass, str):
                 raise TypeError("expected rockclass to be a str but it is a %s" % builtins.type(rockclass))
-            if rockclass.isspace():
-                raise ValueError("expected rockclass not to be blank")
-            if len(rockclass) < 1:
-                raise ValueError("expected len(rockclass) to be >= 1, was %d" % len(rockclass))
         self.__rockclass = rockclass
 
         if rockcolor is not None:
             if not isinstance(rockcolor, str):
                 raise TypeError("expected rockcolor to be a str but it is a %s" % builtins.type(rockcolor))
-            if rockcolor.isspace():
-                raise ValueError("expected rockcolor not to be blank")
-            if len(rockcolor) < 1:
-                raise ValueError("expected len(rockcolor) to be >= 1, was %d" % len(rockcolor))
         self.__rockcolor = rockcolor
 
         if rockorigin is not None:
             if not isinstance(rockorigin, str):
                 raise TypeError("expected rockorigin to be a str but it is a %s" % builtins.type(rockorigin))
-            if rockorigin.isspace():
-                raise ValueError("expected rockorigin not to be blank")
-            if len(rockorigin) < 1:
-                raise ValueError("expected len(rockorigin) to be >= 1, was %d" % len(rockorigin))
         self.__rockorigin = rockorigin
 
         if rocktype is not None:
-            if not isinstance(rocktype, int):
-                raise TypeError("expected rocktype to be a int but it is a %s" % builtins.type(rocktype))
+            if not isinstance(rocktype, str):
+                raise TypeError("expected rocktype to be a str but it is a %s" % builtins.type(rocktype))
         self.__rocktype = rocktype
 
         if role is not None:
             if not isinstance(role, str):
                 raise TypeError("expected role to be a str but it is a %s" % builtins.type(role))
-            if role.isspace():
-                raise ValueError("expected role not to be blank")
-            if len(role) < 1:
-                raise ValueError("expected len(role) to be >= 1, was %d" % len(role))
         self.__role = role
 
         if role2 is not None:
             if not isinstance(role2, str):
                 raise TypeError("expected role2 to be a str but it is a %s" % builtins.type(role2))
-            if role2.isspace():
-                raise ValueError("expected role2 not to be blank")
-            if len(role2) < 1:
-                raise ValueError("expected len(role2) to be >= 1, was %d" % len(role2))
         self.__role2 = role2
 
         if role3 is not None:
             if not isinstance(role3, str):
                 raise TypeError("expected role3 to be a str but it is a %s" % builtins.type(role3))
-            if role3.isspace():
-                raise ValueError("expected role3 not to be blank")
-            if len(role3) < 1:
-                raise ValueError("expected len(role3) to be >= 1, was %d" % len(role3))
         self.__role3 = role3
 
         if school is not None:
             if not isinstance(school, str):
                 raise TypeError("expected school to be a str but it is a %s" % builtins.type(school))
-            if school.isspace():
-                raise ValueError("expected school not to be blank")
-            if len(school) < 1:
-                raise ValueError("expected len(school) to be >= 1, was %d" % len(school))
         self.__school = school
 
         if sex is not None:
             if not isinstance(sex, str):
                 raise TypeError("expected sex to be a str but it is a %s" % builtins.type(sex))
-            if sex.isspace():
-                raise ValueError("expected sex not to be blank")
-            if len(sex) < 1:
-                raise ValueError("expected len(sex) to be >= 1, was %d" % len(sex))
         self.__sex = sex
+
+        if sgflag is not None:
+            if not isinstance(sgflag, str):
+                raise TypeError("expected sgflag to be a str but it is a %s" % builtins.type(sgflag))
+        self.__sgflag = sgflag
 
         if signedname is not None:
             if not isinstance(signedname, str):
                 raise TypeError("expected signedname to be a str but it is a %s" % builtins.type(signedname))
-            if signedname.isspace():
-                raise ValueError("expected signedname not to be blank")
-            if len(signedname) < 1:
-                raise ValueError("expected len(signedname) to be >= 1, was %d" % len(signedname))
         self.__signedname = signedname
 
         if signloc is not None:
             if not isinstance(signloc, str):
                 raise TypeError("expected signloc to be a str but it is a %s" % builtins.type(signloc))
-            if signloc.isspace():
-                raise ValueError("expected signloc not to be blank")
-            if len(signloc) < 1:
-                raise ValueError("expected len(signloc) to be >= 1, was %d" % len(signloc))
         self.__signloc = signloc
 
         if site is not None:
             if not isinstance(site, str):
                 raise TypeError("expected site to be a str but it is a %s" % builtins.type(site))
-            if site.isspace():
-                raise ValueError("expected site not to be blank")
-            if len(site) < 1:
-                raise ValueError("expected len(site) to be >= 1, was %d" % len(site))
         self.__site = site
 
         if siteno is not None:
             if not isinstance(siteno, str):
                 raise TypeError("expected siteno to be a str but it is a %s" % builtins.type(siteno))
-            if siteno.isspace():
-                raise ValueError("expected siteno not to be blank")
-            if len(siteno) < 1:
-                raise ValueError("expected len(siteno) to be >= 1, was %d" % len(siteno))
         self.__siteno = siteno
 
         if specgrav is not None:
             if not isinstance(specgrav, str):
                 raise TypeError("expected specgrav to be a str but it is a %s" % builtins.type(specgrav))
-            if specgrav.isspace():
-                raise ValueError("expected specgrav not to be blank")
-            if len(specgrav) < 1:
-                raise ValueError("expected len(specgrav) to be >= 1, was %d" % len(specgrav))
         self.__specgrav = specgrav
 
         if species is not None:
             if not isinstance(species, str):
                 raise TypeError("expected species to be a str but it is a %s" % builtins.type(species))
-            if species.isspace():
-                raise ValueError("expected species not to be blank")
-            if len(species) < 1:
-                raise ValueError("expected len(species) to be >= 1, was %d" % len(species))
         self.__species = species
 
         if sprocess is not None:
             if not isinstance(sprocess, str):
                 raise TypeError("expected sprocess to be a str but it is a %s" % builtins.type(sprocess))
-            if sprocess.isspace():
-                raise ValueError("expected sprocess not to be blank")
-            if len(sprocess) < 1:
-                raise ValueError("expected len(sprocess) to be >= 1, was %d" % len(sprocess))
         self.__sprocess = sprocess
 
         if stage is not None:
             if not isinstance(stage, str):
                 raise TypeError("expected stage to be a str but it is a %s" % builtins.type(stage))
-            if stage.isspace():
-                raise ValueError("expected stage not to be blank")
-            if len(stage) < 1:
-                raise ValueError("expected len(stage) to be >= 1, was %d" % len(stage))
         self.__stage = stage
 
         if status is not None:
             if not isinstance(status, str):
                 raise TypeError("expected status to be a str but it is a %s" % builtins.type(status))
-            if status.isspace():
-                raise ValueError("expected status not to be blank")
-            if len(status) < 1:
-                raise ValueError("expected len(status) to be >= 1, was %d" % len(status))
         self.__status = status
 
         if statusby is not None:
             if not isinstance(statusby, str):
                 raise TypeError("expected statusby to be a str but it is a %s" % builtins.type(statusby))
-            if statusby.isspace():
-                raise ValueError("expected statusby not to be blank")
-            if len(statusby) < 1:
-                raise ValueError("expected len(statusby) to be >= 1, was %d" % len(statusby))
         self.__statusby = statusby
 
         if statusdate is not None:
@@ -10388,82 +10634,46 @@ class ObjectRecord(object):
         if sterms is not None:
             if not isinstance(sterms, str):
                 raise TypeError("expected sterms to be a str but it is a %s" % builtins.type(sterms))
-            if sterms.isspace():
-                raise ValueError("expected sterms not to be blank")
-            if len(sterms) < 1:
-                raise ValueError("expected len(sterms) to be >= 1, was %d" % len(sterms))
         self.__sterms = sterms
 
         if stratum is not None:
             if not isinstance(stratum, str):
                 raise TypeError("expected stratum to be a str but it is a %s" % builtins.type(stratum))
-            if stratum.isspace():
-                raise ValueError("expected stratum not to be blank")
-            if len(stratum) < 1:
-                raise ValueError("expected len(stratum) to be >= 1, was %d" % len(stratum))
         self.__stratum = stratum
 
         if streak is not None:
             if not isinstance(streak, str):
                 raise TypeError("expected streak to be a str but it is a %s" % builtins.type(streak))
-            if streak.isspace():
-                raise ValueError("expected streak not to be blank")
-            if len(streak) < 1:
-                raise ValueError("expected len(streak) to be >= 1, was %d" % len(streak))
         self.__streak = streak
 
         if subfamily is not None:
             if not isinstance(subfamily, str):
                 raise TypeError("expected subfamily to be a str but it is a %s" % builtins.type(subfamily))
-            if subfamily.isspace():
-                raise ValueError("expected subfamily not to be blank")
-            if len(subfamily) < 1:
-                raise ValueError("expected len(subfamily) to be >= 1, was %d" % len(subfamily))
         self.__subfamily = subfamily
 
         if subjects is not None:
             if not isinstance(subjects, str):
                 raise TypeError("expected subjects to be a str but it is a %s" % builtins.type(subjects))
-            if subjects.isspace():
-                raise ValueError("expected subjects not to be blank")
-            if len(subjects) < 1:
-                raise ValueError("expected len(subjects) to be >= 1, was %d" % len(subjects))
         self.__subjects = subjects
 
         if subspecies is not None:
             if not isinstance(subspecies, str):
                 raise TypeError("expected subspecies to be a str but it is a %s" % builtins.type(subspecies))
-            if subspecies.isspace():
-                raise ValueError("expected subspecies not to be blank")
-            if len(subspecies) < 1:
-                raise ValueError("expected len(subspecies) to be >= 1, was %d" % len(subspecies))
         self.__subspecies = subspecies
 
         if technique is not None:
             if not isinstance(technique, str):
                 raise TypeError("expected technique to be a str but it is a %s" % builtins.type(technique))
-            if technique.isspace():
-                raise ValueError("expected technique not to be blank")
-            if len(technique) < 1:
-                raise ValueError("expected len(technique) to be >= 1, was %d" % len(technique))
         self.__technique = technique
 
         if tempauthor is not None:
             if not isinstance(tempauthor, str):
                 raise TypeError("expected tempauthor to be a str but it is a %s" % builtins.type(tempauthor))
-            if tempauthor.isspace():
-                raise ValueError("expected tempauthor not to be blank")
-            if len(tempauthor) < 1:
-                raise ValueError("expected len(tempauthor) to be >= 1, was %d" % len(tempauthor))
         self.__tempauthor = tempauthor
 
         if tempby is not None:
             if not isinstance(tempby, str):
                 raise TypeError("expected tempby to be a str but it is a %s" % builtins.type(tempby))
-            if tempby.isspace():
-                raise ValueError("expected tempby not to be blank")
-            if len(tempby) < 1:
-                raise ValueError("expected len(tempby) to be >= 1, was %d" % len(tempby))
         self.__tempby = tempby
 
         if tempdate is not None:
@@ -10474,87 +10684,181 @@ class ObjectRecord(object):
         if temperatur is not None:
             if not isinstance(temperatur, str):
                 raise TypeError("expected temperatur to be a str but it is a %s" % builtins.type(temperatur))
-            if temperatur.isspace():
-                raise ValueError("expected temperatur not to be blank")
-            if len(temperatur) < 1:
-                raise ValueError("expected len(temperatur) to be >= 1, was %d" % len(temperatur))
         self.__temperatur = temperatur
 
         if temploc is not None:
             if not isinstance(temploc, str):
                 raise TypeError("expected temploc to be a str but it is a %s" % builtins.type(temploc))
-            if temploc.isspace():
-                raise ValueError("expected temploc not to be blank")
-            if len(temploc) < 1:
-                raise ValueError("expected len(temploc) to be >= 1, was %d" % len(temploc))
         self.__temploc = temploc
 
         if tempnotes is not None:
             if not isinstance(tempnotes, str):
                 raise TypeError("expected tempnotes to be a str but it is a %s" % builtins.type(tempnotes))
-            if tempnotes.isspace():
-                raise ValueError("expected tempnotes not to be blank")
-            if len(tempnotes) < 1:
-                raise ValueError("expected len(tempnotes) to be >= 1, was %d" % len(tempnotes))
         self.__tempnotes = tempnotes
 
         if tempreason is not None:
             if not isinstance(tempreason, str):
                 raise TypeError("expected tempreason to be a str but it is a %s" % builtins.type(tempreason))
-            if tempreason.isspace():
-                raise ValueError("expected tempreason not to be blank")
-            if len(tempreason) < 1:
-                raise ValueError("expected len(tempreason) to be >= 1, was %d" % len(tempreason))
         self.__tempreason = tempreason
 
         if tempuntil is not None:
             if not isinstance(tempuntil, str):
                 raise TypeError("expected tempuntil to be a str but it is a %s" % builtins.type(tempuntil))
-            if tempuntil.isspace():
-                raise ValueError("expected tempuntil not to be blank")
-            if len(tempuntil) < 1:
-                raise ValueError("expected len(tempuntil) to be >= 1, was %d" % len(tempuntil))
         self.__tempuntil = tempuntil
 
         if texture is not None:
             if not isinstance(texture, str):
                 raise TypeError("expected texture to be a str but it is a %s" % builtins.type(texture))
-            if texture.isspace():
-                raise ValueError("expected texture not to be blank")
-            if len(texture) < 1:
-                raise ValueError("expected len(texture) to be >= 1, was %d" % len(texture))
         self.__texture = texture
 
         if title is not None:
             if not isinstance(title, str):
                 raise TypeError("expected title to be a str but it is a %s" % builtins.type(title))
-            if title.isspace():
-                raise ValueError("expected title not to be blank")
-            if len(title) < 1:
-                raise ValueError("expected len(title) to be >= 1, was %d" % len(title))
         self.__title = title
 
-        if tlocfield is not None:
-            if not (isinstance(tlocfield, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and isinstance(__item[1], str), tlocfield.items()))) == 0):
-                raise TypeError("expected tlocfield to be a dict(int: str) but it is a %s" % builtins.type(tlocfield))
-            if len(tlocfield) < 1:
-                raise ValueError("expected len(tlocfield) to be >= 1, was %d" % len(tlocfield))
-        self.__tlocfield = tlocfield.copy() if tlocfield is not None else None
+        if tlocfield1 is not None:
+            if not isinstance(tlocfield1, str):
+                raise TypeError("expected tlocfield1 to be a str but it is a %s" % builtins.type(tlocfield1))
+        self.__tlocfield1 = tlocfield1
 
-        if udf is not None:
-            if not (isinstance(udf, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], int) and True, udf.items()))) == 0):
-                raise TypeError("expected udf to be a dict(int: object) but it is a %s" % builtins.type(udf))
-            if len(udf) < 1:
-                raise ValueError("expected len(udf) to be >= 1, was %d" % len(udf))
-        self.__udf = udf.copy() if udf is not None else None
+        if tlocfield2 is not None:
+            if not isinstance(tlocfield2, str):
+                raise TypeError("expected tlocfield2 to be a str but it is a %s" % builtins.type(tlocfield2))
+        self.__tlocfield2 = tlocfield2
+
+        if tlocfield3 is not None:
+            if not isinstance(tlocfield3, str):
+                raise TypeError("expected tlocfield3 to be a str but it is a %s" % builtins.type(tlocfield3))
+        self.__tlocfield3 = tlocfield3
+
+        if tlocfield4 is not None:
+            if not isinstance(tlocfield4, str):
+                raise TypeError("expected tlocfield4 to be a str but it is a %s" % builtins.type(tlocfield4))
+        self.__tlocfield4 = tlocfield4
+
+        if tlocfield5 is not None:
+            if not isinstance(tlocfield5, str):
+                raise TypeError("expected tlocfield5 to be a str but it is a %s" % builtins.type(tlocfield5))
+        self.__tlocfield5 = tlocfield5
+
+        if tlocfield6 is not None:
+            if not isinstance(tlocfield6, str):
+                raise TypeError("expected tlocfield6 to be a str but it is a %s" % builtins.type(tlocfield6))
+        self.__tlocfield6 = tlocfield6
+
+        if udf1 is not None:
+            if not isinstance(udf1, str):
+                raise TypeError("expected udf1 to be a str but it is a %s" % builtins.type(udf1))
+        self.__udf1 = udf1
+
+        if udf10 is not None:
+            if not isinstance(udf10, str):
+                raise TypeError("expected udf10 to be a str but it is a %s" % builtins.type(udf10))
+        self.__udf10 = udf10
+
+        if udf11 is not None:
+            if not isinstance(udf11, str):
+                raise TypeError("expected udf11 to be a str but it is a %s" % builtins.type(udf11))
+        self.__udf11 = udf11
+
+        if udf12 is not None:
+            if not isinstance(udf12, str):
+                raise TypeError("expected udf12 to be a str but it is a %s" % builtins.type(udf12))
+        self.__udf12 = udf12
+
+        if udf13 is not None:
+            if not isinstance(udf13, int):
+                raise TypeError("expected udf13 to be a int but it is a %s" % builtins.type(udf13))
+        self.__udf13 = udf13
+
+        if udf14 is not None:
+            if not isinstance(udf14, decimal.Decimal):
+                raise TypeError("expected udf14 to be a Decimal but it is a %s" % builtins.type(udf14))
+        self.__udf14 = udf14
+
+        if udf15 is not None:
+            if not isinstance(udf15, decimal.Decimal):
+                raise TypeError("expected udf15 to be a Decimal but it is a %s" % builtins.type(udf15))
+        self.__udf15 = udf15
+
+        if udf16 is not None:
+            if not isinstance(udf16, decimal.Decimal):
+                raise TypeError("expected udf16 to be a Decimal but it is a %s" % builtins.type(udf16))
+        self.__udf16 = udf16
+
+        if udf17 is not None:
+            if not isinstance(udf17, decimal.Decimal):
+                raise TypeError("expected udf17 to be a Decimal but it is a %s" % builtins.type(udf17))
+        self.__udf17 = udf17
+
+        if udf18 is not None:
+            if not isinstance(udf18, datetime.datetime):
+                raise TypeError("expected udf18 to be a datetime.datetime but it is a %s" % builtins.type(udf18))
+        self.__udf18 = udf18
+
+        if udf19 is not None:
+            if not isinstance(udf19, datetime.datetime):
+                raise TypeError("expected udf19 to be a datetime.datetime but it is a %s" % builtins.type(udf19))
+        self.__udf19 = udf19
+
+        if udf2 is not None:
+            if not isinstance(udf2, str):
+                raise TypeError("expected udf2 to be a str but it is a %s" % builtins.type(udf2))
+        self.__udf2 = udf2
+
+        if udf20 is not None:
+            if not isinstance(udf20, datetime.datetime):
+                raise TypeError("expected udf20 to be a datetime.datetime but it is a %s" % builtins.type(udf20))
+        self.__udf20 = udf20
+
+        if udf21 is not None:
+            if not isinstance(udf21, str):
+                raise TypeError("expected udf21 to be a str but it is a %s" % builtins.type(udf21))
+        self.__udf21 = udf21
+
+        if udf22 is not None:
+            if not isinstance(udf22, str):
+                raise TypeError("expected udf22 to be a str but it is a %s" % builtins.type(udf22))
+        self.__udf22 = udf22
+
+        if udf3 is not None:
+            if not isinstance(udf3, str):
+                raise TypeError("expected udf3 to be a str but it is a %s" % builtins.type(udf3))
+        self.__udf3 = udf3
+
+        if udf4 is not None:
+            if not isinstance(udf4, str):
+                raise TypeError("expected udf4 to be a str but it is a %s" % builtins.type(udf4))
+        self.__udf4 = udf4
+
+        if udf5 is not None:
+            if not isinstance(udf5, str):
+                raise TypeError("expected udf5 to be a str but it is a %s" % builtins.type(udf5))
+        self.__udf5 = udf5
+
+        if udf6 is not None:
+            if not isinstance(udf6, str):
+                raise TypeError("expected udf6 to be a str but it is a %s" % builtins.type(udf6))
+        self.__udf6 = udf6
+
+        if udf7 is not None:
+            if not isinstance(udf7, str):
+                raise TypeError("expected udf7 to be a str but it is a %s" % builtins.type(udf7))
+        self.__udf7 = udf7
+
+        if udf8 is not None:
+            if not isinstance(udf8, str):
+                raise TypeError("expected udf8 to be a str but it is a %s" % builtins.type(udf8))
+        self.__udf8 = udf8
+
+        if udf9 is not None:
+            if not isinstance(udf9, str):
+                raise TypeError("expected udf9 to be a str but it is a %s" % builtins.type(udf9))
+        self.__udf9 = udf9
 
         if unit is not None:
             if not isinstance(unit, str):
                 raise TypeError("expected unit to be a str but it is a %s" % builtins.type(unit))
-            if unit.isspace():
-                raise ValueError("expected unit not to be blank")
-            if len(unit) < 1:
-                raise ValueError("expected len(unit) to be >= 1, was %d" % len(unit))
         self.__unit = unit
 
         if updated is not None:
@@ -10565,19 +10869,11 @@ class ObjectRecord(object):
         if updatedby is not None:
             if not isinstance(updatedby, str):
                 raise TypeError("expected updatedby to be a str but it is a %s" % builtins.type(updatedby))
-            if updatedby.isspace():
-                raise ValueError("expected updatedby not to be blank")
-            if len(updatedby) < 1:
-                raise ValueError("expected len(updatedby) to be >= 1, was %d" % len(updatedby))
         self.__updatedby = updatedby
 
         if used is not None:
             if not isinstance(used, str):
                 raise TypeError("expected used to be a str but it is a %s" % builtins.type(used))
-            if used.isspace():
-                raise ValueError("expected used not to be blank")
-            if len(used) < 1:
-                raise ValueError("expected len(used) to be >= 1, was %d" % len(used))
         self.__used = used
 
         if valuedate is not None:
@@ -10588,11 +10884,32 @@ class ObjectRecord(object):
         if varieties is not None:
             if not isinstance(varieties, str):
                 raise TypeError("expected varieties to be a str but it is a %s" % builtins.type(varieties))
-            if varieties.isspace():
-                raise ValueError("expected varieties not to be blank")
-            if len(varieties) < 1:
-                raise ValueError("expected len(varieties) to be >= 1, was %d" % len(varieties))
         self.__varieties = varieties
+
+        if vexhtml is not None:
+            if not isinstance(vexhtml, str):
+                raise TypeError("expected vexhtml to be a str but it is a %s" % builtins.type(vexhtml))
+        self.__vexhtml = vexhtml
+
+        if vexlabel1 is not None:
+            if not isinstance(vexlabel1, str):
+                raise TypeError("expected vexlabel1 to be a str but it is a %s" % builtins.type(vexlabel1))
+        self.__vexlabel1 = vexlabel1
+
+        if vexlabel2 is not None:
+            if not isinstance(vexlabel2, str):
+                raise TypeError("expected vexlabel2 to be a str but it is a %s" % builtins.type(vexlabel2))
+        self.__vexlabel2 = vexlabel2
+
+        if vexlabel3 is not None:
+            if not isinstance(vexlabel3, str):
+                raise TypeError("expected vexlabel3 to be a str but it is a %s" % builtins.type(vexlabel3))
+        self.__vexlabel3 = vexlabel3
+
+        if vexlabel4 is not None:
+            if not isinstance(vexlabel4, str):
+                raise TypeError("expected vexlabel4 to be a str but it is a %s" % builtins.type(vexlabel4))
+        self.__vexlabel4 = vexlabel4
 
         if webinclude is not None:
             if not isinstance(webinclude, bool):
@@ -10602,88 +10919,56 @@ class ObjectRecord(object):
         if weight is not None:
             if not isinstance(weight, decimal.Decimal):
                 raise TypeError("expected weight to be a Decimal but it is a %s" % builtins.type(weight))
-            if weight <= 0:
-                raise ValueError("expected weight to be > 0, was %s" % weight)
         self.__weight = weight
 
         if weightin is not None:
             if not isinstance(weightin, decimal.Decimal):
                 raise TypeError("expected weightin to be a Decimal but it is a %s" % builtins.type(weightin))
-            if weightin <= 0:
-                raise ValueError("expected weightin to be > 0, was %s" % weightin)
         self.__weightin = weightin
 
         if weightlb is not None:
             if not isinstance(weightlb, decimal.Decimal):
                 raise TypeError("expected weightlb to be a Decimal but it is a %s" % builtins.type(weightlb))
-            if weightlb <= 0:
-                raise ValueError("expected weightlb to be > 0, was %s" % weightlb)
         self.__weightlb = weightlb
 
         if width is not None:
             if not isinstance(width, decimal.Decimal):
                 raise TypeError("expected width to be a Decimal but it is a %s" % builtins.type(width))
-            if width <= 0:
-                raise ValueError("expected width to be > 0, was %s" % width)
         self.__width = width
 
         if widthft is not None:
             if not isinstance(widthft, decimal.Decimal):
                 raise TypeError("expected widthft to be a Decimal but it is a %s" % builtins.type(widthft))
-            if widthft <= 0:
-                raise ValueError("expected widthft to be > 0, was %s" % widthft)
         self.__widthft = widthft
 
         if widthin is not None:
             if not isinstance(widthin, decimal.Decimal):
                 raise TypeError("expected widthin to be a Decimal but it is a %s" % builtins.type(widthin))
-            if widthin <= 0:
-                raise ValueError("expected widthin to be > 0, was %s" % widthin)
         self.__widthin = widthin
 
         if xcord is not None:
-            if not isinstance(xcord, str):
-                raise TypeError("expected xcord to be a str but it is a %s" % builtins.type(xcord))
-            if xcord.isspace():
-                raise ValueError("expected xcord not to be blank")
-            if len(xcord) < 1:
-                raise ValueError("expected len(xcord) to be >= 1, was %d" % len(xcord))
+            if not isinstance(xcord, decimal.Decimal):
+                raise TypeError("expected xcord to be a Decimal but it is a %s" % builtins.type(xcord))
         self.__xcord = xcord
 
         if ycord is not None:
-            if not isinstance(ycord, str):
-                raise TypeError("expected ycord to be a str but it is a %s" % builtins.type(ycord))
-            if ycord.isspace():
-                raise ValueError("expected ycord not to be blank")
-            if len(ycord) < 1:
-                raise ValueError("expected len(ycord) to be >= 1, was %d" % len(ycord))
+            if not isinstance(ycord, decimal.Decimal):
+                raise TypeError("expected ycord to be a Decimal but it is a %s" % builtins.type(ycord))
         self.__ycord = ycord
 
         if zcord is not None:
-            if not isinstance(zcord, str):
-                raise TypeError("expected zcord to be a str but it is a %s" % builtins.type(zcord))
-            if zcord.isspace():
-                raise ValueError("expected zcord not to be blank")
-            if len(zcord) < 1:
-                raise ValueError("expected len(zcord) to be >= 1, was %d" % len(zcord))
+            if not isinstance(zcord, decimal.Decimal):
+                raise TypeError("expected zcord to be a Decimal but it is a %s" % builtins.type(zcord))
         self.__zcord = zcord
 
         if zsorter is not None:
             if not isinstance(zsorter, str):
                 raise TypeError("expected zsorter to be a str but it is a %s" % builtins.type(zsorter))
-            if zsorter.isspace():
-                raise ValueError("expected zsorter not to be blank")
-            if len(zsorter) < 1:
-                raise ValueError("expected len(zsorter) to be >= 1, was %d" % len(zsorter))
         self.__zsorter = zsorter
 
         if zsorterx is not None:
             if not isinstance(zsorterx, str):
                 raise TypeError("expected zsorterx to be a str but it is a %s" % builtins.type(zsorterx))
-            if zsorterx.isspace():
-                raise ValueError("expected zsorterx not to be blank")
-            if len(zsorterx) < 1:
-                raise ValueError("expected len(zsorterx) to be >= 1, was %d" % len(zsorterx))
         self.__zsorterx = zsorterx
 
     def __eq__(self, other):
@@ -10805,7 +11090,13 @@ class ObjectRecord(object):
             return False
         if self.exhibitno != other.exhibitno:
             return False
-        if self.exhlabel != other.exhlabel:
+        if self.exhlabel1 != other.exhlabel1:
+            return False
+        if self.exhlabel2 != other.exhlabel2:
+            return False
+        if self.exhlabel3 != other.exhlabel3:
+            return False
+        if self.exhlabel4 != other.exhlabel4:
             return False
         if self.exhstart != other.exhstart:
             return False
@@ -10917,7 +11208,17 @@ class ObjectRecord(object):
             return False
         if self.loanrenew != other.loanrenew:
             return False
-        if self.locfield != other.locfield:
+        if self.locfield1 != other.locfield1:
+            return False
+        if self.locfield2 != other.locfield2:
+            return False
+        if self.locfield3 != other.locfield3:
+            return False
+        if self.locfield4 != other.locfield4:
+            return False
+        if self.locfield5 != other.locfield5:
+            return False
+        if self.locfield6 != other.locfield6:
             return False
         if self.longdeg != other.longdeg:
             return False
@@ -10995,6 +11296,8 @@ class ObjectRecord(object):
             return False
         if self.pubnotes != other.pubnotes:
             return False
+        if self.qrurl != other.qrurl:
+            return False
         if self.recas != other.recas:
             return False
         if self.recdate != other.recdate:
@@ -11040,6 +11343,8 @@ class ObjectRecord(object):
         if self.school != other.school:
             return False
         if self.sex != other.sex:
+            return False
+        if self.sgflag != other.sgflag:
             return False
         if self.signedname != other.signedname:
             return False
@@ -11097,9 +11402,61 @@ class ObjectRecord(object):
             return False
         if self.title != other.title:
             return False
-        if self.tlocfield != other.tlocfield:
+        if self.tlocfield1 != other.tlocfield1:
             return False
-        if self.udf != other.udf:
+        if self.tlocfield2 != other.tlocfield2:
+            return False
+        if self.tlocfield3 != other.tlocfield3:
+            return False
+        if self.tlocfield4 != other.tlocfield4:
+            return False
+        if self.tlocfield5 != other.tlocfield5:
+            return False
+        if self.tlocfield6 != other.tlocfield6:
+            return False
+        if self.udf1 != other.udf1:
+            return False
+        if self.udf10 != other.udf10:
+            return False
+        if self.udf11 != other.udf11:
+            return False
+        if self.udf12 != other.udf12:
+            return False
+        if self.udf13 != other.udf13:
+            return False
+        if self.udf14 != other.udf14:
+            return False
+        if self.udf15 != other.udf15:
+            return False
+        if self.udf16 != other.udf16:
+            return False
+        if self.udf17 != other.udf17:
+            return False
+        if self.udf18 != other.udf18:
+            return False
+        if self.udf19 != other.udf19:
+            return False
+        if self.udf2 != other.udf2:
+            return False
+        if self.udf20 != other.udf20:
+            return False
+        if self.udf21 != other.udf21:
+            return False
+        if self.udf22 != other.udf22:
+            return False
+        if self.udf3 != other.udf3:
+            return False
+        if self.udf4 != other.udf4:
+            return False
+        if self.udf5 != other.udf5:
+            return False
+        if self.udf6 != other.udf6:
+            return False
+        if self.udf7 != other.udf7:
+            return False
+        if self.udf8 != other.udf8:
+            return False
+        if self.udf9 != other.udf9:
             return False
         if self.unit != other.unit:
             return False
@@ -11112,6 +11469,16 @@ class ObjectRecord(object):
         if self.valuedate != other.valuedate:
             return False
         if self.varieties != other.varieties:
+            return False
+        if self.vexhtml != other.vexhtml:
+            return False
+        if self.vexlabel1 != other.vexlabel1:
+            return False
+        if self.vexlabel2 != other.vexlabel2:
+            return False
+        if self.vexlabel3 != other.vexlabel3:
+            return False
+        if self.vexlabel4 != other.vexlabel4:
             return False
         if self.webinclude != other.webinclude:
             return False
@@ -11140,10 +11507,10 @@ class ObjectRecord(object):
         return True
 
     def __hash__(self):
-        return hash((self.accessno,self.accessory,self.acqvalue,self.age,self.appnotes,self.appraisor,self.assemzone,self.bagno,self.boxno,self.caption,self.cat,self.catby,self.catdate,self.cattype,self.chemcomp,self.circum,self.circumft,self.circumin,self.classes,self.colldate,self.collection,self.collector,self.conddate,self.condexam,self.condition,self.condnotes,self.count,self.creator,self.creator2,self.creator3,self.credit,self.crystal,self.culture,self.curvalmax,self.curvalue,self.dataset,self.date,self.datingmeth,self.datum,self.depth,self.depthft,self.depthin,self.descrip,self.diameter,self.diameterft,self.diameterin,self.dimnotes,self.dimtype,self.dispvalue,self.earlydate,self.elements,self.epoch,self.era,self.event,self.ew,self.excavadate,self.excavateby,self.exhibitid,self.exhibitno,self.exhlabel,self.exhstart,self.family,self.feature,self.flagdate,self.flagnotes,self.flagreason,self.formation,self.fossils,self.found,self.fracture,self.frame,self.framesize,self.genus,self.gparent,self.grainsize,self.habitat,self.hardness,self.height,self.heightft,self.heightin,self.homeloc,self.idby,self.iddate,self.imagefile,self.imageno,self.imagesize,self.inscomp,self.inscrlang,self.inscrpos,self.inscrtech,self.inscrtext,self.inscrtrans,self.inscrtype,self.insdate,self.insphone,self.inspremium,self.insrep,self.insvalue,self.invnby,self.invndate,self.kingdom,self.latdeg,self.latedate,self.legal,self.length,self.lengthft,self.lengthin,self.level,self.lithofacie,self.loancond,self.loandue,self.loanid,self.loaninno,self.loanno,self.loanrenew,self.locfield,self.longdeg,self.luster,self.made,self.maintcycle,self.maintdate,self.maintnote,self.material,self.medium,self.member,self.mmark,self.nhclass,self.nhorder,self.notes,self.ns,self.objectid,self.objname,self.objname2,self.objname3,self.objnames,self.occurrence,self.oldno,self.origin,self.othername,self.otherno,self.outdate,self.owned,self.parent,self.people,self.period,self.phylum,self.policyno,self.ppid,self.preparator,self.prepdate,self.preserve,self.pressure,self.provenance,self.pubnotes,self.recas,self.recdate,self.recfrom,self.relation,self.relnotes,self.renewuntil,self.repatby,self.repatclaim,self.repatdate,self.repatdisp,self.repathand,self.repatnotes,self.repatnotic,self.repattype,self.rockclass,self.rockcolor,self.rockorigin,self.rocktype,self.role,self.role2,self.role3,self.school,self.sex,self.signedname,self.signloc,self.site,self.siteno,self.specgrav,self.species,self.sprocess,self.stage,self.status,self.statusby,self.statusdate,self.sterms,self.stratum,self.streak,self.subfamily,self.subjects,self.subspecies,self.technique,self.tempauthor,self.tempby,self.tempdate,self.temperatur,self.temploc,self.tempnotes,self.tempreason,self.tempuntil,self.texture,self.title,self.tlocfield,self.udf,self.unit,self.updated,self.updatedby,self.used,self.valuedate,self.varieties,self.webinclude,self.weight,self.weightin,self.weightlb,self.width,self.widthft,self.widthin,self.xcord,self.ycord,self.zcord,self.zsorter,self.zsorterx,))
+        return hash((self.accessno,self.accessory,self.acqvalue,self.age,self.appnotes,self.appraisor,self.assemzone,self.bagno,self.boxno,self.caption,self.cat,self.catby,self.catdate,self.cattype,self.chemcomp,self.circum,self.circumft,self.circumin,self.classes,self.colldate,self.collection,self.collector,self.conddate,self.condexam,self.condition,self.condnotes,self.count,self.creator,self.creator2,self.creator3,self.credit,self.crystal,self.culture,self.curvalmax,self.curvalue,self.dataset,self.date,self.datingmeth,self.datum,self.depth,self.depthft,self.depthin,self.descrip,self.diameter,self.diameterft,self.diameterin,self.dimnotes,self.dimtype,self.dispvalue,self.earlydate,self.elements,self.epoch,self.era,self.event,self.ew,self.excavadate,self.excavateby,self.exhibitid,self.exhibitno,self.exhlabel1,self.exhlabel2,self.exhlabel3,self.exhlabel4,self.exhstart,self.family,self.feature,self.flagdate,self.flagnotes,self.flagreason,self.formation,self.fossils,self.found,self.fracture,self.frame,self.framesize,self.genus,self.gparent,self.grainsize,self.habitat,self.hardness,self.height,self.heightft,self.heightin,self.homeloc,self.idby,self.iddate,self.imagefile,self.imageno,self.imagesize,self.inscomp,self.inscrlang,self.inscrpos,self.inscrtech,self.inscrtext,self.inscrtrans,self.inscrtype,self.insdate,self.insphone,self.inspremium,self.insrep,self.insvalue,self.invnby,self.invndate,self.kingdom,self.latdeg,self.latedate,self.legal,self.length,self.lengthft,self.lengthin,self.level,self.lithofacie,self.loancond,self.loandue,self.loanid,self.loaninno,self.loanno,self.loanrenew,self.locfield1,self.locfield2,self.locfield3,self.locfield4,self.locfield5,self.locfield6,self.longdeg,self.luster,self.made,self.maintcycle,self.maintdate,self.maintnote,self.material,self.medium,self.member,self.mmark,self.nhclass,self.nhorder,self.notes,self.ns,self.objectid,self.objname,self.objname2,self.objname3,self.objnames,self.occurrence,self.oldno,self.origin,self.othername,self.otherno,self.outdate,self.owned,self.parent,self.people,self.period,self.phylum,self.policyno,self.ppid,self.preparator,self.prepdate,self.preserve,self.pressure,self.provenance,self.pubnotes,self.qrurl,self.recas,self.recdate,self.recfrom,self.relation,self.relnotes,self.renewuntil,self.repatby,self.repatclaim,self.repatdate,self.repatdisp,self.repathand,self.repatnotes,self.repatnotic,self.repattype,self.rockclass,self.rockcolor,self.rockorigin,self.rocktype,self.role,self.role2,self.role3,self.school,self.sex,self.sgflag,self.signedname,self.signloc,self.site,self.siteno,self.specgrav,self.species,self.sprocess,self.stage,self.status,self.statusby,self.statusdate,self.sterms,self.stratum,self.streak,self.subfamily,self.subjects,self.subspecies,self.technique,self.tempauthor,self.tempby,self.tempdate,self.temperatur,self.temploc,self.tempnotes,self.tempreason,self.tempuntil,self.texture,self.title,self.tlocfield1,self.tlocfield2,self.tlocfield3,self.tlocfield4,self.tlocfield5,self.tlocfield6,self.udf1,self.udf10,self.udf11,self.udf12,self.udf13,self.udf14,self.udf15,self.udf16,self.udf17,self.udf18,self.udf19,self.udf2,self.udf20,self.udf21,self.udf22,self.udf3,self.udf4,self.udf5,self.udf6,self.udf7,self.udf8,self.udf9,self.unit,self.updated,self.updatedby,self.used,self.valuedate,self.varieties,self.vexhtml,self.vexlabel1,self.vexlabel2,self.vexlabel3,self.vexlabel4,self.webinclude,self.weight,self.weightin,self.weightlb,self.width,self.widthft,self.widthin,self.xcord,self.ycord,self.zcord,self.zsorter,self.zsorterx,))
 
     def __iter__(self):
-        return iter((self.accessno, self.accessory, self.acqvalue, self.age, self.appnotes, self.appraisor, self.assemzone, self.bagno, self.boxno, self.caption, self.cat, self.catby, self.catdate, self.cattype, self.chemcomp, self.circum, self.circumft, self.circumin, self.classes, self.colldate, self.collection, self.collector, self.conddate, self.condexam, self.condition, self.condnotes, self.count, self.creator, self.creator2, self.creator3, self.credit, self.crystal, self.culture, self.curvalmax, self.curvalue, self.dataset, self.date, self.datingmeth, self.datum, self.depth, self.depthft, self.depthin, self.descrip, self.diameter, self.diameterft, self.diameterin, self.dimnotes, self.dimtype, self.dispvalue, self.earlydate, self.elements, self.epoch, self.era, self.event, self.ew, self.excavadate, self.excavateby, self.exhibitid, self.exhibitno, self.exhlabel, self.exhstart, self.family, self.feature, self.flagdate, self.flagnotes, self.flagreason, self.formation, self.fossils, self.found, self.fracture, self.frame, self.framesize, self.genus, self.gparent, self.grainsize, self.habitat, self.hardness, self.height, self.heightft, self.heightin, self.homeloc, self.idby, self.iddate, self.imagefile, self.imageno, self.imagesize, self.inscomp, self.inscrlang, self.inscrpos, self.inscrtech, self.inscrtext, self.inscrtrans, self.inscrtype, self.insdate, self.insphone, self.inspremium, self.insrep, self.insvalue, self.invnby, self.invndate, self.kingdom, self.latdeg, self.latedate, self.legal, self.length, self.lengthft, self.lengthin, self.level, self.lithofacie, self.loancond, self.loandue, self.loanid, self.loaninno, self.loanno, self.loanrenew, self.locfield, self.longdeg, self.luster, self.made, self.maintcycle, self.maintdate, self.maintnote, self.material, self.medium, self.member, self.mmark, self.nhclass, self.nhorder, self.notes, self.ns, self.objectid, self.objname, self.objname2, self.objname3, self.objnames, self.occurrence, self.oldno, self.origin, self.othername, self.otherno, self.outdate, self.owned, self.parent, self.people, self.period, self.phylum, self.policyno, self.ppid, self.preparator, self.prepdate, self.preserve, self.pressure, self.provenance, self.pubnotes, self.recas, self.recdate, self.recfrom, self.relation, self.relnotes, self.renewuntil, self.repatby, self.repatclaim, self.repatdate, self.repatdisp, self.repathand, self.repatnotes, self.repatnotic, self.repattype, self.rockclass, self.rockcolor, self.rockorigin, self.rocktype, self.role, self.role2, self.role3, self.school, self.sex, self.signedname, self.signloc, self.site, self.siteno, self.specgrav, self.species, self.sprocess, self.stage, self.status, self.statusby, self.statusdate, self.sterms, self.stratum, self.streak, self.subfamily, self.subjects, self.subspecies, self.technique, self.tempauthor, self.tempby, self.tempdate, self.temperatur, self.temploc, self.tempnotes, self.tempreason, self.tempuntil, self.texture, self.title, self.tlocfield, self.udf, self.unit, self.updated, self.updatedby, self.used, self.valuedate, self.varieties, self.webinclude, self.weight, self.weightin, self.weightlb, self.width, self.widthft, self.widthin, self.xcord, self.ycord, self.zcord, self.zsorter, self.zsorterx,))
+        return iter((self.accessno, self.accessory, self.acqvalue, self.age, self.appnotes, self.appraisor, self.assemzone, self.bagno, self.boxno, self.caption, self.cat, self.catby, self.catdate, self.cattype, self.chemcomp, self.circum, self.circumft, self.circumin, self.classes, self.colldate, self.collection, self.collector, self.conddate, self.condexam, self.condition, self.condnotes, self.count, self.creator, self.creator2, self.creator3, self.credit, self.crystal, self.culture, self.curvalmax, self.curvalue, self.dataset, self.date, self.datingmeth, self.datum, self.depth, self.depthft, self.depthin, self.descrip, self.diameter, self.diameterft, self.diameterin, self.dimnotes, self.dimtype, self.dispvalue, self.earlydate, self.elements, self.epoch, self.era, self.event, self.ew, self.excavadate, self.excavateby, self.exhibitid, self.exhibitno, self.exhlabel1, self.exhlabel2, self.exhlabel3, self.exhlabel4, self.exhstart, self.family, self.feature, self.flagdate, self.flagnotes, self.flagreason, self.formation, self.fossils, self.found, self.fracture, self.frame, self.framesize, self.genus, self.gparent, self.grainsize, self.habitat, self.hardness, self.height, self.heightft, self.heightin, self.homeloc, self.idby, self.iddate, self.imagefile, self.imageno, self.imagesize, self.inscomp, self.inscrlang, self.inscrpos, self.inscrtech, self.inscrtext, self.inscrtrans, self.inscrtype, self.insdate, self.insphone, self.inspremium, self.insrep, self.insvalue, self.invnby, self.invndate, self.kingdom, self.latdeg, self.latedate, self.legal, self.length, self.lengthft, self.lengthin, self.level, self.lithofacie, self.loancond, self.loandue, self.loanid, self.loaninno, self.loanno, self.loanrenew, self.locfield1, self.locfield2, self.locfield3, self.locfield4, self.locfield5, self.locfield6, self.longdeg, self.luster, self.made, self.maintcycle, self.maintdate, self.maintnote, self.material, self.medium, self.member, self.mmark, self.nhclass, self.nhorder, self.notes, self.ns, self.objectid, self.objname, self.objname2, self.objname3, self.objnames, self.occurrence, self.oldno, self.origin, self.othername, self.otherno, self.outdate, self.owned, self.parent, self.people, self.period, self.phylum, self.policyno, self.ppid, self.preparator, self.prepdate, self.preserve, self.pressure, self.provenance, self.pubnotes, self.qrurl, self.recas, self.recdate, self.recfrom, self.relation, self.relnotes, self.renewuntil, self.repatby, self.repatclaim, self.repatdate, self.repatdisp, self.repathand, self.repatnotes, self.repatnotic, self.repattype, self.rockclass, self.rockcolor, self.rockorigin, self.rocktype, self.role, self.role2, self.role3, self.school, self.sex, self.sgflag, self.signedname, self.signloc, self.site, self.siteno, self.specgrav, self.species, self.sprocess, self.stage, self.status, self.statusby, self.statusdate, self.sterms, self.stratum, self.streak, self.subfamily, self.subjects, self.subspecies, self.technique, self.tempauthor, self.tempby, self.tempdate, self.temperatur, self.temploc, self.tempnotes, self.tempreason, self.tempuntil, self.texture, self.title, self.tlocfield1, self.tlocfield2, self.tlocfield3, self.tlocfield4, self.tlocfield5, self.tlocfield6, self.udf1, self.udf10, self.udf11, self.udf12, self.udf13, self.udf14, self.udf15, self.udf16, self.udf17, self.udf18, self.udf19, self.udf2, self.udf20, self.udf21, self.udf22, self.udf3, self.udf4, self.udf5, self.udf6, self.udf7, self.udf8, self.udf9, self.unit, self.updated, self.updatedby, self.used, self.valuedate, self.varieties, self.vexhtml, self.vexlabel1, self.vexlabel2, self.vexlabel3, self.vexlabel4, self.webinclude, self.weight, self.weightin, self.weightlb, self.width, self.widthft, self.widthin, self.xcord, self.ycord, self.zcord, self.zsorter, self.zsorterx,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -11165,13 +11532,13 @@ class ObjectRecord(object):
         if self.assemzone is not None:
             field_reprs.append('assemzone=' + "'" + self.assemzone.encode('ascii', 'replace').decode('ascii') + "'")
         if self.bagno is not None:
-            field_reprs.append('bagno=' + repr(self.bagno))
+            field_reprs.append('bagno=' + "'" + self.bagno.encode('ascii', 'replace').decode('ascii') + "'")
         if self.boxno is not None:
-            field_reprs.append('boxno=' + repr(self.boxno))
+            field_reprs.append('boxno=' + "'" + self.boxno.encode('ascii', 'replace').decode('ascii') + "'")
         if self.caption is not None:
             field_reprs.append('caption=' + "'" + self.caption.encode('ascii', 'replace').decode('ascii') + "'")
         if self.cat is not None:
-            field_reprs.append('cat=' + repr(self.cat))
+            field_reprs.append('cat=' + "'" + self.cat.encode('ascii', 'replace').decode('ascii') + "'")
         if self.catby is not None:
             field_reprs.append('catby=' + "'" + self.catby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.catdate is not None:
@@ -11199,7 +11566,7 @@ class ObjectRecord(object):
         if self.condexam is not None:
             field_reprs.append('condexam=' + "'" + self.condexam.encode('ascii', 'replace').decode('ascii') + "'")
         if self.condition is not None:
-            field_reprs.append('condition=' + repr(self.condition))
+            field_reprs.append('condition=' + "'" + self.condition.encode('ascii', 'replace').decode('ascii') + "'")
         if self.condnotes is not None:
             field_reprs.append('condnotes=' + "'" + self.condnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.count is not None:
@@ -11249,7 +11616,7 @@ class ObjectRecord(object):
         if self.dispvalue is not None:
             field_reprs.append('dispvalue=' + "'" + self.dispvalue.encode('ascii', 'replace').decode('ascii') + "'")
         if self.earlydate is not None:
-            field_reprs.append('earlydate=' + "'" + self.earlydate.encode('ascii', 'replace').decode('ascii') + "'")
+            field_reprs.append('earlydate=' + repr(self.earlydate))
         if self.elements is not None:
             field_reprs.append('elements=' + "'" + self.elements.encode('ascii', 'replace').decode('ascii') + "'")
         if self.epoch is not None:
@@ -11259,7 +11626,7 @@ class ObjectRecord(object):
         if self.event is not None:
             field_reprs.append('event=' + "'" + self.event.encode('ascii', 'replace').decode('ascii') + "'")
         if self.ew is not None:
-            field_reprs.append('ew=' + repr(self.ew))
+            field_reprs.append('ew=' + "'" + self.ew.encode('ascii', 'replace').decode('ascii') + "'")
         if self.excavadate is not None:
             field_reprs.append('excavadate=' + repr(self.excavadate))
         if self.excavateby is not None:
@@ -11268,10 +11635,16 @@ class ObjectRecord(object):
             field_reprs.append('exhibitid=' + "'" + self.exhibitid.encode('ascii', 'replace').decode('ascii') + "'")
         if self.exhibitno is not None:
             field_reprs.append('exhibitno=' + repr(self.exhibitno))
-        if self.exhlabel is not None:
-            field_reprs.append('exhlabel=' + repr(self.exhlabel))
+        if self.exhlabel1 is not None:
+            field_reprs.append('exhlabel1=' + "'" + self.exhlabel1.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.exhlabel2 is not None:
+            field_reprs.append('exhlabel2=' + "'" + self.exhlabel2.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.exhlabel3 is not None:
+            field_reprs.append('exhlabel3=' + "'" + self.exhlabel3.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.exhlabel4 is not None:
+            field_reprs.append('exhlabel4=' + "'" + self.exhlabel4.encode('ascii', 'replace').decode('ascii') + "'")
         if self.exhstart is not None:
-            field_reprs.append('exhstart=' + "'" + self.exhstart.encode('ascii', 'replace').decode('ascii') + "'")
+            field_reprs.append('exhstart=' + repr(self.exhstart))
         if self.family is not None:
             field_reprs.append('family=' + "'" + self.family.encode('ascii', 'replace').decode('ascii') + "'")
         if self.feature is not None:
@@ -11335,7 +11708,7 @@ class ObjectRecord(object):
         if self.inscrtrans is not None:
             field_reprs.append('inscrtrans=' + "'" + self.inscrtrans.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inscrtype is not None:
-            field_reprs.append('inscrtype=' + repr(self.inscrtype))
+            field_reprs.append('inscrtype=' + "'" + self.inscrtype.encode('ascii', 'replace').decode('ascii') + "'")
         if self.insdate is not None:
             field_reprs.append('insdate=' + repr(self.insdate))
         if self.insphone is not None:
@@ -11355,7 +11728,7 @@ class ObjectRecord(object):
         if self.latdeg is not None:
             field_reprs.append('latdeg=' + repr(self.latdeg))
         if self.latedate is not None:
-            field_reprs.append('latedate=' + "'" + self.latedate.encode('ascii', 'replace').decode('ascii') + "'")
+            field_reprs.append('latedate=' + repr(self.latedate))
         if self.legal is not None:
             field_reprs.append('legal=' + "'" + self.legal.encode('ascii', 'replace').decode('ascii') + "'")
         if self.length is not None:
@@ -11371,7 +11744,7 @@ class ObjectRecord(object):
         if self.loancond is not None:
             field_reprs.append('loancond=' + "'" + self.loancond.encode('ascii', 'replace').decode('ascii') + "'")
         if self.loandue is not None:
-            field_reprs.append('loandue=' + "'" + self.loandue.encode('ascii', 'replace').decode('ascii') + "'")
+            field_reprs.append('loandue=' + repr(self.loandue))
         if self.loanid is not None:
             field_reprs.append('loanid=' + "'" + self.loanid.encode('ascii', 'replace').decode('ascii') + "'")
         if self.loaninno is not None:
@@ -11380,8 +11753,18 @@ class ObjectRecord(object):
             field_reprs.append('loanno=' + repr(self.loanno))
         if self.loanrenew is not None:
             field_reprs.append('loanrenew=' + repr(self.loanrenew))
-        if self.locfield is not None:
-            field_reprs.append('locfield=' + repr(self.locfield))
+        if self.locfield1 is not None:
+            field_reprs.append('locfield1=' + "'" + self.locfield1.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.locfield2 is not None:
+            field_reprs.append('locfield2=' + "'" + self.locfield2.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.locfield3 is not None:
+            field_reprs.append('locfield3=' + "'" + self.locfield3.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.locfield4 is not None:
+            field_reprs.append('locfield4=' + "'" + self.locfield4.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.locfield5 is not None:
+            field_reprs.append('locfield5=' + "'" + self.locfield5.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.locfield6 is not None:
+            field_reprs.append('locfield6=' + "'" + self.locfield6.encode('ascii', 'replace').decode('ascii') + "'")
         if self.longdeg is not None:
             field_reprs.append('longdeg=' + repr(self.longdeg))
         if self.luster is not None:
@@ -11409,7 +11792,7 @@ class ObjectRecord(object):
         if self.notes is not None:
             field_reprs.append('notes=' + "'" + self.notes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.ns is not None:
-            field_reprs.append('ns=' + repr(self.ns))
+            field_reprs.append('ns=' + "'" + self.ns.encode('ascii', 'replace').decode('ascii') + "'")
         if self.objectid is not None:
             field_reprs.append('objectid=' + "'" + self.objectid.encode('ascii', 'replace').decode('ascii') + "'")
         if self.objname is not None:
@@ -11458,10 +11841,12 @@ class ObjectRecord(object):
             field_reprs.append('provenance=' + "'" + self.provenance.encode('ascii', 'replace').decode('ascii') + "'")
         if self.pubnotes is not None:
             field_reprs.append('pubnotes=' + "'" + self.pubnotes.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.qrurl is not None:
+            field_reprs.append('qrurl=' + "'" + self.qrurl.encode('ascii', 'replace').decode('ascii') + "'")
         if self.recas is not None:
             field_reprs.append('recas=' + "'" + self.recas.encode('ascii', 'replace').decode('ascii') + "'")
         if self.recdate is not None:
-            field_reprs.append('recdate=' + repr(self.recdate))
+            field_reprs.append('recdate=' + "'" + self.recdate.encode('ascii', 'replace').decode('ascii') + "'")
         if self.recfrom is not None:
             field_reprs.append('recfrom=' + "'" + self.recfrom.encode('ascii', 'replace').decode('ascii') + "'")
         if self.relation is not None:
@@ -11483,9 +11868,9 @@ class ObjectRecord(object):
         if self.repatnotes is not None:
             field_reprs.append('repatnotes=' + "'" + self.repatnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.repatnotic is not None:
-            field_reprs.append('repatnotic=' + "'" + self.repatnotic.encode('ascii', 'replace').decode('ascii') + "'")
+            field_reprs.append('repatnotic=' + repr(self.repatnotic))
         if self.repattype is not None:
-            field_reprs.append('repattype=' + repr(self.repattype))
+            field_reprs.append('repattype=' + "'" + self.repattype.encode('ascii', 'replace').decode('ascii') + "'")
         if self.rockclass is not None:
             field_reprs.append('rockclass=' + "'" + self.rockclass.encode('ascii', 'replace').decode('ascii') + "'")
         if self.rockcolor is not None:
@@ -11493,7 +11878,7 @@ class ObjectRecord(object):
         if self.rockorigin is not None:
             field_reprs.append('rockorigin=' + "'" + self.rockorigin.encode('ascii', 'replace').decode('ascii') + "'")
         if self.rocktype is not None:
-            field_reprs.append('rocktype=' + repr(self.rocktype))
+            field_reprs.append('rocktype=' + "'" + self.rocktype.encode('ascii', 'replace').decode('ascii') + "'")
         if self.role is not None:
             field_reprs.append('role=' + "'" + self.role.encode('ascii', 'replace').decode('ascii') + "'")
         if self.role2 is not None:
@@ -11504,6 +11889,8 @@ class ObjectRecord(object):
             field_reprs.append('school=' + "'" + self.school.encode('ascii', 'replace').decode('ascii') + "'")
         if self.sex is not None:
             field_reprs.append('sex=' + "'" + self.sex.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.sgflag is not None:
+            field_reprs.append('sgflag=' + "'" + self.sgflag.encode('ascii', 'replace').decode('ascii') + "'")
         if self.signedname is not None:
             field_reprs.append('signedname=' + "'" + self.signedname.encode('ascii', 'replace').decode('ascii') + "'")
         if self.signloc is not None:
@@ -11560,10 +11947,62 @@ class ObjectRecord(object):
             field_reprs.append('texture=' + "'" + self.texture.encode('ascii', 'replace').decode('ascii') + "'")
         if self.title is not None:
             field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').decode('ascii') + "'")
-        if self.tlocfield is not None:
-            field_reprs.append('tlocfield=' + repr(self.tlocfield))
-        if self.udf is not None:
-            field_reprs.append('udf=' + repr(self.udf))
+        if self.tlocfield1 is not None:
+            field_reprs.append('tlocfield1=' + "'" + self.tlocfield1.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.tlocfield2 is not None:
+            field_reprs.append('tlocfield2=' + "'" + self.tlocfield2.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.tlocfield3 is not None:
+            field_reprs.append('tlocfield3=' + "'" + self.tlocfield3.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.tlocfield4 is not None:
+            field_reprs.append('tlocfield4=' + "'" + self.tlocfield4.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.tlocfield5 is not None:
+            field_reprs.append('tlocfield5=' + "'" + self.tlocfield5.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.tlocfield6 is not None:
+            field_reprs.append('tlocfield6=' + "'" + self.tlocfield6.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf1 is not None:
+            field_reprs.append('udf1=' + "'" + self.udf1.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf10 is not None:
+            field_reprs.append('udf10=' + "'" + self.udf10.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf11 is not None:
+            field_reprs.append('udf11=' + "'" + self.udf11.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf12 is not None:
+            field_reprs.append('udf12=' + "'" + self.udf12.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf13 is not None:
+            field_reprs.append('udf13=' + repr(self.udf13))
+        if self.udf14 is not None:
+            field_reprs.append('udf14=' + repr(self.udf14))
+        if self.udf15 is not None:
+            field_reprs.append('udf15=' + repr(self.udf15))
+        if self.udf16 is not None:
+            field_reprs.append('udf16=' + repr(self.udf16))
+        if self.udf17 is not None:
+            field_reprs.append('udf17=' + repr(self.udf17))
+        if self.udf18 is not None:
+            field_reprs.append('udf18=' + repr(self.udf18))
+        if self.udf19 is not None:
+            field_reprs.append('udf19=' + repr(self.udf19))
+        if self.udf2 is not None:
+            field_reprs.append('udf2=' + "'" + self.udf2.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf20 is not None:
+            field_reprs.append('udf20=' + repr(self.udf20))
+        if self.udf21 is not None:
+            field_reprs.append('udf21=' + "'" + self.udf21.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf22 is not None:
+            field_reprs.append('udf22=' + "'" + self.udf22.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf3 is not None:
+            field_reprs.append('udf3=' + "'" + self.udf3.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf4 is not None:
+            field_reprs.append('udf4=' + "'" + self.udf4.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf5 is not None:
+            field_reprs.append('udf5=' + "'" + self.udf5.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf6 is not None:
+            field_reprs.append('udf6=' + "'" + self.udf6.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf7 is not None:
+            field_reprs.append('udf7=' + "'" + self.udf7.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf8 is not None:
+            field_reprs.append('udf8=' + "'" + self.udf8.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf9 is not None:
+            field_reprs.append('udf9=' + "'" + self.udf9.encode('ascii', 'replace').decode('ascii') + "'")
         if self.unit is not None:
             field_reprs.append('unit=' + "'" + self.unit.encode('ascii', 'replace').decode('ascii') + "'")
         if self.updated is not None:
@@ -11576,6 +12015,16 @@ class ObjectRecord(object):
             field_reprs.append('valuedate=' + repr(self.valuedate))
         if self.varieties is not None:
             field_reprs.append('varieties=' + "'" + self.varieties.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.vexhtml is not None:
+            field_reprs.append('vexhtml=' + "'" + self.vexhtml.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.vexlabel1 is not None:
+            field_reprs.append('vexlabel1=' + "'" + self.vexlabel1.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.vexlabel2 is not None:
+            field_reprs.append('vexlabel2=' + "'" + self.vexlabel2.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.vexlabel3 is not None:
+            field_reprs.append('vexlabel3=' + "'" + self.vexlabel3.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.vexlabel4 is not None:
+            field_reprs.append('vexlabel4=' + "'" + self.vexlabel4.encode('ascii', 'replace').decode('ascii') + "'")
         if self.webinclude is not None:
             field_reprs.append('webinclude=' + repr(self.webinclude))
         if self.weight is not None:
@@ -11591,11 +12040,11 @@ class ObjectRecord(object):
         if self.widthin is not None:
             field_reprs.append('widthin=' + repr(self.widthin))
         if self.xcord is not None:
-            field_reprs.append('xcord=' + "'" + self.xcord.encode('ascii', 'replace').decode('ascii') + "'")
+            field_reprs.append('xcord=' + repr(self.xcord))
         if self.ycord is not None:
-            field_reprs.append('ycord=' + "'" + self.ycord.encode('ascii', 'replace').decode('ascii') + "'")
+            field_reprs.append('ycord=' + repr(self.ycord))
         if self.zcord is not None:
-            field_reprs.append('zcord=' + "'" + self.zcord.encode('ascii', 'replace').decode('ascii') + "'")
+            field_reprs.append('zcord=' + repr(self.zcord))
         if self.zsorter is not None:
             field_reprs.append('zsorter=' + "'" + self.zsorter.encode('ascii', 'replace').decode('ascii') + "'")
         if self.zsorterx is not None:
@@ -11619,13 +12068,13 @@ class ObjectRecord(object):
         if self.assemzone is not None:
             field_reprs.append('assemzone=' + "'" + self.assemzone.encode('ascii', 'replace').decode('ascii') + "'")
         if self.bagno is not None:
-            field_reprs.append('bagno=' + repr(self.bagno))
+            field_reprs.append('bagno=' + "'" + self.bagno.encode('ascii', 'replace').decode('ascii') + "'")
         if self.boxno is not None:
-            field_reprs.append('boxno=' + repr(self.boxno))
+            field_reprs.append('boxno=' + "'" + self.boxno.encode('ascii', 'replace').decode('ascii') + "'")
         if self.caption is not None:
             field_reprs.append('caption=' + "'" + self.caption.encode('ascii', 'replace').decode('ascii') + "'")
         if self.cat is not None:
-            field_reprs.append('cat=' + repr(self.cat))
+            field_reprs.append('cat=' + "'" + self.cat.encode('ascii', 'replace').decode('ascii') + "'")
         if self.catby is not None:
             field_reprs.append('catby=' + "'" + self.catby.encode('ascii', 'replace').decode('ascii') + "'")
         if self.catdate is not None:
@@ -11653,7 +12102,7 @@ class ObjectRecord(object):
         if self.condexam is not None:
             field_reprs.append('condexam=' + "'" + self.condexam.encode('ascii', 'replace').decode('ascii') + "'")
         if self.condition is not None:
-            field_reprs.append('condition=' + repr(self.condition))
+            field_reprs.append('condition=' + "'" + self.condition.encode('ascii', 'replace').decode('ascii') + "'")
         if self.condnotes is not None:
             field_reprs.append('condnotes=' + "'" + self.condnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.count is not None:
@@ -11703,7 +12152,7 @@ class ObjectRecord(object):
         if self.dispvalue is not None:
             field_reprs.append('dispvalue=' + "'" + self.dispvalue.encode('ascii', 'replace').decode('ascii') + "'")
         if self.earlydate is not None:
-            field_reprs.append('earlydate=' + "'" + self.earlydate.encode('ascii', 'replace').decode('ascii') + "'")
+            field_reprs.append('earlydate=' + repr(self.earlydate))
         if self.elements is not None:
             field_reprs.append('elements=' + "'" + self.elements.encode('ascii', 'replace').decode('ascii') + "'")
         if self.epoch is not None:
@@ -11713,7 +12162,7 @@ class ObjectRecord(object):
         if self.event is not None:
             field_reprs.append('event=' + "'" + self.event.encode('ascii', 'replace').decode('ascii') + "'")
         if self.ew is not None:
-            field_reprs.append('ew=' + repr(self.ew))
+            field_reprs.append('ew=' + "'" + self.ew.encode('ascii', 'replace').decode('ascii') + "'")
         if self.excavadate is not None:
             field_reprs.append('excavadate=' + repr(self.excavadate))
         if self.excavateby is not None:
@@ -11722,10 +12171,16 @@ class ObjectRecord(object):
             field_reprs.append('exhibitid=' + "'" + self.exhibitid.encode('ascii', 'replace').decode('ascii') + "'")
         if self.exhibitno is not None:
             field_reprs.append('exhibitno=' + repr(self.exhibitno))
-        if self.exhlabel is not None:
-            field_reprs.append('exhlabel=' + repr(self.exhlabel))
+        if self.exhlabel1 is not None:
+            field_reprs.append('exhlabel1=' + "'" + self.exhlabel1.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.exhlabel2 is not None:
+            field_reprs.append('exhlabel2=' + "'" + self.exhlabel2.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.exhlabel3 is not None:
+            field_reprs.append('exhlabel3=' + "'" + self.exhlabel3.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.exhlabel4 is not None:
+            field_reprs.append('exhlabel4=' + "'" + self.exhlabel4.encode('ascii', 'replace').decode('ascii') + "'")
         if self.exhstart is not None:
-            field_reprs.append('exhstart=' + "'" + self.exhstart.encode('ascii', 'replace').decode('ascii') + "'")
+            field_reprs.append('exhstart=' + repr(self.exhstart))
         if self.family is not None:
             field_reprs.append('family=' + "'" + self.family.encode('ascii', 'replace').decode('ascii') + "'")
         if self.feature is not None:
@@ -11789,7 +12244,7 @@ class ObjectRecord(object):
         if self.inscrtrans is not None:
             field_reprs.append('inscrtrans=' + "'" + self.inscrtrans.encode('ascii', 'replace').decode('ascii') + "'")
         if self.inscrtype is not None:
-            field_reprs.append('inscrtype=' + repr(self.inscrtype))
+            field_reprs.append('inscrtype=' + "'" + self.inscrtype.encode('ascii', 'replace').decode('ascii') + "'")
         if self.insdate is not None:
             field_reprs.append('insdate=' + repr(self.insdate))
         if self.insphone is not None:
@@ -11809,7 +12264,7 @@ class ObjectRecord(object):
         if self.latdeg is not None:
             field_reprs.append('latdeg=' + repr(self.latdeg))
         if self.latedate is not None:
-            field_reprs.append('latedate=' + "'" + self.latedate.encode('ascii', 'replace').decode('ascii') + "'")
+            field_reprs.append('latedate=' + repr(self.latedate))
         if self.legal is not None:
             field_reprs.append('legal=' + "'" + self.legal.encode('ascii', 'replace').decode('ascii') + "'")
         if self.length is not None:
@@ -11825,7 +12280,7 @@ class ObjectRecord(object):
         if self.loancond is not None:
             field_reprs.append('loancond=' + "'" + self.loancond.encode('ascii', 'replace').decode('ascii') + "'")
         if self.loandue is not None:
-            field_reprs.append('loandue=' + "'" + self.loandue.encode('ascii', 'replace').decode('ascii') + "'")
+            field_reprs.append('loandue=' + repr(self.loandue))
         if self.loanid is not None:
             field_reprs.append('loanid=' + "'" + self.loanid.encode('ascii', 'replace').decode('ascii') + "'")
         if self.loaninno is not None:
@@ -11834,8 +12289,18 @@ class ObjectRecord(object):
             field_reprs.append('loanno=' + repr(self.loanno))
         if self.loanrenew is not None:
             field_reprs.append('loanrenew=' + repr(self.loanrenew))
-        if self.locfield is not None:
-            field_reprs.append('locfield=' + repr(self.locfield))
+        if self.locfield1 is not None:
+            field_reprs.append('locfield1=' + "'" + self.locfield1.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.locfield2 is not None:
+            field_reprs.append('locfield2=' + "'" + self.locfield2.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.locfield3 is not None:
+            field_reprs.append('locfield3=' + "'" + self.locfield3.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.locfield4 is not None:
+            field_reprs.append('locfield4=' + "'" + self.locfield4.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.locfield5 is not None:
+            field_reprs.append('locfield5=' + "'" + self.locfield5.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.locfield6 is not None:
+            field_reprs.append('locfield6=' + "'" + self.locfield6.encode('ascii', 'replace').decode('ascii') + "'")
         if self.longdeg is not None:
             field_reprs.append('longdeg=' + repr(self.longdeg))
         if self.luster is not None:
@@ -11863,7 +12328,7 @@ class ObjectRecord(object):
         if self.notes is not None:
             field_reprs.append('notes=' + "'" + self.notes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.ns is not None:
-            field_reprs.append('ns=' + repr(self.ns))
+            field_reprs.append('ns=' + "'" + self.ns.encode('ascii', 'replace').decode('ascii') + "'")
         if self.objectid is not None:
             field_reprs.append('objectid=' + "'" + self.objectid.encode('ascii', 'replace').decode('ascii') + "'")
         if self.objname is not None:
@@ -11912,10 +12377,12 @@ class ObjectRecord(object):
             field_reprs.append('provenance=' + "'" + self.provenance.encode('ascii', 'replace').decode('ascii') + "'")
         if self.pubnotes is not None:
             field_reprs.append('pubnotes=' + "'" + self.pubnotes.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.qrurl is not None:
+            field_reprs.append('qrurl=' + "'" + self.qrurl.encode('ascii', 'replace').decode('ascii') + "'")
         if self.recas is not None:
             field_reprs.append('recas=' + "'" + self.recas.encode('ascii', 'replace').decode('ascii') + "'")
         if self.recdate is not None:
-            field_reprs.append('recdate=' + repr(self.recdate))
+            field_reprs.append('recdate=' + "'" + self.recdate.encode('ascii', 'replace').decode('ascii') + "'")
         if self.recfrom is not None:
             field_reprs.append('recfrom=' + "'" + self.recfrom.encode('ascii', 'replace').decode('ascii') + "'")
         if self.relation is not None:
@@ -11937,9 +12404,9 @@ class ObjectRecord(object):
         if self.repatnotes is not None:
             field_reprs.append('repatnotes=' + "'" + self.repatnotes.encode('ascii', 'replace').decode('ascii') + "'")
         if self.repatnotic is not None:
-            field_reprs.append('repatnotic=' + "'" + self.repatnotic.encode('ascii', 'replace').decode('ascii') + "'")
+            field_reprs.append('repatnotic=' + repr(self.repatnotic))
         if self.repattype is not None:
-            field_reprs.append('repattype=' + repr(self.repattype))
+            field_reprs.append('repattype=' + "'" + self.repattype.encode('ascii', 'replace').decode('ascii') + "'")
         if self.rockclass is not None:
             field_reprs.append('rockclass=' + "'" + self.rockclass.encode('ascii', 'replace').decode('ascii') + "'")
         if self.rockcolor is not None:
@@ -11947,7 +12414,7 @@ class ObjectRecord(object):
         if self.rockorigin is not None:
             field_reprs.append('rockorigin=' + "'" + self.rockorigin.encode('ascii', 'replace').decode('ascii') + "'")
         if self.rocktype is not None:
-            field_reprs.append('rocktype=' + repr(self.rocktype))
+            field_reprs.append('rocktype=' + "'" + self.rocktype.encode('ascii', 'replace').decode('ascii') + "'")
         if self.role is not None:
             field_reprs.append('role=' + "'" + self.role.encode('ascii', 'replace').decode('ascii') + "'")
         if self.role2 is not None:
@@ -11958,6 +12425,8 @@ class ObjectRecord(object):
             field_reprs.append('school=' + "'" + self.school.encode('ascii', 'replace').decode('ascii') + "'")
         if self.sex is not None:
             field_reprs.append('sex=' + "'" + self.sex.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.sgflag is not None:
+            field_reprs.append('sgflag=' + "'" + self.sgflag.encode('ascii', 'replace').decode('ascii') + "'")
         if self.signedname is not None:
             field_reprs.append('signedname=' + "'" + self.signedname.encode('ascii', 'replace').decode('ascii') + "'")
         if self.signloc is not None:
@@ -12014,10 +12483,62 @@ class ObjectRecord(object):
             field_reprs.append('texture=' + "'" + self.texture.encode('ascii', 'replace').decode('ascii') + "'")
         if self.title is not None:
             field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').decode('ascii') + "'")
-        if self.tlocfield is not None:
-            field_reprs.append('tlocfield=' + repr(self.tlocfield))
-        if self.udf is not None:
-            field_reprs.append('udf=' + repr(self.udf))
+        if self.tlocfield1 is not None:
+            field_reprs.append('tlocfield1=' + "'" + self.tlocfield1.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.tlocfield2 is not None:
+            field_reprs.append('tlocfield2=' + "'" + self.tlocfield2.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.tlocfield3 is not None:
+            field_reprs.append('tlocfield3=' + "'" + self.tlocfield3.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.tlocfield4 is not None:
+            field_reprs.append('tlocfield4=' + "'" + self.tlocfield4.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.tlocfield5 is not None:
+            field_reprs.append('tlocfield5=' + "'" + self.tlocfield5.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.tlocfield6 is not None:
+            field_reprs.append('tlocfield6=' + "'" + self.tlocfield6.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf1 is not None:
+            field_reprs.append('udf1=' + "'" + self.udf1.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf10 is not None:
+            field_reprs.append('udf10=' + "'" + self.udf10.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf11 is not None:
+            field_reprs.append('udf11=' + "'" + self.udf11.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf12 is not None:
+            field_reprs.append('udf12=' + "'" + self.udf12.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf13 is not None:
+            field_reprs.append('udf13=' + repr(self.udf13))
+        if self.udf14 is not None:
+            field_reprs.append('udf14=' + repr(self.udf14))
+        if self.udf15 is not None:
+            field_reprs.append('udf15=' + repr(self.udf15))
+        if self.udf16 is not None:
+            field_reprs.append('udf16=' + repr(self.udf16))
+        if self.udf17 is not None:
+            field_reprs.append('udf17=' + repr(self.udf17))
+        if self.udf18 is not None:
+            field_reprs.append('udf18=' + repr(self.udf18))
+        if self.udf19 is not None:
+            field_reprs.append('udf19=' + repr(self.udf19))
+        if self.udf2 is not None:
+            field_reprs.append('udf2=' + "'" + self.udf2.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf20 is not None:
+            field_reprs.append('udf20=' + repr(self.udf20))
+        if self.udf21 is not None:
+            field_reprs.append('udf21=' + "'" + self.udf21.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf22 is not None:
+            field_reprs.append('udf22=' + "'" + self.udf22.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf3 is not None:
+            field_reprs.append('udf3=' + "'" + self.udf3.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf4 is not None:
+            field_reprs.append('udf4=' + "'" + self.udf4.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf5 is not None:
+            field_reprs.append('udf5=' + "'" + self.udf5.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf6 is not None:
+            field_reprs.append('udf6=' + "'" + self.udf6.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf7 is not None:
+            field_reprs.append('udf7=' + "'" + self.udf7.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf8 is not None:
+            field_reprs.append('udf8=' + "'" + self.udf8.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.udf9 is not None:
+            field_reprs.append('udf9=' + "'" + self.udf9.encode('ascii', 'replace').decode('ascii') + "'")
         if self.unit is not None:
             field_reprs.append('unit=' + "'" + self.unit.encode('ascii', 'replace').decode('ascii') + "'")
         if self.updated is not None:
@@ -12030,6 +12551,16 @@ class ObjectRecord(object):
             field_reprs.append('valuedate=' + repr(self.valuedate))
         if self.varieties is not None:
             field_reprs.append('varieties=' + "'" + self.varieties.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.vexhtml is not None:
+            field_reprs.append('vexhtml=' + "'" + self.vexhtml.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.vexlabel1 is not None:
+            field_reprs.append('vexlabel1=' + "'" + self.vexlabel1.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.vexlabel2 is not None:
+            field_reprs.append('vexlabel2=' + "'" + self.vexlabel2.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.vexlabel3 is not None:
+            field_reprs.append('vexlabel3=' + "'" + self.vexlabel3.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.vexlabel4 is not None:
+            field_reprs.append('vexlabel4=' + "'" + self.vexlabel4.encode('ascii', 'replace').decode('ascii') + "'")
         if self.webinclude is not None:
             field_reprs.append('webinclude=' + repr(self.webinclude))
         if self.weight is not None:
@@ -12045,11 +12576,11 @@ class ObjectRecord(object):
         if self.widthin is not None:
             field_reprs.append('widthin=' + repr(self.widthin))
         if self.xcord is not None:
-            field_reprs.append('xcord=' + "'" + self.xcord.encode('ascii', 'replace').decode('ascii') + "'")
+            field_reprs.append('xcord=' + repr(self.xcord))
         if self.ycord is not None:
-            field_reprs.append('ycord=' + "'" + self.ycord.encode('ascii', 'replace').decode('ascii') + "'")
+            field_reprs.append('ycord=' + repr(self.ycord))
         if self.zcord is not None:
-            field_reprs.append('zcord=' + "'" + self.zcord.encode('ascii', 'replace').decode('ascii') + "'")
+            field_reprs.append('zcord=' + repr(self.zcord))
         if self.zsorter is not None:
             field_reprs.append('zsorter=' + "'" + self.zsorter.encode('ascii', 'replace').decode('ascii') + "'")
         if self.zsorterx is not None:
@@ -12115,7 +12646,7 @@ class ObjectRecord(object):
     @property
     def bagno(self):
         '''
-        :rtype: int
+        :rtype: str
         '''
 
         return self.__bagno
@@ -12123,7 +12654,7 @@ class ObjectRecord(object):
     @property
     def boxno(self):
         '''
-        :rtype: int
+        :rtype: str
         '''
 
         return self.__boxno
@@ -12139,7 +12670,7 @@ class ObjectRecord(object):
     @property
     def cat(self):
         '''
-        :rtype: pastpy.models.cat.Cat
+        :rtype: str
         '''
 
         return self.__cat
@@ -12251,7 +12782,7 @@ class ObjectRecord(object):
     @property
     def condition(self):
         '''
-        :rtype: pastpy.models.condition.Condition
+        :rtype: str
         '''
 
         return self.__condition
@@ -12451,7 +12982,7 @@ class ObjectRecord(object):
     @property
     def earlydate(self):
         '''
-        :rtype: str
+        :rtype: int
         '''
 
         return self.__earlydate
@@ -12491,7 +13022,7 @@ class ObjectRecord(object):
     @property
     def ew(self):
         '''
-        :rtype: pastpy.models.cardinal_direction.CardinalDirection
+        :rtype: str
         '''
 
         return self.__ew
@@ -12529,17 +13060,41 @@ class ObjectRecord(object):
         return self.__exhibitno
 
     @property
-    def exhlabel(self):
+    def exhlabel1(self):
         '''
-        :rtype: dict(int: str)
+        :rtype: str
         '''
 
-        return self.__exhlabel.copy() if self.__exhlabel is not None else None
+        return self.__exhlabel1
+
+    @property
+    def exhlabel2(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__exhlabel2
+
+    @property
+    def exhlabel3(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__exhlabel3
+
+    @property
+    def exhlabel4(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__exhlabel4
 
     @property
     def exhstart(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__exhstart
@@ -12795,7 +13350,7 @@ class ObjectRecord(object):
     @property
     def inscrtype(self):
         '''
-        :rtype: object
+        :rtype: str
         '''
 
         return self.__inscrtype
@@ -12875,7 +13430,7 @@ class ObjectRecord(object):
     @property
     def latedate(self):
         '''
-        :rtype: str
+        :rtype: int
         '''
 
         return self.__latedate
@@ -12939,7 +13494,7 @@ class ObjectRecord(object):
     @property
     def loandue(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__loandue
@@ -12977,12 +13532,52 @@ class ObjectRecord(object):
         return self.__loanrenew
 
     @property
-    def locfield(self):
+    def locfield1(self):
         '''
-        :rtype: dict(int: str)
+        :rtype: str
         '''
 
-        return self.__locfield.copy() if self.__locfield is not None else None
+        return self.__locfield1
+
+    @property
+    def locfield2(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__locfield2
+
+    @property
+    def locfield3(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__locfield3
+
+    @property
+    def locfield4(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__locfield4
+
+    @property
+    def locfield5(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__locfield5
+
+    @property
+    def locfield6(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__locfield6
 
     @property
     def longdeg(self):
@@ -13091,7 +13686,7 @@ class ObjectRecord(object):
     @property
     def ns(self):
         '''
-        :rtype: pastpy.models.cardinal_direction.CardinalDirection
+        :rtype: str
         '''
 
         return self.__ns
@@ -13288,6 +13883,14 @@ class ObjectRecord(object):
 
         return self.__pubnotes
 
+    @property
+    def qrurl(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__qrurl
+
     @classmethod
     def read(cls, iprot):
         '''
@@ -13341,12 +13944,12 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'bagno':
                 try:
-                    init_kwds['bagno'] = iprot.read_i32()
+                    init_kwds['bagno'] = iprot.read_string()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'boxno':
                 try:
-                    init_kwds['boxno'] = iprot.read_i32()
+                    init_kwds['boxno'] = iprot.read_string()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'caption':
@@ -13356,8 +13959,8 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'cat':
                 try:
-                    init_kwds['cat'] = pastpy.models.cat.Cat.value_of(iprot.read_string().strip().upper())
-                except (TypeError,):
+                    init_kwds['cat'] = iprot.read_string()
+                except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'catby':
                 try:
@@ -13426,8 +14029,8 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'condition':
                 try:
-                    init_kwds['condition'] = pastpy.models.condition.Condition.value_of(iprot.read_string().strip().upper())
-                except (TypeError,):
+                    init_kwds['condition'] = iprot.read_string()
+                except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'condnotes':
                 try:
@@ -13551,7 +14154,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'earlydate':
                 try:
-                    init_kwds['earlydate'] = iprot.read_string()
+                    init_kwds['earlydate'] = iprot.read_i32()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'elements':
@@ -13576,8 +14179,8 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'ew':
                 try:
-                    init_kwds['ew'] = pastpy.models.cardinal_direction.CardinalDirection.value_of(iprot.read_string().strip().upper())
-                except (TypeError,):
+                    init_kwds['ew'] = iprot.read_string()
+                except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'excavadate':
                 try:
@@ -13599,12 +14202,30 @@ class ObjectRecord(object):
                     init_kwds['exhibitno'] = iprot.read_i32()
                 except (TypeError, ValueError,):
                     pass
-            elif ifield_name == 'exhlabel':
-                init_kwds['exhlabel'] = dict([(iprot.read_i32(), iprot.read_string()) for _ in xrange(iprot.read_map_begin()[2])] + (iprot.read_map_end() is None and []))
+            elif ifield_name == 'exhlabel1':
+                try:
+                    init_kwds['exhlabel1'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'exhlabel2':
+                try:
+                    init_kwds['exhlabel2'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'exhlabel3':
+                try:
+                    init_kwds['exhlabel3'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'exhlabel4':
+                try:
+                    init_kwds['exhlabel4'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
             elif ifield_name == 'exhstart':
                 try:
-                    init_kwds['exhstart'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['exhstart'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'family':
                 try:
@@ -13762,7 +14383,10 @@ class ObjectRecord(object):
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'inscrtype':
-                init_kwds['inscrtype'] = iprot.read_variant()
+                try:
+                    init_kwds['inscrtype'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
             elif ifield_name == 'insdate':
                 try:
                     init_kwds['insdate'] = iprot.read_date_time()
@@ -13810,7 +14434,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'latedate':
                 try:
-                    init_kwds['latedate'] = iprot.read_string()
+                    init_kwds['latedate'] = iprot.read_i32()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'legal':
@@ -13850,8 +14474,8 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'loandue':
                 try:
-                    init_kwds['loandue'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['loandue'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'loanid':
                 try:
@@ -13873,8 +14497,36 @@ class ObjectRecord(object):
                     init_kwds['loanrenew'] = iprot.read_date_time()
                 except (TypeError,):
                     pass
-            elif ifield_name == 'locfield':
-                init_kwds['locfield'] = dict([(iprot.read_i32(), iprot.read_string()) for _ in xrange(iprot.read_map_begin()[2])] + (iprot.read_map_end() is None and []))
+            elif ifield_name == 'locfield1':
+                try:
+                    init_kwds['locfield1'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'locfield2':
+                try:
+                    init_kwds['locfield2'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'locfield3':
+                try:
+                    init_kwds['locfield3'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'locfield4':
+                try:
+                    init_kwds['locfield4'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'locfield5':
+                try:
+                    init_kwds['locfield5'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'locfield6':
+                try:
+                    init_kwds['locfield6'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
             elif ifield_name == 'longdeg':
                 try:
                     init_kwds['longdeg'] = iprot.read_decimal()
@@ -13942,8 +14594,8 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'ns':
                 try:
-                    init_kwds['ns'] = pastpy.models.cardinal_direction.CardinalDirection.value_of(iprot.read_string().strip().upper())
-                except (TypeError,):
+                    init_kwds['ns'] = iprot.read_string()
+                except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'objectid':
                 try:
@@ -14065,6 +14717,11 @@ class ObjectRecord(object):
                     init_kwds['pubnotes'] = iprot.read_string()
                 except (TypeError, ValueError,):
                     pass
+            elif ifield_name == 'qrurl':
+                try:
+                    init_kwds['qrurl'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
             elif ifield_name == 'recas':
                 try:
                     init_kwds['recas'] = iprot.read_string()
@@ -14072,8 +14729,8 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'recdate':
                 try:
-                    init_kwds['recdate'] = iprot.read_date_time()
-                except (TypeError,):
+                    init_kwds['recdate'] = iprot.read_string()
+                except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'recfrom':
                 try:
@@ -14127,12 +14784,12 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'repatnotic':
                 try:
-                    init_kwds['repatnotic'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['repatnotic'] = iprot.read_date_time()
+                except (TypeError,):
                     pass
             elif ifield_name == 'repattype':
                 try:
-                    init_kwds['repattype'] = iprot.read_i32()
+                    init_kwds['repattype'] = iprot.read_string()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'rockclass':
@@ -14152,7 +14809,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'rocktype':
                 try:
-                    init_kwds['rocktype'] = iprot.read_i32()
+                    init_kwds['rocktype'] = iprot.read_string()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'role':
@@ -14178,6 +14835,11 @@ class ObjectRecord(object):
             elif ifield_name == 'sex':
                 try:
                     init_kwds['sex'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'sgflag':
+                try:
+                    init_kwds['sgflag'] = iprot.read_string()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'signedname':
@@ -14320,10 +14982,146 @@ class ObjectRecord(object):
                     init_kwds['title'] = iprot.read_string()
                 except (TypeError, ValueError,):
                     pass
-            elif ifield_name == 'tlocfield':
-                init_kwds['tlocfield'] = dict([(iprot.read_i32(), iprot.read_string()) for _ in xrange(iprot.read_map_begin()[2])] + (iprot.read_map_end() is None and []))
-            elif ifield_name == 'udf':
-                init_kwds['udf'] = dict([(iprot.read_i32(), iprot.read_variant()) for _ in xrange(iprot.read_map_begin()[2])] + (iprot.read_map_end() is None and []))
+            elif ifield_name == 'tlocfield1':
+                try:
+                    init_kwds['tlocfield1'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'tlocfield2':
+                try:
+                    init_kwds['tlocfield2'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'tlocfield3':
+                try:
+                    init_kwds['tlocfield3'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'tlocfield4':
+                try:
+                    init_kwds['tlocfield4'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'tlocfield5':
+                try:
+                    init_kwds['tlocfield5'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'tlocfield6':
+                try:
+                    init_kwds['tlocfield6'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'udf1':
+                try:
+                    init_kwds['udf1'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'udf10':
+                try:
+                    init_kwds['udf10'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'udf11':
+                try:
+                    init_kwds['udf11'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'udf12':
+                try:
+                    init_kwds['udf12'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'udf13':
+                try:
+                    init_kwds['udf13'] = iprot.read_i32()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'udf14':
+                try:
+                    init_kwds['udf14'] = iprot.read_decimal()
+                except (decimal.InvalidOperation, TypeError,):
+                    pass
+            elif ifield_name == 'udf15':
+                try:
+                    init_kwds['udf15'] = iprot.read_decimal()
+                except (decimal.InvalidOperation, TypeError,):
+                    pass
+            elif ifield_name == 'udf16':
+                try:
+                    init_kwds['udf16'] = iprot.read_decimal()
+                except (decimal.InvalidOperation, TypeError,):
+                    pass
+            elif ifield_name == 'udf17':
+                try:
+                    init_kwds['udf17'] = iprot.read_decimal()
+                except (decimal.InvalidOperation, TypeError,):
+                    pass
+            elif ifield_name == 'udf18':
+                try:
+                    init_kwds['udf18'] = iprot.read_date_time()
+                except (TypeError,):
+                    pass
+            elif ifield_name == 'udf19':
+                try:
+                    init_kwds['udf19'] = iprot.read_date_time()
+                except (TypeError,):
+                    pass
+            elif ifield_name == 'udf2':
+                try:
+                    init_kwds['udf2'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'udf20':
+                try:
+                    init_kwds['udf20'] = iprot.read_date_time()
+                except (TypeError,):
+                    pass
+            elif ifield_name == 'udf21':
+                try:
+                    init_kwds['udf21'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'udf22':
+                try:
+                    init_kwds['udf22'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'udf3':
+                try:
+                    init_kwds['udf3'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'udf4':
+                try:
+                    init_kwds['udf4'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'udf5':
+                try:
+                    init_kwds['udf5'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'udf6':
+                try:
+                    init_kwds['udf6'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'udf7':
+                try:
+                    init_kwds['udf7'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'udf8':
+                try:
+                    init_kwds['udf8'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'udf9':
+                try:
+                    init_kwds['udf9'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
             elif ifield_name == 'unit':
                 try:
                     init_kwds['unit'] = iprot.read_string()
@@ -14352,6 +15150,31 @@ class ObjectRecord(object):
             elif ifield_name == 'varieties':
                 try:
                     init_kwds['varieties'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'vexhtml':
+                try:
+                    init_kwds['vexhtml'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'vexlabel1':
+                try:
+                    init_kwds['vexlabel1'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'vexlabel2':
+                try:
+                    init_kwds['vexlabel2'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'vexlabel3':
+                try:
+                    init_kwds['vexlabel3'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'vexlabel4':
+                try:
+                    init_kwds['vexlabel4'] = iprot.read_string()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'webinclude':
@@ -14391,18 +15214,18 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'xcord':
                 try:
-                    init_kwds['xcord'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['xcord'] = iprot.read_decimal()
+                except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'ycord':
                 try:
-                    init_kwds['ycord'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['ycord'] = iprot.read_decimal()
+                except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'zcord':
                 try:
-                    init_kwds['zcord'] = iprot.read_string()
-                except (TypeError, ValueError,):
+                    init_kwds['zcord'] = iprot.read_decimal()
+                except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'zsorter':
                 try:
@@ -14430,7 +15253,7 @@ class ObjectRecord(object):
     @property
     def recdate(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: str
         '''
 
         return self.__recdate
@@ -14518,7 +15341,7 @@ class ObjectRecord(object):
     @property
     def repatnotic(self):
         '''
-        :rtype: str
+        :rtype: datetime.datetime
         '''
 
         return self.__repatnotic
@@ -14526,7 +15349,7 @@ class ObjectRecord(object):
     @property
     def repattype(self):
         '''
-        :rtype: int
+        :rtype: str
         '''
 
         return self.__repattype
@@ -14592,7 +15415,10 @@ class ObjectRecord(object):
         excavateby=None,
         exhibitid=None,
         exhibitno=None,
-        exhlabel=None,
+        exhlabel1=None,
+        exhlabel2=None,
+        exhlabel3=None,
+        exhlabel4=None,
         exhstart=None,
         family=None,
         feature=None,
@@ -14648,7 +15474,12 @@ class ObjectRecord(object):
         loaninno=None,
         loanno=None,
         loanrenew=None,
-        locfield=None,
+        locfield1=None,
+        locfield2=None,
+        locfield3=None,
+        locfield4=None,
+        locfield5=None,
+        locfield6=None,
         longdeg=None,
         luster=None,
         made=None,
@@ -14687,6 +15518,7 @@ class ObjectRecord(object):
         pressure=None,
         provenance=None,
         pubnotes=None,
+        qrurl=None,
         recas=None,
         recdate=None,
         recfrom=None,
@@ -14710,6 +15542,7 @@ class ObjectRecord(object):
         role3=None,
         school=None,
         sex=None,
+        sgflag=None,
         signedname=None,
         signloc=None,
         site=None,
@@ -14738,14 +15571,45 @@ class ObjectRecord(object):
         tempuntil=None,
         texture=None,
         title=None,
-        tlocfield=None,
-        udf=None,
+        tlocfield1=None,
+        tlocfield2=None,
+        tlocfield3=None,
+        tlocfield4=None,
+        tlocfield5=None,
+        tlocfield6=None,
+        udf1=None,
+        udf10=None,
+        udf11=None,
+        udf12=None,
+        udf13=None,
+        udf14=None,
+        udf15=None,
+        udf16=None,
+        udf17=None,
+        udf18=None,
+        udf19=None,
+        udf2=None,
+        udf20=None,
+        udf21=None,
+        udf22=None,
+        udf3=None,
+        udf4=None,
+        udf5=None,
+        udf6=None,
+        udf7=None,
+        udf8=None,
+        udf9=None,
         unit=None,
         updated=None,
         updatedby=None,
         used=None,
         valuedate=None,
         varieties=None,
+        vexhtml=None,
+        vexlabel1=None,
+        vexlabel2=None,
+        vexlabel3=None,
+        vexlabel4=None,
         webinclude=None,
         weight=None,
         weightin=None,
@@ -14769,10 +15633,10 @@ class ObjectRecord(object):
         :type appnotes: str or None
         :type appraisor: str or None
         :type assemzone: str or None
-        :type bagno: int or None
-        :type boxno: int or None
+        :type bagno: str or None
+        :type boxno: str or None
         :type caption: str or None
-        :type cat: pastpy.models.cat.Cat or None
+        :type cat: str or None
         :type catby: str or None
         :type catdate: datetime.datetime or None
         :type cattype: str or None
@@ -14786,7 +15650,7 @@ class ObjectRecord(object):
         :type collector: str or None
         :type conddate: datetime.datetime or None
         :type condexam: str or None
-        :type condition: pastpy.models.condition.Condition or None
+        :type condition: str or None
         :type condnotes: str or None
         :type count: str or None
         :type creator: str or None
@@ -14811,18 +15675,21 @@ class ObjectRecord(object):
         :type dimnotes: str or None
         :type dimtype: int or None
         :type dispvalue: str or None
-        :type earlydate: str or None
+        :type earlydate: int or None
         :type elements: str or None
         :type epoch: str or None
         :type era: str or None
         :type event: str or None
-        :type ew: pastpy.models.cardinal_direction.CardinalDirection or None
+        :type ew: str or None
         :type excavadate: datetime.datetime or None
         :type excavateby: str or None
         :type exhibitid: str or None
         :type exhibitno: int or None
-        :type exhlabel: dict(int: str) or None
-        :type exhstart: str or None
+        :type exhlabel1: str or None
+        :type exhlabel2: str or None
+        :type exhlabel3: str or None
+        :type exhlabel4: str or None
+        :type exhstart: datetime.datetime or None
         :type family: str or None
         :type feature: str or None
         :type flagdate: datetime.datetime or None
@@ -14854,7 +15721,7 @@ class ObjectRecord(object):
         :type inscrtech: str or None
         :type inscrtext: str or None
         :type inscrtrans: str or None
-        :type inscrtype: object or None
+        :type inscrtype: str or None
         :type insdate: datetime.datetime or None
         :type insphone: str or None
         :type inspremium: str or None
@@ -14864,7 +15731,7 @@ class ObjectRecord(object):
         :type invndate: datetime.datetime or None
         :type kingdom: str or None
         :type latdeg: Decimal or None
-        :type latedate: str or None
+        :type latedate: int or None
         :type legal: str or None
         :type length: Decimal or None
         :type lengthft: Decimal or None
@@ -14872,12 +15739,17 @@ class ObjectRecord(object):
         :type level: str or None
         :type lithofacie: str or None
         :type loancond: str or None
-        :type loandue: str or None
+        :type loandue: datetime.datetime or None
         :type loanid: str or None
         :type loaninno: str or None
         :type loanno: int or None
         :type loanrenew: datetime.datetime or None
-        :type locfield: dict(int: str) or None
+        :type locfield1: str or None
+        :type locfield2: str or None
+        :type locfield3: str or None
+        :type locfield4: str or None
+        :type locfield5: str or None
+        :type locfield6: str or None
         :type longdeg: Decimal or None
         :type luster: str or None
         :type made: str or None
@@ -14891,7 +15763,7 @@ class ObjectRecord(object):
         :type nhclass: str or None
         :type nhorder: str or None
         :type notes: str or None
-        :type ns: pastpy.models.cardinal_direction.CardinalDirection or None
+        :type ns: str or None
         :type objectid: str or None
         :type objname: str or None
         :type objname2: str or None
@@ -14916,8 +15788,9 @@ class ObjectRecord(object):
         :type pressure: str or None
         :type provenance: str or None
         :type pubnotes: str or None
+        :type qrurl: str or None
         :type recas: str or None
-        :type recdate: datetime.datetime or None
+        :type recdate: str or None
         :type recfrom: str or None
         :type relation: str or None
         :type relnotes: str or None
@@ -14928,17 +15801,18 @@ class ObjectRecord(object):
         :type repatdisp: str or None
         :type repathand: str or None
         :type repatnotes: str or None
-        :type repatnotic: str or None
-        :type repattype: int or None
+        :type repatnotic: datetime.datetime or None
+        :type repattype: str or None
         :type rockclass: str or None
         :type rockcolor: str or None
         :type rockorigin: str or None
-        :type rocktype: int or None
+        :type rocktype: str or None
         :type role: str or None
         :type role2: str or None
         :type role3: str or None
         :type school: str or None
         :type sex: str or None
+        :type sgflag: str or None
         :type signedname: str or None
         :type signloc: str or None
         :type site: str or None
@@ -14967,14 +15841,45 @@ class ObjectRecord(object):
         :type tempuntil: str or None
         :type texture: str or None
         :type title: str or None
-        :type tlocfield: dict(int: str) or None
-        :type udf: dict(int: object) or None
+        :type tlocfield1: str or None
+        :type tlocfield2: str or None
+        :type tlocfield3: str or None
+        :type tlocfield4: str or None
+        :type tlocfield5: str or None
+        :type tlocfield6: str or None
+        :type udf1: str or None
+        :type udf10: str or None
+        :type udf11: str or None
+        :type udf12: str or None
+        :type udf13: int or None
+        :type udf14: Decimal or None
+        :type udf15: Decimal or None
+        :type udf16: Decimal or None
+        :type udf17: Decimal or None
+        :type udf18: datetime.datetime or None
+        :type udf19: datetime.datetime or None
+        :type udf2: str or None
+        :type udf20: datetime.datetime or None
+        :type udf21: str or None
+        :type udf22: str or None
+        :type udf3: str or None
+        :type udf4: str or None
+        :type udf5: str or None
+        :type udf6: str or None
+        :type udf7: str or None
+        :type udf8: str or None
+        :type udf9: str or None
         :type unit: str or None
         :type updated: datetime.datetime or None
         :type updatedby: str or None
         :type used: str or None
         :type valuedate: datetime.datetime or None
         :type varieties: str or None
+        :type vexhtml: str or None
+        :type vexlabel1: str or None
+        :type vexlabel2: str or None
+        :type vexlabel3: str or None
+        :type vexlabel4: str or None
         :type webinclude: bool or None
         :type weight: Decimal or None
         :type weightin: Decimal or None
@@ -14982,9 +15887,9 @@ class ObjectRecord(object):
         :type width: Decimal or None
         :type widthft: Decimal or None
         :type widthin: Decimal or None
-        :type xcord: str or None
-        :type ycord: str or None
-        :type zcord: str or None
+        :type xcord: Decimal or None
+        :type ycord: Decimal or None
+        :type zcord: Decimal or None
         :type zsorter: str or None
         :type zsorterx: str or None
         :rtype: pastpy.models.object_record.ObjectRecord
@@ -15108,8 +16013,14 @@ class ObjectRecord(object):
             exhibitid = self.exhibitid
         if exhibitno is None:
             exhibitno = self.exhibitno
-        if exhlabel is None:
-            exhlabel = self.exhlabel
+        if exhlabel1 is None:
+            exhlabel1 = self.exhlabel1
+        if exhlabel2 is None:
+            exhlabel2 = self.exhlabel2
+        if exhlabel3 is None:
+            exhlabel3 = self.exhlabel3
+        if exhlabel4 is None:
+            exhlabel4 = self.exhlabel4
         if exhstart is None:
             exhstart = self.exhstart
         if family is None:
@@ -15220,8 +16131,18 @@ class ObjectRecord(object):
             loanno = self.loanno
         if loanrenew is None:
             loanrenew = self.loanrenew
-        if locfield is None:
-            locfield = self.locfield
+        if locfield1 is None:
+            locfield1 = self.locfield1
+        if locfield2 is None:
+            locfield2 = self.locfield2
+        if locfield3 is None:
+            locfield3 = self.locfield3
+        if locfield4 is None:
+            locfield4 = self.locfield4
+        if locfield5 is None:
+            locfield5 = self.locfield5
+        if locfield6 is None:
+            locfield6 = self.locfield6
         if longdeg is None:
             longdeg = self.longdeg
         if luster is None:
@@ -15298,6 +16219,8 @@ class ObjectRecord(object):
             provenance = self.provenance
         if pubnotes is None:
             pubnotes = self.pubnotes
+        if qrurl is None:
+            qrurl = self.qrurl
         if recas is None:
             recas = self.recas
         if recdate is None:
@@ -15344,6 +16267,8 @@ class ObjectRecord(object):
             school = self.school
         if sex is None:
             sex = self.sex
+        if sgflag is None:
+            sgflag = self.sgflag
         if signedname is None:
             signedname = self.signedname
         if signloc is None:
@@ -15400,10 +16325,62 @@ class ObjectRecord(object):
             texture = self.texture
         if title is None:
             title = self.title
-        if tlocfield is None:
-            tlocfield = self.tlocfield
-        if udf is None:
-            udf = self.udf
+        if tlocfield1 is None:
+            tlocfield1 = self.tlocfield1
+        if tlocfield2 is None:
+            tlocfield2 = self.tlocfield2
+        if tlocfield3 is None:
+            tlocfield3 = self.tlocfield3
+        if tlocfield4 is None:
+            tlocfield4 = self.tlocfield4
+        if tlocfield5 is None:
+            tlocfield5 = self.tlocfield5
+        if tlocfield6 is None:
+            tlocfield6 = self.tlocfield6
+        if udf1 is None:
+            udf1 = self.udf1
+        if udf10 is None:
+            udf10 = self.udf10
+        if udf11 is None:
+            udf11 = self.udf11
+        if udf12 is None:
+            udf12 = self.udf12
+        if udf13 is None:
+            udf13 = self.udf13
+        if udf14 is None:
+            udf14 = self.udf14
+        if udf15 is None:
+            udf15 = self.udf15
+        if udf16 is None:
+            udf16 = self.udf16
+        if udf17 is None:
+            udf17 = self.udf17
+        if udf18 is None:
+            udf18 = self.udf18
+        if udf19 is None:
+            udf19 = self.udf19
+        if udf2 is None:
+            udf2 = self.udf2
+        if udf20 is None:
+            udf20 = self.udf20
+        if udf21 is None:
+            udf21 = self.udf21
+        if udf22 is None:
+            udf22 = self.udf22
+        if udf3 is None:
+            udf3 = self.udf3
+        if udf4 is None:
+            udf4 = self.udf4
+        if udf5 is None:
+            udf5 = self.udf5
+        if udf6 is None:
+            udf6 = self.udf6
+        if udf7 is None:
+            udf7 = self.udf7
+        if udf8 is None:
+            udf8 = self.udf8
+        if udf9 is None:
+            udf9 = self.udf9
         if unit is None:
             unit = self.unit
         if updated is None:
@@ -15416,6 +16393,16 @@ class ObjectRecord(object):
             valuedate = self.valuedate
         if varieties is None:
             varieties = self.varieties
+        if vexhtml is None:
+            vexhtml = self.vexhtml
+        if vexlabel1 is None:
+            vexlabel1 = self.vexlabel1
+        if vexlabel2 is None:
+            vexlabel2 = self.vexlabel2
+        if vexlabel3 is None:
+            vexlabel3 = self.vexlabel3
+        if vexlabel4 is None:
+            vexlabel4 = self.vexlabel4
         if webinclude is None:
             webinclude = self.webinclude
         if weight is None:
@@ -15440,7 +16427,7 @@ class ObjectRecord(object):
             zsorter = self.zsorter
         if zsorterx is None:
             zsorterx = self.zsorterx
-        return self.__class__(accessno=accessno, accessory=accessory, acqvalue=acqvalue, age=age, appnotes=appnotes, appraisor=appraisor, assemzone=assemzone, bagno=bagno, boxno=boxno, caption=caption, cat=cat, catby=catby, catdate=catdate, cattype=cattype, chemcomp=chemcomp, circum=circum, circumft=circumft, circumin=circumin, classes=classes, colldate=colldate, collection=collection, collector=collector, conddate=conddate, condexam=condexam, condition=condition, condnotes=condnotes, count=count, creator=creator, creator2=creator2, creator3=creator3, credit=credit, crystal=crystal, culture=culture, curvalmax=curvalmax, curvalue=curvalue, dataset=dataset, date=date, datingmeth=datingmeth, datum=datum, depth=depth, depthft=depthft, depthin=depthin, descrip=descrip, diameter=diameter, diameterft=diameterft, diameterin=diameterin, dimnotes=dimnotes, dimtype=dimtype, dispvalue=dispvalue, earlydate=earlydate, elements=elements, epoch=epoch, era=era, event=event, ew=ew, excavadate=excavadate, excavateby=excavateby, exhibitid=exhibitid, exhibitno=exhibitno, exhlabel=exhlabel, exhstart=exhstart, family=family, feature=feature, flagdate=flagdate, flagnotes=flagnotes, flagreason=flagreason, formation=formation, fossils=fossils, found=found, fracture=fracture, frame=frame, framesize=framesize, genus=genus, gparent=gparent, grainsize=grainsize, habitat=habitat, hardness=hardness, height=height, heightft=heightft, heightin=heightin, homeloc=homeloc, idby=idby, iddate=iddate, imagefile=imagefile, imageno=imageno, imagesize=imagesize, inscomp=inscomp, inscrlang=inscrlang, inscrpos=inscrpos, inscrtech=inscrtech, inscrtext=inscrtext, inscrtrans=inscrtrans, inscrtype=inscrtype, insdate=insdate, insphone=insphone, inspremium=inspremium, insrep=insrep, insvalue=insvalue, invnby=invnby, invndate=invndate, kingdom=kingdom, latdeg=latdeg, latedate=latedate, legal=legal, length=length, lengthft=lengthft, lengthin=lengthin, level=level, lithofacie=lithofacie, loancond=loancond, loandue=loandue, loanid=loanid, loaninno=loaninno, loanno=loanno, loanrenew=loanrenew, locfield=locfield, longdeg=longdeg, luster=luster, made=made, maintcycle=maintcycle, maintdate=maintdate, maintnote=maintnote, material=material, medium=medium, member=member, mmark=mmark, nhclass=nhclass, nhorder=nhorder, notes=notes, ns=ns, objectid=objectid, objname=objname, objname2=objname2, objname3=objname3, objnames=objnames, occurrence=occurrence, oldno=oldno, origin=origin, othername=othername, otherno=otherno, outdate=outdate, owned=owned, parent=parent, people=people, period=period, phylum=phylum, policyno=policyno, ppid=ppid, preparator=preparator, prepdate=prepdate, preserve=preserve, pressure=pressure, provenance=provenance, pubnotes=pubnotes, recas=recas, recdate=recdate, recfrom=recfrom, relation=relation, relnotes=relnotes, renewuntil=renewuntil, repatby=repatby, repatclaim=repatclaim, repatdate=repatdate, repatdisp=repatdisp, repathand=repathand, repatnotes=repatnotes, repatnotic=repatnotic, repattype=repattype, rockclass=rockclass, rockcolor=rockcolor, rockorigin=rockorigin, rocktype=rocktype, role=role, role2=role2, role3=role3, school=school, sex=sex, signedname=signedname, signloc=signloc, site=site, siteno=siteno, specgrav=specgrav, species=species, sprocess=sprocess, stage=stage, status=status, statusby=statusby, statusdate=statusdate, sterms=sterms, stratum=stratum, streak=streak, subfamily=subfamily, subjects=subjects, subspecies=subspecies, technique=technique, tempauthor=tempauthor, tempby=tempby, tempdate=tempdate, temperatur=temperatur, temploc=temploc, tempnotes=tempnotes, tempreason=tempreason, tempuntil=tempuntil, texture=texture, title=title, tlocfield=tlocfield, udf=udf, unit=unit, updated=updated, updatedby=updatedby, used=used, valuedate=valuedate, varieties=varieties, webinclude=webinclude, weight=weight, weightin=weightin, weightlb=weightlb, width=width, widthft=widthft, widthin=widthin, xcord=xcord, ycord=ycord, zcord=zcord, zsorter=zsorter, zsorterx=zsorterx)
+        return self.__class__(accessno=accessno, accessory=accessory, acqvalue=acqvalue, age=age, appnotes=appnotes, appraisor=appraisor, assemzone=assemzone, bagno=bagno, boxno=boxno, caption=caption, cat=cat, catby=catby, catdate=catdate, cattype=cattype, chemcomp=chemcomp, circum=circum, circumft=circumft, circumin=circumin, classes=classes, colldate=colldate, collection=collection, collector=collector, conddate=conddate, condexam=condexam, condition=condition, condnotes=condnotes, count=count, creator=creator, creator2=creator2, creator3=creator3, credit=credit, crystal=crystal, culture=culture, curvalmax=curvalmax, curvalue=curvalue, dataset=dataset, date=date, datingmeth=datingmeth, datum=datum, depth=depth, depthft=depthft, depthin=depthin, descrip=descrip, diameter=diameter, diameterft=diameterft, diameterin=diameterin, dimnotes=dimnotes, dimtype=dimtype, dispvalue=dispvalue, earlydate=earlydate, elements=elements, epoch=epoch, era=era, event=event, ew=ew, excavadate=excavadate, excavateby=excavateby, exhibitid=exhibitid, exhibitno=exhibitno, exhlabel1=exhlabel1, exhlabel2=exhlabel2, exhlabel3=exhlabel3, exhlabel4=exhlabel4, exhstart=exhstart, family=family, feature=feature, flagdate=flagdate, flagnotes=flagnotes, flagreason=flagreason, formation=formation, fossils=fossils, found=found, fracture=fracture, frame=frame, framesize=framesize, genus=genus, gparent=gparent, grainsize=grainsize, habitat=habitat, hardness=hardness, height=height, heightft=heightft, heightin=heightin, homeloc=homeloc, idby=idby, iddate=iddate, imagefile=imagefile, imageno=imageno, imagesize=imagesize, inscomp=inscomp, inscrlang=inscrlang, inscrpos=inscrpos, inscrtech=inscrtech, inscrtext=inscrtext, inscrtrans=inscrtrans, inscrtype=inscrtype, insdate=insdate, insphone=insphone, inspremium=inspremium, insrep=insrep, insvalue=insvalue, invnby=invnby, invndate=invndate, kingdom=kingdom, latdeg=latdeg, latedate=latedate, legal=legal, length=length, lengthft=lengthft, lengthin=lengthin, level=level, lithofacie=lithofacie, loancond=loancond, loandue=loandue, loanid=loanid, loaninno=loaninno, loanno=loanno, loanrenew=loanrenew, locfield1=locfield1, locfield2=locfield2, locfield3=locfield3, locfield4=locfield4, locfield5=locfield5, locfield6=locfield6, longdeg=longdeg, luster=luster, made=made, maintcycle=maintcycle, maintdate=maintdate, maintnote=maintnote, material=material, medium=medium, member=member, mmark=mmark, nhclass=nhclass, nhorder=nhorder, notes=notes, ns=ns, objectid=objectid, objname=objname, objname2=objname2, objname3=objname3, objnames=objnames, occurrence=occurrence, oldno=oldno, origin=origin, othername=othername, otherno=otherno, outdate=outdate, owned=owned, parent=parent, people=people, period=period, phylum=phylum, policyno=policyno, ppid=ppid, preparator=preparator, prepdate=prepdate, preserve=preserve, pressure=pressure, provenance=provenance, pubnotes=pubnotes, qrurl=qrurl, recas=recas, recdate=recdate, recfrom=recfrom, relation=relation, relnotes=relnotes, renewuntil=renewuntil, repatby=repatby, repatclaim=repatclaim, repatdate=repatdate, repatdisp=repatdisp, repathand=repathand, repatnotes=repatnotes, repatnotic=repatnotic, repattype=repattype, rockclass=rockclass, rockcolor=rockcolor, rockorigin=rockorigin, rocktype=rocktype, role=role, role2=role2, role3=role3, school=school, sex=sex, sgflag=sgflag, signedname=signedname, signloc=signloc, site=site, siteno=siteno, specgrav=specgrav, species=species, sprocess=sprocess, stage=stage, status=status, statusby=statusby, statusdate=statusdate, sterms=sterms, stratum=stratum, streak=streak, subfamily=subfamily, subjects=subjects, subspecies=subspecies, technique=technique, tempauthor=tempauthor, tempby=tempby, tempdate=tempdate, temperatur=temperatur, temploc=temploc, tempnotes=tempnotes, tempreason=tempreason, tempuntil=tempuntil, texture=texture, title=title, tlocfield1=tlocfield1, tlocfield2=tlocfield2, tlocfield3=tlocfield3, tlocfield4=tlocfield4, tlocfield5=tlocfield5, tlocfield6=tlocfield6, udf1=udf1, udf10=udf10, udf11=udf11, udf12=udf12, udf13=udf13, udf14=udf14, udf15=udf15, udf16=udf16, udf17=udf17, udf18=udf18, udf19=udf19, udf2=udf2, udf20=udf20, udf21=udf21, udf22=udf22, udf3=udf3, udf4=udf4, udf5=udf5, udf6=udf6, udf7=udf7, udf8=udf8, udf9=udf9, unit=unit, updated=updated, updatedby=updatedby, used=used, valuedate=valuedate, varieties=varieties, vexhtml=vexhtml, vexlabel1=vexlabel1, vexlabel2=vexlabel2, vexlabel3=vexlabel3, vexlabel4=vexlabel4, webinclude=webinclude, weight=weight, weightin=weightin, weightlb=weightlb, width=width, widthft=widthft, widthin=widthin, xcord=xcord, ycord=ycord, zcord=zcord, zsorter=zsorter, zsorterx=zsorterx)
 
     @property
     def rockclass(self):
@@ -15469,7 +16456,7 @@ class ObjectRecord(object):
     @property
     def rocktype(self):
         '''
-        :rtype: int
+        :rtype: str
         '''
 
         return self.__rocktype
@@ -15513,6 +16500,14 @@ class ObjectRecord(object):
         '''
 
         return self.__sex
+
+    @property
+    def sgflag(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__sgflag
 
     @property
     def signedname(self):
@@ -15739,20 +16734,228 @@ class ObjectRecord(object):
         return self.__title
 
     @property
-    def tlocfield(self):
+    def tlocfield1(self):
         '''
-        :rtype: dict(int: str)
+        :rtype: str
         '''
 
-        return self.__tlocfield.copy() if self.__tlocfield is not None else None
+        return self.__tlocfield1
 
     @property
-    def udf(self):
+    def tlocfield2(self):
         '''
-        :rtype: dict(int: object)
+        :rtype: str
         '''
 
-        return self.__udf.copy() if self.__udf is not None else None
+        return self.__tlocfield2
+
+    @property
+    def tlocfield3(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__tlocfield3
+
+    @property
+    def tlocfield4(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__tlocfield4
+
+    @property
+    def tlocfield5(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__tlocfield5
+
+    @property
+    def tlocfield6(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__tlocfield6
+
+    @property
+    def udf1(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__udf1
+
+    @property
+    def udf10(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__udf10
+
+    @property
+    def udf11(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__udf11
+
+    @property
+    def udf12(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__udf12
+
+    @property
+    def udf13(self):
+        '''
+        :rtype: int
+        '''
+
+        return self.__udf13
+
+    @property
+    def udf14(self):
+        '''
+        :rtype: Decimal
+        '''
+
+        return self.__udf14
+
+    @property
+    def udf15(self):
+        '''
+        :rtype: Decimal
+        '''
+
+        return self.__udf15
+
+    @property
+    def udf16(self):
+        '''
+        :rtype: Decimal
+        '''
+
+        return self.__udf16
+
+    @property
+    def udf17(self):
+        '''
+        :rtype: Decimal
+        '''
+
+        return self.__udf17
+
+    @property
+    def udf18(self):
+        '''
+        :rtype: datetime.datetime
+        '''
+
+        return self.__udf18
+
+    @property
+    def udf19(self):
+        '''
+        :rtype: datetime.datetime
+        '''
+
+        return self.__udf19
+
+    @property
+    def udf2(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__udf2
+
+    @property
+    def udf20(self):
+        '''
+        :rtype: datetime.datetime
+        '''
+
+        return self.__udf20
+
+    @property
+    def udf21(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__udf21
+
+    @property
+    def udf22(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__udf22
+
+    @property
+    def udf3(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__udf3
+
+    @property
+    def udf4(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__udf4
+
+    @property
+    def udf5(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__udf5
+
+    @property
+    def udf6(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__udf6
+
+    @property
+    def udf7(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__udf7
+
+    @property
+    def udf8(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__udf8
+
+    @property
+    def udf9(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__udf9
 
     @property
     def unit(self):
@@ -15801,6 +17004,46 @@ class ObjectRecord(object):
         '''
 
         return self.__varieties
+
+    @property
+    def vexhtml(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__vexhtml
+
+    @property
+    def vexlabel1(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__vexlabel1
+
+    @property
+    def vexlabel2(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__vexlabel2
+
+    @property
+    def vexlabel3(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__vexlabel3
+
+    @property
+    def vexlabel4(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__vexlabel4
 
     @property
     def webinclude(self):
@@ -15904,13 +17147,13 @@ class ObjectRecord(object):
             oprot.write_field_end()
 
         if self.bagno is not None:
-            oprot.write_field_begin(name='bagno', type=8, id=None)
-            oprot.write_i32(self.bagno)
+            oprot.write_field_begin(name='bagno', type=11, id=None)
+            oprot.write_string(self.bagno)
             oprot.write_field_end()
 
         if self.boxno is not None:
-            oprot.write_field_begin(name='boxno', type=8, id=None)
-            oprot.write_i32(self.boxno)
+            oprot.write_field_begin(name='boxno', type=11, id=None)
+            oprot.write_string(self.boxno)
             oprot.write_field_end()
 
         if self.caption is not None:
@@ -15920,7 +17163,7 @@ class ObjectRecord(object):
 
         if self.cat is not None:
             oprot.write_field_begin(name='cat', type=11, id=None)
-            oprot.write_string(str(self.cat))
+            oprot.write_string(self.cat)
             oprot.write_field_end()
 
         if self.catby is not None:
@@ -15990,7 +17233,7 @@ class ObjectRecord(object):
 
         if self.condition is not None:
             oprot.write_field_begin(name='condition', type=11, id=None)
-            oprot.write_string(str(self.condition))
+            oprot.write_string(self.condition)
             oprot.write_field_end()
 
         if self.condnotes is not None:
@@ -16114,8 +17357,8 @@ class ObjectRecord(object):
             oprot.write_field_end()
 
         if self.earlydate is not None:
-            oprot.write_field_begin(name='earlydate', type=11, id=None)
-            oprot.write_string(self.earlydate)
+            oprot.write_field_begin(name='earlydate', type=8, id=None)
+            oprot.write_i32(self.earlydate)
             oprot.write_field_end()
 
         if self.elements is not None:
@@ -16140,7 +17383,7 @@ class ObjectRecord(object):
 
         if self.ew is not None:
             oprot.write_field_begin(name='ew', type=11, id=None)
-            oprot.write_string(str(self.ew))
+            oprot.write_string(self.ew)
             oprot.write_field_end()
 
         if self.excavadate is not None:
@@ -16163,18 +17406,29 @@ class ObjectRecord(object):
             oprot.write_i32(self.exhibitno)
             oprot.write_field_end()
 
-        if self.exhlabel is not None:
-            oprot.write_field_begin(name='exhlabel', type=13, id=None)
-            oprot.write_map_begin(8, len(self.exhlabel), 11)
-            for __key0, __value0 in self.exhlabel.items():
-                oprot.write_i32(__key0)
-                oprot.write_string(__value0)
-            oprot.write_map_end()
+        if self.exhlabel1 is not None:
+            oprot.write_field_begin(name='exhlabel1', type=11, id=None)
+            oprot.write_string(self.exhlabel1)
+            oprot.write_field_end()
+
+        if self.exhlabel2 is not None:
+            oprot.write_field_begin(name='exhlabel2', type=11, id=None)
+            oprot.write_string(self.exhlabel2)
+            oprot.write_field_end()
+
+        if self.exhlabel3 is not None:
+            oprot.write_field_begin(name='exhlabel3', type=11, id=None)
+            oprot.write_string(self.exhlabel3)
+            oprot.write_field_end()
+
+        if self.exhlabel4 is not None:
+            oprot.write_field_begin(name='exhlabel4', type=11, id=None)
+            oprot.write_string(self.exhlabel4)
             oprot.write_field_end()
 
         if self.exhstart is not None:
-            oprot.write_field_begin(name='exhstart', type=11, id=None)
-            oprot.write_string(self.exhstart)
+            oprot.write_field_begin(name='exhstart', type=10, id=None)
+            oprot.write_date_time(self.exhstart)
             oprot.write_field_end()
 
         if self.family is not None:
@@ -16333,8 +17587,8 @@ class ObjectRecord(object):
             oprot.write_field_end()
 
         if self.inscrtype is not None:
-            oprot.write_field_begin(name='inscrtype', type=12, id=None)
-            oprot.write_variant(self.inscrtype)
+            oprot.write_field_begin(name='inscrtype', type=11, id=None)
+            oprot.write_string(self.inscrtype)
             oprot.write_field_end()
 
         if self.insdate is not None:
@@ -16383,8 +17637,8 @@ class ObjectRecord(object):
             oprot.write_field_end()
 
         if self.latedate is not None:
-            oprot.write_field_begin(name='latedate', type=11, id=None)
-            oprot.write_string(self.latedate)
+            oprot.write_field_begin(name='latedate', type=8, id=None)
+            oprot.write_i32(self.latedate)
             oprot.write_field_end()
 
         if self.legal is not None:
@@ -16423,8 +17677,8 @@ class ObjectRecord(object):
             oprot.write_field_end()
 
         if self.loandue is not None:
-            oprot.write_field_begin(name='loandue', type=11, id=None)
-            oprot.write_string(self.loandue)
+            oprot.write_field_begin(name='loandue', type=10, id=None)
+            oprot.write_date_time(self.loandue)
             oprot.write_field_end()
 
         if self.loanid is not None:
@@ -16447,13 +17701,34 @@ class ObjectRecord(object):
             oprot.write_date_time(self.loanrenew)
             oprot.write_field_end()
 
-        if self.locfield is not None:
-            oprot.write_field_begin(name='locfield', type=13, id=None)
-            oprot.write_map_begin(8, len(self.locfield), 11)
-            for __key0, __value0 in self.locfield.items():
-                oprot.write_i32(__key0)
-                oprot.write_string(__value0)
-            oprot.write_map_end()
+        if self.locfield1 is not None:
+            oprot.write_field_begin(name='locfield1', type=11, id=None)
+            oprot.write_string(self.locfield1)
+            oprot.write_field_end()
+
+        if self.locfield2 is not None:
+            oprot.write_field_begin(name='locfield2', type=11, id=None)
+            oprot.write_string(self.locfield2)
+            oprot.write_field_end()
+
+        if self.locfield3 is not None:
+            oprot.write_field_begin(name='locfield3', type=11, id=None)
+            oprot.write_string(self.locfield3)
+            oprot.write_field_end()
+
+        if self.locfield4 is not None:
+            oprot.write_field_begin(name='locfield4', type=11, id=None)
+            oprot.write_string(self.locfield4)
+            oprot.write_field_end()
+
+        if self.locfield5 is not None:
+            oprot.write_field_begin(name='locfield5', type=11, id=None)
+            oprot.write_string(self.locfield5)
+            oprot.write_field_end()
+
+        if self.locfield6 is not None:
+            oprot.write_field_begin(name='locfield6', type=11, id=None)
+            oprot.write_string(self.locfield6)
             oprot.write_field_end()
 
         if self.longdeg is not None:
@@ -16523,7 +17798,7 @@ class ObjectRecord(object):
 
         if self.ns is not None:
             oprot.write_field_begin(name='ns', type=11, id=None)
-            oprot.write_string(str(self.ns))
+            oprot.write_string(self.ns)
             oprot.write_field_end()
 
         if self.objectid is not None:
@@ -16646,14 +17921,19 @@ class ObjectRecord(object):
             oprot.write_string(self.pubnotes)
             oprot.write_field_end()
 
+        if self.qrurl is not None:
+            oprot.write_field_begin(name='qrurl', type=11, id=None)
+            oprot.write_string(self.qrurl)
+            oprot.write_field_end()
+
         if self.recas is not None:
             oprot.write_field_begin(name='recas', type=11, id=None)
             oprot.write_string(self.recas)
             oprot.write_field_end()
 
         if self.recdate is not None:
-            oprot.write_field_begin(name='recdate', type=10, id=None)
-            oprot.write_date_time(self.recdate)
+            oprot.write_field_begin(name='recdate', type=11, id=None)
+            oprot.write_string(self.recdate)
             oprot.write_field_end()
 
         if self.recfrom is not None:
@@ -16707,13 +17987,13 @@ class ObjectRecord(object):
             oprot.write_field_end()
 
         if self.repatnotic is not None:
-            oprot.write_field_begin(name='repatnotic', type=11, id=None)
-            oprot.write_string(self.repatnotic)
+            oprot.write_field_begin(name='repatnotic', type=10, id=None)
+            oprot.write_date_time(self.repatnotic)
             oprot.write_field_end()
 
         if self.repattype is not None:
-            oprot.write_field_begin(name='repattype', type=8, id=None)
-            oprot.write_i32(self.repattype)
+            oprot.write_field_begin(name='repattype', type=11, id=None)
+            oprot.write_string(self.repattype)
             oprot.write_field_end()
 
         if self.rockclass is not None:
@@ -16732,8 +18012,8 @@ class ObjectRecord(object):
             oprot.write_field_end()
 
         if self.rocktype is not None:
-            oprot.write_field_begin(name='rocktype', type=8, id=None)
-            oprot.write_i32(self.rocktype)
+            oprot.write_field_begin(name='rocktype', type=11, id=None)
+            oprot.write_string(self.rocktype)
             oprot.write_field_end()
 
         if self.role is not None:
@@ -16759,6 +18039,11 @@ class ObjectRecord(object):
         if self.sex is not None:
             oprot.write_field_begin(name='sex', type=11, id=None)
             oprot.write_string(self.sex)
+            oprot.write_field_end()
+
+        if self.sgflag is not None:
+            oprot.write_field_begin(name='sgflag', type=11, id=None)
+            oprot.write_string(self.sgflag)
             oprot.write_field_end()
 
         if self.signedname is not None:
@@ -16901,22 +18186,144 @@ class ObjectRecord(object):
             oprot.write_string(self.title)
             oprot.write_field_end()
 
-        if self.tlocfield is not None:
-            oprot.write_field_begin(name='tlocfield', type=13, id=None)
-            oprot.write_map_begin(8, len(self.tlocfield), 11)
-            for __key0, __value0 in self.tlocfield.items():
-                oprot.write_i32(__key0)
-                oprot.write_string(__value0)
-            oprot.write_map_end()
+        if self.tlocfield1 is not None:
+            oprot.write_field_begin(name='tlocfield1', type=11, id=None)
+            oprot.write_string(self.tlocfield1)
             oprot.write_field_end()
 
-        if self.udf is not None:
-            oprot.write_field_begin(name='udf', type=13, id=None)
-            oprot.write_map_begin(8, len(self.udf), 12)
-            for __key0, __value0 in self.udf.items():
-                oprot.write_i32(__key0)
-                oprot.write_variant(__value0)
-            oprot.write_map_end()
+        if self.tlocfield2 is not None:
+            oprot.write_field_begin(name='tlocfield2', type=11, id=None)
+            oprot.write_string(self.tlocfield2)
+            oprot.write_field_end()
+
+        if self.tlocfield3 is not None:
+            oprot.write_field_begin(name='tlocfield3', type=11, id=None)
+            oprot.write_string(self.tlocfield3)
+            oprot.write_field_end()
+
+        if self.tlocfield4 is not None:
+            oprot.write_field_begin(name='tlocfield4', type=11, id=None)
+            oprot.write_string(self.tlocfield4)
+            oprot.write_field_end()
+
+        if self.tlocfield5 is not None:
+            oprot.write_field_begin(name='tlocfield5', type=11, id=None)
+            oprot.write_string(self.tlocfield5)
+            oprot.write_field_end()
+
+        if self.tlocfield6 is not None:
+            oprot.write_field_begin(name='tlocfield6', type=11, id=None)
+            oprot.write_string(self.tlocfield6)
+            oprot.write_field_end()
+
+        if self.udf1 is not None:
+            oprot.write_field_begin(name='udf1', type=11, id=None)
+            oprot.write_string(self.udf1)
+            oprot.write_field_end()
+
+        if self.udf10 is not None:
+            oprot.write_field_begin(name='udf10', type=11, id=None)
+            oprot.write_string(self.udf10)
+            oprot.write_field_end()
+
+        if self.udf11 is not None:
+            oprot.write_field_begin(name='udf11', type=11, id=None)
+            oprot.write_string(self.udf11)
+            oprot.write_field_end()
+
+        if self.udf12 is not None:
+            oprot.write_field_begin(name='udf12', type=11, id=None)
+            oprot.write_string(self.udf12)
+            oprot.write_field_end()
+
+        if self.udf13 is not None:
+            oprot.write_field_begin(name='udf13', type=8, id=None)
+            oprot.write_i32(self.udf13)
+            oprot.write_field_end()
+
+        if self.udf14 is not None:
+            oprot.write_field_begin(name='udf14', type=11, id=None)
+            oprot.write_decimal(self.udf14)
+            oprot.write_field_end()
+
+        if self.udf15 is not None:
+            oprot.write_field_begin(name='udf15', type=11, id=None)
+            oprot.write_decimal(self.udf15)
+            oprot.write_field_end()
+
+        if self.udf16 is not None:
+            oprot.write_field_begin(name='udf16', type=11, id=None)
+            oprot.write_decimal(self.udf16)
+            oprot.write_field_end()
+
+        if self.udf17 is not None:
+            oprot.write_field_begin(name='udf17', type=11, id=None)
+            oprot.write_decimal(self.udf17)
+            oprot.write_field_end()
+
+        if self.udf18 is not None:
+            oprot.write_field_begin(name='udf18', type=10, id=None)
+            oprot.write_date_time(self.udf18)
+            oprot.write_field_end()
+
+        if self.udf19 is not None:
+            oprot.write_field_begin(name='udf19', type=10, id=None)
+            oprot.write_date_time(self.udf19)
+            oprot.write_field_end()
+
+        if self.udf2 is not None:
+            oprot.write_field_begin(name='udf2', type=11, id=None)
+            oprot.write_string(self.udf2)
+            oprot.write_field_end()
+
+        if self.udf20 is not None:
+            oprot.write_field_begin(name='udf20', type=10, id=None)
+            oprot.write_date_time(self.udf20)
+            oprot.write_field_end()
+
+        if self.udf21 is not None:
+            oprot.write_field_begin(name='udf21', type=11, id=None)
+            oprot.write_string(self.udf21)
+            oprot.write_field_end()
+
+        if self.udf22 is not None:
+            oprot.write_field_begin(name='udf22', type=11, id=None)
+            oprot.write_string(self.udf22)
+            oprot.write_field_end()
+
+        if self.udf3 is not None:
+            oprot.write_field_begin(name='udf3', type=11, id=None)
+            oprot.write_string(self.udf3)
+            oprot.write_field_end()
+
+        if self.udf4 is not None:
+            oprot.write_field_begin(name='udf4', type=11, id=None)
+            oprot.write_string(self.udf4)
+            oprot.write_field_end()
+
+        if self.udf5 is not None:
+            oprot.write_field_begin(name='udf5', type=11, id=None)
+            oprot.write_string(self.udf5)
+            oprot.write_field_end()
+
+        if self.udf6 is not None:
+            oprot.write_field_begin(name='udf6', type=11, id=None)
+            oprot.write_string(self.udf6)
+            oprot.write_field_end()
+
+        if self.udf7 is not None:
+            oprot.write_field_begin(name='udf7', type=11, id=None)
+            oprot.write_string(self.udf7)
+            oprot.write_field_end()
+
+        if self.udf8 is not None:
+            oprot.write_field_begin(name='udf8', type=11, id=None)
+            oprot.write_string(self.udf8)
+            oprot.write_field_end()
+
+        if self.udf9 is not None:
+            oprot.write_field_begin(name='udf9', type=11, id=None)
+            oprot.write_string(self.udf9)
             oprot.write_field_end()
 
         if self.unit is not None:
@@ -16947,6 +18354,31 @@ class ObjectRecord(object):
         if self.varieties is not None:
             oprot.write_field_begin(name='varieties', type=11, id=None)
             oprot.write_string(self.varieties)
+            oprot.write_field_end()
+
+        if self.vexhtml is not None:
+            oprot.write_field_begin(name='vexhtml', type=11, id=None)
+            oprot.write_string(self.vexhtml)
+            oprot.write_field_end()
+
+        if self.vexlabel1 is not None:
+            oprot.write_field_begin(name='vexlabel1', type=11, id=None)
+            oprot.write_string(self.vexlabel1)
+            oprot.write_field_end()
+
+        if self.vexlabel2 is not None:
+            oprot.write_field_begin(name='vexlabel2', type=11, id=None)
+            oprot.write_string(self.vexlabel2)
+            oprot.write_field_end()
+
+        if self.vexlabel3 is not None:
+            oprot.write_field_begin(name='vexlabel3', type=11, id=None)
+            oprot.write_string(self.vexlabel3)
+            oprot.write_field_end()
+
+        if self.vexlabel4 is not None:
+            oprot.write_field_begin(name='vexlabel4', type=11, id=None)
+            oprot.write_string(self.vexlabel4)
             oprot.write_field_end()
 
         if self.webinclude is not None:
@@ -16986,17 +18418,17 @@ class ObjectRecord(object):
 
         if self.xcord is not None:
             oprot.write_field_begin(name='xcord', type=11, id=None)
-            oprot.write_string(self.xcord)
+            oprot.write_decimal(self.xcord)
             oprot.write_field_end()
 
         if self.ycord is not None:
             oprot.write_field_begin(name='ycord', type=11, id=None)
-            oprot.write_string(self.ycord)
+            oprot.write_decimal(self.ycord)
             oprot.write_field_end()
 
         if self.zcord is not None:
             oprot.write_field_begin(name='zcord', type=11, id=None)
-            oprot.write_string(self.zcord)
+            oprot.write_decimal(self.zcord)
             oprot.write_field_end()
 
         if self.zsorter is not None:
@@ -17018,7 +18450,7 @@ class ObjectRecord(object):
     @property
     def xcord(self):
         '''
-        :rtype: str
+        :rtype: Decimal
         '''
 
         return self.__xcord
@@ -17026,7 +18458,7 @@ class ObjectRecord(object):
     @property
     def ycord(self):
         '''
-        :rtype: str
+        :rtype: Decimal
         '''
 
         return self.__ycord
@@ -17034,7 +18466,7 @@ class ObjectRecord(object):
     @property
     def zcord(self):
         '''
-        :rtype: str
+        :rtype: Decimal
         '''
 
         return self.__zcord
