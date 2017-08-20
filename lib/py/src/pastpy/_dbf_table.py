@@ -6,6 +6,23 @@ class _DbfTable(object):
     def __init__(self, table):
         self.__table = table
 
+    def _coerce_record_date_time_field(self, field_value):
+        print('Coercing', field_value)
+        if isinstance(field_value, str):
+            for strptime_format in ('%m/%d/%Y', '%Y'):
+                try:
+                    return datetime.strptime(field_value, strptime_format)
+                except ValueError:
+                    pass
+            logging.warn(
+                "unable to parse %(field_name)s=%(field_value)s (basestring)" % locals())
+            return
+        elif isinstance(field_value, int):
+            if field_value == 0:
+                return
+        raise NotImplementedError(
+            "%(field_name)s: %(field_value)s" % locals())
+
     def _coerce_record_field(
         self,
         field_metadata,
@@ -14,25 +31,18 @@ class _DbfTable(object):
         existing_field_value=None
     ):
         field_name = field_metadata.name
-        if field_metadata.type == datetime:
+        if field_metadata.type == date:
             if isinstance(field_value, date):
-                return datetime(year=field_value.year, month=field_value.month, day=field_value.day)
-            elif isinstance(field_value, datetime):
                 return field_value
-            elif isinstance(field_value, str):
-                for strptime_format in ('%m/%d/%Y', '%Y'):
-                    try:
-                        return datetime.strptime(field_value, strptime_format)
-                    except ValueError:
-                        pass
-                logging.warn(
-                    "unable to parse %(field_name)s=%(field_value)s (basestring)" % locals())
-                return
-            elif isinstance(field_value, int):
-                if field_value == 0:
-                    return
-                raise NotImplementedError(
-                    "%(field_name)s: %(field_value)s" % locals())
+            date_time = self._coerce_record_date_time_field(
+                field_value=field_value)
+            if date_time is not None:
+                return date_time.date()
+        elif field_metadata.type == datetime:
+            if isinstance(field_value, datetime):
+                return field_value
+            return self._coerce_record_date_time_field(
+                field_value=field_value)
         elif field_metadata.type == str:
             if not isinstance(field_value, str):
                 logging.debug("converting %s=%s (%s) to string",
