@@ -27,7 +27,6 @@ class _DbfTable(object):
         self,
         field_metadata,
         field_value,
-        field_number=None,
         existing_field_value=None
     ):
         field_name = field_metadata.name
@@ -67,24 +66,14 @@ class _DbfTable(object):
             if len(field_value) == 0:
                 return
 
-        field_name_base = field_name
-        field_number = None
-        for i in range(2, 0, -1):
-            try:
-                field_number = int(field_name[-1 * i:])
-                field_name_base = field_name[:-1 * i]
-                break
-            except ValueError:
-                pass
         field_metadata = getattr(
-            getattr(struct_type, 'FieldMetadata'), field_name_base.upper())
+            getattr(struct_type, 'FieldMetadata'), field_name.upper())
 
-        existing_field_value = getattr(struct_builder, field_name_base)
+        existing_field_value = getattr(struct_builder, field_name)
 
         new_field_value = \
             self._coerce_record_field(
                 existing_field_value=existing_field_value,
-                field_number=field_number,
                 field_metadata=field_metadata,
                 field_value=field_value,
             )
@@ -92,7 +81,7 @@ class _DbfTable(object):
             return
 
         try:
-            getattr(struct_builder, 'set_' + field_name_base)(new_field_value)
+            getattr(struct_builder, 'set_' + field_name)(new_field_value)
         except TypeError as e:
             raise TypeError("%(new_field_value)s: %(e)s" % locals())
         except ValueError as e:
