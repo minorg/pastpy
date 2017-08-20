@@ -7,812 +7,277 @@ import datetime
 class ObjectRecord(object):
     class Builder(object):
         def __init__(
-            self,
-            accessno=None,
-            accessory=None,
-            acqvalue=None,
-            age=None,
-            appnotes=None,
-            appraisor=None,
-            assemzone=None,
-            bagno=None,
-            boxno=None,
-            caption=None,
-            cat=None,
-            catby=None,
-            catdate=None,
-            cattype=None,
-            chemcomp=None,
-            circum=None,
-            circumft=None,
-            circumin=None,
-            classes=None,
-            colldate=None,
-            collection=None,
-            collector=None,
-            conddate=None,
-            condexam=None,
-            condition=None,
-            condnotes=None,
-            count=None,
-            creator=None,
-            creator2=None,
-            creator3=None,
-            credit=None,
-            crystal=None,
-            culture=None,
-            curvalmax=None,
-            curvalue=None,
-            dataset=None,
-            date=None,
-            datingmeth=None,
-            datum=None,
-            depth=None,
-            depthft=None,
-            depthin=None,
-            descrip=None,
-            diameter=None,
-            diameterft=None,
-            diameterin=None,
-            dimnotes=None,
-            dimtype=None,
-            dispvalue=None,
-            earlydate=None,
-            elements=None,
-            epoch=None,
-            era=None,
-            event=None,
-            ew=None,
-            excavadate=None,
-            excavateby=None,
-            exhibitid=None,
-            exhibitno=None,
-            exhlabel1=None,
-            exhlabel2=None,
-            exhlabel3=None,
-            exhlabel4=None,
-            exhstart=None,
-            family=None,
-            feature=None,
-            flagdate=None,
-            flagnotes=None,
-            flagreason=None,
-            formation=None,
-            fossils=None,
-            found=None,
-            fracture=None,
-            frame=None,
-            framesize=None,
-            genus=None,
-            gparent=None,
-            grainsize=None,
-            habitat=None,
-            hardness=None,
-            height=None,
-            heightft=None,
-            heightin=None,
-            homeloc=None,
-            idby=None,
-            iddate=None,
-            imagefile=None,
-            imageno=None,
-            imagesize=None,
-            inscomp=None,
-            inscrlang=None,
-            inscrpos=None,
-            inscrtech=None,
-            inscrtext=None,
-            inscrtrans=None,
-            inscrtype=None,
-            insdate=None,
-            insphone=None,
-            inspremium=None,
-            insrep=None,
-            insvalue=None,
-            invnby=None,
-            invndate=None,
-            kingdom=None,
-            latdeg=None,
-            latedate=None,
-            legal=None,
-            length=None,
-            lengthft=None,
-            lengthin=None,
-            level=None,
-            lithofacie=None,
-            loancond=None,
-            loandue=None,
-            loanid=None,
-            loaninno=None,
-            loanno=None,
-            loanrenew=None,
-            locfield1=None,
-            locfield2=None,
-            locfield3=None,
-            locfield4=None,
-            locfield5=None,
-            locfield6=None,
-            longdeg=None,
-            luster=None,
-            made=None,
-            maintcycle=None,
-            maintdate=None,
-            maintnote=None,
-            material=None,
-            medium=None,
-            member=None,
-            mmark=None,
-            nhclass=None,
-            nhorder=None,
-            notes=None,
-            ns=None,
-            objectid=None,
-            objname=None,
-            objname2=None,
-            objname3=None,
-            objnames=None,
-            occurrence=None,
-            oldno=None,
-            origin=None,
-            othername=None,
-            otherno=None,
-            outdate=None,
-            owned=None,
-            parent=None,
-            people=None,
-            period=None,
-            phylum=None,
-            policyno=None,
-            ppid=None,
-            preparator=None,
-            prepdate=None,
-            preserve=None,
-            pressure=None,
-            provenance=None,
-            pubnotes=None,
-            qrurl=None,
-            recas=None,
-            recdate=None,
-            recfrom=None,
-            relation=None,
-            relnotes=None,
-            renewuntil=None,
-            repatby=None,
-            repatclaim=None,
-            repatdate=None,
-            repatdisp=None,
-            repathand=None,
-            repatnotes=None,
-            repatnotic=None,
-            repattype=None,
-            rockclass=None,
-            rockcolor=None,
-            rockorigin=None,
-            rocktype=None,
-            role=None,
-            role2=None,
-            role3=None,
-            school=None,
-            sex=None,
-            sgflag=None,
-            signedname=None,
-            signloc=None,
-            site=None,
-            siteno=None,
-            specgrav=None,
-            species=None,
-            sprocess=None,
-            stage=None,
-            status=None,
-            statusby=None,
-            statusdate=None,
-            sterms=None,
-            stratum=None,
-            streak=None,
-            subfamily=None,
-            subjects=None,
-            subspecies=None,
-            technique=None,
-            tempauthor=None,
-            tempby=None,
-            tempdate=None,
-            temperatur=None,
-            temploc=None,
-            tempnotes=None,
-            tempreason=None,
-            tempuntil=None,
-            texture=None,
-            title=None,
-            tlocfield1=None,
-            tlocfield2=None,
-            tlocfield3=None,
-            tlocfield4=None,
-            tlocfield5=None,
-            tlocfield6=None,
-            udf1=None,
-            udf10=None,
-            udf11=None,
-            udf12=None,
-            udf13=None,
-            udf14=None,
-            udf15=None,
-            udf16=None,
-            udf17=None,
-            udf18=None,
-            udf19=None,
-            udf2=None,
-            udf20=None,
-            udf21=None,
-            udf22=None,
-            udf3=None,
-            udf4=None,
-            udf5=None,
-            udf6=None,
-            udf7=None,
-            udf8=None,
-            udf9=None,
-            unit=None,
-            updated=None,
-            updatedby=None,
-            used=None,
-            valuedate=None,
-            varieties=None,
-            vexhtml=None,
-            vexlabel1=None,
-            vexlabel2=None,
-            vexlabel3=None,
-            vexlabel4=None,
-            webinclude=None,
-            weight=None,
-            weightin=None,
-            weightlb=None,
-            width=None,
-            widthft=None,
-            widthin=None,
-            xcord=None,
-            ycord=None,
-            zcord=None,
-            zsorter=None,
-            zsorterx=None,
+            self
         ):
-            '''
-            :type accessno: str or None
-            :type accessory: str or None
-            :type acqvalue: Decimal or None
-            :type age: str or None
-            :type appnotes: str or None
-            :type appraisor: str or None
-            :type assemzone: str or None
-            :type bagno: str or None
-            :type boxno: str or None
-            :type caption: str or None
-            :type cat: str or None
-            :type catby: str or None
-            :type catdate: datetime.date or None
-            :type cattype: str or None
-            :type chemcomp: str or None
-            :type circum: Decimal or None
-            :type circumft: Decimal or None
-            :type circumin: Decimal or None
-            :type classes: str or None
-            :type colldate: datetime.date or None
-            :type collection: str or None
-            :type collector: str or None
-            :type conddate: datetime.date or None
-            :type condexam: str or None
-            :type condition: str or None
-            :type condnotes: str or None
-            :type count: str or None
-            :type creator: str or None
-            :type creator2: str or None
-            :type creator3: str or None
-            :type credit: str or None
-            :type crystal: str or None
-            :type culture: str or None
-            :type curvalmax: Decimal or None
-            :type curvalue: Decimal or None
-            :type dataset: str or None
-            :type date: str or None
-            :type datingmeth: str or None
-            :type datum: str or None
-            :type depth: Decimal or None
-            :type depthft: Decimal or None
-            :type depthin: Decimal or None
-            :type descrip: str or None
-            :type diameter: Decimal or None
-            :type diameterft: Decimal or None
-            :type diameterin: Decimal or None
-            :type dimnotes: str or None
-            :type dimtype: int or None
-            :type dispvalue: str or None
-            :type earlydate: int or None
-            :type elements: str or None
-            :type epoch: str or None
-            :type era: str or None
-            :type event: str or None
-            :type ew: str or None
-            :type excavadate: datetime.date or None
-            :type excavateby: str or None
-            :type exhibitid: str or None
-            :type exhibitno: int or None
-            :type exhlabel1: str or None
-            :type exhlabel2: str or None
-            :type exhlabel3: str or None
-            :type exhlabel4: str or None
-            :type exhstart: datetime.date or None
-            :type family: str or None
-            :type feature: str or None
-            :type flagdate: datetime.datetime or None
-            :type flagnotes: str or None
-            :type flagreason: str or None
-            :type formation: str or None
-            :type fossils: str or None
-            :type found: str or None
-            :type fracture: str or None
-            :type frame: str or None
-            :type framesize: str or None
-            :type genus: str or None
-            :type gparent: str or None
-            :type grainsize: str or None
-            :type habitat: str or None
-            :type hardness: str or None
-            :type height: Decimal or None
-            :type heightft: Decimal or None
-            :type heightin: Decimal or None
-            :type homeloc: str or None
-            :type idby: str or None
-            :type iddate: datetime.date or None
-            :type imagefile: str or None
-            :type imageno: int or None
-            :type imagesize: str or None
-            :type inscomp: str or None
-            :type inscrlang: str or None
-            :type inscrpos: str or None
-            :type inscrtech: str or None
-            :type inscrtext: str or None
-            :type inscrtrans: str or None
-            :type inscrtype: str or None
-            :type insdate: datetime.date or None
-            :type insphone: str or None
-            :type inspremium: str or None
-            :type insrep: str or None
-            :type insvalue: Decimal or None
-            :type invnby: str or None
-            :type invndate: datetime.date or None
-            :type kingdom: str or None
-            :type latdeg: Decimal or None
-            :type latedate: int or None
-            :type legal: str or None
-            :type length: Decimal or None
-            :type lengthft: Decimal or None
-            :type lengthin: Decimal or None
-            :type level: str or None
-            :type lithofacie: str or None
-            :type loancond: str or None
-            :type loandue: datetime.date or None
-            :type loanid: str or None
-            :type loaninno: str or None
-            :type loanno: int or None
-            :type loanrenew: datetime.date or None
-            :type locfield1: str or None
-            :type locfield2: str or None
-            :type locfield3: str or None
-            :type locfield4: str or None
-            :type locfield5: str or None
-            :type locfield6: str or None
-            :type longdeg: Decimal or None
-            :type luster: str or None
-            :type made: str or None
-            :type maintcycle: str or None
-            :type maintdate: datetime.date or None
-            :type maintnote: str or None
-            :type material: str or None
-            :type medium: str or None
-            :type member: str or None
-            :type mmark: str or None
-            :type nhclass: str or None
-            :type nhorder: str or None
-            :type notes: str or None
-            :type ns: str or None
-            :type objectid: str or None
-            :type objname: str or None
-            :type objname2: str or None
-            :type objname3: str or None
-            :type objnames: str or None
-            :type occurrence: str or None
-            :type oldno: str or None
-            :type origin: str or None
-            :type othername: str or None
-            :type otherno: str or None
-            :type outdate: datetime.date or None
-            :type owned: str or None
-            :type parent: str or None
-            :type people: str or None
-            :type period: str or None
-            :type phylum: str or None
-            :type policyno: str or None
-            :type ppid: str or None
-            :type preparator: str or None
-            :type prepdate: datetime.date or None
-            :type preserve: str or None
-            :type pressure: str or None
-            :type provenance: str or None
-            :type pubnotes: str or None
-            :type qrurl: str or None
-            :type recas: str or None
-            :type recdate: str or None
-            :type recfrom: str or None
-            :type relation: str or None
-            :type relnotes: str or None
-            :type renewuntil: datetime.date or None
-            :type repatby: str or None
-            :type repatclaim: str or None
-            :type repatdate: datetime.date or None
-            :type repatdisp: str or None
-            :type repathand: str or None
-            :type repatnotes: str or None
-            :type repatnotic: datetime.date or None
-            :type repattype: str or None
-            :type rockclass: str or None
-            :type rockcolor: str or None
-            :type rockorigin: str or None
-            :type rocktype: str or None
-            :type role: str or None
-            :type role2: str or None
-            :type role3: str or None
-            :type school: str or None
-            :type sex: str or None
-            :type sgflag: str or None
-            :type signedname: str or None
-            :type signloc: str or None
-            :type site: str or None
-            :type siteno: str or None
-            :type specgrav: str or None
-            :type species: str or None
-            :type sprocess: str or None
-            :type stage: str or None
-            :type status: str or None
-            :type statusby: str or None
-            :type statusdate: datetime.date or None
-            :type sterms: str or None
-            :type stratum: str or None
-            :type streak: str or None
-            :type subfamily: str or None
-            :type subjects: str or None
-            :type subspecies: str or None
-            :type technique: str or None
-            :type tempauthor: str or None
-            :type tempby: str or None
-            :type tempdate: datetime.date or None
-            :type temperatur: str or None
-            :type temploc: str or None
-            :type tempnotes: str or None
-            :type tempreason: str or None
-            :type tempuntil: str or None
-            :type texture: str or None
-            :type title: str or None
-            :type tlocfield1: str or None
-            :type tlocfield2: str or None
-            :type tlocfield3: str or None
-            :type tlocfield4: str or None
-            :type tlocfield5: str or None
-            :type tlocfield6: str or None
-            :type udf1: str or None
-            :type udf10: str or None
-            :type udf11: str or None
-            :type udf12: str or None
-            :type udf13: int or None
-            :type udf14: Decimal or None
-            :type udf15: Decimal or None
-            :type udf16: Decimal or None
-            :type udf17: Decimal or None
-            :type udf18: datetime.date or None
-            :type udf19: datetime.date or None
-            :type udf2: str or None
-            :type udf20: datetime.date or None
-            :type udf21: str or None
-            :type udf22: str or None
-            :type udf3: str or None
-            :type udf4: str or None
-            :type udf5: str or None
-            :type udf6: str or None
-            :type udf7: str or None
-            :type udf8: str or None
-            :type udf9: str or None
-            :type unit: str or None
-            :type updated: datetime.datetime or None
-            :type updatedby: str or None
-            :type used: str or None
-            :type valuedate: datetime.date or None
-            :type varieties: str or None
-            :type vexhtml: str or None
-            :type vexlabel1: str or None
-            :type vexlabel2: str or None
-            :type vexlabel3: str or None
-            :type vexlabel4: str or None
-            :type webinclude: bool or None
-            :type weight: Decimal or None
-            :type weightin: Decimal or None
-            :type weightlb: Decimal or None
-            :type width: Decimal or None
-            :type widthft: Decimal or None
-            :type widthin: Decimal or None
-            :type xcord: Decimal or None
-            :type ycord: Decimal or None
-            :type zcord: Decimal or None
-            :type zsorter: str or None
-            :type zsorterx: str or None
-            '''
-
-            self.__accessno = accessno
-            self.__accessory = accessory
-            self.__acqvalue = acqvalue
-            self.__age = age
-            self.__appnotes = appnotes
-            self.__appraisor = appraisor
-            self.__assemzone = assemzone
-            self.__bagno = bagno
-            self.__boxno = boxno
-            self.__caption = caption
-            self.__cat = cat
-            self.__catby = catby
-            self.__catdate = catdate
-            self.__cattype = cattype
-            self.__chemcomp = chemcomp
-            self.__circum = circum
-            self.__circumft = circumft
-            self.__circumin = circumin
-            self.__classes = classes
-            self.__colldate = colldate
-            self.__collection = collection
-            self.__collector = collector
-            self.__conddate = conddate
-            self.__condexam = condexam
-            self.__condition = condition
-            self.__condnotes = condnotes
-            self.__count = count
-            self.__creator = creator
-            self.__creator2 = creator2
-            self.__creator3 = creator3
-            self.__credit = credit
-            self.__crystal = crystal
-            self.__culture = culture
-            self.__curvalmax = curvalmax
-            self.__curvalue = curvalue
-            self.__dataset = dataset
-            self.__date = date
-            self.__datingmeth = datingmeth
-            self.__datum = datum
-            self.__depth = depth
-            self.__depthft = depthft
-            self.__depthin = depthin
-            self.__descrip = descrip
-            self.__diameter = diameter
-            self.__diameterft = diameterft
-            self.__diameterin = diameterin
-            self.__dimnotes = dimnotes
-            self.__dimtype = dimtype
-            self.__dispvalue = dispvalue
-            self.__earlydate = earlydate
-            self.__elements = elements
-            self.__epoch = epoch
-            self.__era = era
-            self.__event = event
-            self.__ew = ew
-            self.__excavadate = excavadate
-            self.__excavateby = excavateby
-            self.__exhibitid = exhibitid
-            self.__exhibitno = exhibitno
-            self.__exhlabel1 = exhlabel1
-            self.__exhlabel2 = exhlabel2
-            self.__exhlabel3 = exhlabel3
-            self.__exhlabel4 = exhlabel4
-            self.__exhstart = exhstart
-            self.__family = family
-            self.__feature = feature
-            self.__flagdate = flagdate
-            self.__flagnotes = flagnotes
-            self.__flagreason = flagreason
-            self.__formation = formation
-            self.__fossils = fossils
-            self.__found = found
-            self.__fracture = fracture
-            self.__frame = frame
-            self.__framesize = framesize
-            self.__genus = genus
-            self.__gparent = gparent
-            self.__grainsize = grainsize
-            self.__habitat = habitat
-            self.__hardness = hardness
-            self.__height = height
-            self.__heightft = heightft
-            self.__heightin = heightin
-            self.__homeloc = homeloc
-            self.__idby = idby
-            self.__iddate = iddate
-            self.__imagefile = imagefile
-            self.__imageno = imageno
-            self.__imagesize = imagesize
-            self.__inscomp = inscomp
-            self.__inscrlang = inscrlang
-            self.__inscrpos = inscrpos
-            self.__inscrtech = inscrtech
-            self.__inscrtext = inscrtext
-            self.__inscrtrans = inscrtrans
-            self.__inscrtype = inscrtype
-            self.__insdate = insdate
-            self.__insphone = insphone
-            self.__inspremium = inspremium
-            self.__insrep = insrep
-            self.__insvalue = insvalue
-            self.__invnby = invnby
-            self.__invndate = invndate
-            self.__kingdom = kingdom
-            self.__latdeg = latdeg
-            self.__latedate = latedate
-            self.__legal = legal
-            self.__length = length
-            self.__lengthft = lengthft
-            self.__lengthin = lengthin
-            self.__level = level
-            self.__lithofacie = lithofacie
-            self.__loancond = loancond
-            self.__loandue = loandue
-            self.__loanid = loanid
-            self.__loaninno = loaninno
-            self.__loanno = loanno
-            self.__loanrenew = loanrenew
-            self.__locfield1 = locfield1
-            self.__locfield2 = locfield2
-            self.__locfield3 = locfield3
-            self.__locfield4 = locfield4
-            self.__locfield5 = locfield5
-            self.__locfield6 = locfield6
-            self.__longdeg = longdeg
-            self.__luster = luster
-            self.__made = made
-            self.__maintcycle = maintcycle
-            self.__maintdate = maintdate
-            self.__maintnote = maintnote
-            self.__material = material
-            self.__medium = medium
-            self.__member = member
-            self.__mmark = mmark
-            self.__nhclass = nhclass
-            self.__nhorder = nhorder
-            self.__notes = notes
-            self.__ns = ns
-            self.__objectid = objectid
-            self.__objname = objname
-            self.__objname2 = objname2
-            self.__objname3 = objname3
-            self.__objnames = objnames
-            self.__occurrence = occurrence
-            self.__oldno = oldno
-            self.__origin = origin
-            self.__othername = othername
-            self.__otherno = otherno
-            self.__outdate = outdate
-            self.__owned = owned
-            self.__parent = parent
-            self.__people = people
-            self.__period = period
-            self.__phylum = phylum
-            self.__policyno = policyno
-            self.__ppid = ppid
-            self.__preparator = preparator
-            self.__prepdate = prepdate
-            self.__preserve = preserve
-            self.__pressure = pressure
-            self.__provenance = provenance
-            self.__pubnotes = pubnotes
-            self.__qrurl = qrurl
-            self.__recas = recas
-            self.__recdate = recdate
-            self.__recfrom = recfrom
-            self.__relation = relation
-            self.__relnotes = relnotes
-            self.__renewuntil = renewuntil
-            self.__repatby = repatby
-            self.__repatclaim = repatclaim
-            self.__repatdate = repatdate
-            self.__repatdisp = repatdisp
-            self.__repathand = repathand
-            self.__repatnotes = repatnotes
-            self.__repatnotic = repatnotic
-            self.__repattype = repattype
-            self.__rockclass = rockclass
-            self.__rockcolor = rockcolor
-            self.__rockorigin = rockorigin
-            self.__rocktype = rocktype
-            self.__role = role
-            self.__role2 = role2
-            self.__role3 = role3
-            self.__school = school
-            self.__sex = sex
-            self.__sgflag = sgflag
-            self.__signedname = signedname
-            self.__signloc = signloc
-            self.__site = site
-            self.__siteno = siteno
-            self.__specgrav = specgrav
-            self.__species = species
-            self.__sprocess = sprocess
-            self.__stage = stage
-            self.__status = status
-            self.__statusby = statusby
-            self.__statusdate = statusdate
-            self.__sterms = sterms
-            self.__stratum = stratum
-            self.__streak = streak
-            self.__subfamily = subfamily
-            self.__subjects = subjects
-            self.__subspecies = subspecies
-            self.__technique = technique
-            self.__tempauthor = tempauthor
-            self.__tempby = tempby
-            self.__tempdate = tempdate
-            self.__temperatur = temperatur
-            self.__temploc = temploc
-            self.__tempnotes = tempnotes
-            self.__tempreason = tempreason
-            self.__tempuntil = tempuntil
-            self.__texture = texture
-            self.__title = title
-            self.__tlocfield1 = tlocfield1
-            self.__tlocfield2 = tlocfield2
-            self.__tlocfield3 = tlocfield3
-            self.__tlocfield4 = tlocfield4
-            self.__tlocfield5 = tlocfield5
-            self.__tlocfield6 = tlocfield6
-            self.__udf1 = udf1
-            self.__udf10 = udf10
-            self.__udf11 = udf11
-            self.__udf12 = udf12
-            self.__udf13 = udf13
-            self.__udf14 = udf14
-            self.__udf15 = udf15
-            self.__udf16 = udf16
-            self.__udf17 = udf17
-            self.__udf18 = udf18
-            self.__udf19 = udf19
-            self.__udf2 = udf2
-            self.__udf20 = udf20
-            self.__udf21 = udf21
-            self.__udf22 = udf22
-            self.__udf3 = udf3
-            self.__udf4 = udf4
-            self.__udf5 = udf5
-            self.__udf6 = udf6
-            self.__udf7 = udf7
-            self.__udf8 = udf8
-            self.__udf9 = udf9
-            self.__unit = unit
-            self.__updated = updated
-            self.__updatedby = updatedby
-            self.__used = used
-            self.__valuedate = valuedate
-            self.__varieties = varieties
-            self.__vexhtml = vexhtml
-            self.__vexlabel1 = vexlabel1
-            self.__vexlabel2 = vexlabel2
-            self.__vexlabel3 = vexlabel3
-            self.__vexlabel4 = vexlabel4
-            self.__webinclude = webinclude
-            self.__weight = weight
-            self.__weightin = weightin
-            self.__weightlb = weightlb
-            self.__width = width
-            self.__widthft = widthft
-            self.__widthin = widthin
-            self.__xcord = xcord
-            self.__ycord = ycord
-            self.__zcord = zcord
-            self.__zsorter = zsorter
-            self.__zsorterx = zsorterx
+            self.__accessno = None
+            self.__accessory = None
+            self.__acqvalue = None
+            self.__age = None
+            self.__appnotes = None
+            self.__appraisor = None
+            self.__assemzone = None
+            self.__bagno = None
+            self.__boxno = None
+            self.__caption = None
+            self.__cat = None
+            self.__catby = None
+            self.__catdate = None
+            self.__cattype = None
+            self.__chemcomp = None
+            self.__circum = None
+            self.__circumft = None
+            self.__circumin = None
+            self.__classes = None
+            self.__colldate = None
+            self.__collection = None
+            self.__collector = None
+            self.__conddate = None
+            self.__condexam = None
+            self.__condition = None
+            self.__condnotes = None
+            self.__count = None
+            self.__creator = None
+            self.__creator2 = None
+            self.__creator3 = None
+            self.__credit = None
+            self.__crystal = None
+            self.__culture = None
+            self.__curvalmax = None
+            self.__curvalue = None
+            self.__dataset = None
+            self.__date = None
+            self.__datingmeth = None
+            self.__datum = None
+            self.__depth = None
+            self.__depthft = None
+            self.__depthin = None
+            self.__descrip = None
+            self.__diameter = None
+            self.__diameterft = None
+            self.__diameterin = None
+            self.__dimnotes = None
+            self.__dimtype = None
+            self.__dispvalue = None
+            self.__earlydate = None
+            self.__elements = None
+            self.__epoch = None
+            self.__era = None
+            self.__event = None
+            self.__ew = None
+            self.__excavadate = None
+            self.__excavateby = None
+            self.__exhibitid = None
+            self.__exhibitno = None
+            self.__exhlabel1 = None
+            self.__exhlabel2 = None
+            self.__exhlabel3 = None
+            self.__exhlabel4 = None
+            self.__exhstart = None
+            self.__family = None
+            self.__feature = None
+            self.__flagdate = None
+            self.__flagnotes = None
+            self.__flagreason = None
+            self.__formation = None
+            self.__fossils = None
+            self.__found = None
+            self.__fracture = None
+            self.__frame = None
+            self.__framesize = None
+            self.__genus = None
+            self.__gparent = None
+            self.__grainsize = None
+            self.__habitat = None
+            self.__hardness = None
+            self.__height = None
+            self.__heightft = None
+            self.__heightin = None
+            self.__homeloc = None
+            self.__idby = None
+            self.__iddate = None
+            self.__imagefile = None
+            self.__imageno = None
+            self.__imagesize = None
+            self.__inscomp = None
+            self.__inscrlang = None
+            self.__inscrpos = None
+            self.__inscrtech = None
+            self.__inscrtext = None
+            self.__inscrtrans = None
+            self.__inscrtype = None
+            self.__insdate = None
+            self.__insphone = None
+            self.__inspremium = None
+            self.__insrep = None
+            self.__insvalue = None
+            self.__invnby = None
+            self.__invndate = None
+            self.__kingdom = None
+            self.__latdeg = None
+            self.__latedate = None
+            self.__legal = None
+            self.__length = None
+            self.__lengthft = None
+            self.__lengthin = None
+            self.__level = None
+            self.__lithofacie = None
+            self.__loancond = None
+            self.__loandue = None
+            self.__loanid = None
+            self.__loaninno = None
+            self.__loanno = None
+            self.__loanrenew = None
+            self.__locfield1 = None
+            self.__locfield2 = None
+            self.__locfield3 = None
+            self.__locfield4 = None
+            self.__locfield5 = None
+            self.__locfield6 = None
+            self.__longdeg = None
+            self.__luster = None
+            self.__made = None
+            self.__maintcycle = None
+            self.__maintdate = None
+            self.__maintnote = None
+            self.__material = None
+            self.__medium = None
+            self.__member = None
+            self.__mmark = None
+            self.__nhclass = None
+            self.__nhorder = None
+            self.__notes = None
+            self.__ns = None
+            self.__objectid = None
+            self.__objname = None
+            self.__objname2 = None
+            self.__objname3 = None
+            self.__objnames = None
+            self.__occurrence = None
+            self.__oldno = None
+            self.__origin = None
+            self.__othername = None
+            self.__otherno = None
+            self.__outdate = None
+            self.__owned = None
+            self.__parent = None
+            self.__people = None
+            self.__period = None
+            self.__phylum = None
+            self.__policyno = None
+            self.__ppid = None
+            self.__preparator = None
+            self.__prepdate = None
+            self.__preserve = None
+            self.__pressure = None
+            self.__provenance = None
+            self.__pubnotes = None
+            self.__qrurl = None
+            self.__recas = None
+            self.__recdate = None
+            self.__recfrom = None
+            self.__relation = None
+            self.__relnotes = None
+            self.__renewuntil = None
+            self.__repatby = None
+            self.__repatclaim = None
+            self.__repatdate = None
+            self.__repatdisp = None
+            self.__repathand = None
+            self.__repatnotes = None
+            self.__repatnotic = None
+            self.__repattype = None
+            self.__rockclass = None
+            self.__rockcolor = None
+            self.__rockorigin = None
+            self.__rocktype = None
+            self.__role = None
+            self.__role2 = None
+            self.__role3 = None
+            self.__school = None
+            self.__sex = None
+            self.__sgflag = None
+            self.__signedname = None
+            self.__signloc = None
+            self.__site = None
+            self.__siteno = None
+            self.__specgrav = None
+            self.__species = None
+            self.__sprocess = None
+            self.__stage = None
+            self.__status = None
+            self.__statusby = None
+            self.__statusdate = None
+            self.__sterms = None
+            self.__stratum = None
+            self.__streak = None
+            self.__subfamily = None
+            self.__subjects = None
+            self.__subspecies = None
+            self.__technique = None
+            self.__tempauthor = None
+            self.__tempby = None
+            self.__tempdate = None
+            self.__temperatur = None
+            self.__temploc = None
+            self.__tempnotes = None
+            self.__tempreason = None
+            self.__tempuntil = None
+            self.__texture = None
+            self.__title = None
+            self.__tlocfield1 = None
+            self.__tlocfield2 = None
+            self.__tlocfield3 = None
+            self.__tlocfield4 = None
+            self.__tlocfield5 = None
+            self.__tlocfield6 = None
+            self.__udf1 = None
+            self.__udf10 = None
+            self.__udf11 = None
+            self.__udf12 = None
+            self.__udf13 = None
+            self.__udf14 = None
+            self.__udf15 = None
+            self.__udf16 = None
+            self.__udf17 = None
+            self.__udf18 = None
+            self.__udf19 = None
+            self.__udf2 = None
+            self.__udf20 = None
+            self.__udf21 = None
+            self.__udf22 = None
+            self.__udf3 = None
+            self.__udf4 = None
+            self.__udf5 = None
+            self.__udf6 = None
+            self.__udf7 = None
+            self.__udf8 = None
+            self.__udf9 = None
+            self.__unit = None
+            self.__updated = None
+            self.__updatedby = None
+            self.__used = None
+            self.__valuedate = None
+            self.__varieties = None
+            self.__vexhtml = None
+            self.__vexlabel1 = None
+            self.__vexlabel2 = None
+            self.__vexlabel3 = None
+            self.__vexlabel4 = None
+            self.__webinclude = None
+            self.__weight = None
+            self.__weightin = None
+            self.__weightlb = None
+            self.__width = None
+            self.__widthft = None
+            self.__widthin = None
+            self.__xcord = None
+            self.__ycord = None
+            self.__zcord = None
+            self.__zsorter = None
+            self.__zsorterx = None
 
         def build(self):
-            return ObjectRecord(accessno=self.__accessno, accessory=self.__accessory, acqvalue=self.__acqvalue, age=self.__age, appnotes=self.__appnotes, appraisor=self.__appraisor, assemzone=self.__assemzone, bagno=self.__bagno, boxno=self.__boxno, caption=self.__caption, cat=self.__cat, catby=self.__catby, catdate=self.__catdate, cattype=self.__cattype, chemcomp=self.__chemcomp, circum=self.__circum, circumft=self.__circumft, circumin=self.__circumin, classes=self.__classes, colldate=self.__colldate, collection=self.__collection, collector=self.__collector, conddate=self.__conddate, condexam=self.__condexam, condition=self.__condition, condnotes=self.__condnotes, count=self.__count, creator=self.__creator, creator2=self.__creator2, creator3=self.__creator3, credit=self.__credit, crystal=self.__crystal, culture=self.__culture, curvalmax=self.__curvalmax, curvalue=self.__curvalue, dataset=self.__dataset, date=self.__date, datingmeth=self.__datingmeth, datum=self.__datum, depth=self.__depth, depthft=self.__depthft, depthin=self.__depthin, descrip=self.__descrip, diameter=self.__diameter, diameterft=self.__diameterft, diameterin=self.__diameterin, dimnotes=self.__dimnotes, dimtype=self.__dimtype, dispvalue=self.__dispvalue, earlydate=self.__earlydate, elements=self.__elements, epoch=self.__epoch, era=self.__era, event=self.__event, ew=self.__ew, excavadate=self.__excavadate, excavateby=self.__excavateby, exhibitid=self.__exhibitid, exhibitno=self.__exhibitno, exhlabel1=self.__exhlabel1, exhlabel2=self.__exhlabel2, exhlabel3=self.__exhlabel3, exhlabel4=self.__exhlabel4, exhstart=self.__exhstart, family=self.__family, feature=self.__feature, flagdate=self.__flagdate, flagnotes=self.__flagnotes, flagreason=self.__flagreason, formation=self.__formation, fossils=self.__fossils, found=self.__found, fracture=self.__fracture, frame=self.__frame, framesize=self.__framesize, genus=self.__genus, gparent=self.__gparent, grainsize=self.__grainsize, habitat=self.__habitat, hardness=self.__hardness, height=self.__height, heightft=self.__heightft, heightin=self.__heightin, homeloc=self.__homeloc, idby=self.__idby, iddate=self.__iddate, imagefile=self.__imagefile, imageno=self.__imageno, imagesize=self.__imagesize, inscomp=self.__inscomp, inscrlang=self.__inscrlang, inscrpos=self.__inscrpos, inscrtech=self.__inscrtech, inscrtext=self.__inscrtext, inscrtrans=self.__inscrtrans, inscrtype=self.__inscrtype, insdate=self.__insdate, insphone=self.__insphone, inspremium=self.__inspremium, insrep=self.__insrep, insvalue=self.__insvalue, invnby=self.__invnby, invndate=self.__invndate, kingdom=self.__kingdom, latdeg=self.__latdeg, latedate=self.__latedate, legal=self.__legal, length=self.__length, lengthft=self.__lengthft, lengthin=self.__lengthin, level=self.__level, lithofacie=self.__lithofacie, loancond=self.__loancond, loandue=self.__loandue, loanid=self.__loanid, loaninno=self.__loaninno, loanno=self.__loanno, loanrenew=self.__loanrenew, locfield1=self.__locfield1, locfield2=self.__locfield2, locfield3=self.__locfield3, locfield4=self.__locfield4, locfield5=self.__locfield5, locfield6=self.__locfield6, longdeg=self.__longdeg, luster=self.__luster, made=self.__made, maintcycle=self.__maintcycle, maintdate=self.__maintdate, maintnote=self.__maintnote, material=self.__material, medium=self.__medium, member=self.__member, mmark=self.__mmark, nhclass=self.__nhclass, nhorder=self.__nhorder, notes=self.__notes, ns=self.__ns, objectid=self.__objectid, objname=self.__objname, objname2=self.__objname2, objname3=self.__objname3, objnames=self.__objnames, occurrence=self.__occurrence, oldno=self.__oldno, origin=self.__origin, othername=self.__othername, otherno=self.__otherno, outdate=self.__outdate, owned=self.__owned, parent=self.__parent, people=self.__people, period=self.__period, phylum=self.__phylum, policyno=self.__policyno, ppid=self.__ppid, preparator=self.__preparator, prepdate=self.__prepdate, preserve=self.__preserve, pressure=self.__pressure, provenance=self.__provenance, pubnotes=self.__pubnotes, qrurl=self.__qrurl, recas=self.__recas, recdate=self.__recdate, recfrom=self.__recfrom, relation=self.__relation, relnotes=self.__relnotes, renewuntil=self.__renewuntil, repatby=self.__repatby, repatclaim=self.__repatclaim, repatdate=self.__repatdate, repatdisp=self.__repatdisp, repathand=self.__repathand, repatnotes=self.__repatnotes, repatnotic=self.__repatnotic, repattype=self.__repattype, rockclass=self.__rockclass, rockcolor=self.__rockcolor, rockorigin=self.__rockorigin, rocktype=self.__rocktype, role=self.__role, role2=self.__role2, role3=self.__role3, school=self.__school, sex=self.__sex, sgflag=self.__sgflag, signedname=self.__signedname, signloc=self.__signloc, site=self.__site, siteno=self.__siteno, specgrav=self.__specgrav, species=self.__species, sprocess=self.__sprocess, stage=self.__stage, status=self.__status, statusby=self.__statusby, statusdate=self.__statusdate, sterms=self.__sterms, stratum=self.__stratum, streak=self.__streak, subfamily=self.__subfamily, subjects=self.__subjects, subspecies=self.__subspecies, technique=self.__technique, tempauthor=self.__tempauthor, tempby=self.__tempby, tempdate=self.__tempdate, temperatur=self.__temperatur, temploc=self.__temploc, tempnotes=self.__tempnotes, tempreason=self.__tempreason, tempuntil=self.__tempuntil, texture=self.__texture, title=self.__title, tlocfield1=self.__tlocfield1, tlocfield2=self.__tlocfield2, tlocfield3=self.__tlocfield3, tlocfield4=self.__tlocfield4, tlocfield5=self.__tlocfield5, tlocfield6=self.__tlocfield6, udf1=self.__udf1, udf10=self.__udf10, udf11=self.__udf11, udf12=self.__udf12, udf13=self.__udf13, udf14=self.__udf14, udf15=self.__udf15, udf16=self.__udf16, udf17=self.__udf17, udf18=self.__udf18, udf19=self.__udf19, udf2=self.__udf2, udf20=self.__udf20, udf21=self.__udf21, udf22=self.__udf22, udf3=self.__udf3, udf4=self.__udf4, udf5=self.__udf5, udf6=self.__udf6, udf7=self.__udf7, udf8=self.__udf8, udf9=self.__udf9, unit=self.__unit, updated=self.__updated, updatedby=self.__updatedby, used=self.__used, valuedate=self.__valuedate, varieties=self.__varieties, vexhtml=self.__vexhtml, vexlabel1=self.__vexlabel1, vexlabel2=self.__vexlabel2, vexlabel3=self.__vexlabel3, vexlabel4=self.__vexlabel4, webinclude=self.__webinclude, weight=self.__weight, weightin=self.__weightin, weightlb=self.__weightlb, width=self.__width, widthft=self.__widthft, widthin=self.__widthin, xcord=self.__xcord, ycord=self.__ycord, zcord=self.__zcord, zsorter=self.__zsorter, zsorterx=self.__zsorterx)
+            return ObjectRecord(builder=self)
 
         @property
         def accessno(self):
@@ -1413,6 +878,282 @@ class ObjectRecord(object):
             '''
 
             return self.__framesize
+
+        @classmethod
+        def from_template(cls, template):
+            '''
+            :type template: pastpy.models.object_record.ObjectRecord
+            :rtype: pastpy.models.object_record.ObjectRecord
+            '''
+
+            builder = cls()
+            builder.accessno = accessno
+            builder.accessory = accessory
+            builder.acqvalue = acqvalue
+            builder.age = age
+            builder.appnotes = appnotes
+            builder.appraisor = appraisor
+            builder.assemzone = assemzone
+            builder.bagno = bagno
+            builder.boxno = boxno
+            builder.caption = caption
+            builder.cat = cat
+            builder.catby = catby
+            builder.catdate = catdate
+            builder.cattype = cattype
+            builder.chemcomp = chemcomp
+            builder.circum = circum
+            builder.circumft = circumft
+            builder.circumin = circumin
+            builder.classes = classes
+            builder.colldate = colldate
+            builder.collection = collection
+            builder.collector = collector
+            builder.conddate = conddate
+            builder.condexam = condexam
+            builder.condition = condition
+            builder.condnotes = condnotes
+            builder.count = count
+            builder.creator = creator
+            builder.creator2 = creator2
+            builder.creator3 = creator3
+            builder.credit = credit
+            builder.crystal = crystal
+            builder.culture = culture
+            builder.curvalmax = curvalmax
+            builder.curvalue = curvalue
+            builder.dataset = dataset
+            builder.date = date
+            builder.datingmeth = datingmeth
+            builder.datum = datum
+            builder.depth = depth
+            builder.depthft = depthft
+            builder.depthin = depthin
+            builder.descrip = descrip
+            builder.diameter = diameter
+            builder.diameterft = diameterft
+            builder.diameterin = diameterin
+            builder.dimnotes = dimnotes
+            builder.dimtype = dimtype
+            builder.dispvalue = dispvalue
+            builder.earlydate = earlydate
+            builder.elements = elements
+            builder.epoch = epoch
+            builder.era = era
+            builder.event = event
+            builder.ew = ew
+            builder.excavadate = excavadate
+            builder.excavateby = excavateby
+            builder.exhibitid = exhibitid
+            builder.exhibitno = exhibitno
+            builder.exhlabel1 = exhlabel1
+            builder.exhlabel2 = exhlabel2
+            builder.exhlabel3 = exhlabel3
+            builder.exhlabel4 = exhlabel4
+            builder.exhstart = exhstart
+            builder.family = family
+            builder.feature = feature
+            builder.flagdate = flagdate
+            builder.flagnotes = flagnotes
+            builder.flagreason = flagreason
+            builder.formation = formation
+            builder.fossils = fossils
+            builder.found = found
+            builder.fracture = fracture
+            builder.frame = frame
+            builder.framesize = framesize
+            builder.genus = genus
+            builder.gparent = gparent
+            builder.grainsize = grainsize
+            builder.habitat = habitat
+            builder.hardness = hardness
+            builder.height = height
+            builder.heightft = heightft
+            builder.heightin = heightin
+            builder.homeloc = homeloc
+            builder.idby = idby
+            builder.iddate = iddate
+            builder.imagefile = imagefile
+            builder.imageno = imageno
+            builder.imagesize = imagesize
+            builder.inscomp = inscomp
+            builder.inscrlang = inscrlang
+            builder.inscrpos = inscrpos
+            builder.inscrtech = inscrtech
+            builder.inscrtext = inscrtext
+            builder.inscrtrans = inscrtrans
+            builder.inscrtype = inscrtype
+            builder.insdate = insdate
+            builder.insphone = insphone
+            builder.inspremium = inspremium
+            builder.insrep = insrep
+            builder.insvalue = insvalue
+            builder.invnby = invnby
+            builder.invndate = invndate
+            builder.kingdom = kingdom
+            builder.latdeg = latdeg
+            builder.latedate = latedate
+            builder.legal = legal
+            builder.length = length
+            builder.lengthft = lengthft
+            builder.lengthin = lengthin
+            builder.level = level
+            builder.lithofacie = lithofacie
+            builder.loancond = loancond
+            builder.loandue = loandue
+            builder.loanid = loanid
+            builder.loaninno = loaninno
+            builder.loanno = loanno
+            builder.loanrenew = loanrenew
+            builder.locfield1 = locfield1
+            builder.locfield2 = locfield2
+            builder.locfield3 = locfield3
+            builder.locfield4 = locfield4
+            builder.locfield5 = locfield5
+            builder.locfield6 = locfield6
+            builder.longdeg = longdeg
+            builder.luster = luster
+            builder.made = made
+            builder.maintcycle = maintcycle
+            builder.maintdate = maintdate
+            builder.maintnote = maintnote
+            builder.material = material
+            builder.medium = medium
+            builder.member = member
+            builder.mmark = mmark
+            builder.nhclass = nhclass
+            builder.nhorder = nhorder
+            builder.notes = notes
+            builder.ns = ns
+            builder.objectid = objectid
+            builder.objname = objname
+            builder.objname2 = objname2
+            builder.objname3 = objname3
+            builder.objnames = objnames
+            builder.occurrence = occurrence
+            builder.oldno = oldno
+            builder.origin = origin
+            builder.othername = othername
+            builder.otherno = otherno
+            builder.outdate = outdate
+            builder.owned = owned
+            builder.parent = parent
+            builder.people = people
+            builder.period = period
+            builder.phylum = phylum
+            builder.policyno = policyno
+            builder.ppid = ppid
+            builder.preparator = preparator
+            builder.prepdate = prepdate
+            builder.preserve = preserve
+            builder.pressure = pressure
+            builder.provenance = provenance
+            builder.pubnotes = pubnotes
+            builder.qrurl = qrurl
+            builder.recas = recas
+            builder.recdate = recdate
+            builder.recfrom = recfrom
+            builder.relation = relation
+            builder.relnotes = relnotes
+            builder.renewuntil = renewuntil
+            builder.repatby = repatby
+            builder.repatclaim = repatclaim
+            builder.repatdate = repatdate
+            builder.repatdisp = repatdisp
+            builder.repathand = repathand
+            builder.repatnotes = repatnotes
+            builder.repatnotic = repatnotic
+            builder.repattype = repattype
+            builder.rockclass = rockclass
+            builder.rockcolor = rockcolor
+            builder.rockorigin = rockorigin
+            builder.rocktype = rocktype
+            builder.role = role
+            builder.role2 = role2
+            builder.role3 = role3
+            builder.school = school
+            builder.sex = sex
+            builder.sgflag = sgflag
+            builder.signedname = signedname
+            builder.signloc = signloc
+            builder.site = site
+            builder.siteno = siteno
+            builder.specgrav = specgrav
+            builder.species = species
+            builder.sprocess = sprocess
+            builder.stage = stage
+            builder.status = status
+            builder.statusby = statusby
+            builder.statusdate = statusdate
+            builder.sterms = sterms
+            builder.stratum = stratum
+            builder.streak = streak
+            builder.subfamily = subfamily
+            builder.subjects = subjects
+            builder.subspecies = subspecies
+            builder.technique = technique
+            builder.tempauthor = tempauthor
+            builder.tempby = tempby
+            builder.tempdate = tempdate
+            builder.temperatur = temperatur
+            builder.temploc = temploc
+            builder.tempnotes = tempnotes
+            builder.tempreason = tempreason
+            builder.tempuntil = tempuntil
+            builder.texture = texture
+            builder.title = title
+            builder.tlocfield1 = tlocfield1
+            builder.tlocfield2 = tlocfield2
+            builder.tlocfield3 = tlocfield3
+            builder.tlocfield4 = tlocfield4
+            builder.tlocfield5 = tlocfield5
+            builder.tlocfield6 = tlocfield6
+            builder.udf1 = udf1
+            builder.udf10 = udf10
+            builder.udf11 = udf11
+            builder.udf12 = udf12
+            builder.udf13 = udf13
+            builder.udf14 = udf14
+            builder.udf15 = udf15
+            builder.udf16 = udf16
+            builder.udf17 = udf17
+            builder.udf18 = udf18
+            builder.udf19 = udf19
+            builder.udf2 = udf2
+            builder.udf20 = udf20
+            builder.udf21 = udf21
+            builder.udf22 = udf22
+            builder.udf3 = udf3
+            builder.udf4 = udf4
+            builder.udf5 = udf5
+            builder.udf6 = udf6
+            builder.udf7 = udf7
+            builder.udf8 = udf8
+            builder.udf9 = udf9
+            builder.unit = unit
+            builder.updated = updated
+            builder.updatedby = updatedby
+            builder.used = used
+            builder.valuedate = valuedate
+            builder.varieties = varieties
+            builder.vexhtml = vexhtml
+            builder.vexlabel1 = vexlabel1
+            builder.vexlabel2 = vexlabel2
+            builder.vexlabel3 = vexlabel3
+            builder.vexlabel4 = vexlabel4
+            builder.webinclude = webinclude
+            builder.weight = weight
+            builder.weightin = weightin
+            builder.weightlb = weightlb
+            builder.width = width
+            builder.widthft = widthft
+            builder.widthin = widthin
+            builder.xcord = xcord
+            builder.ycord = ycord
+            builder.zcord = zcord
+            builder.zsorter = zsorter
+            builder.zsorterx = zsorterx
+            return builder
 
         @property
         def genus(self):
@@ -9105,1867 +8846,1604 @@ class ObjectRecord(object):
 
     def __init__(
         self,
-        accessno=None,
-        accessory=None,
-        acqvalue=None,
-        age=None,
-        appnotes=None,
-        appraisor=None,
-        assemzone=None,
-        bagno=None,
-        boxno=None,
-        caption=None,
-        cat=None,
-        catby=None,
-        catdate=None,
-        cattype=None,
-        chemcomp=None,
-        circum=None,
-        circumft=None,
-        circumin=None,
-        classes=None,
-        colldate=None,
-        collection=None,
-        collector=None,
-        conddate=None,
-        condexam=None,
-        condition=None,
-        condnotes=None,
-        count=None,
-        creator=None,
-        creator2=None,
-        creator3=None,
-        credit=None,
-        crystal=None,
-        culture=None,
-        curvalmax=None,
-        curvalue=None,
-        dataset=None,
-        date=None,
-        datingmeth=None,
-        datum=None,
-        depth=None,
-        depthft=None,
-        depthin=None,
-        descrip=None,
-        diameter=None,
-        diameterft=None,
-        diameterin=None,
-        dimnotes=None,
-        dimtype=None,
-        dispvalue=None,
-        earlydate=None,
-        elements=None,
-        epoch=None,
-        era=None,
-        event=None,
-        ew=None,
-        excavadate=None,
-        excavateby=None,
-        exhibitid=None,
-        exhibitno=None,
-        exhlabel1=None,
-        exhlabel2=None,
-        exhlabel3=None,
-        exhlabel4=None,
-        exhstart=None,
-        family=None,
-        feature=None,
-        flagdate=None,
-        flagnotes=None,
-        flagreason=None,
-        formation=None,
-        fossils=None,
-        found=None,
-        fracture=None,
-        frame=None,
-        framesize=None,
-        genus=None,
-        gparent=None,
-        grainsize=None,
-        habitat=None,
-        hardness=None,
-        height=None,
-        heightft=None,
-        heightin=None,
-        homeloc=None,
-        idby=None,
-        iddate=None,
-        imagefile=None,
-        imageno=None,
-        imagesize=None,
-        inscomp=None,
-        inscrlang=None,
-        inscrpos=None,
-        inscrtech=None,
-        inscrtext=None,
-        inscrtrans=None,
-        inscrtype=None,
-        insdate=None,
-        insphone=None,
-        inspremium=None,
-        insrep=None,
-        insvalue=None,
-        invnby=None,
-        invndate=None,
-        kingdom=None,
-        latdeg=None,
-        latedate=None,
-        legal=None,
-        length=None,
-        lengthft=None,
-        lengthin=None,
-        level=None,
-        lithofacie=None,
-        loancond=None,
-        loandue=None,
-        loanid=None,
-        loaninno=None,
-        loanno=None,
-        loanrenew=None,
-        locfield1=None,
-        locfield2=None,
-        locfield3=None,
-        locfield4=None,
-        locfield5=None,
-        locfield6=None,
-        longdeg=None,
-        luster=None,
-        made=None,
-        maintcycle=None,
-        maintdate=None,
-        maintnote=None,
-        material=None,
-        medium=None,
-        member=None,
-        mmark=None,
-        nhclass=None,
-        nhorder=None,
-        notes=None,
-        ns=None,
-        objectid=None,
-        objname=None,
-        objname2=None,
-        objname3=None,
-        objnames=None,
-        occurrence=None,
-        oldno=None,
-        origin=None,
-        othername=None,
-        otherno=None,
-        outdate=None,
-        owned=None,
-        parent=None,
-        people=None,
-        period=None,
-        phylum=None,
-        policyno=None,
-        ppid=None,
-        preparator=None,
-        prepdate=None,
-        preserve=None,
-        pressure=None,
-        provenance=None,
-        pubnotes=None,
-        qrurl=None,
-        recas=None,
-        recdate=None,
-        recfrom=None,
-        relation=None,
-        relnotes=None,
-        renewuntil=None,
-        repatby=None,
-        repatclaim=None,
-        repatdate=None,
-        repatdisp=None,
-        repathand=None,
-        repatnotes=None,
-        repatnotic=None,
-        repattype=None,
-        rockclass=None,
-        rockcolor=None,
-        rockorigin=None,
-        rocktype=None,
-        role=None,
-        role2=None,
-        role3=None,
-        school=None,
-        sex=None,
-        sgflag=None,
-        signedname=None,
-        signloc=None,
-        site=None,
-        siteno=None,
-        specgrav=None,
-        species=None,
-        sprocess=None,
-        stage=None,
-        status=None,
-        statusby=None,
-        statusdate=None,
-        sterms=None,
-        stratum=None,
-        streak=None,
-        subfamily=None,
-        subjects=None,
-        subspecies=None,
-        technique=None,
-        tempauthor=None,
-        tempby=None,
-        tempdate=None,
-        temperatur=None,
-        temploc=None,
-        tempnotes=None,
-        tempreason=None,
-        tempuntil=None,
-        texture=None,
-        title=None,
-        tlocfield1=None,
-        tlocfield2=None,
-        tlocfield3=None,
-        tlocfield4=None,
-        tlocfield5=None,
-        tlocfield6=None,
-        udf1=None,
-        udf10=None,
-        udf11=None,
-        udf12=None,
-        udf13=None,
-        udf14=None,
-        udf15=None,
-        udf16=None,
-        udf17=None,
-        udf18=None,
-        udf19=None,
-        udf2=None,
-        udf20=None,
-        udf21=None,
-        udf22=None,
-        udf3=None,
-        udf4=None,
-        udf5=None,
-        udf6=None,
-        udf7=None,
-        udf8=None,
-        udf9=None,
-        unit=None,
-        updated=None,
-        updatedby=None,
-        used=None,
-        valuedate=None,
-        varieties=None,
-        vexhtml=None,
-        vexlabel1=None,
-        vexlabel2=None,
-        vexlabel3=None,
-        vexlabel4=None,
-        webinclude=None,
-        weight=None,
-        weightin=None,
-        weightlb=None,
-        width=None,
-        widthft=None,
-        widthin=None,
-        xcord=None,
-        ycord=None,
-        zcord=None,
-        zsorter=None,
-        zsorterx=None,
+        builder
     ):
         '''
-        :type accessno: str or None
-        :type accessory: str or None
-        :type acqvalue: Decimal or None
-        :type age: str or None
-        :type appnotes: str or None
-        :type appraisor: str or None
-        :type assemzone: str or None
-        :type bagno: str or None
-        :type boxno: str or None
-        :type caption: str or None
-        :type cat: str or None
-        :type catby: str or None
-        :type catdate: datetime.date or None
-        :type cattype: str or None
-        :type chemcomp: str or None
-        :type circum: Decimal or None
-        :type circumft: Decimal or None
-        :type circumin: Decimal or None
-        :type classes: str or None
-        :type colldate: datetime.date or None
-        :type collection: str or None
-        :type collector: str or None
-        :type conddate: datetime.date or None
-        :type condexam: str or None
-        :type condition: str or None
-        :type condnotes: str or None
-        :type count: str or None
-        :type creator: str or None
-        :type creator2: str or None
-        :type creator3: str or None
-        :type credit: str or None
-        :type crystal: str or None
-        :type culture: str or None
-        :type curvalmax: Decimal or None
-        :type curvalue: Decimal or None
-        :type dataset: str or None
-        :type date: str or None
-        :type datingmeth: str or None
-        :type datum: str or None
-        :type depth: Decimal or None
-        :type depthft: Decimal or None
-        :type depthin: Decimal or None
-        :type descrip: str or None
-        :type diameter: Decimal or None
-        :type diameterft: Decimal or None
-        :type diameterin: Decimal or None
-        :type dimnotes: str or None
-        :type dimtype: int or None
-        :type dispvalue: str or None
-        :type earlydate: int or None
-        :type elements: str or None
-        :type epoch: str or None
-        :type era: str or None
-        :type event: str or None
-        :type ew: str or None
-        :type excavadate: datetime.date or None
-        :type excavateby: str or None
-        :type exhibitid: str or None
-        :type exhibitno: int or None
-        :type exhlabel1: str or None
-        :type exhlabel2: str or None
-        :type exhlabel3: str or None
-        :type exhlabel4: str or None
-        :type exhstart: datetime.date or None
-        :type family: str or None
-        :type feature: str or None
-        :type flagdate: datetime.datetime or None
-        :type flagnotes: str or None
-        :type flagreason: str or None
-        :type formation: str or None
-        :type fossils: str or None
-        :type found: str or None
-        :type fracture: str or None
-        :type frame: str or None
-        :type framesize: str or None
-        :type genus: str or None
-        :type gparent: str or None
-        :type grainsize: str or None
-        :type habitat: str or None
-        :type hardness: str or None
-        :type height: Decimal or None
-        :type heightft: Decimal or None
-        :type heightin: Decimal or None
-        :type homeloc: str or None
-        :type idby: str or None
-        :type iddate: datetime.date or None
-        :type imagefile: str or None
-        :type imageno: int or None
-        :type imagesize: str or None
-        :type inscomp: str or None
-        :type inscrlang: str or None
-        :type inscrpos: str or None
-        :type inscrtech: str or None
-        :type inscrtext: str or None
-        :type inscrtrans: str or None
-        :type inscrtype: str or None
-        :type insdate: datetime.date or None
-        :type insphone: str or None
-        :type inspremium: str or None
-        :type insrep: str or None
-        :type insvalue: Decimal or None
-        :type invnby: str or None
-        :type invndate: datetime.date or None
-        :type kingdom: str or None
-        :type latdeg: Decimal or None
-        :type latedate: int or None
-        :type legal: str or None
-        :type length: Decimal or None
-        :type lengthft: Decimal or None
-        :type lengthin: Decimal or None
-        :type level: str or None
-        :type lithofacie: str or None
-        :type loancond: str or None
-        :type loandue: datetime.date or None
-        :type loanid: str or None
-        :type loaninno: str or None
-        :type loanno: int or None
-        :type loanrenew: datetime.date or None
-        :type locfield1: str or None
-        :type locfield2: str or None
-        :type locfield3: str or None
-        :type locfield4: str or None
-        :type locfield5: str or None
-        :type locfield6: str or None
-        :type longdeg: Decimal or None
-        :type luster: str or None
-        :type made: str or None
-        :type maintcycle: str or None
-        :type maintdate: datetime.date or None
-        :type maintnote: str or None
-        :type material: str or None
-        :type medium: str or None
-        :type member: str or None
-        :type mmark: str or None
-        :type nhclass: str or None
-        :type nhorder: str or None
-        :type notes: str or None
-        :type ns: str or None
-        :type objectid: str or None
-        :type objname: str or None
-        :type objname2: str or None
-        :type objname3: str or None
-        :type objnames: str or None
-        :type occurrence: str or None
-        :type oldno: str or None
-        :type origin: str or None
-        :type othername: str or None
-        :type otherno: str or None
-        :type outdate: datetime.date or None
-        :type owned: str or None
-        :type parent: str or None
-        :type people: str or None
-        :type period: str or None
-        :type phylum: str or None
-        :type policyno: str or None
-        :type ppid: str or None
-        :type preparator: str or None
-        :type prepdate: datetime.date or None
-        :type preserve: str or None
-        :type pressure: str or None
-        :type provenance: str or None
-        :type pubnotes: str or None
-        :type qrurl: str or None
-        :type recas: str or None
-        :type recdate: str or None
-        :type recfrom: str or None
-        :type relation: str or None
-        :type relnotes: str or None
-        :type renewuntil: datetime.date or None
-        :type repatby: str or None
-        :type repatclaim: str or None
-        :type repatdate: datetime.date or None
-        :type repatdisp: str or None
-        :type repathand: str or None
-        :type repatnotes: str or None
-        :type repatnotic: datetime.date or None
-        :type repattype: str or None
-        :type rockclass: str or None
-        :type rockcolor: str or None
-        :type rockorigin: str or None
-        :type rocktype: str or None
-        :type role: str or None
-        :type role2: str or None
-        :type role3: str or None
-        :type school: str or None
-        :type sex: str or None
-        :type sgflag: str or None
-        :type signedname: str or None
-        :type signloc: str or None
-        :type site: str or None
-        :type siteno: str or None
-        :type specgrav: str or None
-        :type species: str or None
-        :type sprocess: str or None
-        :type stage: str or None
-        :type status: str or None
-        :type statusby: str or None
-        :type statusdate: datetime.date or None
-        :type sterms: str or None
-        :type stratum: str or None
-        :type streak: str or None
-        :type subfamily: str or None
-        :type subjects: str or None
-        :type subspecies: str or None
-        :type technique: str or None
-        :type tempauthor: str or None
-        :type tempby: str or None
-        :type tempdate: datetime.date or None
-        :type temperatur: str or None
-        :type temploc: str or None
-        :type tempnotes: str or None
-        :type tempreason: str or None
-        :type tempuntil: str or None
-        :type texture: str or None
-        :type title: str or None
-        :type tlocfield1: str or None
-        :type tlocfield2: str or None
-        :type tlocfield3: str or None
-        :type tlocfield4: str or None
-        :type tlocfield5: str or None
-        :type tlocfield6: str or None
-        :type udf1: str or None
-        :type udf10: str or None
-        :type udf11: str or None
-        :type udf12: str or None
-        :type udf13: int or None
-        :type udf14: Decimal or None
-        :type udf15: Decimal or None
-        :type udf16: Decimal or None
-        :type udf17: Decimal or None
-        :type udf18: datetime.date or None
-        :type udf19: datetime.date or None
-        :type udf2: str or None
-        :type udf20: datetime.date or None
-        :type udf21: str or None
-        :type udf22: str or None
-        :type udf3: str or None
-        :type udf4: str or None
-        :type udf5: str or None
-        :type udf6: str or None
-        :type udf7: str or None
-        :type udf8: str or None
-        :type udf9: str or None
-        :type unit: str or None
-        :type updated: datetime.datetime or None
-        :type updatedby: str or None
-        :type used: str or None
-        :type valuedate: datetime.date or None
-        :type varieties: str or None
-        :type vexhtml: str or None
-        :type vexlabel1: str or None
-        :type vexlabel2: str or None
-        :type vexlabel3: str or None
-        :type vexlabel4: str or None
-        :type webinclude: bool or None
-        :type weight: Decimal or None
-        :type weightin: Decimal or None
-        :type weightlb: Decimal or None
-        :type width: Decimal or None
-        :type widthft: Decimal or None
-        :type widthin: Decimal or None
-        :type xcord: Decimal or None
-        :type ycord: Decimal or None
-        :type zcord: Decimal or None
-        :type zsorter: str or None
-        :type zsorterx: str or None
+        :type builder %(qname)s.Builder
+
         '''
 
+        accessno = builder.accessno
         if accessno is not None:
             if not isinstance(accessno, str):
                 raise TypeError("expected accessno to be a str but it is a %s" % builtins.type(accessno))
         self.__accessno = accessno
 
+        accessory = builder.accessory
         if accessory is not None:
             if not isinstance(accessory, str):
                 raise TypeError("expected accessory to be a str but it is a %s" % builtins.type(accessory))
         self.__accessory = accessory
 
+        acqvalue = builder.acqvalue
         if acqvalue is not None:
             if not isinstance(acqvalue, decimal.Decimal):
                 raise TypeError("expected acqvalue to be a Decimal but it is a %s" % builtins.type(acqvalue))
         self.__acqvalue = acqvalue
 
+        age = builder.age
         if age is not None:
             if not isinstance(age, str):
                 raise TypeError("expected age to be a str but it is a %s" % builtins.type(age))
         self.__age = age
 
+        appnotes = builder.appnotes
         if appnotes is not None:
             if not isinstance(appnotes, str):
                 raise TypeError("expected appnotes to be a str but it is a %s" % builtins.type(appnotes))
         self.__appnotes = appnotes
 
+        appraisor = builder.appraisor
         if appraisor is not None:
             if not isinstance(appraisor, str):
                 raise TypeError("expected appraisor to be a str but it is a %s" % builtins.type(appraisor))
         self.__appraisor = appraisor
 
+        assemzone = builder.assemzone
         if assemzone is not None:
             if not isinstance(assemzone, str):
                 raise TypeError("expected assemzone to be a str but it is a %s" % builtins.type(assemzone))
         self.__assemzone = assemzone
 
+        bagno = builder.bagno
         if bagno is not None:
             if not isinstance(bagno, str):
                 raise TypeError("expected bagno to be a str but it is a %s" % builtins.type(bagno))
         self.__bagno = bagno
 
+        boxno = builder.boxno
         if boxno is not None:
             if not isinstance(boxno, str):
                 raise TypeError("expected boxno to be a str but it is a %s" % builtins.type(boxno))
         self.__boxno = boxno
 
+        caption = builder.caption
         if caption is not None:
             if not isinstance(caption, str):
                 raise TypeError("expected caption to be a str but it is a %s" % builtins.type(caption))
         self.__caption = caption
 
+        cat = builder.cat
         if cat is not None:
             if not isinstance(cat, str):
                 raise TypeError("expected cat to be a str but it is a %s" % builtins.type(cat))
         self.__cat = cat
 
+        catby = builder.catby
         if catby is not None:
             if not isinstance(catby, str):
                 raise TypeError("expected catby to be a str but it is a %s" % builtins.type(catby))
         self.__catby = catby
 
+        catdate = builder.catdate
         if catdate is not None:
             if not isinstance(catdate, datetime.date):
                 raise TypeError("expected catdate to be a datetime.date but it is a %s" % builtins.type(catdate))
         self.__catdate = catdate
 
+        cattype = builder.cattype
         if cattype is not None:
             if not isinstance(cattype, str):
                 raise TypeError("expected cattype to be a str but it is a %s" % builtins.type(cattype))
         self.__cattype = cattype
 
+        chemcomp = builder.chemcomp
         if chemcomp is not None:
             if not isinstance(chemcomp, str):
                 raise TypeError("expected chemcomp to be a str but it is a %s" % builtins.type(chemcomp))
         self.__chemcomp = chemcomp
 
+        circum = builder.circum
         if circum is not None:
             if not isinstance(circum, decimal.Decimal):
                 raise TypeError("expected circum to be a Decimal but it is a %s" % builtins.type(circum))
         self.__circum = circum
 
+        circumft = builder.circumft
         if circumft is not None:
             if not isinstance(circumft, decimal.Decimal):
                 raise TypeError("expected circumft to be a Decimal but it is a %s" % builtins.type(circumft))
         self.__circumft = circumft
 
+        circumin = builder.circumin
         if circumin is not None:
             if not isinstance(circumin, decimal.Decimal):
                 raise TypeError("expected circumin to be a Decimal but it is a %s" % builtins.type(circumin))
         self.__circumin = circumin
 
+        classes = builder.classes
         if classes is not None:
             if not isinstance(classes, str):
                 raise TypeError("expected classes to be a str but it is a %s" % builtins.type(classes))
         self.__classes = classes
 
+        colldate = builder.colldate
         if colldate is not None:
             if not isinstance(colldate, datetime.date):
                 raise TypeError("expected colldate to be a datetime.date but it is a %s" % builtins.type(colldate))
         self.__colldate = colldate
 
+        collection = builder.collection
         if collection is not None:
             if not isinstance(collection, str):
                 raise TypeError("expected collection to be a str but it is a %s" % builtins.type(collection))
         self.__collection = collection
 
+        collector = builder.collector
         if collector is not None:
             if not isinstance(collector, str):
                 raise TypeError("expected collector to be a str but it is a %s" % builtins.type(collector))
         self.__collector = collector
 
+        conddate = builder.conddate
         if conddate is not None:
             if not isinstance(conddate, datetime.date):
                 raise TypeError("expected conddate to be a datetime.date but it is a %s" % builtins.type(conddate))
         self.__conddate = conddate
 
+        condexam = builder.condexam
         if condexam is not None:
             if not isinstance(condexam, str):
                 raise TypeError("expected condexam to be a str but it is a %s" % builtins.type(condexam))
         self.__condexam = condexam
 
+        condition = builder.condition
         if condition is not None:
             if not isinstance(condition, str):
                 raise TypeError("expected condition to be a str but it is a %s" % builtins.type(condition))
         self.__condition = condition
 
+        condnotes = builder.condnotes
         if condnotes is not None:
             if not isinstance(condnotes, str):
                 raise TypeError("expected condnotes to be a str but it is a %s" % builtins.type(condnotes))
         self.__condnotes = condnotes
 
+        count = builder.count
         if count is not None:
             if not isinstance(count, str):
                 raise TypeError("expected count to be a str but it is a %s" % builtins.type(count))
         self.__count = count
 
+        creator = builder.creator
         if creator is not None:
             if not isinstance(creator, str):
                 raise TypeError("expected creator to be a str but it is a %s" % builtins.type(creator))
         self.__creator = creator
 
+        creator2 = builder.creator2
         if creator2 is not None:
             if not isinstance(creator2, str):
                 raise TypeError("expected creator2 to be a str but it is a %s" % builtins.type(creator2))
         self.__creator2 = creator2
 
+        creator3 = builder.creator3
         if creator3 is not None:
             if not isinstance(creator3, str):
                 raise TypeError("expected creator3 to be a str but it is a %s" % builtins.type(creator3))
         self.__creator3 = creator3
 
+        credit = builder.credit
         if credit is not None:
             if not isinstance(credit, str):
                 raise TypeError("expected credit to be a str but it is a %s" % builtins.type(credit))
         self.__credit = credit
 
+        crystal = builder.crystal
         if crystal is not None:
             if not isinstance(crystal, str):
                 raise TypeError("expected crystal to be a str but it is a %s" % builtins.type(crystal))
         self.__crystal = crystal
 
+        culture = builder.culture
         if culture is not None:
             if not isinstance(culture, str):
                 raise TypeError("expected culture to be a str but it is a %s" % builtins.type(culture))
         self.__culture = culture
 
+        curvalmax = builder.curvalmax
         if curvalmax is not None:
             if not isinstance(curvalmax, decimal.Decimal):
                 raise TypeError("expected curvalmax to be a Decimal but it is a %s" % builtins.type(curvalmax))
         self.__curvalmax = curvalmax
 
+        curvalue = builder.curvalue
         if curvalue is not None:
             if not isinstance(curvalue, decimal.Decimal):
                 raise TypeError("expected curvalue to be a Decimal but it is a %s" % builtins.type(curvalue))
         self.__curvalue = curvalue
 
+        dataset = builder.dataset
         if dataset is not None:
             if not isinstance(dataset, str):
                 raise TypeError("expected dataset to be a str but it is a %s" % builtins.type(dataset))
         self.__dataset = dataset
 
+        date = builder.date
         if date is not None:
             if not isinstance(date, str):
                 raise TypeError("expected date to be a str but it is a %s" % builtins.type(date))
         self.__date = date
 
+        datingmeth = builder.datingmeth
         if datingmeth is not None:
             if not isinstance(datingmeth, str):
                 raise TypeError("expected datingmeth to be a str but it is a %s" % builtins.type(datingmeth))
         self.__datingmeth = datingmeth
 
+        datum = builder.datum
         if datum is not None:
             if not isinstance(datum, str):
                 raise TypeError("expected datum to be a str but it is a %s" % builtins.type(datum))
         self.__datum = datum
 
+        depth = builder.depth
         if depth is not None:
             if not isinstance(depth, decimal.Decimal):
                 raise TypeError("expected depth to be a Decimal but it is a %s" % builtins.type(depth))
         self.__depth = depth
 
+        depthft = builder.depthft
         if depthft is not None:
             if not isinstance(depthft, decimal.Decimal):
                 raise TypeError("expected depthft to be a Decimal but it is a %s" % builtins.type(depthft))
         self.__depthft = depthft
 
+        depthin = builder.depthin
         if depthin is not None:
             if not isinstance(depthin, decimal.Decimal):
                 raise TypeError("expected depthin to be a Decimal but it is a %s" % builtins.type(depthin))
         self.__depthin = depthin
 
+        descrip = builder.descrip
         if descrip is not None:
             if not isinstance(descrip, str):
                 raise TypeError("expected descrip to be a str but it is a %s" % builtins.type(descrip))
         self.__descrip = descrip
 
+        diameter = builder.diameter
         if diameter is not None:
             if not isinstance(diameter, decimal.Decimal):
                 raise TypeError("expected diameter to be a Decimal but it is a %s" % builtins.type(diameter))
         self.__diameter = diameter
 
+        diameterft = builder.diameterft
         if diameterft is not None:
             if not isinstance(diameterft, decimal.Decimal):
                 raise TypeError("expected diameterft to be a Decimal but it is a %s" % builtins.type(diameterft))
         self.__diameterft = diameterft
 
+        diameterin = builder.diameterin
         if diameterin is not None:
             if not isinstance(diameterin, decimal.Decimal):
                 raise TypeError("expected diameterin to be a Decimal but it is a %s" % builtins.type(diameterin))
         self.__diameterin = diameterin
 
+        dimnotes = builder.dimnotes
         if dimnotes is not None:
             if not isinstance(dimnotes, str):
                 raise TypeError("expected dimnotes to be a str but it is a %s" % builtins.type(dimnotes))
         self.__dimnotes = dimnotes
 
+        dimtype = builder.dimtype
         if dimtype is not None:
             if not isinstance(dimtype, int):
                 raise TypeError("expected dimtype to be a int but it is a %s" % builtins.type(dimtype))
         self.__dimtype = dimtype
 
+        dispvalue = builder.dispvalue
         if dispvalue is not None:
             if not isinstance(dispvalue, str):
                 raise TypeError("expected dispvalue to be a str but it is a %s" % builtins.type(dispvalue))
         self.__dispvalue = dispvalue
 
+        earlydate = builder.earlydate
         if earlydate is not None:
             if not isinstance(earlydate, int):
                 raise TypeError("expected earlydate to be a int but it is a %s" % builtins.type(earlydate))
         self.__earlydate = earlydate
 
+        elements = builder.elements
         if elements is not None:
             if not isinstance(elements, str):
                 raise TypeError("expected elements to be a str but it is a %s" % builtins.type(elements))
         self.__elements = elements
 
+        epoch = builder.epoch
         if epoch is not None:
             if not isinstance(epoch, str):
                 raise TypeError("expected epoch to be a str but it is a %s" % builtins.type(epoch))
         self.__epoch = epoch
 
+        era = builder.era
         if era is not None:
             if not isinstance(era, str):
                 raise TypeError("expected era to be a str but it is a %s" % builtins.type(era))
         self.__era = era
 
+        event = builder.event
         if event is not None:
             if not isinstance(event, str):
                 raise TypeError("expected event to be a str but it is a %s" % builtins.type(event))
         self.__event = event
 
+        ew = builder.ew
         if ew is not None:
             if not isinstance(ew, str):
                 raise TypeError("expected ew to be a str but it is a %s" % builtins.type(ew))
         self.__ew = ew
 
+        excavadate = builder.excavadate
         if excavadate is not None:
             if not isinstance(excavadate, datetime.date):
                 raise TypeError("expected excavadate to be a datetime.date but it is a %s" % builtins.type(excavadate))
         self.__excavadate = excavadate
 
+        excavateby = builder.excavateby
         if excavateby is not None:
             if not isinstance(excavateby, str):
                 raise TypeError("expected excavateby to be a str but it is a %s" % builtins.type(excavateby))
         self.__excavateby = excavateby
 
+        exhibitid = builder.exhibitid
         if exhibitid is not None:
             if not isinstance(exhibitid, str):
                 raise TypeError("expected exhibitid to be a str but it is a %s" % builtins.type(exhibitid))
         self.__exhibitid = exhibitid
 
+        exhibitno = builder.exhibitno
         if exhibitno is not None:
             if not isinstance(exhibitno, int):
                 raise TypeError("expected exhibitno to be a int but it is a %s" % builtins.type(exhibitno))
         self.__exhibitno = exhibitno
 
+        exhlabel1 = builder.exhlabel1
         if exhlabel1 is not None:
             if not isinstance(exhlabel1, str):
                 raise TypeError("expected exhlabel1 to be a str but it is a %s" % builtins.type(exhlabel1))
         self.__exhlabel1 = exhlabel1
 
+        exhlabel2 = builder.exhlabel2
         if exhlabel2 is not None:
             if not isinstance(exhlabel2, str):
                 raise TypeError("expected exhlabel2 to be a str but it is a %s" % builtins.type(exhlabel2))
         self.__exhlabel2 = exhlabel2
 
+        exhlabel3 = builder.exhlabel3
         if exhlabel3 is not None:
             if not isinstance(exhlabel3, str):
                 raise TypeError("expected exhlabel3 to be a str but it is a %s" % builtins.type(exhlabel3))
         self.__exhlabel3 = exhlabel3
 
+        exhlabel4 = builder.exhlabel4
         if exhlabel4 is not None:
             if not isinstance(exhlabel4, str):
                 raise TypeError("expected exhlabel4 to be a str but it is a %s" % builtins.type(exhlabel4))
         self.__exhlabel4 = exhlabel4
 
+        exhstart = builder.exhstart
         if exhstart is not None:
             if not isinstance(exhstart, datetime.date):
                 raise TypeError("expected exhstart to be a datetime.date but it is a %s" % builtins.type(exhstart))
         self.__exhstart = exhstart
 
+        family = builder.family
         if family is not None:
             if not isinstance(family, str):
                 raise TypeError("expected family to be a str but it is a %s" % builtins.type(family))
         self.__family = family
 
+        feature = builder.feature
         if feature is not None:
             if not isinstance(feature, str):
                 raise TypeError("expected feature to be a str but it is a %s" % builtins.type(feature))
         self.__feature = feature
 
+        flagdate = builder.flagdate
         if flagdate is not None:
             if not isinstance(flagdate, datetime.datetime):
                 raise TypeError("expected flagdate to be a datetime.datetime but it is a %s" % builtins.type(flagdate))
         self.__flagdate = flagdate
 
+        flagnotes = builder.flagnotes
         if flagnotes is not None:
             if not isinstance(flagnotes, str):
                 raise TypeError("expected flagnotes to be a str but it is a %s" % builtins.type(flagnotes))
         self.__flagnotes = flagnotes
 
+        flagreason = builder.flagreason
         if flagreason is not None:
             if not isinstance(flagreason, str):
                 raise TypeError("expected flagreason to be a str but it is a %s" % builtins.type(flagreason))
         self.__flagreason = flagreason
 
+        formation = builder.formation
         if formation is not None:
             if not isinstance(formation, str):
                 raise TypeError("expected formation to be a str but it is a %s" % builtins.type(formation))
         self.__formation = formation
 
+        fossils = builder.fossils
         if fossils is not None:
             if not isinstance(fossils, str):
                 raise TypeError("expected fossils to be a str but it is a %s" % builtins.type(fossils))
         self.__fossils = fossils
 
+        found = builder.found
         if found is not None:
             if not isinstance(found, str):
                 raise TypeError("expected found to be a str but it is a %s" % builtins.type(found))
         self.__found = found
 
+        fracture = builder.fracture
         if fracture is not None:
             if not isinstance(fracture, str):
                 raise TypeError("expected fracture to be a str but it is a %s" % builtins.type(fracture))
         self.__fracture = fracture
 
+        frame = builder.frame
         if frame is not None:
             if not isinstance(frame, str):
                 raise TypeError("expected frame to be a str but it is a %s" % builtins.type(frame))
         self.__frame = frame
 
+        framesize = builder.framesize
         if framesize is not None:
             if not isinstance(framesize, str):
                 raise TypeError("expected framesize to be a str but it is a %s" % builtins.type(framesize))
         self.__framesize = framesize
 
+        genus = builder.genus
         if genus is not None:
             if not isinstance(genus, str):
                 raise TypeError("expected genus to be a str but it is a %s" % builtins.type(genus))
         self.__genus = genus
 
+        gparent = builder.gparent
         if gparent is not None:
             if not isinstance(gparent, str):
                 raise TypeError("expected gparent to be a str but it is a %s" % builtins.type(gparent))
         self.__gparent = gparent
 
+        grainsize = builder.grainsize
         if grainsize is not None:
             if not isinstance(grainsize, str):
                 raise TypeError("expected grainsize to be a str but it is a %s" % builtins.type(grainsize))
         self.__grainsize = grainsize
 
+        habitat = builder.habitat
         if habitat is not None:
             if not isinstance(habitat, str):
                 raise TypeError("expected habitat to be a str but it is a %s" % builtins.type(habitat))
         self.__habitat = habitat
 
+        hardness = builder.hardness
         if hardness is not None:
             if not isinstance(hardness, str):
                 raise TypeError("expected hardness to be a str but it is a %s" % builtins.type(hardness))
         self.__hardness = hardness
 
+        height = builder.height
         if height is not None:
             if not isinstance(height, decimal.Decimal):
                 raise TypeError("expected height to be a Decimal but it is a %s" % builtins.type(height))
         self.__height = height
 
+        heightft = builder.heightft
         if heightft is not None:
             if not isinstance(heightft, decimal.Decimal):
                 raise TypeError("expected heightft to be a Decimal but it is a %s" % builtins.type(heightft))
         self.__heightft = heightft
 
+        heightin = builder.heightin
         if heightin is not None:
             if not isinstance(heightin, decimal.Decimal):
                 raise TypeError("expected heightin to be a Decimal but it is a %s" % builtins.type(heightin))
         self.__heightin = heightin
 
+        homeloc = builder.homeloc
         if homeloc is not None:
             if not isinstance(homeloc, str):
                 raise TypeError("expected homeloc to be a str but it is a %s" % builtins.type(homeloc))
         self.__homeloc = homeloc
 
+        idby = builder.idby
         if idby is not None:
             if not isinstance(idby, str):
                 raise TypeError("expected idby to be a str but it is a %s" % builtins.type(idby))
         self.__idby = idby
 
+        iddate = builder.iddate
         if iddate is not None:
             if not isinstance(iddate, datetime.date):
                 raise TypeError("expected iddate to be a datetime.date but it is a %s" % builtins.type(iddate))
         self.__iddate = iddate
 
+        imagefile = builder.imagefile
         if imagefile is not None:
             if not isinstance(imagefile, str):
                 raise TypeError("expected imagefile to be a str but it is a %s" % builtins.type(imagefile))
         self.__imagefile = imagefile
 
+        imageno = builder.imageno
         if imageno is not None:
             if not isinstance(imageno, int):
                 raise TypeError("expected imageno to be a int but it is a %s" % builtins.type(imageno))
         self.__imageno = imageno
 
+        imagesize = builder.imagesize
         if imagesize is not None:
             if not isinstance(imagesize, str):
                 raise TypeError("expected imagesize to be a str but it is a %s" % builtins.type(imagesize))
         self.__imagesize = imagesize
 
+        inscomp = builder.inscomp
         if inscomp is not None:
             if not isinstance(inscomp, str):
                 raise TypeError("expected inscomp to be a str but it is a %s" % builtins.type(inscomp))
         self.__inscomp = inscomp
 
+        inscrlang = builder.inscrlang
         if inscrlang is not None:
             if not isinstance(inscrlang, str):
                 raise TypeError("expected inscrlang to be a str but it is a %s" % builtins.type(inscrlang))
         self.__inscrlang = inscrlang
 
+        inscrpos = builder.inscrpos
         if inscrpos is not None:
             if not isinstance(inscrpos, str):
                 raise TypeError("expected inscrpos to be a str but it is a %s" % builtins.type(inscrpos))
         self.__inscrpos = inscrpos
 
+        inscrtech = builder.inscrtech
         if inscrtech is not None:
             if not isinstance(inscrtech, str):
                 raise TypeError("expected inscrtech to be a str but it is a %s" % builtins.type(inscrtech))
         self.__inscrtech = inscrtech
 
+        inscrtext = builder.inscrtext
         if inscrtext is not None:
             if not isinstance(inscrtext, str):
                 raise TypeError("expected inscrtext to be a str but it is a %s" % builtins.type(inscrtext))
         self.__inscrtext = inscrtext
 
+        inscrtrans = builder.inscrtrans
         if inscrtrans is not None:
             if not isinstance(inscrtrans, str):
                 raise TypeError("expected inscrtrans to be a str but it is a %s" % builtins.type(inscrtrans))
         self.__inscrtrans = inscrtrans
 
+        inscrtype = builder.inscrtype
         if inscrtype is not None:
             if not isinstance(inscrtype, str):
                 raise TypeError("expected inscrtype to be a str but it is a %s" % builtins.type(inscrtype))
         self.__inscrtype = inscrtype
 
+        insdate = builder.insdate
         if insdate is not None:
             if not isinstance(insdate, datetime.date):
                 raise TypeError("expected insdate to be a datetime.date but it is a %s" % builtins.type(insdate))
         self.__insdate = insdate
 
+        insphone = builder.insphone
         if insphone is not None:
             if not isinstance(insphone, str):
                 raise TypeError("expected insphone to be a str but it is a %s" % builtins.type(insphone))
         self.__insphone = insphone
 
+        inspremium = builder.inspremium
         if inspremium is not None:
             if not isinstance(inspremium, str):
                 raise TypeError("expected inspremium to be a str but it is a %s" % builtins.type(inspremium))
         self.__inspremium = inspremium
 
+        insrep = builder.insrep
         if insrep is not None:
             if not isinstance(insrep, str):
                 raise TypeError("expected insrep to be a str but it is a %s" % builtins.type(insrep))
         self.__insrep = insrep
 
+        insvalue = builder.insvalue
         if insvalue is not None:
             if not isinstance(insvalue, decimal.Decimal):
                 raise TypeError("expected insvalue to be a Decimal but it is a %s" % builtins.type(insvalue))
         self.__insvalue = insvalue
 
+        invnby = builder.invnby
         if invnby is not None:
             if not isinstance(invnby, str):
                 raise TypeError("expected invnby to be a str but it is a %s" % builtins.type(invnby))
         self.__invnby = invnby
 
+        invndate = builder.invndate
         if invndate is not None:
             if not isinstance(invndate, datetime.date):
                 raise TypeError("expected invndate to be a datetime.date but it is a %s" % builtins.type(invndate))
         self.__invndate = invndate
 
+        kingdom = builder.kingdom
         if kingdom is not None:
             if not isinstance(kingdom, str):
                 raise TypeError("expected kingdom to be a str but it is a %s" % builtins.type(kingdom))
         self.__kingdom = kingdom
 
+        latdeg = builder.latdeg
         if latdeg is not None:
             if not isinstance(latdeg, decimal.Decimal):
                 raise TypeError("expected latdeg to be a Decimal but it is a %s" % builtins.type(latdeg))
         self.__latdeg = latdeg
 
+        latedate = builder.latedate
         if latedate is not None:
             if not isinstance(latedate, int):
                 raise TypeError("expected latedate to be a int but it is a %s" % builtins.type(latedate))
         self.__latedate = latedate
 
+        legal = builder.legal
         if legal is not None:
             if not isinstance(legal, str):
                 raise TypeError("expected legal to be a str but it is a %s" % builtins.type(legal))
         self.__legal = legal
 
+        length = builder.length
         if length is not None:
             if not isinstance(length, decimal.Decimal):
                 raise TypeError("expected length to be a Decimal but it is a %s" % builtins.type(length))
         self.__length = length
 
+        lengthft = builder.lengthft
         if lengthft is not None:
             if not isinstance(lengthft, decimal.Decimal):
                 raise TypeError("expected lengthft to be a Decimal but it is a %s" % builtins.type(lengthft))
         self.__lengthft = lengthft
 
+        lengthin = builder.lengthin
         if lengthin is not None:
             if not isinstance(lengthin, decimal.Decimal):
                 raise TypeError("expected lengthin to be a Decimal but it is a %s" % builtins.type(lengthin))
         self.__lengthin = lengthin
 
+        level = builder.level
         if level is not None:
             if not isinstance(level, str):
                 raise TypeError("expected level to be a str but it is a %s" % builtins.type(level))
         self.__level = level
 
+        lithofacie = builder.lithofacie
         if lithofacie is not None:
             if not isinstance(lithofacie, str):
                 raise TypeError("expected lithofacie to be a str but it is a %s" % builtins.type(lithofacie))
         self.__lithofacie = lithofacie
 
+        loancond = builder.loancond
         if loancond is not None:
             if not isinstance(loancond, str):
                 raise TypeError("expected loancond to be a str but it is a %s" % builtins.type(loancond))
         self.__loancond = loancond
 
+        loandue = builder.loandue
         if loandue is not None:
             if not isinstance(loandue, datetime.date):
                 raise TypeError("expected loandue to be a datetime.date but it is a %s" % builtins.type(loandue))
         self.__loandue = loandue
 
+        loanid = builder.loanid
         if loanid is not None:
             if not isinstance(loanid, str):
                 raise TypeError("expected loanid to be a str but it is a %s" % builtins.type(loanid))
         self.__loanid = loanid
 
+        loaninno = builder.loaninno
         if loaninno is not None:
             if not isinstance(loaninno, str):
                 raise TypeError("expected loaninno to be a str but it is a %s" % builtins.type(loaninno))
         self.__loaninno = loaninno
 
+        loanno = builder.loanno
         if loanno is not None:
             if not isinstance(loanno, int):
                 raise TypeError("expected loanno to be a int but it is a %s" % builtins.type(loanno))
         self.__loanno = loanno
 
+        loanrenew = builder.loanrenew
         if loanrenew is not None:
             if not isinstance(loanrenew, datetime.date):
                 raise TypeError("expected loanrenew to be a datetime.date but it is a %s" % builtins.type(loanrenew))
         self.__loanrenew = loanrenew
 
+        locfield1 = builder.locfield1
         if locfield1 is not None:
             if not isinstance(locfield1, str):
                 raise TypeError("expected locfield1 to be a str but it is a %s" % builtins.type(locfield1))
         self.__locfield1 = locfield1
 
+        locfield2 = builder.locfield2
         if locfield2 is not None:
             if not isinstance(locfield2, str):
                 raise TypeError("expected locfield2 to be a str but it is a %s" % builtins.type(locfield2))
         self.__locfield2 = locfield2
 
+        locfield3 = builder.locfield3
         if locfield3 is not None:
             if not isinstance(locfield3, str):
                 raise TypeError("expected locfield3 to be a str but it is a %s" % builtins.type(locfield3))
         self.__locfield3 = locfield3
 
+        locfield4 = builder.locfield4
         if locfield4 is not None:
             if not isinstance(locfield4, str):
                 raise TypeError("expected locfield4 to be a str but it is a %s" % builtins.type(locfield4))
         self.__locfield4 = locfield4
 
+        locfield5 = builder.locfield5
         if locfield5 is not None:
             if not isinstance(locfield5, str):
                 raise TypeError("expected locfield5 to be a str but it is a %s" % builtins.type(locfield5))
         self.__locfield5 = locfield5
 
+        locfield6 = builder.locfield6
         if locfield6 is not None:
             if not isinstance(locfield6, str):
                 raise TypeError("expected locfield6 to be a str but it is a %s" % builtins.type(locfield6))
         self.__locfield6 = locfield6
 
+        longdeg = builder.longdeg
         if longdeg is not None:
             if not isinstance(longdeg, decimal.Decimal):
                 raise TypeError("expected longdeg to be a Decimal but it is a %s" % builtins.type(longdeg))
         self.__longdeg = longdeg
 
+        luster = builder.luster
         if luster is not None:
             if not isinstance(luster, str):
                 raise TypeError("expected luster to be a str but it is a %s" % builtins.type(luster))
         self.__luster = luster
 
+        made = builder.made
         if made is not None:
             if not isinstance(made, str):
                 raise TypeError("expected made to be a str but it is a %s" % builtins.type(made))
         self.__made = made
 
+        maintcycle = builder.maintcycle
         if maintcycle is not None:
             if not isinstance(maintcycle, str):
                 raise TypeError("expected maintcycle to be a str but it is a %s" % builtins.type(maintcycle))
         self.__maintcycle = maintcycle
 
+        maintdate = builder.maintdate
         if maintdate is not None:
             if not isinstance(maintdate, datetime.date):
                 raise TypeError("expected maintdate to be a datetime.date but it is a %s" % builtins.type(maintdate))
         self.__maintdate = maintdate
 
+        maintnote = builder.maintnote
         if maintnote is not None:
             if not isinstance(maintnote, str):
                 raise TypeError("expected maintnote to be a str but it is a %s" % builtins.type(maintnote))
         self.__maintnote = maintnote
 
+        material = builder.material
         if material is not None:
             if not isinstance(material, str):
                 raise TypeError("expected material to be a str but it is a %s" % builtins.type(material))
         self.__material = material
 
+        medium = builder.medium
         if medium is not None:
             if not isinstance(medium, str):
                 raise TypeError("expected medium to be a str but it is a %s" % builtins.type(medium))
         self.__medium = medium
 
+        member = builder.member
         if member is not None:
             if not isinstance(member, str):
                 raise TypeError("expected member to be a str but it is a %s" % builtins.type(member))
         self.__member = member
 
+        mmark = builder.mmark
         if mmark is not None:
             if not isinstance(mmark, str):
                 raise TypeError("expected mmark to be a str but it is a %s" % builtins.type(mmark))
         self.__mmark = mmark
 
+        nhclass = builder.nhclass
         if nhclass is not None:
             if not isinstance(nhclass, str):
                 raise TypeError("expected nhclass to be a str but it is a %s" % builtins.type(nhclass))
         self.__nhclass = nhclass
 
+        nhorder = builder.nhorder
         if nhorder is not None:
             if not isinstance(nhorder, str):
                 raise TypeError("expected nhorder to be a str but it is a %s" % builtins.type(nhorder))
         self.__nhorder = nhorder
 
+        notes = builder.notes
         if notes is not None:
             if not isinstance(notes, str):
                 raise TypeError("expected notes to be a str but it is a %s" % builtins.type(notes))
         self.__notes = notes
 
+        ns = builder.ns
         if ns is not None:
             if not isinstance(ns, str):
                 raise TypeError("expected ns to be a str but it is a %s" % builtins.type(ns))
         self.__ns = ns
 
+        objectid = builder.objectid
         if objectid is not None:
             if not isinstance(objectid, str):
                 raise TypeError("expected objectid to be a str but it is a %s" % builtins.type(objectid))
         self.__objectid = objectid
 
+        objname = builder.objname
         if objname is not None:
             if not isinstance(objname, str):
                 raise TypeError("expected objname to be a str but it is a %s" % builtins.type(objname))
         self.__objname = objname
 
+        objname2 = builder.objname2
         if objname2 is not None:
             if not isinstance(objname2, str):
                 raise TypeError("expected objname2 to be a str but it is a %s" % builtins.type(objname2))
         self.__objname2 = objname2
 
+        objname3 = builder.objname3
         if objname3 is not None:
             if not isinstance(objname3, str):
                 raise TypeError("expected objname3 to be a str but it is a %s" % builtins.type(objname3))
         self.__objname3 = objname3
 
+        objnames = builder.objnames
         if objnames is not None:
             if not isinstance(objnames, str):
                 raise TypeError("expected objnames to be a str but it is a %s" % builtins.type(objnames))
         self.__objnames = objnames
 
+        occurrence = builder.occurrence
         if occurrence is not None:
             if not isinstance(occurrence, str):
                 raise TypeError("expected occurrence to be a str but it is a %s" % builtins.type(occurrence))
         self.__occurrence = occurrence
 
+        oldno = builder.oldno
         if oldno is not None:
             if not isinstance(oldno, str):
                 raise TypeError("expected oldno to be a str but it is a %s" % builtins.type(oldno))
         self.__oldno = oldno
 
+        origin = builder.origin
         if origin is not None:
             if not isinstance(origin, str):
                 raise TypeError("expected origin to be a str but it is a %s" % builtins.type(origin))
         self.__origin = origin
 
+        othername = builder.othername
         if othername is not None:
             if not isinstance(othername, str):
                 raise TypeError("expected othername to be a str but it is a %s" % builtins.type(othername))
         self.__othername = othername
 
+        otherno = builder.otherno
         if otherno is not None:
             if not isinstance(otherno, str):
                 raise TypeError("expected otherno to be a str but it is a %s" % builtins.type(otherno))
         self.__otherno = otherno
 
+        outdate = builder.outdate
         if outdate is not None:
             if not isinstance(outdate, datetime.date):
                 raise TypeError("expected outdate to be a datetime.date but it is a %s" % builtins.type(outdate))
         self.__outdate = outdate
 
+        owned = builder.owned
         if owned is not None:
             if not isinstance(owned, str):
                 raise TypeError("expected owned to be a str but it is a %s" % builtins.type(owned))
         self.__owned = owned
 
+        parent = builder.parent
         if parent is not None:
             if not isinstance(parent, str):
                 raise TypeError("expected parent to be a str but it is a %s" % builtins.type(parent))
         self.__parent = parent
 
+        people = builder.people
         if people is not None:
             if not isinstance(people, str):
                 raise TypeError("expected people to be a str but it is a %s" % builtins.type(people))
         self.__people = people
 
+        period = builder.period
         if period is not None:
             if not isinstance(period, str):
                 raise TypeError("expected period to be a str but it is a %s" % builtins.type(period))
         self.__period = period
 
+        phylum = builder.phylum
         if phylum is not None:
             if not isinstance(phylum, str):
                 raise TypeError("expected phylum to be a str but it is a %s" % builtins.type(phylum))
         self.__phylum = phylum
 
+        policyno = builder.policyno
         if policyno is not None:
             if not isinstance(policyno, str):
                 raise TypeError("expected policyno to be a str but it is a %s" % builtins.type(policyno))
         self.__policyno = policyno
 
+        ppid = builder.ppid
         if ppid is not None:
             if not isinstance(ppid, str):
                 raise TypeError("expected ppid to be a str but it is a %s" % builtins.type(ppid))
         self.__ppid = ppid
 
+        preparator = builder.preparator
         if preparator is not None:
             if not isinstance(preparator, str):
                 raise TypeError("expected preparator to be a str but it is a %s" % builtins.type(preparator))
         self.__preparator = preparator
 
+        prepdate = builder.prepdate
         if prepdate is not None:
             if not isinstance(prepdate, datetime.date):
                 raise TypeError("expected prepdate to be a datetime.date but it is a %s" % builtins.type(prepdate))
         self.__prepdate = prepdate
 
+        preserve = builder.preserve
         if preserve is not None:
             if not isinstance(preserve, str):
                 raise TypeError("expected preserve to be a str but it is a %s" % builtins.type(preserve))
         self.__preserve = preserve
 
+        pressure = builder.pressure
         if pressure is not None:
             if not isinstance(pressure, str):
                 raise TypeError("expected pressure to be a str but it is a %s" % builtins.type(pressure))
         self.__pressure = pressure
 
+        provenance = builder.provenance
         if provenance is not None:
             if not isinstance(provenance, str):
                 raise TypeError("expected provenance to be a str but it is a %s" % builtins.type(provenance))
         self.__provenance = provenance
 
+        pubnotes = builder.pubnotes
         if pubnotes is not None:
             if not isinstance(pubnotes, str):
                 raise TypeError("expected pubnotes to be a str but it is a %s" % builtins.type(pubnotes))
         self.__pubnotes = pubnotes
 
+        qrurl = builder.qrurl
         if qrurl is not None:
             if not isinstance(qrurl, str):
                 raise TypeError("expected qrurl to be a str but it is a %s" % builtins.type(qrurl))
         self.__qrurl = qrurl
 
+        recas = builder.recas
         if recas is not None:
             if not isinstance(recas, str):
                 raise TypeError("expected recas to be a str but it is a %s" % builtins.type(recas))
         self.__recas = recas
 
+        recdate = builder.recdate
         if recdate is not None:
             if not isinstance(recdate, str):
                 raise TypeError("expected recdate to be a str but it is a %s" % builtins.type(recdate))
         self.__recdate = recdate
 
+        recfrom = builder.recfrom
         if recfrom is not None:
             if not isinstance(recfrom, str):
                 raise TypeError("expected recfrom to be a str but it is a %s" % builtins.type(recfrom))
         self.__recfrom = recfrom
 
+        relation = builder.relation
         if relation is not None:
             if not isinstance(relation, str):
                 raise TypeError("expected relation to be a str but it is a %s" % builtins.type(relation))
         self.__relation = relation
 
+        relnotes = builder.relnotes
         if relnotes is not None:
             if not isinstance(relnotes, str):
                 raise TypeError("expected relnotes to be a str but it is a %s" % builtins.type(relnotes))
         self.__relnotes = relnotes
 
+        renewuntil = builder.renewuntil
         if renewuntil is not None:
             if not isinstance(renewuntil, datetime.date):
                 raise TypeError("expected renewuntil to be a datetime.date but it is a %s" % builtins.type(renewuntil))
         self.__renewuntil = renewuntil
 
+        repatby = builder.repatby
         if repatby is not None:
             if not isinstance(repatby, str):
                 raise TypeError("expected repatby to be a str but it is a %s" % builtins.type(repatby))
         self.__repatby = repatby
 
+        repatclaim = builder.repatclaim
         if repatclaim is not None:
             if not isinstance(repatclaim, str):
                 raise TypeError("expected repatclaim to be a str but it is a %s" % builtins.type(repatclaim))
         self.__repatclaim = repatclaim
 
+        repatdate = builder.repatdate
         if repatdate is not None:
             if not isinstance(repatdate, datetime.date):
                 raise TypeError("expected repatdate to be a datetime.date but it is a %s" % builtins.type(repatdate))
         self.__repatdate = repatdate
 
+        repatdisp = builder.repatdisp
         if repatdisp is not None:
             if not isinstance(repatdisp, str):
                 raise TypeError("expected repatdisp to be a str but it is a %s" % builtins.type(repatdisp))
         self.__repatdisp = repatdisp
 
+        repathand = builder.repathand
         if repathand is not None:
             if not isinstance(repathand, str):
                 raise TypeError("expected repathand to be a str but it is a %s" % builtins.type(repathand))
         self.__repathand = repathand
 
+        repatnotes = builder.repatnotes
         if repatnotes is not None:
             if not isinstance(repatnotes, str):
                 raise TypeError("expected repatnotes to be a str but it is a %s" % builtins.type(repatnotes))
         self.__repatnotes = repatnotes
 
+        repatnotic = builder.repatnotic
         if repatnotic is not None:
             if not isinstance(repatnotic, datetime.date):
                 raise TypeError("expected repatnotic to be a datetime.date but it is a %s" % builtins.type(repatnotic))
         self.__repatnotic = repatnotic
 
+        repattype = builder.repattype
         if repattype is not None:
             if not isinstance(repattype, str):
                 raise TypeError("expected repattype to be a str but it is a %s" % builtins.type(repattype))
         self.__repattype = repattype
 
+        rockclass = builder.rockclass
         if rockclass is not None:
             if not isinstance(rockclass, str):
                 raise TypeError("expected rockclass to be a str but it is a %s" % builtins.type(rockclass))
         self.__rockclass = rockclass
 
+        rockcolor = builder.rockcolor
         if rockcolor is not None:
             if not isinstance(rockcolor, str):
                 raise TypeError("expected rockcolor to be a str but it is a %s" % builtins.type(rockcolor))
         self.__rockcolor = rockcolor
 
+        rockorigin = builder.rockorigin
         if rockorigin is not None:
             if not isinstance(rockorigin, str):
                 raise TypeError("expected rockorigin to be a str but it is a %s" % builtins.type(rockorigin))
         self.__rockorigin = rockorigin
 
+        rocktype = builder.rocktype
         if rocktype is not None:
             if not isinstance(rocktype, str):
                 raise TypeError("expected rocktype to be a str but it is a %s" % builtins.type(rocktype))
         self.__rocktype = rocktype
 
+        role = builder.role
         if role is not None:
             if not isinstance(role, str):
                 raise TypeError("expected role to be a str but it is a %s" % builtins.type(role))
         self.__role = role
 
+        role2 = builder.role2
         if role2 is not None:
             if not isinstance(role2, str):
                 raise TypeError("expected role2 to be a str but it is a %s" % builtins.type(role2))
         self.__role2 = role2
 
+        role3 = builder.role3
         if role3 is not None:
             if not isinstance(role3, str):
                 raise TypeError("expected role3 to be a str but it is a %s" % builtins.type(role3))
         self.__role3 = role3
 
+        school = builder.school
         if school is not None:
             if not isinstance(school, str):
                 raise TypeError("expected school to be a str but it is a %s" % builtins.type(school))
         self.__school = school
 
+        sex = builder.sex
         if sex is not None:
             if not isinstance(sex, str):
                 raise TypeError("expected sex to be a str but it is a %s" % builtins.type(sex))
         self.__sex = sex
 
+        sgflag = builder.sgflag
         if sgflag is not None:
             if not isinstance(sgflag, str):
                 raise TypeError("expected sgflag to be a str but it is a %s" % builtins.type(sgflag))
         self.__sgflag = sgflag
 
+        signedname = builder.signedname
         if signedname is not None:
             if not isinstance(signedname, str):
                 raise TypeError("expected signedname to be a str but it is a %s" % builtins.type(signedname))
         self.__signedname = signedname
 
+        signloc = builder.signloc
         if signloc is not None:
             if not isinstance(signloc, str):
                 raise TypeError("expected signloc to be a str but it is a %s" % builtins.type(signloc))
         self.__signloc = signloc
 
+        site = builder.site
         if site is not None:
             if not isinstance(site, str):
                 raise TypeError("expected site to be a str but it is a %s" % builtins.type(site))
         self.__site = site
 
+        siteno = builder.siteno
         if siteno is not None:
             if not isinstance(siteno, str):
                 raise TypeError("expected siteno to be a str but it is a %s" % builtins.type(siteno))
         self.__siteno = siteno
 
+        specgrav = builder.specgrav
         if specgrav is not None:
             if not isinstance(specgrav, str):
                 raise TypeError("expected specgrav to be a str but it is a %s" % builtins.type(specgrav))
         self.__specgrav = specgrav
 
+        species = builder.species
         if species is not None:
             if not isinstance(species, str):
                 raise TypeError("expected species to be a str but it is a %s" % builtins.type(species))
         self.__species = species
 
+        sprocess = builder.sprocess
         if sprocess is not None:
             if not isinstance(sprocess, str):
                 raise TypeError("expected sprocess to be a str but it is a %s" % builtins.type(sprocess))
         self.__sprocess = sprocess
 
+        stage = builder.stage
         if stage is not None:
             if not isinstance(stage, str):
                 raise TypeError("expected stage to be a str but it is a %s" % builtins.type(stage))
         self.__stage = stage
 
+        status = builder.status
         if status is not None:
             if not isinstance(status, str):
                 raise TypeError("expected status to be a str but it is a %s" % builtins.type(status))
         self.__status = status
 
+        statusby = builder.statusby
         if statusby is not None:
             if not isinstance(statusby, str):
                 raise TypeError("expected statusby to be a str but it is a %s" % builtins.type(statusby))
         self.__statusby = statusby
 
+        statusdate = builder.statusdate
         if statusdate is not None:
             if not isinstance(statusdate, datetime.date):
                 raise TypeError("expected statusdate to be a datetime.date but it is a %s" % builtins.type(statusdate))
         self.__statusdate = statusdate
 
+        sterms = builder.sterms
         if sterms is not None:
             if not isinstance(sterms, str):
                 raise TypeError("expected sterms to be a str but it is a %s" % builtins.type(sterms))
         self.__sterms = sterms
 
+        stratum = builder.stratum
         if stratum is not None:
             if not isinstance(stratum, str):
                 raise TypeError("expected stratum to be a str but it is a %s" % builtins.type(stratum))
         self.__stratum = stratum
 
+        streak = builder.streak
         if streak is not None:
             if not isinstance(streak, str):
                 raise TypeError("expected streak to be a str but it is a %s" % builtins.type(streak))
         self.__streak = streak
 
+        subfamily = builder.subfamily
         if subfamily is not None:
             if not isinstance(subfamily, str):
                 raise TypeError("expected subfamily to be a str but it is a %s" % builtins.type(subfamily))
         self.__subfamily = subfamily
 
+        subjects = builder.subjects
         if subjects is not None:
             if not isinstance(subjects, str):
                 raise TypeError("expected subjects to be a str but it is a %s" % builtins.type(subjects))
         self.__subjects = subjects
 
+        subspecies = builder.subspecies
         if subspecies is not None:
             if not isinstance(subspecies, str):
                 raise TypeError("expected subspecies to be a str but it is a %s" % builtins.type(subspecies))
         self.__subspecies = subspecies
 
+        technique = builder.technique
         if technique is not None:
             if not isinstance(technique, str):
                 raise TypeError("expected technique to be a str but it is a %s" % builtins.type(technique))
         self.__technique = technique
 
+        tempauthor = builder.tempauthor
         if tempauthor is not None:
             if not isinstance(tempauthor, str):
                 raise TypeError("expected tempauthor to be a str but it is a %s" % builtins.type(tempauthor))
         self.__tempauthor = tempauthor
 
+        tempby = builder.tempby
         if tempby is not None:
             if not isinstance(tempby, str):
                 raise TypeError("expected tempby to be a str but it is a %s" % builtins.type(tempby))
         self.__tempby = tempby
 
+        tempdate = builder.tempdate
         if tempdate is not None:
             if not isinstance(tempdate, datetime.date):
                 raise TypeError("expected tempdate to be a datetime.date but it is a %s" % builtins.type(tempdate))
         self.__tempdate = tempdate
 
+        temperatur = builder.temperatur
         if temperatur is not None:
             if not isinstance(temperatur, str):
                 raise TypeError("expected temperatur to be a str but it is a %s" % builtins.type(temperatur))
         self.__temperatur = temperatur
 
+        temploc = builder.temploc
         if temploc is not None:
             if not isinstance(temploc, str):
                 raise TypeError("expected temploc to be a str but it is a %s" % builtins.type(temploc))
         self.__temploc = temploc
 
+        tempnotes = builder.tempnotes
         if tempnotes is not None:
             if not isinstance(tempnotes, str):
                 raise TypeError("expected tempnotes to be a str but it is a %s" % builtins.type(tempnotes))
         self.__tempnotes = tempnotes
 
+        tempreason = builder.tempreason
         if tempreason is not None:
             if not isinstance(tempreason, str):
                 raise TypeError("expected tempreason to be a str but it is a %s" % builtins.type(tempreason))
         self.__tempreason = tempreason
 
+        tempuntil = builder.tempuntil
         if tempuntil is not None:
             if not isinstance(tempuntil, str):
                 raise TypeError("expected tempuntil to be a str but it is a %s" % builtins.type(tempuntil))
         self.__tempuntil = tempuntil
 
+        texture = builder.texture
         if texture is not None:
             if not isinstance(texture, str):
                 raise TypeError("expected texture to be a str but it is a %s" % builtins.type(texture))
         self.__texture = texture
 
+        title = builder.title
         if title is not None:
             if not isinstance(title, str):
                 raise TypeError("expected title to be a str but it is a %s" % builtins.type(title))
         self.__title = title
 
+        tlocfield1 = builder.tlocfield1
         if tlocfield1 is not None:
             if not isinstance(tlocfield1, str):
                 raise TypeError("expected tlocfield1 to be a str but it is a %s" % builtins.type(tlocfield1))
         self.__tlocfield1 = tlocfield1
 
+        tlocfield2 = builder.tlocfield2
         if tlocfield2 is not None:
             if not isinstance(tlocfield2, str):
                 raise TypeError("expected tlocfield2 to be a str but it is a %s" % builtins.type(tlocfield2))
         self.__tlocfield2 = tlocfield2
 
+        tlocfield3 = builder.tlocfield3
         if tlocfield3 is not None:
             if not isinstance(tlocfield3, str):
                 raise TypeError("expected tlocfield3 to be a str but it is a %s" % builtins.type(tlocfield3))
         self.__tlocfield3 = tlocfield3
 
+        tlocfield4 = builder.tlocfield4
         if tlocfield4 is not None:
             if not isinstance(tlocfield4, str):
                 raise TypeError("expected tlocfield4 to be a str but it is a %s" % builtins.type(tlocfield4))
         self.__tlocfield4 = tlocfield4
 
+        tlocfield5 = builder.tlocfield5
         if tlocfield5 is not None:
             if not isinstance(tlocfield5, str):
                 raise TypeError("expected tlocfield5 to be a str but it is a %s" % builtins.type(tlocfield5))
         self.__tlocfield5 = tlocfield5
 
+        tlocfield6 = builder.tlocfield6
         if tlocfield6 is not None:
             if not isinstance(tlocfield6, str):
                 raise TypeError("expected tlocfield6 to be a str but it is a %s" % builtins.type(tlocfield6))
         self.__tlocfield6 = tlocfield6
 
+        udf1 = builder.udf1
         if udf1 is not None:
             if not isinstance(udf1, str):
                 raise TypeError("expected udf1 to be a str but it is a %s" % builtins.type(udf1))
         self.__udf1 = udf1
 
+        udf10 = builder.udf10
         if udf10 is not None:
             if not isinstance(udf10, str):
                 raise TypeError("expected udf10 to be a str but it is a %s" % builtins.type(udf10))
         self.__udf10 = udf10
 
+        udf11 = builder.udf11
         if udf11 is not None:
             if not isinstance(udf11, str):
                 raise TypeError("expected udf11 to be a str but it is a %s" % builtins.type(udf11))
         self.__udf11 = udf11
 
+        udf12 = builder.udf12
         if udf12 is not None:
             if not isinstance(udf12, str):
                 raise TypeError("expected udf12 to be a str but it is a %s" % builtins.type(udf12))
         self.__udf12 = udf12
 
+        udf13 = builder.udf13
         if udf13 is not None:
             if not isinstance(udf13, int):
                 raise TypeError("expected udf13 to be a int but it is a %s" % builtins.type(udf13))
         self.__udf13 = udf13
 
+        udf14 = builder.udf14
         if udf14 is not None:
             if not isinstance(udf14, decimal.Decimal):
                 raise TypeError("expected udf14 to be a Decimal but it is a %s" % builtins.type(udf14))
         self.__udf14 = udf14
 
+        udf15 = builder.udf15
         if udf15 is not None:
             if not isinstance(udf15, decimal.Decimal):
                 raise TypeError("expected udf15 to be a Decimal but it is a %s" % builtins.type(udf15))
         self.__udf15 = udf15
 
+        udf16 = builder.udf16
         if udf16 is not None:
             if not isinstance(udf16, decimal.Decimal):
                 raise TypeError("expected udf16 to be a Decimal but it is a %s" % builtins.type(udf16))
         self.__udf16 = udf16
 
+        udf17 = builder.udf17
         if udf17 is not None:
             if not isinstance(udf17, decimal.Decimal):
                 raise TypeError("expected udf17 to be a Decimal but it is a %s" % builtins.type(udf17))
         self.__udf17 = udf17
 
+        udf18 = builder.udf18
         if udf18 is not None:
             if not isinstance(udf18, datetime.date):
                 raise TypeError("expected udf18 to be a datetime.date but it is a %s" % builtins.type(udf18))
         self.__udf18 = udf18
 
+        udf19 = builder.udf19
         if udf19 is not None:
             if not isinstance(udf19, datetime.date):
                 raise TypeError("expected udf19 to be a datetime.date but it is a %s" % builtins.type(udf19))
         self.__udf19 = udf19
 
+        udf2 = builder.udf2
         if udf2 is not None:
             if not isinstance(udf2, str):
                 raise TypeError("expected udf2 to be a str but it is a %s" % builtins.type(udf2))
         self.__udf2 = udf2
 
+        udf20 = builder.udf20
         if udf20 is not None:
             if not isinstance(udf20, datetime.date):
                 raise TypeError("expected udf20 to be a datetime.date but it is a %s" % builtins.type(udf20))
         self.__udf20 = udf20
 
+        udf21 = builder.udf21
         if udf21 is not None:
             if not isinstance(udf21, str):
                 raise TypeError("expected udf21 to be a str but it is a %s" % builtins.type(udf21))
         self.__udf21 = udf21
 
+        udf22 = builder.udf22
         if udf22 is not None:
             if not isinstance(udf22, str):
                 raise TypeError("expected udf22 to be a str but it is a %s" % builtins.type(udf22))
         self.__udf22 = udf22
 
+        udf3 = builder.udf3
         if udf3 is not None:
             if not isinstance(udf3, str):
                 raise TypeError("expected udf3 to be a str but it is a %s" % builtins.type(udf3))
         self.__udf3 = udf3
 
+        udf4 = builder.udf4
         if udf4 is not None:
             if not isinstance(udf4, str):
                 raise TypeError("expected udf4 to be a str but it is a %s" % builtins.type(udf4))
         self.__udf4 = udf4
 
+        udf5 = builder.udf5
         if udf5 is not None:
             if not isinstance(udf5, str):
                 raise TypeError("expected udf5 to be a str but it is a %s" % builtins.type(udf5))
         self.__udf5 = udf5
 
+        udf6 = builder.udf6
         if udf6 is not None:
             if not isinstance(udf6, str):
                 raise TypeError("expected udf6 to be a str but it is a %s" % builtins.type(udf6))
         self.__udf6 = udf6
 
+        udf7 = builder.udf7
         if udf7 is not None:
             if not isinstance(udf7, str):
                 raise TypeError("expected udf7 to be a str but it is a %s" % builtins.type(udf7))
         self.__udf7 = udf7
 
+        udf8 = builder.udf8
         if udf8 is not None:
             if not isinstance(udf8, str):
                 raise TypeError("expected udf8 to be a str but it is a %s" % builtins.type(udf8))
         self.__udf8 = udf8
 
+        udf9 = builder.udf9
         if udf9 is not None:
             if not isinstance(udf9, str):
                 raise TypeError("expected udf9 to be a str but it is a %s" % builtins.type(udf9))
         self.__udf9 = udf9
 
+        unit = builder.unit
         if unit is not None:
             if not isinstance(unit, str):
                 raise TypeError("expected unit to be a str but it is a %s" % builtins.type(unit))
         self.__unit = unit
 
+        updated = builder.updated
         if updated is not None:
             if not isinstance(updated, datetime.datetime):
                 raise TypeError("expected updated to be a datetime.datetime but it is a %s" % builtins.type(updated))
         self.__updated = updated
 
+        updatedby = builder.updatedby
         if updatedby is not None:
             if not isinstance(updatedby, str):
                 raise TypeError("expected updatedby to be a str but it is a %s" % builtins.type(updatedby))
         self.__updatedby = updatedby
 
+        used = builder.used
         if used is not None:
             if not isinstance(used, str):
                 raise TypeError("expected used to be a str but it is a %s" % builtins.type(used))
         self.__used = used
 
+        valuedate = builder.valuedate
         if valuedate is not None:
             if not isinstance(valuedate, datetime.date):
                 raise TypeError("expected valuedate to be a datetime.date but it is a %s" % builtins.type(valuedate))
         self.__valuedate = valuedate
 
+        varieties = builder.varieties
         if varieties is not None:
             if not isinstance(varieties, str):
                 raise TypeError("expected varieties to be a str but it is a %s" % builtins.type(varieties))
         self.__varieties = varieties
 
+        vexhtml = builder.vexhtml
         if vexhtml is not None:
             if not isinstance(vexhtml, str):
                 raise TypeError("expected vexhtml to be a str but it is a %s" % builtins.type(vexhtml))
         self.__vexhtml = vexhtml
 
+        vexlabel1 = builder.vexlabel1
         if vexlabel1 is not None:
             if not isinstance(vexlabel1, str):
                 raise TypeError("expected vexlabel1 to be a str but it is a %s" % builtins.type(vexlabel1))
         self.__vexlabel1 = vexlabel1
 
+        vexlabel2 = builder.vexlabel2
         if vexlabel2 is not None:
             if not isinstance(vexlabel2, str):
                 raise TypeError("expected vexlabel2 to be a str but it is a %s" % builtins.type(vexlabel2))
         self.__vexlabel2 = vexlabel2
 
+        vexlabel3 = builder.vexlabel3
         if vexlabel3 is not None:
             if not isinstance(vexlabel3, str):
                 raise TypeError("expected vexlabel3 to be a str but it is a %s" % builtins.type(vexlabel3))
         self.__vexlabel3 = vexlabel3
 
+        vexlabel4 = builder.vexlabel4
         if vexlabel4 is not None:
             if not isinstance(vexlabel4, str):
                 raise TypeError("expected vexlabel4 to be a str but it is a %s" % builtins.type(vexlabel4))
         self.__vexlabel4 = vexlabel4
 
+        webinclude = builder.webinclude
         if webinclude is not None:
             if not isinstance(webinclude, bool):
                 raise TypeError("expected webinclude to be a bool but it is a %s" % builtins.type(webinclude))
         self.__webinclude = webinclude
 
+        weight = builder.weight
         if weight is not None:
             if not isinstance(weight, decimal.Decimal):
                 raise TypeError("expected weight to be a Decimal but it is a %s" % builtins.type(weight))
         self.__weight = weight
 
+        weightin = builder.weightin
         if weightin is not None:
             if not isinstance(weightin, decimal.Decimal):
                 raise TypeError("expected weightin to be a Decimal but it is a %s" % builtins.type(weightin))
         self.__weightin = weightin
 
+        weightlb = builder.weightlb
         if weightlb is not None:
             if not isinstance(weightlb, decimal.Decimal):
                 raise TypeError("expected weightlb to be a Decimal but it is a %s" % builtins.type(weightlb))
         self.__weightlb = weightlb
 
+        width = builder.width
         if width is not None:
             if not isinstance(width, decimal.Decimal):
                 raise TypeError("expected width to be a Decimal but it is a %s" % builtins.type(width))
         self.__width = width
 
+        widthft = builder.widthft
         if widthft is not None:
             if not isinstance(widthft, decimal.Decimal):
                 raise TypeError("expected widthft to be a Decimal but it is a %s" % builtins.type(widthft))
         self.__widthft = widthft
 
+        widthin = builder.widthin
         if widthin is not None:
             if not isinstance(widthin, decimal.Decimal):
                 raise TypeError("expected widthin to be a Decimal but it is a %s" % builtins.type(widthin))
         self.__widthin = widthin
 
+        xcord = builder.xcord
         if xcord is not None:
             if not isinstance(xcord, decimal.Decimal):
                 raise TypeError("expected xcord to be a Decimal but it is a %s" % builtins.type(xcord))
         self.__xcord = xcord
 
+        ycord = builder.ycord
         if ycord is not None:
             if not isinstance(ycord, decimal.Decimal):
                 raise TypeError("expected ycord to be a Decimal but it is a %s" % builtins.type(ycord))
         self.__ycord = ycord
 
+        zcord = builder.zcord
         if zcord is not None:
             if not isinstance(zcord, decimal.Decimal):
                 raise TypeError("expected zcord to be a Decimal but it is a %s" % builtins.type(zcord))
         self.__zcord = zcord
 
+        zsorter = builder.zsorter
         if zsorter is not None:
             if not isinstance(zsorter, str):
                 raise TypeError("expected zsorter to be a str but it is a %s" % builtins.type(zsorter))
         self.__zsorter = zsorter
 
+        zsorterx = builder.zsorterx
         if zsorterx is not None:
             if not isinstance(zsorterx, str):
                 raise TypeError("expected zsorterx to be a str but it is a %s" % builtins.type(zsorterx))
@@ -12658,6 +12136,10 @@ class ObjectRecord(object):
         '''
 
         return self.__boxno
+
+    @classmethod
+    def builder(cls):
+        return cls.Builder()
 
     @property
     def caption(self):
@@ -15354,1080 +14836,8 @@ class ObjectRecord(object):
 
         return self.__repattype
 
-    def replace(
-        self,
-        accessno=None,
-        accessory=None,
-        acqvalue=None,
-        age=None,
-        appnotes=None,
-        appraisor=None,
-        assemzone=None,
-        bagno=None,
-        boxno=None,
-        caption=None,
-        cat=None,
-        catby=None,
-        catdate=None,
-        cattype=None,
-        chemcomp=None,
-        circum=None,
-        circumft=None,
-        circumin=None,
-        classes=None,
-        colldate=None,
-        collection=None,
-        collector=None,
-        conddate=None,
-        condexam=None,
-        condition=None,
-        condnotes=None,
-        count=None,
-        creator=None,
-        creator2=None,
-        creator3=None,
-        credit=None,
-        crystal=None,
-        culture=None,
-        curvalmax=None,
-        curvalue=None,
-        dataset=None,
-        date=None,
-        datingmeth=None,
-        datum=None,
-        depth=None,
-        depthft=None,
-        depthin=None,
-        descrip=None,
-        diameter=None,
-        diameterft=None,
-        diameterin=None,
-        dimnotes=None,
-        dimtype=None,
-        dispvalue=None,
-        earlydate=None,
-        elements=None,
-        epoch=None,
-        era=None,
-        event=None,
-        ew=None,
-        excavadate=None,
-        excavateby=None,
-        exhibitid=None,
-        exhibitno=None,
-        exhlabel1=None,
-        exhlabel2=None,
-        exhlabel3=None,
-        exhlabel4=None,
-        exhstart=None,
-        family=None,
-        feature=None,
-        flagdate=None,
-        flagnotes=None,
-        flagreason=None,
-        formation=None,
-        fossils=None,
-        found=None,
-        fracture=None,
-        frame=None,
-        framesize=None,
-        genus=None,
-        gparent=None,
-        grainsize=None,
-        habitat=None,
-        hardness=None,
-        height=None,
-        heightft=None,
-        heightin=None,
-        homeloc=None,
-        idby=None,
-        iddate=None,
-        imagefile=None,
-        imageno=None,
-        imagesize=None,
-        inscomp=None,
-        inscrlang=None,
-        inscrpos=None,
-        inscrtech=None,
-        inscrtext=None,
-        inscrtrans=None,
-        inscrtype=None,
-        insdate=None,
-        insphone=None,
-        inspremium=None,
-        insrep=None,
-        insvalue=None,
-        invnby=None,
-        invndate=None,
-        kingdom=None,
-        latdeg=None,
-        latedate=None,
-        legal=None,
-        length=None,
-        lengthft=None,
-        lengthin=None,
-        level=None,
-        lithofacie=None,
-        loancond=None,
-        loandue=None,
-        loanid=None,
-        loaninno=None,
-        loanno=None,
-        loanrenew=None,
-        locfield1=None,
-        locfield2=None,
-        locfield3=None,
-        locfield4=None,
-        locfield5=None,
-        locfield6=None,
-        longdeg=None,
-        luster=None,
-        made=None,
-        maintcycle=None,
-        maintdate=None,
-        maintnote=None,
-        material=None,
-        medium=None,
-        member=None,
-        mmark=None,
-        nhclass=None,
-        nhorder=None,
-        notes=None,
-        ns=None,
-        objectid=None,
-        objname=None,
-        objname2=None,
-        objname3=None,
-        objnames=None,
-        occurrence=None,
-        oldno=None,
-        origin=None,
-        othername=None,
-        otherno=None,
-        outdate=None,
-        owned=None,
-        parent=None,
-        people=None,
-        period=None,
-        phylum=None,
-        policyno=None,
-        ppid=None,
-        preparator=None,
-        prepdate=None,
-        preserve=None,
-        pressure=None,
-        provenance=None,
-        pubnotes=None,
-        qrurl=None,
-        recas=None,
-        recdate=None,
-        recfrom=None,
-        relation=None,
-        relnotes=None,
-        renewuntil=None,
-        repatby=None,
-        repatclaim=None,
-        repatdate=None,
-        repatdisp=None,
-        repathand=None,
-        repatnotes=None,
-        repatnotic=None,
-        repattype=None,
-        rockclass=None,
-        rockcolor=None,
-        rockorigin=None,
-        rocktype=None,
-        role=None,
-        role2=None,
-        role3=None,
-        school=None,
-        sex=None,
-        sgflag=None,
-        signedname=None,
-        signloc=None,
-        site=None,
-        siteno=None,
-        specgrav=None,
-        species=None,
-        sprocess=None,
-        stage=None,
-        status=None,
-        statusby=None,
-        statusdate=None,
-        sterms=None,
-        stratum=None,
-        streak=None,
-        subfamily=None,
-        subjects=None,
-        subspecies=None,
-        technique=None,
-        tempauthor=None,
-        tempby=None,
-        tempdate=None,
-        temperatur=None,
-        temploc=None,
-        tempnotes=None,
-        tempreason=None,
-        tempuntil=None,
-        texture=None,
-        title=None,
-        tlocfield1=None,
-        tlocfield2=None,
-        tlocfield3=None,
-        tlocfield4=None,
-        tlocfield5=None,
-        tlocfield6=None,
-        udf1=None,
-        udf10=None,
-        udf11=None,
-        udf12=None,
-        udf13=None,
-        udf14=None,
-        udf15=None,
-        udf16=None,
-        udf17=None,
-        udf18=None,
-        udf19=None,
-        udf2=None,
-        udf20=None,
-        udf21=None,
-        udf22=None,
-        udf3=None,
-        udf4=None,
-        udf5=None,
-        udf6=None,
-        udf7=None,
-        udf8=None,
-        udf9=None,
-        unit=None,
-        updated=None,
-        updatedby=None,
-        used=None,
-        valuedate=None,
-        varieties=None,
-        vexhtml=None,
-        vexlabel1=None,
-        vexlabel2=None,
-        vexlabel3=None,
-        vexlabel4=None,
-        webinclude=None,
-        weight=None,
-        weightin=None,
-        weightlb=None,
-        width=None,
-        widthft=None,
-        widthin=None,
-        xcord=None,
-        ycord=None,
-        zcord=None,
-        zsorter=None,
-        zsorterx=None,
-    ):
-        '''
-        Copy this object, replace one or more fields, and return the copy.
-
-        :type accessno: str or None
-        :type accessory: str or None
-        :type acqvalue: Decimal or None
-        :type age: str or None
-        :type appnotes: str or None
-        :type appraisor: str or None
-        :type assemzone: str or None
-        :type bagno: str or None
-        :type boxno: str or None
-        :type caption: str or None
-        :type cat: str or None
-        :type catby: str or None
-        :type catdate: datetime.date or None
-        :type cattype: str or None
-        :type chemcomp: str or None
-        :type circum: Decimal or None
-        :type circumft: Decimal or None
-        :type circumin: Decimal or None
-        :type classes: str or None
-        :type colldate: datetime.date or None
-        :type collection: str or None
-        :type collector: str or None
-        :type conddate: datetime.date or None
-        :type condexam: str or None
-        :type condition: str or None
-        :type condnotes: str or None
-        :type count: str or None
-        :type creator: str or None
-        :type creator2: str or None
-        :type creator3: str or None
-        :type credit: str or None
-        :type crystal: str or None
-        :type culture: str or None
-        :type curvalmax: Decimal or None
-        :type curvalue: Decimal or None
-        :type dataset: str or None
-        :type date: str or None
-        :type datingmeth: str or None
-        :type datum: str or None
-        :type depth: Decimal or None
-        :type depthft: Decimal or None
-        :type depthin: Decimal or None
-        :type descrip: str or None
-        :type diameter: Decimal or None
-        :type diameterft: Decimal or None
-        :type diameterin: Decimal or None
-        :type dimnotes: str or None
-        :type dimtype: int or None
-        :type dispvalue: str or None
-        :type earlydate: int or None
-        :type elements: str or None
-        :type epoch: str or None
-        :type era: str or None
-        :type event: str or None
-        :type ew: str or None
-        :type excavadate: datetime.date or None
-        :type excavateby: str or None
-        :type exhibitid: str or None
-        :type exhibitno: int or None
-        :type exhlabel1: str or None
-        :type exhlabel2: str or None
-        :type exhlabel3: str or None
-        :type exhlabel4: str or None
-        :type exhstart: datetime.date or None
-        :type family: str or None
-        :type feature: str or None
-        :type flagdate: datetime.datetime or None
-        :type flagnotes: str or None
-        :type flagreason: str or None
-        :type formation: str or None
-        :type fossils: str or None
-        :type found: str or None
-        :type fracture: str or None
-        :type frame: str or None
-        :type framesize: str or None
-        :type genus: str or None
-        :type gparent: str or None
-        :type grainsize: str or None
-        :type habitat: str or None
-        :type hardness: str or None
-        :type height: Decimal or None
-        :type heightft: Decimal or None
-        :type heightin: Decimal or None
-        :type homeloc: str or None
-        :type idby: str or None
-        :type iddate: datetime.date or None
-        :type imagefile: str or None
-        :type imageno: int or None
-        :type imagesize: str or None
-        :type inscomp: str or None
-        :type inscrlang: str or None
-        :type inscrpos: str or None
-        :type inscrtech: str or None
-        :type inscrtext: str or None
-        :type inscrtrans: str or None
-        :type inscrtype: str or None
-        :type insdate: datetime.date or None
-        :type insphone: str or None
-        :type inspremium: str or None
-        :type insrep: str or None
-        :type insvalue: Decimal or None
-        :type invnby: str or None
-        :type invndate: datetime.date or None
-        :type kingdom: str or None
-        :type latdeg: Decimal or None
-        :type latedate: int or None
-        :type legal: str or None
-        :type length: Decimal or None
-        :type lengthft: Decimal or None
-        :type lengthin: Decimal or None
-        :type level: str or None
-        :type lithofacie: str or None
-        :type loancond: str or None
-        :type loandue: datetime.date or None
-        :type loanid: str or None
-        :type loaninno: str or None
-        :type loanno: int or None
-        :type loanrenew: datetime.date or None
-        :type locfield1: str or None
-        :type locfield2: str or None
-        :type locfield3: str or None
-        :type locfield4: str or None
-        :type locfield5: str or None
-        :type locfield6: str or None
-        :type longdeg: Decimal or None
-        :type luster: str or None
-        :type made: str or None
-        :type maintcycle: str or None
-        :type maintdate: datetime.date or None
-        :type maintnote: str or None
-        :type material: str or None
-        :type medium: str or None
-        :type member: str or None
-        :type mmark: str or None
-        :type nhclass: str or None
-        :type nhorder: str or None
-        :type notes: str or None
-        :type ns: str or None
-        :type objectid: str or None
-        :type objname: str or None
-        :type objname2: str or None
-        :type objname3: str or None
-        :type objnames: str or None
-        :type occurrence: str or None
-        :type oldno: str or None
-        :type origin: str or None
-        :type othername: str or None
-        :type otherno: str or None
-        :type outdate: datetime.date or None
-        :type owned: str or None
-        :type parent: str or None
-        :type people: str or None
-        :type period: str or None
-        :type phylum: str or None
-        :type policyno: str or None
-        :type ppid: str or None
-        :type preparator: str or None
-        :type prepdate: datetime.date or None
-        :type preserve: str or None
-        :type pressure: str or None
-        :type provenance: str or None
-        :type pubnotes: str or None
-        :type qrurl: str or None
-        :type recas: str or None
-        :type recdate: str or None
-        :type recfrom: str or None
-        :type relation: str or None
-        :type relnotes: str or None
-        :type renewuntil: datetime.date or None
-        :type repatby: str or None
-        :type repatclaim: str or None
-        :type repatdate: datetime.date or None
-        :type repatdisp: str or None
-        :type repathand: str or None
-        :type repatnotes: str or None
-        :type repatnotic: datetime.date or None
-        :type repattype: str or None
-        :type rockclass: str or None
-        :type rockcolor: str or None
-        :type rockorigin: str or None
-        :type rocktype: str or None
-        :type role: str or None
-        :type role2: str or None
-        :type role3: str or None
-        :type school: str or None
-        :type sex: str or None
-        :type sgflag: str or None
-        :type signedname: str or None
-        :type signloc: str or None
-        :type site: str or None
-        :type siteno: str or None
-        :type specgrav: str or None
-        :type species: str or None
-        :type sprocess: str or None
-        :type stage: str or None
-        :type status: str or None
-        :type statusby: str or None
-        :type statusdate: datetime.date or None
-        :type sterms: str or None
-        :type stratum: str or None
-        :type streak: str or None
-        :type subfamily: str or None
-        :type subjects: str or None
-        :type subspecies: str or None
-        :type technique: str or None
-        :type tempauthor: str or None
-        :type tempby: str or None
-        :type tempdate: datetime.date or None
-        :type temperatur: str or None
-        :type temploc: str or None
-        :type tempnotes: str or None
-        :type tempreason: str or None
-        :type tempuntil: str or None
-        :type texture: str or None
-        :type title: str or None
-        :type tlocfield1: str or None
-        :type tlocfield2: str or None
-        :type tlocfield3: str or None
-        :type tlocfield4: str or None
-        :type tlocfield5: str or None
-        :type tlocfield6: str or None
-        :type udf1: str or None
-        :type udf10: str or None
-        :type udf11: str or None
-        :type udf12: str or None
-        :type udf13: int or None
-        :type udf14: Decimal or None
-        :type udf15: Decimal or None
-        :type udf16: Decimal or None
-        :type udf17: Decimal or None
-        :type udf18: datetime.date or None
-        :type udf19: datetime.date or None
-        :type udf2: str or None
-        :type udf20: datetime.date or None
-        :type udf21: str or None
-        :type udf22: str or None
-        :type udf3: str or None
-        :type udf4: str or None
-        :type udf5: str or None
-        :type udf6: str or None
-        :type udf7: str or None
-        :type udf8: str or None
-        :type udf9: str or None
-        :type unit: str or None
-        :type updated: datetime.datetime or None
-        :type updatedby: str or None
-        :type used: str or None
-        :type valuedate: datetime.date or None
-        :type varieties: str or None
-        :type vexhtml: str or None
-        :type vexlabel1: str or None
-        :type vexlabel2: str or None
-        :type vexlabel3: str or None
-        :type vexlabel4: str or None
-        :type webinclude: bool or None
-        :type weight: Decimal or None
-        :type weightin: Decimal or None
-        :type weightlb: Decimal or None
-        :type width: Decimal or None
-        :type widthft: Decimal or None
-        :type widthin: Decimal or None
-        :type xcord: Decimal or None
-        :type ycord: Decimal or None
-        :type zcord: Decimal or None
-        :type zsorter: str or None
-        :type zsorterx: str or None
-        :rtype: pastpy.models.object_record.ObjectRecord
-        '''
-
-        if accessno is None:
-            accessno = self.accessno
-        if accessory is None:
-            accessory = self.accessory
-        if acqvalue is None:
-            acqvalue = self.acqvalue
-        if age is None:
-            age = self.age
-        if appnotes is None:
-            appnotes = self.appnotes
-        if appraisor is None:
-            appraisor = self.appraisor
-        if assemzone is None:
-            assemzone = self.assemzone
-        if bagno is None:
-            bagno = self.bagno
-        if boxno is None:
-            boxno = self.boxno
-        if caption is None:
-            caption = self.caption
-        if cat is None:
-            cat = self.cat
-        if catby is None:
-            catby = self.catby
-        if catdate is None:
-            catdate = self.catdate
-        if cattype is None:
-            cattype = self.cattype
-        if chemcomp is None:
-            chemcomp = self.chemcomp
-        if circum is None:
-            circum = self.circum
-        if circumft is None:
-            circumft = self.circumft
-        if circumin is None:
-            circumin = self.circumin
-        if classes is None:
-            classes = self.classes
-        if colldate is None:
-            colldate = self.colldate
-        if collection is None:
-            collection = self.collection
-        if collector is None:
-            collector = self.collector
-        if conddate is None:
-            conddate = self.conddate
-        if condexam is None:
-            condexam = self.condexam
-        if condition is None:
-            condition = self.condition
-        if condnotes is None:
-            condnotes = self.condnotes
-        if count is None:
-            count = self.count
-        if creator is None:
-            creator = self.creator
-        if creator2 is None:
-            creator2 = self.creator2
-        if creator3 is None:
-            creator3 = self.creator3
-        if credit is None:
-            credit = self.credit
-        if crystal is None:
-            crystal = self.crystal
-        if culture is None:
-            culture = self.culture
-        if curvalmax is None:
-            curvalmax = self.curvalmax
-        if curvalue is None:
-            curvalue = self.curvalue
-        if dataset is None:
-            dataset = self.dataset
-        if date is None:
-            date = self.date
-        if datingmeth is None:
-            datingmeth = self.datingmeth
-        if datum is None:
-            datum = self.datum
-        if depth is None:
-            depth = self.depth
-        if depthft is None:
-            depthft = self.depthft
-        if depthin is None:
-            depthin = self.depthin
-        if descrip is None:
-            descrip = self.descrip
-        if diameter is None:
-            diameter = self.diameter
-        if diameterft is None:
-            diameterft = self.diameterft
-        if diameterin is None:
-            diameterin = self.diameterin
-        if dimnotes is None:
-            dimnotes = self.dimnotes
-        if dimtype is None:
-            dimtype = self.dimtype
-        if dispvalue is None:
-            dispvalue = self.dispvalue
-        if earlydate is None:
-            earlydate = self.earlydate
-        if elements is None:
-            elements = self.elements
-        if epoch is None:
-            epoch = self.epoch
-        if era is None:
-            era = self.era
-        if event is None:
-            event = self.event
-        if ew is None:
-            ew = self.ew
-        if excavadate is None:
-            excavadate = self.excavadate
-        if excavateby is None:
-            excavateby = self.excavateby
-        if exhibitid is None:
-            exhibitid = self.exhibitid
-        if exhibitno is None:
-            exhibitno = self.exhibitno
-        if exhlabel1 is None:
-            exhlabel1 = self.exhlabel1
-        if exhlabel2 is None:
-            exhlabel2 = self.exhlabel2
-        if exhlabel3 is None:
-            exhlabel3 = self.exhlabel3
-        if exhlabel4 is None:
-            exhlabel4 = self.exhlabel4
-        if exhstart is None:
-            exhstart = self.exhstart
-        if family is None:
-            family = self.family
-        if feature is None:
-            feature = self.feature
-        if flagdate is None:
-            flagdate = self.flagdate
-        if flagnotes is None:
-            flagnotes = self.flagnotes
-        if flagreason is None:
-            flagreason = self.flagreason
-        if formation is None:
-            formation = self.formation
-        if fossils is None:
-            fossils = self.fossils
-        if found is None:
-            found = self.found
-        if fracture is None:
-            fracture = self.fracture
-        if frame is None:
-            frame = self.frame
-        if framesize is None:
-            framesize = self.framesize
-        if genus is None:
-            genus = self.genus
-        if gparent is None:
-            gparent = self.gparent
-        if grainsize is None:
-            grainsize = self.grainsize
-        if habitat is None:
-            habitat = self.habitat
-        if hardness is None:
-            hardness = self.hardness
-        if height is None:
-            height = self.height
-        if heightft is None:
-            heightft = self.heightft
-        if heightin is None:
-            heightin = self.heightin
-        if homeloc is None:
-            homeloc = self.homeloc
-        if idby is None:
-            idby = self.idby
-        if iddate is None:
-            iddate = self.iddate
-        if imagefile is None:
-            imagefile = self.imagefile
-        if imageno is None:
-            imageno = self.imageno
-        if imagesize is None:
-            imagesize = self.imagesize
-        if inscomp is None:
-            inscomp = self.inscomp
-        if inscrlang is None:
-            inscrlang = self.inscrlang
-        if inscrpos is None:
-            inscrpos = self.inscrpos
-        if inscrtech is None:
-            inscrtech = self.inscrtech
-        if inscrtext is None:
-            inscrtext = self.inscrtext
-        if inscrtrans is None:
-            inscrtrans = self.inscrtrans
-        if inscrtype is None:
-            inscrtype = self.inscrtype
-        if insdate is None:
-            insdate = self.insdate
-        if insphone is None:
-            insphone = self.insphone
-        if inspremium is None:
-            inspremium = self.inspremium
-        if insrep is None:
-            insrep = self.insrep
-        if insvalue is None:
-            insvalue = self.insvalue
-        if invnby is None:
-            invnby = self.invnby
-        if invndate is None:
-            invndate = self.invndate
-        if kingdom is None:
-            kingdom = self.kingdom
-        if latdeg is None:
-            latdeg = self.latdeg
-        if latedate is None:
-            latedate = self.latedate
-        if legal is None:
-            legal = self.legal
-        if length is None:
-            length = self.length
-        if lengthft is None:
-            lengthft = self.lengthft
-        if lengthin is None:
-            lengthin = self.lengthin
-        if level is None:
-            level = self.level
-        if lithofacie is None:
-            lithofacie = self.lithofacie
-        if loancond is None:
-            loancond = self.loancond
-        if loandue is None:
-            loandue = self.loandue
-        if loanid is None:
-            loanid = self.loanid
-        if loaninno is None:
-            loaninno = self.loaninno
-        if loanno is None:
-            loanno = self.loanno
-        if loanrenew is None:
-            loanrenew = self.loanrenew
-        if locfield1 is None:
-            locfield1 = self.locfield1
-        if locfield2 is None:
-            locfield2 = self.locfield2
-        if locfield3 is None:
-            locfield3 = self.locfield3
-        if locfield4 is None:
-            locfield4 = self.locfield4
-        if locfield5 is None:
-            locfield5 = self.locfield5
-        if locfield6 is None:
-            locfield6 = self.locfield6
-        if longdeg is None:
-            longdeg = self.longdeg
-        if luster is None:
-            luster = self.luster
-        if made is None:
-            made = self.made
-        if maintcycle is None:
-            maintcycle = self.maintcycle
-        if maintdate is None:
-            maintdate = self.maintdate
-        if maintnote is None:
-            maintnote = self.maintnote
-        if material is None:
-            material = self.material
-        if medium is None:
-            medium = self.medium
-        if member is None:
-            member = self.member
-        if mmark is None:
-            mmark = self.mmark
-        if nhclass is None:
-            nhclass = self.nhclass
-        if nhorder is None:
-            nhorder = self.nhorder
-        if notes is None:
-            notes = self.notes
-        if ns is None:
-            ns = self.ns
-        if objectid is None:
-            objectid = self.objectid
-        if objname is None:
-            objname = self.objname
-        if objname2 is None:
-            objname2 = self.objname2
-        if objname3 is None:
-            objname3 = self.objname3
-        if objnames is None:
-            objnames = self.objnames
-        if occurrence is None:
-            occurrence = self.occurrence
-        if oldno is None:
-            oldno = self.oldno
-        if origin is None:
-            origin = self.origin
-        if othername is None:
-            othername = self.othername
-        if otherno is None:
-            otherno = self.otherno
-        if outdate is None:
-            outdate = self.outdate
-        if owned is None:
-            owned = self.owned
-        if parent is None:
-            parent = self.parent
-        if people is None:
-            people = self.people
-        if period is None:
-            period = self.period
-        if phylum is None:
-            phylum = self.phylum
-        if policyno is None:
-            policyno = self.policyno
-        if ppid is None:
-            ppid = self.ppid
-        if preparator is None:
-            preparator = self.preparator
-        if prepdate is None:
-            prepdate = self.prepdate
-        if preserve is None:
-            preserve = self.preserve
-        if pressure is None:
-            pressure = self.pressure
-        if provenance is None:
-            provenance = self.provenance
-        if pubnotes is None:
-            pubnotes = self.pubnotes
-        if qrurl is None:
-            qrurl = self.qrurl
-        if recas is None:
-            recas = self.recas
-        if recdate is None:
-            recdate = self.recdate
-        if recfrom is None:
-            recfrom = self.recfrom
-        if relation is None:
-            relation = self.relation
-        if relnotes is None:
-            relnotes = self.relnotes
-        if renewuntil is None:
-            renewuntil = self.renewuntil
-        if repatby is None:
-            repatby = self.repatby
-        if repatclaim is None:
-            repatclaim = self.repatclaim
-        if repatdate is None:
-            repatdate = self.repatdate
-        if repatdisp is None:
-            repatdisp = self.repatdisp
-        if repathand is None:
-            repathand = self.repathand
-        if repatnotes is None:
-            repatnotes = self.repatnotes
-        if repatnotic is None:
-            repatnotic = self.repatnotic
-        if repattype is None:
-            repattype = self.repattype
-        if rockclass is None:
-            rockclass = self.rockclass
-        if rockcolor is None:
-            rockcolor = self.rockcolor
-        if rockorigin is None:
-            rockorigin = self.rockorigin
-        if rocktype is None:
-            rocktype = self.rocktype
-        if role is None:
-            role = self.role
-        if role2 is None:
-            role2 = self.role2
-        if role3 is None:
-            role3 = self.role3
-        if school is None:
-            school = self.school
-        if sex is None:
-            sex = self.sex
-        if sgflag is None:
-            sgflag = self.sgflag
-        if signedname is None:
-            signedname = self.signedname
-        if signloc is None:
-            signloc = self.signloc
-        if site is None:
-            site = self.site
-        if siteno is None:
-            siteno = self.siteno
-        if specgrav is None:
-            specgrav = self.specgrav
-        if species is None:
-            species = self.species
-        if sprocess is None:
-            sprocess = self.sprocess
-        if stage is None:
-            stage = self.stage
-        if status is None:
-            status = self.status
-        if statusby is None:
-            statusby = self.statusby
-        if statusdate is None:
-            statusdate = self.statusdate
-        if sterms is None:
-            sterms = self.sterms
-        if stratum is None:
-            stratum = self.stratum
-        if streak is None:
-            streak = self.streak
-        if subfamily is None:
-            subfamily = self.subfamily
-        if subjects is None:
-            subjects = self.subjects
-        if subspecies is None:
-            subspecies = self.subspecies
-        if technique is None:
-            technique = self.technique
-        if tempauthor is None:
-            tempauthor = self.tempauthor
-        if tempby is None:
-            tempby = self.tempby
-        if tempdate is None:
-            tempdate = self.tempdate
-        if temperatur is None:
-            temperatur = self.temperatur
-        if temploc is None:
-            temploc = self.temploc
-        if tempnotes is None:
-            tempnotes = self.tempnotes
-        if tempreason is None:
-            tempreason = self.tempreason
-        if tempuntil is None:
-            tempuntil = self.tempuntil
-        if texture is None:
-            texture = self.texture
-        if title is None:
-            title = self.title
-        if tlocfield1 is None:
-            tlocfield1 = self.tlocfield1
-        if tlocfield2 is None:
-            tlocfield2 = self.tlocfield2
-        if tlocfield3 is None:
-            tlocfield3 = self.tlocfield3
-        if tlocfield4 is None:
-            tlocfield4 = self.tlocfield4
-        if tlocfield5 is None:
-            tlocfield5 = self.tlocfield5
-        if tlocfield6 is None:
-            tlocfield6 = self.tlocfield6
-        if udf1 is None:
-            udf1 = self.udf1
-        if udf10 is None:
-            udf10 = self.udf10
-        if udf11 is None:
-            udf11 = self.udf11
-        if udf12 is None:
-            udf12 = self.udf12
-        if udf13 is None:
-            udf13 = self.udf13
-        if udf14 is None:
-            udf14 = self.udf14
-        if udf15 is None:
-            udf15 = self.udf15
-        if udf16 is None:
-            udf16 = self.udf16
-        if udf17 is None:
-            udf17 = self.udf17
-        if udf18 is None:
-            udf18 = self.udf18
-        if udf19 is None:
-            udf19 = self.udf19
-        if udf2 is None:
-            udf2 = self.udf2
-        if udf20 is None:
-            udf20 = self.udf20
-        if udf21 is None:
-            udf21 = self.udf21
-        if udf22 is None:
-            udf22 = self.udf22
-        if udf3 is None:
-            udf3 = self.udf3
-        if udf4 is None:
-            udf4 = self.udf4
-        if udf5 is None:
-            udf5 = self.udf5
-        if udf6 is None:
-            udf6 = self.udf6
-        if udf7 is None:
-            udf7 = self.udf7
-        if udf8 is None:
-            udf8 = self.udf8
-        if udf9 is None:
-            udf9 = self.udf9
-        if unit is None:
-            unit = self.unit
-        if updated is None:
-            updated = self.updated
-        if updatedby is None:
-            updatedby = self.updatedby
-        if used is None:
-            used = self.used
-        if valuedate is None:
-            valuedate = self.valuedate
-        if varieties is None:
-            varieties = self.varieties
-        if vexhtml is None:
-            vexhtml = self.vexhtml
-        if vexlabel1 is None:
-            vexlabel1 = self.vexlabel1
-        if vexlabel2 is None:
-            vexlabel2 = self.vexlabel2
-        if vexlabel3 is None:
-            vexlabel3 = self.vexlabel3
-        if vexlabel4 is None:
-            vexlabel4 = self.vexlabel4
-        if webinclude is None:
-            webinclude = self.webinclude
-        if weight is None:
-            weight = self.weight
-        if weightin is None:
-            weightin = self.weightin
-        if weightlb is None:
-            weightlb = self.weightlb
-        if width is None:
-            width = self.width
-        if widthft is None:
-            widthft = self.widthft
-        if widthin is None:
-            widthin = self.widthin
-        if xcord is None:
-            xcord = self.xcord
-        if ycord is None:
-            ycord = self.ycord
-        if zcord is None:
-            zcord = self.zcord
-        if zsorter is None:
-            zsorter = self.zsorter
-        if zsorterx is None:
-            zsorterx = self.zsorterx
-        return self.__class__(accessno=accessno, accessory=accessory, acqvalue=acqvalue, age=age, appnotes=appnotes, appraisor=appraisor, assemzone=assemzone, bagno=bagno, boxno=boxno, caption=caption, cat=cat, catby=catby, catdate=catdate, cattype=cattype, chemcomp=chemcomp, circum=circum, circumft=circumft, circumin=circumin, classes=classes, colldate=colldate, collection=collection, collector=collector, conddate=conddate, condexam=condexam, condition=condition, condnotes=condnotes, count=count, creator=creator, creator2=creator2, creator3=creator3, credit=credit, crystal=crystal, culture=culture, curvalmax=curvalmax, curvalue=curvalue, dataset=dataset, date=date, datingmeth=datingmeth, datum=datum, depth=depth, depthft=depthft, depthin=depthin, descrip=descrip, diameter=diameter, diameterft=diameterft, diameterin=diameterin, dimnotes=dimnotes, dimtype=dimtype, dispvalue=dispvalue, earlydate=earlydate, elements=elements, epoch=epoch, era=era, event=event, ew=ew, excavadate=excavadate, excavateby=excavateby, exhibitid=exhibitid, exhibitno=exhibitno, exhlabel1=exhlabel1, exhlabel2=exhlabel2, exhlabel3=exhlabel3, exhlabel4=exhlabel4, exhstart=exhstart, family=family, feature=feature, flagdate=flagdate, flagnotes=flagnotes, flagreason=flagreason, formation=formation, fossils=fossils, found=found, fracture=fracture, frame=frame, framesize=framesize, genus=genus, gparent=gparent, grainsize=grainsize, habitat=habitat, hardness=hardness, height=height, heightft=heightft, heightin=heightin, homeloc=homeloc, idby=idby, iddate=iddate, imagefile=imagefile, imageno=imageno, imagesize=imagesize, inscomp=inscomp, inscrlang=inscrlang, inscrpos=inscrpos, inscrtech=inscrtech, inscrtext=inscrtext, inscrtrans=inscrtrans, inscrtype=inscrtype, insdate=insdate, insphone=insphone, inspremium=inspremium, insrep=insrep, insvalue=insvalue, invnby=invnby, invndate=invndate, kingdom=kingdom, latdeg=latdeg, latedate=latedate, legal=legal, length=length, lengthft=lengthft, lengthin=lengthin, level=level, lithofacie=lithofacie, loancond=loancond, loandue=loandue, loanid=loanid, loaninno=loaninno, loanno=loanno, loanrenew=loanrenew, locfield1=locfield1, locfield2=locfield2, locfield3=locfield3, locfield4=locfield4, locfield5=locfield5, locfield6=locfield6, longdeg=longdeg, luster=luster, made=made, maintcycle=maintcycle, maintdate=maintdate, maintnote=maintnote, material=material, medium=medium, member=member, mmark=mmark, nhclass=nhclass, nhorder=nhorder, notes=notes, ns=ns, objectid=objectid, objname=objname, objname2=objname2, objname3=objname3, objnames=objnames, occurrence=occurrence, oldno=oldno, origin=origin, othername=othername, otherno=otherno, outdate=outdate, owned=owned, parent=parent, people=people, period=period, phylum=phylum, policyno=policyno, ppid=ppid, preparator=preparator, prepdate=prepdate, preserve=preserve, pressure=pressure, provenance=provenance, pubnotes=pubnotes, qrurl=qrurl, recas=recas, recdate=recdate, recfrom=recfrom, relation=relation, relnotes=relnotes, renewuntil=renewuntil, repatby=repatby, repatclaim=repatclaim, repatdate=repatdate, repatdisp=repatdisp, repathand=repathand, repatnotes=repatnotes, repatnotic=repatnotic, repattype=repattype, rockclass=rockclass, rockcolor=rockcolor, rockorigin=rockorigin, rocktype=rocktype, role=role, role2=role2, role3=role3, school=school, sex=sex, sgflag=sgflag, signedname=signedname, signloc=signloc, site=site, siteno=siteno, specgrav=specgrav, species=species, sprocess=sprocess, stage=stage, status=status, statusby=statusby, statusdate=statusdate, sterms=sterms, stratum=stratum, streak=streak, subfamily=subfamily, subjects=subjects, subspecies=subspecies, technique=technique, tempauthor=tempauthor, tempby=tempby, tempdate=tempdate, temperatur=temperatur, temploc=temploc, tempnotes=tempnotes, tempreason=tempreason, tempuntil=tempuntil, texture=texture, title=title, tlocfield1=tlocfield1, tlocfield2=tlocfield2, tlocfield3=tlocfield3, tlocfield4=tlocfield4, tlocfield5=tlocfield5, tlocfield6=tlocfield6, udf1=udf1, udf10=udf10, udf11=udf11, udf12=udf12, udf13=udf13, udf14=udf14, udf15=udf15, udf16=udf16, udf17=udf17, udf18=udf18, udf19=udf19, udf2=udf2, udf20=udf20, udf21=udf21, udf22=udf22, udf3=udf3, udf4=udf4, udf5=udf5, udf6=udf6, udf7=udf7, udf8=udf8, udf9=udf9, unit=unit, updated=updated, updatedby=updatedby, used=used, valuedate=valuedate, varieties=varieties, vexhtml=vexhtml, vexlabel1=vexlabel1, vexlabel2=vexlabel2, vexlabel3=vexlabel3, vexlabel4=vexlabel4, webinclude=webinclude, weight=weight, weightin=weightin, weightlb=weightlb, width=width, widthft=widthft, widthin=widthin, xcord=xcord, ycord=ycord, zcord=zcord, zsorter=zsorter, zsorterx=zsorterx)
+    def replacer(self):
+        return cls.Builder.from_template(template=self)
 
     @property
     def rockclass(self):
