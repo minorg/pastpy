@@ -14,22 +14,5 @@
     "python.autoComplete.extraPaths": [
         "${workspaceRoot}/lib/py/src",
         "${workspaceRoot}/gui/py/src"
-    ],
-    "python.linting.pep8Enabled": true,
-    "python.linting.flake8Enabled": true,
-    "python.linting.pylintArgs": [
-        "--disable=C0111",
-        "--disable=C0103",
-        "--disable=E0401",
-        "--disable=E1101"
-    ],
-    "python.linting.pep8Args": [
-        "--ignore=E501"
-    ],
-    "python.linting.flake8Args": [
-        "--ignore",
-        "E501"
-    ],
-    "python.autoComplete.addBrackets": true,
-    "editor.formatOnSave": true
+    ]
 }
