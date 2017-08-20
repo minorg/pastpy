@@ -288,17 +288,17 @@ class ObjectRecord(object):
             :type caption: str or None
             :type cat: str or None
             :type catby: str or None
-            :type catdate: datetime.datetime or None
+            :type catdate: datetime.date or None
             :type cattype: str or None
             :type chemcomp: str or None
             :type circum: Decimal or None
             :type circumft: Decimal or None
             :type circumin: Decimal or None
             :type classes: str or None
-            :type colldate: datetime.datetime or None
+            :type colldate: datetime.date or None
             :type collection: str or None
             :type collector: str or None
-            :type conddate: datetime.datetime or None
+            :type conddate: datetime.date or None
             :type condexam: str or None
             :type condition: str or None
             :type condnotes: str or None
@@ -331,7 +331,7 @@ class ObjectRecord(object):
             :type era: str or None
             :type event: str or None
             :type ew: str or None
-            :type excavadate: datetime.datetime or None
+            :type excavadate: datetime.date or None
             :type excavateby: str or None
             :type exhibitid: str or None
             :type exhibitno: int or None
@@ -339,7 +339,7 @@ class ObjectRecord(object):
             :type exhlabel2: str or None
             :type exhlabel3: str or None
             :type exhlabel4: str or None
-            :type exhstart: datetime.datetime or None
+            :type exhstart: datetime.date or None
             :type family: str or None
             :type feature: str or None
             :type flagdate: datetime.datetime or None
@@ -361,7 +361,7 @@ class ObjectRecord(object):
             :type heightin: Decimal or None
             :type homeloc: str or None
             :type idby: str or None
-            :type iddate: datetime.datetime or None
+            :type iddate: datetime.date or None
             :type imagefile: str or None
             :type imageno: int or None
             :type imagesize: str or None
@@ -372,13 +372,13 @@ class ObjectRecord(object):
             :type inscrtext: str or None
             :type inscrtrans: str or None
             :type inscrtype: str or None
-            :type insdate: datetime.datetime or None
+            :type insdate: datetime.date or None
             :type insphone: str or None
             :type inspremium: str or None
             :type insrep: str or None
             :type insvalue: Decimal or None
             :type invnby: str or None
-            :type invndate: datetime.datetime or None
+            :type invndate: datetime.date or None
             :type kingdom: str or None
             :type latdeg: Decimal or None
             :type latedate: int or None
@@ -389,11 +389,11 @@ class ObjectRecord(object):
             :type level: str or None
             :type lithofacie: str or None
             :type loancond: str or None
-            :type loandue: datetime.datetime or None
+            :type loandue: datetime.date or None
             :type loanid: str or None
             :type loaninno: str or None
             :type loanno: int or None
-            :type loanrenew: datetime.datetime or None
+            :type loanrenew: datetime.date or None
             :type locfield1: str or None
             :type locfield2: str or None
             :type locfield3: str or None
@@ -404,7 +404,7 @@ class ObjectRecord(object):
             :type luster: str or None
             :type made: str or None
             :type maintcycle: str or None
-            :type maintdate: datetime.datetime or None
+            :type maintdate: datetime.date or None
             :type maintnote: str or None
             :type material: str or None
             :type medium: str or None
@@ -424,7 +424,7 @@ class ObjectRecord(object):
             :type origin: str or None
             :type othername: str or None
             :type otherno: str or None
-            :type outdate: datetime.datetime or None
+            :type outdate: datetime.date or None
             :type owned: str or None
             :type parent: str or None
             :type people: str or None
@@ -433,7 +433,7 @@ class ObjectRecord(object):
             :type policyno: str or None
             :type ppid: str or None
             :type preparator: str or None
-            :type prepdate: datetime.datetime or None
+            :type prepdate: datetime.date or None
             :type preserve: str or None
             :type pressure: str or None
             :type provenance: str or None
@@ -444,14 +444,14 @@ class ObjectRecord(object):
             :type recfrom: str or None
             :type relation: str or None
             :type relnotes: str or None
-            :type renewuntil: datetime.datetime or None
+            :type renewuntil: datetime.date or None
             :type repatby: str or None
             :type repatclaim: str or None
-            :type repatdate: datetime.datetime or None
+            :type repatdate: datetime.date or None
             :type repatdisp: str or None
             :type repathand: str or None
             :type repatnotes: str or None
-            :type repatnotic: datetime.datetime or None
+            :type repatnotic: datetime.date or None
             :type repattype: str or None
             :type rockclass: str or None
             :type rockcolor: str or None
@@ -473,7 +473,7 @@ class ObjectRecord(object):
             :type stage: str or None
             :type status: str or None
             :type statusby: str or None
-            :type statusdate: datetime.datetime or None
+            :type statusdate: datetime.date or None
             :type sterms: str or None
             :type stratum: str or None
             :type streak: str or None
@@ -483,7 +483,7 @@ class ObjectRecord(object):
             :type technique: str or None
             :type tempauthor: str or None
             :type tempby: str or None
-            :type tempdate: datetime.datetime or None
+            :type tempdate: datetime.date or None
             :type temperatur: str or None
             :type temploc: str or None
             :type tempnotes: str or None
@@ -506,10 +506,10 @@ class ObjectRecord(object):
             :type udf15: Decimal or None
             :type udf16: Decimal or None
             :type udf17: Decimal or None
-            :type udf18: datetime.datetime or None
-            :type udf19: datetime.datetime or None
+            :type udf18: datetime.date or None
+            :type udf19: datetime.date or None
             :type udf2: str or None
-            :type udf20: datetime.datetime or None
+            :type udf20: datetime.date or None
             :type udf21: str or None
             :type udf22: str or None
             :type udf3: str or None
@@ -523,7 +523,7 @@ class ObjectRecord(object):
             :type updated: datetime.datetime or None
             :type updatedby: str or None
             :type used: str or None
-            :type valuedate: datetime.datetime or None
+            :type valuedate: datetime.date or None
             :type varieties: str or None
             :type vexhtml: str or None
             :type vexlabel1: str or None
@@ -913,7 +913,7 @@ class ObjectRecord(object):
         @property
         def catdate(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__catdate
@@ -969,7 +969,7 @@ class ObjectRecord(object):
         @property
         def colldate(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__colldate
@@ -993,7 +993,7 @@ class ObjectRecord(object):
         @property
         def conddate(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__conddate
@@ -1257,7 +1257,7 @@ class ObjectRecord(object):
         @property
         def excavadate(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__excavadate
@@ -1321,7 +1321,7 @@ class ObjectRecord(object):
         @property
         def exhstart(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__exhstart
@@ -1497,7 +1497,7 @@ class ObjectRecord(object):
         @property
         def iddate(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__iddate
@@ -1585,7 +1585,7 @@ class ObjectRecord(object):
         @property
         def insdate(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__insdate
@@ -1633,7 +1633,7 @@ class ObjectRecord(object):
         @property
         def invndate(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__invndate
@@ -1721,7 +1721,7 @@ class ObjectRecord(object):
         @property
         def loandue(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__loandue
@@ -1753,7 +1753,7 @@ class ObjectRecord(object):
         @property
         def loanrenew(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__loanrenew
@@ -1841,7 +1841,7 @@ class ObjectRecord(object):
         @property
         def maintdate(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__maintdate
@@ -2001,7 +2001,7 @@ class ObjectRecord(object):
         @property
         def outdate(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__outdate
@@ -2073,7 +2073,7 @@ class ObjectRecord(object):
         @property
         def prepdate(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__prepdate
@@ -2161,7 +2161,7 @@ class ObjectRecord(object):
         @property
         def renewuntil(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__renewuntil
@@ -2185,7 +2185,7 @@ class ObjectRecord(object):
         @property
         def repatdate(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__repatdate
@@ -2217,7 +2217,7 @@ class ObjectRecord(object):
         @property
         def repatnotic(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__repatnotic
@@ -2428,12 +2428,12 @@ class ObjectRecord(object):
 
         def set_catdate(self, catdate):
             '''
-            :type catdate: datetime.datetime or None
+            :type catdate: datetime.date or None
             '''
 
             if catdate is not None:
-                if not isinstance(catdate, datetime.datetime):
-                    raise TypeError("expected catdate to be a datetime.datetime but it is a %s" % builtins.type(catdate))
+                if not isinstance(catdate, datetime.date):
+                    raise TypeError("expected catdate to be a datetime.date but it is a %s" % builtins.type(catdate))
             self.__catdate = catdate
             return self
 
@@ -2505,12 +2505,12 @@ class ObjectRecord(object):
 
         def set_colldate(self, colldate):
             '''
-            :type colldate: datetime.datetime or None
+            :type colldate: datetime.date or None
             '''
 
             if colldate is not None:
-                if not isinstance(colldate, datetime.datetime):
-                    raise TypeError("expected colldate to be a datetime.datetime but it is a %s" % builtins.type(colldate))
+                if not isinstance(colldate, datetime.date):
+                    raise TypeError("expected colldate to be a datetime.date but it is a %s" % builtins.type(colldate))
             self.__colldate = colldate
             return self
 
@@ -2538,12 +2538,12 @@ class ObjectRecord(object):
 
         def set_conddate(self, conddate):
             '''
-            :type conddate: datetime.datetime or None
+            :type conddate: datetime.date or None
             '''
 
             if conddate is not None:
-                if not isinstance(conddate, datetime.datetime):
-                    raise TypeError("expected conddate to be a datetime.datetime but it is a %s" % builtins.type(conddate))
+                if not isinstance(conddate, datetime.date):
+                    raise TypeError("expected conddate to be a datetime.date but it is a %s" % builtins.type(conddate))
             self.__conddate = conddate
             return self
 
@@ -2901,12 +2901,12 @@ class ObjectRecord(object):
 
         def set_excavadate(self, excavadate):
             '''
-            :type excavadate: datetime.datetime or None
+            :type excavadate: datetime.date or None
             '''
 
             if excavadate is not None:
-                if not isinstance(excavadate, datetime.datetime):
-                    raise TypeError("expected excavadate to be a datetime.datetime but it is a %s" % builtins.type(excavadate))
+                if not isinstance(excavadate, datetime.date):
+                    raise TypeError("expected excavadate to be a datetime.date but it is a %s" % builtins.type(excavadate))
             self.__excavadate = excavadate
             return self
 
@@ -2989,12 +2989,12 @@ class ObjectRecord(object):
 
         def set_exhstart(self, exhstart):
             '''
-            :type exhstart: datetime.datetime or None
+            :type exhstart: datetime.date or None
             '''
 
             if exhstart is not None:
-                if not isinstance(exhstart, datetime.datetime):
-                    raise TypeError("expected exhstart to be a datetime.datetime but it is a %s" % builtins.type(exhstart))
+                if not isinstance(exhstart, datetime.date):
+                    raise TypeError("expected exhstart to be a datetime.date but it is a %s" % builtins.type(exhstart))
             self.__exhstart = exhstart
             return self
 
@@ -3231,12 +3231,12 @@ class ObjectRecord(object):
 
         def set_iddate(self, iddate):
             '''
-            :type iddate: datetime.datetime or None
+            :type iddate: datetime.date or None
             '''
 
             if iddate is not None:
-                if not isinstance(iddate, datetime.datetime):
-                    raise TypeError("expected iddate to be a datetime.datetime but it is a %s" % builtins.type(iddate))
+                if not isinstance(iddate, datetime.date):
+                    raise TypeError("expected iddate to be a datetime.date but it is a %s" % builtins.type(iddate))
             self.__iddate = iddate
             return self
 
@@ -3352,12 +3352,12 @@ class ObjectRecord(object):
 
         def set_insdate(self, insdate):
             '''
-            :type insdate: datetime.datetime or None
+            :type insdate: datetime.date or None
             '''
 
             if insdate is not None:
-                if not isinstance(insdate, datetime.datetime):
-                    raise TypeError("expected insdate to be a datetime.datetime but it is a %s" % builtins.type(insdate))
+                if not isinstance(insdate, datetime.date):
+                    raise TypeError("expected insdate to be a datetime.date but it is a %s" % builtins.type(insdate))
             self.__insdate = insdate
             return self
 
@@ -3418,12 +3418,12 @@ class ObjectRecord(object):
 
         def set_invndate(self, invndate):
             '''
-            :type invndate: datetime.datetime or None
+            :type invndate: datetime.date or None
             '''
 
             if invndate is not None:
-                if not isinstance(invndate, datetime.datetime):
-                    raise TypeError("expected invndate to be a datetime.datetime but it is a %s" % builtins.type(invndate))
+                if not isinstance(invndate, datetime.date):
+                    raise TypeError("expected invndate to be a datetime.date but it is a %s" % builtins.type(invndate))
             self.__invndate = invndate
             return self
 
@@ -3539,12 +3539,12 @@ class ObjectRecord(object):
 
         def set_loandue(self, loandue):
             '''
-            :type loandue: datetime.datetime or None
+            :type loandue: datetime.date or None
             '''
 
             if loandue is not None:
-                if not isinstance(loandue, datetime.datetime):
-                    raise TypeError("expected loandue to be a datetime.datetime but it is a %s" % builtins.type(loandue))
+                if not isinstance(loandue, datetime.date):
+                    raise TypeError("expected loandue to be a datetime.date but it is a %s" % builtins.type(loandue))
             self.__loandue = loandue
             return self
 
@@ -3583,12 +3583,12 @@ class ObjectRecord(object):
 
         def set_loanrenew(self, loanrenew):
             '''
-            :type loanrenew: datetime.datetime or None
+            :type loanrenew: datetime.date or None
             '''
 
             if loanrenew is not None:
-                if not isinstance(loanrenew, datetime.datetime):
-                    raise TypeError("expected loanrenew to be a datetime.datetime but it is a %s" % builtins.type(loanrenew))
+                if not isinstance(loanrenew, datetime.date):
+                    raise TypeError("expected loanrenew to be a datetime.date but it is a %s" % builtins.type(loanrenew))
             self.__loanrenew = loanrenew
             return self
 
@@ -3704,12 +3704,12 @@ class ObjectRecord(object):
 
         def set_maintdate(self, maintdate):
             '''
-            :type maintdate: datetime.datetime or None
+            :type maintdate: datetime.date or None
             '''
 
             if maintdate is not None:
-                if not isinstance(maintdate, datetime.datetime):
-                    raise TypeError("expected maintdate to be a datetime.datetime but it is a %s" % builtins.type(maintdate))
+                if not isinstance(maintdate, datetime.date):
+                    raise TypeError("expected maintdate to be a datetime.date but it is a %s" % builtins.type(maintdate))
             self.__maintdate = maintdate
             return self
 
@@ -3924,12 +3924,12 @@ class ObjectRecord(object):
 
         def set_outdate(self, outdate):
             '''
-            :type outdate: datetime.datetime or None
+            :type outdate: datetime.date or None
             '''
 
             if outdate is not None:
-                if not isinstance(outdate, datetime.datetime):
-                    raise TypeError("expected outdate to be a datetime.datetime but it is a %s" % builtins.type(outdate))
+                if not isinstance(outdate, datetime.date):
+                    raise TypeError("expected outdate to be a datetime.date but it is a %s" % builtins.type(outdate))
             self.__outdate = outdate
             return self
 
@@ -4023,12 +4023,12 @@ class ObjectRecord(object):
 
         def set_prepdate(self, prepdate):
             '''
-            :type prepdate: datetime.datetime or None
+            :type prepdate: datetime.date or None
             '''
 
             if prepdate is not None:
-                if not isinstance(prepdate, datetime.datetime):
-                    raise TypeError("expected prepdate to be a datetime.datetime but it is a %s" % builtins.type(prepdate))
+                if not isinstance(prepdate, datetime.date):
+                    raise TypeError("expected prepdate to be a datetime.date but it is a %s" % builtins.type(prepdate))
             self.__prepdate = prepdate
             return self
 
@@ -4144,12 +4144,12 @@ class ObjectRecord(object):
 
         def set_renewuntil(self, renewuntil):
             '''
-            :type renewuntil: datetime.datetime or None
+            :type renewuntil: datetime.date or None
             '''
 
             if renewuntil is not None:
-                if not isinstance(renewuntil, datetime.datetime):
-                    raise TypeError("expected renewuntil to be a datetime.datetime but it is a %s" % builtins.type(renewuntil))
+                if not isinstance(renewuntil, datetime.date):
+                    raise TypeError("expected renewuntil to be a datetime.date but it is a %s" % builtins.type(renewuntil))
             self.__renewuntil = renewuntil
             return self
 
@@ -4177,12 +4177,12 @@ class ObjectRecord(object):
 
         def set_repatdate(self, repatdate):
             '''
-            :type repatdate: datetime.datetime or None
+            :type repatdate: datetime.date or None
             '''
 
             if repatdate is not None:
-                if not isinstance(repatdate, datetime.datetime):
-                    raise TypeError("expected repatdate to be a datetime.datetime but it is a %s" % builtins.type(repatdate))
+                if not isinstance(repatdate, datetime.date):
+                    raise TypeError("expected repatdate to be a datetime.date but it is a %s" % builtins.type(repatdate))
             self.__repatdate = repatdate
             return self
 
@@ -4221,12 +4221,12 @@ class ObjectRecord(object):
 
         def set_repatnotic(self, repatnotic):
             '''
-            :type repatnotic: datetime.datetime or None
+            :type repatnotic: datetime.date or None
             '''
 
             if repatnotic is not None:
-                if not isinstance(repatnotic, datetime.datetime):
-                    raise TypeError("expected repatnotic to be a datetime.datetime but it is a %s" % builtins.type(repatnotic))
+                if not isinstance(repatnotic, datetime.date):
+                    raise TypeError("expected repatnotic to be a datetime.date but it is a %s" % builtins.type(repatnotic))
             self.__repatnotic = repatnotic
             return self
 
@@ -4463,12 +4463,12 @@ class ObjectRecord(object):
 
         def set_statusdate(self, statusdate):
             '''
-            :type statusdate: datetime.datetime or None
+            :type statusdate: datetime.date or None
             '''
 
             if statusdate is not None:
-                if not isinstance(statusdate, datetime.datetime):
-                    raise TypeError("expected statusdate to be a datetime.datetime but it is a %s" % builtins.type(statusdate))
+                if not isinstance(statusdate, datetime.date):
+                    raise TypeError("expected statusdate to be a datetime.date but it is a %s" % builtins.type(statusdate))
             self.__statusdate = statusdate
             return self
 
@@ -4573,12 +4573,12 @@ class ObjectRecord(object):
 
         def set_tempdate(self, tempdate):
             '''
-            :type tempdate: datetime.datetime or None
+            :type tempdate: datetime.date or None
             '''
 
             if tempdate is not None:
-                if not isinstance(tempdate, datetime.datetime):
-                    raise TypeError("expected tempdate to be a datetime.datetime but it is a %s" % builtins.type(tempdate))
+                if not isinstance(tempdate, datetime.date):
+                    raise TypeError("expected tempdate to be a datetime.date but it is a %s" % builtins.type(tempdate))
             self.__tempdate = tempdate
             return self
 
@@ -4826,23 +4826,23 @@ class ObjectRecord(object):
 
         def set_udf18(self, udf18):
             '''
-            :type udf18: datetime.datetime or None
+            :type udf18: datetime.date or None
             '''
 
             if udf18 is not None:
-                if not isinstance(udf18, datetime.datetime):
-                    raise TypeError("expected udf18 to be a datetime.datetime but it is a %s" % builtins.type(udf18))
+                if not isinstance(udf18, datetime.date):
+                    raise TypeError("expected udf18 to be a datetime.date but it is a %s" % builtins.type(udf18))
             self.__udf18 = udf18
             return self
 
         def set_udf19(self, udf19):
             '''
-            :type udf19: datetime.datetime or None
+            :type udf19: datetime.date or None
             '''
 
             if udf19 is not None:
-                if not isinstance(udf19, datetime.datetime):
-                    raise TypeError("expected udf19 to be a datetime.datetime but it is a %s" % builtins.type(udf19))
+                if not isinstance(udf19, datetime.date):
+                    raise TypeError("expected udf19 to be a datetime.date but it is a %s" % builtins.type(udf19))
             self.__udf19 = udf19
             return self
 
@@ -4859,12 +4859,12 @@ class ObjectRecord(object):
 
         def set_udf20(self, udf20):
             '''
-            :type udf20: datetime.datetime or None
+            :type udf20: datetime.date or None
             '''
 
             if udf20 is not None:
-                if not isinstance(udf20, datetime.datetime):
-                    raise TypeError("expected udf20 to be a datetime.datetime but it is a %s" % builtins.type(udf20))
+                if not isinstance(udf20, datetime.date):
+                    raise TypeError("expected udf20 to be a datetime.date but it is a %s" % builtins.type(udf20))
             self.__udf20 = udf20
             return self
 
@@ -5013,12 +5013,12 @@ class ObjectRecord(object):
 
         def set_valuedate(self, valuedate):
             '''
-            :type valuedate: datetime.datetime or None
+            :type valuedate: datetime.date or None
             '''
 
             if valuedate is not None:
-                if not isinstance(valuedate, datetime.datetime):
-                    raise TypeError("expected valuedate to be a datetime.datetime but it is a %s" % builtins.type(valuedate))
+                if not isinstance(valuedate, datetime.date):
+                    raise TypeError("expected valuedate to be a datetime.date but it is a %s" % builtins.type(valuedate))
             self.__valuedate = valuedate
             return self
 
@@ -5319,7 +5319,7 @@ class ObjectRecord(object):
         @property
         def statusdate(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__statusdate
@@ -5399,7 +5399,7 @@ class ObjectRecord(object):
         @property
         def tempdate(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__tempdate
@@ -5583,7 +5583,7 @@ class ObjectRecord(object):
         @property
         def udf18(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__udf18
@@ -5591,7 +5591,7 @@ class ObjectRecord(object):
         @property
         def udf19(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__udf19
@@ -5607,7 +5607,7 @@ class ObjectRecord(object):
         @property
         def udf20(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__udf20
@@ -5706,17 +5706,17 @@ class ObjectRecord(object):
             :type caption: str or None
             :type cat: str or None
             :type catby: str or None
-            :type catdate: datetime.datetime or None
+            :type catdate: datetime.date or None
             :type cattype: str or None
             :type chemcomp: str or None
             :type circum: Decimal or None
             :type circumft: Decimal or None
             :type circumin: Decimal or None
             :type classes: str or None
-            :type colldate: datetime.datetime or None
+            :type colldate: datetime.date or None
             :type collection: str or None
             :type collector: str or None
-            :type conddate: datetime.datetime or None
+            :type conddate: datetime.date or None
             :type condexam: str or None
             :type condition: str or None
             :type condnotes: str or None
@@ -5749,7 +5749,7 @@ class ObjectRecord(object):
             :type era: str or None
             :type event: str or None
             :type ew: str or None
-            :type excavadate: datetime.datetime or None
+            :type excavadate: datetime.date or None
             :type excavateby: str or None
             :type exhibitid: str or None
             :type exhibitno: int or None
@@ -5757,7 +5757,7 @@ class ObjectRecord(object):
             :type exhlabel2: str or None
             :type exhlabel3: str or None
             :type exhlabel4: str or None
-            :type exhstart: datetime.datetime or None
+            :type exhstart: datetime.date or None
             :type family: str or None
             :type feature: str or None
             :type flagdate: datetime.datetime or None
@@ -5779,7 +5779,7 @@ class ObjectRecord(object):
             :type heightin: Decimal or None
             :type homeloc: str or None
             :type idby: str or None
-            :type iddate: datetime.datetime or None
+            :type iddate: datetime.date or None
             :type imagefile: str or None
             :type imageno: int or None
             :type imagesize: str or None
@@ -5790,13 +5790,13 @@ class ObjectRecord(object):
             :type inscrtext: str or None
             :type inscrtrans: str or None
             :type inscrtype: str or None
-            :type insdate: datetime.datetime or None
+            :type insdate: datetime.date or None
             :type insphone: str or None
             :type inspremium: str or None
             :type insrep: str or None
             :type insvalue: Decimal or None
             :type invnby: str or None
-            :type invndate: datetime.datetime or None
+            :type invndate: datetime.date or None
             :type kingdom: str or None
             :type latdeg: Decimal or None
             :type latedate: int or None
@@ -5807,11 +5807,11 @@ class ObjectRecord(object):
             :type level: str or None
             :type lithofacie: str or None
             :type loancond: str or None
-            :type loandue: datetime.datetime or None
+            :type loandue: datetime.date or None
             :type loanid: str or None
             :type loaninno: str or None
             :type loanno: int or None
-            :type loanrenew: datetime.datetime or None
+            :type loanrenew: datetime.date or None
             :type locfield1: str or None
             :type locfield2: str or None
             :type locfield3: str or None
@@ -5822,7 +5822,7 @@ class ObjectRecord(object):
             :type luster: str or None
             :type made: str or None
             :type maintcycle: str or None
-            :type maintdate: datetime.datetime or None
+            :type maintdate: datetime.date or None
             :type maintnote: str or None
             :type material: str or None
             :type medium: str or None
@@ -5842,7 +5842,7 @@ class ObjectRecord(object):
             :type origin: str or None
             :type othername: str or None
             :type otherno: str or None
-            :type outdate: datetime.datetime or None
+            :type outdate: datetime.date or None
             :type owned: str or None
             :type parent: str or None
             :type people: str or None
@@ -5851,7 +5851,7 @@ class ObjectRecord(object):
             :type policyno: str or None
             :type ppid: str or None
             :type preparator: str or None
-            :type prepdate: datetime.datetime or None
+            :type prepdate: datetime.date or None
             :type preserve: str or None
             :type pressure: str or None
             :type provenance: str or None
@@ -5862,14 +5862,14 @@ class ObjectRecord(object):
             :type recfrom: str or None
             :type relation: str or None
             :type relnotes: str or None
-            :type renewuntil: datetime.datetime or None
+            :type renewuntil: datetime.date or None
             :type repatby: str or None
             :type repatclaim: str or None
-            :type repatdate: datetime.datetime or None
+            :type repatdate: datetime.date or None
             :type repatdisp: str or None
             :type repathand: str or None
             :type repatnotes: str or None
-            :type repatnotic: datetime.datetime or None
+            :type repatnotic: datetime.date or None
             :type repattype: str or None
             :type rockclass: str or None
             :type rockcolor: str or None
@@ -5891,7 +5891,7 @@ class ObjectRecord(object):
             :type stage: str or None
             :type status: str or None
             :type statusby: str or None
-            :type statusdate: datetime.datetime or None
+            :type statusdate: datetime.date or None
             :type sterms: str or None
             :type stratum: str or None
             :type streak: str or None
@@ -5901,7 +5901,7 @@ class ObjectRecord(object):
             :type technique: str or None
             :type tempauthor: str or None
             :type tempby: str or None
-            :type tempdate: datetime.datetime or None
+            :type tempdate: datetime.date or None
             :type temperatur: str or None
             :type temploc: str or None
             :type tempnotes: str or None
@@ -5924,10 +5924,10 @@ class ObjectRecord(object):
             :type udf15: Decimal or None
             :type udf16: Decimal or None
             :type udf17: Decimal or None
-            :type udf18: datetime.datetime or None
-            :type udf19: datetime.datetime or None
+            :type udf18: datetime.date or None
+            :type udf19: datetime.date or None
             :type udf2: str or None
-            :type udf20: datetime.datetime or None
+            :type udf20: datetime.date or None
             :type udf21: str or None
             :type udf22: str or None
             :type udf3: str or None
@@ -5941,7 +5941,7 @@ class ObjectRecord(object):
             :type updated: datetime.datetime or None
             :type updatedby: str or None
             :type used: str or None
-            :type valuedate: datetime.datetime or None
+            :type valuedate: datetime.date or None
             :type varieties: str or None
             :type vexhtml: str or None
             :type vexlabel1: str or None
@@ -6263,7 +6263,7 @@ class ObjectRecord(object):
         @property
         def valuedate(self):
             '''
-            :rtype: datetime.datetime
+            :rtype: datetime.date
             '''
 
             return self.__valuedate
@@ -6511,7 +6511,7 @@ class ObjectRecord(object):
         @catdate.setter
         def catdate(self, catdate):
             '''
-            :type catdate: datetime.datetime or None
+            :type catdate: datetime.date or None
             '''
 
             self.set_catdate(catdate)
@@ -6567,7 +6567,7 @@ class ObjectRecord(object):
         @colldate.setter
         def colldate(self, colldate):
             '''
-            :type colldate: datetime.datetime or None
+            :type colldate: datetime.date or None
             '''
 
             self.set_colldate(colldate)
@@ -6591,7 +6591,7 @@ class ObjectRecord(object):
         @conddate.setter
         def conddate(self, conddate):
             '''
-            :type conddate: datetime.datetime or None
+            :type conddate: datetime.date or None
             '''
 
             self.set_conddate(conddate)
@@ -6855,7 +6855,7 @@ class ObjectRecord(object):
         @excavadate.setter
         def excavadate(self, excavadate):
             '''
-            :type excavadate: datetime.datetime or None
+            :type excavadate: datetime.date or None
             '''
 
             self.set_excavadate(excavadate)
@@ -6919,7 +6919,7 @@ class ObjectRecord(object):
         @exhstart.setter
         def exhstart(self, exhstart):
             '''
-            :type exhstart: datetime.datetime or None
+            :type exhstart: datetime.date or None
             '''
 
             self.set_exhstart(exhstart)
@@ -7095,7 +7095,7 @@ class ObjectRecord(object):
         @iddate.setter
         def iddate(self, iddate):
             '''
-            :type iddate: datetime.datetime or None
+            :type iddate: datetime.date or None
             '''
 
             self.set_iddate(iddate)
@@ -7183,7 +7183,7 @@ class ObjectRecord(object):
         @insdate.setter
         def insdate(self, insdate):
             '''
-            :type insdate: datetime.datetime or None
+            :type insdate: datetime.date or None
             '''
 
             self.set_insdate(insdate)
@@ -7231,7 +7231,7 @@ class ObjectRecord(object):
         @invndate.setter
         def invndate(self, invndate):
             '''
-            :type invndate: datetime.datetime or None
+            :type invndate: datetime.date or None
             '''
 
             self.set_invndate(invndate)
@@ -7319,7 +7319,7 @@ class ObjectRecord(object):
         @loandue.setter
         def loandue(self, loandue):
             '''
-            :type loandue: datetime.datetime or None
+            :type loandue: datetime.date or None
             '''
 
             self.set_loandue(loandue)
@@ -7351,7 +7351,7 @@ class ObjectRecord(object):
         @loanrenew.setter
         def loanrenew(self, loanrenew):
             '''
-            :type loanrenew: datetime.datetime or None
+            :type loanrenew: datetime.date or None
             '''
 
             self.set_loanrenew(loanrenew)
@@ -7439,7 +7439,7 @@ class ObjectRecord(object):
         @maintdate.setter
         def maintdate(self, maintdate):
             '''
-            :type maintdate: datetime.datetime or None
+            :type maintdate: datetime.date or None
             '''
 
             self.set_maintdate(maintdate)
@@ -7599,7 +7599,7 @@ class ObjectRecord(object):
         @outdate.setter
         def outdate(self, outdate):
             '''
-            :type outdate: datetime.datetime or None
+            :type outdate: datetime.date or None
             '''
 
             self.set_outdate(outdate)
@@ -7671,7 +7671,7 @@ class ObjectRecord(object):
         @prepdate.setter
         def prepdate(self, prepdate):
             '''
-            :type prepdate: datetime.datetime or None
+            :type prepdate: datetime.date or None
             '''
 
             self.set_prepdate(prepdate)
@@ -7759,7 +7759,7 @@ class ObjectRecord(object):
         @renewuntil.setter
         def renewuntil(self, renewuntil):
             '''
-            :type renewuntil: datetime.datetime or None
+            :type renewuntil: datetime.date or None
             '''
 
             self.set_renewuntil(renewuntil)
@@ -7783,7 +7783,7 @@ class ObjectRecord(object):
         @repatdate.setter
         def repatdate(self, repatdate):
             '''
-            :type repatdate: datetime.datetime or None
+            :type repatdate: datetime.date or None
             '''
 
             self.set_repatdate(repatdate)
@@ -7815,7 +7815,7 @@ class ObjectRecord(object):
         @repatnotic.setter
         def repatnotic(self, repatnotic):
             '''
-            :type repatnotic: datetime.datetime or None
+            :type repatnotic: datetime.date or None
             '''
 
             self.set_repatnotic(repatnotic)
@@ -7991,7 +7991,7 @@ class ObjectRecord(object):
         @statusdate.setter
         def statusdate(self, statusdate):
             '''
-            :type statusdate: datetime.datetime or None
+            :type statusdate: datetime.date or None
             '''
 
             self.set_statusdate(statusdate)
@@ -8071,7 +8071,7 @@ class ObjectRecord(object):
         @tempdate.setter
         def tempdate(self, tempdate):
             '''
-            :type tempdate: datetime.datetime or None
+            :type tempdate: datetime.date or None
             '''
 
             self.set_tempdate(tempdate)
@@ -8255,7 +8255,7 @@ class ObjectRecord(object):
         @udf18.setter
         def udf18(self, udf18):
             '''
-            :type udf18: datetime.datetime or None
+            :type udf18: datetime.date or None
             '''
 
             self.set_udf18(udf18)
@@ -8263,7 +8263,7 @@ class ObjectRecord(object):
         @udf19.setter
         def udf19(self, udf19):
             '''
-            :type udf19: datetime.datetime or None
+            :type udf19: datetime.date or None
             '''
 
             self.set_udf19(udf19)
@@ -8279,7 +8279,7 @@ class ObjectRecord(object):
         @udf20.setter
         def udf20(self, udf20):
             '''
-            :type udf20: datetime.datetime or None
+            :type udf20: datetime.date or None
             '''
 
             self.set_udf20(udf20)
@@ -8391,7 +8391,7 @@ class ObjectRecord(object):
         @valuedate.setter
         def valuedate(self, valuedate):
             '''
-            :type valuedate: datetime.datetime or None
+            :type valuedate: datetime.date or None
             '''
 
             self.set_valuedate(valuedate)
@@ -8848,17 +8848,17 @@ class ObjectRecord(object):
     FieldMetadata.CAPTION = FieldMetadata('caption', str, None)
     FieldMetadata.CAT = FieldMetadata('cat', str, None)
     FieldMetadata.CATBY = FieldMetadata('catby', str, None)
-    FieldMetadata.CATDATE = FieldMetadata('catdate', datetime.datetime, None)
+    FieldMetadata.CATDATE = FieldMetadata('catdate', datetime.date, None)
     FieldMetadata.CATTYPE = FieldMetadata('cattype', str, None)
     FieldMetadata.CHEMCOMP = FieldMetadata('chemcomp', str, None)
     FieldMetadata.CIRCUM = FieldMetadata('circum', decimal.Decimal, None)
     FieldMetadata.CIRCUMFT = FieldMetadata('circumft', decimal.Decimal, None)
     FieldMetadata.CIRCUMIN = FieldMetadata('circumin', decimal.Decimal, None)
     FieldMetadata.CLASSES = FieldMetadata('classes', str, None)
-    FieldMetadata.COLLDATE = FieldMetadata('colldate', datetime.datetime, None)
+    FieldMetadata.COLLDATE = FieldMetadata('colldate', datetime.date, None)
     FieldMetadata.COLLECTION = FieldMetadata('collection', str, None)
     FieldMetadata.COLLECTOR = FieldMetadata('collector', str, None)
-    FieldMetadata.CONDDATE = FieldMetadata('conddate', datetime.datetime, None)
+    FieldMetadata.CONDDATE = FieldMetadata('conddate', datetime.date, None)
     FieldMetadata.CONDEXAM = FieldMetadata('condexam', str, None)
     FieldMetadata.CONDITION = FieldMetadata('condition', str, None)
     FieldMetadata.CONDNOTES = FieldMetadata('condnotes', str, None)
@@ -8891,7 +8891,7 @@ class ObjectRecord(object):
     FieldMetadata.ERA = FieldMetadata('era', str, None)
     FieldMetadata.EVENT = FieldMetadata('event', str, None)
     FieldMetadata.EW = FieldMetadata('ew', str, None)
-    FieldMetadata.EXCAVADATE = FieldMetadata('excavadate', datetime.datetime, None)
+    FieldMetadata.EXCAVADATE = FieldMetadata('excavadate', datetime.date, None)
     FieldMetadata.EXCAVATEBY = FieldMetadata('excavateby', str, None)
     FieldMetadata.EXHIBITID = FieldMetadata('exhibitid', str, None)
     FieldMetadata.EXHIBITNO = FieldMetadata('exhibitno', int, None)
@@ -8899,7 +8899,7 @@ class ObjectRecord(object):
     FieldMetadata.EXHLABEL2 = FieldMetadata('exhlabel2', str, None)
     FieldMetadata.EXHLABEL3 = FieldMetadata('exhlabel3', str, None)
     FieldMetadata.EXHLABEL4 = FieldMetadata('exhlabel4', str, None)
-    FieldMetadata.EXHSTART = FieldMetadata('exhstart', datetime.datetime, None)
+    FieldMetadata.EXHSTART = FieldMetadata('exhstart', datetime.date, None)
     FieldMetadata.FAMILY = FieldMetadata('family', str, None)
     FieldMetadata.FEATURE = FieldMetadata('feature', str, None)
     FieldMetadata.FLAGDATE = FieldMetadata('flagdate', datetime.datetime, None)
@@ -8921,7 +8921,7 @@ class ObjectRecord(object):
     FieldMetadata.HEIGHTIN = FieldMetadata('heightin', decimal.Decimal, None)
     FieldMetadata.HOMELOC = FieldMetadata('homeloc', str, None)
     FieldMetadata.IDBY = FieldMetadata('idby', str, None)
-    FieldMetadata.IDDATE = FieldMetadata('iddate', datetime.datetime, None)
+    FieldMetadata.IDDATE = FieldMetadata('iddate', datetime.date, None)
     FieldMetadata.IMAGEFILE = FieldMetadata('imagefile', str, None)
     FieldMetadata.IMAGENO = FieldMetadata('imageno', int, None)
     FieldMetadata.IMAGESIZE = FieldMetadata('imagesize', str, None)
@@ -8932,13 +8932,13 @@ class ObjectRecord(object):
     FieldMetadata.INSCRTEXT = FieldMetadata('inscrtext', str, None)
     FieldMetadata.INSCRTRANS = FieldMetadata('inscrtrans', str, None)
     FieldMetadata.INSCRTYPE = FieldMetadata('inscrtype', str, None)
-    FieldMetadata.INSDATE = FieldMetadata('insdate', datetime.datetime, None)
+    FieldMetadata.INSDATE = FieldMetadata('insdate', datetime.date, None)
     FieldMetadata.INSPHONE = FieldMetadata('insphone', str, None)
     FieldMetadata.INSPREMIUM = FieldMetadata('inspremium', str, None)
     FieldMetadata.INSREP = FieldMetadata('insrep', str, None)
     FieldMetadata.INSVALUE = FieldMetadata('insvalue', decimal.Decimal, None)
     FieldMetadata.INVNBY = FieldMetadata('invnby', str, None)
-    FieldMetadata.INVNDATE = FieldMetadata('invndate', datetime.datetime, None)
+    FieldMetadata.INVNDATE = FieldMetadata('invndate', datetime.date, None)
     FieldMetadata.KINGDOM = FieldMetadata('kingdom', str, None)
     FieldMetadata.LATDEG = FieldMetadata('latdeg', decimal.Decimal, None)
     FieldMetadata.LATEDATE = FieldMetadata('latedate', int, None)
@@ -8949,11 +8949,11 @@ class ObjectRecord(object):
     FieldMetadata.LEVEL = FieldMetadata('level', str, None)
     FieldMetadata.LITHOFACIE = FieldMetadata('lithofacie', str, None)
     FieldMetadata.LOANCOND = FieldMetadata('loancond', str, None)
-    FieldMetadata.LOANDUE = FieldMetadata('loandue', datetime.datetime, None)
+    FieldMetadata.LOANDUE = FieldMetadata('loandue', datetime.date, None)
     FieldMetadata.LOANID = FieldMetadata('loanid', str, None)
     FieldMetadata.LOANINNO = FieldMetadata('loaninno', str, None)
     FieldMetadata.LOANNO = FieldMetadata('loanno', int, None)
-    FieldMetadata.LOANRENEW = FieldMetadata('loanrenew', datetime.datetime, None)
+    FieldMetadata.LOANRENEW = FieldMetadata('loanrenew', datetime.date, None)
     FieldMetadata.LOCFIELD1 = FieldMetadata('locfield1', str, None)
     FieldMetadata.LOCFIELD2 = FieldMetadata('locfield2', str, None)
     FieldMetadata.LOCFIELD3 = FieldMetadata('locfield3', str, None)
@@ -8964,7 +8964,7 @@ class ObjectRecord(object):
     FieldMetadata.LUSTER = FieldMetadata('luster', str, None)
     FieldMetadata.MADE = FieldMetadata('made', str, None)
     FieldMetadata.MAINTCYCLE = FieldMetadata('maintcycle', str, None)
-    FieldMetadata.MAINTDATE = FieldMetadata('maintdate', datetime.datetime, None)
+    FieldMetadata.MAINTDATE = FieldMetadata('maintdate', datetime.date, None)
     FieldMetadata.MAINTNOTE = FieldMetadata('maintnote', str, None)
     FieldMetadata.MATERIAL = FieldMetadata('material', str, None)
     FieldMetadata.MEDIUM = FieldMetadata('medium', str, None)
@@ -8984,7 +8984,7 @@ class ObjectRecord(object):
     FieldMetadata.ORIGIN = FieldMetadata('origin', str, None)
     FieldMetadata.OTHERNAME = FieldMetadata('othername', str, None)
     FieldMetadata.OTHERNO = FieldMetadata('otherno', str, None)
-    FieldMetadata.OUTDATE = FieldMetadata('outdate', datetime.datetime, None)
+    FieldMetadata.OUTDATE = FieldMetadata('outdate', datetime.date, None)
     FieldMetadata.OWNED = FieldMetadata('owned', str, None)
     FieldMetadata.PARENT = FieldMetadata('parent', str, None)
     FieldMetadata.PEOPLE = FieldMetadata('people', str, None)
@@ -8993,7 +8993,7 @@ class ObjectRecord(object):
     FieldMetadata.POLICYNO = FieldMetadata('policyno', str, None)
     FieldMetadata.PPID = FieldMetadata('ppid', str, None)
     FieldMetadata.PREPARATOR = FieldMetadata('preparator', str, None)
-    FieldMetadata.PREPDATE = FieldMetadata('prepdate', datetime.datetime, None)
+    FieldMetadata.PREPDATE = FieldMetadata('prepdate', datetime.date, None)
     FieldMetadata.PRESERVE = FieldMetadata('preserve', str, None)
     FieldMetadata.PRESSURE = FieldMetadata('pressure', str, None)
     FieldMetadata.PROVENANCE = FieldMetadata('provenance', str, None)
@@ -9004,14 +9004,14 @@ class ObjectRecord(object):
     FieldMetadata.RECFROM = FieldMetadata('recfrom', str, None)
     FieldMetadata.RELATION = FieldMetadata('relation', str, None)
     FieldMetadata.RELNOTES = FieldMetadata('relnotes', str, None)
-    FieldMetadata.RENEWUNTIL = FieldMetadata('renewuntil', datetime.datetime, None)
+    FieldMetadata.RENEWUNTIL = FieldMetadata('renewuntil', datetime.date, None)
     FieldMetadata.REPATBY = FieldMetadata('repatby', str, None)
     FieldMetadata.REPATCLAIM = FieldMetadata('repatclaim', str, None)
-    FieldMetadata.REPATDATE = FieldMetadata('repatdate', datetime.datetime, None)
+    FieldMetadata.REPATDATE = FieldMetadata('repatdate', datetime.date, None)
     FieldMetadata.REPATDISP = FieldMetadata('repatdisp', str, None)
     FieldMetadata.REPATHAND = FieldMetadata('repathand', str, None)
     FieldMetadata.REPATNOTES = FieldMetadata('repatnotes', str, None)
-    FieldMetadata.REPATNOTIC = FieldMetadata('repatnotic', datetime.datetime, None)
+    FieldMetadata.REPATNOTIC = FieldMetadata('repatnotic', datetime.date, None)
     FieldMetadata.REPATTYPE = FieldMetadata('repattype', str, None)
     FieldMetadata.ROCKCLASS = FieldMetadata('rockclass', str, None)
     FieldMetadata.ROCKCOLOR = FieldMetadata('rockcolor', str, None)
@@ -9033,7 +9033,7 @@ class ObjectRecord(object):
     FieldMetadata.STAGE = FieldMetadata('stage', str, None)
     FieldMetadata.STATUS = FieldMetadata('status', str, None)
     FieldMetadata.STATUSBY = FieldMetadata('statusby', str, None)
-    FieldMetadata.STATUSDATE = FieldMetadata('statusdate', datetime.datetime, None)
+    FieldMetadata.STATUSDATE = FieldMetadata('statusdate', datetime.date, None)
     FieldMetadata.STERMS = FieldMetadata('sterms', str, None)
     FieldMetadata.STRATUM = FieldMetadata('stratum', str, None)
     FieldMetadata.STREAK = FieldMetadata('streak', str, None)
@@ -9043,7 +9043,7 @@ class ObjectRecord(object):
     FieldMetadata.TECHNIQUE = FieldMetadata('technique', str, None)
     FieldMetadata.TEMPAUTHOR = FieldMetadata('tempauthor', str, None)
     FieldMetadata.TEMPBY = FieldMetadata('tempby', str, None)
-    FieldMetadata.TEMPDATE = FieldMetadata('tempdate', datetime.datetime, None)
+    FieldMetadata.TEMPDATE = FieldMetadata('tempdate', datetime.date, None)
     FieldMetadata.TEMPERATUR = FieldMetadata('temperatur', str, None)
     FieldMetadata.TEMPLOC = FieldMetadata('temploc', str, None)
     FieldMetadata.TEMPNOTES = FieldMetadata('tempnotes', str, None)
@@ -9066,10 +9066,10 @@ class ObjectRecord(object):
     FieldMetadata.UDF15 = FieldMetadata('udf15', decimal.Decimal, None)
     FieldMetadata.UDF16 = FieldMetadata('udf16', decimal.Decimal, None)
     FieldMetadata.UDF17 = FieldMetadata('udf17', decimal.Decimal, None)
-    FieldMetadata.UDF18 = FieldMetadata('udf18', datetime.datetime, None)
-    FieldMetadata.UDF19 = FieldMetadata('udf19', datetime.datetime, None)
+    FieldMetadata.UDF18 = FieldMetadata('udf18', datetime.date, None)
+    FieldMetadata.UDF19 = FieldMetadata('udf19', datetime.date, None)
     FieldMetadata.UDF2 = FieldMetadata('udf2', str, None)
-    FieldMetadata.UDF20 = FieldMetadata('udf20', datetime.datetime, None)
+    FieldMetadata.UDF20 = FieldMetadata('udf20', datetime.date, None)
     FieldMetadata.UDF21 = FieldMetadata('udf21', str, None)
     FieldMetadata.UDF22 = FieldMetadata('udf22', str, None)
     FieldMetadata.UDF3 = FieldMetadata('udf3', str, None)
@@ -9083,7 +9083,7 @@ class ObjectRecord(object):
     FieldMetadata.UPDATED = FieldMetadata('updated', datetime.datetime, None)
     FieldMetadata.UPDATEDBY = FieldMetadata('updatedby', str, None)
     FieldMetadata.USED = FieldMetadata('used', str, None)
-    FieldMetadata.VALUEDATE = FieldMetadata('valuedate', datetime.datetime, None)
+    FieldMetadata.VALUEDATE = FieldMetadata('valuedate', datetime.date, None)
     FieldMetadata.VARIETIES = FieldMetadata('varieties', str, None)
     FieldMetadata.VEXHTML = FieldMetadata('vexhtml', str, None)
     FieldMetadata.VEXLABEL1 = FieldMetadata('vexlabel1', str, None)
@@ -9385,17 +9385,17 @@ class ObjectRecord(object):
         :type caption: str or None
         :type cat: str or None
         :type catby: str or None
-        :type catdate: datetime.datetime or None
+        :type catdate: datetime.date or None
         :type cattype: str or None
         :type chemcomp: str or None
         :type circum: Decimal or None
         :type circumft: Decimal or None
         :type circumin: Decimal or None
         :type classes: str or None
-        :type colldate: datetime.datetime or None
+        :type colldate: datetime.date or None
         :type collection: str or None
         :type collector: str or None
-        :type conddate: datetime.datetime or None
+        :type conddate: datetime.date or None
         :type condexam: str or None
         :type condition: str or None
         :type condnotes: str or None
@@ -9428,7 +9428,7 @@ class ObjectRecord(object):
         :type era: str or None
         :type event: str or None
         :type ew: str or None
-        :type excavadate: datetime.datetime or None
+        :type excavadate: datetime.date or None
         :type excavateby: str or None
         :type exhibitid: str or None
         :type exhibitno: int or None
@@ -9436,7 +9436,7 @@ class ObjectRecord(object):
         :type exhlabel2: str or None
         :type exhlabel3: str or None
         :type exhlabel4: str or None
-        :type exhstart: datetime.datetime or None
+        :type exhstart: datetime.date or None
         :type family: str or None
         :type feature: str or None
         :type flagdate: datetime.datetime or None
@@ -9458,7 +9458,7 @@ class ObjectRecord(object):
         :type heightin: Decimal or None
         :type homeloc: str or None
         :type idby: str or None
-        :type iddate: datetime.datetime or None
+        :type iddate: datetime.date or None
         :type imagefile: str or None
         :type imageno: int or None
         :type imagesize: str or None
@@ -9469,13 +9469,13 @@ class ObjectRecord(object):
         :type inscrtext: str or None
         :type inscrtrans: str or None
         :type inscrtype: str or None
-        :type insdate: datetime.datetime or None
+        :type insdate: datetime.date or None
         :type insphone: str or None
         :type inspremium: str or None
         :type insrep: str or None
         :type insvalue: Decimal or None
         :type invnby: str or None
-        :type invndate: datetime.datetime or None
+        :type invndate: datetime.date or None
         :type kingdom: str or None
         :type latdeg: Decimal or None
         :type latedate: int or None
@@ -9486,11 +9486,11 @@ class ObjectRecord(object):
         :type level: str or None
         :type lithofacie: str or None
         :type loancond: str or None
-        :type loandue: datetime.datetime or None
+        :type loandue: datetime.date or None
         :type loanid: str or None
         :type loaninno: str or None
         :type loanno: int or None
-        :type loanrenew: datetime.datetime or None
+        :type loanrenew: datetime.date or None
         :type locfield1: str or None
         :type locfield2: str or None
         :type locfield3: str or None
@@ -9501,7 +9501,7 @@ class ObjectRecord(object):
         :type luster: str or None
         :type made: str or None
         :type maintcycle: str or None
-        :type maintdate: datetime.datetime or None
+        :type maintdate: datetime.date or None
         :type maintnote: str or None
         :type material: str or None
         :type medium: str or None
@@ -9521,7 +9521,7 @@ class ObjectRecord(object):
         :type origin: str or None
         :type othername: str or None
         :type otherno: str or None
-        :type outdate: datetime.datetime or None
+        :type outdate: datetime.date or None
         :type owned: str or None
         :type parent: str or None
         :type people: str or None
@@ -9530,7 +9530,7 @@ class ObjectRecord(object):
         :type policyno: str or None
         :type ppid: str or None
         :type preparator: str or None
-        :type prepdate: datetime.datetime or None
+        :type prepdate: datetime.date or None
         :type preserve: str or None
         :type pressure: str or None
         :type provenance: str or None
@@ -9541,14 +9541,14 @@ class ObjectRecord(object):
         :type recfrom: str or None
         :type relation: str or None
         :type relnotes: str or None
-        :type renewuntil: datetime.datetime or None
+        :type renewuntil: datetime.date or None
         :type repatby: str or None
         :type repatclaim: str or None
-        :type repatdate: datetime.datetime or None
+        :type repatdate: datetime.date or None
         :type repatdisp: str or None
         :type repathand: str or None
         :type repatnotes: str or None
-        :type repatnotic: datetime.datetime or None
+        :type repatnotic: datetime.date or None
         :type repattype: str or None
         :type rockclass: str or None
         :type rockcolor: str or None
@@ -9570,7 +9570,7 @@ class ObjectRecord(object):
         :type stage: str or None
         :type status: str or None
         :type statusby: str or None
-        :type statusdate: datetime.datetime or None
+        :type statusdate: datetime.date or None
         :type sterms: str or None
         :type stratum: str or None
         :type streak: str or None
@@ -9580,7 +9580,7 @@ class ObjectRecord(object):
         :type technique: str or None
         :type tempauthor: str or None
         :type tempby: str or None
-        :type tempdate: datetime.datetime or None
+        :type tempdate: datetime.date or None
         :type temperatur: str or None
         :type temploc: str or None
         :type tempnotes: str or None
@@ -9603,10 +9603,10 @@ class ObjectRecord(object):
         :type udf15: Decimal or None
         :type udf16: Decimal or None
         :type udf17: Decimal or None
-        :type udf18: datetime.datetime or None
-        :type udf19: datetime.datetime or None
+        :type udf18: datetime.date or None
+        :type udf19: datetime.date or None
         :type udf2: str or None
-        :type udf20: datetime.datetime or None
+        :type udf20: datetime.date or None
         :type udf21: str or None
         :type udf22: str or None
         :type udf3: str or None
@@ -9620,7 +9620,7 @@ class ObjectRecord(object):
         :type updated: datetime.datetime or None
         :type updatedby: str or None
         :type used: str or None
-        :type valuedate: datetime.datetime or None
+        :type valuedate: datetime.date or None
         :type varieties: str or None
         :type vexhtml: str or None
         :type vexlabel1: str or None
@@ -9702,8 +9702,8 @@ class ObjectRecord(object):
         self.__catby = catby
 
         if catdate is not None:
-            if not isinstance(catdate, datetime.datetime):
-                raise TypeError("expected catdate to be a datetime.datetime but it is a %s" % builtins.type(catdate))
+            if not isinstance(catdate, datetime.date):
+                raise TypeError("expected catdate to be a datetime.date but it is a %s" % builtins.type(catdate))
         self.__catdate = catdate
 
         if cattype is not None:
@@ -9737,8 +9737,8 @@ class ObjectRecord(object):
         self.__classes = classes
 
         if colldate is not None:
-            if not isinstance(colldate, datetime.datetime):
-                raise TypeError("expected colldate to be a datetime.datetime but it is a %s" % builtins.type(colldate))
+            if not isinstance(colldate, datetime.date):
+                raise TypeError("expected colldate to be a datetime.date but it is a %s" % builtins.type(colldate))
         self.__colldate = colldate
 
         if collection is not None:
@@ -9752,8 +9752,8 @@ class ObjectRecord(object):
         self.__collector = collector
 
         if conddate is not None:
-            if not isinstance(conddate, datetime.datetime):
-                raise TypeError("expected conddate to be a datetime.datetime but it is a %s" % builtins.type(conddate))
+            if not isinstance(conddate, datetime.date):
+                raise TypeError("expected conddate to be a datetime.date but it is a %s" % builtins.type(conddate))
         self.__conddate = conddate
 
         if condexam is not None:
@@ -9917,8 +9917,8 @@ class ObjectRecord(object):
         self.__ew = ew
 
         if excavadate is not None:
-            if not isinstance(excavadate, datetime.datetime):
-                raise TypeError("expected excavadate to be a datetime.datetime but it is a %s" % builtins.type(excavadate))
+            if not isinstance(excavadate, datetime.date):
+                raise TypeError("expected excavadate to be a datetime.date but it is a %s" % builtins.type(excavadate))
         self.__excavadate = excavadate
 
         if excavateby is not None:
@@ -9957,8 +9957,8 @@ class ObjectRecord(object):
         self.__exhlabel4 = exhlabel4
 
         if exhstart is not None:
-            if not isinstance(exhstart, datetime.datetime):
-                raise TypeError("expected exhstart to be a datetime.datetime but it is a %s" % builtins.type(exhstart))
+            if not isinstance(exhstart, datetime.date):
+                raise TypeError("expected exhstart to be a datetime.date but it is a %s" % builtins.type(exhstart))
         self.__exhstart = exhstart
 
         if family is not None:
@@ -10067,8 +10067,8 @@ class ObjectRecord(object):
         self.__idby = idby
 
         if iddate is not None:
-            if not isinstance(iddate, datetime.datetime):
-                raise TypeError("expected iddate to be a datetime.datetime but it is a %s" % builtins.type(iddate))
+            if not isinstance(iddate, datetime.date):
+                raise TypeError("expected iddate to be a datetime.date but it is a %s" % builtins.type(iddate))
         self.__iddate = iddate
 
         if imagefile is not None:
@@ -10122,8 +10122,8 @@ class ObjectRecord(object):
         self.__inscrtype = inscrtype
 
         if insdate is not None:
-            if not isinstance(insdate, datetime.datetime):
-                raise TypeError("expected insdate to be a datetime.datetime but it is a %s" % builtins.type(insdate))
+            if not isinstance(insdate, datetime.date):
+                raise TypeError("expected insdate to be a datetime.date but it is a %s" % builtins.type(insdate))
         self.__insdate = insdate
 
         if insphone is not None:
@@ -10152,8 +10152,8 @@ class ObjectRecord(object):
         self.__invnby = invnby
 
         if invndate is not None:
-            if not isinstance(invndate, datetime.datetime):
-                raise TypeError("expected invndate to be a datetime.datetime but it is a %s" % builtins.type(invndate))
+            if not isinstance(invndate, datetime.date):
+                raise TypeError("expected invndate to be a datetime.date but it is a %s" % builtins.type(invndate))
         self.__invndate = invndate
 
         if kingdom is not None:
@@ -10207,8 +10207,8 @@ class ObjectRecord(object):
         self.__loancond = loancond
 
         if loandue is not None:
-            if not isinstance(loandue, datetime.datetime):
-                raise TypeError("expected loandue to be a datetime.datetime but it is a %s" % builtins.type(loandue))
+            if not isinstance(loandue, datetime.date):
+                raise TypeError("expected loandue to be a datetime.date but it is a %s" % builtins.type(loandue))
         self.__loandue = loandue
 
         if loanid is not None:
@@ -10227,8 +10227,8 @@ class ObjectRecord(object):
         self.__loanno = loanno
 
         if loanrenew is not None:
-            if not isinstance(loanrenew, datetime.datetime):
-                raise TypeError("expected loanrenew to be a datetime.datetime but it is a %s" % builtins.type(loanrenew))
+            if not isinstance(loanrenew, datetime.date):
+                raise TypeError("expected loanrenew to be a datetime.date but it is a %s" % builtins.type(loanrenew))
         self.__loanrenew = loanrenew
 
         if locfield1 is not None:
@@ -10282,8 +10282,8 @@ class ObjectRecord(object):
         self.__maintcycle = maintcycle
 
         if maintdate is not None:
-            if not isinstance(maintdate, datetime.datetime):
-                raise TypeError("expected maintdate to be a datetime.datetime but it is a %s" % builtins.type(maintdate))
+            if not isinstance(maintdate, datetime.date):
+                raise TypeError("expected maintdate to be a datetime.date but it is a %s" % builtins.type(maintdate))
         self.__maintdate = maintdate
 
         if maintnote is not None:
@@ -10382,8 +10382,8 @@ class ObjectRecord(object):
         self.__otherno = otherno
 
         if outdate is not None:
-            if not isinstance(outdate, datetime.datetime):
-                raise TypeError("expected outdate to be a datetime.datetime but it is a %s" % builtins.type(outdate))
+            if not isinstance(outdate, datetime.date):
+                raise TypeError("expected outdate to be a datetime.date but it is a %s" % builtins.type(outdate))
         self.__outdate = outdate
 
         if owned is not None:
@@ -10427,8 +10427,8 @@ class ObjectRecord(object):
         self.__preparator = preparator
 
         if prepdate is not None:
-            if not isinstance(prepdate, datetime.datetime):
-                raise TypeError("expected prepdate to be a datetime.datetime but it is a %s" % builtins.type(prepdate))
+            if not isinstance(prepdate, datetime.date):
+                raise TypeError("expected prepdate to be a datetime.date but it is a %s" % builtins.type(prepdate))
         self.__prepdate = prepdate
 
         if preserve is not None:
@@ -10482,8 +10482,8 @@ class ObjectRecord(object):
         self.__relnotes = relnotes
 
         if renewuntil is not None:
-            if not isinstance(renewuntil, datetime.datetime):
-                raise TypeError("expected renewuntil to be a datetime.datetime but it is a %s" % builtins.type(renewuntil))
+            if not isinstance(renewuntil, datetime.date):
+                raise TypeError("expected renewuntil to be a datetime.date but it is a %s" % builtins.type(renewuntil))
         self.__renewuntil = renewuntil
 
         if repatby is not None:
@@ -10497,8 +10497,8 @@ class ObjectRecord(object):
         self.__repatclaim = repatclaim
 
         if repatdate is not None:
-            if not isinstance(repatdate, datetime.datetime):
-                raise TypeError("expected repatdate to be a datetime.datetime but it is a %s" % builtins.type(repatdate))
+            if not isinstance(repatdate, datetime.date):
+                raise TypeError("expected repatdate to be a datetime.date but it is a %s" % builtins.type(repatdate))
         self.__repatdate = repatdate
 
         if repatdisp is not None:
@@ -10517,8 +10517,8 @@ class ObjectRecord(object):
         self.__repatnotes = repatnotes
 
         if repatnotic is not None:
-            if not isinstance(repatnotic, datetime.datetime):
-                raise TypeError("expected repatnotic to be a datetime.datetime but it is a %s" % builtins.type(repatnotic))
+            if not isinstance(repatnotic, datetime.date):
+                raise TypeError("expected repatnotic to be a datetime.date but it is a %s" % builtins.type(repatnotic))
         self.__repatnotic = repatnotic
 
         if repattype is not None:
@@ -10627,8 +10627,8 @@ class ObjectRecord(object):
         self.__statusby = statusby
 
         if statusdate is not None:
-            if not isinstance(statusdate, datetime.datetime):
-                raise TypeError("expected statusdate to be a datetime.datetime but it is a %s" % builtins.type(statusdate))
+            if not isinstance(statusdate, datetime.date):
+                raise TypeError("expected statusdate to be a datetime.date but it is a %s" % builtins.type(statusdate))
         self.__statusdate = statusdate
 
         if sterms is not None:
@@ -10677,8 +10677,8 @@ class ObjectRecord(object):
         self.__tempby = tempby
 
         if tempdate is not None:
-            if not isinstance(tempdate, datetime.datetime):
-                raise TypeError("expected tempdate to be a datetime.datetime but it is a %s" % builtins.type(tempdate))
+            if not isinstance(tempdate, datetime.date):
+                raise TypeError("expected tempdate to be a datetime.date but it is a %s" % builtins.type(tempdate))
         self.__tempdate = tempdate
 
         if temperatur is not None:
@@ -10792,13 +10792,13 @@ class ObjectRecord(object):
         self.__udf17 = udf17
 
         if udf18 is not None:
-            if not isinstance(udf18, datetime.datetime):
-                raise TypeError("expected udf18 to be a datetime.datetime but it is a %s" % builtins.type(udf18))
+            if not isinstance(udf18, datetime.date):
+                raise TypeError("expected udf18 to be a datetime.date but it is a %s" % builtins.type(udf18))
         self.__udf18 = udf18
 
         if udf19 is not None:
-            if not isinstance(udf19, datetime.datetime):
-                raise TypeError("expected udf19 to be a datetime.datetime but it is a %s" % builtins.type(udf19))
+            if not isinstance(udf19, datetime.date):
+                raise TypeError("expected udf19 to be a datetime.date but it is a %s" % builtins.type(udf19))
         self.__udf19 = udf19
 
         if udf2 is not None:
@@ -10807,8 +10807,8 @@ class ObjectRecord(object):
         self.__udf2 = udf2
 
         if udf20 is not None:
-            if not isinstance(udf20, datetime.datetime):
-                raise TypeError("expected udf20 to be a datetime.datetime but it is a %s" % builtins.type(udf20))
+            if not isinstance(udf20, datetime.date):
+                raise TypeError("expected udf20 to be a datetime.date but it is a %s" % builtins.type(udf20))
         self.__udf20 = udf20
 
         if udf21 is not None:
@@ -10877,8 +10877,8 @@ class ObjectRecord(object):
         self.__used = used
 
         if valuedate is not None:
-            if not isinstance(valuedate, datetime.datetime):
-                raise TypeError("expected valuedate to be a datetime.datetime but it is a %s" % builtins.type(valuedate))
+            if not isinstance(valuedate, datetime.date):
+                raise TypeError("expected valuedate to be a datetime.date but it is a %s" % builtins.type(valuedate))
         self.__valuedate = valuedate
 
         if varieties is not None:
@@ -12686,7 +12686,7 @@ class ObjectRecord(object):
     @property
     def catdate(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__catdate
@@ -12742,7 +12742,7 @@ class ObjectRecord(object):
     @property
     def colldate(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__colldate
@@ -12766,7 +12766,7 @@ class ObjectRecord(object):
     @property
     def conddate(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__conddate
@@ -13030,7 +13030,7 @@ class ObjectRecord(object):
     @property
     def excavadate(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__excavadate
@@ -13094,7 +13094,7 @@ class ObjectRecord(object):
     @property
     def exhstart(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__exhstart
@@ -13270,7 +13270,7 @@ class ObjectRecord(object):
     @property
     def iddate(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__iddate
@@ -13358,7 +13358,7 @@ class ObjectRecord(object):
     @property
     def insdate(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__insdate
@@ -13406,7 +13406,7 @@ class ObjectRecord(object):
     @property
     def invndate(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__invndate
@@ -13494,7 +13494,7 @@ class ObjectRecord(object):
     @property
     def loandue(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__loandue
@@ -13526,7 +13526,7 @@ class ObjectRecord(object):
     @property
     def loanrenew(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__loanrenew
@@ -13614,7 +13614,7 @@ class ObjectRecord(object):
     @property
     def maintdate(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__maintdate
@@ -13774,7 +13774,7 @@ class ObjectRecord(object):
     @property
     def outdate(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__outdate
@@ -13846,7 +13846,7 @@ class ObjectRecord(object):
     @property
     def prepdate(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__prepdate
@@ -13969,7 +13969,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'catdate':
                 try:
-                    init_kwds['catdate'] = iprot.read_date_time()
+                    init_kwds['catdate'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'cattype':
@@ -14004,7 +14004,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'colldate':
                 try:
-                    init_kwds['colldate'] = iprot.read_date_time()
+                    init_kwds['colldate'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'collection':
@@ -14019,7 +14019,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'conddate':
                 try:
-                    init_kwds['conddate'] = iprot.read_date_time()
+                    init_kwds['conddate'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'condexam':
@@ -14184,7 +14184,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'excavadate':
                 try:
-                    init_kwds['excavadate'] = iprot.read_date_time()
+                    init_kwds['excavadate'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'excavateby':
@@ -14224,7 +14224,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'exhstart':
                 try:
-                    init_kwds['exhstart'] = iprot.read_date_time()
+                    init_kwds['exhstart'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'family':
@@ -14334,7 +14334,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'iddate':
                 try:
-                    init_kwds['iddate'] = iprot.read_date_time()
+                    init_kwds['iddate'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'imagefile':
@@ -14389,7 +14389,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'insdate':
                 try:
-                    init_kwds['insdate'] = iprot.read_date_time()
+                    init_kwds['insdate'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'insphone':
@@ -14419,7 +14419,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'invndate':
                 try:
-                    init_kwds['invndate'] = iprot.read_date_time()
+                    init_kwds['invndate'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'kingdom':
@@ -14474,7 +14474,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'loandue':
                 try:
-                    init_kwds['loandue'] = iprot.read_date_time()
+                    init_kwds['loandue'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'loanid':
@@ -14494,7 +14494,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'loanrenew':
                 try:
-                    init_kwds['loanrenew'] = iprot.read_date_time()
+                    init_kwds['loanrenew'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'locfield1':
@@ -14549,7 +14549,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'maintdate':
                 try:
-                    init_kwds['maintdate'] = iprot.read_date_time()
+                    init_kwds['maintdate'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'maintnote':
@@ -14649,7 +14649,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'outdate':
                 try:
-                    init_kwds['outdate'] = iprot.read_date_time()
+                    init_kwds['outdate'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'owned':
@@ -14694,7 +14694,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'prepdate':
                 try:
-                    init_kwds['prepdate'] = iprot.read_date_time()
+                    init_kwds['prepdate'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'preserve':
@@ -14749,7 +14749,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'renewuntil':
                 try:
-                    init_kwds['renewuntil'] = iprot.read_date_time()
+                    init_kwds['renewuntil'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'repatby':
@@ -14764,7 +14764,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'repatdate':
                 try:
-                    init_kwds['repatdate'] = iprot.read_date_time()
+                    init_kwds['repatdate'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'repatdisp':
@@ -14784,7 +14784,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'repatnotic':
                 try:
-                    init_kwds['repatnotic'] = iprot.read_date_time()
+                    init_kwds['repatnotic'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'repattype':
@@ -14894,7 +14894,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'statusdate':
                 try:
-                    init_kwds['statusdate'] = iprot.read_date_time()
+                    init_kwds['statusdate'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'sterms':
@@ -14944,7 +14944,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'tempdate':
                 try:
-                    init_kwds['tempdate'] = iprot.read_date_time()
+                    init_kwds['tempdate'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'temperatur':
@@ -15059,12 +15059,12 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'udf18':
                 try:
-                    init_kwds['udf18'] = iprot.read_date_time()
+                    init_kwds['udf18'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'udf19':
                 try:
-                    init_kwds['udf19'] = iprot.read_date_time()
+                    init_kwds['udf19'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'udf2':
@@ -15074,7 +15074,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'udf20':
                 try:
-                    init_kwds['udf20'] = iprot.read_date_time()
+                    init_kwds['udf20'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'udf21':
@@ -15144,7 +15144,7 @@ class ObjectRecord(object):
                     pass
             elif ifield_name == 'valuedate':
                 try:
-                    init_kwds['valuedate'] = iprot.read_date_time()
+                    init_kwds['valuedate'] = iprot.read_date()
                 except (TypeError,):
                     pass
             elif ifield_name == 'varieties':
@@ -15285,7 +15285,7 @@ class ObjectRecord(object):
     @property
     def renewuntil(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__renewuntil
@@ -15309,7 +15309,7 @@ class ObjectRecord(object):
     @property
     def repatdate(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__repatdate
@@ -15341,7 +15341,7 @@ class ObjectRecord(object):
     @property
     def repatnotic(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__repatnotic
@@ -15638,17 +15638,17 @@ class ObjectRecord(object):
         :type caption: str or None
         :type cat: str or None
         :type catby: str or None
-        :type catdate: datetime.datetime or None
+        :type catdate: datetime.date or None
         :type cattype: str or None
         :type chemcomp: str or None
         :type circum: Decimal or None
         :type circumft: Decimal or None
         :type circumin: Decimal or None
         :type classes: str or None
-        :type colldate: datetime.datetime or None
+        :type colldate: datetime.date or None
         :type collection: str or None
         :type collector: str or None
-        :type conddate: datetime.datetime or None
+        :type conddate: datetime.date or None
         :type condexam: str or None
         :type condition: str or None
         :type condnotes: str or None
@@ -15681,7 +15681,7 @@ class ObjectRecord(object):
         :type era: str or None
         :type event: str or None
         :type ew: str or None
-        :type excavadate: datetime.datetime or None
+        :type excavadate: datetime.date or None
         :type excavateby: str or None
         :type exhibitid: str or None
         :type exhibitno: int or None
@@ -15689,7 +15689,7 @@ class ObjectRecord(object):
         :type exhlabel2: str or None
         :type exhlabel3: str or None
         :type exhlabel4: str or None
-        :type exhstart: datetime.datetime or None
+        :type exhstart: datetime.date or None
         :type family: str or None
         :type feature: str or None
         :type flagdate: datetime.datetime or None
@@ -15711,7 +15711,7 @@ class ObjectRecord(object):
         :type heightin: Decimal or None
         :type homeloc: str or None
         :type idby: str or None
-        :type iddate: datetime.datetime or None
+        :type iddate: datetime.date or None
         :type imagefile: str or None
         :type imageno: int or None
         :type imagesize: str or None
@@ -15722,13 +15722,13 @@ class ObjectRecord(object):
         :type inscrtext: str or None
         :type inscrtrans: str or None
         :type inscrtype: str or None
-        :type insdate: datetime.datetime or None
+        :type insdate: datetime.date or None
         :type insphone: str or None
         :type inspremium: str or None
         :type insrep: str or None
         :type insvalue: Decimal or None
         :type invnby: str or None
-        :type invndate: datetime.datetime or None
+        :type invndate: datetime.date or None
         :type kingdom: str or None
         :type latdeg: Decimal or None
         :type latedate: int or None
@@ -15739,11 +15739,11 @@ class ObjectRecord(object):
         :type level: str or None
         :type lithofacie: str or None
         :type loancond: str or None
-        :type loandue: datetime.datetime or None
+        :type loandue: datetime.date or None
         :type loanid: str or None
         :type loaninno: str or None
         :type loanno: int or None
-        :type loanrenew: datetime.datetime or None
+        :type loanrenew: datetime.date or None
         :type locfield1: str or None
         :type locfield2: str or None
         :type locfield3: str or None
@@ -15754,7 +15754,7 @@ class ObjectRecord(object):
         :type luster: str or None
         :type made: str or None
         :type maintcycle: str or None
-        :type maintdate: datetime.datetime or None
+        :type maintdate: datetime.date or None
         :type maintnote: str or None
         :type material: str or None
         :type medium: str or None
@@ -15774,7 +15774,7 @@ class ObjectRecord(object):
         :type origin: str or None
         :type othername: str or None
         :type otherno: str or None
-        :type outdate: datetime.datetime or None
+        :type outdate: datetime.date or None
         :type owned: str or None
         :type parent: str or None
         :type people: str or None
@@ -15783,7 +15783,7 @@ class ObjectRecord(object):
         :type policyno: str or None
         :type ppid: str or None
         :type preparator: str or None
-        :type prepdate: datetime.datetime or None
+        :type prepdate: datetime.date or None
         :type preserve: str or None
         :type pressure: str or None
         :type provenance: str or None
@@ -15794,14 +15794,14 @@ class ObjectRecord(object):
         :type recfrom: str or None
         :type relation: str or None
         :type relnotes: str or None
-        :type renewuntil: datetime.datetime or None
+        :type renewuntil: datetime.date or None
         :type repatby: str or None
         :type repatclaim: str or None
-        :type repatdate: datetime.datetime or None
+        :type repatdate: datetime.date or None
         :type repatdisp: str or None
         :type repathand: str or None
         :type repatnotes: str or None
-        :type repatnotic: datetime.datetime or None
+        :type repatnotic: datetime.date or None
         :type repattype: str or None
         :type rockclass: str or None
         :type rockcolor: str or None
@@ -15823,7 +15823,7 @@ class ObjectRecord(object):
         :type stage: str or None
         :type status: str or None
         :type statusby: str or None
-        :type statusdate: datetime.datetime or None
+        :type statusdate: datetime.date or None
         :type sterms: str or None
         :type stratum: str or None
         :type streak: str or None
@@ -15833,7 +15833,7 @@ class ObjectRecord(object):
         :type technique: str or None
         :type tempauthor: str or None
         :type tempby: str or None
-        :type tempdate: datetime.datetime or None
+        :type tempdate: datetime.date or None
         :type temperatur: str or None
         :type temploc: str or None
         :type tempnotes: str or None
@@ -15856,10 +15856,10 @@ class ObjectRecord(object):
         :type udf15: Decimal or None
         :type udf16: Decimal or None
         :type udf17: Decimal or None
-        :type udf18: datetime.datetime or None
-        :type udf19: datetime.datetime or None
+        :type udf18: datetime.date or None
+        :type udf19: datetime.date or None
         :type udf2: str or None
-        :type udf20: datetime.datetime or None
+        :type udf20: datetime.date or None
         :type udf21: str or None
         :type udf22: str or None
         :type udf3: str or None
@@ -15873,7 +15873,7 @@ class ObjectRecord(object):
         :type updated: datetime.datetime or None
         :type updatedby: str or None
         :type used: str or None
-        :type valuedate: datetime.datetime or None
+        :type valuedate: datetime.date or None
         :type varieties: str or None
         :type vexhtml: str or None
         :type vexlabel1: str or None
@@ -16592,7 +16592,7 @@ class ObjectRecord(object):
     @property
     def statusdate(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__statusdate
@@ -16672,7 +16672,7 @@ class ObjectRecord(object):
     @property
     def tempdate(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__tempdate
@@ -16856,7 +16856,7 @@ class ObjectRecord(object):
     @property
     def udf18(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__udf18
@@ -16864,7 +16864,7 @@ class ObjectRecord(object):
     @property
     def udf19(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__udf19
@@ -16880,7 +16880,7 @@ class ObjectRecord(object):
     @property
     def udf20(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__udf20
@@ -16992,7 +16992,7 @@ class ObjectRecord(object):
     @property
     def valuedate(self):
         '''
-        :rtype: datetime.datetime
+        :rtype: datetime.date
         '''
 
         return self.__valuedate
@@ -17173,7 +17173,7 @@ class ObjectRecord(object):
 
         if self.catdate is not None:
             oprot.write_field_begin(name='catdate', type=10, id=None)
-            oprot.write_date_time(self.catdate)
+            oprot.write_date(self.catdate)
             oprot.write_field_end()
 
         if self.cattype is not None:
@@ -17208,7 +17208,7 @@ class ObjectRecord(object):
 
         if self.colldate is not None:
             oprot.write_field_begin(name='colldate', type=10, id=None)
-            oprot.write_date_time(self.colldate)
+            oprot.write_date(self.colldate)
             oprot.write_field_end()
 
         if self.collection is not None:
@@ -17223,7 +17223,7 @@ class ObjectRecord(object):
 
         if self.conddate is not None:
             oprot.write_field_begin(name='conddate', type=10, id=None)
-            oprot.write_date_time(self.conddate)
+            oprot.write_date(self.conddate)
             oprot.write_field_end()
 
         if self.condexam is not None:
@@ -17388,7 +17388,7 @@ class ObjectRecord(object):
 
         if self.excavadate is not None:
             oprot.write_field_begin(name='excavadate', type=10, id=None)
-            oprot.write_date_time(self.excavadate)
+            oprot.write_date(self.excavadate)
             oprot.write_field_end()
 
         if self.excavateby is not None:
@@ -17428,7 +17428,7 @@ class ObjectRecord(object):
 
         if self.exhstart is not None:
             oprot.write_field_begin(name='exhstart', type=10, id=None)
-            oprot.write_date_time(self.exhstart)
+            oprot.write_date(self.exhstart)
             oprot.write_field_end()
 
         if self.family is not None:
@@ -17538,7 +17538,7 @@ class ObjectRecord(object):
 
         if self.iddate is not None:
             oprot.write_field_begin(name='iddate', type=10, id=None)
-            oprot.write_date_time(self.iddate)
+            oprot.write_date(self.iddate)
             oprot.write_field_end()
 
         if self.imagefile is not None:
@@ -17593,7 +17593,7 @@ class ObjectRecord(object):
 
         if self.insdate is not None:
             oprot.write_field_begin(name='insdate', type=10, id=None)
-            oprot.write_date_time(self.insdate)
+            oprot.write_date(self.insdate)
             oprot.write_field_end()
 
         if self.insphone is not None:
@@ -17623,7 +17623,7 @@ class ObjectRecord(object):
 
         if self.invndate is not None:
             oprot.write_field_begin(name='invndate', type=10, id=None)
-            oprot.write_date_time(self.invndate)
+            oprot.write_date(self.invndate)
             oprot.write_field_end()
 
         if self.kingdom is not None:
@@ -17678,7 +17678,7 @@ class ObjectRecord(object):
 
         if self.loandue is not None:
             oprot.write_field_begin(name='loandue', type=10, id=None)
-            oprot.write_date_time(self.loandue)
+            oprot.write_date(self.loandue)
             oprot.write_field_end()
 
         if self.loanid is not None:
@@ -17698,7 +17698,7 @@ class ObjectRecord(object):
 
         if self.loanrenew is not None:
             oprot.write_field_begin(name='loanrenew', type=10, id=None)
-            oprot.write_date_time(self.loanrenew)
+            oprot.write_date(self.loanrenew)
             oprot.write_field_end()
 
         if self.locfield1 is not None:
@@ -17753,7 +17753,7 @@ class ObjectRecord(object):
 
         if self.maintdate is not None:
             oprot.write_field_begin(name='maintdate', type=10, id=None)
-            oprot.write_date_time(self.maintdate)
+            oprot.write_date(self.maintdate)
             oprot.write_field_end()
 
         if self.maintnote is not None:
@@ -17853,7 +17853,7 @@ class ObjectRecord(object):
 
         if self.outdate is not None:
             oprot.write_field_begin(name='outdate', type=10, id=None)
-            oprot.write_date_time(self.outdate)
+            oprot.write_date(self.outdate)
             oprot.write_field_end()
 
         if self.owned is not None:
@@ -17898,7 +17898,7 @@ class ObjectRecord(object):
 
         if self.prepdate is not None:
             oprot.write_field_begin(name='prepdate', type=10, id=None)
-            oprot.write_date_time(self.prepdate)
+            oprot.write_date(self.prepdate)
             oprot.write_field_end()
 
         if self.preserve is not None:
@@ -17953,7 +17953,7 @@ class ObjectRecord(object):
 
         if self.renewuntil is not None:
             oprot.write_field_begin(name='renewuntil', type=10, id=None)
-            oprot.write_date_time(self.renewuntil)
+            oprot.write_date(self.renewuntil)
             oprot.write_field_end()
 
         if self.repatby is not None:
@@ -17968,7 +17968,7 @@ class ObjectRecord(object):
 
         if self.repatdate is not None:
             oprot.write_field_begin(name='repatdate', type=10, id=None)
-            oprot.write_date_time(self.repatdate)
+            oprot.write_date(self.repatdate)
             oprot.write_field_end()
 
         if self.repatdisp is not None:
@@ -17988,7 +17988,7 @@ class ObjectRecord(object):
 
         if self.repatnotic is not None:
             oprot.write_field_begin(name='repatnotic', type=10, id=None)
-            oprot.write_date_time(self.repatnotic)
+            oprot.write_date(self.repatnotic)
             oprot.write_field_end()
 
         if self.repattype is not None:
@@ -18098,7 +18098,7 @@ class ObjectRecord(object):
 
         if self.statusdate is not None:
             oprot.write_field_begin(name='statusdate', type=10, id=None)
-            oprot.write_date_time(self.statusdate)
+            oprot.write_date(self.statusdate)
             oprot.write_field_end()
 
         if self.sterms is not None:
@@ -18148,7 +18148,7 @@ class ObjectRecord(object):
 
         if self.tempdate is not None:
             oprot.write_field_begin(name='tempdate', type=10, id=None)
-            oprot.write_date_time(self.tempdate)
+            oprot.write_date(self.tempdate)
             oprot.write_field_end()
 
         if self.temperatur is not None:
@@ -18263,12 +18263,12 @@ class ObjectRecord(object):
 
         if self.udf18 is not None:
             oprot.write_field_begin(name='udf18', type=10, id=None)
-            oprot.write_date_time(self.udf18)
+            oprot.write_date(self.udf18)
             oprot.write_field_end()
 
         if self.udf19 is not None:
             oprot.write_field_begin(name='udf19', type=10, id=None)
-            oprot.write_date_time(self.udf19)
+            oprot.write_date(self.udf19)
             oprot.write_field_end()
 
         if self.udf2 is not None:
@@ -18278,7 +18278,7 @@ class ObjectRecord(object):
 
         if self.udf20 is not None:
             oprot.write_field_begin(name='udf20', type=10, id=None)
-            oprot.write_date_time(self.udf20)
+            oprot.write_date(self.udf20)
             oprot.write_field_end()
 
         if self.udf21 is not None:
@@ -18348,7 +18348,7 @@ class ObjectRecord(object):
 
         if self.valuedate is not None:
             oprot.write_field_begin(name='valuedate', type=10, id=None)
-            oprot.write_date_time(self.valuedate)
+            oprot.write_date(self.valuedate)
             oprot.write_field_end()
 
         if self.varieties is not None:

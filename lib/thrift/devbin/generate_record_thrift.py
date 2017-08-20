@@ -8,6 +8,7 @@ THRIFT_DIR_PATH = os.path.join(os.path.dirname(
 
 class RecordField(object):
     THRIFT_IMPORTS_BY_TYPE = {
+        'date.Date': 'include "thryft/native/date.thrift"',
         'date_time.DateTime': 'include "thryft/native/date_time.thrift"',
         'decimal.Decimal': 'include "thryft/native/decimal.thrift"',
     }
@@ -19,7 +20,7 @@ class RecordField(object):
         'C': 'string',
 
         # D	date	datetime.date or None
-        'D': 'date_time.DateTime',
+        'D': 'date.Date',
 
         # L	logical	True, False or None
         'L': 'bool',

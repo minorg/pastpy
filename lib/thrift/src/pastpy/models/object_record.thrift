@@ -1,5 +1,6 @@
 namespace * pastpy.models
 
+include "thryft/native/date.thrift"
 include "thryft/native/date_time.thrift"
 include "thryft/native/decimal.thrift"
 
@@ -41,7 +42,7 @@ struct ObjectRecord {
     optional string catby;
 
     // D,8
-    optional date_time.DateTime catdate;
+    optional date.Date catdate;
 
     // C,15
     optional string cattype;
@@ -62,7 +63,7 @@ struct ObjectRecord {
     optional string classes;
 
     // D,8
-    optional date_time.DateTime colldate;
+    optional date.Date colldate;
 
     // C,75
     optional string collection;
@@ -71,7 +72,7 @@ struct ObjectRecord {
     optional string collector;
 
     // D,8
-    optional date_time.DateTime conddate;
+    optional date.Date conddate;
 
     // C,25
     optional string condexam;
@@ -170,7 +171,7 @@ struct ObjectRecord {
     optional string ew;
 
     // D,8
-    optional date_time.DateTime excavadate;
+    optional date.Date excavadate;
 
     // M,4
     optional string excavateby;
@@ -194,7 +195,7 @@ struct ObjectRecord {
     optional string exhlabel4;
 
     // D,8
-    optional date_time.DateTime exhstart;
+    optional date.Date exhstart;
 
     // C,35
     optional string family;
@@ -260,7 +261,7 @@ struct ObjectRecord {
     optional string idby;
 
     // D,8
-    optional date_time.DateTime iddate;
+    optional date.Date iddate;
 
     // M,4
     optional string imagefile;
@@ -293,7 +294,7 @@ struct ObjectRecord {
     optional string inscrtype;
 
     // D,8
-    optional date_time.DateTime insdate;
+    optional date.Date insdate;
 
     // C,25
     optional string insphone;
@@ -311,7 +312,7 @@ struct ObjectRecord {
     optional string invnby;
 
     // D,8
-    optional date_time.DateTime invndate;
+    optional date.Date invndate;
 
     // C,20
     optional string kingdom;
@@ -344,7 +345,7 @@ struct ObjectRecord {
     optional string loancond;
 
     // D,8
-    optional date_time.DateTime loandue;
+    optional date.Date loandue;
 
     // C,36
     optional string loanid;
@@ -356,7 +357,7 @@ struct ObjectRecord {
     optional i32 loanno;
 
     // D,8
-    optional date_time.DateTime loanrenew;
+    optional date.Date loanrenew;
 
     // C,25
     optional string locfield1;
@@ -389,7 +390,7 @@ struct ObjectRecord {
     optional string maintcycle;
 
     // D,8
-    optional date_time.DateTime maintdate;
+    optional date.Date maintdate;
 
     // M,4
     optional string maintnote;
@@ -449,7 +450,7 @@ struct ObjectRecord {
     optional string otherno;
 
     // D,8
-    optional date_time.DateTime outdate;
+    optional date.Date outdate;
 
     // M,4
     optional string owned;
@@ -476,7 +477,7 @@ struct ObjectRecord {
     optional string preparator;
 
     // D,8
-    optional date_time.DateTime prepdate;
+    optional date.Date prepdate;
 
     // M,4
     optional string preserve;
@@ -509,7 +510,7 @@ struct ObjectRecord {
     optional string relnotes;
 
     // D,8
-    optional date_time.DateTime renewuntil;
+    optional date.Date renewuntil;
 
     // C,40
     optional string repatby;
@@ -518,7 +519,7 @@ struct ObjectRecord {
     optional string repatclaim;
 
     // D,8
-    optional date_time.DateTime repatdate;
+    optional date.Date repatdate;
 
     // M,4
     optional string repatdisp;
@@ -530,7 +531,7 @@ struct ObjectRecord {
     optional string repatnotes;
 
     // D,8
-    optional date_time.DateTime repatnotic;
+    optional date.Date repatnotic;
 
     // C,40
     optional string repattype;
@@ -596,7 +597,7 @@ struct ObjectRecord {
     optional string statusby;
 
     // D,8
-    optional date_time.DateTime statusdate;
+    optional date.Date statusdate;
 
     // M,4
     optional string sterms;
@@ -626,7 +627,7 @@ struct ObjectRecord {
     optional string tempby;
 
     // D,8
-    optional date_time.DateTime tempdate;
+    optional date.Date tempdate;
 
     // C,25
     optional string temperatur;
@@ -695,16 +696,16 @@ struct ObjectRecord {
     optional decimal.Decimal udf17;
 
     // D,8
-    optional date_time.DateTime udf18;
+    optional date.Date udf18;
 
     // D,8
-    optional date_time.DateTime udf19;
+    optional date.Date udf19;
 
     // M,4
     optional string udf2;
 
     // D,8
-    optional date_time.DateTime udf20;
+    optional date.Date udf20;
 
     // M,4
     optional string udf21;
@@ -746,7 +747,7 @@ struct ObjectRecord {
     optional string used;
 
     // D,8
-    optional date_time.DateTime valuedate;
+    optional date.Date valuedate;
 
     // M,4
     optional string varieties;
