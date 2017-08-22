@@ -102,8 +102,11 @@ class SiteGenerator(object):
             self.__logger.info("created output directory %s",
                                self.__output_dir_path)
 
+        objects = self.__read_objects()
+
         self.__render_index()
-        self.__render_objects()
+        self.__render_objects_master(objects=objects)
+        self.__render_objects_detail(objects=objects)
 
     def __new_context(self, page_title):
         return {'copyright_holder': self.__copyright_holder, 'page_title': page_title, 'site_name': self.__site_name}
@@ -123,29 +126,30 @@ class SiteGenerator(object):
         objects = []
         with ObjectDbfTable.open(self.__pp_objects_dbf_file_path) as table:
             for object_record in table.records():
-                img_srcs = []
-                if pp_images_dir_path is not None and object_record.objectid is not None:
-                    pp_image_i = 0
-                    while True:
-                        pp_image_file_name = object_record.objectid
-                        if pp_image_i > 0:
-                            pp_image_file_name = pp_image_file_name + \
-                                '-' + str(pp_image_i)
-                        pp_image_i = pp_image_i + 1
-                        pp_image_file_name = pp_image_file_name + '.jpg'
-                        pp_image_file_path = os.path.join(
-                            pp_images_dir_path, pp_image_file_name)
-                        if not os.path.isfile(pp_image_file_path):
-                            self.__logger.debug(
-                                "object %s image %s does not exist", object_record.objectid, pp_image_file_path)
-                            break
-                        out_image_file_path = os.path.join(
-                            out_images_dir_path, pp_image_file_name)
-                        shutil.copyfile(pp_image_file_path,
-                                        out_image_file_path)
-                        self.__logger.info(
-                            "copied %s to %s", pp_image_file_path, out_image_file_path)
-                        img_srcs.append('img/' + pp_image_file_name)
+                if object_record.imageno:
+                    img_srcs = []
+                    if pp_images_dir_path is not None and object_record.objectid is not None:
+                        pp_image_i = 0
+                        while pp_image_i < object_record.imageno:
+                            pp_image_file_name = object_record.objectid
+                            if pp_image_i > 0:
+                                pp_image_file_name = pp_image_file_name + \
+                                    '-' + str(pp_image_i)
+                            pp_image_i = pp_image_i + 1
+                            pp_image_file_name = pp_image_file_name + '.jpg'
+                            pp_image_file_path = os.path.join(
+                                pp_images_dir_path, pp_image_file_name)
+                            if not os.path.isfile(pp_image_file_path):
+                                self.__logger.debug(
+                                    "object %s image %s does not exist", object_record.objectid, pp_image_file_path)
+                                break
+                            out_image_file_path = os.path.join(
+                                out_images_dir_path, pp_image_file_name)
+                            shutil.copyfile(pp_image_file_path,
+                                            out_image_file_path)
+                            self.__logger.info(
+                                "copied %s to %s", pp_image_file_path, out_image_file_path)
+                            img_srcs.append('img/' + pp_image_file_name)
 
                 objects.append(SiteGenerator.ObjectRecordWrapper(
                     img_srcs=img_srcs,
@@ -154,11 +158,13 @@ class SiteGenerator(object):
                 break
         return objects
 
-    def __render_file(self, file_base_name, context):
+    def __render_file(self, file_base_name, context, out_file_relpath=None):
         rendered = self.__renderer.render_name(
             file_base_name + '.html', context)
+        if out_file_relpath is None:
+            out_file_relpath = file_base_name + '.html'
         out_file_path = os.path.join(
-            self.__output_dir_path, file_base_name + '.html')
+            self.__output_dir_path, out_file_relpath)
         with open(out_file_path, 'w+') as out_file:
             out_file.write(rendered)
             logging.info("wrote %s", out_file_path)
@@ -167,5 +173,19 @@ class SiteGenerator(object):
         context = self.__new_context(page_title='Home')
         self.__render_file('index', context)
 
-    def __render_objects(self):
-        objects = self.__read_objects()
+    def __render_objects_master(self, objects):
+        context = self.__new_context(page_title='Objects')
+        self.__render_file('objects_master', context)
+
+    def __render_objects_detail(self, objects):
+        out_dir_path = os.path.join(self.__output_dir_path, 'objects')
+        if not os.path.isdir(out_dir_path):
+            os.makedirs(out_dir_path)
+
+        for object in objects:
+            if not object.objectid:
+                continue
+            context = self.__new_context(
+                page_title='Object: ' + object.objectid)
+            self.__render_file('object_detail', context, out_file_relpath=os.path.join(
+                'objects', object.objectid + '.html'))
