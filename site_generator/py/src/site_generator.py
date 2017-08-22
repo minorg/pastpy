@@ -15,6 +15,14 @@ from pastpy.object_dbf_table import ObjectDbfTable
 
 
 class SiteGenerator(object):
+    COPYRIGHT_HOLDER_DEFAULT = 'Your Collection'
+    SITE_NAME_DEFAULT = 'Your Collection'
+
+    PP_INSTALL_DIR_PATH_EXAMPLE = "C:\\pp5"
+    PP_IMAGES_DIR_PATH_EXAMPLE = os.path.join(
+        PP_INSTALL_DIR_PATH_EXAMPLE, 'Images')
+    PP_REPORTS_DIR_PATH_EXAMPLE = "C:\\pp5Reports"
+
     TEMPLATE_DIR_PATH_DEFAULT = \
         os.path.abspath(os.path.join(
             os.path.dirname(__file__), '..', '..', 'mustache'))
@@ -35,13 +43,17 @@ class SiteGenerator(object):
     def __init__(
         self,
         output_dir_path,
+        copyright_holder=None,
         pp_images_dir_path=None,
         pp_install_dir_path=None,
         pp_objects_dbf_file_path=None,
+        site_name=None,
         template_dir_path=None
     ):
         self.__logger = logging.getLogger(SiteGenerator.__class__.__name__)
         self.__output_dir_path = output_dir_path
+
+        self.__copyright_holder = copyright_holder if copyright_holder is not None else self.COPYRIGHT_HOLDER_DEFAULT
 
         if pp_install_dir_path is not None:
             if not os.path.isdir(pp_install_dir_path):
@@ -70,6 +82,8 @@ class SiteGenerator(object):
                 "PastPerfect objects DBF file %s does not exist" % pp_objects_dbf_file_path)
         self.__pp_objects_dbf_file_path = pp_objects_dbf_file_path
 
+        self.__site_name = site_name if site_name is not None else self.SITE_NAME_DEFAULT
+
         if template_dir_path is None:
             template_dir_path = self.TEMPLATE_DIR_PATH_DEFAULT
         if not os.path.isdir(template_dir_path):
@@ -91,39 +105,8 @@ class SiteGenerator(object):
         self.__render_index()
         self.__render_objects()
 
-    @classmethod
-    def main(cls):
-        from argparse import ArgumentParser
-
-        pp_dir_path_example = 'C:\\pp5'
-        argument_parser = ArgumentParser()
-        argument_parser.add_argument('-i', '--pp', dest='pp_install_dir_path',
-                                     help='Path to the PastPerfect 5 installation directory e.g., %(pp_dir_path_example)s' % locals())
-        argument_parser.add_argument(
-            '-o', dest='output_dir_path', help="Path to the output directory")
-        argument_parser.add_argument('--images', dest='pp_images_dir_path',
-                                     help='Path to the PastPerfect 5 images directory e.g., %(pp_dir_path_example)s\\Images' % locals())
-        argument_parser.add_argument('--objects-dbf', dest='pp_objects_dbf_file_path',
-                                     help='Path to the PastPerfect 5 objects DBF file e.g., %(pp_dir_path_example)s\\Data\\OBJECTS.DBF for all objects or an objects export for a subset' % locals())
-        argument_parser.add_argument(
-            '-t', '--template', dest='template_dir_path', help="Path to the templates directory, defaults to " + cls.TEMPLATE_DIR_PATH_DEFAULT)
-        args = argument_parser.parse_args()
-
-        try:
-            inst = \
-                cls(
-                    output_dir_path=args.output_dir_path,
-                    pp_images_dir_path=args.pp_images_dir_path,
-                    pp_install_dir_path=args.pp_install_dir_path,
-                    pp_objects_dbf_file_path=args.pp_objects_dbf_file_path,
-                    template_dir_path=args.template_dir_path
-                )
-        except ValueError as e:
-            print("Error: " + str(e) + "\n\n", file=sys.stderr)
-            argument_parser.print_help()
-            sys.exit(1)
-
-        inst.generate()
+    def __new_context(self, page_title):
+        return {'copyright_holder': self.__copyright_holder, 'page_title': page_title, 'site_name': self.__site_name}
 
     def __read_objects(self):
         pp_images_dir_path = os.path.join(self.__pp_images_dir_path, '001')
@@ -172,7 +155,8 @@ class SiteGenerator(object):
         return objects
 
     def __render_file(self, file_base_name, context):
-        rendered = self.__renderer.render_name(file_base_name + '.html')
+        rendered = self.__renderer.render_name(
+            file_base_name + '.html', context)
         out_file_path = os.path.join(
             self.__output_dir_path, file_base_name + '.html')
         with open(out_file_path, 'w+') as out_file:
@@ -180,11 +164,8 @@ class SiteGenerator(object):
             logging.info("wrote %s", out_file_path)
 
     def __render_index(self):
-        self.__render_file('index', {})
+        context = self.__new_context(page_title='Home')
+        self.__render_file('index', context)
 
     def __render_objects(self):
         objects = self.__read_objects()
-
-
-if __name__ == '__main__':
-    SiteGenerator.main()
