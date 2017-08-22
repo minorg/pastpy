@@ -14,5 +14,8 @@
     "python.autoComplete.extraPaths": [
         "${workspaceRoot}/lib/py/src",
         "${workspaceRoot}/gui/py/src"
-    ]
+    ],
+    "files.associations": {
+        "*.html.mustache": "html"
+    }
 }
