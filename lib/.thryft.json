@@ -1,0 +1,19 @@
+{
+    "version": 1,
+
+    "tasks": {
+        "clean": [
+            "py/src/pastpy/models"
+        ],
+        "lint": [{
+            "root": "thrift/src"
+        }],
+        "generate": [{
+            "root": "thrift/src",
+            "glob": "**/*.thrift",
+            "gen": {
+                "py": "py/src"
+            }
+        }]
+    }
+}
