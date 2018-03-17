@@ -10,7 +10,7 @@
         }],
         "generate": [{
             "thrift_root_dir": "thrift/src",
-            "thrift_files": "**/*.thrift",
+            "thrift_files": "thrift/src/**/*.thrift",
             "gen": {
                 "py": "py/src"
             }
