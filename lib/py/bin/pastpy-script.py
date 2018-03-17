@@ -1,5 +1,13 @@
 assert __name__ == "__main__"
 from argparse import ArgumentParser
+import logging
+
+try:
+    import pastpy
+except ImportError:
+    import os.path
+    import sys
+    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
 from pastpy.impl.online.online_past_perfect_database import OnlinePastPerfectDatabase
 
@@ -8,13 +16,40 @@ def parse_args():
     argument_parser = ArgumentParser()
     argument_parser.add_argument("--dir-path", help="path for data files")
 
+    argument_parser.add_argument(
+        '--debug',
+        action='store_true',
+        help='turn on debugging'
+    )
+    argument_parser.add_argument(
+        '--logging-level',
+        help='set logging-level level (see Python logging module)'
+    )
+
     subparsers = argument_parser.add_subparsers()
 
-    online_subparser = subparsers.add_parser("download")
-    online_subparser.add_argument("name", help="name of PastPerfect Online site e.g., yoursite in http://yoursite.pastperfectonline.com")
-    online_subparser.set_defaults(command="download")
+    download_subparser = subparsers.add_parser("download")
+    download_subparser.add_argument("name", help="name of PastPerfect Online site e.g., yoursite in http://yoursite.pastperfectonline.com")
+    download_subparser.set_defaults(command="download")
 
-    return argument_parser.parse_args()
+    parsed_args = argument_parser.parse_args()
+
+    if not hasattr(parsed_args, "command"):
+        argument_parser.print_usage()
+        raise SystemExit(0)
+
+    if parsed_args.debug:
+        logging_level = logging.DEBUG
+    elif parsed_args.logging_level is not None:
+        logging_level = getattr(logging, parsed_args.logging_level.upper())
+    else:
+        logging_level = logging.INFO
+    logging.basicConfig(
+        format='%(asctime)s:%(module)s:%(lineno)s:%(name)s:%(levelname)s: %(message)s', #@IgnorePep8
+        level=logging_level
+    )
+
+    return parsed_args
 
 
 args = parse_args()

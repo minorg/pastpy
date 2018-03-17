@@ -11,12 +11,15 @@
         "lib/py",
         "site_generator/py"
     ],
-    "python.unitTest.nosetestsEnabled": true,
+    "python.unitTest.nosetestsEnabled": false,
     "python.autoComplete.extraPaths": [
         "${workspaceRoot}/lib/py/src",
         "${workspaceRoot}/gui/py/src"
     ],
     "files.associations": {
         "*.html.mustache": "html"
-    }
+    },
+    "python.unitTest.promptToConfigure": false,
+    "python.unitTest.pyTestEnabled": false,
+    "python.unitTest.unittestEnabled": false
 }
