@@ -1,6 +1,7 @@
 import os.path
 from pastpy.impl.online.downloader import Downloader
 from pastpy.impl.online.file_paths import FilePaths
+from pastpy.impl.online.object_detail_html_parser import ObjectDetailHtmlParser
 from pastpy.impl.online.objects_list_html_parser import ObjectsListHtmlParser
 
 
@@ -23,7 +24,9 @@ class OnlinePastPerfectDatabase(object):
         return objects_list_item.detail_href.split('/')[-1]
 
     def __parse_object_detail(self, guid):
-        pass
+        object_detail_file_path = self.__file_paths.object_detail_file_path(guid=guid)
+        with open(object_detail_file_path, 'rb') as object_detail_file:
+            return ObjectDetailHtmlParser().parse(str(object_detail_file.read()))
 
     def parse_object_details(self):
         objects_list = self.parse_objects_list()
