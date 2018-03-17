@@ -1,15 +1,14 @@
-assert __name__ == "__main__"
 from argparse import ArgumentParser
 import logging
 
 try:
-    import pastpy
+    __import__("pastpy")
 except ImportError:
     import os.path
     import sys
     sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
-from pastpy.impl.online.online_past_perfect_database import OnlinePastPerfectDatabase
+from pastpy.past_perfect_database import PastPerfectDatabase
 
 
 def parse_args():
@@ -29,7 +28,7 @@ def parse_args():
     subparsers = argument_parser.add_subparsers()
 
     download_subparser = subparsers.add_parser("download")
-    download_subparser.add_argument("name", help="name of PastPerfect Online site e.g., yoursite in http://yoursite.pastperfectonline.com")
+    download_subparser.add_argument("collection_name", help="collection name of PastPerfect Online site e.g., yourcollection in http://yourcollection.pastperfectonline.com")
     download_subparser.set_defaults(command="download")
 
     parsed_args = argument_parser.parse_args()
@@ -45,7 +44,7 @@ def parse_args():
     else:
         logging_level = logging.INFO
     logging.basicConfig(
-        format='%(asctime)s:%(module)s:%(lineno)s:%(name)s:%(levelname)s: %(message)s', #@IgnorePep8
+        format='%(asctime)s:%(module)s:%(lineno)s:%(name)s:%(levelname)s: %(message)s',
         level=logging_level
     )
 
@@ -56,4 +55,4 @@ args = parse_args()
 
 
 if args.command == "download":
-    OnlinePastPerfectDatabase(name=args.name, dir_path=args.dir_path).download()
+    PastPerfectDatabase.create_from_online(collection_name=args.collection_name, download_dir_path=args.dir_path).download()
