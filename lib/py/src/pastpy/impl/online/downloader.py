@@ -10,6 +10,9 @@ class Downloader(object):
         self.__file_paths = file_paths
         self.__host = host
 
+    def download_object_detail(self, *, guid):
+        pass
+
     def download_objects_list(self):
         objects_list_dir_path = self.__file_paths.objects_list_dir_path
         if not os.path.isdir(objects_list_dir_path):
