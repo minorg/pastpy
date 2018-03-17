@@ -11,14 +11,20 @@ class Downloader(object):
         self.__host = host
 
     def download_object_detail(self, *, guid):
-        pass
+        object_detail_file_path = self.__file_paths.object_detail_file_path(guid)
+        if os.path.isfile(object_detail_file_path):
+            logging.debug("object detail file %s already exists, skipping", object_detail_file_path)
+            return
+
+        object_details_dir_path = self.__file_paths.object_details_dir_path
+        self.__makedirs(object_details_dir_path)
+
+        object_detail_html = self.__download("/webobject/" + guid)
+        self.__write_file(object_detail_html, object_detail_file_path)
 
     def download_objects_list(self):
         objects_list_dir_path = self.__file_paths.objects_list_dir_path
-        if not os.path.isdir(objects_list_dir_path):
-            os.makedirs(objects_list_dir_path)
-            logging.info("created directory %s", objects_list_dir_path)
-
+        self.__makedirs(objects_list_dir_path)
         page_i = 1
         while self.__download_objects_list_page(page_i):
             page_i = page_i + 1
@@ -26,23 +32,23 @@ class Downloader(object):
     def __download_objects_list_page(self, page_i):
         page_file_path = self.__file_paths.objects_list_page_file_path(page_i)
         if os.path.isfile(page_file_path):
-            logging.debug("page file %s already exists, skipping", page_file_path)
-            page_i = page_i + 1
+            logging.debug("objects list page file %s already exists, skipping", page_file_path)
             return True
-        page_url_path = "/webobject?page=" + str(page_i)
-        logging.debug("retrieving %s", page_url_path)
-        self.__http_client_connection.request("GET", page_url_path)
-        response = self.__http_client_connection.getresponse()
-        page_contents = response.read()
-        logging.debug("retrieved %s", page_url_path)
+        page_contents = self.__download("/webobject?page=" + str(page_i))
         if "No results found" in str(page_contents):
-            logging.debug("page %d was the last, stopping", page_i)
+            logging.debug("objects list page %d was the last, stopping", page_i)
             return False
-        with open(page_file_path, "w+b") as page_file:
-            page_file.write(page_contents)
-            logging.info("wrote %s", page_file_path)
-        sleep(1)
+        self.__write_file(page_contents, page_file_path)
         return True
+
+    def __download(self, url_path):
+        logging.debug("retrieving %s", url_path)
+        self.__http_client_connection.request("GET", url_path)
+        response = self.__http_client_connection.getresponse()
+        html = response.read()
+        logging.debug("retrieved %s", url_path)
+        sleep(1)
+        return html
 
     def __enter__(self):
         if not os.path.isdir(self.__file_paths.root_dir_path):
@@ -54,3 +60,13 @@ class Downloader(object):
 
     def __exit__(self, *args, **kwds):
         self.__http_client_connection.close()
+
+    def __makedirs(self, dir_path):
+        if not os.path.isdir(dir_path):
+            os.makedirs(dir_path)
+            logging.info("created directory %s", dir_path)
+
+    def __write_file(self, file_contents, file_path):
+        with open(file_path, "w+b") as file_:
+            file_.write(file_contents)
+            logging.info("wrote %s", file_path)

@@ -6,6 +6,13 @@ class FilePaths(object):
         assert root_dir_path is not None
         self.__root_dir_path = root_dir_path
 
+    def object_detail_file_path(self, guid):
+        return os.path.join(self.object_details_dir_path, guid + ".html")
+
+    @property
+    def object_details_dir_path(self):
+        return os.path.join(self.__root_dir_path, "objects", "detail")
+
     @property
     def objects_list_dir_path(self):
         return os.path.join(self.__root_dir_path, "objects", "list")

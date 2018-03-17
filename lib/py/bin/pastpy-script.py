@@ -31,6 +31,10 @@ def parse_args():
     download_subparser.add_argument("collection_name", help="collection name of PastPerfect Online site e.g., yourcollection in http://yourcollection.pastperfectonline.com")
     download_subparser.set_defaults(command="download")
 
+    download_subparser = subparsers.add_parser("parse-html")
+    download_subparser.add_argument("collection_name", help="collection name of PastPerfect Online site e.g., yourcollection in http://yourcollection.pastperfectonline.com")
+    download_subparser.set_defaults(command="parse-html")
+
     parsed_args = argument_parser.parse_args()
 
     if not hasattr(parsed_args, "command"):
@@ -56,3 +60,5 @@ args = parse_args()
 
 if args.command == "download":
     PastPerfectDatabase.create_from_online(collection_name=args.collection_name, download_dir_path=args.dir_path).download()
+elif args.command == "parse-html":
+    PastPerfectDatabase.create_from_online(collection_name=args.collection_name, download_dir_path=args.dir_path).parse_object_details()

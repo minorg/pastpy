@@ -15,11 +15,23 @@ class OnlinePastPerfectDatabase(object):
         with Downloader(file_paths=self.__file_paths, host=self.__collection_name + ".pastperfectonline.com") as downloader:
             downloader.download_objects_list()
             objects_list = self.parse_objects_list()
-            for item in objects_list:
-                print(item)
-            # for objects_list_item in objects_list:
-            #     guid = objects_list_item.detail_href.split('/')[-1]
-            #     downloader.download_object_detail(guid=guid)
+            for objects_list_item in objects_list:
+                guid = self.__object_guid(objects_list_item)
+                downloader.download_object_detail(guid=guid)
+
+    def __object_guid(self, objects_list_item):
+        return objects_list_item.detail_href.split('/')[-1]
+
+    def __parse_object_detail(self, guid):
+        pass
+
+    def parse_object_details(self):
+        objects_list = self.parse_objects_list()
+        result = []
+        for objects_list_item in objects_list:
+            guid = self.__object_guid(objects_list_item)
+            result.append(self.__parse_object_detail(guid=guid))
+        return tuple(result)
 
     def parse_objects_list(self):
         objects_list_page_i = 1
