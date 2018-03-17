@@ -1,10 +1,10 @@
-namespace * pastpy.models
+namespace * pastpy.impl.dbf
 
 include "thryft/native/big_decimal.thrift"
 include "thryft/native/date.thrift"
 include "thryft/native/date_time.thrift"
 
-struct ObjectRecord {
+struct ObjectsDbfRecord {
     // C,15
     optional string accessno;
 
