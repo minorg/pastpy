@@ -1,8 +1,8 @@
 namespace * pastpy.models
 
+include "thryft/native/big_decimal.thrift"
 include "thryft/native/date.thrift"
 include "thryft/native/date_time.thrift"
-include "thryft/native/decimal.thrift"
 
 struct ObjectRecord {
     // C,15
@@ -12,7 +12,7 @@ struct ObjectRecord {
     optional string accessory;
 
     // N,12,2
-    optional decimal.Decimal acqvalue;
+    optional big_decimal.BigDecimal acqvalue;
 
     // C,10
     optional string age;
@@ -51,13 +51,13 @@ struct ObjectRecord {
     optional string chemcomp;
 
     // N,16,10
-    optional decimal.Decimal circum;
+    optional big_decimal.BigDecimal circum;
 
     // N,16,10
-    optional decimal.Decimal circumft;
+    optional big_decimal.BigDecimal circumft;
 
     // N,16,10
-    optional decimal.Decimal circumin;
+    optional big_decimal.BigDecimal circumin;
 
     // M,4
     optional string classes;
@@ -105,10 +105,10 @@ struct ObjectRecord {
     optional string culture;
 
     // N,12,2
-    optional decimal.Decimal curvalmax;
+    optional big_decimal.BigDecimal curvalmax;
 
     // N,12,2
-    optional decimal.Decimal curvalue;
+    optional big_decimal.BigDecimal curvalue;
 
     // C,15
     optional string dataset;
@@ -123,25 +123,25 @@ struct ObjectRecord {
     optional string datum;
 
     // N,16,10
-    optional decimal.Decimal depth;
+    optional big_decimal.BigDecimal depth;
 
     // N,16,10
-    optional decimal.Decimal depthft;
+    optional big_decimal.BigDecimal depthft;
 
     // N,16,10
-    optional decimal.Decimal depthin;
+    optional big_decimal.BigDecimal depthin;
 
     // M,4
     optional string descrip;
 
     // N,16,10
-    optional decimal.Decimal diameter;
+    optional big_decimal.BigDecimal diameter;
 
     // N,16,10
-    optional decimal.Decimal diameterft;
+    optional big_decimal.BigDecimal diameterft;
 
     // N,16,10
-    optional decimal.Decimal diameterin;
+    optional big_decimal.BigDecimal diameterin;
 
     // M,4
     optional string dimnotes;
@@ -246,13 +246,13 @@ struct ObjectRecord {
     optional string hardness;
 
     // N,16,10
-    optional decimal.Decimal height;
+    optional big_decimal.BigDecimal height;
 
     // N,16,10
-    optional decimal.Decimal heightft;
+    optional big_decimal.BigDecimal heightft;
 
     // N,16,10
-    optional decimal.Decimal heightin;
+    optional big_decimal.BigDecimal heightin;
 
     // C,60
     optional string homeloc;
@@ -306,7 +306,7 @@ struct ObjectRecord {
     optional string insrep;
 
     // N,10,2
-    optional decimal.Decimal insvalue;
+    optional big_decimal.BigDecimal insvalue;
 
     // C,25
     optional string invnby;
@@ -318,7 +318,7 @@ struct ObjectRecord {
     optional string kingdom;
 
     // N,9,6
-    optional decimal.Decimal latdeg;
+    optional big_decimal.BigDecimal latdeg;
 
     // N,4
     optional i32 latedate;
@@ -327,13 +327,13 @@ struct ObjectRecord {
     optional string legal;
 
     // N,16,10
-    optional decimal.Decimal length;
+    optional big_decimal.BigDecimal length;
 
     // N,16,10
-    optional decimal.Decimal lengthft;
+    optional big_decimal.BigDecimal lengthft;
 
     // N,16,10
-    optional decimal.Decimal lengthin;
+    optional big_decimal.BigDecimal lengthin;
 
     // M,4
     optional string level;
@@ -378,7 +378,7 @@ struct ObjectRecord {
     optional string locfield6;
 
     // N,10,6
-    optional decimal.Decimal longdeg;
+    optional big_decimal.BigDecimal longdeg;
 
     // C,15
     optional string luster;
@@ -684,16 +684,16 @@ struct ObjectRecord {
     optional i32 udf13;
 
     // N,12,2
-    optional decimal.Decimal udf14;
+    optional big_decimal.BigDecimal udf14;
 
     // N,12,2
-    optional decimal.Decimal udf15;
+    optional big_decimal.BigDecimal udf15;
 
     // N,12,3
-    optional decimal.Decimal udf16;
+    optional big_decimal.BigDecimal udf16;
 
     // N,12,3
-    optional decimal.Decimal udf17;
+    optional big_decimal.BigDecimal udf17;
 
     // D,8
     optional date.Date udf18;
@@ -771,31 +771,31 @@ struct ObjectRecord {
     optional bool webinclude;
 
     // N,16,10
-    optional decimal.Decimal weight;
+    optional big_decimal.BigDecimal weight;
 
     // N,16,10
-    optional decimal.Decimal weightin;
+    optional big_decimal.BigDecimal weightin;
 
     // N,16,10
-    optional decimal.Decimal weightlb;
+    optional big_decimal.BigDecimal weightlb;
 
     // N,16,10
-    optional decimal.Decimal width;
+    optional big_decimal.BigDecimal width;
 
     // N,16,10
-    optional decimal.Decimal widthft;
+    optional big_decimal.BigDecimal widthft;
 
     // N,16,10
-    optional decimal.Decimal widthin;
+    optional big_decimal.BigDecimal widthin;
 
     // N,7,2
-    optional decimal.Decimal xcord;
+    optional big_decimal.BigDecimal xcord;
 
     // N,7,2
-    optional decimal.Decimal ycord;
+    optional big_decimal.BigDecimal ycord;
 
     // N,7,2
-    optional decimal.Decimal zcord;
+    optional big_decimal.BigDecimal zcord;
 
     // C,69
     optional string zsorter;

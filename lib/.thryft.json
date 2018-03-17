@@ -6,11 +6,11 @@
             "py/src/pastpy/models"
         ],
         "lint": [{
-            "root": "thrift/src"
+            "thrift_root_dir": "thrift/src"
         }],
         "generate": [{
-            "root": "thrift/src",
-            "glob": "**/*.thrift",
+            "thrift_root_dir": "thrift/src",
+            "thrift_files": "**/*.thrift",
             "gen": {
                 "py": "py/src"
             }
