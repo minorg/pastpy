@@ -61,4 +61,6 @@ args = parse_args()
 if args.command == "download":
     PastPerfectDatabase.create_from_online(collection_name=args.collection_name, download_dir_path=args.dir_path).download()
 elif args.command == "parse-html":
-    PastPerfectDatabase.create_from_online(collection_name=args.collection_name, download_dir_path=args.dir_path).parse_object_details()
+    for object_detail in PastPerfectDatabase.create_from_online(collection_name=args.collection_name, download_dir_path=args.dir_path).parse_object_details():
+        print(object_detail)
+        print()

@@ -1,30 +1,21 @@
 from bs4 import BeautifulSoup
-import logging
+
+from pastpy.impl.online.image_html_parser import ImageHtmlParser
+from pastpy.impl.online.object_detail import ObjectDetail
 
 
 class ObjectDetailHtmlParser(object):
     def parse(self, html):
+        image_parser = ImageHtmlParser()
         soup = BeautifulSoup(html, "html.parser")
+        result_builder = ObjectDetail.Builder()
 
+        related_photos = soup.find(attrs={"class": "relatedPhotos"})
+        if related_photos:
+            images = []
+            for td in related_photos.find_all("td"):
+                images.append(image_parser.parse(td.div))
+            if images:
+                result_builder.related_photos = tuple(images)
 
-        raise NotImplementedError
-        # result =
-        # results = []
-        # for indvResult in soup.find_all(attrs={"class": "indvResult"}):
-        #     details = indvResult.find(attrs={"class": "indvResultDetails"})
-        #     if not details:
-        #         logging.warn("object has no details: %s", indvResult)
-        #         continue
-
-        #     result_builder = ObjectsListItem.Builder()
-        #     image = indvResult.find(attrs={"class": "indvImage"})
-        #     if image:
-        #         result_builder.thumbnail_src = image.a.img.attrs["src"]
-        #     # else:
-        #     #     logging.debug("object has no image: %s", indvResult)
-
-        #     result_builder.detail_href = details.h1.a.attrs["href"]
-        #     result_builder.title = str(details.h1.a.contents[0].string).strip()
-        #     result_builder.record_type = str(details.h4.contents[1].string).strip()
-        #     results.append(result_builder.build())
-        # return tuple(results)
+        return result_builder.build()

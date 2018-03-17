@@ -1,3 +1,4 @@
+import logging
 import os.path
 from pastpy.impl.online.downloader import Downloader
 from pastpy.impl.online.file_paths import FilePaths
@@ -33,7 +34,10 @@ class OnlinePastPerfectDatabase(object):
         result = []
         for objects_list_item in objects_list:
             guid = self.__object_guid(objects_list_item)
-            result.append(self.__parse_object_detail(guid=guid))
+            try:
+                result.append(self.__parse_object_detail(guid=guid))
+            except FileNotFoundError:
+                logging.debug("object detail for " + guid + " not found")
         return tuple(result)
 
     def parse_objects_list(self):
