@@ -10,14 +10,14 @@ class OnlinePastPerfectDatabase(object):
             dir_path = os.path.abspath(self.__name)
         self.__dir_path = dir_path
 
-    def download(self, dir_path=None):
-        if not os.path.isdir(dir_path):
-            os.makedirs(dir_path)
+    def download(self):
+        if not os.path.isdir(self.__dir_path):
+            os.makedirs(self.__dir_path)
         http_client_connection = http.client.HTTPConnection(self.__name + ".pastperfectonline.com")
         try:
             webobject_url_path = "/webobject"
             page_i = 1
-            pages_dir_path = os.path.join(dir_path, "objects", "list")
+            pages_dir_path = os.path.join(self.__dir_path, "objects", "list")
             if not os.path.isdir(pages_dir_path):
                 os.makedirs(pages_dir_path)
             while True:
@@ -27,19 +27,9 @@ class OnlinePastPerfectDatabase(object):
                 page_contents = response.read()
                 if "No results found" in page_contents:
                     break
-                page_file_path = os.path.join(pages_dir_path, "page-" + str(page_i))
+                page_file_path = os.path.join(pages_dir_path, str(page_i))
                 with open(page_file_path, "w+b") as page_file:
                     page_file.write(page_contents.encode())
                 sleep(1)
         finally:
             http_client_connection.close()
-
-
-if __name__ == "__main__":
-    from argparse import ArgumentParser
-    argument_parser = ArgumentParser()
-    argument_parser.add_argument("name", help="name of PastPerfect Online site e.g., yoursite in http://yoursite.pastperfectonline.com")
-    argument_parser.add_argument('--download-dir-path', help="path for downloaded files, defaults to ./name")
-    args = argument_parser.parse_args()
-
-    PastPerfectOnline(name=args.name).download(dir_path=args.download_dir_path)
