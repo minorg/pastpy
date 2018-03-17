@@ -42,10 +42,10 @@ class ObjectsListItem(object):
             '''
 
             builder = cls()
-            builder.detail_href = detail_href
-            builder.record_type = record_type
-            builder.title = title
-            builder.thumbnail_url = thumbnail_url
+            builder.detail_href = template.detail_href
+            builder.record_type = template.record_type
+            builder.title = template.title
+            builder.thumbnail_url = template.thumbnail_url
             return builder
 
         @property

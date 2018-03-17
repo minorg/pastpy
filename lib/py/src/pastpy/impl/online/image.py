@@ -44,13 +44,13 @@ class Image(object):
             '''
 
             builder = cls()
-            builder.full_size_url = full_size_url
-            builder.mediaid = mediaid
-            builder.objectid = objectid
-            builder.src = src
-            builder.thumbnail_url = thumbnail_url
-            builder.title = title
-            builder.type = type
+            builder.full_size_url = template.full_size_url
+            builder.mediaid = template.mediaid
+            builder.objectid = template.objectid
+            builder.src = template.src
+            builder.thumbnail_url = template.thumbnail_url
+            builder.title = template.title
+            builder.type = template.type
             return builder
 
         @property

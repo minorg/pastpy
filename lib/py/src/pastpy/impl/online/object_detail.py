@@ -44,10 +44,10 @@ class ObjectDetail(object):
             '''
 
             builder = cls()
-            builder.guid = guid
-            builder.id = id
-            builder.attributes = attributes
-            builder.related_photos = related_photos
+            builder.guid = template.guid
+            builder.id = template.id
+            builder.attributes = template.attributes
+            builder.related_photos = template.related_photos
             return builder
 
         @property
