@@ -38,6 +38,7 @@ class Downloader(object):
         with open(page_file_path, "w+b") as page_file:
             page_file.write(page_contents)
             logging.info("wrote %s", page_file_path)
+        sleep(1)
         return True
 
     def __enter__(self):
