@@ -3,13 +3,14 @@ from time import sleep
 import http.client
 
 
-class PastPerfectOnline(object):
-    def __init__(self, name):
+class OnlinePastPerfectDatabase(object):
+    def __init__(self, name, dir_path=None):
         self.__name = name
-
-    def download(self, dir_path=None):
         if dir_path is None:
             dir_path = os.path.abspath(self.__name)
+        self.__dir_path = dir_path
+
+    def download(self, dir_path=None):
         if not os.path.isdir(dir_path):
             os.makedirs(dir_path)
         http_client_connection = http.client.HTTPConnection(self.__name + ".pastperfectonline.com")

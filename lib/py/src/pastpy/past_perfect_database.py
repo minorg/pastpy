@@ -1,0 +1,2 @@
+class PastPerfectDatabase(object):
+    pass
