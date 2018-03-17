@@ -1,7 +1,7 @@
-from __future__ import absolute_import; import decimal
 from collections import OrderedDict
 import builtins
 import datetime
+import decimal
 
 
 class ObjectsDbfRecord(object):
