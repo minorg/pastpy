@@ -1,9 +1,9 @@
-namespace * pastpy.impl.online
+namespace * pastpy.gen.online
 
-include "image_type.thrift"
+include "online_image_type.thrift"
 include "thryft/native/url.thrift"
 
-struct Image {
+struct OnlineImage {
     url.Url full_size_url;
 
     // @validation {"blank": false, "minLength": 1}
@@ -20,5 +20,5 @@ struct Image {
     // @validation {"blank": false, "minLength": 1}
     string title;
 
-    image_type.ImageType type;
+    online_image_type.OnlineImageType type;
 }

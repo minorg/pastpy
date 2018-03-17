@@ -3,10 +3,7 @@
 
     "tasks": {
         "clean": [
-            "py/src/pastpy/impl/dbf/objects_dbf_record.py",
-            "py/src/pastpy/impl/online/image.py",
-            "py/src/pastpy/impl/online/image_type.py",
-            "py/src/pastpy/impl/online/objects_list_item.py"
+            "py/src/pastpy/gen"
         ],
         "lint": [{
             "thrift_root_dir": "thrift/src"

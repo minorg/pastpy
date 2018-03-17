@@ -1,8 +1,8 @@
-namespace * pastpy.impl.online
+namespace * pastpy.gen.online
 
 include "thryft/native/url.thrift"
 
-struct ObjectsListItem {
+struct OnlineObjectsListItem {
     // @validation {"blank": false, "minLength": 1}
     string detail_href;
     // @validation {"blank": false, "minLength": 1}
