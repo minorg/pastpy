@@ -9,5 +9,5 @@ struct ObjectsListItem {
     string record_type;
     // @validation {"blank": false, "minLength": 1}
     string title;
-    optional url.Url thumbnail_src;
+    optional url.Url thumbnail_url;
 }

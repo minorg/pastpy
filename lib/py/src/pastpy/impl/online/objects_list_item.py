@@ -9,22 +9,22 @@ class ObjectsListItem(object):
             detail_href=None,
             record_type=None,
             title=None,
-            thumbnail_src=None,
+            thumbnail_url=None,
         ):
             '''
             :type detail_href: str
             :type record_type: str
             :type title: str
-            :type thumbnail_src: str or None
+            :type thumbnail_url: str or None
             '''
 
             self.__detail_href = detail_href
             self.__record_type = record_type
             self.__title = title
-            self.__thumbnail_src = thumbnail_src
+            self.__thumbnail_url = thumbnail_url
 
         def build(self):
-            return ObjectsListItem(detail_href=self.__detail_href, record_type=self.__record_type, title=self.__title, thumbnail_src=self.__thumbnail_src)
+            return ObjectsListItem(detail_href=self.__detail_href, record_type=self.__record_type, title=self.__title, thumbnail_url=self.__thumbnail_url)
 
         @property
         def detail_href(self):
@@ -45,7 +45,7 @@ class ObjectsListItem(object):
             builder.detail_href = detail_href
             builder.record_type = record_type
             builder.title = title
-            builder.thumbnail_src = thumbnail_src
+            builder.thumbnail_url = thumbnail_url
             return builder
 
         @property
@@ -88,15 +88,15 @@ class ObjectsListItem(object):
             self.__record_type = record_type
             return self
 
-        def set_thumbnail_src(self, thumbnail_src):
+        def set_thumbnail_url(self, thumbnail_url):
             '''
-            :type thumbnail_src: str or None
+            :type thumbnail_url: str or None
             '''
 
-            if thumbnail_src is not None:
-                if not isinstance(thumbnail_src, str):
-                    raise TypeError("expected thumbnail_src to be a str but it is a %s" % builtins.type(thumbnail_src))
-            self.__thumbnail_src = thumbnail_src
+            if thumbnail_url is not None:
+                if not isinstance(thumbnail_url, str):
+                    raise TypeError("expected thumbnail_url to be a str but it is a %s" % builtins.type(thumbnail_url))
+            self.__thumbnail_url = thumbnail_url
             return self
 
         def set_title(self, title):
@@ -116,12 +116,12 @@ class ObjectsListItem(object):
             return self
 
         @property
-        def thumbnail_src(self):
+        def thumbnail_url(self):
             '''
             :rtype: str
             '''
 
-            return self.__thumbnail_src
+            return self.__thumbnail_url
 
         @property
         def title(self):
@@ -136,14 +136,14 @@ class ObjectsListItem(object):
             :type detail_href: str
             :type record_type: str
             :type title: str
-            :type thumbnail_src: str or None
+            :type thumbnail_url: str or None
             '''
 
             if isinstance(objects_list_item, ObjectsListItem):
                 self.set_detail_href(objects_list_item.detail_href)
                 self.set_record_type(objects_list_item.record_type)
                 self.set_title(objects_list_item.title)
-                self.set_thumbnail_src(objects_list_item.thumbnail_src)
+                self.set_thumbnail_url(objects_list_item.thumbnail_url)
             elif isinstance(objects_list_item, dict):
                 for key, value in objects_list_item.items():
                     getattr(self, 'set_' + key)(value)
@@ -167,13 +167,13 @@ class ObjectsListItem(object):
 
             self.set_record_type(record_type)
 
-        @thumbnail_src.setter
-        def thumbnail_src(self, thumbnail_src):
+        @thumbnail_url.setter
+        def thumbnail_url(self, thumbnail_url):
             '''
-            :type thumbnail_src: str or None
+            :type thumbnail_url: str or None
             '''
 
-            self.set_thumbnail_src(thumbnail_src)
+            self.set_thumbnail_url(thumbnail_url)
 
         @title.setter
         def title(self, title):
@@ -187,7 +187,7 @@ class ObjectsListItem(object):
         DETAIL_HREF = None
         RECORD_TYPE = None
         TITLE = None
-        THUMBNAIL_SRC = None
+        THUMBNAIL_URL = None
 
         def __init__(self, name, type_, validation):
             object.__init__(self)
@@ -215,25 +215,25 @@ class ObjectsListItem(object):
 
         @classmethod
         def values(cls):
-            return (cls.DETAIL_HREF, cls.RECORD_TYPE, cls.TITLE, cls.THUMBNAIL_SRC,)
+            return (cls.DETAIL_HREF, cls.RECORD_TYPE, cls.TITLE, cls.THUMBNAIL_URL,)
 
     FieldMetadata.DETAIL_HREF = FieldMetadata('detail_href', str, OrderedDict([('blank', False), ('minLength', 1)]))
     FieldMetadata.RECORD_TYPE = FieldMetadata('record_type', str, OrderedDict([('blank', False), ('minLength', 1)]))
     FieldMetadata.TITLE = FieldMetadata('title', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.THUMBNAIL_SRC = FieldMetadata('thumbnail_src', str, None)
+    FieldMetadata.THUMBNAIL_URL = FieldMetadata('thumbnail_url', str, None)
 
     def __init__(
         self,
         detail_href,
         record_type,
         title,
-        thumbnail_src=None,
+        thumbnail_url=None,
     ):
         '''
         :type detail_href: str
         :type record_type: str
         :type title: str
-        :type thumbnail_src: str or None
+        :type thumbnail_url: str or None
         '''
 
         if detail_href is None:
@@ -266,10 +266,10 @@ class ObjectsListItem(object):
             raise ValueError("expected len(title) to be >= 1, was %d" % len(title))
         self.__title = title
 
-        if thumbnail_src is not None:
-            if not isinstance(thumbnail_src, str):
-                raise TypeError("expected thumbnail_src to be a str but it is a %s" % builtins.type(thumbnail_src))
-        self.__thumbnail_src = thumbnail_src
+        if thumbnail_url is not None:
+            if not isinstance(thumbnail_url, str):
+                raise TypeError("expected thumbnail_url to be a str but it is a %s" % builtins.type(thumbnail_url))
+        self.__thumbnail_url = thumbnail_url
 
     def __eq__(self, other):
         if self.detail_href != other.detail_href:
@@ -278,15 +278,15 @@ class ObjectsListItem(object):
             return False
         if self.title != other.title:
             return False
-        if self.thumbnail_src != other.thumbnail_src:
+        if self.thumbnail_url != other.thumbnail_url:
             return False
         return True
 
     def __hash__(self):
-        return hash((self.detail_href, self.record_type, self.title, self.thumbnail_src,))
+        return hash((self.detail_href, self.record_type, self.title, self.thumbnail_url,))
 
     def __iter__(self):
-        return iter((self.detail_href, self.record_type, self.title, self.thumbnail_src,))
+        return iter((self.detail_href, self.record_type, self.title, self.thumbnail_url,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -296,8 +296,8 @@ class ObjectsListItem(object):
         field_reprs.append('detail_href=' + "'" + self.detail_href.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('record_type=' + "'" + self.record_type.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').decode('ascii') + "'")
-        if self.thumbnail_src is not None:
-            field_reprs.append('thumbnail_src=' + "'" + self.thumbnail_src.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.thumbnail_url is not None:
+            field_reprs.append('thumbnail_url=' + "'" + self.thumbnail_url.encode('ascii', 'replace').decode('ascii') + "'")
         return 'ObjectsListItem(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
@@ -305,8 +305,8 @@ class ObjectsListItem(object):
         field_reprs.append('detail_href=' + "'" + self.detail_href.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('record_type=' + "'" + self.record_type.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').decode('ascii') + "'")
-        if self.thumbnail_src is not None:
-            field_reprs.append('thumbnail_src=' + "'" + self.thumbnail_src.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.thumbnail_url is not None:
+            field_reprs.append('thumbnail_url=' + "'" + self.thumbnail_url.encode('ascii', 'replace').decode('ascii') + "'")
         return 'ObjectsListItem(' + ', '.join(field_reprs) + ')'
 
     @classmethod
@@ -343,9 +343,9 @@ class ObjectsListItem(object):
                 init_kwds['record_type'] = iprot.read_string()
             elif ifield_name == 'title':
                 init_kwds['title'] = iprot.read_string()
-            elif ifield_name == 'thumbnail_src':
+            elif ifield_name == 'thumbnail_url':
                 try:
-                    init_kwds['thumbnail_src'] = iprot.read_string()
+                    init_kwds['thumbnail_url'] = iprot.read_string()
                 except (TypeError, ValueError,):
                     pass
             iprot.read_field_end()
@@ -365,12 +365,12 @@ class ObjectsListItem(object):
         return cls.Builder.from_template(template=self)
 
     @property
-    def thumbnail_src(self):
+    def thumbnail_url(self):
         '''
         :rtype: str
         '''
 
-        return self.__thumbnail_src
+        return self.__thumbnail_url
 
     @property
     def title(self):
@@ -402,9 +402,9 @@ class ObjectsListItem(object):
         oprot.write_string(self.title)
         oprot.write_field_end()
 
-        if self.thumbnail_src is not None:
-            oprot.write_field_begin(name='thumbnail_src', type=11, id=None)
-            oprot.write_string(self.thumbnail_src)
+        if self.thumbnail_url is not None:
+            oprot.write_field_begin(name='thumbnail_url', type=11, id=None)
+            oprot.write_string(self.thumbnail_url)
             oprot.write_field_end()
 
         oprot.write_field_stop()

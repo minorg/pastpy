@@ -5,6 +5,8 @@ import logging
 class ObjectDetailHtmlParser(object):
     def parse(self, html):
         soup = BeautifulSoup(html, "html.parser")
+
+
         raise NotImplementedError
         # result =
         # results = []
