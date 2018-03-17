@@ -1,4 +1,4 @@
-from pastpy._dbf_table import _DbfTable
+from pastpy.impl.dbf._dbf_table import _DbfTable
 from pastpy.impl.dbf.objects_dbf_record import ObjectsDbfRecord
 
 

@@ -122,4 +122,4 @@ struct %(struct_name)s {
 assert __name__ == '__main__'
 
 generate_record_thrift(("C:\\pp5eval\\Data\\OBJECTS.DBF", "C:\\pp5Reports\\PPSdata.dbf",),
-                       'object_record.thrift')
+                       'objects_dbf_record.thrift')
