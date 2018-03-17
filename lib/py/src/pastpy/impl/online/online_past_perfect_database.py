@@ -27,7 +27,7 @@ class OnlinePastPerfectDatabase(object):
     def __parse_object_detail(self, guid):
         object_detail_file_path = self.__file_paths.object_detail_file_path(guid=guid)
         with open(object_detail_file_path, 'rb') as object_detail_file:
-            return ObjectDetailHtmlParser().parse(str(object_detail_file.read()))
+            return ObjectDetailHtmlParser().parse(guid=guid, html=str(object_detail_file.read()))
 
     def parse_object_details(self):
         objects_list = self.parse_objects_list()

@@ -1,2 +1,8 @@
 class Object(object):
-    pass
+    @property
+    def description(self):
+        raise NotImplementedError
+
+    @property
+    def id(self):
+        raise NotImplementedError
