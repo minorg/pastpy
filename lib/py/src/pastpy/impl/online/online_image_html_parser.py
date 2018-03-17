@@ -1,17 +1,17 @@
-from pastpy.impl.online.image import Image
-from pastpy.impl.online.image_type import ImageType
+from pastpy.gen.online.online_image import OnlineImage
+from pastpy.gen.online.online_image_type import OnlineImageType
 
 
-class ImageHtmlParser(object):
+class OnlineImageHtmlParser(object):
     def parse(self, image_div_element):
-        result_builder = Image.Builder()
+        result_builder = OnlineImage.Builder()
 
         for class_ in image_div_element["class"]:
             if class_ == "indvImage":
-                result_builder.type = ImageType.INDIVIDUAL
+                result_builder.type = OnlineImageType.INDIVIDUAL
                 break
             elif class_ == "largeImage":
-                result_builder.type = ImageType.LARGE
+                result_builder.type = OnlineImageType.LARGE
                 break
             else:
                 continue

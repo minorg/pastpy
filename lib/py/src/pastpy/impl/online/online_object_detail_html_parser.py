@@ -1,14 +1,14 @@
 from bs4 import BeautifulSoup
 
-from pastpy.impl.online.image_html_parser import ImageHtmlParser
-from pastpy.impl.online.object_detail import ObjectDetail
+from pastpy.gen.online.online_object_detail import OnlineObjectDetail
+from pastpy.impl.online.online_image_html_parser import OnlineImageHtmlParser
 
 
-class ObjectDetailHtmlParser(object):
+class OnlineObjectDetailHtmlParser(object):
     def parse(self, *, guid, html):
-        image_parser = ImageHtmlParser()
+        image_parser = OnlineImageHtmlParser()
         soup = BeautifulSoup(html, "html.parser")
-        result_builder = ObjectDetail.Builder()
+        result_builder = OnlineObjectDetail.Builder()
 
         result_builder.guid = guid
 

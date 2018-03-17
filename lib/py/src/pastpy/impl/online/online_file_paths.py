@@ -1,7 +1,7 @@
 import os.path
 
 
-class FilePaths(object):
+class OnlineFilePaths(object):
     def __init__(self, root_dir_path):
         assert root_dir_path is not None
         self.__root_dir_path = root_dir_path

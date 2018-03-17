@@ -1,9 +1,9 @@
 from bs4 import BeautifulSoup
-from pastpy.impl.online.objects_list_item import ObjectsListItem
+from pastpy.gen.online.online_objects_list_item import OnlineObjectsListItem
 import logging
 
 
-class ObjectsListHtmlParser(object):
+class OnlineObjectsListHtmlParser(object):
     def parse(self, html):
         soup = BeautifulSoup(html, "html.parser")
         results = []
@@ -13,7 +13,7 @@ class ObjectsListHtmlParser(object):
                 logging.warn("object has no details: %s", indvResult)
                 continue
 
-            result_builder = ObjectsListItem.Builder()
+            result_builder = OnlineObjectsListItem.Builder()
             image = indvResult.find(attrs={"class": "indvImage"})
             if image:
                 result_builder.thumbnail_src = image.a.img.attrs["src"]
