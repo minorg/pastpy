@@ -8,16 +8,27 @@ class ObjectDetail(object):
     class Builder(object):
         def __init__(
             self,
+            attributes=None,
             related_photos=None,
         ):
             '''
+            :type attributes: dict(str: str) or None
             :type related_photos: tuple(pastpy.impl.online.image.Image) or None
             '''
 
+            self.__attributes = attributes
             self.__related_photos = related_photos
 
         def build(self):
-            return ObjectDetail(related_photos=self.__related_photos)
+            return ObjectDetail(attributes=self.__attributes, related_photos=self.__related_photos)
+
+        @property
+        def attributes(self):
+            '''
+            :rtype: dict(str: str)
+            '''
+
+            return self.__attributes.copy() if self.__attributes is not None else None
 
         @classmethod
         def from_template(cls, template):
@@ -27,6 +38,7 @@ class ObjectDetail(object):
             '''
 
             builder = cls()
+            builder.attributes = attributes
             builder.related_photos = related_photos
             return builder
 
@@ -37,6 +49,17 @@ class ObjectDetail(object):
             '''
 
             return self.__related_photos
+
+        def set_attributes(self, attributes):
+            '''
+            :type attributes: dict(str: str) or None
+            '''
+
+            if attributes is not None:
+                if not (isinstance(attributes, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], str) and isinstance(__item[1], str), attributes.items()))) == 0):
+                    raise TypeError("expected attributes to be a dict(str: str) but it is a %s" % builtins.type(attributes))
+            self.__attributes = attributes
+            return self
 
         def set_related_photos(self, related_photos):
             '''
@@ -51,10 +74,12 @@ class ObjectDetail(object):
 
         def update(self, object_detail):
             '''
+            :type attributes: dict(str: str) or None
             :type related_photos: tuple(pastpy.impl.online.image.Image) or None
             '''
 
             if isinstance(object_detail, ObjectDetail):
+                self.set_attributes(object_detail.attributes)
                 self.set_related_photos(object_detail.related_photos)
             elif isinstance(object_detail, dict):
                 for key, value in object_detail.items():
@@ -62,6 +87,14 @@ class ObjectDetail(object):
             else:
                 raise TypeError(object_detail)
             return self
+
+        @attributes.setter
+        def attributes(self, attributes):
+            '''
+            :type attributes: dict(str: str) or None
+            '''
+
+            self.set_attributes(attributes)
 
         @related_photos.setter
         def related_photos(self, related_photos):
@@ -72,6 +105,7 @@ class ObjectDetail(object):
             self.set_related_photos(related_photos)
 
     class FieldMetadata(object):
+        ATTRIBUTES = None
         RELATED_PHOTOS = None
 
         def __init__(self, name, type_, validation):
@@ -100,17 +134,25 @@ class ObjectDetail(object):
 
         @classmethod
         def values(cls):
-            return (cls.RELATED_PHOTOS,)
+            return (cls.ATTRIBUTES, cls.RELATED_PHOTOS,)
 
+    FieldMetadata.ATTRIBUTES = FieldMetadata('attributes', dict, None)
     FieldMetadata.RELATED_PHOTOS = FieldMetadata('related_photos', tuple, None)
 
     def __init__(
         self,
+        attributes=None,
         related_photos=None,
     ):
         '''
+        :type attributes: dict(str: str) or None
         :type related_photos: tuple(pastpy.impl.online.image.Image) or None
         '''
+
+        if attributes is not None:
+            if not (isinstance(attributes, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], str) and isinstance(__item[1], str), attributes.items()))) == 0):
+                raise TypeError("expected attributes to be a dict(str: str) but it is a %s" % builtins.type(attributes))
+        self.__attributes = attributes.copy() if attributes is not None else None
 
         if related_photos is not None:
             if not (isinstance(related_photos, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.impl.online.image.Image), related_photos))) == 0):
@@ -118,30 +160,44 @@ class ObjectDetail(object):
         self.__related_photos = related_photos
 
     def __eq__(self, other):
+        if self.attributes != other.attributes:
+            return False
         if self.related_photos != other.related_photos:
             return False
         return True
 
     def __hash__(self):
-        return hash(self.related_photos)
+        return hash((self.attributes, self.related_photos,))
 
     def __iter__(self):
-        return iter((self.related_photos,))
+        return iter((self.attributes, self.related_photos,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
 
     def __repr__(self):
         field_reprs = []
+        if self.attributes is not None:
+            field_reprs.append('attributes=' + repr(self.attributes))
         if self.related_photos is not None:
             field_reprs.append('related_photos=' + repr(self.related_photos))
         return 'ObjectDetail(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
         field_reprs = []
+        if self.attributes is not None:
+            field_reprs.append('attributes=' + repr(self.attributes))
         if self.related_photos is not None:
             field_reprs.append('related_photos=' + repr(self.related_photos))
         return 'ObjectDetail(' + ', '.join(field_reprs) + ')'
+
+    @property
+    def attributes(self):
+        '''
+        :rtype: dict(str: str)
+        '''
+
+        return self.__attributes.copy() if self.__attributes is not None else None
 
     @classmethod
     def builder(cls):
@@ -163,6 +219,8 @@ class ObjectDetail(object):
             ifield_name, ifield_type, _ifield_id = iprot.read_field_begin()
             if ifield_type == 0: # STOP
                 break
+            elif ifield_name == 'attributes':
+                init_kwds['attributes'] = dict([(iprot.read_string(), iprot.read_string()) for _ in xrange(iprot.read_map_begin()[2])] + (iprot.read_map_end() is None and []))
             elif ifield_name == 'related_photos':
                 init_kwds['related_photos'] = tuple([pastpy.impl.online.image.Image.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
             iprot.read_field_end()
@@ -190,6 +248,15 @@ class ObjectDetail(object):
         '''
 
         oprot.write_struct_begin('ObjectDetail')
+
+        if self.attributes is not None:
+            oprot.write_field_begin(name='attributes', type=13, id=None)
+            oprot.write_map_begin(11, len(self.attributes), 11)
+            for __key0, __value0 in self.attributes.items():
+                oprot.write_string(__key0)
+                oprot.write_string(__value0)
+            oprot.write_map_end()
+            oprot.write_field_end()
 
         if self.related_photos is not None:
             oprot.write_field_begin(name='related_photos', type=15, id=None)

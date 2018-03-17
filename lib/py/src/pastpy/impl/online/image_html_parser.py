@@ -19,7 +19,6 @@ class ImageHtmlParser(object):
         a = image_div_element.a
 
         result_builder.full_size_url = self.__strip_attr(a.attrs["href"])
-        print(result_builder.full_size_url)
         result_builder.src = self.__strip_attr(a.attrs["image_src"])
         result_builder.objectid = self.__strip_attr(a.attrs["objectid"])
         result_builder.mediaid = self.__strip_attr(a.attrs["mediaid"])
