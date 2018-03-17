@@ -2,7 +2,7 @@ from pastpy._dbf_table import _DbfTable
 from pastpy.models.object_record import ObjectRecord
 
 
-class ObjectDbfTable(_DbfTable):
+class ObjectsDbfTable(_DbfTable):
     def _map_record(self, record):
         object_record_builder = ObjectRecord.Builder()
         for field_name in self.field_names:

@@ -4,7 +4,8 @@
         "**/build": true,
         "**/dist": true,
         "**/.git": true,
-        "**/*.pyc": true
+        "**/*.pyc": true,
+        "**/__pycache__": true
     },
     "python.unitTest.nosetestArgs": [
         "lib/py",
