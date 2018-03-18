@@ -10,7 +10,6 @@ except ImportError:
     sys.path.append(os.path.abspath(os.path.join(
         os.path.dirname(__file__), '..', '..', '..', 'lib', 'py', 'src')))
     __import__('pastpy')
-from pastpy.models.object_record import ObjectRecord
 from pastpy.object_dbf_table import ObjectDbfTable
 
 

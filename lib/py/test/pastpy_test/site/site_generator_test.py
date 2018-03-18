@@ -1,5 +1,5 @@
 import os.path
-from site_generator import SiteGenerator
+from pastpy.site.site_generator import SiteGenerator
 import tempfile
 import unittest
 import webbrowser
