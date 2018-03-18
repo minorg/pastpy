@@ -8,7 +8,7 @@ except ImportError:
     import sys
     sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
-from pastpy.past_perfect_database import PastPerfectDatabase
+from pastpy.database.past_perfect_database import PastPerfectDatabase
 
 
 def parse_args():
