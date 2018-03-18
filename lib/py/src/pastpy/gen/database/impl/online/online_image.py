@@ -1,6 +1,6 @@
 from collections import OrderedDict
 import builtins
-import pastpy.gen.online.online_image_type
+import pastpy.gen.database.impl.online.online_image_type
 
 
 class OnlineImage(object):
@@ -22,7 +22,7 @@ class OnlineImage(object):
             :type src: str
             :type thumbnail_url: str
             :type title: str
-            :type type: pastpy.gen.online.online_image_type.OnlineImageType
+            :type type: pastpy.gen.database.impl.online.online_image_type.OnlineImageType
             '''
 
             self.__full_size_url = full_size_url
@@ -39,8 +39,8 @@ class OnlineImage(object):
         @classmethod
         def from_template(cls, template):
             '''
-            :type template: pastpy.gen.online.online_image.OnlineImage
-            :rtype: pastpy.gen.online.online_image.OnlineImage
+            :type template: pastpy.gen.database.impl.online.online_image.OnlineImage
+            :rtype: pastpy.gen.database.impl.online.online_image.OnlineImage
             '''
 
             builder = cls()
@@ -167,13 +167,13 @@ class OnlineImage(object):
 
         def set_type(self, type):  # @ReservedAssignment
             '''
-            :type type: pastpy.gen.online.online_image_type.OnlineImageType
+            :type type: pastpy.gen.database.impl.online.online_image_type.OnlineImageType
             '''
 
             if type is None:
                 raise ValueError('type is required')
-            if not isinstance(type, pastpy.gen.online.online_image_type.OnlineImageType):
-                raise TypeError("expected type to be a pastpy.gen.online.online_image_type.OnlineImageType but it is a %s" % builtins.type(type))
+            if not isinstance(type, pastpy.gen.database.impl.online.online_image_type.OnlineImageType):
+                raise TypeError("expected type to be a pastpy.gen.database.impl.online.online_image_type.OnlineImageType but it is a %s" % builtins.type(type))
             self.__type = type
             return self
 
@@ -204,7 +204,7 @@ class OnlineImage(object):
         @property
         def type(self):  # @ReservedAssignment
             '''
-            :rtype: pastpy.gen.online.online_image_type.OnlineImageType
+            :rtype: pastpy.gen.database.impl.online.online_image_type.OnlineImageType
             '''
 
             return self.__type
@@ -217,7 +217,7 @@ class OnlineImage(object):
             :type src: str
             :type thumbnail_url: str
             :type title: str
-            :type type: pastpy.gen.online.online_image_type.OnlineImageType
+            :type type: pastpy.gen.database.impl.online.online_image_type.OnlineImageType
             '''
 
             if isinstance(online_image, OnlineImage):
@@ -286,7 +286,7 @@ class OnlineImage(object):
         @type.setter
         def type(self, type):  # @ReservedAssignment
             '''
-            :type type: pastpy.gen.online.online_image_type.OnlineImageType
+            :type type: pastpy.gen.database.impl.online.online_image_type.OnlineImageType
             '''
 
             self.set_type(type)
@@ -334,7 +334,7 @@ class OnlineImage(object):
     FieldMetadata.SRC = FieldMetadata('src', str, OrderedDict([('blank', False), ('minLength', 1)]))
     FieldMetadata.THUMBNAIL_URL = FieldMetadata('thumbnail_url', str, None)
     FieldMetadata.TITLE = FieldMetadata('title', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.TYPE = FieldMetadata('type', pastpy.gen.online.online_image_type.OnlineImageType, None)
+    FieldMetadata.TYPE = FieldMetadata('type', pastpy.gen.database.impl.online.online_image_type.OnlineImageType, None)
 
     def __init__(
         self,
@@ -353,7 +353,7 @@ class OnlineImage(object):
         :type src: str
         :type thumbnail_url: str
         :type title: str
-        :type type: pastpy.gen.online.online_image_type.OnlineImageType
+        :type type: pastpy.gen.database.impl.online.online_image_type.OnlineImageType
         '''
 
         if full_size_url is None:
@@ -410,8 +410,8 @@ class OnlineImage(object):
 
         if type is None:
             raise ValueError('type is required')
-        if not isinstance(type, pastpy.gen.online.online_image_type.OnlineImageType):
-            raise TypeError("expected type to be a pastpy.gen.online.online_image_type.OnlineImageType but it is a %s" % builtins.type(type))
+        if not isinstance(type, pastpy.gen.database.impl.online.online_image_type.OnlineImageType):
+            raise TypeError("expected type to be a pastpy.gen.database.impl.online.online_image_type.OnlineImageType but it is a %s" % builtins.type(type))
         self.__type = type
 
     def __eq__(self, other):
@@ -496,7 +496,7 @@ class OnlineImage(object):
         Read a new object from the given input protocol and return the object.
 
         :type iprot: thryft.protocol._input_protocol._InputProtocol
-        :rtype: pastpy.gen.online.online_image.OnlineImage
+        :rtype: pastpy.gen.database.impl.online.online_image.OnlineImage
         '''
 
         init_kwds = {}
@@ -519,7 +519,7 @@ class OnlineImage(object):
             elif ifield_name == 'title':
                 init_kwds['title'] = iprot.read_string()
             elif ifield_name == 'type':
-                init_kwds['type'] = pastpy.gen.online.online_image_type.OnlineImageType.value_of(iprot.read_string().strip().upper())
+                init_kwds['type'] = pastpy.gen.database.impl.online.online_image_type.OnlineImageType.value_of(iprot.read_string().strip().upper())
             iprot.read_field_end()
         iprot.read_struct_end()
 
@@ -555,7 +555,7 @@ class OnlineImage(object):
     @property
     def type(self):  # @ReservedAssignment
         '''
-        :rtype: pastpy.gen.online.online_image_type.OnlineImageType
+        :rtype: pastpy.gen.database.impl.online.online_image_type.OnlineImageType
         '''
 
         return self.__type
@@ -565,7 +565,7 @@ class OnlineImage(object):
         Write this object to the given output protocol and return self.
 
         :type oprot: thryft.protocol._output_protocol._OutputProtocol
-        :rtype: pastpy.gen.online.online_image.OnlineImage
+        :rtype: pastpy.gen.database.impl.online.online_image.OnlineImage
         '''
 
         oprot.write_struct_begin('OnlineImage')

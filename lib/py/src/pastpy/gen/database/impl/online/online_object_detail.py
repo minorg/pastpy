@@ -1,7 +1,7 @@
 from collections import OrderedDict
 from itertools import filterfalse
 import builtins
-import pastpy.gen.online.online_image
+import pastpy.gen.database.impl.online.online_image
 
 
 class OnlineObjectDetail(object):
@@ -17,7 +17,7 @@ class OnlineObjectDetail(object):
             :type attributes: dict(str: str)
             :type guid: str
             :type id: str
-            :type related_photos: tuple(pastpy.gen.online.online_image.OnlineImage)
+            :type related_photos: tuple(pastpy.gen.database.impl.online.online_image.OnlineImage)
             '''
 
             self.__attributes = attributes
@@ -39,8 +39,8 @@ class OnlineObjectDetail(object):
         @classmethod
         def from_template(cls, template):
             '''
-            :type template: pastpy.gen.online.online_object_detail.OnlineObjectDetail
-            :rtype: pastpy.gen.online.online_object_detail.OnlineObjectDetail
+            :type template: pastpy.gen.database.impl.online.online_object_detail.OnlineObjectDetail
+            :rtype: pastpy.gen.database.impl.online.online_object_detail.OnlineObjectDetail
             '''
 
             builder = cls()
@@ -69,7 +69,7 @@ class OnlineObjectDetail(object):
         @property
         def related_photos(self):
             '''
-            :rtype: tuple(pastpy.gen.online.online_image.OnlineImage)
+            :rtype: tuple(pastpy.gen.database.impl.online.online_image.OnlineImage)
             '''
 
             return self.__related_photos
@@ -120,13 +120,13 @@ class OnlineObjectDetail(object):
 
         def set_related_photos(self, related_photos):
             '''
-            :type related_photos: tuple(pastpy.gen.online.online_image.OnlineImage)
+            :type related_photos: tuple(pastpy.gen.database.impl.online.online_image.OnlineImage)
             '''
 
             if related_photos is None:
                 raise ValueError('related_photos is required')
-            if not (isinstance(related_photos, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.online.online_image.OnlineImage), related_photos))) == 0):
-                raise TypeError("expected related_photos to be a tuple(pastpy.gen.online.online_image.OnlineImage) but it is a %s" % builtins.type(related_photos))
+            if not (isinstance(related_photos, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.database.impl.online.online_image.OnlineImage), related_photos))) == 0):
+                raise TypeError("expected related_photos to be a tuple(pastpy.gen.database.impl.online.online_image.OnlineImage) but it is a %s" % builtins.type(related_photos))
             self.__related_photos = related_photos
             return self
 
@@ -135,7 +135,7 @@ class OnlineObjectDetail(object):
             :type attributes: dict(str: str)
             :type guid: str
             :type id: str
-            :type related_photos: tuple(pastpy.gen.online.online_image.OnlineImage)
+            :type related_photos: tuple(pastpy.gen.database.impl.online.online_image.OnlineImage)
             '''
 
             if isinstance(online_object_detail, OnlineObjectDetail):
@@ -177,7 +177,7 @@ class OnlineObjectDetail(object):
         @related_photos.setter
         def related_photos(self, related_photos):
             '''
-            :type related_photos: tuple(pastpy.gen.online.online_image.OnlineImage)
+            :type related_photos: tuple(pastpy.gen.database.impl.online.online_image.OnlineImage)
             '''
 
             self.set_related_photos(related_photos)
@@ -232,7 +232,7 @@ class OnlineObjectDetail(object):
         :type attributes: dict(str: str)
         :type guid: str
         :type id: str
-        :type related_photos: tuple(pastpy.gen.online.online_image.OnlineImage)
+        :type related_photos: tuple(pastpy.gen.database.impl.online.online_image.OnlineImage)
         '''
 
         if attributes is None:
@@ -263,8 +263,8 @@ class OnlineObjectDetail(object):
 
         if related_photos is None:
             raise ValueError('related_photos is required')
-        if not (isinstance(related_photos, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.online.online_image.OnlineImage), related_photos))) == 0):
-            raise TypeError("expected related_photos to be a tuple(pastpy.gen.online.online_image.OnlineImage) but it is a %s" % builtins.type(related_photos))
+        if not (isinstance(related_photos, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.database.impl.online.online_image.OnlineImage), related_photos))) == 0):
+            raise TypeError("expected related_photos to be a tuple(pastpy.gen.database.impl.online.online_image.OnlineImage) but it is a %s" % builtins.type(related_photos))
         self.__related_photos = related_photos
 
     def __eq__(self, other):
@@ -337,7 +337,7 @@ class OnlineObjectDetail(object):
         Read a new object from the given input protocol and return the object.
 
         :type iprot: thryft.protocol._input_protocol._InputProtocol
-        :rtype: pastpy.gen.online.online_object_detail.OnlineObjectDetail
+        :rtype: pastpy.gen.database.impl.online.online_object_detail.OnlineObjectDetail
         '''
 
         init_kwds = {}
@@ -354,7 +354,7 @@ class OnlineObjectDetail(object):
             elif ifield_name == 'id':
                 init_kwds['id'] = iprot.read_string()
             elif ifield_name == 'related_photos':
-                init_kwds['related_photos'] = tuple([pastpy.gen.online.online_image.OnlineImage.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
+                init_kwds['related_photos'] = tuple([pastpy.gen.database.impl.online.online_image.OnlineImage.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
             iprot.read_field_end()
         iprot.read_struct_end()
 
@@ -363,7 +363,7 @@ class OnlineObjectDetail(object):
     @property
     def related_photos(self):
         '''
-        :rtype: tuple(pastpy.gen.online.online_image.OnlineImage)
+        :rtype: tuple(pastpy.gen.database.impl.online.online_image.OnlineImage)
         '''
 
         return self.__related_photos
@@ -376,7 +376,7 @@ class OnlineObjectDetail(object):
         Write this object to the given output protocol and return self.
 
         :type oprot: thryft.protocol._output_protocol._OutputProtocol
-        :rtype: pastpy.gen.online.online_object_detail.OnlineObjectDetail
+        :rtype: pastpy.gen.database.impl.online.online_object_detail.OnlineObjectDetail
         '''
 
         oprot.write_struct_begin('OnlineObjectDetail')

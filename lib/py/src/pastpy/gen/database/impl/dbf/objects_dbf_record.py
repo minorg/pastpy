@@ -882,8 +882,8 @@ class ObjectsDbfRecord(object):
         @classmethod
         def from_template(cls, template):
             '''
-            :type template: pastpy.gen.dbf.objects_dbf_record.ObjectsDbfRecord
-            :rtype: pastpy.gen.dbf.objects_dbf_record.ObjectsDbfRecord
+            :type template: pastpy.gen.database.impl.dbf.objects_dbf_record.ObjectsDbfRecord
+            :rtype: pastpy.gen.database.impl.dbf.objects_dbf_record.ObjectsDbfRecord
             '''
 
             builder = cls()
@@ -13379,7 +13379,7 @@ class ObjectsDbfRecord(object):
         Read a new object from the given input protocol and return the object.
 
         :type iprot: thryft.protocol._input_protocol._InputProtocol
-        :rtype: pastpy.gen.dbf.objects_dbf_record.ObjectsDbfRecord
+        :rtype: pastpy.gen.database.impl.dbf.objects_dbf_record.ObjectsDbfRecord
         '''
 
         init_kwds = {}
@@ -15516,7 +15516,7 @@ class ObjectsDbfRecord(object):
         Write this object to the given output protocol and return self.
 
         :type oprot: thryft.protocol._output_protocol._OutputProtocol
-        :rtype: pastpy.gen.dbf.objects_dbf_record.ObjectsDbfRecord
+        :rtype: pastpy.gen.database.impl.dbf.objects_dbf_record.ObjectsDbfRecord
         '''
 
         oprot.write_struct_begin('ObjectsDbfRecord')

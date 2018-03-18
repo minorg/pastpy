@@ -1,4 +1,4 @@
-namespace * pastpy.gen.online
+namespace * pastpy.gen.database.impl.online
 
 include "thryft/native/url.thrift"
 

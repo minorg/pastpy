@@ -1,4 +1,4 @@
-namespace * pastpy.gen.dbf
+namespace * pastpy.gen.database.impl.dbf
 
 include "thryft/native/big_decimal.thrift"
 include "thryft/native/date.thrift"

@@ -1,5 +1,5 @@
-from pastpy.gen.online.online_image import OnlineImage
-from pastpy.gen.online.online_image_type import OnlineImageType
+from pastpy.gen.database.impl.online.online_image import OnlineImage
+from pastpy.gen.database.impl.online.online_image_type import OnlineImageType
 
 
 class OnlineImageHtmlParser(object):

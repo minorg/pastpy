@@ -37,8 +37,8 @@ class OnlineObjectsListItem(object):
         @classmethod
         def from_template(cls, template):
             '''
-            :type template: pastpy.gen.online.online_objects_list_item.OnlineObjectsListItem
-            :rtype: pastpy.gen.online.online_objects_list_item.OnlineObjectsListItem
+            :type template: pastpy.gen.database.impl.online.online_objects_list_item.OnlineObjectsListItem
+            :rtype: pastpy.gen.database.impl.online.online_objects_list_item.OnlineObjectsListItem
             '''
 
             builder = cls()
@@ -327,7 +327,7 @@ class OnlineObjectsListItem(object):
         Read a new object from the given input protocol and return the object.
 
         :type iprot: thryft.protocol._input_protocol._InputProtocol
-        :rtype: pastpy.gen.online.online_objects_list_item.OnlineObjectsListItem
+        :rtype: pastpy.gen.database.impl.online.online_objects_list_item.OnlineObjectsListItem
         '''
 
         init_kwds = {}
@@ -385,7 +385,7 @@ class OnlineObjectsListItem(object):
         Write this object to the given output protocol and return self.
 
         :type oprot: thryft.protocol._output_protocol._OutputProtocol
-        :rtype: pastpy.gen.online.online_objects_list_item.OnlineObjectsListItem
+        :rtype: pastpy.gen.database.impl.online.online_objects_list_item.OnlineObjectsListItem
         '''
 
         oprot.write_struct_begin('OnlineObjectsListItem')
