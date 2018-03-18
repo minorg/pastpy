@@ -35,6 +35,7 @@ setup(
     # What does your project relate to?
     keywords='pastperfect',
 
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
+    packages=["pastpy"],
+    package_data={"pastpy": "site/templates/*.mustache"},
+    package_dir={'pastpy': 'src/pastpy'},
 )
