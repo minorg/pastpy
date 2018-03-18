@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 
 from pastpy.gen.database.impl.online.online_object_detail import OnlineObjectDetail
-from pastpy.impl.online.online_image_html_parser import OnlineImageHtmlParser
+from pastpy.database.impl.online.online_image_html_parser import OnlineImageHtmlParser
 
 
 class OnlineObjectDetailHtmlParser(object):

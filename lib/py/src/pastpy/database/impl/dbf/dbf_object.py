@@ -1,4 +1,4 @@
-from pastpy.object import Object
+from pastpy.database.object import Object
 
 
 class DbfObject(Object):

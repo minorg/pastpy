@@ -1,9 +1,9 @@
 import logging
 import os.path
-from pastpy.impl.online.online_file_downloader import OnlineFileDownloader
-from pastpy.impl.online.online_file_paths import OnlineFilePaths
-from pastpy.impl.online.online_object_detail_html_parser import OnlineObjectDetailHtmlParser
-from pastpy.impl.online.online_objects_list_html_parser import OnlineObjectsListHtmlParser
+from pastpy.database.impl.online.online_file_downloader import OnlineFileDownloader
+from pastpy.database.impl.online.online_file_paths import OnlineFilePaths
+from pastpy.database.impl.online.online_object_detail_html_parser import OnlineObjectDetailHtmlParser
+from pastpy.database.impl.online.online_objects_list_html_parser import OnlineObjectsListHtmlParser
 
 
 class OnlinePastPerfectDatabase(object):

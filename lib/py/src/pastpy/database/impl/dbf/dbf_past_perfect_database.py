@@ -1,7 +1,7 @@
 import os.path
 from pastpy.past_perfect_database import PastPerfectDatabase
-from pastpy.impl.dbf.objects_dbf_table import ObjectsDbfTable
-from pastpy.impl.dbf.dbf_object import DbfObject
+from pastpy.database.impl.dbf.objects_dbf_table import ObjectsDbfTable
+from pastpy.database.impl.dbf.dbf_object import DbfObject
 
 
 class DbfPastPerfectDatabase(PastPerfectDatabase):
