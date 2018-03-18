@@ -12,14 +12,6 @@ class OnlineObjectDetailHtmlParser(object):
 
         result_builder.guid = guid
 
-        related_photos = soup.find(attrs={"class": "relatedPhotos"})
-        if related_photos:
-            images = []
-            for td in related_photos.find_all("td"):
-                images.append(image_parser.parse(td.div))
-            if images:
-                result_builder.related_photos = tuple(images)
-
         attributes = {}
         for category_element in soup.find(attrs={"class": "recordData"}).find_all(attrs={"class": "category"}):
             category_string = ''.join(category_element.stripped_strings).strip()
@@ -35,7 +27,13 @@ class OnlineObjectDetailHtmlParser(object):
             else:
                 assert category_string not in attributes
                 attributes[category_string] = display_string
-        if attributes:
-            result_builder.attributes = attributes
+        result_builder.attributes = attributes
+
+        related_photos_element = soup.find(attrs={"class": "relatedPhotos"})
+        related_photos = []
+        if related_photos_element:
+            for td in related_photos_element.find_all("td"):
+                related_photos.append(image_parser.parse(td.div))
+        result_builder.related_photos = tuple(related_photos)
 
         return result_builder.build()
