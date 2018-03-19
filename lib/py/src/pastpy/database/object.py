@@ -12,6 +12,10 @@ class Object(object):
         raise NotImplementedError
 
     @property
+    def images(self):
+        pass
+
+    @property
     def name(self):
         raise NotImplementedError
 

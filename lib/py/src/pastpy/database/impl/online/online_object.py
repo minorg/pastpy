@@ -18,6 +18,10 @@ class OnlineObject(Object):
         return self.__detail.id
 
     @property
+    def images(self):
+        return self.__detail.related_photos
+
+    @property
     def name(self):
         return self.__detail.attributes.get("Object Name")
 
