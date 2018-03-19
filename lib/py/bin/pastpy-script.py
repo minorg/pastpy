@@ -13,8 +13,6 @@ from pastpy.database.past_perfect_database import PastPerfectDatabase
 
 def parse_args():
     argument_parser = ArgumentParser()
-    argument_parser.add_argument("--dir-path", help="path for data files")
-
     argument_parser.add_argument(
         '--debug',
         action='store_true',
@@ -29,6 +27,7 @@ def parse_args():
 
     download_subparser = subparsers.add_parser("download")
     download_subparser.add_argument("collection_name", help="collection name of PastPerfect Online site e.g., yourcollection in http://yourcollection.pastperfectonline.com")
+    download_subparser.add_argument("--download-dir-path", help="path for downloaded files, defaults to collection name")
     download_subparser.set_defaults(command="download")
 
     download_subparser = subparsers.add_parser("parse-html")
@@ -59,7 +58,7 @@ args = parse_args()
 
 
 if args.command == "download":
-    PastPerfectDatabase.create_from_online(collection_name=args.collection_name, download_dir_path=args.dir_path).download()
+    PastPerfectDatabase.create_from_online(collection_name=args.collection_name, download_dir_path=args.download_dir_path).download()
 elif args.command == "parse-html":
-    for object_detail in PastPerfectDatabase.create_from_online(collection_name=args.collection_name, download_dir_path=args.dir_path).parse_object_details():
+    for object_detail in PastPerfectDatabase.create_from_online(collection_name=args.collection_name, download_dir_path=args.download_dir_path).parse_object_details():
         print(object_detail.id)

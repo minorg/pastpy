@@ -3,6 +3,7 @@ import os.path
 import pystache
 import shutil
 import sys
+from urllib.parse import urlparse, unquote
 
 try:
     __import__('pastpy')
@@ -27,13 +28,13 @@ class SiteGenerator(object):
             os.path.dirname(__file__), '..', '..', 'mustache'))
     assert os.path.isdir(TEMPLATE_DIR_PATH_DEFAULT), TEMPLATE_DIR_PATH_DEFAULT
 
-    class ObjectRecordWrapper(object):
-        def __init__(self, img_srcs, object_record):
+    class ObjectWrapper(object):
+        def __init__(self, img_srcs, object_):
             self.__img_srcs = img_srcs
-            self.__object_record = object_record
+            self.__object = object_
 
         def __getattr__(self, attr):
-            return getattr(self.__object_record, attr)
+            return getattr(self.__object, attr)
 
         @property
         def img_srcs(self):
@@ -41,45 +42,17 @@ class SiteGenerator(object):
 
     def __init__(
         self,
+        database,
         output_dir_path,
         copyright_holder=None,
-        pp_images_dir_path=None,
-        pp_install_dir_path=None,
-        pp_objects_dbf_file_path=None,
         site_name=None,
         template_dir_path=None
     ):
+        self.__database = database
         self.__logger = logging.getLogger(SiteGenerator.__class__.__name__)
         self.__output_dir_path = output_dir_path
 
         self.__copyright_holder = copyright_holder if copyright_holder is not None else self.COPYRIGHT_HOLDER_DEFAULT
-
-        if pp_install_dir_path is not None:
-            if not os.path.isdir(pp_install_dir_path):
-                raise ValueError(
-                    "PastPerfect installation directory %s does not exist" % pp_install_dir_path)
-            if pp_images_dir_path is None:
-                pp_images_dir_path = os.path.join(
-                    pp_install_dir_path, 'Images')
-            if pp_objects_dbf_file_path is None:
-                pp_objects_dbf_file_path = os.path.join(
-                    pp_install_dir_path, 'Data', 'OBJECTS.DBF')
-        elif pp_images_dir_path is None:
-            raise ValueError(
-                "must specify a PastPerfect installation directory or an images directory")
-        elif pp_objects_dbf_file_path:
-            raise ValueError(
-                "must specify a PastPerfect installation directory or an objects DBF file")
-
-        if not os.path.isdir(pp_images_dir_path):
-            raise ValueError(
-                "PastPErfect images directory %s does not exist" % pp_images_dir_path)
-        self.__pp_images_dir_path = pp_images_dir_path
-
-        if not os.path.isfile(pp_objects_dbf_file_path):
-            raise ValueError(
-                "PastPerfect objects DBF file %s does not exist" % pp_objects_dbf_file_path)
-        self.__pp_objects_dbf_file_path = pp_objects_dbf_file_path
 
         self.__site_name = site_name if site_name is not None else self.SITE_NAME_DEFAULT
 
@@ -111,11 +84,6 @@ class SiteGenerator(object):
         return {'copyright_holder': self.__copyright_holder, 'page_title': page_title, 'site_name': self.__site_name}
 
     def __read_objects(self):
-        pp_images_dir_path = os.path.join(self.__pp_images_dir_path, '001')
-        if not os.path.isdir(pp_images_dir_path):
-            self.__logger.warning(
-                "images directory %s does not exist", pp_images_dir_path)
-            pp_images_dir_path = None
         out_images_dir_path = os.path.join(self.__output_dir_path, 'img')
         if not os.path.isdir(out_images_dir_path):
             os.makedirs(out_images_dir_path)
@@ -123,38 +91,26 @@ class SiteGenerator(object):
                 "created output images directory %s", out_images_dir_path)
 
         objects = []
-        with ObjectDbfTable.open(self.__pp_objects_dbf_file_path) as table:
-            for object_record in table.records():
-                if object_record.imageno:
-                    img_srcs = []
-                    if pp_images_dir_path is not None and object_record.objectid is not None:
-                        pp_image_i = 0
-                        while pp_image_i < object_record.imageno:
-                            pp_image_file_name = object_record.objectid
-                            if pp_image_i > 0:
-                                pp_image_file_name = pp_image_file_name + \
-                                    '-' + str(pp_image_i)
-                            pp_image_i = pp_image_i + 1
-                            pp_image_file_name = pp_image_file_name + '.jpg'
-                            pp_image_file_path = os.path.join(
-                                pp_images_dir_path, pp_image_file_name)
-                            if not os.path.isfile(pp_image_file_path):
-                                self.__logger.debug(
-                                    "object %s image %s does not exist", object_record.objectid, pp_image_file_path)
-                                break
-                            out_image_file_path = os.path.join(
-                                out_images_dir_path, pp_image_file_name)
-                            shutil.copyfile(pp_image_file_path,
-                                            out_image_file_path)
-                            self.__logger.info(
-                                "copied %s to %s", pp_image_file_path, out_image_file_path)
-                            img_srcs.append('img/' + pp_image_file_name)
-
-                objects.append(SiteGenerator.ObjectRecordWrapper(
-                    img_srcs=img_srcs,
-                    object_record=object_record
-                ))
-                break
+        for object_ in self.__database.objects():
+            img_srcs = []
+            for image in object_.images:
+                full_size_url = image.full_size_url
+                full_size_url_parsed = urlparse(full_size_url)
+                if full_size_url_parsed.scheme == "file":
+                    full_size_file_path = unquote(full_size_url)[7:]
+                    full_size_file_name = os.path.split(full_size_file_path)[1]
+                    out_image_file_path = os.path.join(
+                        out_images_dir_path, full_size_file_name)
+                    shutil.copyfile(full_size_file_path,
+                                    full_size_file_name)
+                    self.__logger.info(
+                        "copied %s to %s", full_size_file_path, out_image_file_path)
+                    img_srcs.append('img/' + full_size_file_name)
+            objects.append(SiteGenerator.ObjectWrapper(
+                img_srcs=tuple(img_srcs),
+                object_=object_
+            ))
+            break
         return objects
 
     def __render_file(self, file_base_name, context, out_file_relpath=None):
@@ -181,10 +137,10 @@ class SiteGenerator(object):
         if not os.path.isdir(out_dir_path):
             os.makedirs(out_dir_path)
 
-        for object in objects:
-            if not object.objectid:
+        for object_ in objects:
+            if not object_.id:
                 continue
             context = self.__new_context(
-                page_title='Object: ' + object.objectid)
+                page_title='Object: ' + object_.id)
             self.__render_file('object_detail', context, out_file_relpath=os.path.join(
-                'objects', object.objectid + '.html'))
+                'objects', object_.id + '.html'))

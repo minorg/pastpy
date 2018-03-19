@@ -30,7 +30,7 @@ setup(
         'Programming Language :: Python :: 3'
     ],
 
-    install_requires=('beautifulsoup4', 'dbf', 'enum34'),
+    install_requires=('beautifulsoup4', 'dbf', 'enum34', 'pystache'),
 
     # What does your project relate to?
     keywords='pastperfect',
