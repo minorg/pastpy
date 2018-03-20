@@ -1,8 +1,8 @@
-import logging
 import os.path
 from pastpy.database.past_perfect_database import PastPerfectDatabase
 from pastpy.database.impl.online.online_file_downloader import OnlineFileDownloader
 from pastpy.database.impl.online.online_file_paths import OnlineFilePaths
+from pastpy.database.impl.online.online_object import OnlineObject
 from pastpy.database.impl.online.online_object_detail_html_parser import OnlineObjectDetailHtmlParser
 from pastpy.database.impl.online.online_objects_list_html_parser import OnlineObjectsListHtmlParser
 
@@ -22,6 +22,10 @@ class OnlinePastPerfectDatabase(PastPerfectDatabase):
                 guid = self.__object_guid(objects_list_item)
                 downloader.download_object_detail(guid=guid)
 
+    def objects(self):
+        for object_detail in self.parse_object_details():
+            yield OnlineObject(detail=object_detail)
+
     def __object_guid(self, objects_list_item):
         return objects_list_item.detail_href.split('/')[-1]
 
@@ -31,28 +35,25 @@ class OnlinePastPerfectDatabase(PastPerfectDatabase):
             return OnlineObjectDetailHtmlParser().parse(guid=guid, html=str(object_detail_file.read()))
 
     def parse_object_details(self):
-        objects_list = self.parse_objects_list()
-        result = []
-        for objects_list_item in objects_list:
+        for objects_list_item in self.parse_objects_list():
             guid = self.__object_guid(objects_list_item)
             try:
-                result.append(self.__parse_object_detail(guid=guid))
+                yield self.__parse_object_detail(guid=guid)
             except FileNotFoundError:
                 self._logger.debug("object detail for " + guid + " not found")
-        return tuple(result)
+        raise StopIteration
 
     def parse_objects_list(self):
         objects_list_page_i = 1
-        objects_list_items = []
         while True:
             objects_list_page_file_path = self.__file_paths.objects_list_page_file_path(objects_list_page_i)
             if not os.path.isfile(objects_list_page_file_path):
-                break
+                raise StopIteration
             with open(objects_list_page_file_path, "rb") as objects_list_page_file:
                 objects_list_page_html = str(objects_list_page_file.read())
 
             objects_list_html_parser = OnlineObjectsListHtmlParser()
-            objects_list_items.extend(objects_list_html_parser.parse(objects_list_page_html))
+            for objects_list_item in objects_list_html_parser.parse(objects_list_page_html):
+                yield objects_list_item
 
             objects_list_page_i = objects_list_page_i + 1
-        return tuple(objects_list_items)
