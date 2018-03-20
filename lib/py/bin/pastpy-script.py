@@ -25,14 +25,22 @@ def parse_args():
 
     subparsers = argument_parser.add_subparsers()
 
-    download_subparser = subparsers.add_parser("download")
-    download_subparser.add_argument("collection_name", help="collection name of PastPerfect Online site e.g., yourcollection in http://yourcollection.pastperfectonline.com")
-    download_subparser.add_argument("--download-dir-path", help="path for downloaded files, defaults to collection name")
-    download_subparser.set_defaults(command="download")
+    subparser = subparsers.add_parser("download")
+    subparser.add_argument("collection_name", help="collection name of PastPerfect Online site e.g., yourcollection in http://yourcollection.pastperfectonline.com")
+    subparser.add_argument("--download-dir-path", help="path for downloaded files, defaults to collection name")
+    subparser.set_defaults(command="download")
 
-    download_subparser = subparsers.add_parser("parse-html")
-    download_subparser.add_argument("collection_name", help="collection name of PastPerfect Online site e.g., yourcollection in http://yourcollection.pastperfectonline.com")
-    download_subparser.set_defaults(command="parse-html")
+    subparser = subparsers.add_parser("parse-html")
+    subparser.add_argument("collection_name", help="collection name of PastPerfect Online site e.g., yourcollection in http://yourcollection.pastperfectonline.com")
+    subparser.set_defaults(command="parse-html")
+
+    subparser = subparsers.add_parser("site")
+    subparser.add_argument("database", help="path to a PastPerfect installation or collection name of PastPerfect Online site e.g., yourcollection in http://yourcollection.pastperfectonline.com")
+    subparser.add_argument("--copyright-holder",)
+    subparser.add_argument("--name")
+    subparser.add_argument("-o", "--output-dir-path", default="site", help="path to output directory")
+    subparser.add_argument("--templates-dir-path")
+    subparser.set_defaults(command="site")
 
     parsed_args = argument_parser.parse_args()
 
@@ -57,8 +65,25 @@ def parse_args():
 args = parse_args()
 
 
+def create_database(database):
+    if os.path.isdir(os.path.join(database, "Data")):
+        return PastPerfectDatabase.create_from_dbf(pp_install_dir_path=database)
+    else:
+        return PastPerfectDatabase.create_from_online(collection_name=database)
+
+
 if args.command == "download":
     PastPerfectDatabase.create_from_online(collection_name=args.collection_name, download_dir_path=args.download_dir_path).download()
 elif args.command == "parse-html":
     for object_detail in PastPerfectDatabase.create_from_online(collection_name=args.collection_name, download_dir_path=args.download_dir_path).parse_object_details():
         print(object_detail.id)
+elif args.command == "site":
+    from pastpy.site.site_generator import SiteGenerator
+    database = create_database(args.database)
+    SiteGenerator(
+        copyright_holder=args.copyright_holder,
+        database=database,
+        output_dir_path=args.output_dir_path,
+        site_name=args.name,
+        templates_dir_path=args.templates_dir_path
+    ).generate()

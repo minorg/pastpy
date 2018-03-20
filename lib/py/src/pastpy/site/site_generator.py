@@ -22,10 +22,11 @@ class SiteGenerator(object):
         PP_INSTALL_DIR_PATH_EXAMPLE, 'Images')
     PP_REPORTS_DIR_PATH_EXAMPLE = "C:\\pp5Reports"
 
-    TEMPLATE_DIR_PATH_DEFAULT = \
+    TEMPLATES_DIR_PATH_DEFAULT = \
         os.path.abspath(os.path.join(
-            os.path.dirname(__file__), '..', '..', 'mustache'))
-    assert os.path.isdir(TEMPLATE_DIR_PATH_DEFAULT), TEMPLATE_DIR_PATH_DEFAULT
+            os.path.dirname(__file__), 'templates'))
+    assert os.path.isdir(
+        TEMPLATES_DIR_PATH_DEFAULT), TEMPLATES_DIR_PATH_DEFAULT
 
     class ObjectWrapper(object):
         def __init__(self, img_srcs, object_):
@@ -45,7 +46,7 @@ class SiteGenerator(object):
         output_dir_path,
         copyright_holder=None,
         site_name=None,
-        template_dir_path=None
+        templates_dir_path=None
     ):
         self.__database = database
         self.__logger = logging.getLogger(SiteGenerator.__class__.__name__)
@@ -55,16 +56,16 @@ class SiteGenerator(object):
 
         self.__site_name = site_name if site_name is not None else self.SITE_NAME_DEFAULT
 
-        if template_dir_path is None:
-            template_dir_path = self.TEMPLATE_DIR_PATH_DEFAULT
-        if not os.path.isdir(template_dir_path):
+        if templates_dir_path is None:
+            templates_dir_path = self.TEMPLATES_DIR_PATH_DEFAULT
+        if not os.path.isdir(templates_dir_path):
             raise ValueError(
-                "template directory %s does not exist" % template_dir_path)
+                "template directory %s does not exist" % templates_dir_path)
 
         self.__renderer = \
             pystache.Renderer(
                 missing_tags='strict',
-                search_dirs=(template_dir_path,)
+                search_dirs=(templates_dir_path,)
             )
 
     def generate(self):

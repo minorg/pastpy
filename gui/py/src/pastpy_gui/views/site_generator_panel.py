@@ -59,7 +59,7 @@ class SiteGeneratorPanel(wx.Panel):
                                       pp_objects_dbf_file_path=self.model.pp_objects_dbf_file_path,
                                       pp_install_dir_path=self.model.pp_install_dir_path,
                                       site_name=self.model.site_name,
-                                      template_dir_path=self.model.template_dir_path)
+                                      templates_dir_path=self.model.templates_dir_path)
                     generator.generate()
                     logging.info("done")
                 except:
@@ -204,7 +204,7 @@ class SiteGeneratorPanel(wx.Panel):
             self._add_dir_path_input(
                 instructions="Directory where HTML templates reside. If you wish to change the generated site, copy the contents of the default directory to a new directory, modify the templates, and set the path to the new directory here.",
                 label='Template directory path',
-                model_property_name='template_dir_path',
+                model_property_name='templates_dir_path',
                 style=wx.DD_DIR_MUST_EXIST)
 
     class BasicPanel(NotebookPanel):
