@@ -32,6 +32,7 @@ def parse_args():
 
     subparser = subparsers.add_parser("parse-html")
     subparser.add_argument("collection_name", help="collection name of PastPerfect Online site e.g., yourcollection in http://yourcollection.pastperfectonline.com")
+    subparser.add_argument("--download-dir-path", help="path for downloaded files, defaults to collection name")
     subparser.set_defaults(command="parse-html")
 
     subparser = subparsers.add_parser("site")
