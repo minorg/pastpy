@@ -1,4 +1,10 @@
+import logging
+
+
 class PastPerfectDatabase(object):
+    def __init__(self):
+        self._logger = logging.getLogger(self.__class__.__name__)
+
     @classmethod
     def create_from_dbf(cls, *, pp_images_dir_path=None, pp_install_dir_path=None, pp_objects_dbf_file_path=None):
         from pastpy.database.impl.dbf.dbf_past_perfect_database import DbfPastPerfectDatabase

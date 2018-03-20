@@ -4,13 +4,16 @@ import logging
 
 
 class OnlineObjectsListHtmlParser(object):
+    def __init__(self):
+        self.__logger = logging.getLogger(self.__class__.__name__)
+
     def parse(self, html):
         soup = BeautifulSoup(html, "html.parser")
         results = []
         for indvResult in soup.find_all(attrs={"class": "indvResult"}):
             details = indvResult.find(attrs={"class": "indvResultDetails"})
             if not details:
-                logging.warn("object has no details: %s", indvResult)
+                self.__logger.warn("object has no details: %s", indvResult)
                 continue
 
             result_builder = OnlineObjectsListItem.Builder()
@@ -18,7 +21,7 @@ class OnlineObjectsListHtmlParser(object):
             if image:
                 result_builder.thumbnail_src = image.a.img.attrs["src"]
             # else:
-            #     logging.debug("object has no image: %s", indvResult)
+            #     self.__logger.debug("object has no image: %s", indvResult)
 
             result_builder.detail_href = details.h1.a.attrs["href"]
             result_builder.title = str(details.h1.a.contents[0].string).strip()

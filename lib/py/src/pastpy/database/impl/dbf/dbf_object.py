@@ -8,6 +8,7 @@ class DbfObject(Object):
     def __init__(self, *, images_dir_path, record):
         self.__images = None
         self.__images_dir_path = images_dir_path
+        self.__logger = logging.getLogger(self.__class__.__name__)
         self.__record = record
 
     @property
@@ -47,7 +48,7 @@ class DbfObject(Object):
             pp_image_file_path = os.path.join(
                 self.__images_dir_path, pp_image_file_name)
             if not os.path.isfile(pp_image_file_path):
-                logging.debug(
+                self.__logger.debug(
                     "object %s image %s does not exist", self.__record.objectid, pp_image_file_path)
                 break
             images.append(DbfImage(file_path=pp_image_file_path))

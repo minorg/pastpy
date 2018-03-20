@@ -1,12 +1,13 @@
 import logging
 import os.path
+from pastpy.database.past_perfect_database import PastPerfectDatabase
 from pastpy.database.impl.online.online_file_downloader import OnlineFileDownloader
 from pastpy.database.impl.online.online_file_paths import OnlineFilePaths
 from pastpy.database.impl.online.online_object_detail_html_parser import OnlineObjectDetailHtmlParser
 from pastpy.database.impl.online.online_objects_list_html_parser import OnlineObjectsListHtmlParser
 
 
-class OnlinePastPerfectDatabase(object):
+class OnlinePastPerfectDatabase(PastPerfectDatabase):
     def __init__(self, *, collection_name, download_dir_path=None):
         self.__collection_name = collection_name
         if download_dir_path is None:
@@ -37,7 +38,7 @@ class OnlinePastPerfectDatabase(object):
             try:
                 result.append(self.__parse_object_detail(guid=guid))
             except FileNotFoundError:
-                logging.debug("object detail for " + guid + " not found")
+                self._logger.debug("object detail for " + guid + " not found")
         return tuple(result)
 
     def parse_objects_list(self):

@@ -11,7 +11,6 @@ except ImportError:
     sys.path.append(os.path.abspath(os.path.join(
         os.path.dirname(__file__), '..', '..', '..', 'lib', 'py', 'src')))
     __import__('pastpy')
-from pastpy.object_dbf_table import ObjectDbfTable
 
 
 class SiteGenerator(object):
@@ -122,7 +121,7 @@ class SiteGenerator(object):
             self.__output_dir_path, out_file_relpath)
         with open(out_file_path, 'w+') as out_file:
             out_file.write(rendered)
-            logging.info("wrote %s", out_file_path)
+            self.__logger.info("wrote %s", out_file_path)
 
     def __render_index(self):
         context = self.__new_context(page_title='Home')

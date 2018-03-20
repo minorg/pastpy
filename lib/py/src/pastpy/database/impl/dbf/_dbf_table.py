@@ -4,6 +4,7 @@ import logging
 
 class _DbfTable(object):
     def __init__(self, table):
+        self._logger = logging.getLogger(self.__class__.__name__)
         self.__table = table
 
     def _coerce_record_date_time_field(self, field_value):
@@ -14,8 +15,8 @@ class _DbfTable(object):
                     return datetime.strptime(field_value, strptime_format)
                 except ValueError:
                     pass
-            logging.warn(
-                "unable to parse %(field_name)s=%(field_value)s (basestring)" % locals())
+            self._logger.warn(
+                "unable to parse %s (basestring)", field_value)
             return
         elif isinstance(field_value, int):
             if field_value == 0:
@@ -44,7 +45,7 @@ class _DbfTable(object):
                 field_value=field_value)
         elif field_metadata.type == str:
             if not isinstance(field_value, str):
-                logging.debug("converting %s=%s (%s) to string",
+                self._logger.debug("converting %s=%s (%s) to string",
                               field_name, field_value, type(field_value))
                 return str(field_value)
             return field_value
