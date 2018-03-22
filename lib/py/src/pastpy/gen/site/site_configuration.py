@@ -1,4 +1,3 @@
-from collections import OrderedDict
 import builtins
 import pastpy.gen.non_blank_string
 
@@ -7,10 +6,10 @@ class SiteConfiguration(object):
     class Builder(object):
         def __init__(
             self,
-            copyright_holder=None,
-            database=None,
-            name=None,
-            output_dir_path=None,
+            copyright_holder="Your Collection",
+            database="c:\\pp5",
+            name="Your Collection",
+            output_dir_path="site",
             templates_dir_path=None,
         ):
             '''
@@ -249,10 +248,10 @@ class SiteConfiguration(object):
 
     def __init__(
         self,
-        copyright_holder,
-        database,
-        name,
-        output_dir_path,
+        copyright_holder="Your Collection",
+        database="c:\\pp5",
+        name="Your Collection",
+        output_dir_path="site",
         templates_dir_path=None,
     ):
         '''

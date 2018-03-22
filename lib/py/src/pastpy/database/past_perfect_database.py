@@ -1,9 +1,17 @@
 import logging
+import os.path
 
 
 class PastPerfectDatabase(object):
     def __init__(self):
         self._logger = logging.getLogger(self.__class__.__name__)
+
+    @classmethod
+    def create(cls, database):
+        if os.path.isdir(os.path.join(database, "Data")):
+            return PastPerfectDatabase.create_from_dbf(pp_install_dir_path=database)
+        else:
+            return PastPerfectDatabase.create_from_online(collection_name=database)
 
     @classmethod
     def create_from_dbf(cls, *, pp_images_dir_path=None, pp_install_dir_path=None, pp_objects_dbf_file_path=None):

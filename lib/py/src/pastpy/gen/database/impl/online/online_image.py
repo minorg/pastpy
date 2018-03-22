@@ -1,4 +1,3 @@
-from collections import OrderedDict
 import builtins
 import pastpy.gen.database.impl.online.online_image_type
 import pastpy.gen.non_blank_string

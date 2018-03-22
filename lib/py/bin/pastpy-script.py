@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+import json
 import logging
 
 try:
@@ -13,6 +14,7 @@ from pastpy.database.past_perfect_database import PastPerfectDatabase
 
 def parse_args():
     argument_parser = ArgumentParser()
+    argument_parser.add_argument("-c", "--configuration-file-path", default=".pastpy.json")
     argument_parser.add_argument(
         '--debug',
         action='store_true',
@@ -36,11 +38,6 @@ def parse_args():
     subparser.set_defaults(command="parse-html")
 
     subparser = subparsers.add_parser("site")
-    subparser.add_argument("database", help="path to a PastPerfect installation or collection name of PastPerfect Online site e.g., yourcollection in http://yourcollection.pastperfectonline.com")
-    subparser.add_argument("--copyright-holder",)
-    subparser.add_argument("--name")
-    subparser.add_argument("-o", "--output-dir-path", default="site", help="path to output directory")
-    subparser.add_argument("--templates-dir-path")
     subparser.set_defaults(command="site")
 
     parsed_args = argument_parser.parse_args()
@@ -66,11 +63,10 @@ def parse_args():
 args = parse_args()
 
 
-def create_database(database):
-    if os.path.isdir(os.path.join(database, "Data")):
-        return PastPerfectDatabase.create_from_dbf(pp_install_dir_path=database)
-    else:
-        return PastPerfectDatabase.create_from_online(collection_name=database)
+configuration = None
+if os.path.isfile(args.configuration_file_path):
+    with open(args.configuration_file_path, 'rb') as configuration_file:
+        configuration = json.load(configuration_file)
 
 
 if args.command == "download":
@@ -79,12 +75,8 @@ elif args.command == "parse-html":
     for object_detail in PastPerfectDatabase.create_from_online(collection_name=args.collection_name, download_dir_path=args.download_dir_path).parse_object_details():
         print(object_detail.id)
 elif args.command == "site":
+    from pastpy.gen.site.site_configuration import SiteConfiguration
+    site_configuration = SiteConfiguration.from_builtins(configuration["site"])
+
     from pastpy.site.site_generator import SiteGenerator
-    database = create_database(args.database)
-    SiteGenerator(
-        copyright_holder=args.copyright_holder,
-        database=database,
-        output_dir_path=args.output_dir_path,
-        site_name=args.name,
-        templates_dir_path=args.templates_dir_path
-    ).generate()
+    SiteGenerator(configuration=site_configuration).generate()

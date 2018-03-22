@@ -1,4 +1,3 @@
-from collections import OrderedDict
 from itertools import filterfalse
 import builtins
 import pastpy.gen.database.impl.online.online_image

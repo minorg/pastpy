@@ -4,24 +4,11 @@ import pystache
 import shutil
 import sys
 from urllib.parse import urlparse, unquote
-
-try:
-    __import__('pastpy')
-except ImportError:
-    sys.path.append(os.path.abspath(os.path.join(
-        os.path.dirname(__file__), '..', '..', '..', 'lib', 'py', 'src')))
-    __import__('pastpy')
+from pastpy.database.past_perfect_database import PastPerfectDatabase
+from pastpy.gen.site.site_configuration import SiteConfiguration
 
 
 class SiteGenerator(object):
-    COPYRIGHT_HOLDER_DEFAULT = 'Your Collection'
-    SITE_NAME_DEFAULT = 'Your Collection'
-
-    PP_INSTALL_DIR_PATH_EXAMPLE = "C:\\pp5"
-    PP_IMAGES_DIR_PATH_EXAMPLE = os.path.join(
-        PP_INSTALL_DIR_PATH_EXAMPLE, 'Images')
-    PP_REPORTS_DIR_PATH_EXAMPLE = "C:\\pp5Reports"
-
     TEMPLATES_DIR_PATH_DEFAULT = \
         os.path.abspath(os.path.join(
             os.path.dirname(__file__), 'templates'))
@@ -40,39 +27,31 @@ class SiteGenerator(object):
         def img_srcs(self):
             return self.__img_srcs
 
-    def __init__(
-        self,
-        database,
-        output_dir_path,
-        copyright_holder=None,
-        site_name=None,
-        templates_dir_path=None
-    ):
-        self.__database = database
+    def __init__(self, *, configuration):
+        assert isinstance(configuration, SiteConfiguration)
+        self.__database = PastPerfectDatabase.create(configuration.database)
+
         self.__logger = logging.getLogger(SiteGenerator.__class__.__name__)
-        self.__output_dir_path = output_dir_path
 
-        self.__copyright_holder = copyright_holder if copyright_holder is not None else self.COPYRIGHT_HOLDER_DEFAULT
-
-        self.__site_name = site_name if site_name is not None else self.SITE_NAME_DEFAULT
-
-        if templates_dir_path is None:
-            templates_dir_path = self.TEMPLATES_DIR_PATH_DEFAULT
-        if not os.path.isdir(templates_dir_path):
+        if configuration.templates_dir_path is None:
+            configuration = SiteConfiguration.Builder.from_template(configuration).set_templates_dir_path(self.TEMPLATES_DIR_PATH_DEFAULT).build()
+        if not os.path.isdir(configuration.templates_dir_path):
             raise ValueError(
-                "template directory %s does not exist" % templates_dir_path)
+                "template directory %s does not exist" % configuration.templates_dir_path)
+
+        self.__configuration = configuration
 
         self.__renderer = \
             pystache.Renderer(
                 missing_tags='strict',
-                search_dirs=(templates_dir_path,)
+                search_dirs=(configuration.templates_dir_path,)
             )
 
     def generate(self):
-        if not os.path.isdir(self.__output_dir_path):
-            os.makedirs(self.__output_dir_path)
+        if not os.path.isdir(self.__configuration.output_dir_path):
+            os.makedirs(self.__configuration.output_dir_path)
             self.__logger.info("created output directory %s",
-                               self.__output_dir_path)
+                               self.__configuration.output_dir_path)
 
         objects = self.__read_objects()
 
