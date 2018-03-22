@@ -1,24 +1,21 @@
 namespace * pastpy.gen.database.impl.online
 
-include "online_image_type.thrift"
+include "pastpy/gen/database/impl/online/online_image_type.thrift"
+include "pastpy/gen/non_blank_string.thrift"
 include "thryft/native/url.thrift"
 
 struct OnlineImage {
     url.Url full_size_url;
 
-    // @validation {"blank": false, "minLength": 1}
-    string mediaid;
+    non_blank_string.NonBlankString mediaid;
 
-    // @validation {"blank": false, "minLength": 1}
-    string objectid;
+    non_blank_string.NonBlankString objectid;
 
-    // @validation {"blank": false, "minLength": 1}
-    string src;
+    non_blank_string.NonBlankString src;
 
     url.Url thumbnail_url;
 
-    // @validation {"blank": false, "minLength": 1}
-    string title;
+    non_blank_string.NonBlankString title;
 
     online_image_type.OnlineImageType type;
 }

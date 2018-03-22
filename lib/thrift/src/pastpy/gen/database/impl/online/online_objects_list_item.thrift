@@ -1,13 +1,11 @@
 namespace * pastpy.gen.database.impl.online
 
+include "pastpy/gen/non_blank_string.thrift"
 include "thryft/native/url.thrift"
 
 struct OnlineObjectsListItem {
-    // @validation {"blank": false, "minLength": 1}
-    string detail_href;
-    // @validation {"blank": false, "minLength": 1}
-    string record_type;
-    // @validation {"blank": false, "minLength": 1}
-    string title;
+    non_blank_string.NonBlankString detail_href;
+    non_blank_string.NonBlankString record_type;
+    non_blank_string.NonBlankString title;
     optional url.Url thumbnail_url;
 }
