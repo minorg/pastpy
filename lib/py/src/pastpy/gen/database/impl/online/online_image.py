@@ -435,6 +435,39 @@ class OnlineImage(object):
     def builder(cls):
         return cls.Builder()
 
+    @classmethod
+    def from_builtins(cls, _dict):
+        if not isinstance(_dict, dict):
+            raise ValueError("expected dict")
+        full_size_url = _dict.get("full_size_url")
+        if full_size_url is None:
+            raise KeyError("full_size_url or full_size_url")
+
+        mediaid = _dict.get("mediaid")
+        if mediaid is None:
+            raise KeyError("mediaid or mediaid")
+
+        objectid = _dict.get("objectid")
+        if objectid is None:
+            raise KeyError("objectid or objectid")
+
+        src = _dict.get("src")
+        if src is None:
+            raise KeyError("src or src")
+
+        thumbnail_url = _dict.get("thumbnail_url")
+        if thumbnail_url is None:
+            raise KeyError("thumbnail_url or thumbnail_url")
+
+        title = _dict.get("title")
+        if title is None:
+            raise KeyError("title or title")
+
+        type = _dict.get("type")
+        if type is None:
+            raise KeyError("type or type")
+        type = pastpy.gen.database.impl.online.online_image_type.OnlineImageType.value_of(type)
+
     @property
     def full_size_url(self):
         '''
@@ -520,6 +553,17 @@ class OnlineImage(object):
         '''
 
         return self.__title
+
+    def to_builtins(self):
+        dict_ = {}
+        dict_["full_size_url"] = self.full_size_url
+        dict_["mediaid"] = self.mediaid
+        dict_["objectid"] = self.objectid
+        dict_["src"] = self.src
+        dict_["thumbnail_url"] = self.thumbnail_url
+        dict_["title"] = self.title
+        dict_["type"] = str(self.type)
+        return dict_
 
     @property
     def type(self):  # @ReservedAssignment

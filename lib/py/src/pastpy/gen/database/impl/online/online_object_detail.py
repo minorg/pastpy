@@ -300,6 +300,27 @@ class OnlineObjectDetail(object):
     def builder(cls):
         return cls.Builder()
 
+    @classmethod
+    def from_builtins(cls, _dict):
+        if not isinstance(_dict, dict):
+            raise ValueError("expected dict")
+        attributes = _dict.get("attributes")
+        if attributes is None:
+            raise KeyError("attributes or attributes")
+
+        guid = _dict.get("guid")
+        if guid is None:
+            raise KeyError("guid or guid")
+
+        id = _dict.get("id")
+        if id is None:
+            raise KeyError("id or id")
+
+        related_photos = _dict.get("related_photos")
+        if related_photos is None:
+            raise KeyError("related_photos or related_photos")
+        related_photos = tuple(pastpy.gen.database.impl.online.online_image.OnlineImage.from_builtins(element0) for element0 in related_photos)
+
     @property
     def guid(self):
         '''
@@ -355,6 +376,14 @@ class OnlineObjectDetail(object):
 
     def replacer(self):
         return cls.Builder.from_template(template=self)
+
+    def to_builtins(self):
+        dict_ = {}
+        dict_["attributes"] = self.attributes
+        dict_["guid"] = self.guid
+        dict_["id"] = self.id
+        dict_["related_photos"] = tuple(element0.to_builtins() for element0 in self.related_photos)
+        return dict_
 
     def write(self, oprot):
         '''

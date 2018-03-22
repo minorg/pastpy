@@ -354,6 +354,28 @@ class SiteConfiguration(object):
 
         return self.__database
 
+    @classmethod
+    def from_builtins(cls, _dict):
+        if not isinstance(_dict, dict):
+            raise ValueError("expected dict")
+        copyright_holder = _dict.get("copyright_holder")
+        if copyright_holder is None:
+            raise KeyError("copyright_holder or copyright_holder")
+
+        database = _dict.get("database")
+        if database is None:
+            raise KeyError("database or database")
+
+        name = _dict.get("name")
+        if name is None:
+            raise KeyError("name or name")
+
+        output_dir_path = _dict.get("output_dir_path")
+        if output_dir_path is None:
+            raise KeyError("output_dir_path or output_dir_path")
+
+        templates_dir_path = _dict.get("templates_dir_path")
+
     @property
     def name(self):
         '''
@@ -414,6 +436,15 @@ class SiteConfiguration(object):
         '''
 
         return self.__templates_dir_path
+
+    def to_builtins(self):
+        dict_ = {}
+        dict_["copyright_holder"] = self.copyright_holder
+        dict_["database"] = self.database
+        dict_["name"] = self.name
+        dict_["output_dir_path"] = self.output_dir_path
+        dict_["templates_dir_path"] = self.templates_dir_path
+        return dict_
 
     def write(self, oprot):
         '''

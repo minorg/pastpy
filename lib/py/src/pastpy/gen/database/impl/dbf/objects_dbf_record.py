@@ -12669,6 +12669,542 @@ class ObjectsDbfRecord(object):
 
         return self.__framesize
 
+    @classmethod
+    def from_builtins(cls, _dict):
+        if not isinstance(_dict, dict):
+            raise ValueError("expected dict")
+        accessno = _dict.get("accessno")
+
+        accessory = _dict.get("accessory")
+
+        acqvalue = _dict.get("acqvalue")
+
+        age = _dict.get("age")
+
+        appnotes = _dict.get("appnotes")
+
+        appraisor = _dict.get("appraisor")
+
+        assemzone = _dict.get("assemzone")
+
+        bagno = _dict.get("bagno")
+
+        boxno = _dict.get("boxno")
+
+        caption = _dict.get("caption")
+
+        cat = _dict.get("cat")
+
+        catby = _dict.get("catby")
+
+        catdate = _dict.get("catdate")
+
+        cattype = _dict.get("cattype")
+
+        chemcomp = _dict.get("chemcomp")
+
+        circum = _dict.get("circum")
+
+        circumft = _dict.get("circumft")
+
+        circumin = _dict.get("circumin")
+
+        classes = _dict.get("classes")
+
+        colldate = _dict.get("colldate")
+
+        collection = _dict.get("collection")
+
+        collector = _dict.get("collector")
+
+        conddate = _dict.get("conddate")
+
+        condexam = _dict.get("condexam")
+
+        condition = _dict.get("condition")
+
+        condnotes = _dict.get("condnotes")
+
+        count = _dict.get("count")
+
+        creator = _dict.get("creator")
+
+        creator2 = _dict.get("creator2")
+
+        creator3 = _dict.get("creator3")
+
+        credit = _dict.get("credit")
+
+        crystal = _dict.get("crystal")
+
+        culture = _dict.get("culture")
+
+        curvalmax = _dict.get("curvalmax")
+
+        curvalue = _dict.get("curvalue")
+
+        dataset = _dict.get("dataset")
+
+        date = _dict.get("date")
+
+        datingmeth = _dict.get("datingmeth")
+
+        datum = _dict.get("datum")
+
+        depth = _dict.get("depth")
+
+        depthft = _dict.get("depthft")
+
+        depthin = _dict.get("depthin")
+
+        descrip = _dict.get("descrip")
+
+        diameter = _dict.get("diameter")
+
+        diameterft = _dict.get("diameterft")
+
+        diameterin = _dict.get("diameterin")
+
+        dimnotes = _dict.get("dimnotes")
+
+        dimtype = _dict.get("dimtype")
+
+        dispvalue = _dict.get("dispvalue")
+
+        earlydate = _dict.get("earlydate")
+
+        elements = _dict.get("elements")
+
+        epoch = _dict.get("epoch")
+
+        era = _dict.get("era")
+
+        event = _dict.get("event")
+
+        ew = _dict.get("ew")
+
+        excavadate = _dict.get("excavadate")
+
+        excavateby = _dict.get("excavateby")
+
+        exhibitid = _dict.get("exhibitid")
+
+        exhibitno = _dict.get("exhibitno")
+
+        exhlabel1 = _dict.get("exhlabel1")
+
+        exhlabel2 = _dict.get("exhlabel2")
+
+        exhlabel3 = _dict.get("exhlabel3")
+
+        exhlabel4 = _dict.get("exhlabel4")
+
+        exhstart = _dict.get("exhstart")
+
+        family = _dict.get("family")
+
+        feature = _dict.get("feature")
+
+        flagdate = _dict.get("flagdate")
+
+        flagnotes = _dict.get("flagnotes")
+
+        flagreason = _dict.get("flagreason")
+
+        formation = _dict.get("formation")
+
+        fossils = _dict.get("fossils")
+
+        found = _dict.get("found")
+
+        fracture = _dict.get("fracture")
+
+        frame = _dict.get("frame")
+
+        framesize = _dict.get("framesize")
+
+        genus = _dict.get("genus")
+
+        gparent = _dict.get("gparent")
+
+        grainsize = _dict.get("grainsize")
+
+        habitat = _dict.get("habitat")
+
+        hardness = _dict.get("hardness")
+
+        height = _dict.get("height")
+
+        heightft = _dict.get("heightft")
+
+        heightin = _dict.get("heightin")
+
+        homeloc = _dict.get("homeloc")
+
+        idby = _dict.get("idby")
+
+        iddate = _dict.get("iddate")
+
+        imagefile = _dict.get("imagefile")
+
+        imageno = _dict.get("imageno")
+
+        imagesize = _dict.get("imagesize")
+
+        inscomp = _dict.get("inscomp")
+
+        inscrlang = _dict.get("inscrlang")
+
+        inscrpos = _dict.get("inscrpos")
+
+        inscrtech = _dict.get("inscrtech")
+
+        inscrtext = _dict.get("inscrtext")
+
+        inscrtrans = _dict.get("inscrtrans")
+
+        inscrtype = _dict.get("inscrtype")
+
+        insdate = _dict.get("insdate")
+
+        insphone = _dict.get("insphone")
+
+        inspremium = _dict.get("inspremium")
+
+        insrep = _dict.get("insrep")
+
+        insvalue = _dict.get("insvalue")
+
+        invnby = _dict.get("invnby")
+
+        invndate = _dict.get("invndate")
+
+        kingdom = _dict.get("kingdom")
+
+        latdeg = _dict.get("latdeg")
+
+        latedate = _dict.get("latedate")
+
+        legal = _dict.get("legal")
+
+        length = _dict.get("length")
+
+        lengthft = _dict.get("lengthft")
+
+        lengthin = _dict.get("lengthin")
+
+        level = _dict.get("level")
+
+        lithofacie = _dict.get("lithofacie")
+
+        loancond = _dict.get("loancond")
+
+        loandue = _dict.get("loandue")
+
+        loanid = _dict.get("loanid")
+
+        loaninno = _dict.get("loaninno")
+
+        loanno = _dict.get("loanno")
+
+        loanrenew = _dict.get("loanrenew")
+
+        locfield1 = _dict.get("locfield1")
+
+        locfield2 = _dict.get("locfield2")
+
+        locfield3 = _dict.get("locfield3")
+
+        locfield4 = _dict.get("locfield4")
+
+        locfield5 = _dict.get("locfield5")
+
+        locfield6 = _dict.get("locfield6")
+
+        longdeg = _dict.get("longdeg")
+
+        luster = _dict.get("luster")
+
+        made = _dict.get("made")
+
+        maintcycle = _dict.get("maintcycle")
+
+        maintdate = _dict.get("maintdate")
+
+        maintnote = _dict.get("maintnote")
+
+        material = _dict.get("material")
+
+        medium = _dict.get("medium")
+
+        member = _dict.get("member")
+
+        mmark = _dict.get("mmark")
+
+        nhclass = _dict.get("nhclass")
+
+        nhorder = _dict.get("nhorder")
+
+        notes = _dict.get("notes")
+
+        ns = _dict.get("ns")
+
+        objectid = _dict.get("objectid")
+
+        objname = _dict.get("objname")
+
+        objname2 = _dict.get("objname2")
+
+        objname3 = _dict.get("objname3")
+
+        objnames = _dict.get("objnames")
+
+        occurrence = _dict.get("occurrence")
+
+        oldno = _dict.get("oldno")
+
+        origin = _dict.get("origin")
+
+        othername = _dict.get("othername")
+
+        otherno = _dict.get("otherno")
+
+        outdate = _dict.get("outdate")
+
+        owned = _dict.get("owned")
+
+        parent = _dict.get("parent")
+
+        people = _dict.get("people")
+
+        period = _dict.get("period")
+
+        phylum = _dict.get("phylum")
+
+        policyno = _dict.get("policyno")
+
+        ppid = _dict.get("ppid")
+
+        preparator = _dict.get("preparator")
+
+        prepdate = _dict.get("prepdate")
+
+        preserve = _dict.get("preserve")
+
+        pressure = _dict.get("pressure")
+
+        provenance = _dict.get("provenance")
+
+        pubnotes = _dict.get("pubnotes")
+
+        qrurl = _dict.get("qrurl")
+
+        recas = _dict.get("recas")
+
+        recdate = _dict.get("recdate")
+
+        recfrom = _dict.get("recfrom")
+
+        relation = _dict.get("relation")
+
+        relnotes = _dict.get("relnotes")
+
+        renewuntil = _dict.get("renewuntil")
+
+        repatby = _dict.get("repatby")
+
+        repatclaim = _dict.get("repatclaim")
+
+        repatdate = _dict.get("repatdate")
+
+        repatdisp = _dict.get("repatdisp")
+
+        repathand = _dict.get("repathand")
+
+        repatnotes = _dict.get("repatnotes")
+
+        repatnotic = _dict.get("repatnotic")
+
+        repattype = _dict.get("repattype")
+
+        rockclass = _dict.get("rockclass")
+
+        rockcolor = _dict.get("rockcolor")
+
+        rockorigin = _dict.get("rockorigin")
+
+        rocktype = _dict.get("rocktype")
+
+        role = _dict.get("role")
+
+        role2 = _dict.get("role2")
+
+        role3 = _dict.get("role3")
+
+        school = _dict.get("school")
+
+        sex = _dict.get("sex")
+
+        sgflag = _dict.get("sgflag")
+
+        signedname = _dict.get("signedname")
+
+        signloc = _dict.get("signloc")
+
+        site = _dict.get("site")
+
+        siteno = _dict.get("siteno")
+
+        specgrav = _dict.get("specgrav")
+
+        species = _dict.get("species")
+
+        sprocess = _dict.get("sprocess")
+
+        stage = _dict.get("stage")
+
+        status = _dict.get("status")
+
+        statusby = _dict.get("statusby")
+
+        statusdate = _dict.get("statusdate")
+
+        sterms = _dict.get("sterms")
+
+        stratum = _dict.get("stratum")
+
+        streak = _dict.get("streak")
+
+        subfamily = _dict.get("subfamily")
+
+        subjects = _dict.get("subjects")
+
+        subspecies = _dict.get("subspecies")
+
+        technique = _dict.get("technique")
+
+        tempauthor = _dict.get("tempauthor")
+
+        tempby = _dict.get("tempby")
+
+        tempdate = _dict.get("tempdate")
+
+        temperatur = _dict.get("temperatur")
+
+        temploc = _dict.get("temploc")
+
+        tempnotes = _dict.get("tempnotes")
+
+        tempreason = _dict.get("tempreason")
+
+        tempuntil = _dict.get("tempuntil")
+
+        texture = _dict.get("texture")
+
+        title = _dict.get("title")
+
+        tlocfield1 = _dict.get("tlocfield1")
+
+        tlocfield2 = _dict.get("tlocfield2")
+
+        tlocfield3 = _dict.get("tlocfield3")
+
+        tlocfield4 = _dict.get("tlocfield4")
+
+        tlocfield5 = _dict.get("tlocfield5")
+
+        tlocfield6 = _dict.get("tlocfield6")
+
+        udf1 = _dict.get("udf1")
+
+        udf10 = _dict.get("udf10")
+
+        udf11 = _dict.get("udf11")
+
+        udf12 = _dict.get("udf12")
+
+        udf13 = _dict.get("udf13")
+
+        udf14 = _dict.get("udf14")
+
+        udf15 = _dict.get("udf15")
+
+        udf16 = _dict.get("udf16")
+
+        udf17 = _dict.get("udf17")
+
+        udf18 = _dict.get("udf18")
+
+        udf19 = _dict.get("udf19")
+
+        udf2 = _dict.get("udf2")
+
+        udf20 = _dict.get("udf20")
+
+        udf21 = _dict.get("udf21")
+
+        udf22 = _dict.get("udf22")
+
+        udf3 = _dict.get("udf3")
+
+        udf4 = _dict.get("udf4")
+
+        udf5 = _dict.get("udf5")
+
+        udf6 = _dict.get("udf6")
+
+        udf7 = _dict.get("udf7")
+
+        udf8 = _dict.get("udf8")
+
+        udf9 = _dict.get("udf9")
+
+        unit = _dict.get("unit")
+
+        updated = _dict.get("updated")
+
+        updatedby = _dict.get("updatedby")
+
+        used = _dict.get("used")
+
+        valuedate = _dict.get("valuedate")
+
+        varieties = _dict.get("varieties")
+
+        vexhtml = _dict.get("vexhtml")
+
+        vexlabel1 = _dict.get("vexlabel1")
+
+        vexlabel2 = _dict.get("vexlabel2")
+
+        vexlabel3 = _dict.get("vexlabel3")
+
+        vexlabel4 = _dict.get("vexlabel4")
+
+        webinclude = _dict.get("webinclude")
+
+        weight = _dict.get("weight")
+
+        weightin = _dict.get("weightin")
+
+        weightlb = _dict.get("weightlb")
+
+        width = _dict.get("width")
+
+        widthft = _dict.get("widthft")
+
+        widthin = _dict.get("widthin")
+
+        xcord = _dict.get("xcord")
+
+        ycord = _dict.get("ycord")
+
+        zcord = _dict.get("zcord")
+
+        zsorter = _dict.get("zsorter")
+
+        zsorterx = _dict.get("zsorterx")
+
     @property
     def genus(self):
         '''
@@ -15190,6 +15726,276 @@ class ObjectsDbfRecord(object):
         '''
 
         return self.__tlocfield6
+
+    def to_builtins(self):
+        dict_ = {}
+        dict_["accessno"] = self.accessno
+        dict_["accessory"] = self.accessory
+        dict_["acqvalue"] = self.acqvalue
+        dict_["age"] = self.age
+        dict_["appnotes"] = self.appnotes
+        dict_["appraisor"] = self.appraisor
+        dict_["assemzone"] = self.assemzone
+        dict_["bagno"] = self.bagno
+        dict_["boxno"] = self.boxno
+        dict_["caption"] = self.caption
+        dict_["cat"] = self.cat
+        dict_["catby"] = self.catby
+        dict_["catdate"] = self.catdate
+        dict_["cattype"] = self.cattype
+        dict_["chemcomp"] = self.chemcomp
+        dict_["circum"] = self.circum
+        dict_["circumft"] = self.circumft
+        dict_["circumin"] = self.circumin
+        dict_["classes"] = self.classes
+        dict_["colldate"] = self.colldate
+        dict_["collection"] = self.collection
+        dict_["collector"] = self.collector
+        dict_["conddate"] = self.conddate
+        dict_["condexam"] = self.condexam
+        dict_["condition"] = self.condition
+        dict_["condnotes"] = self.condnotes
+        dict_["count"] = self.count
+        dict_["creator"] = self.creator
+        dict_["creator2"] = self.creator2
+        dict_["creator3"] = self.creator3
+        dict_["credit"] = self.credit
+        dict_["crystal"] = self.crystal
+        dict_["culture"] = self.culture
+        dict_["curvalmax"] = self.curvalmax
+        dict_["curvalue"] = self.curvalue
+        dict_["dataset"] = self.dataset
+        dict_["date"] = self.date
+        dict_["datingmeth"] = self.datingmeth
+        dict_["datum"] = self.datum
+        dict_["depth"] = self.depth
+        dict_["depthft"] = self.depthft
+        dict_["depthin"] = self.depthin
+        dict_["descrip"] = self.descrip
+        dict_["diameter"] = self.diameter
+        dict_["diameterft"] = self.diameterft
+        dict_["diameterin"] = self.diameterin
+        dict_["dimnotes"] = self.dimnotes
+        dict_["dimtype"] = self.dimtype
+        dict_["dispvalue"] = self.dispvalue
+        dict_["earlydate"] = self.earlydate
+        dict_["elements"] = self.elements
+        dict_["epoch"] = self.epoch
+        dict_["era"] = self.era
+        dict_["event"] = self.event
+        dict_["ew"] = self.ew
+        dict_["excavadate"] = self.excavadate
+        dict_["excavateby"] = self.excavateby
+        dict_["exhibitid"] = self.exhibitid
+        dict_["exhibitno"] = self.exhibitno
+        dict_["exhlabel1"] = self.exhlabel1
+        dict_["exhlabel2"] = self.exhlabel2
+        dict_["exhlabel3"] = self.exhlabel3
+        dict_["exhlabel4"] = self.exhlabel4
+        dict_["exhstart"] = self.exhstart
+        dict_["family"] = self.family
+        dict_["feature"] = self.feature
+        dict_["flagdate"] = self.flagdate
+        dict_["flagnotes"] = self.flagnotes
+        dict_["flagreason"] = self.flagreason
+        dict_["formation"] = self.formation
+        dict_["fossils"] = self.fossils
+        dict_["found"] = self.found
+        dict_["fracture"] = self.fracture
+        dict_["frame"] = self.frame
+        dict_["framesize"] = self.framesize
+        dict_["genus"] = self.genus
+        dict_["gparent"] = self.gparent
+        dict_["grainsize"] = self.grainsize
+        dict_["habitat"] = self.habitat
+        dict_["hardness"] = self.hardness
+        dict_["height"] = self.height
+        dict_["heightft"] = self.heightft
+        dict_["heightin"] = self.heightin
+        dict_["homeloc"] = self.homeloc
+        dict_["idby"] = self.idby
+        dict_["iddate"] = self.iddate
+        dict_["imagefile"] = self.imagefile
+        dict_["imageno"] = self.imageno
+        dict_["imagesize"] = self.imagesize
+        dict_["inscomp"] = self.inscomp
+        dict_["inscrlang"] = self.inscrlang
+        dict_["inscrpos"] = self.inscrpos
+        dict_["inscrtech"] = self.inscrtech
+        dict_["inscrtext"] = self.inscrtext
+        dict_["inscrtrans"] = self.inscrtrans
+        dict_["inscrtype"] = self.inscrtype
+        dict_["insdate"] = self.insdate
+        dict_["insphone"] = self.insphone
+        dict_["inspremium"] = self.inspremium
+        dict_["insrep"] = self.insrep
+        dict_["insvalue"] = self.insvalue
+        dict_["invnby"] = self.invnby
+        dict_["invndate"] = self.invndate
+        dict_["kingdom"] = self.kingdom
+        dict_["latdeg"] = self.latdeg
+        dict_["latedate"] = self.latedate
+        dict_["legal"] = self.legal
+        dict_["length"] = self.length
+        dict_["lengthft"] = self.lengthft
+        dict_["lengthin"] = self.lengthin
+        dict_["level"] = self.level
+        dict_["lithofacie"] = self.lithofacie
+        dict_["loancond"] = self.loancond
+        dict_["loandue"] = self.loandue
+        dict_["loanid"] = self.loanid
+        dict_["loaninno"] = self.loaninno
+        dict_["loanno"] = self.loanno
+        dict_["loanrenew"] = self.loanrenew
+        dict_["locfield1"] = self.locfield1
+        dict_["locfield2"] = self.locfield2
+        dict_["locfield3"] = self.locfield3
+        dict_["locfield4"] = self.locfield4
+        dict_["locfield5"] = self.locfield5
+        dict_["locfield6"] = self.locfield6
+        dict_["longdeg"] = self.longdeg
+        dict_["luster"] = self.luster
+        dict_["made"] = self.made
+        dict_["maintcycle"] = self.maintcycle
+        dict_["maintdate"] = self.maintdate
+        dict_["maintnote"] = self.maintnote
+        dict_["material"] = self.material
+        dict_["medium"] = self.medium
+        dict_["member"] = self.member
+        dict_["mmark"] = self.mmark
+        dict_["nhclass"] = self.nhclass
+        dict_["nhorder"] = self.nhorder
+        dict_["notes"] = self.notes
+        dict_["ns"] = self.ns
+        dict_["objectid"] = self.objectid
+        dict_["objname"] = self.objname
+        dict_["objname2"] = self.objname2
+        dict_["objname3"] = self.objname3
+        dict_["objnames"] = self.objnames
+        dict_["occurrence"] = self.occurrence
+        dict_["oldno"] = self.oldno
+        dict_["origin"] = self.origin
+        dict_["othername"] = self.othername
+        dict_["otherno"] = self.otherno
+        dict_["outdate"] = self.outdate
+        dict_["owned"] = self.owned
+        dict_["parent"] = self.parent
+        dict_["people"] = self.people
+        dict_["period"] = self.period
+        dict_["phylum"] = self.phylum
+        dict_["policyno"] = self.policyno
+        dict_["ppid"] = self.ppid
+        dict_["preparator"] = self.preparator
+        dict_["prepdate"] = self.prepdate
+        dict_["preserve"] = self.preserve
+        dict_["pressure"] = self.pressure
+        dict_["provenance"] = self.provenance
+        dict_["pubnotes"] = self.pubnotes
+        dict_["qrurl"] = self.qrurl
+        dict_["recas"] = self.recas
+        dict_["recdate"] = self.recdate
+        dict_["recfrom"] = self.recfrom
+        dict_["relation"] = self.relation
+        dict_["relnotes"] = self.relnotes
+        dict_["renewuntil"] = self.renewuntil
+        dict_["repatby"] = self.repatby
+        dict_["repatclaim"] = self.repatclaim
+        dict_["repatdate"] = self.repatdate
+        dict_["repatdisp"] = self.repatdisp
+        dict_["repathand"] = self.repathand
+        dict_["repatnotes"] = self.repatnotes
+        dict_["repatnotic"] = self.repatnotic
+        dict_["repattype"] = self.repattype
+        dict_["rockclass"] = self.rockclass
+        dict_["rockcolor"] = self.rockcolor
+        dict_["rockorigin"] = self.rockorigin
+        dict_["rocktype"] = self.rocktype
+        dict_["role"] = self.role
+        dict_["role2"] = self.role2
+        dict_["role3"] = self.role3
+        dict_["school"] = self.school
+        dict_["sex"] = self.sex
+        dict_["sgflag"] = self.sgflag
+        dict_["signedname"] = self.signedname
+        dict_["signloc"] = self.signloc
+        dict_["site"] = self.site
+        dict_["siteno"] = self.siteno
+        dict_["specgrav"] = self.specgrav
+        dict_["species"] = self.species
+        dict_["sprocess"] = self.sprocess
+        dict_["stage"] = self.stage
+        dict_["status"] = self.status
+        dict_["statusby"] = self.statusby
+        dict_["statusdate"] = self.statusdate
+        dict_["sterms"] = self.sterms
+        dict_["stratum"] = self.stratum
+        dict_["streak"] = self.streak
+        dict_["subfamily"] = self.subfamily
+        dict_["subjects"] = self.subjects
+        dict_["subspecies"] = self.subspecies
+        dict_["technique"] = self.technique
+        dict_["tempauthor"] = self.tempauthor
+        dict_["tempby"] = self.tempby
+        dict_["tempdate"] = self.tempdate
+        dict_["temperatur"] = self.temperatur
+        dict_["temploc"] = self.temploc
+        dict_["tempnotes"] = self.tempnotes
+        dict_["tempreason"] = self.tempreason
+        dict_["tempuntil"] = self.tempuntil
+        dict_["texture"] = self.texture
+        dict_["title"] = self.title
+        dict_["tlocfield1"] = self.tlocfield1
+        dict_["tlocfield2"] = self.tlocfield2
+        dict_["tlocfield3"] = self.tlocfield3
+        dict_["tlocfield4"] = self.tlocfield4
+        dict_["tlocfield5"] = self.tlocfield5
+        dict_["tlocfield6"] = self.tlocfield6
+        dict_["udf1"] = self.udf1
+        dict_["udf10"] = self.udf10
+        dict_["udf11"] = self.udf11
+        dict_["udf12"] = self.udf12
+        dict_["udf13"] = self.udf13
+        dict_["udf14"] = self.udf14
+        dict_["udf15"] = self.udf15
+        dict_["udf16"] = self.udf16
+        dict_["udf17"] = self.udf17
+        dict_["udf18"] = self.udf18
+        dict_["udf19"] = self.udf19
+        dict_["udf2"] = self.udf2
+        dict_["udf20"] = self.udf20
+        dict_["udf21"] = self.udf21
+        dict_["udf22"] = self.udf22
+        dict_["udf3"] = self.udf3
+        dict_["udf4"] = self.udf4
+        dict_["udf5"] = self.udf5
+        dict_["udf6"] = self.udf6
+        dict_["udf7"] = self.udf7
+        dict_["udf8"] = self.udf8
+        dict_["udf9"] = self.udf9
+        dict_["unit"] = self.unit
+        dict_["updated"] = self.updated
+        dict_["updatedby"] = self.updatedby
+        dict_["used"] = self.used
+        dict_["valuedate"] = self.valuedate
+        dict_["varieties"] = self.varieties
+        dict_["vexhtml"] = self.vexhtml
+        dict_["vexlabel1"] = self.vexlabel1
+        dict_["vexlabel2"] = self.vexlabel2
+        dict_["vexlabel3"] = self.vexlabel3
+        dict_["vexlabel4"] = self.vexlabel4
+        dict_["webinclude"] = self.webinclude
+        dict_["weight"] = self.weight
+        dict_["weightin"] = self.weightin
+        dict_["weightlb"] = self.weightlb
+        dict_["width"] = self.width
+        dict_["widthft"] = self.widthft
+        dict_["widthin"] = self.widthin
+        dict_["xcord"] = self.xcord
+        dict_["ycord"] = self.ycord
+        dict_["zcord"] = self.zcord
+        dict_["zsorter"] = self.zsorter
+        dict_["zsorterx"] = self.zsorterx
+        return dict_
 
     @property
     def udf1(self):

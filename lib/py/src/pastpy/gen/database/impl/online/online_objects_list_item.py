@@ -299,6 +299,24 @@ class OnlineObjectsListItem(object):
         return self.__detail_href
 
     @classmethod
+    def from_builtins(cls, _dict):
+        if not isinstance(_dict, dict):
+            raise ValueError("expected dict")
+        detail_href = _dict.get("detail_href")
+        if detail_href is None:
+            raise KeyError("detail_href or detail_href")
+
+        record_type = _dict.get("record_type")
+        if record_type is None:
+            raise KeyError("record_type or record_type")
+
+        title = _dict.get("title")
+        if title is None:
+            raise KeyError("title or title")
+
+        thumbnail_url = _dict.get("thumbnail_url")
+
+    @classmethod
     def read(cls, iprot):
         '''
         Read a new object from the given input protocol and return the object.
@@ -356,6 +374,14 @@ class OnlineObjectsListItem(object):
         '''
 
         return self.__title
+
+    def to_builtins(self):
+        dict_ = {}
+        dict_["detail_href"] = self.detail_href
+        dict_["record_type"] = self.record_type
+        dict_["title"] = self.title
+        dict_["thumbnail_url"] = self.thumbnail_url
+        return dict_
 
     def write(self, oprot):
         '''
