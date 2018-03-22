@@ -2,6 +2,7 @@ from collections import OrderedDict
 from itertools import filterfalse
 import builtins
 import pastpy.gen.database.impl.online.online_image
+import pastpy.gen.non_blank_string
 
 
 class OnlineObjectDetail(object):
@@ -95,10 +96,6 @@ class OnlineObjectDetail(object):
                 raise ValueError('guid is required')
             if not isinstance(guid, str):
                 raise TypeError("expected guid to be a str but it is a %s" % builtins.type(guid))
-            if guid.isspace():
-                raise ValueError("expected guid not to be blank")
-            if len(guid) < 1:
-                raise ValueError("expected len(guid) to be >= 1, was %d" % len(guid))
             self.__guid = guid
             return self
 
@@ -111,10 +108,6 @@ class OnlineObjectDetail(object):
                 raise ValueError('id is required')
             if not isinstance(id, str):
                 raise TypeError("expected id to be a str but it is a %s" % builtins.type(id))
-            if id.isspace():
-                raise ValueError("expected id not to be blank")
-            if len(id) < 1:
-                raise ValueError("expected len(id) to be >= 1, was %d" % len(id))
             self.__id = id
             return self
 
@@ -217,8 +210,8 @@ class OnlineObjectDetail(object):
             return (cls.ATTRIBUTES, cls.GUID, cls.ID, cls.RELATED_PHOTOS,)
 
     FieldMetadata.ATTRIBUTES = FieldMetadata('attributes', dict, None)
-    FieldMetadata.GUID = FieldMetadata('guid', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.ID = FieldMetadata('id', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.GUID = FieldMetadata('guid', pastpy.gen.non_blank_string.NonBlankString, None)
+    FieldMetadata.ID = FieldMetadata('id', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.RELATED_PHOTOS = FieldMetadata('related_photos', tuple, None)
 
     def __init__(
@@ -245,20 +238,12 @@ class OnlineObjectDetail(object):
             raise ValueError('guid is required')
         if not isinstance(guid, str):
             raise TypeError("expected guid to be a str but it is a %s" % builtins.type(guid))
-        if guid.isspace():
-            raise ValueError("expected guid not to be blank")
-        if len(guid) < 1:
-            raise ValueError("expected len(guid) to be >= 1, was %d" % len(guid))
         self.__guid = guid
 
         if id is None:
             raise ValueError('id is required')
         if not isinstance(id, str):
             raise TypeError("expected id to be a str but it is a %s" % builtins.type(id))
-        if id.isspace():
-            raise ValueError("expected id not to be blank")
-        if len(id) < 1:
-            raise ValueError("expected len(id) to be >= 1, was %d" % len(id))
         self.__id = id
 
         if related_photos is None:

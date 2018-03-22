@@ -1,5 +1,6 @@
 from collections import OrderedDict
 import builtins
+import pastpy.gen.non_blank_string
 
 
 class OnlineObjectsListItem(object):
@@ -65,10 +66,6 @@ class OnlineObjectsListItem(object):
                 raise ValueError('detail_href is required')
             if not isinstance(detail_href, str):
                 raise TypeError("expected detail_href to be a str but it is a %s" % builtins.type(detail_href))
-            if detail_href.isspace():
-                raise ValueError("expected detail_href not to be blank")
-            if len(detail_href) < 1:
-                raise ValueError("expected len(detail_href) to be >= 1, was %d" % len(detail_href))
             self.__detail_href = detail_href
             return self
 
@@ -81,10 +78,6 @@ class OnlineObjectsListItem(object):
                 raise ValueError('record_type is required')
             if not isinstance(record_type, str):
                 raise TypeError("expected record_type to be a str but it is a %s" % builtins.type(record_type))
-            if record_type.isspace():
-                raise ValueError("expected record_type not to be blank")
-            if len(record_type) < 1:
-                raise ValueError("expected len(record_type) to be >= 1, was %d" % len(record_type))
             self.__record_type = record_type
             return self
 
@@ -108,10 +101,6 @@ class OnlineObjectsListItem(object):
                 raise ValueError('title is required')
             if not isinstance(title, str):
                 raise TypeError("expected title to be a str but it is a %s" % builtins.type(title))
-            if title.isspace():
-                raise ValueError("expected title not to be blank")
-            if len(title) < 1:
-                raise ValueError("expected len(title) to be >= 1, was %d" % len(title))
             self.__title = title
             return self
 
@@ -217,9 +206,9 @@ class OnlineObjectsListItem(object):
         def values(cls):
             return (cls.DETAIL_HREF, cls.RECORD_TYPE, cls.TITLE, cls.THUMBNAIL_URL,)
 
-    FieldMetadata.DETAIL_HREF = FieldMetadata('detail_href', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.RECORD_TYPE = FieldMetadata('record_type', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.TITLE = FieldMetadata('title', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.DETAIL_HREF = FieldMetadata('detail_href', pastpy.gen.non_blank_string.NonBlankString, None)
+    FieldMetadata.RECORD_TYPE = FieldMetadata('record_type', pastpy.gen.non_blank_string.NonBlankString, None)
+    FieldMetadata.TITLE = FieldMetadata('title', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.THUMBNAIL_URL = FieldMetadata('thumbnail_url', str, None)
 
     def __init__(
@@ -240,30 +229,18 @@ class OnlineObjectsListItem(object):
             raise ValueError('detail_href is required')
         if not isinstance(detail_href, str):
             raise TypeError("expected detail_href to be a str but it is a %s" % builtins.type(detail_href))
-        if detail_href.isspace():
-            raise ValueError("expected detail_href not to be blank")
-        if len(detail_href) < 1:
-            raise ValueError("expected len(detail_href) to be >= 1, was %d" % len(detail_href))
         self.__detail_href = detail_href
 
         if record_type is None:
             raise ValueError('record_type is required')
         if not isinstance(record_type, str):
             raise TypeError("expected record_type to be a str but it is a %s" % builtins.type(record_type))
-        if record_type.isspace():
-            raise ValueError("expected record_type not to be blank")
-        if len(record_type) < 1:
-            raise ValueError("expected len(record_type) to be >= 1, was %d" % len(record_type))
         self.__record_type = record_type
 
         if title is None:
             raise ValueError('title is required')
         if not isinstance(title, str):
             raise TypeError("expected title to be a str but it is a %s" % builtins.type(title))
-        if title.isspace():
-            raise ValueError("expected title not to be blank")
-        if len(title) < 1:
-            raise ValueError("expected len(title) to be >= 1, was %d" % len(title))
         self.__title = title
 
         if thumbnail_url is not None:

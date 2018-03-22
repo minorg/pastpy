@@ -1,6 +1,7 @@
 from collections import OrderedDict
 import builtins
 import pastpy.gen.database.impl.online.online_image_type
+import pastpy.gen.non_blank_string
 
 
 class OnlineImage(object):
@@ -98,10 +99,6 @@ class OnlineImage(object):
                 raise ValueError('mediaid is required')
             if not isinstance(mediaid, str):
                 raise TypeError("expected mediaid to be a str but it is a %s" % builtins.type(mediaid))
-            if mediaid.isspace():
-                raise ValueError("expected mediaid not to be blank")
-            if len(mediaid) < 1:
-                raise ValueError("expected len(mediaid) to be >= 1, was %d" % len(mediaid))
             self.__mediaid = mediaid
             return self
 
@@ -114,10 +111,6 @@ class OnlineImage(object):
                 raise ValueError('objectid is required')
             if not isinstance(objectid, str):
                 raise TypeError("expected objectid to be a str but it is a %s" % builtins.type(objectid))
-            if objectid.isspace():
-                raise ValueError("expected objectid not to be blank")
-            if len(objectid) < 1:
-                raise ValueError("expected len(objectid) to be >= 1, was %d" % len(objectid))
             self.__objectid = objectid
             return self
 
@@ -130,10 +123,6 @@ class OnlineImage(object):
                 raise ValueError('src is required')
             if not isinstance(src, str):
                 raise TypeError("expected src to be a str but it is a %s" % builtins.type(src))
-            if src.isspace():
-                raise ValueError("expected src not to be blank")
-            if len(src) < 1:
-                raise ValueError("expected len(src) to be >= 1, was %d" % len(src))
             self.__src = src
             return self
 
@@ -158,10 +147,6 @@ class OnlineImage(object):
                 raise ValueError('title is required')
             if not isinstance(title, str):
                 raise TypeError("expected title to be a str but it is a %s" % builtins.type(title))
-            if title.isspace():
-                raise ValueError("expected title not to be blank")
-            if len(title) < 1:
-                raise ValueError("expected len(title) to be >= 1, was %d" % len(title))
             self.__title = title
             return self
 
@@ -329,11 +314,11 @@ class OnlineImage(object):
             return (cls.FULL_SIZE_URL, cls.MEDIAID, cls.OBJECTID, cls.SRC, cls.THUMBNAIL_URL, cls.TITLE, cls.TYPE,)
 
     FieldMetadata.FULL_SIZE_URL = FieldMetadata('full_size_url', str, None)
-    FieldMetadata.MEDIAID = FieldMetadata('mediaid', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.OBJECTID = FieldMetadata('objectid', str, OrderedDict([('blank', False), ('minLength', 1)]))
-    FieldMetadata.SRC = FieldMetadata('src', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.MEDIAID = FieldMetadata('mediaid', pastpy.gen.non_blank_string.NonBlankString, None)
+    FieldMetadata.OBJECTID = FieldMetadata('objectid', pastpy.gen.non_blank_string.NonBlankString, None)
+    FieldMetadata.SRC = FieldMetadata('src', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.THUMBNAIL_URL = FieldMetadata('thumbnail_url', str, None)
-    FieldMetadata.TITLE = FieldMetadata('title', str, OrderedDict([('blank', False), ('minLength', 1)]))
+    FieldMetadata.TITLE = FieldMetadata('title', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.TYPE = FieldMetadata('type', pastpy.gen.database.impl.online.online_image_type.OnlineImageType, None)
 
     def __init__(
@@ -366,30 +351,18 @@ class OnlineImage(object):
             raise ValueError('mediaid is required')
         if not isinstance(mediaid, str):
             raise TypeError("expected mediaid to be a str but it is a %s" % builtins.type(mediaid))
-        if mediaid.isspace():
-            raise ValueError("expected mediaid not to be blank")
-        if len(mediaid) < 1:
-            raise ValueError("expected len(mediaid) to be >= 1, was %d" % len(mediaid))
         self.__mediaid = mediaid
 
         if objectid is None:
             raise ValueError('objectid is required')
         if not isinstance(objectid, str):
             raise TypeError("expected objectid to be a str but it is a %s" % builtins.type(objectid))
-        if objectid.isspace():
-            raise ValueError("expected objectid not to be blank")
-        if len(objectid) < 1:
-            raise ValueError("expected len(objectid) to be >= 1, was %d" % len(objectid))
         self.__objectid = objectid
 
         if src is None:
             raise ValueError('src is required')
         if not isinstance(src, str):
             raise TypeError("expected src to be a str but it is a %s" % builtins.type(src))
-        if src.isspace():
-            raise ValueError("expected src not to be blank")
-        if len(src) < 1:
-            raise ValueError("expected len(src) to be >= 1, was %d" % len(src))
         self.__src = src
 
         if thumbnail_url is None:
@@ -402,10 +375,6 @@ class OnlineImage(object):
             raise ValueError('title is required')
         if not isinstance(title, str):
             raise TypeError("expected title to be a str but it is a %s" % builtins.type(title))
-        if title.isspace():
-            raise ValueError("expected title not to be blank")
-        if len(title) < 1:
-            raise ValueError("expected len(title) to be >= 1, was %d" % len(title))
         self.__title = title
 
         if type is None:
