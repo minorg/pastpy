@@ -301,19 +301,22 @@ class OnlineObjectsListItem(object):
     def from_builtins(cls, _dict):
         if not isinstance(_dict, dict):
             raise ValueError("expected dict")
+
         detail_href = _dict.get("detail_href")
         if detail_href is None:
-            raise KeyError("detail_href or detail_href")
+            raise KeyError("detail_href")
 
         record_type = _dict.get("record_type")
         if record_type is None:
-            raise KeyError("record_type or record_type")
+            raise KeyError("record_type")
 
         title = _dict.get("title")
         if title is None:
-            raise KeyError("title or title")
+            raise KeyError("title")
 
         thumbnail_url = _dict.get("thumbnail_url")
+
+        return cls(detail_href=detail_href, record_type=record_type, title=title, thumbnail_url=thumbnail_url)
 
     @classmethod
     def read(cls, iprot):

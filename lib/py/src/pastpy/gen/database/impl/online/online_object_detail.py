@@ -303,22 +303,25 @@ class OnlineObjectDetail(object):
     def from_builtins(cls, _dict):
         if not isinstance(_dict, dict):
             raise ValueError("expected dict")
+
         attributes = _dict.get("attributes")
         if attributes is None:
-            raise KeyError("attributes or attributes")
+            raise KeyError("attributes")
 
         guid = _dict.get("guid")
         if guid is None:
-            raise KeyError("guid or guid")
+            raise KeyError("guid")
 
         id = _dict.get("id")
         if id is None:
-            raise KeyError("id or id")
+            raise KeyError("id")
 
         related_photos = _dict.get("related_photos")
         if related_photos is None:
-            raise KeyError("related_photos or related_photos")
+            raise KeyError("related_photos")
         related_photos = tuple(pastpy.gen.database.impl.online.online_image.OnlineImage.from_builtins(element0) for element0 in related_photos)
+
+        return cls(attributes=attributes, guid=guid, id=id, related_photos=related_photos)
 
     @property
     def guid(self):

@@ -60,10 +60,10 @@ class SiteGenerator(object):
         self.__render_objects_detail(objects=objects)
 
     def __new_context(self, page_title):
-        return {'copyright_holder': self.__copyright_holder, 'page_title': page_title, 'site_name': self.__site_name}
+        return {'copyright_holder': self.__configuration.copyright_holder, 'page_title': page_title, 'site_name': self.__configuration.name}
 
     def __read_objects(self):
-        out_images_dir_path = os.path.join(self.__output_dir_path, 'img')
+        out_images_dir_path = os.path.join(self.__configuration.output_dir_path, 'img')
         if not os.path.isdir(out_images_dir_path):
             os.makedirs(out_images_dir_path)
             self.__logger.info(
@@ -98,7 +98,7 @@ class SiteGenerator(object):
         if out_file_relpath is None:
             out_file_relpath = file_base_name + '.html'
         out_file_path = os.path.join(
-            self.__output_dir_path, out_file_relpath)
+            self.__configuration.output_dir_path, out_file_relpath)
         with open(out_file_path, 'w+') as out_file:
             out_file.write(rendered)
             self.__logger.info("wrote %s", out_file_path)
@@ -112,7 +112,7 @@ class SiteGenerator(object):
         self.__render_file('objects_master', context)
 
     def __render_objects_detail(self, objects):
-        out_dir_path = os.path.join(self.__output_dir_path, 'objects')
+        out_dir_path = os.path.join(self.__configuration.output_dir_path, 'objects')
         if not os.path.isdir(out_dir_path):
             os.makedirs(out_dir_path)
 

@@ -438,34 +438,37 @@ class OnlineImage(object):
     def from_builtins(cls, _dict):
         if not isinstance(_dict, dict):
             raise ValueError("expected dict")
+
         full_size_url = _dict.get("full_size_url")
         if full_size_url is None:
-            raise KeyError("full_size_url or full_size_url")
+            raise KeyError("full_size_url")
 
         mediaid = _dict.get("mediaid")
         if mediaid is None:
-            raise KeyError("mediaid or mediaid")
+            raise KeyError("mediaid")
 
         objectid = _dict.get("objectid")
         if objectid is None:
-            raise KeyError("objectid or objectid")
+            raise KeyError("objectid")
 
         src = _dict.get("src")
         if src is None:
-            raise KeyError("src or src")
+            raise KeyError("src")
 
         thumbnail_url = _dict.get("thumbnail_url")
         if thumbnail_url is None:
-            raise KeyError("thumbnail_url or thumbnail_url")
+            raise KeyError("thumbnail_url")
 
         title = _dict.get("title")
         if title is None:
-            raise KeyError("title or title")
+            raise KeyError("title")
 
         type = _dict.get("type")
         if type is None:
-            raise KeyError("type or type")
+            raise KeyError("type")
         type = pastpy.gen.database.impl.online.online_image_type.OnlineImageType.value_of(type)
+
+        return cls(full_size_url=full_size_url, mediaid=mediaid, objectid=objectid, src=src, thumbnail_url=thumbnail_url, title=title, type=type)
 
     @property
     def full_size_url(self):

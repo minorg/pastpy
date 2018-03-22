@@ -357,23 +357,26 @@ class SiteConfiguration(object):
     def from_builtins(cls, _dict):
         if not isinstance(_dict, dict):
             raise ValueError("expected dict")
+
         copyright_holder = _dict.get("copyright_holder")
         if copyright_holder is None:
-            raise KeyError("copyright_holder or copyright_holder")
+            copyright_holder = "Your Collection"
 
         database = _dict.get("database")
         if database is None:
-            raise KeyError("database or database")
+            database = "c:\\pp5"
 
         name = _dict.get("name")
         if name is None:
-            raise KeyError("name or name")
+            name = "Your Collection"
 
         output_dir_path = _dict.get("output_dir_path")
         if output_dir_path is None:
-            raise KeyError("output_dir_path or output_dir_path")
+            output_dir_path = "site"
 
         templates_dir_path = _dict.get("templates_dir_path")
+
+        return cls(copyright_holder=copyright_holder, database=database, name=name, output_dir_path=output_dir_path, templates_dir_path=templates_dir_path)
 
     @property
     def name(self):
