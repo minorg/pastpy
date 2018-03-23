@@ -304,24 +304,30 @@ class OnlineObjectDetail(object):
         if not isinstance(_dict, dict):
             raise ValueError("expected dict")
 
+        __builder = cls.builder()
+
         attributes = _dict.get("attributes")
         if attributes is None:
             raise KeyError("attributes")
+        __builder.attributes = attributes
 
         guid = _dict.get("guid")
         if guid is None:
             raise KeyError("guid")
+        __builder.guid = guid
 
         id = _dict.get("id")
         if id is None:
             raise KeyError("id")
+        __builder.id = id
 
         related_photos = _dict.get("related_photos")
         if related_photos is None:
             raise KeyError("related_photos")
         related_photos = tuple(pastpy.gen.database.impl.online.online_image.OnlineImage.from_builtins(element0) for element0 in related_photos)
+        __builder.related_photos = related_photos
 
-        return cls(attributes=attributes, guid=guid, id=id, related_photos=related_photos)
+        return builder.build()
 
     @property
     def guid(self):

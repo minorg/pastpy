@@ -302,21 +302,26 @@ class OnlineObjectsListItem(object):
         if not isinstance(_dict, dict):
             raise ValueError("expected dict")
 
+        __builder = cls.builder()
+
         detail_href = _dict.get("detail_href")
         if detail_href is None:
             raise KeyError("detail_href")
+        __builder.detail_href = detail_href
 
         record_type = _dict.get("record_type")
         if record_type is None:
             raise KeyError("record_type")
+        __builder.record_type = record_type
 
         title = _dict.get("title")
         if title is None:
             raise KeyError("title")
+        __builder.title = title
 
-        thumbnail_url = _dict.get("thumbnail_url")
+        __builder.thumbnail_url = _dict.get("thumbnail_url")
 
-        return cls(detail_href=detail_href, record_type=record_type, title=title, thumbnail_url=thumbnail_url)
+        return builder.build()
 
     @classmethod
     def read(cls, iprot):

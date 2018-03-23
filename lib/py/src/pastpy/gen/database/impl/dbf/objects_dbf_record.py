@@ -12673,539 +12673,541 @@ class ObjectsDbfRecord(object):
         if not isinstance(_dict, dict):
             raise ValueError("expected dict")
 
-        accessno = _dict.get("accessno")
+        __builder = cls.builder()
 
-        accessory = _dict.get("accessory")
+        __builder.accessno = _dict.get("accessno")
 
-        acqvalue = _dict.get("acqvalue")
+        __builder.accessory = _dict.get("accessory")
 
-        age = _dict.get("age")
+        __builder.acqvalue = _dict.get("acqvalue")
 
-        appnotes = _dict.get("appnotes")
+        __builder.age = _dict.get("age")
 
-        appraisor = _dict.get("appraisor")
+        __builder.appnotes = _dict.get("appnotes")
 
-        assemzone = _dict.get("assemzone")
+        __builder.appraisor = _dict.get("appraisor")
 
-        bagno = _dict.get("bagno")
+        __builder.assemzone = _dict.get("assemzone")
 
-        boxno = _dict.get("boxno")
+        __builder.bagno = _dict.get("bagno")
 
-        caption = _dict.get("caption")
+        __builder.boxno = _dict.get("boxno")
 
-        cat = _dict.get("cat")
+        __builder.caption = _dict.get("caption")
 
-        catby = _dict.get("catby")
+        __builder.cat = _dict.get("cat")
 
-        catdate = _dict.get("catdate")
+        __builder.catby = _dict.get("catby")
 
-        cattype = _dict.get("cattype")
+        __builder.catdate = _dict.get("catdate")
 
-        chemcomp = _dict.get("chemcomp")
+        __builder.cattype = _dict.get("cattype")
 
-        circum = _dict.get("circum")
+        __builder.chemcomp = _dict.get("chemcomp")
 
-        circumft = _dict.get("circumft")
+        __builder.circum = _dict.get("circum")
 
-        circumin = _dict.get("circumin")
+        __builder.circumft = _dict.get("circumft")
 
-        classes = _dict.get("classes")
+        __builder.circumin = _dict.get("circumin")
 
-        colldate = _dict.get("colldate")
+        __builder.classes = _dict.get("classes")
 
-        collection = _dict.get("collection")
+        __builder.colldate = _dict.get("colldate")
 
-        collector = _dict.get("collector")
+        __builder.collection = _dict.get("collection")
 
-        conddate = _dict.get("conddate")
+        __builder.collector = _dict.get("collector")
 
-        condexam = _dict.get("condexam")
+        __builder.conddate = _dict.get("conddate")
 
-        condition = _dict.get("condition")
+        __builder.condexam = _dict.get("condexam")
 
-        condnotes = _dict.get("condnotes")
+        __builder.condition = _dict.get("condition")
 
-        count = _dict.get("count")
+        __builder.condnotes = _dict.get("condnotes")
 
-        creator = _dict.get("creator")
+        __builder.count = _dict.get("count")
 
-        creator2 = _dict.get("creator2")
+        __builder.creator = _dict.get("creator")
 
-        creator3 = _dict.get("creator3")
+        __builder.creator2 = _dict.get("creator2")
 
-        credit = _dict.get("credit")
+        __builder.creator3 = _dict.get("creator3")
 
-        crystal = _dict.get("crystal")
+        __builder.credit = _dict.get("credit")
 
-        culture = _dict.get("culture")
+        __builder.crystal = _dict.get("crystal")
 
-        curvalmax = _dict.get("curvalmax")
+        __builder.culture = _dict.get("culture")
 
-        curvalue = _dict.get("curvalue")
+        __builder.curvalmax = _dict.get("curvalmax")
 
-        dataset = _dict.get("dataset")
+        __builder.curvalue = _dict.get("curvalue")
 
-        date = _dict.get("date")
+        __builder.dataset = _dict.get("dataset")
 
-        datingmeth = _dict.get("datingmeth")
+        __builder.date = _dict.get("date")
 
-        datum = _dict.get("datum")
+        __builder.datingmeth = _dict.get("datingmeth")
 
-        depth = _dict.get("depth")
+        __builder.datum = _dict.get("datum")
 
-        depthft = _dict.get("depthft")
+        __builder.depth = _dict.get("depth")
 
-        depthin = _dict.get("depthin")
+        __builder.depthft = _dict.get("depthft")
 
-        descrip = _dict.get("descrip")
+        __builder.depthin = _dict.get("depthin")
 
-        diameter = _dict.get("diameter")
+        __builder.descrip = _dict.get("descrip")
 
-        diameterft = _dict.get("diameterft")
+        __builder.diameter = _dict.get("diameter")
 
-        diameterin = _dict.get("diameterin")
+        __builder.diameterft = _dict.get("diameterft")
 
-        dimnotes = _dict.get("dimnotes")
+        __builder.diameterin = _dict.get("diameterin")
 
-        dimtype = _dict.get("dimtype")
+        __builder.dimnotes = _dict.get("dimnotes")
 
-        dispvalue = _dict.get("dispvalue")
+        __builder.dimtype = _dict.get("dimtype")
 
-        earlydate = _dict.get("earlydate")
+        __builder.dispvalue = _dict.get("dispvalue")
 
-        elements = _dict.get("elements")
+        __builder.earlydate = _dict.get("earlydate")
 
-        epoch = _dict.get("epoch")
+        __builder.elements = _dict.get("elements")
 
-        era = _dict.get("era")
+        __builder.epoch = _dict.get("epoch")
 
-        event = _dict.get("event")
+        __builder.era = _dict.get("era")
 
-        ew = _dict.get("ew")
+        __builder.event = _dict.get("event")
 
-        excavadate = _dict.get("excavadate")
+        __builder.ew = _dict.get("ew")
 
-        excavateby = _dict.get("excavateby")
+        __builder.excavadate = _dict.get("excavadate")
 
-        exhibitid = _dict.get("exhibitid")
+        __builder.excavateby = _dict.get("excavateby")
 
-        exhibitno = _dict.get("exhibitno")
+        __builder.exhibitid = _dict.get("exhibitid")
 
-        exhlabel1 = _dict.get("exhlabel1")
+        __builder.exhibitno = _dict.get("exhibitno")
 
-        exhlabel2 = _dict.get("exhlabel2")
+        __builder.exhlabel1 = _dict.get("exhlabel1")
 
-        exhlabel3 = _dict.get("exhlabel3")
+        __builder.exhlabel2 = _dict.get("exhlabel2")
 
-        exhlabel4 = _dict.get("exhlabel4")
+        __builder.exhlabel3 = _dict.get("exhlabel3")
 
-        exhstart = _dict.get("exhstart")
+        __builder.exhlabel4 = _dict.get("exhlabel4")
 
-        family = _dict.get("family")
+        __builder.exhstart = _dict.get("exhstart")
 
-        feature = _dict.get("feature")
+        __builder.family = _dict.get("family")
 
-        flagdate = _dict.get("flagdate")
+        __builder.feature = _dict.get("feature")
 
-        flagnotes = _dict.get("flagnotes")
+        __builder.flagdate = _dict.get("flagdate")
 
-        flagreason = _dict.get("flagreason")
+        __builder.flagnotes = _dict.get("flagnotes")
 
-        formation = _dict.get("formation")
+        __builder.flagreason = _dict.get("flagreason")
 
-        fossils = _dict.get("fossils")
+        __builder.formation = _dict.get("formation")
 
-        found = _dict.get("found")
+        __builder.fossils = _dict.get("fossils")
 
-        fracture = _dict.get("fracture")
+        __builder.found = _dict.get("found")
 
-        frame = _dict.get("frame")
+        __builder.fracture = _dict.get("fracture")
 
-        framesize = _dict.get("framesize")
+        __builder.frame = _dict.get("frame")
 
-        genus = _dict.get("genus")
+        __builder.framesize = _dict.get("framesize")
 
-        gparent = _dict.get("gparent")
+        __builder.genus = _dict.get("genus")
 
-        grainsize = _dict.get("grainsize")
+        __builder.gparent = _dict.get("gparent")
 
-        habitat = _dict.get("habitat")
+        __builder.grainsize = _dict.get("grainsize")
 
-        hardness = _dict.get("hardness")
+        __builder.habitat = _dict.get("habitat")
 
-        height = _dict.get("height")
+        __builder.hardness = _dict.get("hardness")
 
-        heightft = _dict.get("heightft")
+        __builder.height = _dict.get("height")
 
-        heightin = _dict.get("heightin")
+        __builder.heightft = _dict.get("heightft")
 
-        homeloc = _dict.get("homeloc")
+        __builder.heightin = _dict.get("heightin")
 
-        idby = _dict.get("idby")
+        __builder.homeloc = _dict.get("homeloc")
 
-        iddate = _dict.get("iddate")
+        __builder.idby = _dict.get("idby")
 
-        imagefile = _dict.get("imagefile")
+        __builder.iddate = _dict.get("iddate")
 
-        imageno = _dict.get("imageno")
+        __builder.imagefile = _dict.get("imagefile")
 
-        imagesize = _dict.get("imagesize")
+        __builder.imageno = _dict.get("imageno")
 
-        inscomp = _dict.get("inscomp")
+        __builder.imagesize = _dict.get("imagesize")
 
-        inscrlang = _dict.get("inscrlang")
+        __builder.inscomp = _dict.get("inscomp")
 
-        inscrpos = _dict.get("inscrpos")
+        __builder.inscrlang = _dict.get("inscrlang")
 
-        inscrtech = _dict.get("inscrtech")
+        __builder.inscrpos = _dict.get("inscrpos")
 
-        inscrtext = _dict.get("inscrtext")
+        __builder.inscrtech = _dict.get("inscrtech")
 
-        inscrtrans = _dict.get("inscrtrans")
+        __builder.inscrtext = _dict.get("inscrtext")
 
-        inscrtype = _dict.get("inscrtype")
+        __builder.inscrtrans = _dict.get("inscrtrans")
 
-        insdate = _dict.get("insdate")
+        __builder.inscrtype = _dict.get("inscrtype")
 
-        insphone = _dict.get("insphone")
+        __builder.insdate = _dict.get("insdate")
 
-        inspremium = _dict.get("inspremium")
+        __builder.insphone = _dict.get("insphone")
 
-        insrep = _dict.get("insrep")
+        __builder.inspremium = _dict.get("inspremium")
 
-        insvalue = _dict.get("insvalue")
+        __builder.insrep = _dict.get("insrep")
 
-        invnby = _dict.get("invnby")
+        __builder.insvalue = _dict.get("insvalue")
 
-        invndate = _dict.get("invndate")
+        __builder.invnby = _dict.get("invnby")
 
-        kingdom = _dict.get("kingdom")
+        __builder.invndate = _dict.get("invndate")
 
-        latdeg = _dict.get("latdeg")
+        __builder.kingdom = _dict.get("kingdom")
 
-        latedate = _dict.get("latedate")
+        __builder.latdeg = _dict.get("latdeg")
 
-        legal = _dict.get("legal")
+        __builder.latedate = _dict.get("latedate")
 
-        length = _dict.get("length")
+        __builder.legal = _dict.get("legal")
 
-        lengthft = _dict.get("lengthft")
+        __builder.length = _dict.get("length")
 
-        lengthin = _dict.get("lengthin")
+        __builder.lengthft = _dict.get("lengthft")
 
-        level = _dict.get("level")
+        __builder.lengthin = _dict.get("lengthin")
 
-        lithofacie = _dict.get("lithofacie")
+        __builder.level = _dict.get("level")
 
-        loancond = _dict.get("loancond")
+        __builder.lithofacie = _dict.get("lithofacie")
 
-        loandue = _dict.get("loandue")
+        __builder.loancond = _dict.get("loancond")
 
-        loanid = _dict.get("loanid")
+        __builder.loandue = _dict.get("loandue")
 
-        loaninno = _dict.get("loaninno")
+        __builder.loanid = _dict.get("loanid")
 
-        loanno = _dict.get("loanno")
+        __builder.loaninno = _dict.get("loaninno")
 
-        loanrenew = _dict.get("loanrenew")
+        __builder.loanno = _dict.get("loanno")
 
-        locfield1 = _dict.get("locfield1")
+        __builder.loanrenew = _dict.get("loanrenew")
 
-        locfield2 = _dict.get("locfield2")
+        __builder.locfield1 = _dict.get("locfield1")
 
-        locfield3 = _dict.get("locfield3")
+        __builder.locfield2 = _dict.get("locfield2")
 
-        locfield4 = _dict.get("locfield4")
+        __builder.locfield3 = _dict.get("locfield3")
 
-        locfield5 = _dict.get("locfield5")
+        __builder.locfield4 = _dict.get("locfield4")
 
-        locfield6 = _dict.get("locfield6")
+        __builder.locfield5 = _dict.get("locfield5")
 
-        longdeg = _dict.get("longdeg")
+        __builder.locfield6 = _dict.get("locfield6")
 
-        luster = _dict.get("luster")
+        __builder.longdeg = _dict.get("longdeg")
 
-        made = _dict.get("made")
+        __builder.luster = _dict.get("luster")
 
-        maintcycle = _dict.get("maintcycle")
+        __builder.made = _dict.get("made")
 
-        maintdate = _dict.get("maintdate")
+        __builder.maintcycle = _dict.get("maintcycle")
 
-        maintnote = _dict.get("maintnote")
+        __builder.maintdate = _dict.get("maintdate")
 
-        material = _dict.get("material")
+        __builder.maintnote = _dict.get("maintnote")
 
-        medium = _dict.get("medium")
+        __builder.material = _dict.get("material")
 
-        member = _dict.get("member")
+        __builder.medium = _dict.get("medium")
 
-        mmark = _dict.get("mmark")
+        __builder.member = _dict.get("member")
 
-        nhclass = _dict.get("nhclass")
+        __builder.mmark = _dict.get("mmark")
 
-        nhorder = _dict.get("nhorder")
+        __builder.nhclass = _dict.get("nhclass")
 
-        notes = _dict.get("notes")
+        __builder.nhorder = _dict.get("nhorder")
 
-        ns = _dict.get("ns")
+        __builder.notes = _dict.get("notes")
 
-        objectid = _dict.get("objectid")
+        __builder.ns = _dict.get("ns")
 
-        objname = _dict.get("objname")
+        __builder.objectid = _dict.get("objectid")
 
-        objname2 = _dict.get("objname2")
+        __builder.objname = _dict.get("objname")
 
-        objname3 = _dict.get("objname3")
+        __builder.objname2 = _dict.get("objname2")
 
-        objnames = _dict.get("objnames")
+        __builder.objname3 = _dict.get("objname3")
 
-        occurrence = _dict.get("occurrence")
+        __builder.objnames = _dict.get("objnames")
 
-        oldno = _dict.get("oldno")
+        __builder.occurrence = _dict.get("occurrence")
 
-        origin = _dict.get("origin")
+        __builder.oldno = _dict.get("oldno")
 
-        othername = _dict.get("othername")
+        __builder.origin = _dict.get("origin")
 
-        otherno = _dict.get("otherno")
+        __builder.othername = _dict.get("othername")
 
-        outdate = _dict.get("outdate")
+        __builder.otherno = _dict.get("otherno")
 
-        owned = _dict.get("owned")
+        __builder.outdate = _dict.get("outdate")
 
-        parent = _dict.get("parent")
+        __builder.owned = _dict.get("owned")
 
-        people = _dict.get("people")
+        __builder.parent = _dict.get("parent")
 
-        period = _dict.get("period")
+        __builder.people = _dict.get("people")
 
-        phylum = _dict.get("phylum")
+        __builder.period = _dict.get("period")
 
-        policyno = _dict.get("policyno")
+        __builder.phylum = _dict.get("phylum")
 
-        ppid = _dict.get("ppid")
+        __builder.policyno = _dict.get("policyno")
 
-        preparator = _dict.get("preparator")
+        __builder.ppid = _dict.get("ppid")
 
-        prepdate = _dict.get("prepdate")
+        __builder.preparator = _dict.get("preparator")
 
-        preserve = _dict.get("preserve")
+        __builder.prepdate = _dict.get("prepdate")
 
-        pressure = _dict.get("pressure")
+        __builder.preserve = _dict.get("preserve")
 
-        provenance = _dict.get("provenance")
+        __builder.pressure = _dict.get("pressure")
 
-        pubnotes = _dict.get("pubnotes")
+        __builder.provenance = _dict.get("provenance")
 
-        qrurl = _dict.get("qrurl")
+        __builder.pubnotes = _dict.get("pubnotes")
 
-        recas = _dict.get("recas")
+        __builder.qrurl = _dict.get("qrurl")
 
-        recdate = _dict.get("recdate")
+        __builder.recas = _dict.get("recas")
 
-        recfrom = _dict.get("recfrom")
+        __builder.recdate = _dict.get("recdate")
 
-        relation = _dict.get("relation")
+        __builder.recfrom = _dict.get("recfrom")
 
-        relnotes = _dict.get("relnotes")
+        __builder.relation = _dict.get("relation")
 
-        renewuntil = _dict.get("renewuntil")
+        __builder.relnotes = _dict.get("relnotes")
 
-        repatby = _dict.get("repatby")
+        __builder.renewuntil = _dict.get("renewuntil")
 
-        repatclaim = _dict.get("repatclaim")
+        __builder.repatby = _dict.get("repatby")
 
-        repatdate = _dict.get("repatdate")
+        __builder.repatclaim = _dict.get("repatclaim")
 
-        repatdisp = _dict.get("repatdisp")
+        __builder.repatdate = _dict.get("repatdate")
 
-        repathand = _dict.get("repathand")
+        __builder.repatdisp = _dict.get("repatdisp")
 
-        repatnotes = _dict.get("repatnotes")
+        __builder.repathand = _dict.get("repathand")
 
-        repatnotic = _dict.get("repatnotic")
+        __builder.repatnotes = _dict.get("repatnotes")
 
-        repattype = _dict.get("repattype")
+        __builder.repatnotic = _dict.get("repatnotic")
 
-        rockclass = _dict.get("rockclass")
+        __builder.repattype = _dict.get("repattype")
 
-        rockcolor = _dict.get("rockcolor")
+        __builder.rockclass = _dict.get("rockclass")
 
-        rockorigin = _dict.get("rockorigin")
+        __builder.rockcolor = _dict.get("rockcolor")
 
-        rocktype = _dict.get("rocktype")
+        __builder.rockorigin = _dict.get("rockorigin")
 
-        role = _dict.get("role")
+        __builder.rocktype = _dict.get("rocktype")
 
-        role2 = _dict.get("role2")
+        __builder.role = _dict.get("role")
 
-        role3 = _dict.get("role3")
+        __builder.role2 = _dict.get("role2")
 
-        school = _dict.get("school")
+        __builder.role3 = _dict.get("role3")
 
-        sex = _dict.get("sex")
+        __builder.school = _dict.get("school")
 
-        sgflag = _dict.get("sgflag")
+        __builder.sex = _dict.get("sex")
 
-        signedname = _dict.get("signedname")
+        __builder.sgflag = _dict.get("sgflag")
 
-        signloc = _dict.get("signloc")
+        __builder.signedname = _dict.get("signedname")
 
-        site = _dict.get("site")
+        __builder.signloc = _dict.get("signloc")
 
-        siteno = _dict.get("siteno")
+        __builder.site = _dict.get("site")
 
-        specgrav = _dict.get("specgrav")
+        __builder.siteno = _dict.get("siteno")
 
-        species = _dict.get("species")
+        __builder.specgrav = _dict.get("specgrav")
 
-        sprocess = _dict.get("sprocess")
+        __builder.species = _dict.get("species")
 
-        stage = _dict.get("stage")
+        __builder.sprocess = _dict.get("sprocess")
 
-        status = _dict.get("status")
+        __builder.stage = _dict.get("stage")
 
-        statusby = _dict.get("statusby")
+        __builder.status = _dict.get("status")
 
-        statusdate = _dict.get("statusdate")
+        __builder.statusby = _dict.get("statusby")
 
-        sterms = _dict.get("sterms")
+        __builder.statusdate = _dict.get("statusdate")
 
-        stratum = _dict.get("stratum")
+        __builder.sterms = _dict.get("sterms")
 
-        streak = _dict.get("streak")
+        __builder.stratum = _dict.get("stratum")
 
-        subfamily = _dict.get("subfamily")
+        __builder.streak = _dict.get("streak")
 
-        subjects = _dict.get("subjects")
+        __builder.subfamily = _dict.get("subfamily")
 
-        subspecies = _dict.get("subspecies")
+        __builder.subjects = _dict.get("subjects")
 
-        technique = _dict.get("technique")
+        __builder.subspecies = _dict.get("subspecies")
 
-        tempauthor = _dict.get("tempauthor")
+        __builder.technique = _dict.get("technique")
 
-        tempby = _dict.get("tempby")
+        __builder.tempauthor = _dict.get("tempauthor")
 
-        tempdate = _dict.get("tempdate")
+        __builder.tempby = _dict.get("tempby")
 
-        temperatur = _dict.get("temperatur")
+        __builder.tempdate = _dict.get("tempdate")
 
-        temploc = _dict.get("temploc")
+        __builder.temperatur = _dict.get("temperatur")
 
-        tempnotes = _dict.get("tempnotes")
+        __builder.temploc = _dict.get("temploc")
 
-        tempreason = _dict.get("tempreason")
+        __builder.tempnotes = _dict.get("tempnotes")
 
-        tempuntil = _dict.get("tempuntil")
+        __builder.tempreason = _dict.get("tempreason")
 
-        texture = _dict.get("texture")
+        __builder.tempuntil = _dict.get("tempuntil")
 
-        title = _dict.get("title")
+        __builder.texture = _dict.get("texture")
 
-        tlocfield1 = _dict.get("tlocfield1")
+        __builder.title = _dict.get("title")
 
-        tlocfield2 = _dict.get("tlocfield2")
+        __builder.tlocfield1 = _dict.get("tlocfield1")
 
-        tlocfield3 = _dict.get("tlocfield3")
+        __builder.tlocfield2 = _dict.get("tlocfield2")
 
-        tlocfield4 = _dict.get("tlocfield4")
+        __builder.tlocfield3 = _dict.get("tlocfield3")
 
-        tlocfield5 = _dict.get("tlocfield5")
+        __builder.tlocfield4 = _dict.get("tlocfield4")
 
-        tlocfield6 = _dict.get("tlocfield6")
+        __builder.tlocfield5 = _dict.get("tlocfield5")
 
-        udf1 = _dict.get("udf1")
+        __builder.tlocfield6 = _dict.get("tlocfield6")
 
-        udf10 = _dict.get("udf10")
+        __builder.udf1 = _dict.get("udf1")
 
-        udf11 = _dict.get("udf11")
+        __builder.udf10 = _dict.get("udf10")
 
-        udf12 = _dict.get("udf12")
+        __builder.udf11 = _dict.get("udf11")
 
-        udf13 = _dict.get("udf13")
+        __builder.udf12 = _dict.get("udf12")
 
-        udf14 = _dict.get("udf14")
+        __builder.udf13 = _dict.get("udf13")
 
-        udf15 = _dict.get("udf15")
+        __builder.udf14 = _dict.get("udf14")
 
-        udf16 = _dict.get("udf16")
+        __builder.udf15 = _dict.get("udf15")
 
-        udf17 = _dict.get("udf17")
+        __builder.udf16 = _dict.get("udf16")
 
-        udf18 = _dict.get("udf18")
+        __builder.udf17 = _dict.get("udf17")
 
-        udf19 = _dict.get("udf19")
+        __builder.udf18 = _dict.get("udf18")
 
-        udf2 = _dict.get("udf2")
+        __builder.udf19 = _dict.get("udf19")
 
-        udf20 = _dict.get("udf20")
+        __builder.udf2 = _dict.get("udf2")
 
-        udf21 = _dict.get("udf21")
+        __builder.udf20 = _dict.get("udf20")
 
-        udf22 = _dict.get("udf22")
+        __builder.udf21 = _dict.get("udf21")
 
-        udf3 = _dict.get("udf3")
+        __builder.udf22 = _dict.get("udf22")
 
-        udf4 = _dict.get("udf4")
+        __builder.udf3 = _dict.get("udf3")
 
-        udf5 = _dict.get("udf5")
+        __builder.udf4 = _dict.get("udf4")
 
-        udf6 = _dict.get("udf6")
+        __builder.udf5 = _dict.get("udf5")
 
-        udf7 = _dict.get("udf7")
+        __builder.udf6 = _dict.get("udf6")
 
-        udf8 = _dict.get("udf8")
+        __builder.udf7 = _dict.get("udf7")
 
-        udf9 = _dict.get("udf9")
+        __builder.udf8 = _dict.get("udf8")
 
-        unit = _dict.get("unit")
+        __builder.udf9 = _dict.get("udf9")
 
-        updated = _dict.get("updated")
+        __builder.unit = _dict.get("unit")
 
-        updatedby = _dict.get("updatedby")
+        __builder.updated = _dict.get("updated")
 
-        used = _dict.get("used")
+        __builder.updatedby = _dict.get("updatedby")
 
-        valuedate = _dict.get("valuedate")
+        __builder.used = _dict.get("used")
 
-        varieties = _dict.get("varieties")
+        __builder.valuedate = _dict.get("valuedate")
 
-        vexhtml = _dict.get("vexhtml")
+        __builder.varieties = _dict.get("varieties")
 
-        vexlabel1 = _dict.get("vexlabel1")
+        __builder.vexhtml = _dict.get("vexhtml")
 
-        vexlabel2 = _dict.get("vexlabel2")
+        __builder.vexlabel1 = _dict.get("vexlabel1")
 
-        vexlabel3 = _dict.get("vexlabel3")
+        __builder.vexlabel2 = _dict.get("vexlabel2")
 
-        vexlabel4 = _dict.get("vexlabel4")
+        __builder.vexlabel3 = _dict.get("vexlabel3")
 
-        webinclude = _dict.get("webinclude")
+        __builder.vexlabel4 = _dict.get("vexlabel4")
 
-        weight = _dict.get("weight")
+        __builder.webinclude = _dict.get("webinclude")
 
-        weightin = _dict.get("weightin")
+        __builder.weight = _dict.get("weight")
 
-        weightlb = _dict.get("weightlb")
+        __builder.weightin = _dict.get("weightin")
 
-        width = _dict.get("width")
+        __builder.weightlb = _dict.get("weightlb")
 
-        widthft = _dict.get("widthft")
+        __builder.width = _dict.get("width")
 
-        widthin = _dict.get("widthin")
+        __builder.widthft = _dict.get("widthft")
 
-        xcord = _dict.get("xcord")
+        __builder.widthin = _dict.get("widthin")
 
-        ycord = _dict.get("ycord")
+        __builder.xcord = _dict.get("xcord")
 
-        zcord = _dict.get("zcord")
+        __builder.ycord = _dict.get("ycord")
 
-        zsorter = _dict.get("zsorter")
+        __builder.zcord = _dict.get("zcord")
 
-        zsorterx = _dict.get("zsorterx")
+        __builder.zsorter = _dict.get("zsorter")
 
-        return cls(accessno=accessno, accessory=accessory, acqvalue=acqvalue, age=age, appnotes=appnotes, appraisor=appraisor, assemzone=assemzone, bagno=bagno, boxno=boxno, caption=caption, cat=cat, catby=catby, catdate=catdate, cattype=cattype, chemcomp=chemcomp, circum=circum, circumft=circumft, circumin=circumin, classes=classes, colldate=colldate, collection=collection, collector=collector, conddate=conddate, condexam=condexam, condition=condition, condnotes=condnotes, count=count, creator=creator, creator2=creator2, creator3=creator3, credit=credit, crystal=crystal, culture=culture, curvalmax=curvalmax, curvalue=curvalue, dataset=dataset, date=date, datingmeth=datingmeth, datum=datum, depth=depth, depthft=depthft, depthin=depthin, descrip=descrip, diameter=diameter, diameterft=diameterft, diameterin=diameterin, dimnotes=dimnotes, dimtype=dimtype, dispvalue=dispvalue, earlydate=earlydate, elements=elements, epoch=epoch, era=era, event=event, ew=ew, excavadate=excavadate, excavateby=excavateby, exhibitid=exhibitid, exhibitno=exhibitno, exhlabel1=exhlabel1, exhlabel2=exhlabel2, exhlabel3=exhlabel3, exhlabel4=exhlabel4, exhstart=exhstart, family=family, feature=feature, flagdate=flagdate, flagnotes=flagnotes, flagreason=flagreason, formation=formation, fossils=fossils, found=found, fracture=fracture, frame=frame, framesize=framesize, genus=genus, gparent=gparent, grainsize=grainsize, habitat=habitat, hardness=hardness, height=height, heightft=heightft, heightin=heightin, homeloc=homeloc, idby=idby, iddate=iddate, imagefile=imagefile, imageno=imageno, imagesize=imagesize, inscomp=inscomp, inscrlang=inscrlang, inscrpos=inscrpos, inscrtech=inscrtech, inscrtext=inscrtext, inscrtrans=inscrtrans, inscrtype=inscrtype, insdate=insdate, insphone=insphone, inspremium=inspremium, insrep=insrep, insvalue=insvalue, invnby=invnby, invndate=invndate, kingdom=kingdom, latdeg=latdeg, latedate=latedate, legal=legal, length=length, lengthft=lengthft, lengthin=lengthin, level=level, lithofacie=lithofacie, loancond=loancond, loandue=loandue, loanid=loanid, loaninno=loaninno, loanno=loanno, loanrenew=loanrenew, locfield1=locfield1, locfield2=locfield2, locfield3=locfield3, locfield4=locfield4, locfield5=locfield5, locfield6=locfield6, longdeg=longdeg, luster=luster, made=made, maintcycle=maintcycle, maintdate=maintdate, maintnote=maintnote, material=material, medium=medium, member=member, mmark=mmark, nhclass=nhclass, nhorder=nhorder, notes=notes, ns=ns, objectid=objectid, objname=objname, objname2=objname2, objname3=objname3, objnames=objnames, occurrence=occurrence, oldno=oldno, origin=origin, othername=othername, otherno=otherno, outdate=outdate, owned=owned, parent=parent, people=people, period=period, phylum=phylum, policyno=policyno, ppid=ppid, preparator=preparator, prepdate=prepdate, preserve=preserve, pressure=pressure, provenance=provenance, pubnotes=pubnotes, qrurl=qrurl, recas=recas, recdate=recdate, recfrom=recfrom, relation=relation, relnotes=relnotes, renewuntil=renewuntil, repatby=repatby, repatclaim=repatclaim, repatdate=repatdate, repatdisp=repatdisp, repathand=repathand, repatnotes=repatnotes, repatnotic=repatnotic, repattype=repattype, rockclass=rockclass, rockcolor=rockcolor, rockorigin=rockorigin, rocktype=rocktype, role=role, role2=role2, role3=role3, school=school, sex=sex, sgflag=sgflag, signedname=signedname, signloc=signloc, site=site, siteno=siteno, specgrav=specgrav, species=species, sprocess=sprocess, stage=stage, status=status, statusby=statusby, statusdate=statusdate, sterms=sterms, stratum=stratum, streak=streak, subfamily=subfamily, subjects=subjects, subspecies=subspecies, technique=technique, tempauthor=tempauthor, tempby=tempby, tempdate=tempdate, temperatur=temperatur, temploc=temploc, tempnotes=tempnotes, tempreason=tempreason, tempuntil=tempuntil, texture=texture, title=title, tlocfield1=tlocfield1, tlocfield2=tlocfield2, tlocfield3=tlocfield3, tlocfield4=tlocfield4, tlocfield5=tlocfield5, tlocfield6=tlocfield6, udf1=udf1, udf10=udf10, udf11=udf11, udf12=udf12, udf13=udf13, udf14=udf14, udf15=udf15, udf16=udf16, udf17=udf17, udf18=udf18, udf19=udf19, udf2=udf2, udf20=udf20, udf21=udf21, udf22=udf22, udf3=udf3, udf4=udf4, udf5=udf5, udf6=udf6, udf7=udf7, udf8=udf8, udf9=udf9, unit=unit, updated=updated, updatedby=updatedby, used=used, valuedate=valuedate, varieties=varieties, vexhtml=vexhtml, vexlabel1=vexlabel1, vexlabel2=vexlabel2, vexlabel3=vexlabel3, vexlabel4=vexlabel4, webinclude=webinclude, weight=weight, weightin=weightin, weightlb=weightlb, width=width, widthft=widthft, widthin=widthin, xcord=xcord, ycord=ycord, zcord=zcord, zsorter=zsorter, zsorterx=zsorterx)
+        __builder.zsorterx = _dict.get("zsorterx")
+
+        return builder.build()
 
     @property
     def genus(self):

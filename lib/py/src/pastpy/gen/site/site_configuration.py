@@ -358,25 +358,31 @@ class SiteConfiguration(object):
         if not isinstance(_dict, dict):
             raise ValueError("expected dict")
 
+        __builder = cls.builder()
+
         copyright_holder = _dict.get("copyright_holder")
         if copyright_holder is None:
             copyright_holder = "Your Collection"
+        __builder.copyright_holder = copyright_holder
 
         database = _dict.get("database")
         if database is None:
             database = "c:\\pp5"
+        __builder.database = database
 
         name = _dict.get("name")
         if name is None:
             name = "Your Collection"
+        __builder.name = name
 
         output_dir_path = _dict.get("output_dir_path")
         if output_dir_path is None:
             output_dir_path = "site"
+        __builder.output_dir_path = output_dir_path
 
-        templates_dir_path = _dict.get("templates_dir_path")
+        __builder.templates_dir_path = _dict.get("templates_dir_path")
 
-        return cls(copyright_holder=copyright_holder, database=database, name=name, output_dir_path=output_dir_path, templates_dir_path=templates_dir_path)
+        return builder.build()
 
     @property
     def name(self):
