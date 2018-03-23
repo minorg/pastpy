@@ -1,8 +1,8 @@
+from datetime import datetime
 import logging
 import os.path
 import pystache
 import shutil
-import sys
 from urllib.parse import urlparse, unquote
 from pastpy.database.past_perfect_database import PastPerfectDatabase
 from pastpy.gen.site.site_configuration import SiteConfiguration
@@ -56,11 +56,15 @@ class SiteGenerator(object):
         objects = self.__read_objects()
 
         self.__render_index()
-        self.__render_objects_master(objects=objects)
-        self.__render_objects_detail(objects=objects)
+        self.__render_objects(objects=objects)
 
-    def __new_context(self, page_title):
-        return {'copyright_holder': self.__configuration.copyright_holder, 'page_title': page_title, 'site_name': self.__configuration.name}
+    def __new_context(self, *, page_title):
+        return {
+            'copyright_holder': self.__configuration.copyright_holder,
+            'current_year': datetime.now().year,
+            'page_title': page_title,
+            'site_name': self.__configuration.name
+        }
 
     def __read_objects(self):
         out_images_dir_path = os.path.join(self.__configuration.output_dir_path, 'img')
@@ -92,7 +96,7 @@ class SiteGenerator(object):
             break
         return objects
 
-    def __render_file(self, file_base_name, context, out_file_relpath=None):
+    def __render_file(self, *, context, file_base_name, out_file_relpath=None):
         rendered = self.__renderer.render_name(
             file_base_name + '.html', context)
         if out_file_relpath is None:
@@ -105,13 +109,15 @@ class SiteGenerator(object):
 
     def __render_index(self):
         context = self.__new_context(page_title='Home')
-        self.__render_file('index', context)
+        self.__render_file(context=context, file_base_name='index')
 
-    def __render_objects_master(self, objects):
-        context = self.__new_context(page_title='Objects')
-        self.__render_file('objects_master', context)
+    def __render_object(self, *, object_, out_dir_path):
+        context = self.__new_context(
+            page_title='Object: ' + object_.id)
+        self.__render_file(file_base_name='object', context=context, out_file_relpath=os.path.join(
+            'objects', object_.id + '.html'))
 
-    def __render_objects_detail(self, objects):
+    def __render_objects(self, *, objects):
         out_dir_path = os.path.join(self.__configuration.output_dir_path, 'objects')
         if not os.path.isdir(out_dir_path):
             os.makedirs(out_dir_path)
@@ -119,7 +125,4 @@ class SiteGenerator(object):
         for object_ in objects:
             if not object_.id:
                 continue
-            context = self.__new_context(
-                page_title='Object: ' + object_.id)
-            self.__render_file('object_detail', context, out_file_relpath=os.path.join(
-                'objects', object_.id + '.html'))
+            self.__render_object(object_=object_, out_dir_path=out_dir_path)
