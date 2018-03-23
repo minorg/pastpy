@@ -477,7 +477,7 @@ class OnlineImage(object):
         type = pastpy.gen.database.impl.online.online_image_type.OnlineImageType.value_of(type)
         __builder.type = type
 
-        return builder.build()
+        return __builder.build()
 
     @property
     def full_size_url(self):

@@ -382,7 +382,7 @@ class SiteConfiguration(object):
 
         __builder.templates_dir_path = _dict.get("templates_dir_path")
 
-        return builder.build()
+        return __builder.build()
 
     @property
     def name(self):

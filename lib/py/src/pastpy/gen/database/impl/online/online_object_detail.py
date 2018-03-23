@@ -327,7 +327,7 @@ class OnlineObjectDetail(object):
         related_photos = tuple(pastpy.gen.database.impl.online.online_image.OnlineImage.from_builtins(element0) for element0 in related_photos)
         __builder.related_photos = related_photos
 
-        return builder.build()
+        return __builder.build()
 
     @property
     def guid(self):

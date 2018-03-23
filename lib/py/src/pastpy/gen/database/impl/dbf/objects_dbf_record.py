@@ -13207,7 +13207,7 @@ class ObjectsDbfRecord(object):
 
         __builder.zsorterx = _dict.get("zsorterx")
 
-        return builder.build()
+        return __builder.build()
 
     @property
     def genus(self):

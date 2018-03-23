@@ -321,7 +321,7 @@ class OnlineObjectsListItem(object):
 
         __builder.thumbnail_url = _dict.get("thumbnail_url")
 
-        return builder.build()
+        return __builder.build()
 
     @classmethod
     def read(cls, iprot):
