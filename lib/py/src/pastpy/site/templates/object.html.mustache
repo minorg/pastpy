@@ -1,5 +1,31 @@
 {{>header.html}}
-<div class="container-fluid object-detail">
-    <h1>{{page_title}}</h1>
+<div class="container-fluid object">
+    <div class="row text-center">
+        <h1>{{page_title}}</h1>
+    </div>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <td>ID</td>
+            <td>{{object.id}}</td>
+        </tr>
+        {{#object.name}}
+        <tr>
+            <td>Name</td>
+            <td>{{object.name}}</td>
+        </tr>
+        {{/object.name}}
+        {{#object.name}}
+        <tr>
+            <td>Other name</td>
+            <td>{{object.othername}}</td>
+        </tr>
+        {{/object.name}}
+        {{#object.description}}
+        <tr>
+            <td>Description</td>
+            <td>{{object.description}}</td>
+        </tr>
+        {{/object.description}}
+    </table>
 </div>
 {{>footer.html}}

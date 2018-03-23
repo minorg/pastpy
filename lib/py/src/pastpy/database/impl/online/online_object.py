@@ -6,6 +6,10 @@ class OnlineObject(Object):
         self.__detail = detail
 
     @property
+    def attributes(self):
+        return self.__detail.attributes
+
+    @property
     def date(self):
         return self.__detail.attributes.get("Date")
 

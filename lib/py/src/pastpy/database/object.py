@@ -1,5 +1,9 @@
 class Object(object):
     @property
+    def attributes(self):
+        raise NotImplementedError
+
+    @property
     def date(self):
         raise NotImplementedError
 
@@ -13,7 +17,7 @@ class Object(object):
 
     @property
     def images(self):
-        pass
+        raise NotImplementedError
 
     @property
     def name(self):
