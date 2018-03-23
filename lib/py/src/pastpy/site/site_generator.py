@@ -115,7 +115,7 @@ class SiteGenerator(object):
         context = self.__new_context(
             page_title='Object: ' + object_.id)
         context["object"] = object_
-        context["object_attributes"] = object.attributes.items()
+        context["object_attributes"] = [{"key": key, "value": value} for key, value in object_.attributes.items()]
 
         self.__render_file(file_base_name='object', context=context, out_file_relpath=os.path.join(
             out_dir_relpath, object_.id + '.html'))

@@ -4,28 +4,12 @@
         <h1>{{page_title}}</h1>
     </div>
     <table class="table table-bordered table-striped">
+{{#object_attributes}}
         <tr>
-            <td>ID</td>
-            <td>{{object.id}}</td>
+            <td>{{key}}</td>
+            <td>{{value}}</td>
         </tr>
-        {{#object.name}}
-        <tr>
-            <td>Name</td>
-            <td>{{object.name}}</td>
-        </tr>
-        {{/object.name}}
-        {{#object.name}}
-        <tr>
-            <td>Other name</td>
-            <td>{{object.othername}}</td>
-        </tr>
-        {{/object.name}}
-        {{#object.description}}
-        <tr>
-            <td>Description</td>
-            <td>{{object.description}}</td>
-        </tr>
-        {{/object.description}}
+{{/object_attributes}}
     </table>
 </div>
 {{>footer.html}}
