@@ -46,7 +46,7 @@ class OnlineObjectDetailHtmlParser(object):
                 result_builder.type = OnlineObjectDetailImageType.INDIVIDUAL
                 break
             elif class_ == "largeImage":
-                result_builder.type = OnlineImageType.LARGE
+                result_builder.type = OnlineObjectDetailImageType.LARGE
                 break
             else:
                 continue

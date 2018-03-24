@@ -5,7 +5,7 @@ from pastpy.gen.database.impl.online.online_objects_list_item import OnlineObjec
 
 class OnlineImage(Image):
     def __init__(self, *, detail_image=None, list_item=None):
-        assert detail_image ^ list_item
+        assert (detail_image is not None) ^ (list_item is not None)
         self.__detail_image = detail_image
         assert detail_image is None or isinstance(detail_image, OnlineObjectDetailImage)
         self.__list_item = list_item

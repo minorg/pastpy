@@ -67,10 +67,23 @@ class SiteGenerator(object):
             self.__logger.info("created directory %s", dir_path)
 
     def __new_object_context(self, *, object_):
-        return {
+        context = {
             "object": object_,
             "object_attributes": [{"key": key, "value": value} for key, value in object_.attributes.items()]
         }
+        if object_.name:
+            context["object_name"] = object_.name
+        elif object_.othername:
+            context["object_name"] = object_.othername
+        else:
+            context["object_name"] = object_.id
+        context["object_href"] = "/objects/details/" + str(object_.id)
+        context["object_thumbnail_url"] = "http://via.placeholder.com/200x200?text=Missing%20image"
+        for image in object_.images:
+            if image.thumbnail_url:
+                context["object_thumbnail_url"] = image.thumbnail_url
+                break
+        return context
 
     def __new_top_level_context(self, *, page_title):
         return {
