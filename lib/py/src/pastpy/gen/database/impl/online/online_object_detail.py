@@ -1,6 +1,6 @@
 from itertools import filterfalse
 import builtins
-import pastpy.gen.database.impl.online.online_image
+import pastpy.gen.database.impl.online.online_object_detail_image
 import pastpy.gen.non_blank_string
 
 
@@ -17,7 +17,7 @@ class OnlineObjectDetail(object):
             :type attributes: dict(str: str)
             :type guid: str
             :type id: str
-            :type related_photos: tuple(pastpy.gen.database.impl.online.online_image.OnlineImage)
+            :type related_photos: tuple(pastpy.gen.database.impl.online.online_object_detail_image.OnlineObjectDetailImage)
             '''
 
             self.__attributes = attributes
@@ -69,7 +69,7 @@ class OnlineObjectDetail(object):
         @property
         def related_photos(self):
             '''
-            :rtype: tuple(pastpy.gen.database.impl.online.online_image.OnlineImage)
+            :rtype: tuple(pastpy.gen.database.impl.online.online_object_detail_image.OnlineObjectDetailImage)
             '''
 
             return self.__related_photos
@@ -112,13 +112,13 @@ class OnlineObjectDetail(object):
 
         def set_related_photos(self, related_photos):
             '''
-            :type related_photos: tuple(pastpy.gen.database.impl.online.online_image.OnlineImage)
+            :type related_photos: tuple(pastpy.gen.database.impl.online.online_object_detail_image.OnlineObjectDetailImage)
             '''
 
             if related_photos is None:
                 raise ValueError('related_photos is required')
-            if not (isinstance(related_photos, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.database.impl.online.online_image.OnlineImage), related_photos))) == 0):
-                raise TypeError("expected related_photos to be a tuple(pastpy.gen.database.impl.online.online_image.OnlineImage) but it is a %s" % builtins.type(related_photos))
+            if not (isinstance(related_photos, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.database.impl.online.online_object_detail_image.OnlineObjectDetailImage), related_photos))) == 0):
+                raise TypeError("expected related_photos to be a tuple(pastpy.gen.database.impl.online.online_object_detail_image.OnlineObjectDetailImage) but it is a %s" % builtins.type(related_photos))
             self.__related_photos = related_photos
             return self
 
@@ -127,7 +127,7 @@ class OnlineObjectDetail(object):
             :type attributes: dict(str: str)
             :type guid: str
             :type id: str
-            :type related_photos: tuple(pastpy.gen.database.impl.online.online_image.OnlineImage)
+            :type related_photos: tuple(pastpy.gen.database.impl.online.online_object_detail_image.OnlineObjectDetailImage)
             '''
 
             if isinstance(online_object_detail, OnlineObjectDetail):
@@ -169,7 +169,7 @@ class OnlineObjectDetail(object):
         @related_photos.setter
         def related_photos(self, related_photos):
             '''
-            :type related_photos: tuple(pastpy.gen.database.impl.online.online_image.OnlineImage)
+            :type related_photos: tuple(pastpy.gen.database.impl.online.online_object_detail_image.OnlineObjectDetailImage)
             '''
 
             self.set_related_photos(related_photos)
@@ -224,7 +224,7 @@ class OnlineObjectDetail(object):
         :type attributes: dict(str: str)
         :type guid: str
         :type id: str
-        :type related_photos: tuple(pastpy.gen.database.impl.online.online_image.OnlineImage)
+        :type related_photos: tuple(pastpy.gen.database.impl.online.online_object_detail_image.OnlineObjectDetailImage)
         '''
 
         if attributes is None:
@@ -247,8 +247,8 @@ class OnlineObjectDetail(object):
 
         if related_photos is None:
             raise ValueError('related_photos is required')
-        if not (isinstance(related_photos, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.database.impl.online.online_image.OnlineImage), related_photos))) == 0):
-            raise TypeError("expected related_photos to be a tuple(pastpy.gen.database.impl.online.online_image.OnlineImage) but it is a %s" % builtins.type(related_photos))
+        if not (isinstance(related_photos, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.database.impl.online.online_object_detail_image.OnlineObjectDetailImage), related_photos))) == 0):
+            raise TypeError("expected related_photos to be a tuple(pastpy.gen.database.impl.online.online_object_detail_image.OnlineObjectDetailImage) but it is a %s" % builtins.type(related_photos))
         self.__related_photos = related_photos
 
     def __eq__(self, other):
@@ -324,7 +324,7 @@ class OnlineObjectDetail(object):
         related_photos = _dict.get("related_photos")
         if related_photos is None:
             raise KeyError("related_photos")
-        related_photos = tuple(pastpy.gen.database.impl.online.online_image.OnlineImage.from_builtins(element0) for element0 in related_photos)
+        related_photos = tuple(pastpy.gen.database.impl.online.online_object_detail_image.OnlineObjectDetailImage.from_builtins(element0) for element0 in related_photos)
         __builder.related_photos = related_photos
 
         return __builder.build()
@@ -368,7 +368,7 @@ class OnlineObjectDetail(object):
             elif ifield_name == 'id':
                 init_kwds['id'] = iprot.read_string()
             elif ifield_name == 'related_photos':
-                init_kwds['related_photos'] = tuple([pastpy.gen.database.impl.online.online_image.OnlineImage.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
+                init_kwds['related_photos'] = tuple([pastpy.gen.database.impl.online.online_object_detail_image.OnlineObjectDetailImage.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
             iprot.read_field_end()
         iprot.read_struct_end()
 
@@ -377,7 +377,7 @@ class OnlineObjectDetail(object):
     @property
     def related_photos(self):
         '''
-        :rtype: tuple(pastpy.gen.database.impl.online.online_image.OnlineImage)
+        :rtype: tuple(pastpy.gen.database.impl.online.online_object_detail_image.OnlineObjectDetailImage)
         '''
 
         return self.__related_photos

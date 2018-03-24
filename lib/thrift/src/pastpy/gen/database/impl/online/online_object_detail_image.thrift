@@ -1,10 +1,10 @@
 namespace * pastpy.gen.database.impl.online
 
-include "pastpy/gen/database/impl/online/online_image_type.thrift"
+include "pastpy/gen/database/impl/online/online_object_detail_image_type.thrift"
 include "pastpy/gen/non_blank_string.thrift"
 include "thryft/native/url.thrift"
 
-struct OnlineImage {
+struct OnlineObjectDetailImage {
     url.Url full_size_url;
 
     non_blank_string.NonBlankString mediaid;
@@ -17,5 +17,5 @@ struct OnlineImage {
 
     non_blank_string.NonBlankString title;
 
-    online_image_type.OnlineImageType type;
+    online_object_detail_image_type.OnlineObjectDetailImageType type;
 }

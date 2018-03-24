@@ -1,4 +1,4 @@
-class OnlineImageType(object):
+class OnlineObjectDetailImageType(object):
     INDIVIDUAL = None
     LARGE = None
 
@@ -19,14 +19,14 @@ class OnlineImageType(object):
     @classmethod
     def value_of(cls, name):
         if name == 'INDIVIDUAL' or name == '0':
-            return getattr(OnlineImageType, 'INDIVIDUAL')
+            return getattr(OnlineObjectDetailImageType, 'INDIVIDUAL')
         elif name == 'LARGE' or name == '1':
-            return getattr(OnlineImageType, 'LARGE')
+            return getattr(OnlineObjectDetailImageType, 'LARGE')
         raise ValueError(name)
 
     @classmethod
     def values(cls):
-        return (OnlineImageType.INDIVIDUAL, OnlineImageType.LARGE,)
+        return (OnlineObjectDetailImageType.INDIVIDUAL, OnlineObjectDetailImageType.LARGE,)
 
-OnlineImageType.INDIVIDUAL = OnlineImageType('INDIVIDUAL', 0)
-OnlineImageType.LARGE = OnlineImageType('LARGE', 1)
+OnlineObjectDetailImageType.INDIVIDUAL = OnlineObjectDetailImageType('INDIVIDUAL', 0)
+OnlineObjectDetailImageType.LARGE = OnlineObjectDetailImageType('LARGE', 1)

@@ -1,6 +1,6 @@
 namespace * pastpy.gen.database.impl.online
 
-enum OnlineImageType {
+enum OnlineObjectDetailImageType {
     INDIVIDUAL,
     LARGE
 }
