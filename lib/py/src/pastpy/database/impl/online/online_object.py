@@ -27,9 +27,10 @@ class OnlineObject(Object):
     def images(self):
         images = []
         if self.__list_item.thumbnail_url:
-
+            images.append(OnlineImage(list_item=self.__list_item))
         if self.__detail.related_photos:
-            images.extend(self.__detail.related_photos)
+            for detail_image in self.__detail.related_photos:
+                images.append(OnlineImage(detail_image=detail_image))
         return tuple(images)
 
     @property

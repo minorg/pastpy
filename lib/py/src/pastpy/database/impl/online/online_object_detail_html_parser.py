@@ -1,12 +1,12 @@
 from bs4 import BeautifulSoup
 
 from pastpy.gen.database.impl.online.online_object_detail import OnlineObjectDetail
-from pastpy.database.impl.online.online_image_html_parser import OnlineImageHtmlParser
+from pastpy.gen.database.impl.online.online_object_detail_image import OnlineObjectDetailImage
+from pastpy.gen.database.impl.online.online_object_detail_image_type import OnlineObjectDetailImageType
 
 
 class OnlineObjectDetailHtmlParser(object):
     def parse(self, *, guid, html):
-        image_parser = OnlineImageHtmlParser()
         soup = BeautifulSoup(html, "html.parser")
         result_builder = OnlineObjectDetail.Builder()
 
@@ -33,7 +33,41 @@ class OnlineObjectDetailHtmlParser(object):
         related_photos = []
         if related_photos_element:
             for td in related_photos_element.find_all("td"):
-                related_photos.append(image_parser.parse(td.div))
+                related_photos.append(self.__parse_image(td.div))
         result_builder.related_photos = tuple(related_photos)
 
         return result_builder.build()
+
+    def __parse_image(self, image_div_element):
+        result_builder = OnlineObjectDetailImage.Builder()
+
+        for class_ in image_div_element["class"]:
+            if class_ == "indvImage":
+                result_builder.type = OnlineObjectDetailImageType.INDIVIDUAL
+                break
+            elif class_ == "largeImage":
+                result_builder.type = OnlineImageType.LARGE
+                break
+            else:
+                continue
+
+        a = image_div_element.a
+
+        result_builder.full_size_url = self.__strip_attr(a.attrs["href"])
+        result_builder.src = self.__strip_attr(a.attrs["image_src"])
+        result_builder.objectid = self.__strip_attr(a.attrs["objectid"])
+        result_builder.mediaid = self.__strip_attr(a.attrs["mediaid"])
+        result_builder.thumbnail_url = self.__strip_attr(a.figure.img.attrs["src"])
+        result_builder.title = self.__strip_attr(a.attrs["linktitle"])
+
+        return result_builder.build()
+
+    def __strip_attr(self, value):
+        old_value = value
+        while True:
+            for char in "'\\":
+                new_value = old_value.strip(char)
+                if new_value == old_value:
+                    return new_value
+                else:
+                    old_value = new_value
