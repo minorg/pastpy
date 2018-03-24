@@ -23,8 +23,14 @@ class OnlinePastPerfectDatabase(PastPerfectDatabase):
                 downloader.download_object_detail(guid=guid)
 
     def objects(self):
-        for object_detail in self.parse_object_details():
-            yield OnlineObject(detail=object_detail)
+        for objects_list_item in self.parse_objects_list():
+            guid = self.__object_guid(objects_list_item)
+            try:
+                object_detail = self.__parse_object_detail(guid=guid)
+            except FileNotFoundError:
+                self._logger.debug("object detail for " + guid + " not found")
+            yield OnlineObject(detail=object_detail, list_item=objects_list_item)
+        raise StopIteration
 
     def __object_guid(self, objects_list_item):
         return objects_list_item.detail_href.split('/')[-1]

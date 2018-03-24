@@ -1,9 +1,11 @@
 from pastpy.database.object import Object
+from pastpy.database.impl.online.online_image import OnlineImage
 
 
 class OnlineObject(Object):
-    def __init__(self, detail):
+    def __init__(self, *, detail, list_item):
         self.__detail = detail
+        self.__list_item = list_item
 
     @property
     def attributes(self):
@@ -23,7 +25,12 @@ class OnlineObject(Object):
 
     @property
     def images(self):
-        return self.__detail.related_photos
+        images = []
+        if self.__list_item.thumbnail_url:
+
+        if self.__detail.related_photos:
+            images.extend(self.__detail.related_photos)
+        return tuple(images)
 
     @property
     def name(self):

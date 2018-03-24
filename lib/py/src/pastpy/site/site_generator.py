@@ -1,8 +1,8 @@
 from datetime import datetime
 import logging
 import os.path
-import pystache
 import shutil
+import pystache
 from urllib.parse import urlparse, unquote
 from pastpy.database.past_perfect_database import PastPerfectDatabase
 from pastpy.gen.site.site_configuration import SiteConfiguration
