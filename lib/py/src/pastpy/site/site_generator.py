@@ -47,16 +47,22 @@ class SiteGenerator(object):
                 search_dirs=(configuration.templates_dir_path,)
             )
 
+    def __clean(self):
+        self.__rmtree(self.__configuration.output_dir_path)
+
     def generate(self):
-        if not os.path.isdir(self.__configuration.output_dir_path):
-            os.makedirs(self.__configuration.output_dir_path)
-            self.__logger.info("created output directory %s",
-                               self.__configuration.output_dir_path)
+        self.__clean()
+        self.__makedirs(self.__configuration.output_dir_path)
 
         objects = self.__read_objects()
 
         self.__render_index()
-        self.__render_objects(objects=objects)
+        self.__render_object_details(objects=objects)
+
+    def __makedirs(self, dir_path):
+        if not os.path.isdir(dir_path):
+            os.makedirs(dir_path)
+            self.__logger.info("created directory %s", dir_path)
 
     def __new_context(self, *, page_title):
         return {
@@ -111,17 +117,17 @@ class SiteGenerator(object):
         context = self.__new_context(page_title='Home')
         self.__render_file(context=context, file_base_name='index')
 
-    def __render_object(self, *, object_, out_dir_relpath):
+    def __render_object_detail(self, *, object_, out_dir_relpath):
         context = self.__new_context(
             page_title='Object: ' + object_.id)
         context["object"] = object_
         context["object_attributes"] = [{"key": key, "value": value} for key, value in object_.attributes.items()]
 
-        self.__render_file(file_base_name='object', context=context, out_file_relpath=os.path.join(
+        self.__render_file(file_base_name='object_detail', context=context, out_file_relpath=os.path.join(
             out_dir_relpath, object_.id + '.html'))
 
-    def __render_objects(self, *, objects):
-        out_dir_relpath = 'objects'
+    def __render_object_details(self, *, objects):
+        out_dir_relpath = 'object_details'
         out_dir_path = os.path.join(self.__configuration.output_dir_path, out_dir_relpath)
         if not os.path.isdir(out_dir_path):
             os.makedirs(out_dir_path)
@@ -129,4 +135,12 @@ class SiteGenerator(object):
         for object_ in objects:
             if not object_.id:
                 continue
-            self.__render_object(object_=object_, out_dir_relpath=out_dir_relpath)
+            self.__render_object_detail(object_=object_, out_dir_relpath=out_dir_relpath)
+
+    def __render_object_summaries(self, *, objects):
+        pass
+
+    def __rmtree(self, dir_path):
+        if os.path.isdir(dir_path):
+            shutil.rmtree(dir_path)
+            self.__logger.info("deleted output directory %s", dir_path)
