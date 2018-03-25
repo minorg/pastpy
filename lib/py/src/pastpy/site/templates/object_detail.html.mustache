@@ -1,15 +1,13 @@
 {{>header.html}}
 <div class="container-fluid">
-    <div class="row text-center">
-        <h1>{{page_title}}</h1>
-    </div>
+    {{>navbar.html}}
     <table class="table table-bordered table-striped">
-{{#object_attributes}}
+        {{#object_attributes}}
         <tr>
             <td>{{key}}</td>
             <td>{{value}}</td>
         </tr>
-{{/object_attributes}}
+        {{/object_attributes}}
     </table>
 </div>
 {{>footer.html}}
