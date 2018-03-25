@@ -26,3 +26,7 @@ class Object(object):
     @property
     def othername(self):
         raise NotImplementedError
+
+    @property
+    def title(self):
+        raise NotImplementedError

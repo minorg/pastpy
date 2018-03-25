@@ -239,7 +239,7 @@ class SiteGenerator(object):
                 [self.__new_object_context(
                     object_=object_,
                     object_file_name=object_file_names_by_id[object_.id])
-                for object_ in objects_page]
+                 for object_ in objects_page]
 
             context["next_page_disabled"] = objects_page_i + 1 == len(objects_pages)
             context["next_page_number"] = objects_page_i + 2

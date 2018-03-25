@@ -40,3 +40,7 @@ class OnlineObject(Object):
     @property
     def othername(self):
         return self.__detail.attributes.get("Other Name")
+
+    @property
+    def title(self):
+        return self.__detail.attributes.get("Title")

@@ -12,6 +12,10 @@
                     <a href="{{{object_href}}}">
                         <img class="figure-img rounded" src="{{{object_thumbnail_url}}}" style="height: 211px; margin: 5px; width: 210px" />
                     </a>
+                    <figcaption class="figure-caption text-center" style="font-size: small">
+                        {{#object.title}} {{object.title}}<br/>{{/object.title}}
+                        {{#object.date}} {{object.date}}<br/>{{/object.date}}
+                    </figcaption>
                 </figure>
             </div>
         </div>
