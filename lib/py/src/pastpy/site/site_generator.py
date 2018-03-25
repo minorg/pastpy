@@ -1,6 +1,8 @@
+from collections import OrderedDict
 from datetime import datetime
 import logging
 import os.path
+import re
 import shutil
 import pystache
 from urllib.parse import urlparse, unquote
@@ -51,22 +53,49 @@ class SiteGenerator(object):
     def __clean(self):
         self.__rmtree(self.__configuration.output_dir_path)
 
+    def __filter_objects_with_ids(self, *, objects):
+        objects_by_id = OrderedDict()
+        for object_ in objects:
+            if object_.id:
+                if object_.id not in objects_by_id:
+                    objects_by_id[object_.id] = object_
+                else:
+                    self.__logger.warn("duplicate object id: %s", object_)
+            else:
+                self.__logger.warn("object has no id: %s", object_)
+        return objects_by_id.values()
+
     def generate(self):
         self.__clean()
         self.__makedirs(self.__configuration.output_dir_path)
 
         objects = self.__read_objects()
+        objects = self.__filter_objects_with_ids(objects=objects)
+
+        object_file_names_by_id = self.__map_objects_to_file_names(objects=objects)
 
         self.__render_index()
-        self.__render_object_details(objects=objects)
-        self.__render_objects_list(objects=objects)
+        self.__render_object_details(object_file_names_by_id=object_file_names_by_id, objects=objects,)
+        self.__render_objects_list(object_file_names_by_id=object_file_names_by_id, objects=objects)
 
     def __makedirs(self, dir_path):
         if not os.path.isdir(dir_path):
             os.makedirs(dir_path)
-            self.__logger.info("created directory %s", dir_path)
+            self.__logger.debug("created directory %s", dir_path)
 
-    def __new_object_context(self, *, object_):
+    def __map_objects_to_file_names(self, *, objects):
+        object_ids_by_file_name = {}
+        file_names_by_object_id = {}
+        for object_ in objects:
+            file_name = self.__to_valid_filename(object_.id) + ".html"
+            existing_object_id = object_ids_by_file_name.get(file_name)
+            if existing_object_id is not None:
+                raise RuntimeError("two objects (%s and %s) map to the same file name (%s)" % (existing_object_id, object_.id, file_name))
+            object_ids_by_file_name[file_name] = object_.id
+            file_names_by_object_id[object_.id] = file_name
+        return file_names_by_object_id
+
+    def __new_object_context(self, *, object_, object_file_name):
         context = {
             "object": object_,
             "object_attributes": [{"key": key, "value": value} for key, value in object_.attributes.items()]
@@ -77,8 +106,8 @@ class SiteGenerator(object):
             context["object_name"] = object_.othername
         else:
             context["object_name"] = object_.id
-        context["object_href"] = "/objects/details/" + str(object_.id)
-        context["object_thumbnail_url"] = "http://via.placeholder.com/200x200?text=Missing%20image"
+        context["object_href"] = "../details/" + object_file_name
+        context["object_thumbnail_url"] = "http://via.placeholder.com/210x211?text=Missing%20image"
         for image in object_.images:
             if image.thumbnail_url:
                 context["object_thumbnail_url"] = image.thumbnail_url
@@ -127,7 +156,7 @@ class SiteGenerator(object):
             self.__configuration.output_dir_path, 'img')
         if not os.path.isdir(out_images_dir_path):
             os.makedirs(out_images_dir_path)
-            self.__logger.info(
+            self.__logger.debug(
                 "created output images directory %s", out_images_dir_path)
 
         objects = []
@@ -143,7 +172,7 @@ class SiteGenerator(object):
                         out_images_dir_path, full_size_file_name)
                     shutil.copyfile(full_size_file_path,
                                     full_size_file_name)
-                    self.__logger.info(
+                    self.__logger.debug(
                         "copied %s to %s", full_size_file_path, out_image_file_path)
                     img_srcs.append('img/' + full_size_file_name)
             objects.append(SiteGenerator.ObjectWrapper(
@@ -163,41 +192,40 @@ class SiteGenerator(object):
             self.__configuration.output_dir_path, out_file_relpath)
         with open(out_file_path, 'w+') as out_file:
             out_file.write(rendered)
-            self.__logger.info("wrote %s", out_file_path)
+            self.__logger.debug("wrote %s", out_file_path)
 
     def __render_index(self):
         context = self.__new_top_level_context(page_title='Home')
         self.__render_file(context=context, file_base_name='index')
 
-    def __render_object_details(self, *, objects):
+    def __render_object_details(self, *, object_file_names_by_id, objects):
         out_dir_relpath = os.path.join('objects', 'details')
         self.__makedirs(os.path.join(
             self.__configuration.output_dir_path, out_dir_relpath))
 
         for object_ in objects:
-            if not object_.id:
-                continue
+            object_file_name = object_file_names_by_id[object_.id]
             context = self.__new_top_level_context(
                 page_title='Object: ' + object_.id)
-            context.update(self.__new_object_context(object_=object_))
-
+            context.update(self.__new_object_context(
+                object_=object_,
+                object_file_name=object_file_name
+            ))
             self.__render_file(file_base_name='object_detail', context=context, out_file_relpath=os.path.join(
-                out_dir_relpath, object_.id + '.html'))
+                out_dir_relpath, object_file_name))
 
-    def __render_objects_list(self, *, objects):
+    def __render_objects_list(self, *, object_file_names_by_id, objects):
         out_dir_relpath = os.path.join('objects', 'list')
         self.__makedirs(os.path.join(
             self.__configuration.output_dir_path, out_dir_relpath))
 
-        objects.reverse()
+        objects = list(reversed(objects))
         objects_pages = []
         objects_per_page = 5
         while objects:
             objects_page = []
             while objects and len(objects_page) < objects_per_page:
                 object_ = objects.pop()
-                if not object_.id:
-                    continue
                 objects_page.append(object_)
             objects_pages.append(objects_page)
 
@@ -207,8 +235,11 @@ class SiteGenerator(object):
 
             context = self.__new_top_level_context(
                 page_title='Objects: page ' + str(current_page_number))
-            context["objects"] = [self.__new_object_context(
-                object_=object_) for object_ in objects_page]
+            context["objects"] = \
+                [self.__new_object_context(
+                    object_=object_,
+                    object_file_name=object_file_names_by_id[object_.id])
+                for object_ in objects_page]
 
             context["next_page_disabled"] = objects_page_i + 1 == len(objects_pages)
             context["next_page_number"] = objects_page_i + 2
@@ -217,7 +248,6 @@ class SiteGenerator(object):
 
             page_items = []
             objects_page_range = self.__page_range(page_i=objects_page_i, page_min=0, page_max=len(objects_pages) - 1, window=10)
-            print(objects_page_range)
             for objects_page_range_i in objects_page_range:
                 page_items.append({"active": objects_page_range_i ==
                                    objects_page_i, "number": objects_page_range_i + 1})
@@ -229,4 +259,9 @@ class SiteGenerator(object):
     def __rmtree(self, dir_path):
         if os.path.isdir(dir_path):
             shutil.rmtree(dir_path)
-            self.__logger.info("deleted directory %s", dir_path)
+            self.__logger.debug("deleted directory %s", dir_path)
+
+    @staticmethod
+    def __to_valid_filename(s):
+        s = str(s).strip().replace(' ', '_')
+        return re.sub(r'(?u)[^-\w.]', '', s)
