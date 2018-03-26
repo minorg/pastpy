@@ -13,7 +13,7 @@ from pastpy.gen.site.site_configuration import SiteConfiguration
 class SiteGenerator(object):
     TEMPLATE_DIR_PATH_DEFAULT = \
         os.path.abspath(os.path.join(
-            os.path.dirname(__file__), 'templates'))
+            os.path.dirname(__file__), 'template'))
     assert os.path.isdir(
         TEMPLATE_DIR_PATH_DEFAULT), TEMPLATE_DIR_PATH_DEFAULT
 
@@ -37,7 +37,7 @@ class SiteGenerator(object):
 
         if configuration.template_dir_path is None:
             configuration = SiteConfiguration.Builder.from_template(
-                configuration).set_templates_dir_path(self.TEMPLATE_DIR_PATH_DEFAULT).build()
+                configuration).set_template_dir_path(self.TEMPLATE_DIR_PATH_DEFAULT).build()
         if not os.path.isdir(configuration.template_dir_path):
             raise ValueError(
                 "template directory %s does not exist" % configuration.template_dir_path)
