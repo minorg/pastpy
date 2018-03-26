@@ -11,4 +11,4 @@ class SiteGeneratorModel(object):
         self.output_dir_path = os.path.join(
             os.path.expanduser("~"), "Documents", "PastPerfect site")
         self.site_name = SiteGenerator.SITE_NAME_DEFAULT
-        self.templates_dir_path = SiteGenerator.TEMPLATES_DIR_PATH_DEFAULT
+        self.template_dir_path = SiteGenerator.TEMPLATE_DIR_PATH_DEFAULT

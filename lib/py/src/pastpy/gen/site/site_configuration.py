@@ -10,24 +10,24 @@ class SiteConfiguration(object):
             database="c:\\pp5",
             name="Your Collection",
             output_dir_path="site",
-            templates_dir_path=None,
+            template_dir_path=None,
         ):
             '''
             :type copyright_holder: str
             :type database: str
             :type name: str
             :type output_dir_path: str
-            :type templates_dir_path: str or None
+            :type template_dir_path: str or None
             '''
 
             self.__copyright_holder = copyright_holder
             self.__database = database
             self.__name = name
             self.__output_dir_path = output_dir_path
-            self.__templates_dir_path = templates_dir_path
+            self.__template_dir_path = template_dir_path
 
         def build(self):
-            return SiteConfiguration(copyright_holder=self.__copyright_holder, database=self.__database, name=self.__name, output_dir_path=self.__output_dir_path, templates_dir_path=self.__templates_dir_path)
+            return SiteConfiguration(copyright_holder=self.__copyright_holder, database=self.__database, name=self.__name, output_dir_path=self.__output_dir_path, template_dir_path=self.__template_dir_path)
 
         @property
         def copyright_holder(self):
@@ -57,7 +57,7 @@ class SiteConfiguration(object):
             builder.database = template.database
             builder.name = template.name
             builder.output_dir_path = template.output_dir_path
-            builder.templates_dir_path = template.templates_dir_path
+            builder.template_dir_path = template.template_dir_path
             return builder
 
         @property
@@ -124,24 +124,24 @@ class SiteConfiguration(object):
             self.__output_dir_path = output_dir_path
             return self
 
-        def set_templates_dir_path(self, templates_dir_path):
+        def set_template_dir_path(self, template_dir_path):
             '''
-            :type templates_dir_path: str or None
+            :type template_dir_path: str or None
             '''
 
-            if templates_dir_path is not None:
-                if not isinstance(templates_dir_path, str):
-                    raise TypeError("expected templates_dir_path to be a str but it is a %s" % builtins.type(templates_dir_path))
-            self.__templates_dir_path = templates_dir_path
+            if template_dir_path is not None:
+                if not isinstance(template_dir_path, str):
+                    raise TypeError("expected template_dir_path to be a str but it is a %s" % builtins.type(template_dir_path))
+            self.__template_dir_path = template_dir_path
             return self
 
         @property
-        def templates_dir_path(self):
+        def template_dir_path(self):
             '''
             :rtype: str
             '''
 
-            return self.__templates_dir_path
+            return self.__template_dir_path
 
         def update(self, site_configuration):
             '''
@@ -149,7 +149,7 @@ class SiteConfiguration(object):
             :type database: str
             :type name: str
             :type output_dir_path: str
-            :type templates_dir_path: str or None
+            :type template_dir_path: str or None
             '''
 
             if isinstance(site_configuration, SiteConfiguration):
@@ -157,7 +157,7 @@ class SiteConfiguration(object):
                 self.set_database(site_configuration.database)
                 self.set_name(site_configuration.name)
                 self.set_output_dir_path(site_configuration.output_dir_path)
-                self.set_templates_dir_path(site_configuration.templates_dir_path)
+                self.set_template_dir_path(site_configuration.template_dir_path)
             elif isinstance(site_configuration, dict):
                 for key, value in site_configuration.items():
                     getattr(self, 'set_' + key)(value)
@@ -197,20 +197,20 @@ class SiteConfiguration(object):
 
             self.set_output_dir_path(output_dir_path)
 
-        @templates_dir_path.setter
-        def templates_dir_path(self, templates_dir_path):
+        @template_dir_path.setter
+        def template_dir_path(self, template_dir_path):
             '''
-            :type templates_dir_path: str or None
+            :type template_dir_path: str or None
             '''
 
-            self.set_templates_dir_path(templates_dir_path)
+            self.set_template_dir_path(template_dir_path)
 
     class FieldMetadata(object):
         COPYRIGHT_HOLDER = None
         DATABASE = None
         NAME = None
         OUTPUT_DIR_PATH = None
-        TEMPLATES_DIR_PATH = None
+        TEMPLATE_DIR_PATH = None
 
         def __init__(self, name, type_, validation):
             object.__init__(self)
@@ -238,13 +238,13 @@ class SiteConfiguration(object):
 
         @classmethod
         def values(cls):
-            return (cls.COPYRIGHT_HOLDER, cls.DATABASE, cls.NAME, cls.OUTPUT_DIR_PATH, cls.TEMPLATES_DIR_PATH,)
+            return (cls.COPYRIGHT_HOLDER, cls.DATABASE, cls.NAME, cls.OUTPUT_DIR_PATH, cls.TEMPLATE_DIR_PATH,)
 
     FieldMetadata.COPYRIGHT_HOLDER = FieldMetadata('copyright_holder', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.DATABASE = FieldMetadata('database', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.NAME = FieldMetadata('name', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.OUTPUT_DIR_PATH = FieldMetadata('output_dir_path', pastpy.gen.non_blank_string.NonBlankString, None)
-    FieldMetadata.TEMPLATES_DIR_PATH = FieldMetadata('templates_dir_path', pastpy.gen.non_blank_string.NonBlankString, None)
+    FieldMetadata.TEMPLATE_DIR_PATH = FieldMetadata('template_dir_path', pastpy.gen.non_blank_string.NonBlankString, None)
 
     def __init__(
         self,
@@ -252,14 +252,14 @@ class SiteConfiguration(object):
         database="c:\\pp5",
         name="Your Collection",
         output_dir_path="site",
-        templates_dir_path=None,
+        template_dir_path=None,
     ):
         '''
         :type copyright_holder: str
         :type database: str
         :type name: str
         :type output_dir_path: str
-        :type templates_dir_path: str or None
+        :type template_dir_path: str or None
         '''
 
         if copyright_holder is None:
@@ -286,10 +286,10 @@ class SiteConfiguration(object):
             raise TypeError("expected output_dir_path to be a str but it is a %s" % builtins.type(output_dir_path))
         self.__output_dir_path = output_dir_path
 
-        if templates_dir_path is not None:
-            if not isinstance(templates_dir_path, str):
-                raise TypeError("expected templates_dir_path to be a str but it is a %s" % builtins.type(templates_dir_path))
-        self.__templates_dir_path = templates_dir_path
+        if template_dir_path is not None:
+            if not isinstance(template_dir_path, str):
+                raise TypeError("expected template_dir_path to be a str but it is a %s" % builtins.type(template_dir_path))
+        self.__template_dir_path = template_dir_path
 
     def __eq__(self, other):
         if self.copyright_holder != other.copyright_holder:
@@ -300,15 +300,15 @@ class SiteConfiguration(object):
             return False
         if self.output_dir_path != other.output_dir_path:
             return False
-        if self.templates_dir_path != other.templates_dir_path:
+        if self.template_dir_path != other.template_dir_path:
             return False
         return True
 
     def __hash__(self):
-        return hash((self.copyright_holder, self.database, self.name, self.output_dir_path, self.templates_dir_path,))
+        return hash((self.copyright_holder, self.database, self.name, self.output_dir_path, self.template_dir_path,))
 
     def __iter__(self):
-        return iter((self.copyright_holder, self.database, self.name, self.output_dir_path, self.templates_dir_path,))
+        return iter((self.copyright_holder, self.database, self.name, self.output_dir_path, self.template_dir_path,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -319,8 +319,8 @@ class SiteConfiguration(object):
         field_reprs.append('database=' + "'" + self.database.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('output_dir_path=' + "'" + self.output_dir_path.encode('ascii', 'replace').decode('ascii') + "'")
-        if self.templates_dir_path is not None:
-            field_reprs.append('templates_dir_path=' + "'" + self.templates_dir_path.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.template_dir_path is not None:
+            field_reprs.append('template_dir_path=' + "'" + self.template_dir_path.encode('ascii', 'replace').decode('ascii') + "'")
         return 'SiteConfiguration(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
@@ -329,8 +329,8 @@ class SiteConfiguration(object):
         field_reprs.append('database=' + "'" + self.database.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('output_dir_path=' + "'" + self.output_dir_path.encode('ascii', 'replace').decode('ascii') + "'")
-        if self.templates_dir_path is not None:
-            field_reprs.append('templates_dir_path=' + "'" + self.templates_dir_path.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.template_dir_path is not None:
+            field_reprs.append('template_dir_path=' + "'" + self.template_dir_path.encode('ascii', 'replace').decode('ascii') + "'")
         return 'SiteConfiguration(' + ', '.join(field_reprs) + ')'
 
     @classmethod
@@ -380,7 +380,7 @@ class SiteConfiguration(object):
             output_dir_path = "site"
         __builder.output_dir_path = output_dir_path
 
-        __builder.templates_dir_path = _dict.get("templates_dir_path")
+        __builder.template_dir_path = _dict.get("template_dir_path")
 
         return __builder.build()
 
@@ -424,9 +424,9 @@ class SiteConfiguration(object):
                 init_kwds['name'] = iprot.read_string()
             elif ifield_name == 'output_dir_path':
                 init_kwds['output_dir_path'] = iprot.read_string()
-            elif ifield_name == 'templates_dir_path':
+            elif ifield_name == 'template_dir_path':
                 try:
-                    init_kwds['templates_dir_path'] = iprot.read_string()
+                    init_kwds['template_dir_path'] = iprot.read_string()
                 except (TypeError, ValueError,):
                     pass
             iprot.read_field_end()
@@ -438,12 +438,12 @@ class SiteConfiguration(object):
         return cls.Builder.from_template(template=self)
 
     @property
-    def templates_dir_path(self):
+    def template_dir_path(self):
         '''
         :rtype: str
         '''
 
-        return self.__templates_dir_path
+        return self.__template_dir_path
 
     def to_builtins(self):
         dict_ = {}
@@ -451,7 +451,7 @@ class SiteConfiguration(object):
         dict_["database"] = self.database
         dict_["name"] = self.name
         dict_["output_dir_path"] = self.output_dir_path
-        dict_["templates_dir_path"] = self.templates_dir_path
+        dict_["template_dir_path"] = self.template_dir_path
         return dict_
 
     def write(self, oprot):
@@ -480,9 +480,9 @@ class SiteConfiguration(object):
         oprot.write_string(self.output_dir_path)
         oprot.write_field_end()
 
-        if self.templates_dir_path is not None:
-            oprot.write_field_begin(name='templates_dir_path', type=11, id=None)
-            oprot.write_string(self.templates_dir_path)
+        if self.template_dir_path is not None:
+            oprot.write_field_begin(name='template_dir_path', type=11, id=None)
+            oprot.write_string(self.template_dir_path)
             oprot.write_field_end()
 
         oprot.write_field_stop()

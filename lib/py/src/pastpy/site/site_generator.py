@@ -11,11 +11,11 @@ from pastpy.gen.site.site_configuration import SiteConfiguration
 
 
 class SiteGenerator(object):
-    TEMPLATES_DIR_PATH_DEFAULT = \
+    TEMPLATE_DIR_PATH_DEFAULT = \
         os.path.abspath(os.path.join(
             os.path.dirname(__file__), 'templates'))
     assert os.path.isdir(
-        TEMPLATES_DIR_PATH_DEFAULT), TEMPLATES_DIR_PATH_DEFAULT
+        TEMPLATE_DIR_PATH_DEFAULT), TEMPLATE_DIR_PATH_DEFAULT
 
     class ObjectWrapper(object):
         def __init__(self, img_srcs, object_):
@@ -35,19 +35,19 @@ class SiteGenerator(object):
 
         self.__logger = logging.getLogger(SiteGenerator.__class__.__name__)
 
-        if configuration.templates_dir_path is None:
+        if configuration.template_dir_path is None:
             configuration = SiteConfiguration.Builder.from_template(
-                configuration).set_templates_dir_path(self.TEMPLATES_DIR_PATH_DEFAULT).build()
-        if not os.path.isdir(configuration.templates_dir_path):
+                configuration).set_templates_dir_path(self.TEMPLATE_DIR_PATH_DEFAULT).build()
+        if not os.path.isdir(configuration.template_dir_path):
             raise ValueError(
-                "template directory %s does not exist" % configuration.templates_dir_path)
+                "template directory %s does not exist" % configuration.template_dir_path)
 
         self.__configuration = configuration
 
         self.__renderer = \
             pystache.Renderer(
                 missing_tags='strict',
-                search_dirs=(configuration.templates_dir_path,)
+                search_dirs=(configuration.template_dir_path,)
             )
 
     def __clean(self):

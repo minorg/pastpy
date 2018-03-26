@@ -7,5 +7,5 @@ struct SiteConfiguration {
     non_blank_string.NonBlankString database = "c:\\pp5";
     non_blank_string.NonBlankString name = "Your Collection";
     non_blank_string.NonBlankString output_dir_path = "site";
-    optional non_blank_string.NonBlankString templates_dir_path;
+    optional non_blank_string.NonBlankString template_dir_path;
 }
