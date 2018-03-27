@@ -10,6 +10,7 @@ except ImportError:
     sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
 from pastpy.database.database import Database
+from pastpy.gen.configuration import Configuration
 
 
 def parse_args():
@@ -28,14 +29,10 @@ def parse_args():
     subparsers = argument_parser.add_subparsers()
 
     subparser = subparsers.add_parser("download")
-    subparser.add_argument("collection_name", help="collection name of PastPerfect Online site e.g., yourcollection in http://yourcollection.pastperfectonline.com")
-    subparser.add_argument("--download-dir-path", help="path for downloaded files, defaults to collection name")
     subparser.set_defaults(command="download")
 
-    subparser = subparsers.add_parser("parse-html")
-    subparser.add_argument("collection_name", help="collection name of PastPerfect Online site e.g., yourcollection in http://yourcollection.pastperfectonline.com")
-    subparser.add_argument("--download-dir-path", help="path for downloaded files, defaults to collection name")
-    subparser.set_defaults(command="parse-html")
+    subparser = subparsers.add_parser("parse")
+    subparser.set_defaults(command="parse")
 
     subparser = subparsers.add_parser("site")
     subparser.set_defaults(command="site")
@@ -63,20 +60,23 @@ def parse_args():
 args = parse_args()
 
 
-configuration = None
-if os.path.isfile(args.configuration_file_path):
-    with open(args.configuration_file_path, 'rb') as configuration_file:
-        configuration = json.load(configuration_file)
+with open(args.configuration_file_path, 'rb') as configuration_file:
+    configuration = Configuration.from_builtins(json.load(configuration_file))
 
+database = Database.create(configuration=configuration.database)
 
 if args.command == "download":
-    Database.create_from_online(collection_name=args.collection_name, download_dir_path=args.download_dir_path).download()
-elif args.command == "parse-html":
-    for object_detail in Database.create_from_online(collection_name=args.collection_name, download_dir_path=args.download_dir_path).parse_object_details():
+    if not hasattr(database, "download"):
+        raise ValueError("configured database is not downloadable")
+    database.download()
+elif args.command == "parse":
+    if not hasattr(database, "download"):
+        raise ValueError("configured database is not parseable")
+    for object_detail in database.parse_object_details():
         print(object_detail.id)
 elif args.command == "site":
-    from pastpy.gen.site.site_configuration import SiteConfiguration
-    site_configuration = SiteConfiguration.from_builtins(configuration["site"])
+    if not configuration.site:
+        raise ValueError("no site configured")
 
     from pastpy.site.site_generator import SiteGenerator
-    SiteGenerator(configuration=site_configuration).generate()
+    SiteGenerator(configuration=configuration.site, database=database).generate()

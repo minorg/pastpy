@@ -29,10 +29,9 @@ class SiteGenerator(object):
         def img_srcs(self):
             return self.__img_srcs
 
-    def __init__(self, *, configuration):
+    def __init__(self, *, configuration, database):
         assert isinstance(configuration, SiteConfiguration)
-        self.__database = Database.create(configuration.database)
-
+        self.__database = database
         self.__logger = logging.getLogger(SiteGenerator.__class__.__name__)
 
         if configuration.template_dir_path is None:
