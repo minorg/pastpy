@@ -164,7 +164,7 @@ class DatabaseConfiguration(object):
             __present_field_count = __present_field_count + 1
         if self.online is not None:
             __present_field_count = __present_field_count + 1
-        if __present_field_count > 0:
+        if __present_field_count != 1:
             raise ValueError("database_configuration.DatabaseConfiguration: %d fields set in a union" % __present_field_count)
 
     def __eq__(self, other):
