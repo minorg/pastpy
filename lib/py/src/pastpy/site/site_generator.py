@@ -6,7 +6,6 @@ import re
 import shutil
 import pystache
 from urllib.parse import urlparse, unquote
-from pastpy.database.database import Database
 from pastpy.gen.site.site_configuration import SiteConfiguration
 
 
