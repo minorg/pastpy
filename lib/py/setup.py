@@ -13,7 +13,6 @@ package_data = []
 for dir_path, subdir_names, _file_names in os.walk(os.path.join(root_package_dir_path, "site", "template")):
     package_data.append(os.path.relpath(
         dir_path, root_package_dir_path).replace(os.path.sep, "/") + "/*")
-print(package_data)
 
 setup(
     author='Minor Gordon',
@@ -36,6 +35,10 @@ setup(
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python :: 3'
     ],
+
+    entry_points={
+        'console_scripts': ['pastpy=pastpy.cli:main'],
+    },
 
     install_requires=('beautifulsoup4', 'dbf', 'enum34', 'pystache'),
 
