@@ -34,8 +34,7 @@ class SiteGenerator(object):
         self.__logger = logging.getLogger(SiteGenerator.__class__.__name__)
 
         if configuration.template_dir_path is None:
-            configuration = SiteConfiguration.Builder.from_template(
-                configuration).set_template_dir_path(self.TEMPLATE_DIR_PATH_DEFAULT).build()
+            configuration = configuration.replacer().set_template_dir_path(self.TEMPLATE_DIR_PATH_DEFAULT).build()
         if not os.path.isdir(configuration.template_dir_path):
             raise ValueError(
                 "template directory %s does not exist" % configuration.template_dir_path)

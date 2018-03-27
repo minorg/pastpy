@@ -11,7 +11,7 @@ from pastpy.gen.database.impl.online.online_database_configuration import Online
 class OnlineDatabase(Database):
     def __init__(self, *, configuration):
         assert isinstance(configuration, OnlineDatabaseConfiguration)
-        configuration_builder = OnlineDatabaseConfiguration.Builder.from_template(configuration)
+        configuration_builder = configuration.replacer()
         if configuration.download_dir_path is None:
             configuration_builder.download_dir_path = configuration.collection_name
         configuration = configuration_builder.build()

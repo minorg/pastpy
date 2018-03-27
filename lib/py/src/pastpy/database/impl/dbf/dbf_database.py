@@ -8,7 +8,7 @@ from pastpy.gen.database.impl.dbf.dbf_database_configuration import DbfDatabaseC
 class DbfDatabase(Database):
     def __init__(self, *, configuration):
         assert isinstance(configuration, DbfDatabaseConfiguration)
-        configuration_builder = DbfDatabaseConfiguration.Builder.from_template(configuration)
+        configuration_builder = configuration.replacer()
         if configuration.download_dir_path is None:
             configuration_builder.download_dir_path = configuration.collection_name
         configuration = configuration_builder.build()
