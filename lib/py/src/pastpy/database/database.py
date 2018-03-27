@@ -1,5 +1,8 @@
 import logging
 import os.path
+from pastpy.gen.database.database_configuration import DatabaseConfiguration
+from pastpy.gen.database.impl.dbf.dbf_database_configuration import DbfDatabaseConfiguration
+from pastpy.gen.database.impl.online.online_database_configuration import OnlineDatabaseConfiguration
 
 
 class Database(object):
@@ -7,21 +10,22 @@ class Database(object):
         self._logger = logging.getLogger(self.__class__.__name__)
 
     @classmethod
-    def create(cls, database):
-        if os.path.isdir(os.path.join(database, "Data")):
-            return Database.create_from_dbf(pp_install_dir_path=database)
+    def create(cls, configuration):
+        if isinstance(configuration, DatabaseConfiguration):
+            if configuration.dbf:
+                return cls.create(configuration.dbf)
+            elif configuration.online:
+                return cls.create(configuration.online)
+            else:
+                raise NotImplementedError
+        elif isinstance(configuration, DbfDatabaseConfiguration):
+            from pastpy.database.impl.dbf.dbf_database import DbfDatabase
+            return DbfDatabase(configuration=configuration)
+        elif isinstance(configuration, OnlineDatabaseConfiguration):
+            from pastpy.database.impl.online.online_database import OnlineDatabase
+            return OnlineDatabase(configuration=configuration)
         else:
-            return Database.create_from_online(collection_name=database)
-
-    @classmethod
-    def create_from_dbf(cls, *, pp_images_dir_path=None, pp_install_dir_path=None, pp_objects_dbf_file_path=None):
-        from pastpy.database.impl.dbf.dbf_database import DbfDatabase
-        return DbfDatabase(pp_images_dir_path=pp_images_dir_path, pp_install_dir_path=pp_install_dir_path, pp_objects_dbf_file_path=pp_objects_dbf_file_path)
-
-    @classmethod
-    def create_from_online(cls, *, collection_name, download_dir_path=None):
-        from pastpy.database.impl.online.online_database import OnlineDatabase
-        return OnlineDatabase(collection_name=collection_name, download_dir_path=download_dir_path)
+            raise NotImplementedError
 
     def objects(self):
         """

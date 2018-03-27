@@ -2,30 +2,35 @@ import os.path
 from pastpy.database.database import Database
 from pastpy.database.impl.dbf.objects_dbf_table import ObjectsDbfTable
 from pastpy.database.impl.dbf.dbf_object import DbfObject
+from pastpy.gen.database.impl.dbf.dbf_database_configuration import DbfDatabaseConfiguration
 
 
 class DbfDatabase(Database):
-    def __init__(self, *, pp_images_dir_path=None, pp_install_dir_path=None, pp_objects_dbf_file_path=None):
-        if pp_install_dir_path is not None:
-            if not os.path.isdir(pp_install_dir_path):
+    def __init__(self, *, configuration):
+        assert isinstance(configuration, DbfDatabaseConfiguration)
+        configuration_builder = DbfDatabaseConfiguration.Builder.from_template(configuration)
+        if configuration.download_dir_path is None:
+            configuration_builder.download_dir_path = configuration.collection_name
+        configuration = configuration_builder.build()
+        if configuration.pp_install_dir_path is not None:
+            if not os.path.isdir(configuration.pp_install_dir_path):
                 raise ValueError(
-                    "PastPerfect installation directory %s does not exist" % pp_install_dir_path)
-            if pp_images_dir_path is None:
-                pp_images_dir_path = os.path.join(
-                    pp_install_dir_path, 'Images')
-            if pp_objects_dbf_file_path is None:
-                pp_objects_dbf_file_path = os.path.join(
-                    pp_install_dir_path, 'Data', 'OBJECTS.DBF')
-        elif pp_images_dir_path is None:
+                    "PastPerfect installation directory %s does not exist" % configuration.pp_install_dir_path)
+            if configuration.pp_images_dir_path is None:
+                configuration_builder.pp_images_dir_path = os.path.join(
+                    configuration.pp_install_dir_path, 'Images')
+            if configuration.pp_objects_dbf_file_path is None:
+                configuration_builder.pp_objects_dbf_file_path = os.path.join(
+                    configuration.pp_install_dir_path, 'Data', 'OBJECTS.DBF')
+        elif configuration.pp_images_dir_path is None:
             raise ValueError(
                 "must specify a PastPerfect installation directory or an images directory")
-        elif pp_objects_dbf_file_path is None:
+        elif configuration.pp_objects_dbf_file_path is None:
             raise ValueError(
                 "must specify a PastPerfect installation directory or an objects DBF file")
-        self.__pp_images_dir_path = pp_images_dir_path
-        self.__pp_objects_dbf_file_path = pp_objects_dbf_file_path
+        configuration = configuration_builder.build()
 
     def objects(self):
-        with ObjectsDbfTable.open(self.__pp_objects_dbf_file_path) as table:
+        with ObjectsDbfTable.open(self.__configuration.pp_objects_dbf_file_path) as table:
             for record in table.records():
-                yield DbfObject(images_dir_path=self.__pp_images_dir_path, record=record)
+                yield DbfObject(images_dir_path=self.__configuration.pp_images_dir_path, record=record)

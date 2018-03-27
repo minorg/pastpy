@@ -5,17 +5,21 @@ from pastpy.database.impl.online.online_file_paths import OnlineFilePaths
 from pastpy.database.impl.online.online_object import OnlineObject
 from pastpy.database.impl.online.online_object_detail_html_parser import OnlineObjectDetailHtmlParser
 from pastpy.database.impl.online.online_objects_list_html_parser import OnlineObjectsListHtmlParser
+from pastpy.gen.database.impl.online.online_database_configuration import OnlineDatabaseConfiguration
 
 
 class OnlineDatabase(Database):
-    def __init__(self, *, collection_name, download_dir_path=None):
-        self.__collection_name = collection_name
-        if download_dir_path is None:
-            download_dir_path = collection_name
-        self.__file_paths = OnlineFilePaths(download_dir_path)
+    def __init__(self, *, configuration):
+        assert isinstance(configuration, OnlineDatabaseConfiguration)
+        configuration_builder = OnlineDatabaseConfiguration.Builder.from_template(configuration)
+        if configuration.download_dir_path is None:
+            configuration_builder.download_dir_path = configuration.collection_name
+        configuration = configuration_builder.build()
+        self.__configuration = configuration
+        self.__file_paths = OnlineFilePaths(configuration.download_dir_path)
 
     def download(self):
-        with OnlineFileDownloader(file_paths=self.__file_paths, host=self.__collection_name + ".pastperfectonline.com") as downloader:
+        with OnlineFileDownloader(file_paths=self.__file_paths, host=self.__configuration.collection_name + ".pastperfectonline.com") as downloader:
             downloader.download_objects_list()
             objects_list = self.parse_objects_list()
             for objects_list_item in objects_list:
