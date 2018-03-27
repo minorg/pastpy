@@ -9,7 +9,7 @@ except ImportError:
     import sys
     sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
-from pastpy.database.past_perfect_database import PastPerfectDatabase
+from pastpy.database.database import Database
 
 
 def parse_args():
@@ -70,9 +70,9 @@ if os.path.isfile(args.configuration_file_path):
 
 
 if args.command == "download":
-    PastPerfectDatabase.create_from_online(collection_name=args.collection_name, download_dir_path=args.download_dir_path).download()
+    Database.create_from_online(collection_name=args.collection_name, download_dir_path=args.download_dir_path).download()
 elif args.command == "parse-html":
-    for object_detail in PastPerfectDatabase.create_from_online(collection_name=args.collection_name, download_dir_path=args.download_dir_path).parse_object_details():
+    for object_detail in Database.create_from_online(collection_name=args.collection_name, download_dir_path=args.download_dir_path).parse_object_details():
         print(object_detail.id)
 elif args.command == "site":
     from pastpy.gen.site.site_configuration import SiteConfiguration

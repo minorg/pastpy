@@ -1,5 +1,5 @@
 import os.path
-from pastpy.database.past_perfect_database import PastPerfectDatabase
+from pastpy.database.database import Database
 from pastpy.database.impl.online.online_file_downloader import OnlineFileDownloader
 from pastpy.database.impl.online.online_file_paths import OnlineFilePaths
 from pastpy.database.impl.online.online_object import OnlineObject
@@ -7,7 +7,7 @@ from pastpy.database.impl.online.online_object_detail_html_parser import OnlineO
 from pastpy.database.impl.online.online_objects_list_html_parser import OnlineObjectsListHtmlParser
 
 
-class OnlinePastPerfectDatabase(PastPerfectDatabase):
+class OnlineDatabase(Database):
     def __init__(self, *, collection_name, download_dir_path=None):
         self.__collection_name = collection_name
         if download_dir_path is None:

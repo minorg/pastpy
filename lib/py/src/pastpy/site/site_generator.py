@@ -6,7 +6,7 @@ import re
 import shutil
 import pystache
 from urllib.parse import urlparse, unquote
-from pastpy.database.past_perfect_database import PastPerfectDatabase
+from pastpy.database.database import Database
 from pastpy.gen.site.site_configuration import SiteConfiguration
 
 
@@ -31,7 +31,7 @@ class SiteGenerator(object):
 
     def __init__(self, *, configuration):
         assert isinstance(configuration, SiteConfiguration)
-        self.__database = PastPerfectDatabase.create(configuration.database)
+        self.__database = Database.create(configuration.database)
 
         self.__logger = logging.getLogger(SiteGenerator.__class__.__name__)
 

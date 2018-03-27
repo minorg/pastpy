@@ -1,10 +1,10 @@
 import os.path
-from pastpy.database.past_perfect_database import PastPerfectDatabase
+from pastpy.database.database import Database
 from pastpy.database.impl.dbf.objects_dbf_table import ObjectsDbfTable
 from pastpy.database.impl.dbf.dbf_object import DbfObject
 
 
-class DbfPastPerfectDatabase(PastPerfectDatabase):
+class DbfDatabase(Database):
     def __init__(self, *, pp_images_dir_path=None, pp_install_dir_path=None, pp_objects_dbf_file_path=None):
         if pp_install_dir_path is not None:
             if not os.path.isdir(pp_install_dir_path):
