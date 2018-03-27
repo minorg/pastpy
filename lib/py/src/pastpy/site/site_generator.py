@@ -53,6 +53,14 @@ class SiteGenerator(object):
     def __clean(self):
         self.__rmtree(self.__configuration.output_dir_path)
 
+    def __copy_static_files(self):
+        for dir_name in ("css", "js"):
+            src_dir_path = os.path.join(self.__configuration.template_dir_path, dir_name)
+            if os.path.isdir(src_dir_path):
+                dst_dir_path = os.path.join(self.__configuration.output_dir_path, dir_name)
+                shutil.copytree(src_dir_path, dst_dir_path)
+                self.__logger.debug("copied %s to %s", src_dir_path, dst_dir_path)
+
     def __filter_objects_with_ids(self, *, objects):
         objects_by_id = OrderedDict()
         for object_ in objects:
@@ -68,6 +76,8 @@ class SiteGenerator(object):
     def generate(self):
         self.__clean()
         self.__makedirs(self.__configuration.output_dir_path)
+
+        self.__copy_static_files()
 
         objects = self.__read_objects()
         objects = self.__filter_objects_with_ids(objects=objects)

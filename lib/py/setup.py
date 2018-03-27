@@ -8,6 +8,13 @@ MY_DIR_PATH = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(MY_DIR_PATH, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
+root_package_dir_path = os.path.join(MY_DIR_PATH, "src", "pastpy")
+package_data = []
+for dir_path, subdir_names, _file_names in os.walk(os.path.join(root_package_dir_path, "site", "template")):
+    package_data.append(os.path.relpath(
+        dir_path, root_package_dir_path).replace(os.path.sep, "/") + "/*")
+print(package_data)
+
 setup(
     author='Minor Gordon',
     author_email='pastpy@minorgordon.net',
@@ -36,6 +43,6 @@ setup(
     keywords='pastperfect',
 
     packages=find_packages("src"),
-    package_data={"": ["*.mustache"]},
+    package_data={"": package_data},
     package_dir={'pastpy': 'src/pastpy'},
 )
