@@ -7,27 +7,24 @@ class SiteConfiguration(object):
         def __init__(
             self,
             copyright_holder="Your Collection",
-            database="c:\\pp5",
             name="Your Collection",
             output_dir_path="site",
             template_dir_path=None,
         ):
             '''
             :type copyright_holder: str
-            :type database: str
             :type name: str
             :type output_dir_path: str
             :type template_dir_path: str or None
             '''
 
             self.__copyright_holder = copyright_holder
-            self.__database = database
             self.__name = name
             self.__output_dir_path = output_dir_path
             self.__template_dir_path = template_dir_path
 
         def build(self):
-            return SiteConfiguration(copyright_holder=self.__copyright_holder, database=self.__database, name=self.__name, output_dir_path=self.__output_dir_path, template_dir_path=self.__template_dir_path)
+            return SiteConfiguration(copyright_holder=self.__copyright_holder, name=self.__name, output_dir_path=self.__output_dir_path, template_dir_path=self.__template_dir_path)
 
         @property
         def copyright_holder(self):
@@ -36,14 +33,6 @@ class SiteConfiguration(object):
             '''
 
             return self.__copyright_holder
-
-        @property
-        def database(self):
-            '''
-            :rtype: str
-            '''
-
-            return self.__database
 
         @classmethod
         def from_template(cls, template):
@@ -54,7 +43,6 @@ class SiteConfiguration(object):
 
             builder = cls()
             builder.copyright_holder = template.copyright_holder
-            builder.database = template.database
             builder.name = template.name
             builder.output_dir_path = template.output_dir_path
             builder.template_dir_path = template.template_dir_path
@@ -86,18 +74,6 @@ class SiteConfiguration(object):
             if not isinstance(copyright_holder, str):
                 raise TypeError("expected copyright_holder to be a str but it is a %s" % builtins.type(copyright_holder))
             self.__copyright_holder = copyright_holder
-            return self
-
-        def set_database(self, database):
-            '''
-            :type database: str
-            '''
-
-            if database is None:
-                raise ValueError('database is required')
-            if not isinstance(database, str):
-                raise TypeError("expected database to be a str but it is a %s" % builtins.type(database))
-            self.__database = database
             return self
 
         def set_name(self, name):
@@ -146,7 +122,6 @@ class SiteConfiguration(object):
         def update(self, site_configuration):
             '''
             :type copyright_holder: str
-            :type database: str
             :type name: str
             :type output_dir_path: str
             :type template_dir_path: str or None
@@ -154,7 +129,6 @@ class SiteConfiguration(object):
 
             if isinstance(site_configuration, SiteConfiguration):
                 self.set_copyright_holder(site_configuration.copyright_holder)
-                self.set_database(site_configuration.database)
                 self.set_name(site_configuration.name)
                 self.set_output_dir_path(site_configuration.output_dir_path)
                 self.set_template_dir_path(site_configuration.template_dir_path)
@@ -172,14 +146,6 @@ class SiteConfiguration(object):
             '''
 
             self.set_copyright_holder(copyright_holder)
-
-        @database.setter
-        def database(self, database):
-            '''
-            :type database: str
-            '''
-
-            self.set_database(database)
 
         @name.setter
         def name(self, name):
@@ -207,7 +173,6 @@ class SiteConfiguration(object):
 
     class FieldMetadata(object):
         COPYRIGHT_HOLDER = None
-        DATABASE = None
         NAME = None
         OUTPUT_DIR_PATH = None
         TEMPLATE_DIR_PATH = None
@@ -238,10 +203,9 @@ class SiteConfiguration(object):
 
         @classmethod
         def values(cls):
-            return (cls.COPYRIGHT_HOLDER, cls.DATABASE, cls.NAME, cls.OUTPUT_DIR_PATH, cls.TEMPLATE_DIR_PATH,)
+            return (cls.COPYRIGHT_HOLDER, cls.NAME, cls.OUTPUT_DIR_PATH, cls.TEMPLATE_DIR_PATH,)
 
     FieldMetadata.COPYRIGHT_HOLDER = FieldMetadata('copyright_holder', pastpy.gen.non_blank_string.NonBlankString, None)
-    FieldMetadata.DATABASE = FieldMetadata('database', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.NAME = FieldMetadata('name', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.OUTPUT_DIR_PATH = FieldMetadata('output_dir_path', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.TEMPLATE_DIR_PATH = FieldMetadata('template_dir_path', pastpy.gen.non_blank_string.NonBlankString, None)
@@ -249,14 +213,12 @@ class SiteConfiguration(object):
     def __init__(
         self,
         copyright_holder="Your Collection",
-        database="c:\\pp5",
         name="Your Collection",
         output_dir_path="site",
         template_dir_path=None,
     ):
         '''
         :type copyright_holder: str
-        :type database: str
         :type name: str
         :type output_dir_path: str
         :type template_dir_path: str or None
@@ -267,12 +229,6 @@ class SiteConfiguration(object):
         if not isinstance(copyright_holder, str):
             raise TypeError("expected copyright_holder to be a str but it is a %s" % builtins.type(copyright_holder))
         self.__copyright_holder = copyright_holder
-
-        if database is None:
-            raise ValueError('database is required')
-        if not isinstance(database, str):
-            raise TypeError("expected database to be a str but it is a %s" % builtins.type(database))
-        self.__database = database
 
         if name is None:
             raise ValueError('name is required')
@@ -294,8 +250,6 @@ class SiteConfiguration(object):
     def __eq__(self, other):
         if self.copyright_holder != other.copyright_holder:
             return False
-        if self.database != other.database:
-            return False
         if self.name != other.name:
             return False
         if self.output_dir_path != other.output_dir_path:
@@ -305,10 +259,10 @@ class SiteConfiguration(object):
         return True
 
     def __hash__(self):
-        return hash((self.copyright_holder, self.database, self.name, self.output_dir_path, self.template_dir_path,))
+        return hash((self.copyright_holder, self.name, self.output_dir_path, self.template_dir_path,))
 
     def __iter__(self):
-        return iter((self.copyright_holder, self.database, self.name, self.output_dir_path, self.template_dir_path,))
+        return iter((self.copyright_holder, self.name, self.output_dir_path, self.template_dir_path,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -316,7 +270,6 @@ class SiteConfiguration(object):
     def __repr__(self):
         field_reprs = []
         field_reprs.append('copyright_holder=' + "'" + self.copyright_holder.encode('ascii', 'replace').decode('ascii') + "'")
-        field_reprs.append('database=' + "'" + self.database.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('output_dir_path=' + "'" + self.output_dir_path.encode('ascii', 'replace').decode('ascii') + "'")
         if self.template_dir_path is not None:
@@ -326,7 +279,6 @@ class SiteConfiguration(object):
     def __str__(self):
         field_reprs = []
         field_reprs.append('copyright_holder=' + "'" + self.copyright_holder.encode('ascii', 'replace').decode('ascii') + "'")
-        field_reprs.append('database=' + "'" + self.database.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('output_dir_path=' + "'" + self.output_dir_path.encode('ascii', 'replace').decode('ascii') + "'")
         if self.template_dir_path is not None:
@@ -345,14 +297,6 @@ class SiteConfiguration(object):
 
         return self.__copyright_holder
 
-    @property
-    def database(self):
-        '''
-        :rtype: str
-        '''
-
-        return self.__database
-
     @classmethod
     def from_builtins(cls, _dict):
         if not isinstance(_dict, dict):
@@ -364,11 +308,6 @@ class SiteConfiguration(object):
         if copyright_holder is None:
             copyright_holder = "Your Collection"
         __builder.copyright_holder = copyright_holder
-
-        database = _dict.get("database")
-        if database is None:
-            database = "c:\\pp5"
-        __builder.database = database
 
         name = _dict.get("name")
         if name is None:
@@ -418,8 +357,6 @@ class SiteConfiguration(object):
                 break
             elif ifield_name == 'copyright_holder':
                 init_kwds['copyright_holder'] = iprot.read_string()
-            elif ifield_name == 'database':
-                init_kwds['database'] = iprot.read_string()
             elif ifield_name == 'name':
                 init_kwds['name'] = iprot.read_string()
             elif ifield_name == 'output_dir_path':
@@ -448,7 +385,6 @@ class SiteConfiguration(object):
     def to_builtins(self):
         dict_ = {}
         dict_["copyright_holder"] = self.copyright_holder
-        dict_["database"] = self.database
         dict_["name"] = self.name
         dict_["output_dir_path"] = self.output_dir_path
         dict_["template_dir_path"] = self.template_dir_path
@@ -466,10 +402,6 @@ class SiteConfiguration(object):
 
         oprot.write_field_begin(name='copyright_holder', type=11, id=None)
         oprot.write_string(self.copyright_holder)
-        oprot.write_field_end()
-
-        oprot.write_field_begin(name='database', type=11, id=None)
-        oprot.write_string(self.database)
         oprot.write_field_end()
 
         oprot.write_field_begin(name='name', type=11, id=None)
