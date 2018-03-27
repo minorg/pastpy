@@ -135,6 +135,7 @@ class SiteGenerator(object):
         return {
             'copyright_holder': self.__configuration.copyright_holder,
             'current_year': datetime.now().year,
+            'google_custom_search_engine_id': self.__configuration.google_custom_search_engine_id,
             'home_nav_item_active': False,
             'objects_nav_item_active': False,
             'page_title': page_title,
