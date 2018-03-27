@@ -253,9 +253,8 @@ class OnlineDatabaseConfiguration(object):
 
         return cls(**init_kwds)
 
-    @classmethod
-    def replacer(cls):
-        return cls.Builder.from_template(template=self)
+    def replacer(self):
+        return self.Builder.from_template(template=self)
 
     def to_builtins(self):
         dict_ = {}

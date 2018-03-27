@@ -363,9 +363,8 @@ class OnlineObjectsListItem(object):
 
         return self.__record_type
 
-    @classmethod
-    def replacer(cls):
-        return cls.Builder.from_template(template=self)
+    def replacer(self):
+        return self.Builder.from_template(template=self)
 
     @property
     def thumbnail_url(self):

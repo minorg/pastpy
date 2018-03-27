@@ -382,9 +382,8 @@ class OnlineObjectDetail(object):
 
         return self.__related_photos
 
-    @classmethod
-    def replacer(cls):
-        return cls.Builder.from_template(template=self)
+    def replacer(self):
+        return self.Builder.from_template(template=self)
 
     def to_builtins(self):
         dict_ = {}
