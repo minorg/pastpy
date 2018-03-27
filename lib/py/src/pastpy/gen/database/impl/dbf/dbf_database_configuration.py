@@ -294,7 +294,7 @@ class DbfDatabaseConfiguration(object):
         iprot.read_struct_begin()
         while True:
             ifield_name, ifield_type, _ifield_id = iprot.read_field_begin()
-            if ifield_type == 0: # STOP
+            if ifield_type == 0:  # STOP
                 break
             elif ifield_name == 'pp_images_dir_path':
                 try:
@@ -316,7 +316,8 @@ class DbfDatabaseConfiguration(object):
 
         return cls(**init_kwds)
 
-    def replacer(self):
+    @classmethod
+    def replacer(cls):
         return cls.Builder.from_template(template=self)
 
     def to_builtins(self):

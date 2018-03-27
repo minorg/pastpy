@@ -359,7 +359,7 @@ class OnlineObjectDetail(object):
         iprot.read_struct_begin()
         while True:
             ifield_name, ifield_type, _ifield_id = iprot.read_field_begin()
-            if ifield_type == 0: # STOP
+            if ifield_type == 0:  # STOP
                 break
             elif ifield_name == 'attributes':
                 init_kwds['attributes'] = dict([(iprot.read_string(), iprot.read_string()) for _ in xrange(iprot.read_map_begin()[2])] + (iprot.read_map_end() is None and []))
@@ -382,7 +382,8 @@ class OnlineObjectDetail(object):
 
         return self.__related_photos
 
-    def replacer(self):
+    @classmethod
+    def replacer(cls):
         return cls.Builder.from_template(template=self)
 
     def to_builtins(self):

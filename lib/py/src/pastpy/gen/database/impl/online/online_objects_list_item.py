@@ -337,7 +337,7 @@ class OnlineObjectsListItem(object):
         iprot.read_struct_begin()
         while True:
             ifield_name, ifield_type, _ifield_id = iprot.read_field_begin()
-            if ifield_type == 0: # STOP
+            if ifield_type == 0:  # STOP
                 break
             elif ifield_name == 'detail_href':
                 init_kwds['detail_href'] = iprot.read_string()
@@ -363,7 +363,8 @@ class OnlineObjectsListItem(object):
 
         return self.__record_type
 
-    def replacer(self):
+    @classmethod
+    def replacer(cls):
         return cls.Builder.from_template(template=self)
 
     @property
