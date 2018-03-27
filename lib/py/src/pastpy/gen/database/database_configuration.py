@@ -158,6 +158,15 @@ class DatabaseConfiguration(object):
                 raise TypeError("expected online to be a pastpy.gen.database.impl.online.online_database_configuration.OnlineDatabaseConfiguration but it is a %s" % builtins.type(online))
         self.__online = online
 
+        # Union check
+        __present_field_count = 0
+        if self.dbf is not None:
+            __present_field_count = __present_field_count + 1
+        if self.online is not None:
+            __present_field_count = __present_field_count + 1
+        if __present_field_count > 0:
+            raise ValueError("database_configuration.DatabaseConfiguration: %d fields set in a union" % __present_field_count)
+
     def __eq__(self, other):
         if self.dbf != other.dbf:
             return False
