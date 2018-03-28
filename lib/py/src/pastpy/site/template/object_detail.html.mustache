@@ -1,25 +1,36 @@
-{{>header.html}}
-<div class="container-fluid">
-    {{>navbar.html}} {{#object_has_full_size_images}}
-    <div class="row text-center w-100">
-        {{#object_full_size_images}}
-        <div style="display: inline-block; padding-bottom: 20px; padding-right: 20px">
-            <a href="{{{full_size_url}}}" data-lity data-lity-desc="{{{title}}}">
-                <img src="{{{thumbnail_url}}}" title="{{title}}">
-            </a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>head_meta.html}} {{>head_css.html}}
+    <title>{{site_name}} - Object {{object.id}}</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        {{>navbar.html}} {{#object_has_full_size_images}}
+        <div class="row text-center w-100">
+            {{#object_full_size_images}}
+            <div style="display: inline-block; padding-bottom: 20px; padding-right: 20px">
+                <a href="{{{full_size_url}}}" data-lity data-lity-desc="{{{title}}}">
+                    <img src="{{{thumbnail_url}}}" title="{{title}}">
+                </a>
+            </div>
+            {{/object_full_size_images}}
         </div>
-        {{/object_full_size_images}}
+        {{/object_has_full_size_images}}
+        <div class="row">
+            <table class="table table-bordered table-striped">
+                {{#object_attributes}}
+                <tr>
+                    <td style="width: 10%">{{key}}</td>
+                    <td>{{value}}</td>
+                </tr>
+                {{/object_attributes}}
+            </table>
+        </div>
     </div>
-    {{/object_has_full_size_images}}
-    <div class="row">
-        <table class="table table-bordered table-striped">
-            {{#object_attributes}}
-            <tr>
-                <td style="width: 10%">{{key}}</td>
-                <td>{{value}}</td>
-            </tr>
-            {{/object_attributes}}
-        </table>
-    </div>
-</div>
-{{>footer.html}}
+    {{>footer.html}} {{>scripts.html}}
+</body>
+
+</html>

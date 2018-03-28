@@ -1,18 +1,29 @@
-{{>header.html}}
-<div class="container-fluid home">
-    {{>navbar.html}}
-    <div class="row" style="margin-top: 200px"></div>
-    <div class="row text-center w-100">
-        <div class="col-12">
-            <h1>{{site_name}}</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>head_meta.html}} {{>head_css.html}}
+    <title>{{site_name}}</title>
+</head>
+
+<body>
+    <div class="container-fluid home">
+        {{>navbar.html}}
+        <div class="row" style="margin-top: 200px"></div>
+        <div class="row text-center w-100">
+            <div class="col-12">
+                <h1>{{site_name}}</h1>
+            </div>
+        </div>
+        <div class="row mt-2 text-center w-100">
+            <div class="col-4 offset-4">
+                <gcse:searchbox-only>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 200px">
         </div>
     </div>
-    <div class="row mt-2 text-center w-100">
-        <div class="col-4 offset-4">
-            <gcse:searchbox-only>
-        </div>
-    </div>
-    <div class="row" style="margin-bottom: 200px">
-    </div>
-</div>
-{{>footer.html}}
+    {{>footer.html}} {{>scripts.html}}
+</body>
+
+</html>

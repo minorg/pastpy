@@ -1,42 +1,54 @@
-{{>header.html}}
-<div class="container-fluid">
-    {{>navbar.html}}
-    <div class="row">
-        {{#objects}}
-        <div class="card mb-4 mr-4" style="border-width: 8px">
-            <div class="card-header text-center">
-                <a href="{{{object_href}}}">{{object_name}}</a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>head_meta.html}} {{>head_css.html}}
+    <title>{{site_name}} - Objects</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        {{>navbar.html}}
+        <div class="row">
+            {{#objects}}
+            <div class="card mb-4 mr-4" style="border-width: 8px">
+                <div class="card-header text-center">
+                    <a href="{{{object_href}}}">{{object_name}}</a>
+                </div>
+                <div class="card-body">
+                    <figure class="figure">
+                        <a href="{{{object_href}}}">
+                            <img class="figure-img rounded" src="{{{object_thumbnail_url}}}" style="height: 211px; margin: 5px; width: 210px" />
+                        </a>
+                        <figcaption class="figure-caption text-center" style="font-size: small">
+                            {{#object.title}} {{object.title}}
+                            <br/>{{/object.title}} {{#object.date}} {{object.date}}
+                            <br/>{{/object.date}}
+                        </figcaption>
+                    </figure>
+                </div>
             </div>
-            <div class="card-body">
-                <figure class="figure">
-                    <a href="{{{object_href}}}">
-                        <img class="figure-img rounded" src="{{{object_thumbnail_url}}}" style="height: 211px; margin: 5px; width: 210px" />
-                    </a>
-                    <figcaption class="figure-caption text-center" style="font-size: small">
-                        {{#object.title}} {{object.title}}<br/>{{/object.title}}
-                        {{#object.date}} {{object.date}}<br/>{{/object.date}}
-                    </figcaption>
-                </figure>
-            </div>
+            {{/objects}}
         </div>
-        {{/objects}}
+        <div class="row">
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item{{#previous_page_disabled}} disabled{{/previous_page_disabled}}">
+                        <a class="page-link" href="{{previous_page_number}}.html" tabindex="-1">Previous</a>
+                    </li>
+                    {{#page_items}}
+                    <li class="page-item{{#active}} active{{/active}}">
+                        <a class="page-link" href="{{number}}.html">{{number}}</a>
+                    </li>
+                    {{/page_items}}
+                    <li class="page-item{{#next_page_disabled}} disabled{{/next_page_disabled}}">
+                        <a class="page-link" href="{{next_page_number}}.html">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
-    <div class="row">
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                <li class="page-item{{#previous_page_disabled}} disabled{{/previous_page_disabled}}">
-                    <a class="page-link" href="{{previous_page_number}}.html" tabindex="-1">Previous</a>
-                </li>
-                {{#page_items}}
-                <li class="page-item{{#active}} active{{/active}}">
-                    <a class="page-link" href="{{number}}.html">{{number}}</a>
-                </li>
-                {{/page_items}}
-                <li class="page-item{{#next_page_disabled}} disabled{{/next_page_disabled}}">
-                    <a class="page-link" href="{{next_page_number}}.html">Next</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</div>
-{{>footer.html}}
+    {{>footer.html}} {{>scripts.html}}
+</body>
+
+</html>

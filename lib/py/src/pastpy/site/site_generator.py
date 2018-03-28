@@ -129,7 +129,7 @@ class SiteGenerator(object):
                 break
         return context
 
-    def __new_top_level_context(self, *, page_title, out_dir_path):
+    def __new_top_level_context(self, *, out_dir_path):
         root_rel_href = os.path.relpath(
             self.__configuration.output_dir_path, out_dir_path).replace(os.path.sep, '/')
         return {
@@ -138,7 +138,6 @@ class SiteGenerator(object):
             'google_custom_search_engine_id': self.__configuration.google_custom_search_engine_id,
             'home_nav_item_active': False,
             'objects_nav_item_active': False,
-            'page_title': page_title,
             'root_rel_href': root_rel_href,
             'site_name': self.__configuration.name
         }
@@ -218,7 +217,6 @@ class SiteGenerator(object):
     def __render_index(self):
         context = \
             self.__new_top_level_context(
-                page_title='Home',
                 out_dir_path=self.__configuration.output_dir_path
             )
         context["home_nav_item_active"] = True
@@ -234,8 +232,7 @@ class SiteGenerator(object):
             object_file_name = object_file_names_by_id[object_.id]
             context = \
                 self.__new_top_level_context(
-                    out_dir_path=out_dir_path,
-                    page_title='Object: ' + object_.id
+                    out_dir_path=out_dir_path
                 )
             context.update(self.__new_object_context(
                 object_=object_,
@@ -266,7 +263,6 @@ class SiteGenerator(object):
 
             context = \
                 self.__new_top_level_context(
-                    page_title='Objects: page ' + str(current_page_number),
                     out_dir_path=out_dir_path
                 )
             context["objects"] = \
