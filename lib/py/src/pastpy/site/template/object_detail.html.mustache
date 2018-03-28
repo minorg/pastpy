@@ -6,38 +6,43 @@
     <title>{{site_name}} - Object {{object.id}}</title>
     <!--
   <PageMap>
-{{#object_thumbnail_images}}
+     <DataObject type="object">
+{{#object.name}}
+        <Attribute name="name">{{object.name}}The Biomechanics of a Badminton</Attribute>
+{{/object.name}}
+     </DataObject>
+{{#object.thumbnail_images}}
      <DataObject type="thumbnail">
         <Attribute name="src" value="{{thumbnail_url}}" />
         <Attribute name="width" value="210" />
         <Attribute name="height" value="211" />
      </DataObject>
-{{/object_thumbnail_images}}
+{{/object.thumbnail_images}}
   </PageMap>
   -->
 </head>
 
 <body>
     <div class="container-fluid">
-        {{>navbar.html}} {{#object_has_full_size_images}}
+        {{>navbar.html}} {{#object.has_full_size_images}}
         <div class="row text-center w-100">
-            {{#object_full_size_images}}
+            {{#object.full_size_images}}
             <div style="display: inline-block; padding-bottom: 20px; padding-right: 20px">
                 <a href="{{{full_size_url}}}" data-lity data-lity-desc="{{{title}}}">
                     <img src="{{{thumbnail_url}}}" title="{{title}}">
                 </a>
             </div>
-            {{/object_full_size_images}}
+            {{/object.full_size_images}}
         </div>
-        {{/object_has_full_size_images}}
+        {{/object.has_full_size_images}}
         <div class="row">
             <table class="table table-bordered table-striped">
-                {{#object_attributes}}
+                {{#object.impl_attributes}}
                 <tr>
                     <td style="width: 10%">{{key}}</td>
                     <td>{{value}}</td>
                 </tr>
-                {{/object_attributes}}
+                {{/object.impl_attributes}}
             </table>
         </div>
     </div>

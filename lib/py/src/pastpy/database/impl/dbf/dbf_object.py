@@ -12,10 +12,6 @@ class DbfObject(Object):
         self.__record = record
 
     @property
-    def attributes(self):
-        return self.__record.to_builtins()
-
-    @property
     def date(self):
         return self.__record.date
 
@@ -58,6 +54,10 @@ class DbfObject(Object):
             images.append(DbfImage(file_path=pp_image_file_path))
         self.__images = tuple(images)
         return self.__images
+
+    @property
+    def impl_attributes(self):
+        return self.__record.to_builtins()
 
     @property
     def name(self):

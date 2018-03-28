@@ -1,9 +1,5 @@
 class Object(object):
     @property
-    def attributes(self):
-        raise NotImplementedError
-
-    @property
     def date(self):
         raise NotImplementedError
 
@@ -13,6 +9,10 @@ class Object(object):
 
     @property
     def id(self):
+        raise NotImplementedError
+
+    @property
+    def impl_attributes(self):
         raise NotImplementedError
 
     @property

@@ -5,6 +5,7 @@ import os.path
 import re
 import shutil
 import pystache
+import inspect
 from urllib.parse import urlparse, unquote
 from pastpy.gen.site.site_configuration import SiteConfiguration
 
@@ -15,18 +16,6 @@ class SiteGenerator(object):
             os.path.dirname(__file__), 'template'))
     assert os.path.isdir(
         TEMPLATE_DIR_PATH_DEFAULT), TEMPLATE_DIR_PATH_DEFAULT
-
-    class ObjectWrapper(object):
-        def __init__(self, img_srcs, object_):
-            self.__img_srcs = img_srcs
-            self.__object = object_
-
-        def __getattr__(self, attr):
-            return getattr(self.__object, attr)
-
-        @property
-        def img_srcs(self):
-            return self.__img_srcs
 
     def __init__(self, *, configuration, database):
         assert isinstance(configuration, SiteConfiguration)
@@ -107,27 +96,41 @@ class SiteGenerator(object):
         return file_names_by_object_id
 
     def __new_object_context(self, *, object_, object_file_name):
-        context = {
-            "object": object_,
-            "object_attributes": [{"key": key, "value": value} for key, value in object_.attributes.items()]
-        }
+        context = {}
+
+        for member_name, member in inspect.getmembers(object_):
+            if inspect.ismethod(member):
+                continue
+            if member_name.startswith('_'):
+                continue
+            elif member_name in ("images", "impl_attributes"):
+                continue
+            context[member_name] = getattr(object_, member_name)
+
+        context["href"] = "../details/" + object_file_name
+
+        context["impl_attributes"] = [{"key": key, "value": value} for key, value in object_.impl_attributes.items()]
+
+        context["full_size_images"] = [image for image in object_.images if image.full_size_url]
+        context["has_full_size_images"] = len(context["full_size_images"]) > 0
+
         if object_.name:
-            context["object_name"] = object_.name
+            context["name"] = object_.name
         elif object_.othername:
-            context["object_name"] = object_.othername
+            context["name"] = object_.othername
         else:
-            context["object_name"] = object_.id
-        context["object_href"] = "../details/" + object_file_name
-        context["object_full_size_images"] = [image for image in object_.images if image.full_size_url]
-        context["object_has_full_size_images"] = len(context["object_full_size_images"]) > 0
-        context["object_thumbnail_images"] = [image for image in object_.images if image.thumbnail_url]
-        context["object_has_thumbnail_images"] = len(context["object_thumbnail_images"]) > 0
-        context["object_thumbnail_url"] = "http://via.placeholder.com/210x211?text=Missing%20image"
+            context["name"] = object_.id
+
+        context["thumbnail_images"] = [image for image in object_.images if image.thumbnail_url]
+        context["has_thumbnail_images"] = len(context["thumbnail_images"]) > 0
+
+        context["thumbnail_url"] = "http://via.placeholder.com/210x211?text=Missing%20image"
         for image in object_.images:
             if image.thumbnail_url:
-                context["object_thumbnail_url"] = image.thumbnail_url
+                context["thumbnail_url"] = image.thumbnail_url
                 break
-        return context
+
+        return {"object": context}
 
     def __new_top_level_context(self, *, out_dir_path):
         root_rel_href = os.path.relpath(
@@ -181,24 +184,21 @@ class SiteGenerator(object):
 
         objects = []
         for object_ in self.__database.objects():
-            img_srcs = []
             for image in object_.images:
                 full_size_url = image.full_size_url
                 full_size_url_parsed = urlparse(full_size_url)
                 if full_size_url_parsed.scheme == "file":
-                    full_size_file_path = unquote(full_size_url)[7:]
-                    full_size_file_name = os.path.split(full_size_file_path)[1]
-                    out_image_file_path = os.path.join(
-                        out_images_dir_path, full_size_file_name)
-                    shutil.copyfile(full_size_file_path,
-                                    full_size_file_name)
-                    self.__logger.debug(
-                        "copied %s to %s", full_size_file_path, out_image_file_path)
-                    img_srcs.append('img/' + full_size_file_name)
-            objects.append(SiteGenerator.ObjectWrapper(
-                img_srcs=tuple(img_srcs),
-                object_=object_
-            ))
+                    raise NotImplementedError("TODO: rewrite the actual image object with a substitute")
+                    # full_size_file_path = unquote(full_size_url)[7:]
+                    # full_size_file_name = os.path.split(full_size_file_path)[1]
+                    # out_image_file_path = os.path.join(
+                    #     out_images_dir_path, full_size_file_name)
+                    # shutil.copyfile(full_size_file_path,
+                    #                 full_size_file_name)
+                    # self.__logger.debug(
+                    #     "copied %s to %s", full_size_file_path, out_image_file_path)
+                    # img_srcs.append('img/' + full_size_file_name)
+            objects.append(object_)
             if len(objects) == 100:
                 break
         return objects

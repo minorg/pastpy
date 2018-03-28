@@ -8,10 +8,6 @@ class OnlineObject(Object):
         self.__list_item = list_item
 
     @property
-    def attributes(self):
-        return self.__detail.attributes
-
-    @property
     def date(self):
         return self.__detail.attributes.get("Date")
 
@@ -32,6 +28,10 @@ class OnlineObject(Object):
             for detail_image in self.__detail.related_photos:
                 images.append(OnlineImage(detail_image=detail_image))
         return tuple(images)
+
+    @property
+    def impl_attributes(self):
+        return self.__detail.attributes
 
     @property
     def name(self):
