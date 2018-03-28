@@ -7,9 +7,9 @@
     <!--
   <PageMap>
      <DataObject type="object">
-{{#object.name}}
-        <Attribute name="name">{{object.name}}The Biomechanics of a Badminton</Attribute>
-{{/object.name}}
+{{#object.standard_attributes}}
+        <Attribute name="{{key}}">{{value}}</Attribute>
+{{/object.standard_attributes}}
      </DataObject>
 {{#object.thumbnail_images}}
      <DataObject type="thumbnail">

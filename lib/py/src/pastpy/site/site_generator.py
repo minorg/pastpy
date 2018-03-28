@@ -98,15 +98,6 @@ class SiteGenerator(object):
     def __new_object_context(self, *, object_, object_file_name):
         context = {}
 
-        for member_name, member in inspect.getmembers(object_):
-            if inspect.ismethod(member):
-                continue
-            if member_name.startswith('_'):
-                continue
-            elif member_name in ("images", "impl_attributes"):
-                continue
-            context[member_name] = getattr(object_, member_name)
-
         context["href"] = "../details/" + object_file_name
 
         context["impl_attributes"] = [{"key": key, "value": value} for key, value in object_.impl_attributes.items()]
@@ -121,14 +112,30 @@ class SiteGenerator(object):
         else:
             context["name"] = object_.id
 
+        standard_attributes = {}
+        for member_name, member in inspect.getmembers(object_):
+            if inspect.ismethod(member):
+                continue
+            if member_name.startswith('_'):
+                continue
+            elif member_name in ("images", "impl_attributes"):
+                continue
+            value = getattr(object_, member_name)
+            if value is not None:
+                standard_attributes[member_name] = value
+        context["standard_attributes"] = [{"key": key, "value": value} for key, value in standard_attributes.items()]
+        context.update(standard_attributes)
+
         context["thumbnail_images"] = [image for image in object_.images if image.thumbnail_url]
         context["has_thumbnail_images"] = len(context["thumbnail_images"]) > 0
-
         context["thumbnail_url"] = "http://via.placeholder.com/210x211?text=Missing%20image"
         for image in object_.images:
             if image.thumbnail_url:
                 context["thumbnail_url"] = image.thumbnail_url
                 break
+
+        if "title" not in context:
+            context["title"] = context["name"]
 
         return {"object": context}
 
