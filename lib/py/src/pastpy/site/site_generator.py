@@ -119,9 +119,9 @@ class SiteGenerator(object):
             context["object_name"] = object_.id
         context["object_href"] = "../details/" + object_file_name
         context["object_full_size_images"] = [image for image in object_.images if image.full_size_url]
-        for image_i, image in enumerate(context["object_full_size_images"]):
-            image.active = image_i == 0
         context["object_has_full_size_images"] = len(context["object_full_size_images"]) > 0
+        context["object_thumbnail_images"] = [image for image in object_.images if image.thumbnail_url]
+        context["object_has_thumbnail_images"] = len(context["object_thumbnail_images"]) > 0
         context["object_thumbnail_url"] = "http://via.placeholder.com/210x211?text=Missing%20image"
         for image in object_.images:
             if image.thumbnail_url:
