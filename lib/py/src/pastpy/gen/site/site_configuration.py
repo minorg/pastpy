@@ -6,6 +6,7 @@ class SiteConfiguration(object):
     class Builder(object):
         def __init__(
             self,
+            base_url=None,
             copyright_holder="Your Collection",
             google_custom_search_engine_id=None,
             name="Your Collection",
@@ -14,6 +15,7 @@ class SiteConfiguration(object):
             template_dir_path=None,
         ):
             '''
+            :type base_url: str
             :type copyright_holder: str
             :type google_custom_search_engine_id: str
             :type name: str
@@ -22,6 +24,7 @@ class SiteConfiguration(object):
             :type template_dir_path: str or None
             '''
 
+            self.__base_url = base_url
             self.__copyright_holder = copyright_holder
             self.__google_custom_search_engine_id = google_custom_search_engine_id
             self.__name = name
@@ -30,7 +33,15 @@ class SiteConfiguration(object):
             self.__template_dir_path = template_dir_path
 
         def build(self):
-            return SiteConfiguration(copyright_holder=self.__copyright_holder, google_custom_search_engine_id=self.__google_custom_search_engine_id, name=self.__name, output_dir_path=self.__output_dir_path, institution_name=self.__institution_name, template_dir_path=self.__template_dir_path)
+            return SiteConfiguration(base_url=self.__base_url, copyright_holder=self.__copyright_holder, google_custom_search_engine_id=self.__google_custom_search_engine_id, name=self.__name, output_dir_path=self.__output_dir_path, institution_name=self.__institution_name, template_dir_path=self.__template_dir_path)
+
+        @property
+        def base_url(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__base_url
 
         @property
         def copyright_holder(self):
@@ -48,6 +59,7 @@ class SiteConfiguration(object):
             '''
 
             builder = cls()
+            builder.base_url = template.base_url
             builder.copyright_holder = template.copyright_holder
             builder.google_custom_search_engine_id = template.google_custom_search_engine_id
             builder.name = template.name
@@ -87,6 +99,18 @@ class SiteConfiguration(object):
             '''
 
             return self.__output_dir_path
+
+        def set_base_url(self, base_url):
+            '''
+            :type base_url: str
+            '''
+
+            if base_url is None:
+                raise ValueError('base_url is required')
+            if not isinstance(base_url, str):
+                raise TypeError("expected base_url to be a str but it is a %s" % builtins.type(base_url))
+            self.__base_url = base_url
+            return self
 
         def set_copyright_holder(self, copyright_holder):
             '''
@@ -168,6 +192,7 @@ class SiteConfiguration(object):
 
         def update(self, site_configuration):
             '''
+            :type base_url: str
             :type copyright_holder: str
             :type google_custom_search_engine_id: str
             :type name: str
@@ -177,6 +202,7 @@ class SiteConfiguration(object):
             '''
 
             if isinstance(site_configuration, SiteConfiguration):
+                self.set_base_url(site_configuration.base_url)
                 self.set_copyright_holder(site_configuration.copyright_holder)
                 self.set_google_custom_search_engine_id(site_configuration.google_custom_search_engine_id)
                 self.set_name(site_configuration.name)
@@ -189,6 +215,14 @@ class SiteConfiguration(object):
             else:
                 raise TypeError(site_configuration)
             return self
+
+        @base_url.setter
+        def base_url(self, base_url):
+            '''
+            :type base_url: str
+            '''
+
+            self.set_base_url(base_url)
 
         @copyright_holder.setter
         def copyright_holder(self, copyright_holder):
@@ -239,6 +273,7 @@ class SiteConfiguration(object):
             self.set_template_dir_path(template_dir_path)
 
     class FieldMetadata(object):
+        BASE_URL = None
         COPYRIGHT_HOLDER = None
         GOOGLE_CUSTOM_SEARCH_ENGINE_ID = None
         NAME = None
@@ -272,8 +307,9 @@ class SiteConfiguration(object):
 
         @classmethod
         def values(cls):
-            return (cls.COPYRIGHT_HOLDER, cls.GOOGLE_CUSTOM_SEARCH_ENGINE_ID, cls.NAME, cls.OUTPUT_DIR_PATH, cls.INSTITUTION_NAME, cls.TEMPLATE_DIR_PATH,)
+            return (cls.BASE_URL, cls.COPYRIGHT_HOLDER, cls.GOOGLE_CUSTOM_SEARCH_ENGINE_ID, cls.NAME, cls.OUTPUT_DIR_PATH, cls.INSTITUTION_NAME, cls.TEMPLATE_DIR_PATH,)
 
+    FieldMetadata.BASE_URL = FieldMetadata('base_url', str, None)
     FieldMetadata.COPYRIGHT_HOLDER = FieldMetadata('copyright_holder', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.GOOGLE_CUSTOM_SEARCH_ENGINE_ID = FieldMetadata('google_custom_search_engine_id', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.NAME = FieldMetadata('name', pastpy.gen.non_blank_string.NonBlankString, None)
@@ -283,6 +319,7 @@ class SiteConfiguration(object):
 
     def __init__(
         self,
+        base_url,
         google_custom_search_engine_id,
         copyright_holder="Your Collection",
         name="Your Collection",
@@ -291,6 +328,7 @@ class SiteConfiguration(object):
         template_dir_path=None,
     ):
         '''
+        :type base_url: str
         :type copyright_holder: str
         :type google_custom_search_engine_id: str
         :type name: str
@@ -298,6 +336,12 @@ class SiteConfiguration(object):
         :type institution_name: str or None
         :type template_dir_path: str or None
         '''
+
+        if base_url is None:
+            raise ValueError('base_url is required')
+        if not isinstance(base_url, str):
+            raise TypeError("expected base_url to be a str but it is a %s" % builtins.type(base_url))
+        self.__base_url = base_url
 
         if copyright_holder is None:
             raise ValueError('copyright_holder is required')
@@ -334,6 +378,8 @@ class SiteConfiguration(object):
         self.__template_dir_path = template_dir_path
 
     def __eq__(self, other):
+        if self.base_url != other.base_url:
+            return False
         if self.copyright_holder != other.copyright_holder:
             return False
         if self.google_custom_search_engine_id != other.google_custom_search_engine_id:
@@ -349,16 +395,17 @@ class SiteConfiguration(object):
         return True
 
     def __hash__(self):
-        return hash((self.copyright_holder, self.google_custom_search_engine_id, self.name, self.output_dir_path, self.institution_name, self.template_dir_path,))
+        return hash((self.base_url, self.copyright_holder, self.google_custom_search_engine_id, self.name, self.output_dir_path, self.institution_name, self.template_dir_path,))
 
     def __iter__(self):
-        return iter((self.copyright_holder, self.google_custom_search_engine_id, self.name, self.output_dir_path, self.institution_name, self.template_dir_path,))
+        return iter((self.base_url, self.copyright_holder, self.google_custom_search_engine_id, self.name, self.output_dir_path, self.institution_name, self.template_dir_path,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
 
     def __repr__(self):
         field_reprs = []
+        field_reprs.append('base_url=' + "'" + self.base_url.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('copyright_holder=' + "'" + self.copyright_holder.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('google_custom_search_engine_id=' + "'" + self.google_custom_search_engine_id.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
@@ -371,6 +418,7 @@ class SiteConfiguration(object):
 
     def __str__(self):
         field_reprs = []
+        field_reprs.append('base_url=' + "'" + self.base_url.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('copyright_holder=' + "'" + self.copyright_holder.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('google_custom_search_engine_id=' + "'" + self.google_custom_search_engine_id.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
@@ -380,6 +428,14 @@ class SiteConfiguration(object):
         if self.template_dir_path is not None:
             field_reprs.append('template_dir_path=' + "'" + self.template_dir_path.encode('ascii', 'replace').decode('ascii') + "'")
         return 'SiteConfiguration(' + ', '.join(field_reprs) + ')'
+
+    @property
+    def base_url(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__base_url
 
     @classmethod
     def builder(cls):
@@ -399,6 +455,11 @@ class SiteConfiguration(object):
             raise ValueError("expected dict")
 
         __builder = cls.builder()
+
+        base_url = _dict.get("base_url")
+        if base_url is None:
+            raise KeyError("base_url")
+        __builder.base_url = base_url
 
         copyright_holder = _dict.get("copyright_holder")
         if copyright_holder is None:
@@ -474,6 +535,8 @@ class SiteConfiguration(object):
             ifield_name, ifield_type, _ifield_id = iprot.read_field_begin()
             if ifield_type == 0:  # STOP
                 break
+            elif ifield_name == 'base_url':
+                init_kwds['base_url'] = iprot.read_string()
             elif ifield_name == 'copyright_holder':
                 init_kwds['copyright_holder'] = iprot.read_string()
             elif ifield_name == 'google_custom_search_engine_id':
@@ -510,6 +573,7 @@ class SiteConfiguration(object):
 
     def to_builtins(self):
         dict_ = {}
+        dict_["base_url"] = self.base_url
         dict_["copyright_holder"] = self.copyright_holder
         dict_["google_custom_search_engine_id"] = self.google_custom_search_engine_id
         dict_["name"] = self.name
@@ -527,6 +591,10 @@ class SiteConfiguration(object):
         '''
 
         oprot.write_struct_begin('SiteConfiguration')
+
+        oprot.write_field_begin(name='base_url', type=11, id=None)
+        oprot.write_string(self.base_url)
+        oprot.write_field_end()
 
         oprot.write_field_begin(name='copyright_holder', type=11, id=None)
         oprot.write_string(self.copyright_holder)

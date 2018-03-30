@@ -80,6 +80,8 @@ class SiteGenerator(object):
             object_file_names_by_id=object_file_names_by_id, objects=objects,)
         self.__render_objects_list(
             object_file_names_by_id=object_file_names_by_id, objects=objects)
+        self.__render_sitemap(
+            object_file_names_by_id=object_file_names_by_id, objects=objects)
 
     def __makedirs(self, dir_path):
         if not os.path.isdir(dir_path):
@@ -102,7 +104,9 @@ class SiteGenerator(object):
     def __new_object_context(self, *, object_, object_file_name):
         context = {}
 
-        context["href"] = "../details/" + object_file_name
+        context["absolute_href"] = "/objects/details/" + object_file_name
+        context["file_name"] = object_file_name
+        context["relative_href"] = "../details/" + object_file_name
 
         context["impl_attributes"] = [{"key": key, "value": value}
                                       for key, value in object_.impl_attributes.items()]
@@ -221,11 +225,11 @@ class SiteGenerator(object):
                 break
         return objects
 
-    def __render_file(self, *, context, file_base_name, out_file_relpath=None):
+    def __render_file(self, *, context, file_name, out_file_relpath=None):
         rendered = self.__renderer.render_name(
-            file_base_name + '.html', context)
+            file_name, context)
         if out_file_relpath is None:
-            out_file_relpath = file_base_name + '.html'
+            out_file_relpath = file_name
         out_file_path = os.path.join(
             self.__configuration.output_dir_path, out_file_relpath)
         with open(out_file_path, 'w+') as out_file:
@@ -238,7 +242,7 @@ class SiteGenerator(object):
                 out_dir_path=self.__configuration.output_dir_path
             )
         context["home_nav_item_active"] = True
-        self.__render_file(context=context, file_base_name='index')
+        self.__render_file(context=context, file_name='index.html')
 
     def __render_object_details(self, *, object_file_names_by_id, objects):
         out_dir_relpath = os.path.join('objects', 'details')
@@ -256,7 +260,7 @@ class SiteGenerator(object):
                 object_=object_,
                 object_file_name=object_file_name
             ))
-            self.__render_file(file_base_name='object_detail', context=context, out_file_relpath=os.path.join(
+            self.__render_file(file_name='object_detail.html', context=context, out_file_relpath=os.path.join(
                 out_dir_relpath, object_file_name))
 
     def __render_objects_list(self, *, object_file_names_by_id, objects):
@@ -304,11 +308,27 @@ class SiteGenerator(object):
             context["page_items"] = page_items
 
             self.__render_file(
-                file_base_name='objects_list',
+                file_name='objects_list.html',
                 context=context,
                 out_file_relpath=os.path.join(
                     out_dir_relpath, str(objects_page_i + 1) + '.html')
             )
+
+    def __render_sitemap(self, *, object_file_names_by_id, objects):
+        object_contexts = []
+        for object_ in objects:
+            object_file_name = object_file_names_by_id[object_.id]
+            object_context = \
+                self.__new_top_level_context(
+                    out_dir_path=self.__configuration.output_dir_path
+                )
+            object_context.update(self.__new_object_context(
+                object_=object_,
+                object_file_name=object_file_name
+            ))
+            object_contexts.append(object_context)
+        self.__render_file(file_name='sitemap.xml', context={
+                           "objects": object_contexts})
 
     def __rmtree(self, dir_path):
         if os.path.isdir(dir_path):

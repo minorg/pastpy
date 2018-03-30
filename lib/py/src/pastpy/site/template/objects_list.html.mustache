@@ -13,11 +13,11 @@
             {{#objects}}
             <div class="card mb-4 mr-4" style="border-width: 8px">
                 <div class="card-header text-center">
-                    <a href="{{{object.href}}}">{{object.name}}</a>
+                    <a href="{{{object.relative_href}}}">{{object.name}}</a>
                 </div>
                 <div class="card-body">
                     <figure class="figure">
-                        <a href="{{{object.href}}}">
+                        <a href="{{{object.relative_href}}}">
                             <img alt="{{object.title}}" class="figure-img rounded" src="{{{object.thumbnail_url}}}" style="height: 211px; margin: 5px; width: 210px" title="{{object.title}}" />
                         </a>
                         <figcaption class="figure-caption text-center" style="font-size: small">

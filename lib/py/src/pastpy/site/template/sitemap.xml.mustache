@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{{#objects}}
+ <url>
+   <loc>{{{base_url}}}{{{object.absolute_href}}}</loc>
+   <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
+     <DataObject type="object">
+{{#object.standard_attributes}}
+        <Attribute name="{{key}}" value="{{value}}" />
+{{/object.standard_attributes}}
+     </DataObject>
+{{#object.thumbnail_images}}
+     <DataObject type="thumbnail">
+        <Attribute name="src" value="{{thumbnail_url}}" />
+        <Attribute name="width" value="210" />
+        <Attribute name="height" value="211" />
+     </DataObject>
+{{/object.thumbnail_images}}
+ </url>
+{{/objects}}
+</urlset>

@@ -1,8 +1,10 @@
 namespace * pastpy.gen.site
 
 include "pastpy/gen/non_blank_string.thrift"
+include "thryft/native/url.thrift"
 
 struct SiteConfiguration {
+    url.Url base_url;
     non_blank_string.NonBlankString copyright_holder = "Your Collection";
     non_blank_string.NonBlankString google_custom_search_engine_id;
     non_blank_string.NonBlankString name = "Your Collection";
