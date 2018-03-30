@@ -12,7 +12,14 @@
         <div class="row" style="margin-top: 200px"></div>
         <div class="row text-center w-100">
             <div class="col-12">
+                {{#institution_name}}
+                <h1>{{institution_name}}</h1>
+                <h2>{{site_name}}</h2>
+                {{/institution_name}}
+
+                {{^institution_name}}
                 <h1>{{site_name}}</h1>
+                {{/institution_name}}
             </div>
         </div>
         <div class="row mt-2 text-center w-100">

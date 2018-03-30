@@ -23,7 +23,8 @@ class SiteGenerator(object):
         self.__logger = logging.getLogger(SiteGenerator.__class__.__name__)
 
         if configuration.template_dir_path is None:
-            configuration = configuration.replacer().set_template_dir_path(self.TEMPLATE_DIR_PATH_DEFAULT).build()
+            configuration = configuration.replacer().set_template_dir_path(
+                self.TEMPLATE_DIR_PATH_DEFAULT).build()
         if not os.path.isdir(configuration.template_dir_path):
             raise ValueError(
                 "template directory %s does not exist" % configuration.template_dir_path)
@@ -41,11 +42,14 @@ class SiteGenerator(object):
 
     def __copy_static_files(self):
         for dir_name in ("css", "js"):
-            src_dir_path = os.path.join(self.__configuration.template_dir_path, dir_name)
+            src_dir_path = os.path.join(
+                self.__configuration.template_dir_path, dir_name)
             if os.path.isdir(src_dir_path):
-                dst_dir_path = os.path.join(self.__configuration.output_dir_path, dir_name)
+                dst_dir_path = os.path.join(
+                    self.__configuration.output_dir_path, dir_name)
                 shutil.copytree(src_dir_path, dst_dir_path)
-                self.__logger.debug("copied %s to %s", src_dir_path, dst_dir_path)
+                self.__logger.debug("copied %s to %s",
+                                    src_dir_path, dst_dir_path)
 
     def __filter_objects_with_ids(self, *, objects):
         objects_by_id = OrderedDict()
@@ -100,9 +104,11 @@ class SiteGenerator(object):
 
         context["href"] = "../details/" + object_file_name
 
-        context["impl_attributes"] = [{"key": key, "value": value} for key, value in object_.impl_attributes.items()]
+        context["impl_attributes"] = [{"key": key, "value": value}
+                                      for key, value in object_.impl_attributes.items()]
 
-        context["full_size_images"] = [image for image in object_.images if image.full_size_url]
+        context["full_size_images"] = [
+            image for image in object_.images if image.full_size_url]
         context["has_full_size_images"] = len(context["full_size_images"]) > 0
 
         if object_.name:
@@ -123,10 +129,12 @@ class SiteGenerator(object):
             value = getattr(object_, member_name)
             if value is not None:
                 standard_attributes[member_name] = value
-        context["standard_attributes"] = [{"key": key, "value": value} for key, value in standard_attributes.items()]
+        context["standard_attributes"] = [
+            {"key": key, "value": value} for key, value in standard_attributes.items()]
         context.update(standard_attributes)
 
-        context["thumbnail_images"] = [image for image in object_.images if image.thumbnail_url]
+        context["thumbnail_images"] = [
+            image for image in object_.images if image.thumbnail_url]
         context["has_thumbnail_images"] = len(context["thumbnail_images"]) > 0
         context["thumbnail_url"] = "http://via.placeholder.com/210x211?text=Missing%20image"
         for image in object_.images:
@@ -142,15 +150,17 @@ class SiteGenerator(object):
     def __new_top_level_context(self, *, out_dir_path):
         root_rel_href = os.path.relpath(
             self.__configuration.output_dir_path, out_dir_path).replace(os.path.sep, '/')
-        return {
-            'copyright_holder': self.__configuration.copyright_holder,
-            'current_year': datetime.now().year,
-            'google_custom_search_engine_id': self.__configuration.google_custom_search_engine_id,
-            'home_nav_item_active': False,
-            'objects_nav_item_active': False,
-            'root_rel_href': root_rel_href,
-            'site_name': self.__configuration.name
-        }
+        context = \
+            {
+                'current_year': datetime.now().year,
+                'home_nav_item_active': False,
+                'objects_nav_item_active': False,
+                'root_rel_href': root_rel_href,
+                'site_name': self.__configuration.name
+            }
+        context.update(self.__configuration.to_builtins())
+        del context["name"]  # Already site_name
+        return context
 
     @staticmethod
     def __page_range(*, page_i, page_max, page_min, window):
@@ -195,7 +205,8 @@ class SiteGenerator(object):
                 full_size_url = image.full_size_url
                 full_size_url_parsed = urlparse(full_size_url)
                 if full_size_url_parsed.scheme == "file":
-                    raise NotImplementedError("TODO: rewrite the actual image object with a substitute")
+                    raise NotImplementedError(
+                        "TODO: rewrite the actual image object with a substitute")
                     # full_size_file_path = unquote(full_size_url)[7:]
                     # full_size_file_name = os.path.split(full_size_file_path)[1]
                     # out_image_file_path = os.path.join(
