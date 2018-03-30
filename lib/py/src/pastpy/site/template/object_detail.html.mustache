@@ -8,7 +8,7 @@
   <PageMap>
      <DataObject type="object">
 {{#object.standard_attributes}}
-        <Attribute name="{{key}}">{{value}}</Attribute>
+        <Attribute name="{{key}}" value="{{value}}" />
 {{/object.standard_attributes}}
      </DataObject>
 {{#object.thumbnail_images}}
@@ -29,7 +29,7 @@
             {{#object.full_size_images}}
             <div style="display: inline-block; padding-bottom: 20px; padding-right: 20px">
                 <a href="{{{full_size_url}}}" data-lity data-lity-desc="{{{title}}}">
-                    <img src="{{{thumbnail_url}}}" title="{{title}}">
+                    <img alt="{{title}}" src="{{{thumbnail_url}}}" title="{{title}}">
                 </a>
             </div>
             {{/object.full_size_images}}
