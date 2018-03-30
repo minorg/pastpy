@@ -7,7 +7,7 @@
    <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
      <DataObject type="object">
 {{#object.standard_attributes}}
-        <Attribute name="{{key}}">{{value}}</Attribute>
+        <Attribute name="{{key}}"><![CDATA[{{value}}]]></Attribute>
 {{/object.standard_attributes}}
      </DataObject>
 {{#object.thumbnail_images}}

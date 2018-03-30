@@ -326,6 +326,7 @@ class SiteGenerator(object):
                 object_=object_,
                 object_file_name=object_file_name
             ))
+            object_context["object"]["standard_attributes"] = [item for item in object_context["object"]["standard_attributes"] if item["key"] != "description"]
             object_contexts.append(object_context)
         context = {"objects": object_contexts}
         context["lastmod"] = date.today().isoformat()
