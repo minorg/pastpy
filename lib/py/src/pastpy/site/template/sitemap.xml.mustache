@@ -3,6 +3,7 @@
 {{#objects}}
  <url>
    <loc>{{{base_url}}}{{{object.absolute_href}}}</loc>
+   <lastmod>{{lastmod}}</lastmod>
    <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
      <DataObject type="object">
 {{#object.standard_attributes}}
@@ -16,6 +17,7 @@
         <Attribute name="height" value="211" />
      </DataObject>
 {{/object.thumbnail_images}}
+   </PageMap>
  </url>
 {{/objects}}
 </urlset>

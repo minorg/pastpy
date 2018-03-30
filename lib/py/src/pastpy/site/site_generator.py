@@ -1,5 +1,5 @@
 from collections import OrderedDict
-from datetime import datetime
+from datetime import date, datetime
 import logging
 import os.path
 import re
@@ -327,8 +327,9 @@ class SiteGenerator(object):
                 object_file_name=object_file_name
             ))
             object_contexts.append(object_context)
-        self.__render_file(file_name='sitemap.xml', context={
-                           "objects": object_contexts})
+        context = {"objects": object_contexts}
+        context["lastmod"] = date.today().isoformat()
+        self.__render_file(file_name='sitemap.xml', context=context)
 
     def __rmtree(self, dir_path):
         if os.path.isdir(dir_path):
