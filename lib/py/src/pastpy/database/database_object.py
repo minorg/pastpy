@@ -1,4 +1,4 @@
-class Object(object):
+class DatabaseObject(object):
     @property
     def date(self):
         raise NotImplementedError

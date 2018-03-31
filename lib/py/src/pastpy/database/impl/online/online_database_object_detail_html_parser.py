@@ -5,7 +5,7 @@ from pastpy.gen.database.impl.online.online_object_detail_image import OnlineObj
 from pastpy.gen.database.impl.online.online_object_detail_image_type import OnlineObjectDetailImageType
 
 
-class OnlineObjectDetailHtmlParser(object):
+class OnlineDatabaseObjectDetailHtmlParser(object):
     def parse(self, *, guid, html):
         soup = BeautifulSoup(html, "html.parser")
         result_builder = OnlineObjectDetail.Builder()

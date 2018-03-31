@@ -2,7 +2,7 @@ from pastpy.database.object import Object
 from pastpy.database.impl.online.online_image import OnlineImage
 
 
-class OnlineObject(Object):
+class OnlineDatabaseObject(Object):
     def __init__(self, *, detail, list_item):
         self.__detail = detail
         self.__list_item = list_item

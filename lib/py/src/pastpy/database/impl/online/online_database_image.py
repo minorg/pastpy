@@ -1,9 +1,9 @@
-from pastpy.database.image import Image
+from pastpy.database.database_image import DatabaseImage
 from pastpy.gen.database.impl.online.online_object_detail_image import OnlineObjectDetailImage
 from pastpy.gen.database.impl.online.online_objects_list_item import OnlineObjectsListItem
 
 
-class OnlineImage(Image):
+class OnlineDatabaseImage(Image):
     def __init__(self, *, detail_image=None, list_item=None):
         assert (detail_image is not None) ^ (list_item is not None)
         self.__detail_image = detail_image

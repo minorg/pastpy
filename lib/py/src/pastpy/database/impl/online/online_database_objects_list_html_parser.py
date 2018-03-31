@@ -3,7 +3,7 @@ from pastpy.gen.database.impl.online.online_objects_list_item import OnlineObjec
 import logging
 
 
-class OnlineObjectsListHtmlParser(object):
+class OnlineDatabaseObjectsListHtmlParser(object):
     def __init__(self):
         self.__logger = logging.getLogger(self.__class__.__name__)
 

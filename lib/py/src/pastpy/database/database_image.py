@@ -1,4 +1,4 @@
-class Image(object):
+class DatabaseImage(object):
     @property
     def full_size_url(self):
         raise NotImplementedError

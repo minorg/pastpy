@@ -1,9 +1,9 @@
 import builtins
-import pastpy.gen.database.impl.online.online_object_detail_image_type
+import pastpy.gen.database.impl.online.online_database_object_detail_image_type
 import pastpy.gen.non_blank_string
 
 
-class OnlineObjectDetailImage(object):
+class OnlineDatabaseObjectDetailImage(object):
     class Builder(object):
         def __init__(
             self,
@@ -22,7 +22,7 @@ class OnlineObjectDetailImage(object):
             :type src: str
             :type thumbnail_url: str
             :type title: str
-            :type type: pastpy.gen.database.impl.online.online_object_detail_image_type.OnlineObjectDetailImageType
+            :type type: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType
             '''
 
             self.__full_size_url = full_size_url
@@ -34,13 +34,13 @@ class OnlineObjectDetailImage(object):
             self.__type = type
 
         def build(self):
-            return OnlineObjectDetailImage(full_size_url=self.__full_size_url, mediaid=self.__mediaid, objectid=self.__objectid, src=self.__src, thumbnail_url=self.__thumbnail_url, title=self.__title, type=self.__type)
+            return OnlineDatabaseObjectDetailImage(full_size_url=self.__full_size_url, mediaid=self.__mediaid, objectid=self.__objectid, src=self.__src, thumbnail_url=self.__thumbnail_url, title=self.__title, type=self.__type)
 
         @classmethod
         def from_template(cls, template):
             '''
-            :type template: pastpy.gen.database.impl.online.online_object_detail_image.OnlineObjectDetailImage
-            :rtype: pastpy.gen.database.impl.online.online_object_detail_image.OnlineObjectDetailImage
+            :type template: pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage
+            :rtype: pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage
             '''
 
             builder = cls()
@@ -151,13 +151,13 @@ class OnlineObjectDetailImage(object):
 
         def set_type(self, type):  # @ReservedAssignment
             '''
-            :type type: pastpy.gen.database.impl.online.online_object_detail_image_type.OnlineObjectDetailImageType
+            :type type: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType
             '''
 
             if type is None:
                 raise ValueError('type is required')
-            if not isinstance(type, pastpy.gen.database.impl.online.online_object_detail_image_type.OnlineObjectDetailImageType):
-                raise TypeError("expected type to be a pastpy.gen.database.impl.online.online_object_detail_image_type.OnlineObjectDetailImageType but it is a %s" % builtins.type(type))
+            if not isinstance(type, pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType):
+                raise TypeError("expected type to be a pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType but it is a %s" % builtins.type(type))
             self.__type = type
             return self
 
@@ -188,12 +188,12 @@ class OnlineObjectDetailImage(object):
         @property
         def type(self):  # @ReservedAssignment
             '''
-            :rtype: pastpy.gen.database.impl.online.online_object_detail_image_type.OnlineObjectDetailImageType
+            :rtype: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType
             '''
 
             return self.__type
 
-        def update(self, online_object_detail_image):
+        def update(self, online_database_object_detail_image):
             '''
             :type full_size_url: str
             :type mediaid: str
@@ -201,22 +201,22 @@ class OnlineObjectDetailImage(object):
             :type src: str
             :type thumbnail_url: str
             :type title: str
-            :type type: pastpy.gen.database.impl.online.online_object_detail_image_type.OnlineObjectDetailImageType
+            :type type: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType
             '''
 
-            if isinstance(online_object_detail_image, OnlineObjectDetailImage):
-                self.set_full_size_url(online_object_detail_image.full_size_url)
-                self.set_mediaid(online_object_detail_image.mediaid)
-                self.set_objectid(online_object_detail_image.objectid)
-                self.set_src(online_object_detail_image.src)
-                self.set_thumbnail_url(online_object_detail_image.thumbnail_url)
-                self.set_title(online_object_detail_image.title)
-                self.set_type(online_object_detail_image.type)
-            elif isinstance(online_object_detail_image, dict):
-                for key, value in online_object_detail_image.items():
+            if isinstance(online_database_object_detail_image, OnlineDatabaseObjectDetailImage):
+                self.set_full_size_url(online_database_object_detail_image.full_size_url)
+                self.set_mediaid(online_database_object_detail_image.mediaid)
+                self.set_objectid(online_database_object_detail_image.objectid)
+                self.set_src(online_database_object_detail_image.src)
+                self.set_thumbnail_url(online_database_object_detail_image.thumbnail_url)
+                self.set_title(online_database_object_detail_image.title)
+                self.set_type(online_database_object_detail_image.type)
+            elif isinstance(online_database_object_detail_image, dict):
+                for key, value in online_database_object_detail_image.items():
                     getattr(self, 'set_' + key)(value)
             else:
-                raise TypeError(online_object_detail_image)
+                raise TypeError(online_database_object_detail_image)
             return self
 
         @full_size_url.setter
@@ -270,7 +270,7 @@ class OnlineObjectDetailImage(object):
         @type.setter
         def type(self, type):  # @ReservedAssignment
             '''
-            :type type: pastpy.gen.database.impl.online.online_object_detail_image_type.OnlineObjectDetailImageType
+            :type type: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType
             '''
 
             self.set_type(type)
@@ -318,7 +318,7 @@ class OnlineObjectDetailImage(object):
     FieldMetadata.SRC = FieldMetadata('src', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.THUMBNAIL_URL = FieldMetadata('thumbnail_url', str, None)
     FieldMetadata.TITLE = FieldMetadata('title', pastpy.gen.non_blank_string.NonBlankString, None)
-    FieldMetadata.TYPE = FieldMetadata('type', pastpy.gen.database.impl.online.online_object_detail_image_type.OnlineObjectDetailImageType, None)
+    FieldMetadata.TYPE = FieldMetadata('type', pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType, None)
 
     def __init__(
         self,
@@ -337,7 +337,7 @@ class OnlineObjectDetailImage(object):
         :type src: str
         :type thumbnail_url: str
         :type title: str
-        :type type: pastpy.gen.database.impl.online.online_object_detail_image_type.OnlineObjectDetailImageType
+        :type type: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType
         '''
 
         if full_size_url is None:
@@ -378,8 +378,8 @@ class OnlineObjectDetailImage(object):
 
         if type is None:
             raise ValueError('type is required')
-        if not isinstance(type, pastpy.gen.database.impl.online.online_object_detail_image_type.OnlineObjectDetailImageType):
-            raise TypeError("expected type to be a pastpy.gen.database.impl.online.online_object_detail_image_type.OnlineObjectDetailImageType but it is a %s" % builtins.type(type))
+        if not isinstance(type, pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType):
+            raise TypeError("expected type to be a pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType but it is a %s" % builtins.type(type))
         self.__type = type
 
     def __eq__(self, other):
@@ -417,7 +417,7 @@ class OnlineObjectDetailImage(object):
         field_reprs.append('thumbnail_url=' + "'" + self.thumbnail_url.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('type=' + repr(self.type))
-        return 'OnlineObjectDetailImage(' + ', '.join(field_reprs) + ')'
+        return 'OnlineDatabaseObjectDetailImage(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
         field_reprs = []
@@ -428,7 +428,7 @@ class OnlineObjectDetailImage(object):
         field_reprs.append('thumbnail_url=' + "'" + self.thumbnail_url.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('type=' + repr(self.type))
-        return 'OnlineObjectDetailImage(' + ', '.join(field_reprs) + ')'
+        return 'OnlineDatabaseObjectDetailImage(' + ', '.join(field_reprs) + ')'
 
     @classmethod
     def builder(cls):
@@ -474,7 +474,7 @@ class OnlineObjectDetailImage(object):
         type = _dict.get("type")
         if type is None:
             raise KeyError("type")
-        type = pastpy.gen.database.impl.online.online_object_detail_image_type.OnlineObjectDetailImageType.value_of(type)
+        type = pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType.value_of(type)
         __builder.type = type
 
         return __builder.build()
@@ -509,7 +509,7 @@ class OnlineObjectDetailImage(object):
         Read a new object from the given input protocol and return the object.
 
         :type iprot: thryft.protocol._input_protocol._InputProtocol
-        :rtype: pastpy.gen.database.impl.online.online_object_detail_image.OnlineObjectDetailImage
+        :rtype: pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage
         '''
 
         init_kwds = {}
@@ -532,7 +532,7 @@ class OnlineObjectDetailImage(object):
             elif ifield_name == 'title':
                 init_kwds['title'] = iprot.read_string()
             elif ifield_name == 'type':
-                init_kwds['type'] = pastpy.gen.database.impl.online.online_object_detail_image_type.OnlineObjectDetailImageType.value_of(iprot.read_string().strip().upper())
+                init_kwds['type'] = pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType.value_of(iprot.read_string().strip().upper())
             iprot.read_field_end()
         iprot.read_struct_end()
 
@@ -579,7 +579,7 @@ class OnlineObjectDetailImage(object):
     @property
     def type(self):  # @ReservedAssignment
         '''
-        :rtype: pastpy.gen.database.impl.online.online_object_detail_image_type.OnlineObjectDetailImageType
+        :rtype: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType
         '''
 
         return self.__type
@@ -589,10 +589,10 @@ class OnlineObjectDetailImage(object):
         Write this object to the given output protocol and return self.
 
         :type oprot: thryft.protocol._output_protocol._OutputProtocol
-        :rtype: pastpy.gen.database.impl.online.online_object_detail_image.OnlineObjectDetailImage
+        :rtype: pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage
         '''
 
-        oprot.write_struct_begin('OnlineObjectDetailImage')
+        oprot.write_struct_begin('OnlineDatabaseObjectDetailImage')
 
         oprot.write_field_begin(name='full_size_url', type=11, id=None)
         oprot.write_string(self.full_size_url)
