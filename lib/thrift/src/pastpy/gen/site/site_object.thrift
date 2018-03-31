@@ -13,7 +13,6 @@ struct SiteObject {
     bool has_thumbnail_images;
     list<site_key_value_pair.SiteKeyValuePair> impl_attributes;
     non_blank_string.NonBlankString name;
-    non_blank_string.NonBlankString relative_href;
     list<site_key_value_pair.SiteKeyValuePair> standard_attributes;
     list<site_image.SiteImage> thumbnail_images;
     url.Url thumbnail_url;

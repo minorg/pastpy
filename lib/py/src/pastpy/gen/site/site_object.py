@@ -16,7 +16,6 @@ class SiteObject(object):
             has_thumbnail_images=None,
             impl_attributes=None,
             name=None,
-            relative_href=None,
             standard_attributes=None,
             thumbnail_images=None,
             thumbnail_url=None,
@@ -30,7 +29,6 @@ class SiteObject(object):
             :type has_thumbnail_images: bool
             :type impl_attributes: tuple(pastpy.gen.site.site_key_value_pair.SiteKeyValuePair)
             :type name: str
-            :type relative_href: str
             :type standard_attributes: tuple(pastpy.gen.site.site_key_value_pair.SiteKeyValuePair)
             :type thumbnail_images: tuple(pastpy.gen.site.site_image.SiteImage)
             :type thumbnail_url: str
@@ -44,14 +42,13 @@ class SiteObject(object):
             self.__has_thumbnail_images = has_thumbnail_images
             self.__impl_attributes = impl_attributes
             self.__name = name
-            self.__relative_href = relative_href
             self.__standard_attributes = standard_attributes
             self.__thumbnail_images = thumbnail_images
             self.__thumbnail_url = thumbnail_url
             self.__title = title
 
         def build(self):
-            return SiteObject(absolute_href=self.__absolute_href, file_name=self.__file_name, full_size_images=self.__full_size_images, has_full_size_images=self.__has_full_size_images, has_thumbnail_images=self.__has_thumbnail_images, impl_attributes=self.__impl_attributes, name=self.__name, relative_href=self.__relative_href, standard_attributes=self.__standard_attributes, thumbnail_images=self.__thumbnail_images, thumbnail_url=self.__thumbnail_url, title=self.__title)
+            return SiteObject(absolute_href=self.__absolute_href, file_name=self.__file_name, full_size_images=self.__full_size_images, has_full_size_images=self.__has_full_size_images, has_thumbnail_images=self.__has_thumbnail_images, impl_attributes=self.__impl_attributes, name=self.__name, standard_attributes=self.__standard_attributes, thumbnail_images=self.__thumbnail_images, thumbnail_url=self.__thumbnail_url, title=self.__title)
 
         @property
         def absolute_href(self):
@@ -84,7 +81,6 @@ class SiteObject(object):
             builder.has_thumbnail_images = template.has_thumbnail_images
             builder.impl_attributes = template.impl_attributes
             builder.name = template.name
-            builder.relative_href = template.relative_href
             builder.standard_attributes = template.standard_attributes
             builder.thumbnail_images = template.thumbnail_images
             builder.thumbnail_url = template.thumbnail_url
@@ -130,14 +126,6 @@ class SiteObject(object):
             '''
 
             return self.__name
-
-        @property
-        def relative_href(self):
-            '''
-            :rtype: str
-            '''
-
-            return self.__relative_href
 
         def set_absolute_href(self, absolute_href):
             '''
@@ -221,18 +209,6 @@ class SiteObject(object):
             if not isinstance(name, str):
                 raise TypeError("expected name to be a str but it is a %s" % builtins.type(name))
             self.__name = name
-            return self
-
-        def set_relative_href(self, relative_href):
-            '''
-            :type relative_href: str
-            '''
-
-            if relative_href is None:
-                raise ValueError('relative_href is required')
-            if not isinstance(relative_href, str):
-                raise TypeError("expected relative_href to be a str but it is a %s" % builtins.type(relative_href))
-            self.__relative_href = relative_href
             return self
 
         def set_standard_attributes(self, standard_attributes):
@@ -324,7 +300,6 @@ class SiteObject(object):
             :type has_thumbnail_images: bool
             :type impl_attributes: tuple(pastpy.gen.site.site_key_value_pair.SiteKeyValuePair)
             :type name: str
-            :type relative_href: str
             :type standard_attributes: tuple(pastpy.gen.site.site_key_value_pair.SiteKeyValuePair)
             :type thumbnail_images: tuple(pastpy.gen.site.site_image.SiteImage)
             :type thumbnail_url: str
@@ -339,7 +314,6 @@ class SiteObject(object):
                 self.set_has_thumbnail_images(site_object.has_thumbnail_images)
                 self.set_impl_attributes(site_object.impl_attributes)
                 self.set_name(site_object.name)
-                self.set_relative_href(site_object.relative_href)
                 self.set_standard_attributes(site_object.standard_attributes)
                 self.set_thumbnail_images(site_object.thumbnail_images)
                 self.set_thumbnail_url(site_object.thumbnail_url)
@@ -407,14 +381,6 @@ class SiteObject(object):
 
             self.set_name(name)
 
-        @relative_href.setter
-        def relative_href(self, relative_href):
-            '''
-            :type relative_href: str
-            '''
-
-            self.set_relative_href(relative_href)
-
         @standard_attributes.setter
         def standard_attributes(self, standard_attributes):
             '''
@@ -455,7 +421,6 @@ class SiteObject(object):
         HAS_THUMBNAIL_IMAGES = None
         IMPL_ATTRIBUTES = None
         NAME = None
-        RELATIVE_HREF = None
         STANDARD_ATTRIBUTES = None
         THUMBNAIL_IMAGES = None
         THUMBNAIL_URL = None
@@ -487,7 +452,7 @@ class SiteObject(object):
 
         @classmethod
         def values(cls):
-            return (cls.ABSOLUTE_HREF, cls.FILE_NAME, cls.FULL_SIZE_IMAGES, cls.HAS_FULL_SIZE_IMAGES, cls.HAS_THUMBNAIL_IMAGES, cls.IMPL_ATTRIBUTES, cls.NAME, cls.RELATIVE_HREF, cls.STANDARD_ATTRIBUTES, cls.THUMBNAIL_IMAGES, cls.THUMBNAIL_URL, cls.TITLE,)
+            return (cls.ABSOLUTE_HREF, cls.FILE_NAME, cls.FULL_SIZE_IMAGES, cls.HAS_FULL_SIZE_IMAGES, cls.HAS_THUMBNAIL_IMAGES, cls.IMPL_ATTRIBUTES, cls.NAME, cls.STANDARD_ATTRIBUTES, cls.THUMBNAIL_IMAGES, cls.THUMBNAIL_URL, cls.TITLE,)
 
     FieldMetadata.ABSOLUTE_HREF = FieldMetadata('absolute_href', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.FILE_NAME = FieldMetadata('file_name', pastpy.gen.non_blank_string.NonBlankString, None)
@@ -496,7 +461,6 @@ class SiteObject(object):
     FieldMetadata.HAS_THUMBNAIL_IMAGES = FieldMetadata('has_thumbnail_images', bool, None)
     FieldMetadata.IMPL_ATTRIBUTES = FieldMetadata('impl_attributes', tuple, None)
     FieldMetadata.NAME = FieldMetadata('name', pastpy.gen.non_blank_string.NonBlankString, None)
-    FieldMetadata.RELATIVE_HREF = FieldMetadata('relative_href', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.STANDARD_ATTRIBUTES = FieldMetadata('standard_attributes', tuple, None)
     FieldMetadata.THUMBNAIL_IMAGES = FieldMetadata('thumbnail_images', tuple, None)
     FieldMetadata.THUMBNAIL_URL = FieldMetadata('thumbnail_url', str, None)
@@ -511,7 +475,6 @@ class SiteObject(object):
         has_thumbnail_images,
         impl_attributes,
         name,
-        relative_href,
         standard_attributes,
         thumbnail_images,
         thumbnail_url,
@@ -525,7 +488,6 @@ class SiteObject(object):
         :type has_thumbnail_images: bool
         :type impl_attributes: tuple(pastpy.gen.site.site_key_value_pair.SiteKeyValuePair)
         :type name: str
-        :type relative_href: str
         :type standard_attributes: tuple(pastpy.gen.site.site_key_value_pair.SiteKeyValuePair)
         :type thumbnail_images: tuple(pastpy.gen.site.site_image.SiteImage)
         :type thumbnail_url: str
@@ -574,12 +536,6 @@ class SiteObject(object):
             raise TypeError("expected name to be a str but it is a %s" % builtins.type(name))
         self.__name = name
 
-        if relative_href is None:
-            raise ValueError('relative_href is required')
-        if not isinstance(relative_href, str):
-            raise TypeError("expected relative_href to be a str but it is a %s" % builtins.type(relative_href))
-        self.__relative_href = relative_href
-
         if standard_attributes is None:
             raise ValueError('standard_attributes is required')
         if not (isinstance(standard_attributes, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_key_value_pair.SiteKeyValuePair), standard_attributes))) == 0):
@@ -619,8 +575,6 @@ class SiteObject(object):
             return False
         if self.name != other.name:
             return False
-        if self.relative_href != other.relative_href:
-            return False
         if self.standard_attributes != other.standard_attributes:
             return False
         if self.thumbnail_images != other.thumbnail_images:
@@ -632,10 +586,10 @@ class SiteObject(object):
         return True
 
     def __hash__(self):
-        return hash((self.absolute_href, self.file_name, self.full_size_images, self.has_full_size_images, self.has_thumbnail_images, self.impl_attributes, self.name, self.relative_href, self.standard_attributes, self.thumbnail_images, self.thumbnail_url, self.title,))
+        return hash((self.absolute_href, self.file_name, self.full_size_images, self.has_full_size_images, self.has_thumbnail_images, self.impl_attributes, self.name, self.standard_attributes, self.thumbnail_images, self.thumbnail_url, self.title,))
 
     def __iter__(self):
-        return iter((self.absolute_href, self.file_name, self.full_size_images, self.has_full_size_images, self.has_thumbnail_images, self.impl_attributes, self.name, self.relative_href, self.standard_attributes, self.thumbnail_images, self.thumbnail_url, self.title,))
+        return iter((self.absolute_href, self.file_name, self.full_size_images, self.has_full_size_images, self.has_thumbnail_images, self.impl_attributes, self.name, self.standard_attributes, self.thumbnail_images, self.thumbnail_url, self.title,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -649,7 +603,6 @@ class SiteObject(object):
         field_reprs.append('has_thumbnail_images=' + repr(self.has_thumbnail_images))
         field_reprs.append('impl_attributes=' + repr(self.impl_attributes))
         field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
-        field_reprs.append('relative_href=' + "'" + self.relative_href.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('standard_attributes=' + repr(self.standard_attributes))
         field_reprs.append('thumbnail_images=' + repr(self.thumbnail_images))
         field_reprs.append('thumbnail_url=' + "'" + self.thumbnail_url.encode('ascii', 'replace').decode('ascii') + "'")
@@ -665,7 +618,6 @@ class SiteObject(object):
         field_reprs.append('has_thumbnail_images=' + repr(self.has_thumbnail_images))
         field_reprs.append('impl_attributes=' + repr(self.impl_attributes))
         field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
-        field_reprs.append('relative_href=' + "'" + self.relative_href.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('standard_attributes=' + repr(self.standard_attributes))
         field_reprs.append('thumbnail_images=' + repr(self.thumbnail_images))
         field_reprs.append('thumbnail_url=' + "'" + self.thumbnail_url.encode('ascii', 'replace').decode('ascii') + "'")
@@ -735,11 +687,6 @@ class SiteObject(object):
         if name is None:
             raise KeyError("name")
         __builder.name = name
-
-        relative_href = _dict.get("relative_href")
-        if relative_href is None:
-            raise KeyError("relative_href")
-        __builder.relative_href = relative_href
 
         standard_attributes = _dict.get("standard_attributes")
         if standard_attributes is None:
@@ -835,8 +782,6 @@ class SiteObject(object):
                 init_kwds['impl_attributes'] = tuple([pastpy.gen.site.site_key_value_pair.SiteKeyValuePair.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
             elif ifield_name == 'name':
                 init_kwds['name'] = iprot.read_string()
-            elif ifield_name == 'relative_href':
-                init_kwds['relative_href'] = iprot.read_string()
             elif ifield_name == 'standard_attributes':
                 init_kwds['standard_attributes'] = tuple([pastpy.gen.site.site_key_value_pair.SiteKeyValuePair.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
             elif ifield_name == 'thumbnail_images':
@@ -849,14 +794,6 @@ class SiteObject(object):
         iprot.read_struct_end()
 
         return cls(**init_kwds)
-
-    @property
-    def relative_href(self):
-        '''
-        :rtype: str
-        '''
-
-        return self.__relative_href
 
     def replacer(self):
         return self.Builder.from_template(template=self)
@@ -902,7 +839,6 @@ class SiteObject(object):
         dict_["has_thumbnail_images"] = self.has_thumbnail_images
         dict_["impl_attributes"] = tuple(element0.to_builtins() for element0 in self.impl_attributes)
         dict_["name"] = self.name
-        dict_["relative_href"] = self.relative_href
         dict_["standard_attributes"] = tuple(element0.to_builtins() for element0 in self.standard_attributes)
         dict_["thumbnail_images"] = tuple(element0.to_builtins() for element0 in self.thumbnail_images)
         dict_["thumbnail_url"] = self.thumbnail_url
@@ -951,10 +887,6 @@ class SiteObject(object):
 
         oprot.write_field_begin(name='name', type=11, id=None)
         oprot.write_string(self.name)
-        oprot.write_field_end()
-
-        oprot.write_field_begin(name='relative_href', type=11, id=None)
-        oprot.write_string(self.relative_href)
         oprot.write_field_end()
 
         oprot.write_field_begin(name='standard_attributes', type=15, id=None)
