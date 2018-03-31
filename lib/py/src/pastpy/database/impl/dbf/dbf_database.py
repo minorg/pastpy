@@ -1,12 +1,13 @@
 import os.path
 from pastpy.database.database import Database
 from pastpy.database.impl.dbf.objects_dbf_table import ObjectsDbfTable
-from pastpy.database.impl.dbf.dbf_object import DbfObject
+from pastpy.database.impl.dbf.dbf_database_object import DbfDatabaseObject
 from pastpy.gen.database.impl.dbf.dbf_database_configuration import DbfDatabaseConfiguration
 
 
 class DbfDatabase(Database):
     def __init__(self, *, configuration):
+        Database.__init__(self)
         assert isinstance(configuration, DbfDatabaseConfiguration)
         configuration_builder = configuration.replacer()
         if configuration.download_dir_path is None:
@@ -33,4 +34,4 @@ class DbfDatabase(Database):
     def objects(self):
         with ObjectsDbfTable.open(self.__configuration.pp_objects_dbf_file_path) as table:
             for record in table.records():
-                yield DbfObject(images_dir_path=self.__configuration.pp_images_dir_path, record=record)
+                yield DbfDatabaseObject(images_dir_path=self.__configuration.pp_images_dir_path, record=record)
