@@ -2,9 +2,9 @@ import os.path
 from pastpy.database.database import Database
 from pastpy.database.impl.online.online_file_downloader import OnlineFileDownloader
 from pastpy.database.impl.online.online_file_paths import OnlineFilePaths
-from pastpy.database.impl.online.online_object import OnlineObject
-from pastpy.database.impl.online.online_object_detail_html_parser import OnlineObjectDetailHtmlParser
-from pastpy.database.impl.online.online_objects_list_html_parser import OnlineObjectsListHtmlParser
+from pastpy.database.impl.online.online_database_object import OnlineDatabaseObject
+from pastpy.database.impl.online.online_database_object_detail_html_parser import OnlineDatabaseObjectDetailHtmlParser
+from pastpy.database.impl.online.online_database_objects_list_html_parser import OnlineDatabaseObjectsListHtmlParser
 from pastpy.gen.database.impl.online.online_database_configuration import OnlineDatabaseConfiguration
 
 
@@ -33,7 +33,7 @@ class OnlineDatabase(Database):
                 object_detail = self.__parse_object_detail(guid=guid)
             except FileNotFoundError:
                 self._logger.debug("object detail for " + guid + " not found")
-            yield OnlineObject(detail=object_detail, list_item=objects_list_item)
+            yield OnlineDatabaseObject(detail=object_detail, list_item=objects_list_item)
         raise StopIteration
 
     def __object_guid(self, objects_list_item):
@@ -42,7 +42,7 @@ class OnlineDatabase(Database):
     def __parse_object_detail(self, guid):
         object_detail_file_path = self.__file_paths.object_detail_file_path(guid=guid)
         with open(object_detail_file_path, 'rb') as object_detail_file:
-            return OnlineObjectDetailHtmlParser().parse(guid=guid, html=str(object_detail_file.read()))
+            return OnlineDatabaseObjectDetailHtmlParser().parse(guid=guid, html=str(object_detail_file.read()))
 
     def parse_object_details(self):
         for objects_list_item in self.parse_objects_list():
@@ -62,7 +62,7 @@ class OnlineDatabase(Database):
             with open(objects_list_page_file_path, "rb") as objects_list_page_file:
                 objects_list_page_html = str(objects_list_page_file.read())
 
-            objects_list_html_parser = OnlineObjectsListHtmlParser()
+            objects_list_html_parser = OnlineDatabaseObjectsListHtmlParser()
             for objects_list_item in objects_list_html_parser.parse(objects_list_page_html):
                 yield objects_list_item
 

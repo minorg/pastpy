@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from pastpy.gen.database.impl.online.online_objects_list_item import OnlineObjectsListItem
+from pastpy.gen.database.impl.online.online_database_objects_list_item import OnlineDatabaseObjectsListItem
 import logging
 
 
@@ -16,7 +16,7 @@ class OnlineDatabaseObjectsListHtmlParser(object):
                 self.__logger.warn("object has no details: %s", indvResult)
                 continue
 
-            result_builder = OnlineObjectsListItem.Builder()
+            result_builder = OnlineDatabaseObjectsListItem.Builder()
             image = indvResult.find(attrs={"class": "indvImage"})
             if image:
                 result_builder.thumbnail_src = image.a.img.attrs["src"]

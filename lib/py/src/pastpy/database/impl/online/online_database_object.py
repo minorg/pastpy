@@ -1,8 +1,8 @@
-from pastpy.database.object import Object
-from pastpy.database.impl.online.online_image import OnlineImage
+from pastpy.database.database_object import DatabaseObject
+from pastpy.database.impl.online.online_database_image import OnlineDatabaseImage
 
 
-class OnlineDatabaseObject(Object):
+class OnlineDatabaseObject(DatabaseObject):
     def __init__(self, *, detail, list_item):
         self.__detail = detail
         self.__list_item = list_item
@@ -23,10 +23,10 @@ class OnlineDatabaseObject(Object):
     def images(self):
         images = []
         if self.__list_item.thumbnail_url:
-            images.append(OnlineImage(list_item=self.__list_item))
+            images.append(OnlineDatabaseImage(list_item=self.__list_item))
         if self.__detail.related_photos:
             for detail_image in self.__detail.related_photos:
-                images.append(OnlineImage(detail_image=detail_image))
+                images.append(OnlineDatabaseImage(detail_image=detail_image))
         return tuple(images)
 
     @property

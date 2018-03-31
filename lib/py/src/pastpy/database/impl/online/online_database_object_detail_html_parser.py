@@ -1,14 +1,14 @@
 from bs4 import BeautifulSoup
 
-from pastpy.gen.database.impl.online.online_object_detail import OnlineObjectDetail
-from pastpy.gen.database.impl.online.online_object_detail_image import OnlineObjectDetailImage
-from pastpy.gen.database.impl.online.online_object_detail_image_type import OnlineObjectDetailImageType
+from pastpy.gen.database.impl.online.online_database_object_detail import OnlineDatabaseObjectDetail
+from pastpy.gen.database.impl.online.online_database_object_detail_image import OnlineDatabaseObjectDetailImage
+from pastpy.gen.database.impl.online.online_database_object_detail_image_type import OnlineDatabaseObjectDetailImageType
 
 
 class OnlineDatabaseObjectDetailHtmlParser(object):
     def parse(self, *, guid, html):
         soup = BeautifulSoup(html, "html.parser")
-        result_builder = OnlineObjectDetail.Builder()
+        result_builder = OnlineDatabaseObjectDetail.Builder()
 
         result_builder.guid = guid
 
@@ -39,14 +39,14 @@ class OnlineDatabaseObjectDetailHtmlParser(object):
         return result_builder.build()
 
     def __parse_image(self, image_div_element):
-        result_builder = OnlineObjectDetailImage.Builder()
+        result_builder = OnlineDatabaseObjectDetailImage.Builder()
 
         for class_ in image_div_element["class"]:
             if class_ == "indvImage":
-                result_builder.type = OnlineObjectDetailImageType.INDIVIDUAL
+                result_builder.type = OnlineDatabaseObjectDetailImageType.INDIVIDUAL
                 break
             elif class_ == "largeImage":
-                result_builder.type = OnlineObjectDetailImageType.LARGE
+                result_builder.type = OnlineDatabaseObjectDetailImageType.LARGE
                 break
             else:
                 continue
