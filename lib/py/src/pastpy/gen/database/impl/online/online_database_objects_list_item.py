@@ -2,7 +2,7 @@ import builtins
 import pastpy.gen.non_blank_string
 
 
-class OnlineObjectsListItem(object):
+class OnlineDatabaseObjectsListItem(object):
     class Builder(object):
         def __init__(
             self,
@@ -24,7 +24,7 @@ class OnlineObjectsListItem(object):
             self.__thumbnail_url = thumbnail_url
 
         def build(self):
-            return OnlineObjectsListItem(detail_href=self.__detail_href, record_type=self.__record_type, title=self.__title, thumbnail_url=self.__thumbnail_url)
+            return OnlineDatabaseObjectsListItem(detail_href=self.__detail_href, record_type=self.__record_type, title=self.__title, thumbnail_url=self.__thumbnail_url)
 
         @property
         def detail_href(self):
@@ -37,8 +37,8 @@ class OnlineObjectsListItem(object):
         @classmethod
         def from_template(cls, template):
             '''
-            :type template: pastpy.gen.database.impl.online.online_objects_list_item.OnlineObjectsListItem
-            :rtype: pastpy.gen.database.impl.online.online_objects_list_item.OnlineObjectsListItem
+            :type template: pastpy.gen.database.impl.online.online_database_objects_list_item.OnlineDatabaseObjectsListItem
+            :rtype: pastpy.gen.database.impl.online.online_database_objects_list_item.OnlineDatabaseObjectsListItem
             '''
 
             builder = cls()
@@ -119,7 +119,7 @@ class OnlineObjectsListItem(object):
 
             return self.__title
 
-        def update(self, online_objects_list_item):
+        def update(self, online_database_objects_list_item):
             '''
             :type detail_href: str
             :type record_type: str
@@ -127,16 +127,16 @@ class OnlineObjectsListItem(object):
             :type thumbnail_url: str or None
             '''
 
-            if isinstance(online_objects_list_item, OnlineObjectsListItem):
-                self.set_detail_href(online_objects_list_item.detail_href)
-                self.set_record_type(online_objects_list_item.record_type)
-                self.set_title(online_objects_list_item.title)
-                self.set_thumbnail_url(online_objects_list_item.thumbnail_url)
-            elif isinstance(online_objects_list_item, dict):
-                for key, value in online_objects_list_item.items():
+            if isinstance(online_database_objects_list_item, OnlineDatabaseObjectsListItem):
+                self.set_detail_href(online_database_objects_list_item.detail_href)
+                self.set_record_type(online_database_objects_list_item.record_type)
+                self.set_title(online_database_objects_list_item.title)
+                self.set_thumbnail_url(online_database_objects_list_item.thumbnail_url)
+            elif isinstance(online_database_objects_list_item, dict):
+                for key, value in online_database_objects_list_item.items():
                     getattr(self, 'set_' + key)(value)
             else:
-                raise TypeError(online_objects_list_item)
+                raise TypeError(online_database_objects_list_item)
             return self
 
         @detail_href.setter
@@ -274,7 +274,7 @@ class OnlineObjectsListItem(object):
         field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').decode('ascii') + "'")
         if self.thumbnail_url is not None:
             field_reprs.append('thumbnail_url=' + "'" + self.thumbnail_url.encode('ascii', 'replace').decode('ascii') + "'")
-        return 'OnlineObjectsListItem(' + ', '.join(field_reprs) + ')'
+        return 'OnlineDatabaseObjectsListItem(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
         field_reprs = []
@@ -283,7 +283,7 @@ class OnlineObjectsListItem(object):
         field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').decode('ascii') + "'")
         if self.thumbnail_url is not None:
             field_reprs.append('thumbnail_url=' + "'" + self.thumbnail_url.encode('ascii', 'replace').decode('ascii') + "'")
-        return 'OnlineObjectsListItem(' + ', '.join(field_reprs) + ')'
+        return 'OnlineDatabaseObjectsListItem(' + ', '.join(field_reprs) + ')'
 
     @classmethod
     def builder(cls):
@@ -329,7 +329,7 @@ class OnlineObjectsListItem(object):
         Read a new object from the given input protocol and return the object.
 
         :type iprot: thryft.protocol._input_protocol._InputProtocol
-        :rtype: pastpy.gen.database.impl.online.online_objects_list_item.OnlineObjectsListItem
+        :rtype: pastpy.gen.database.impl.online.online_database_objects_list_item.OnlineDatabaseObjectsListItem
         '''
 
         init_kwds = {}
@@ -395,10 +395,10 @@ class OnlineObjectsListItem(object):
         Write this object to the given output protocol and return self.
 
         :type oprot: thryft.protocol._output_protocol._OutputProtocol
-        :rtype: pastpy.gen.database.impl.online.online_objects_list_item.OnlineObjectsListItem
+        :rtype: pastpy.gen.database.impl.online.online_database_objects_list_item.OnlineDatabaseObjectsListItem
         '''
 
-        oprot.write_struct_begin('OnlineObjectsListItem')
+        oprot.write_struct_begin('OnlineDatabaseObjectsListItem')
 
         oprot.write_field_begin(name='detail_href', type=11, id=None)
         oprot.write_string(self.detail_href)

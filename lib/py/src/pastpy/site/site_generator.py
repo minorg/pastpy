@@ -31,6 +31,9 @@ class SiteGenerator(object):
 
         self.__configuration = configuration
 
+        self.__object_contexts_by_id = None
+        self.__objects = None
+
         self.__renderer = \
             pystache.Renderer(
                 missing_tags='strict',
@@ -69,39 +72,15 @@ class SiteGenerator(object):
 
         self.__copy_static_files()
 
-        objects = self.__read_objects()
-        objects = self.__filter_objects_with_ids(objects=objects)
-
-        object_file_names_by_id = self.__map_objects_to_file_names(
-            objects=objects)
+        self.__read_objects()
+        self.__create_object_contexts()
 
         self.__render_index()
-        self.__render_object_details(
-            object_file_names_by_id=object_file_names_by_id, objects=objects,)
-        self.__render_objects_list(
-            object_file_names_by_id=object_file_names_by_id, objects=objects)
-        self.__render_sitemap(
-            object_file_names_by_id=object_file_names_by_id, objects=objects)
+        self.__render_object_details()
+        objects_list_file_relpaths = self.__render_objects_list()
+        self.__render_sitemap(objects_list_file_relpaths=objects_list_file_relpaths)
 
-    def __makedirs(self, dir_path):
-        if not os.path.isdir(dir_path):
-            os.makedirs(dir_path)
-            self.__logger.debug("created directory %s", dir_path)
-
-    def __map_objects_to_file_names(self, *, objects):
-        object_ids_by_file_name = {}
-        file_names_by_object_id = {}
-        for object_ in objects:
-            file_name = self.__to_valid_filename(object_.id) + ".html"
-            existing_object_id = object_ids_by_file_name.get(file_name)
-            if existing_object_id is not None:
-                raise RuntimeError("two objects (%s and %s) map to the same file name (%s)" % (
-                    existing_object_id, object_.id, file_name))
-            object_ids_by_file_name[file_name] = object_.id
-            file_names_by_object_id[object_.id] = file_name
-        return file_names_by_object_id
-
-    def __new_object_context(self, *, object_, object_file_name):
+    def __create_object_context(self, *, object_, object_file_name):
         context = {}
 
         context["absolute_href"] = "/objects/details/" + object_file_name
@@ -150,6 +129,25 @@ class SiteGenerator(object):
             context["title"] = context["name"]
 
         return {"object": context}
+
+    def __create_object_contexts(self):
+        object_ids_by_file_name = {}
+        self.__object_contexts_by_id = {}
+        for object_ in self.__objects:
+            file_name = self.__to_valid_filename(object_.id) + ".html"
+            existing_object_id = object_ids_by_file_name.get(file_name)
+            if existing_object_id is not None:
+                raise RuntimeError("two objects (%s and %s) map to the same file name (%s)" % (
+                    existing_object_id, object_.id, file_name))
+            object_ids_by_file_name[file_name] = object_.id
+
+            self.__object_contexts_by_id[object_.id] = \
+                self.__create_object_context(object_=object_, object_file_name=file_name)
+
+    def __makedirs(self, dir_path):
+        if not os.path.isdir(dir_path):
+            os.makedirs(dir_path)
+            self.__logger.debug("created directory %s", dir_path)
 
     def __new_top_level_context(self, *, out_dir_path):
         root_rel_href = os.path.relpath(
@@ -203,7 +201,7 @@ class SiteGenerator(object):
             self.__logger.debug(
                 "created output images directory %s", out_images_dir_path)
 
-        objects = []
+        self.__objects = []
         for object_ in self.__database.objects():
             for image in object_.images:
                 full_size_url = image.full_size_url
@@ -220,10 +218,9 @@ class SiteGenerator(object):
                     # self.__logger.debug(
                     #     "copied %s to %s", full_size_file_path, out_image_file_path)
                     # img_srcs.append('img/' + full_size_file_name)
-            objects.append(object_)
-            if len(objects) == 100:
+            self.__objects.append(object_)
+            if len(self.__objects) == 100:
                 break
-        return objects
 
     def __render_file(self, *, context, file_name, out_file_relpath=None):
         rendered = self.__renderer.render_name(
@@ -244,54 +241,47 @@ class SiteGenerator(object):
         context["home_nav_item_active"] = True
         self.__render_file(context=context, file_name='index.html')
 
-    def __render_object_details(self, *, object_file_names_by_id, objects):
+    def __render_object_details(self):
         out_dir_relpath = os.path.join('objects', 'details')
         out_dir_path = os.path.join(
             self.__configuration.output_dir_path, out_dir_relpath)
         self.__makedirs(out_dir_path)
 
-        for object_ in objects:
-            object_file_name = object_file_names_by_id[object_.id]
+        for object_context in self.__object_contexts_by_id.values():
             context = \
                 self.__new_top_level_context(
                     out_dir_path=out_dir_path
                 )
-            context.update(self.__new_object_context(
-                object_=object_,
-                object_file_name=object_file_name
-            ))
+            context.update(object_context)
             self.__render_file(file_name='object_detail.html', context=context, out_file_relpath=os.path.join(
-                out_dir_relpath, object_file_name))
+                out_dir_relpath, object_context["object"]["file_name"]))
 
-    def __render_objects_list(self, *, object_file_names_by_id, objects):
+    def __render_objects_list(self):
+        out_file_relpaths = []
         out_dir_relpath = os.path.join('objects', 'list')
         out_dir_path = os.path.join(
             self.__configuration.output_dir_path, out_dir_relpath)
         self.__makedirs(out_dir_path)
 
-        objects = list(reversed(objects))
+        object_contexts = list(reversed(list(self.__object_contexts_by_id.values())))
         objects_pages = []
         objects_per_page = 20
-        while objects:
+        while object_contexts:
             objects_page = []
-            while objects and len(objects_page) < objects_per_page:
-                object_ = objects.pop()
-                objects_page.append(object_)
+            while object_contexts and len(objects_page) < objects_per_page:
+                object_context = object_contexts.pop()
+                objects_page.append(object_context)
             objects_pages.append(objects_page)
 
         for objects_page_i, objects_page in enumerate(objects_pages):
             # *page_number* is one-based
-            current_page_number = objects_page_i + 1
+            # current_page_number = objects_page_i + 1
 
             context = \
                 self.__new_top_level_context(
                     out_dir_path=out_dir_path
                 )
-            context["objects"] = \
-                [self.__new_object_context(
-                    object_=object_,
-                    object_file_name=object_file_names_by_id[object_.id])
-                 for object_ in objects_page]
+            context["objects"] = objects_page
             context["objects_nav_item_active"] = True
             context["next_page_disabled"] = objects_page_i + \
                 1 == len(objects_pages)
@@ -307,29 +297,33 @@ class SiteGenerator(object):
                                    objects_page_i, "number": objects_page_range_i + 1})
             context["page_items"] = page_items
 
+            out_file_relpath = os.path.join(out_dir_relpath, str(objects_page_i + 1) + '.html')
             self.__render_file(
                 file_name='objects_list.html',
                 context=context,
-                out_file_relpath=os.path.join(
-                    out_dir_relpath, str(objects_page_i + 1) + '.html')
+                out_file_relpath=out_file_relpath
             )
+            out_file_relpaths.append(out_file_relpath)
+        return out_file_relpaths
 
-    def __render_sitemap(self, *, object_file_names_by_id, objects):
-        object_contexts = []
-        for object_ in objects:
-            object_file_name = object_file_names_by_id[object_.id]
-            object_context = \
-                self.__new_top_level_context(
-                    out_dir_path=self.__configuration.output_dir_path
-                )
-            object_context.update(self.__new_object_context(
-                object_=object_,
-                object_file_name=object_file_name
-            ))
-            object_context["object"]["standard_attributes"] = [item for item in object_context["object"]["standard_attributes"] if item["key"] != "description"]
-            object_contexts.append(object_context)
-        context = {"objects": object_contexts}
+    def __render_sitemap(self, objects_list_file_relpaths):
+        context = \
+            self.__new_top_level_context(
+                out_dir_path=self.__configuration.output_dir_path
+            )
         context["lastmod"] = date.today().isoformat()
+
+        context["objects_list_pages"] = \
+            [{"absolute_href": "/" + objects_list_file_relpath.replace(os.path.sep, '/')}
+             for objects_list_file_relpath in objects_list_file_relpaths]
+
+        object_contexts = []
+        for object_context in self.__object_contexts_by_id.values():
+            temp_object_context = object_context.copy()
+            temp_object_context["object"]["standard_attributes"] = [item for item in object_context["object"]["standard_attributes"] if item["key"] != "description"]
+            object_contexts.append(temp_object_context)
+        context["objects"] = object_contexts
+
         self.__render_file(file_name='sitemap.xml', context=context)
 
     def __rmtree(self, dir_path):

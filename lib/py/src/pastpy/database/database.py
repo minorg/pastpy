@@ -1,5 +1,4 @@
 import logging
-import os.path
 from pastpy.gen.database.database_configuration import DatabaseConfiguration
 from pastpy.gen.database.impl.dbf.dbf_database_configuration import DbfDatabaseConfiguration
 from pastpy.gen.database.impl.online.online_database_configuration import OnlineDatabaseConfiguration

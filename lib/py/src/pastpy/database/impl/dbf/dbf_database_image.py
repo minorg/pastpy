@@ -1,8 +1,9 @@
+from pastpy.database.database_image import DatabaseImage
 from urllib.parse import urljoin
 from urllib.request import pathname2url
 
 
-class DbfImage(object):
+class DbfDatabaseImage(DatabaseImage):
     def __init__(self, file_path):
         self.__file_path = file_path
 
