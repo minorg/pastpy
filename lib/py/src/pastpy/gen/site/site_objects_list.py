@@ -1,31 +1,37 @@
+from itertools import filterfalse
 import builtins
 import pastpy.gen.site.site_metadata
+import pastpy.gen.site.site_objects_list_page
 
 
-class SiteIndex(object):
+class SiteObjectsList(object):
     class Builder(object):
         def __init__(
             self,
             metadata=None,
+            pages=None,
         ):
             '''
             :type metadata: pastpy.gen.site.site_metadata.SiteMetadata
+            :type pages: tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage)
             '''
 
             self.__metadata = metadata
+            self.__pages = pages
 
         def build(self):
-            return SiteIndex(metadata=self.__metadata)
+            return SiteObjectsList(metadata=self.__metadata, pages=self.__pages)
 
         @classmethod
         def from_template(cls, template):
             '''
-            :type template: pastpy.gen.site.site_index.SiteIndex
-            :rtype: pastpy.gen.site.site_index.SiteIndex
+            :type template: pastpy.gen.site.site_objects_list.SiteObjectsList
+            :rtype: pastpy.gen.site.site_objects_list.SiteObjectsList
             '''
 
             builder = cls()
             builder.metadata = template.metadata
+            builder.pages = template.pages
             return builder
 
         @property
@@ -35,6 +41,14 @@ class SiteIndex(object):
             '''
 
             return self.__metadata
+
+        @property
+        def pages(self):
+            '''
+            :rtype: tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage)
+            '''
+
+            return self.__pages
 
         def set_metadata(self, metadata):
             '''
@@ -48,18 +62,32 @@ class SiteIndex(object):
             self.__metadata = metadata
             return self
 
-        def update(self, site_index):
+        def set_pages(self, pages):
             '''
-            :type metadata: pastpy.gen.site.site_metadata.SiteMetadata
+            :type pages: tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage)
             '''
 
-            if isinstance(site_index, SiteIndex):
-                self.set_metadata(site_index.metadata)
-            elif isinstance(site_index, dict):
-                for key, value in site_index.items():
+            if pages is None:
+                raise ValueError('pages is required')
+            if not (isinstance(pages, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_objects_list_page.SiteObjectsListPage), pages))) == 0):
+                raise TypeError("expected pages to be a tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage) but it is a %s" % builtins.type(pages))
+            self.__pages = pages
+            return self
+
+        def update(self, site_objects_list):
+            '''
+            :type metadata: pastpy.gen.site.site_metadata.SiteMetadata
+            :type pages: tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage)
+            '''
+
+            if isinstance(site_objects_list, SiteObjectsList):
+                self.set_metadata(site_objects_list.metadata)
+                self.set_pages(site_objects_list.pages)
+            elif isinstance(site_objects_list, dict):
+                for key, value in site_objects_list.items():
                     getattr(self, 'set_' + key)(value)
             else:
-                raise TypeError(site_index)
+                raise TypeError(site_objects_list)
             return self
 
         @metadata.setter
@@ -70,8 +98,17 @@ class SiteIndex(object):
 
             self.set_metadata(metadata)
 
+        @pages.setter
+        def pages(self, pages):
+            '''
+            :type pages: tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage)
+            '''
+
+            self.set_pages(pages)
+
     class FieldMetadata(object):
         METADATA = None
+        PAGES = None
 
         def __init__(self, name, type_, validation):
             object.__init__(self)
@@ -99,16 +136,19 @@ class SiteIndex(object):
 
         @classmethod
         def values(cls):
-            return (cls.METADATA,)
+            return (cls.METADATA, cls.PAGES,)
 
     FieldMetadata.METADATA = FieldMetadata('metadata', pastpy.gen.site.site_metadata.SiteMetadata, None)
+    FieldMetadata.PAGES = FieldMetadata('pages', tuple, None)
 
     def __init__(
         self,
         metadata,
+        pages,
     ):
         '''
         :type metadata: pastpy.gen.site.site_metadata.SiteMetadata
+        :type pages: tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage)
         '''
 
         if metadata is None:
@@ -117,16 +157,24 @@ class SiteIndex(object):
             raise TypeError("expected metadata to be a pastpy.gen.site.site_metadata.SiteMetadata but it is a %s" % builtins.type(metadata))
         self.__metadata = metadata
 
+        if pages is None:
+            raise ValueError('pages is required')
+        if not (isinstance(pages, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_objects_list_page.SiteObjectsListPage), pages))) == 0):
+            raise TypeError("expected pages to be a tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage) but it is a %s" % builtins.type(pages))
+        self.__pages = pages
+
     def __eq__(self, other):
         if self.metadata != other.metadata:
+            return False
+        if self.pages != other.pages:
             return False
         return True
 
     def __hash__(self):
-        return hash(self.metadata)
+        return hash((self.metadata, self.pages,))
 
     def __iter__(self):
-        return iter((self.metadata,))
+        return iter((self.metadata, self.pages,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -134,12 +182,14 @@ class SiteIndex(object):
     def __repr__(self):
         field_reprs = []
         field_reprs.append('metadata=' + repr(self.metadata))
-        return 'SiteIndex(' + ', '.join(field_reprs) + ')'
+        field_reprs.append('pages=' + repr(self.pages))
+        return 'SiteObjectsList(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
         field_reprs = []
         field_reprs.append('metadata=' + repr(self.metadata))
-        return 'SiteIndex(' + ', '.join(field_reprs) + ')'
+        field_reprs.append('pages=' + repr(self.pages))
+        return 'SiteObjectsList(' + ', '.join(field_reprs) + ')'
 
     @classmethod
     def builder(cls):
@@ -158,6 +208,12 @@ class SiteIndex(object):
         metadata = pastpy.gen.site.site_metadata.SiteMetadata.from_builtins(metadata)
         __builder.metadata = metadata
 
+        pages = _dict.get("pages")
+        if pages is None:
+            raise KeyError("pages")
+        pages = tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage.from_builtins(element0) for element0 in pages)
+        __builder.pages = pages
+
         return __builder.build()
 
     @property
@@ -168,13 +224,21 @@ class SiteIndex(object):
 
         return self.__metadata
 
+    @property
+    def pages(self):
+        '''
+        :rtype: tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage)
+        '''
+
+        return self.__pages
+
     @classmethod
     def read(cls, iprot):
         '''
         Read a new object from the given input protocol and return the object.
 
         :type iprot: thryft.protocol._input_protocol._InputProtocol
-        :rtype: pastpy.gen.site.site_index.SiteIndex
+        :rtype: pastpy.gen.site.site_objects_list.SiteObjectsList
         '''
 
         init_kwds = {}
@@ -186,6 +250,8 @@ class SiteIndex(object):
                 break
             elif ifield_name == 'metadata':
                 init_kwds['metadata'] = pastpy.gen.site.site_metadata.SiteMetadata.read(iprot)
+            elif ifield_name == 'pages':
+                init_kwds['pages'] = tuple([pastpy.gen.site.site_objects_list_page.SiteObjectsListPage.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
             iprot.read_field_end()
         iprot.read_struct_end()
 
@@ -197,6 +263,7 @@ class SiteIndex(object):
     def to_builtins(self):
         dict_ = {}
         dict_["metadata"] = self.metadata.to_builtins()
+        dict_["pages"] = tuple(element0.to_builtins() for element0 in self.pages)
         return dict_
 
     def write(self, oprot):
@@ -204,13 +271,20 @@ class SiteIndex(object):
         Write this object to the given output protocol and return self.
 
         :type oprot: thryft.protocol._output_protocol._OutputProtocol
-        :rtype: pastpy.gen.site.site_index.SiteIndex
+        :rtype: pastpy.gen.site.site_objects_list.SiteObjectsList
         '''
 
-        oprot.write_struct_begin('SiteIndex')
+        oprot.write_struct_begin('SiteObjectsList')
 
         oprot.write_field_begin(name='metadata', type=12, id=None)
         self.metadata.write(oprot)
+        oprot.write_field_end()
+
+        oprot.write_field_begin(name='pages', type=15, id=None)
+        oprot.write_list_begin(12, len(self.pages))
+        for _0 in self.pages:
+            _0.write(oprot)
+        oprot.write_list_end()
         oprot.write_field_end()
 
         oprot.write_field_stop()
