@@ -2,7 +2,7 @@ from itertools import filterfalse
 import builtins
 import pastpy.gen.non_blank_string
 import pastpy.gen.site.site_object
-import pastpy.gen.site.site_objects_list_page
+import pastpy.gen.site.site_objects_list
 
 
 class SiteSitemap(object):
@@ -16,7 +16,7 @@ class SiteSitemap(object):
             '''
             :type lastmod: str
             :type objects: tuple(pastpy.gen.site.site_object.SiteObject)
-            :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage)
+            :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list.SiteObjectsList)
             '''
 
             self.__lastmod = lastmod
@@ -58,7 +58,7 @@ class SiteSitemap(object):
         @property
         def objects_list_pages(self):
             '''
-            :rtype: tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage)
+            :rtype: tuple(pastpy.gen.site.site_objects_list.SiteObjectsList)
             '''
 
             return self.__objects_list_pages
@@ -89,13 +89,13 @@ class SiteSitemap(object):
 
         def set_objects_list_pages(self, objects_list_pages):
             '''
-            :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage)
+            :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list.SiteObjectsList)
             '''
 
             if objects_list_pages is None:
                 raise ValueError('objects_list_pages is required')
-            if not (isinstance(objects_list_pages, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_objects_list_page.SiteObjectsListPage), objects_list_pages))) == 0):
-                raise TypeError("expected objects_list_pages to be a tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage) but it is a %s" % builtins.type(objects_list_pages))
+            if not (isinstance(objects_list_pages, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_objects_list.SiteObjectsList), objects_list_pages))) == 0):
+                raise TypeError("expected objects_list_pages to be a tuple(pastpy.gen.site.site_objects_list.SiteObjectsList) but it is a %s" % builtins.type(objects_list_pages))
             self.__objects_list_pages = objects_list_pages
             return self
 
@@ -103,7 +103,7 @@ class SiteSitemap(object):
             '''
             :type lastmod: str
             :type objects: tuple(pastpy.gen.site.site_object.SiteObject)
-            :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage)
+            :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list.SiteObjectsList)
             '''
 
             if isinstance(site_sitemap, SiteSitemap):
@@ -136,7 +136,7 @@ class SiteSitemap(object):
         @objects_list_pages.setter
         def objects_list_pages(self, objects_list_pages):
             '''
-            :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage)
+            :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list.SiteObjectsList)
             '''
 
             self.set_objects_list_pages(objects_list_pages)
@@ -187,7 +187,7 @@ class SiteSitemap(object):
         '''
         :type lastmod: str
         :type objects: tuple(pastpy.gen.site.site_object.SiteObject)
-        :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage)
+        :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list.SiteObjectsList)
         '''
 
         if lastmod is None:
@@ -204,8 +204,8 @@ class SiteSitemap(object):
 
         if objects_list_pages is None:
             raise ValueError('objects_list_pages is required')
-        if not (isinstance(objects_list_pages, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_objects_list_page.SiteObjectsListPage), objects_list_pages))) == 0):
-            raise TypeError("expected objects_list_pages to be a tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage) but it is a %s" % builtins.type(objects_list_pages))
+        if not (isinstance(objects_list_pages, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_objects_list.SiteObjectsList), objects_list_pages))) == 0):
+            raise TypeError("expected objects_list_pages to be a tuple(pastpy.gen.site.site_objects_list.SiteObjectsList) but it is a %s" % builtins.type(objects_list_pages))
         self.__objects_list_pages = objects_list_pages
 
     def __eq__(self, other):
@@ -265,7 +265,7 @@ class SiteSitemap(object):
         objects_list_pages = _dict.get("objects_list_pages")
         if objects_list_pages is None:
             raise KeyError("objects_list_pages")
-        objects_list_pages = tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage.from_builtins(element0) for element0 in objects_list_pages)
+        objects_list_pages = tuple(pastpy.gen.site.site_objects_list.SiteObjectsList.from_builtins(element0) for element0 in objects_list_pages)
         __builder.objects_list_pages = objects_list_pages
 
         return __builder.build()
@@ -289,7 +289,7 @@ class SiteSitemap(object):
     @property
     def objects_list_pages(self):
         '''
-        :rtype: tuple(pastpy.gen.site.site_objects_list_page.SiteObjectsListPage)
+        :rtype: tuple(pastpy.gen.site.site_objects_list.SiteObjectsList)
         '''
 
         return self.__objects_list_pages
@@ -315,7 +315,7 @@ class SiteSitemap(object):
             elif ifield_name == 'objects':
                 init_kwds['objects'] = tuple([pastpy.gen.site.site_object.SiteObject.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
             elif ifield_name == 'objects_list_pages':
-                init_kwds['objects_list_pages'] = tuple([pastpy.gen.site.site_objects_list_page.SiteObjectsListPage.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
+                init_kwds['objects_list_pages'] = tuple([pastpy.gen.site.site_objects_list.SiteObjectsList.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
             iprot.read_field_end()
         iprot.read_struct_end()
 

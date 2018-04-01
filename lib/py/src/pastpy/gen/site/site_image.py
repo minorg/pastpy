@@ -11,9 +11,9 @@ class SiteImage(object):
             title=None,
         ):
             '''
-            :type full_size_url: str
-            :type thumbnail_url: str
-            :type title: str
+            :type full_size_url: str or None
+            :type thumbnail_url: str or None
+            :type title: str or None
             '''
 
             self.__full_size_url = full_size_url
@@ -46,37 +46,34 @@ class SiteImage(object):
 
         def set_full_size_url(self, full_size_url):
             '''
-            :type full_size_url: str
+            :type full_size_url: str or None
             '''
 
-            if full_size_url is None:
-                raise ValueError('full_size_url is required')
-            if not isinstance(full_size_url, str):
-                raise TypeError("expected full_size_url to be a str but it is a %s" % builtins.type(full_size_url))
+            if full_size_url is not None:
+                if not isinstance(full_size_url, str):
+                    raise TypeError("expected full_size_url to be a str but it is a %s" % builtins.type(full_size_url))
             self.__full_size_url = full_size_url
             return self
 
         def set_thumbnail_url(self, thumbnail_url):
             '''
-            :type thumbnail_url: str
+            :type thumbnail_url: str or None
             '''
 
-            if thumbnail_url is None:
-                raise ValueError('thumbnail_url is required')
-            if not isinstance(thumbnail_url, str):
-                raise TypeError("expected thumbnail_url to be a str but it is a %s" % builtins.type(thumbnail_url))
+            if thumbnail_url is not None:
+                if not isinstance(thumbnail_url, str):
+                    raise TypeError("expected thumbnail_url to be a str but it is a %s" % builtins.type(thumbnail_url))
             self.__thumbnail_url = thumbnail_url
             return self
 
         def set_title(self, title):
             '''
-            :type title: str
+            :type title: str or None
             '''
 
-            if title is None:
-                raise ValueError('title is required')
-            if not isinstance(title, str):
-                raise TypeError("expected title to be a str but it is a %s" % builtins.type(title))
+            if title is not None:
+                if not isinstance(title, str):
+                    raise TypeError("expected title to be a str but it is a %s" % builtins.type(title))
             self.__title = title
             return self
 
@@ -98,9 +95,9 @@ class SiteImage(object):
 
         def update(self, site_image):
             '''
-            :type full_size_url: str
-            :type thumbnail_url: str
-            :type title: str
+            :type full_size_url: str or None
+            :type thumbnail_url: str or None
+            :type title: str or None
             '''
 
             if isinstance(site_image, SiteImage):
@@ -117,7 +114,7 @@ class SiteImage(object):
         @full_size_url.setter
         def full_size_url(self, full_size_url):
             '''
-            :type full_size_url: str
+            :type full_size_url: str or None
             '''
 
             self.set_full_size_url(full_size_url)
@@ -125,7 +122,7 @@ class SiteImage(object):
         @thumbnail_url.setter
         def thumbnail_url(self, thumbnail_url):
             '''
-            :type thumbnail_url: str
+            :type thumbnail_url: str or None
             '''
 
             self.set_thumbnail_url(thumbnail_url)
@@ -133,7 +130,7 @@ class SiteImage(object):
         @title.setter
         def title(self, title):
             '''
-            :type title: str
+            :type title: str or None
             '''
 
             self.set_title(title)
@@ -177,32 +174,29 @@ class SiteImage(object):
 
     def __init__(
         self,
-        full_size_url,
-        thumbnail_url,
-        title,
+        full_size_url=None,
+        thumbnail_url=None,
+        title=None,
     ):
         '''
-        :type full_size_url: str
-        :type thumbnail_url: str
-        :type title: str
+        :type full_size_url: str or None
+        :type thumbnail_url: str or None
+        :type title: str or None
         '''
 
-        if full_size_url is None:
-            raise ValueError('full_size_url is required')
-        if not isinstance(full_size_url, str):
-            raise TypeError("expected full_size_url to be a str but it is a %s" % builtins.type(full_size_url))
+        if full_size_url is not None:
+            if not isinstance(full_size_url, str):
+                raise TypeError("expected full_size_url to be a str but it is a %s" % builtins.type(full_size_url))
         self.__full_size_url = full_size_url
 
-        if thumbnail_url is None:
-            raise ValueError('thumbnail_url is required')
-        if not isinstance(thumbnail_url, str):
-            raise TypeError("expected thumbnail_url to be a str but it is a %s" % builtins.type(thumbnail_url))
+        if thumbnail_url is not None:
+            if not isinstance(thumbnail_url, str):
+                raise TypeError("expected thumbnail_url to be a str but it is a %s" % builtins.type(thumbnail_url))
         self.__thumbnail_url = thumbnail_url
 
-        if title is None:
-            raise ValueError('title is required')
-        if not isinstance(title, str):
-            raise TypeError("expected title to be a str but it is a %s" % builtins.type(title))
+        if title is not None:
+            if not isinstance(title, str):
+                raise TypeError("expected title to be a str but it is a %s" % builtins.type(title))
         self.__title = title
 
     def __eq__(self, other):
@@ -225,16 +219,22 @@ class SiteImage(object):
 
     def __repr__(self):
         field_reprs = []
-        field_reprs.append('full_size_url=' + "'" + self.full_size_url.encode('ascii', 'replace').decode('ascii') + "'")
-        field_reprs.append('thumbnail_url=' + "'" + self.thumbnail_url.encode('ascii', 'replace').decode('ascii') + "'")
-        field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.full_size_url is not None:
+            field_reprs.append('full_size_url=' + "'" + self.full_size_url.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.thumbnail_url is not None:
+            field_reprs.append('thumbnail_url=' + "'" + self.thumbnail_url.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.title is not None:
+            field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').decode('ascii') + "'")
         return 'SiteImage(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
         field_reprs = []
-        field_reprs.append('full_size_url=' + "'" + self.full_size_url.encode('ascii', 'replace').decode('ascii') + "'")
-        field_reprs.append('thumbnail_url=' + "'" + self.thumbnail_url.encode('ascii', 'replace').decode('ascii') + "'")
-        field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.full_size_url is not None:
+            field_reprs.append('full_size_url=' + "'" + self.full_size_url.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.thumbnail_url is not None:
+            field_reprs.append('thumbnail_url=' + "'" + self.thumbnail_url.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.title is not None:
+            field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').decode('ascii') + "'")
         return 'SiteImage(' + ', '.join(field_reprs) + ')'
 
     @classmethod
@@ -248,20 +248,11 @@ class SiteImage(object):
 
         __builder = cls.builder()
 
-        full_size_url = _dict.get("full_size_url")
-        if full_size_url is None:
-            raise KeyError("full_size_url")
-        __builder.full_size_url = full_size_url
+        __builder.full_size_url = _dict.get("full_size_url")
 
-        thumbnail_url = _dict.get("thumbnail_url")
-        if thumbnail_url is None:
-            raise KeyError("thumbnail_url")
-        __builder.thumbnail_url = thumbnail_url
+        __builder.thumbnail_url = _dict.get("thumbnail_url")
 
-        title = _dict.get("title")
-        if title is None:
-            raise KeyError("title")
-        __builder.title = title
+        __builder.title = _dict.get("title")
 
         return __builder.build()
 
@@ -290,11 +281,20 @@ class SiteImage(object):
             if ifield_type == 0:  # STOP
                 break
             elif ifield_name == 'full_size_url':
-                init_kwds['full_size_url'] = iprot.read_string()
+                try:
+                    init_kwds['full_size_url'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
             elif ifield_name == 'thumbnail_url':
-                init_kwds['thumbnail_url'] = iprot.read_string()
+                try:
+                    init_kwds['thumbnail_url'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
             elif ifield_name == 'title':
-                init_kwds['title'] = iprot.read_string()
+                try:
+                    init_kwds['title'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
             iprot.read_field_end()
         iprot.read_struct_end()
 
@@ -336,17 +336,20 @@ class SiteImage(object):
 
         oprot.write_struct_begin('SiteImage')
 
-        oprot.write_field_begin(name='full_size_url', type=11, id=None)
-        oprot.write_string(self.full_size_url)
-        oprot.write_field_end()
+        if self.full_size_url is not None:
+            oprot.write_field_begin(name='full_size_url', type=11, id=None)
+            oprot.write_string(self.full_size_url)
+            oprot.write_field_end()
 
-        oprot.write_field_begin(name='thumbnail_url', type=11, id=None)
-        oprot.write_string(self.thumbnail_url)
-        oprot.write_field_end()
+        if self.thumbnail_url is not None:
+            oprot.write_field_begin(name='thumbnail_url', type=11, id=None)
+            oprot.write_string(self.thumbnail_url)
+            oprot.write_field_end()
 
-        oprot.write_field_begin(name='title', type=11, id=None)
-        oprot.write_string(self.title)
-        oprot.write_field_end()
+        if self.title is not None:
+            oprot.write_field_begin(name='title', type=11, id=None)
+            oprot.write_string(self.title)
+            oprot.write_field_end()
 
         oprot.write_field_stop()
 
