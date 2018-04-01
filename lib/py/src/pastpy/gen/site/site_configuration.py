@@ -16,6 +16,7 @@ class SiteConfiguration(object):
             featured_searches=None,
             institution_name=None,
             template_dir_path=None,
+            theme_css_file_path=None,
         ):
             '''
             :type base_url: str
@@ -26,6 +27,7 @@ class SiteConfiguration(object):
             :type featured_searches: tuple(pastpy.gen.site.site_featured_search.SiteFeaturedSearch) or None
             :type institution_name: str or None
             :type template_dir_path: str or None
+            :type theme_css_file_path: str or None
             '''
 
             self.__base_url = base_url
@@ -36,9 +38,10 @@ class SiteConfiguration(object):
             self.__featured_searches = featured_searches
             self.__institution_name = institution_name
             self.__template_dir_path = template_dir_path
+            self.__theme_css_file_path = theme_css_file_path
 
         def build(self):
-            return SiteConfiguration(base_url=self.__base_url, copyright_holder=self.__copyright_holder, google_custom_search_engine_id=self.__google_custom_search_engine_id, name=self.__name, output_dir_path=self.__output_dir_path, featured_searches=self.__featured_searches, institution_name=self.__institution_name, template_dir_path=self.__template_dir_path)
+            return SiteConfiguration(base_url=self.__base_url, copyright_holder=self.__copyright_holder, google_custom_search_engine_id=self.__google_custom_search_engine_id, name=self.__name, output_dir_path=self.__output_dir_path, featured_searches=self.__featured_searches, institution_name=self.__institution_name, template_dir_path=self.__template_dir_path, theme_css_file_path=self.__theme_css_file_path)
 
         @property
         def base_url(self):
@@ -80,6 +83,7 @@ class SiteConfiguration(object):
             builder.featured_searches = template.featured_searches
             builder.institution_name = template.institution_name
             builder.template_dir_path = template.template_dir_path
+            builder.theme_css_file_path = template.theme_css_file_path
             return builder
 
         @property
@@ -207,6 +211,17 @@ class SiteConfiguration(object):
             self.__template_dir_path = template_dir_path
             return self
 
+        def set_theme_css_file_path(self, theme_css_file_path):
+            '''
+            :type theme_css_file_path: str or None
+            '''
+
+            if theme_css_file_path is not None:
+                if not isinstance(theme_css_file_path, str):
+                    raise TypeError("expected theme_css_file_path to be a str but it is a %s" % builtins.type(theme_css_file_path))
+            self.__theme_css_file_path = theme_css_file_path
+            return self
+
         @property
         def template_dir_path(self):
             '''
@@ -214,6 +229,14 @@ class SiteConfiguration(object):
             '''
 
             return self.__template_dir_path
+
+        @property
+        def theme_css_file_path(self):
+            '''
+            :rtype: str
+            '''
+
+            return self.__theme_css_file_path
 
         def update(self, site_configuration):
             '''
@@ -225,6 +248,7 @@ class SiteConfiguration(object):
             :type featured_searches: tuple(pastpy.gen.site.site_featured_search.SiteFeaturedSearch) or None
             :type institution_name: str or None
             :type template_dir_path: str or None
+            :type theme_css_file_path: str or None
             '''
 
             if isinstance(site_configuration, SiteConfiguration):
@@ -236,6 +260,7 @@ class SiteConfiguration(object):
                 self.set_featured_searches(site_configuration.featured_searches)
                 self.set_institution_name(site_configuration.institution_name)
                 self.set_template_dir_path(site_configuration.template_dir_path)
+                self.set_theme_css_file_path(site_configuration.theme_css_file_path)
             elif isinstance(site_configuration, dict):
                 for key, value in site_configuration.items():
                     getattr(self, 'set_' + key)(value)
@@ -307,6 +332,14 @@ class SiteConfiguration(object):
 
             self.set_template_dir_path(template_dir_path)
 
+        @theme_css_file_path.setter
+        def theme_css_file_path(self, theme_css_file_path):
+            '''
+            :type theme_css_file_path: str or None
+            '''
+
+            self.set_theme_css_file_path(theme_css_file_path)
+
     class FieldMetadata(object):
         BASE_URL = None
         COPYRIGHT_HOLDER = None
@@ -316,6 +349,7 @@ class SiteConfiguration(object):
         FEATURED_SEARCHES = None
         INSTITUTION_NAME = None
         TEMPLATE_DIR_PATH = None
+        THEME_CSS_FILE_PATH = None
 
         def __init__(self, name, type_, validation):
             object.__init__(self)
@@ -343,7 +377,7 @@ class SiteConfiguration(object):
 
         @classmethod
         def values(cls):
-            return (cls.BASE_URL, cls.COPYRIGHT_HOLDER, cls.GOOGLE_CUSTOM_SEARCH_ENGINE_ID, cls.NAME, cls.OUTPUT_DIR_PATH, cls.FEATURED_SEARCHES, cls.INSTITUTION_NAME, cls.TEMPLATE_DIR_PATH,)
+            return (cls.BASE_URL, cls.COPYRIGHT_HOLDER, cls.GOOGLE_CUSTOM_SEARCH_ENGINE_ID, cls.NAME, cls.OUTPUT_DIR_PATH, cls.FEATURED_SEARCHES, cls.INSTITUTION_NAME, cls.TEMPLATE_DIR_PATH, cls.THEME_CSS_FILE_PATH,)
 
     FieldMetadata.BASE_URL = FieldMetadata('base_url', str, None)
     FieldMetadata.COPYRIGHT_HOLDER = FieldMetadata('copyright_holder', pastpy.gen.non_blank_string.NonBlankString, None)
@@ -353,6 +387,7 @@ class SiteConfiguration(object):
     FieldMetadata.FEATURED_SEARCHES = FieldMetadata('featured_searches', tuple, None)
     FieldMetadata.INSTITUTION_NAME = FieldMetadata('institution_name', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.TEMPLATE_DIR_PATH = FieldMetadata('template_dir_path', pastpy.gen.non_blank_string.NonBlankString, None)
+    FieldMetadata.THEME_CSS_FILE_PATH = FieldMetadata('theme_css_file_path', pastpy.gen.non_blank_string.NonBlankString, None)
 
     def __init__(
         self,
@@ -364,6 +399,7 @@ class SiteConfiguration(object):
         featured_searches=None,
         institution_name=None,
         template_dir_path=None,
+        theme_css_file_path=None,
     ):
         '''
         :type base_url: str
@@ -374,6 +410,7 @@ class SiteConfiguration(object):
         :type featured_searches: tuple(pastpy.gen.site.site_featured_search.SiteFeaturedSearch) or None
         :type institution_name: str or None
         :type template_dir_path: str or None
+        :type theme_css_file_path: str or None
         '''
 
         if base_url is None:
@@ -421,6 +458,11 @@ class SiteConfiguration(object):
                 raise TypeError("expected template_dir_path to be a str but it is a %s" % builtins.type(template_dir_path))
         self.__template_dir_path = template_dir_path
 
+        if theme_css_file_path is not None:
+            if not isinstance(theme_css_file_path, str):
+                raise TypeError("expected theme_css_file_path to be a str but it is a %s" % builtins.type(theme_css_file_path))
+        self.__theme_css_file_path = theme_css_file_path
+
     def __eq__(self, other):
         if self.base_url != other.base_url:
             return False
@@ -438,13 +480,15 @@ class SiteConfiguration(object):
             return False
         if self.template_dir_path != other.template_dir_path:
             return False
+        if self.theme_css_file_path != other.theme_css_file_path:
+            return False
         return True
 
     def __hash__(self):
-        return hash((self.base_url, self.copyright_holder, self.google_custom_search_engine_id, self.name, self.output_dir_path, self.featured_searches, self.institution_name, self.template_dir_path,))
+        return hash((self.base_url, self.copyright_holder, self.google_custom_search_engine_id, self.name, self.output_dir_path, self.featured_searches, self.institution_name, self.template_dir_path, self.theme_css_file_path,))
 
     def __iter__(self):
-        return iter((self.base_url, self.copyright_holder, self.google_custom_search_engine_id, self.name, self.output_dir_path, self.featured_searches, self.institution_name, self.template_dir_path,))
+        return iter((self.base_url, self.copyright_holder, self.google_custom_search_engine_id, self.name, self.output_dir_path, self.featured_searches, self.institution_name, self.template_dir_path, self.theme_css_file_path,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -462,6 +506,8 @@ class SiteConfiguration(object):
             field_reprs.append('institution_name=' + "'" + self.institution_name.encode('ascii', 'replace').decode('ascii') + "'")
         if self.template_dir_path is not None:
             field_reprs.append('template_dir_path=' + "'" + self.template_dir_path.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.theme_css_file_path is not None:
+            field_reprs.append('theme_css_file_path=' + "'" + self.theme_css_file_path.encode('ascii', 'replace').decode('ascii') + "'")
         return 'SiteConfiguration(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
@@ -477,6 +523,8 @@ class SiteConfiguration(object):
             field_reprs.append('institution_name=' + "'" + self.institution_name.encode('ascii', 'replace').decode('ascii') + "'")
         if self.template_dir_path is not None:
             field_reprs.append('template_dir_path=' + "'" + self.template_dir_path.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.theme_css_file_path is not None:
+            field_reprs.append('theme_css_file_path=' + "'" + self.theme_css_file_path.encode('ascii', 'replace').decode('ascii') + "'")
         return 'SiteConfiguration(' + ', '.join(field_reprs) + ')'
 
     @property
@@ -547,6 +595,8 @@ class SiteConfiguration(object):
         __builder.institution_name = _dict.get("institution_name")
 
         __builder.template_dir_path = _dict.get("template_dir_path")
+
+        __builder.theme_css_file_path = _dict.get("theme_css_file_path")
 
         return __builder.build()
 
@@ -620,6 +670,11 @@ class SiteConfiguration(object):
                     init_kwds['template_dir_path'] = iprot.read_string()
                 except (TypeError, ValueError,):
                     pass
+            elif ifield_name == 'theme_css_file_path':
+                try:
+                    init_kwds['theme_css_file_path'] = iprot.read_string()
+                except (TypeError, ValueError,):
+                    pass
             iprot.read_field_end()
         iprot.read_struct_end()
 
@@ -636,6 +691,14 @@ class SiteConfiguration(object):
 
         return self.__template_dir_path
 
+    @property
+    def theme_css_file_path(self):
+        '''
+        :rtype: str
+        '''
+
+        return self.__theme_css_file_path
+
     def to_builtins(self):
         dict_ = {}
         dict_["base_url"] = self.base_url
@@ -647,6 +710,7 @@ class SiteConfiguration(object):
             dict_["featured_searches"] = tuple(element0.to_builtins() for element0 in self.featured_searches)
         dict_["institution_name"] = self.institution_name
         dict_["template_dir_path"] = self.template_dir_path
+        dict_["theme_css_file_path"] = self.theme_css_file_path
         return dict_
 
     def write(self, oprot):
@@ -695,6 +759,11 @@ class SiteConfiguration(object):
         if self.template_dir_path is not None:
             oprot.write_field_begin(name='template_dir_path', type=11, id=None)
             oprot.write_string(self.template_dir_path)
+            oprot.write_field_end()
+
+        if self.theme_css_file_path is not None:
+            oprot.write_field_begin(name='theme_css_file_path', type=11, id=None)
+            oprot.write_string(self.theme_css_file_path)
             oprot.write_field_end()
 
         oprot.write_field_stop()

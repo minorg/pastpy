@@ -13,4 +13,5 @@ struct SiteConfiguration {
     optional list<site_featured_search.SiteFeaturedSearch> featured_searches;
     optional non_blank_string.NonBlankString institution_name;
     optional non_blank_string.NonBlankString template_dir_path;
+    optional non_blank_string.NonBlankString theme_css_file_path;
 }

@@ -54,15 +54,29 @@ class SiteGenerator(object):
         self.__rmtree(self.__configuration.output_dir_path)
 
     def __copy_static_files(self):
+        dir_paths = {}
         for dir_name in ("css", "js"):
-            src_dir_path = os.path.join(
-                self.__configuration.template_dir_path, dir_name)
-            if os.path.isdir(src_dir_path):
-                dst_dir_path = os.path.join(
-                    self.__configuration.output_dir_path, dir_name)
-                shutil.copytree(src_dir_path, dst_dir_path)
-                self.__logger.debug("copied %s to %s",
-                                    src_dir_path, dst_dir_path)
+            dir_paths[os.path.join(
+                self.__configuration.template_dir_path, dir_name)] = os.path.join(self.__configuration.output_dir_path, dir_name)
+
+        for src_dir_path, dst_dir_path in dir_paths.items():
+            if not os.path.isdir(src_dir_path):
+                continue
+            shutil.copytree(src_dir_path, dst_dir_path)
+            self.__logger.debug("copied %s to %s",
+                                src_dir_path, dst_dir_path)
+
+        file_paths = {}
+        if self.__configuration.theme_css_file_path:
+            file_paths[self.__configuration.theme_css_file_path] = os.path.join(self.__configuration.output_dir_path, "css", "theme.css")
+        for src_file_path, dst_file_path in file_paths.items():
+            if not os.path.isfile(src_file_path):
+                continue
+            dst_dir_path = os.path.dirname(dst_file_path)
+            self.__makedirs(dst_dir_path)
+            shutil.copyfile(src_file_path, dst_file_path)
+            self.__logger.debug("copied %s to %s",
+                                src_file_path, dst_dir_path)
 
     def __filter_objects_with_ids(self, *, objects):
         objects_by_id = OrderedDict()
