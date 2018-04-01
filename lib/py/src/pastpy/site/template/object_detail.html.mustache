@@ -35,26 +35,34 @@
 <body>
     <div class="container-fluid object-detail top-level-container">
         {{>navbar.html}}
-        {{#object.has_full_size_images}}
-        <div class="row text-center w-100">
-            {{#object.full_size_images}}
-            <div class="full-size-image">
-                <a href="{{{full_size_url}}}" data-lity data-lity-desc="{{{title}}}">
-                    <img alt="{{title}}" src="{{{thumbnail_url}}}" title="{{title}}">
-                </a>
-            </div>
-            {{/object.full_size_images}}
-        </div>
-        {{/object.has_full_size_images}}
         <div class="row">
-            <table class="table table-bordered table-striped">
-                {{#object.impl_attributes}}
-                <tr>
-                    <td class="name">{{name}}</td>
-                    <td class="value">{{value}}</td>
-                </tr>
-                {{/object.impl_attributes}}
-            </table>
+            <div class="col-10 offset-1">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-4">
+                            {{#object.has_full_size_images}}
+                            {{#object.full_size_images}}
+                            <div class="full-size-image">
+                                <a href="{{{full_size_url}}}" data-lity data-lity-desc="{{{title}}}">
+                                    <img alt="{{title}}" src="{{{thumbnail_url}}}" title="{{title}}">
+                                </a>
+                            </div>
+                            {{/object.full_size_images}}
+                            {{/object.has_full_size_images}}
+                        </div>
+                        <div class="col-8">
+                            <table class="attributes table table-bordered table-striped">
+                                    {{#object.impl_attributes}}
+                                    <tr>
+                                        <td class="name">{{name}}</td>
+                                        <td class="value">{{value}}</td>
+                                    </tr>
+                                    {{/object.impl_attributes}}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     {{>footer.html}} {{>scripts.html}}
