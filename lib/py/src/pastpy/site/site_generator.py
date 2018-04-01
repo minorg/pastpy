@@ -6,8 +6,18 @@ import re
 import shutil
 import pystache
 import inspect
-from urllib.parse import urlparse, unquote
+from urllib.parse import urlparse
 from pastpy.gen.site.site_configuration import SiteConfiguration
+from pastpy.gen.site.site_image import SiteImage
+from pastpy.gen.site.site_index import SiteIndex
+from pastpy.gen.site.site_key_value_pair import SiteKeyValuePair
+from pastpy.gen.site.site_metadata import SiteMetadata
+from pastpy.gen.site.site_nav_items import SiteNavItems
+from pastpy.gen.site.site_object import SiteObject
+from pastpy.gen.site.site_object_detail import SiteObjectDetail
+from pastpy.gen.site.site_objects_list import SiteObjectsList
+from pastpy.gen.site.site_objects_list_page_number import SiteObjectsListPageNumber
+from pastpy.gen.site.site_sitemap import SiteSitemap
 
 
 class SiteGenerator(object):
@@ -31,7 +41,6 @@ class SiteGenerator(object):
 
         self.__configuration = configuration
 
-        self.__object_contexts_by_id = None
         self.__objects = None
 
         self.__renderer = \
@@ -73,96 +82,27 @@ class SiteGenerator(object):
         self.__copy_static_files()
 
         self.__read_objects()
-        self.__create_object_contexts()
 
         self.__render_index()
         self.__render_object_details()
-        objects_list_file_relpaths = self.__render_objects_list()
-        self.__render_sitemap(objects_list_file_relpaths=objects_list_file_relpaths)
-
-    def __create_object_context(self, *, object_, object_file_name):
-        context = {}
-
-        context["absolute_href"] = "/objects/details/" + object_file_name
-        context["file_name"] = object_file_name
-        context["relative_href"] = "../details/" + object_file_name
-
-        context["impl_attributes"] = [{"key": key, "value": value}
-                                      for key, value in object_.impl_attributes.items()]
-
-        context["full_size_images"] = [
-            image for image in object_.images if image.full_size_url]
-        context["has_full_size_images"] = len(context["full_size_images"]) > 0
-
-        if object_.name:
-            context["name"] = object_.name
-        elif object_.othername:
-            context["name"] = object_.othername
-        else:
-            context["name"] = object_.id
-
-        standard_attributes = {}
-        for member_name, member in inspect.getmembers(object_):
-            if inspect.ismethod(member):
-                continue
-            if member_name.startswith('_'):
-                continue
-            elif member_name in ("images", "impl_attributes"):
-                continue
-            value = getattr(object_, member_name)
-            if value is not None:
-                standard_attributes[member_name] = value
-        context["standard_attributes"] = [
-            {"key": key, "value": value} for key, value in standard_attributes.items()]
-        context.update(standard_attributes)
-
-        context["thumbnail_images"] = [
-            image for image in object_.images if image.thumbnail_url]
-        context["has_thumbnail_images"] = len(context["thumbnail_images"]) > 0
-        context["thumbnail_url"] = "http://via.placeholder.com/210x211?text=Missing%20image"
-        for image in object_.images:
-            if image.thumbnail_url:
-                context["thumbnail_url"] = image.thumbnail_url
-                break
-
-        if "title" not in context:
-            context["title"] = context["name"]
-
-        return {"object": context}
-
-    def __create_object_contexts(self):
-        object_ids_by_file_name = {}
-        self.__object_contexts_by_id = {}
-        for object_ in self.__objects:
-            file_name = self.__to_valid_filename(object_.id) + ".html"
-            existing_object_id = object_ids_by_file_name.get(file_name)
-            if existing_object_id is not None:
-                raise RuntimeError("two objects (%s and %s) map to the same file name (%s)" % (
-                    existing_object_id, object_.id, file_name))
-            object_ids_by_file_name[file_name] = object_.id
-
-            self.__object_contexts_by_id[object_.id] = \
-                self.__create_object_context(object_=object_, object_file_name=file_name)
+        objects_list_pages = self.__render_objects_list()
+        self.__render_sitemap(objects_list_pages=objects_list_pages)
 
     def __makedirs(self, dir_path):
         if not os.path.isdir(dir_path):
             os.makedirs(dir_path)
             self.__logger.debug("created directory %s", dir_path)
 
-    def __new_top_level_context(self, *, out_dir_path):
-        root_rel_href = os.path.relpath(
+    def __new_metadata(self, *, out_dir_path, active_nav_item="home"):
+        builder = SiteMetadata.builder()
+        builder.root_relative_href = os.path.relpath(
             self.__configuration.output_dir_path, out_dir_path).replace(os.path.sep, '/')
-        context = \
-            {
-                'current_year': datetime.now().year,
-                'home_nav_item_active': False,
-                'objects_nav_item_active': False,
-                'root_rel_href': root_rel_href,
-                'site_name': self.__configuration.name
-            }
-        context.update(self.__configuration.to_builtins())
-        del context["name"]  # Already site_name
-        return context
+        builder.configuration = self.__configuration
+        builder.current_year = datetime.now().year
+        nav_items_builder = SiteNavItems.builder()
+        setattr(nav_items_builder, active_nav_item, True)
+        builder.nav_items = nav_items_builder.build()
+        return builder.build()
 
     @staticmethod
     def __page_range(*, page_i, page_max, page_min, window):
@@ -201,26 +141,92 @@ class SiteGenerator(object):
             self.__logger.debug(
                 "created output images directory %s", out_images_dir_path)
 
+        object_ids_by_file_name = {}
         self.__objects = []
-        for object_ in self.__database.objects():
-            for image in object_.images:
-                full_size_url = image.full_size_url
-                full_size_url_parsed = urlparse(full_size_url)
-                if full_size_url_parsed.scheme == "file":
-                    raise NotImplementedError(
-                        "TODO: rewrite the actual image object with a substitute")
-                    # full_size_file_path = unquote(full_size_url)[7:]
-                    # full_size_file_name = os.path.split(full_size_file_path)[1]
-                    # out_image_file_path = os.path.join(
-                    #     out_images_dir_path, full_size_file_name)
-                    # shutil.copyfile(full_size_file_path,
-                    #                 full_size_file_name)
-                    # self.__logger.debug(
-                    #     "copied %s to %s", full_size_file_path, out_image_file_path)
-                    # img_srcs.append('img/' + full_size_file_name)
-            self.__objects.append(object_)
+        for database_object in self.__database.objects():
+            images = []
+            for database_image in database_object.images:
+                full_size_url = database_image.full_size_url
+                if full_size_url:
+                    full_size_url_parsed = urlparse(full_size_url)
+                    if full_size_url_parsed.scheme == "file":
+                        raise NotImplementedError(
+                            "TODO: rewrite the actual image object with a substitute")
+                        # full_size_file_path = unquote(full_size_url)[7:]
+                        # full_size_file_name = os.path.split(full_size_file_path)[1]
+                        # out_image_file_path = os.path.join(
+                        #     out_images_dir_path, full_size_file_name)
+                        # shutil.copyfile(full_size_file_path,
+                        #                 full_size_file_name)
+                        # self.__logger.debug(
+                        #     "copied %s to %s", full_size_file_path, out_image_file_path)
+                        # img_srcs.append('img/' + full_size_file_name)
+                images.append(SiteImage(
+                    full_size_url=database_image.full_size_url,
+                    thumbnail_url=database_image.thumbnail_url,
+                    title=database_image.title
+                ))
+
+            file_name = self.__to_valid_filename(database_object.id) + ".html"
+            existing_object_id = object_ids_by_file_name.get(file_name)
+            if existing_object_id is not None:
+                raise RuntimeError("two objects (%s and %s) map to the same file name (%s)" % (
+                    existing_object_id, database_object.id, file_name))
+            object_ids_by_file_name[file_name] = database_object.id
+
+            object_builder = SiteObject.builder()
+
+            object_builder.absolute_href = "/objects/details/" + file_name
+            object_builder.file_name = file_name
+
+            object_builder.full_size_images = \
+                tuple(image for image in images if image.full_size_url)
+            object_builder.thumbnail_images = \
+                tuple(image for image in images if image.thumbnail_url)
+            object_builder.has_full_size_images = len(
+                object_builder.full_size_images) > 0
+            object_builder.has_thumbnail_images = len(
+                object_builder.thumbnail_images) > 0
+            if object_builder.thumbnail_images:
+                object_builder.thumbnail_url = object_builder.thumbnail_images[0].thumbnail_url
+            else:
+                object_builder.thumbnail_url = "http://via.placeholder.com/210x211?text=Missing%20image"
+
+            object_builder.impl_attributes = \
+                tuple(SiteKeyValuePair(key=key, value=value)
+                      for key, value in database_object.impl_attributes.items())
+
+            if database_object.name:
+                object_builder.name = database_object.name
+            elif database_object.othername:
+                object_builder.name = database_object.othername
+            else:
+                object_builder.name = database_object.id
+
+            standard_attributes = {}
+            for member_name, member in inspect.getmembers(database_object):
+                if inspect.ismethod(member):
+                    continue
+                if member_name.startswith('_'):
+                    continue
+                elif member_name in ("images", "impl_attributes"):
+                    continue
+                value = getattr(database_object, member_name)
+                if value is not None:
+                    standard_attributes[member_name] = value
+            object_builder.standard_attributes = \
+                tuple(SiteKeyValuePair(key=key, value=value)
+                      for key, value in standard_attributes.items())
+            for key, value in standard_attributes.items():
+                setattr(object_builder, key, value)
+
+            if object_builder.title is None:
+                object_builder.title = object_builder.name
+
+            self.__objects.append(object_builder.build())
             if len(self.__objects) == 100:
                 break
+        self.__objects = tuple(self.__objects)
 
     def __render_file(self, *, context, file_name, out_file_relpath=None):
         rendered = self.__renderer.render_name(
@@ -235,10 +241,12 @@ class SiteGenerator(object):
 
     def __render_index(self):
         context = \
-            self.__new_top_level_context(
-                out_dir_path=self.__configuration.output_dir_path
+            SiteIndex(
+                metadata=self.__new_metadata(
+                    active_nav_item="home",
+                    out_dir_path=self.__configuration.output_dir_path
+                )
             )
-        context["home_nav_item_active"] = True
         self.__render_file(context=context, file_name='index.html')
 
     def __render_object_details(self):
@@ -247,82 +255,92 @@ class SiteGenerator(object):
             self.__configuration.output_dir_path, out_dir_relpath)
         self.__makedirs(out_dir_path)
 
-        for object_context in self.__object_contexts_by_id.values():
+        for object_ in self.__objects:
             context = \
-                self.__new_top_level_context(
-                    out_dir_path=out_dir_path
+                SiteObjectDetail(
+                    metadata=self.__new_metadata(
+                        active_nav_item="objects",
+                        out_dir_path=out_dir_path
+                    ),
+                    object=object_
                 )
-            context.update(object_context)
             self.__render_file(file_name='object_detail.html', context=context, out_file_relpath=os.path.join(
-                out_dir_relpath, object_context["object"]["file_name"]))
+                out_dir_relpath, context.object.file_name))
 
     def __render_objects_list(self):
-        out_file_relpaths = []
         out_dir_relpath = os.path.join('objects', 'list')
         out_dir_path = os.path.join(
             self.__configuration.output_dir_path, out_dir_relpath)
         self.__makedirs(out_dir_path)
 
-        object_contexts = list(reversed(list(self.__object_contexts_by_id.values())))
+        objects = list(reversed(list(self.__objects)))
         objects_pages = []
         objects_per_page = 20
-        while object_contexts:
+        while objects:
             objects_page = []
-            while object_contexts and len(objects_page) < objects_per_page:
-                object_context = object_contexts.pop()
-                objects_page.append(object_context)
-            objects_pages.append(objects_page)
+            while objects and len(objects_page) < objects_per_page:
+                objects_page.append(objects.pop())
+            objects_pages.append(tuple(objects_page))
 
+        objects_list_pages = []
         for objects_page_i, objects_page in enumerate(objects_pages):
             # *page_number* is one-based
             # current_page_number = objects_page_i + 1
 
-            context = \
-                self.__new_top_level_context(
-                    out_dir_path=out_dir_path
-                )
-            context["objects"] = objects_page
-            context["objects_nav_item_active"] = True
-            context["next_page_disabled"] = objects_page_i + \
-                1 == len(objects_pages)
-            context["next_page_number"] = objects_page_i + 2
-            context["previous_page_disabled"] = objects_page_i == 0
-            context["previous_page_number"] = objects_page_i
+            out_file_relpath = os.path.join(
+                out_dir_relpath, str(objects_page_i + 1) + '.html')
 
-            page_items = []
+            context_builder = SiteObjectsList.builder()
+            context_builder.absolute_href = "/" + \
+                out_file_relpath.replace(os.path.sep, '/')
+            context_builder.metadata = self.__new_metadata(
+                active_nav_item="objects", out_dir_path=out_dir_path)
+            context_builder.objects = objects_page
+
+            context_builder.next_page_number = SiteObjectsListPageNumber(
+                active=False,
+                enabled=objects_page_i + 1 < len(objects_pages),
+                number=objects_page_i + 2
+            )
+            context_builder.previous_page_number = SiteObjectsListPageNumber(
+                active=False,
+                enabled=objects_page_i > 0,
+                number=objects_page_i
+            )
+
+            visible_page_numbers = []
             objects_page_range = self.__page_range(
                 page_i=objects_page_i, page_min=0, page_max=len(objects_pages) - 1, window=10)
             for objects_page_range_i in objects_page_range:
-                page_items.append({"active": objects_page_range_i ==
-                                   objects_page_i, "number": objects_page_range_i + 1})
-            context["page_items"] = page_items
+                visible_page_numbers.append(SiteObjectsListPageNumber(
+                    active=objects_page_range_i == objects_page_i,
+                    enabled=True,
+                    number=objects_page_range_i + 1
+                ))
+            context_builder.visible_page_numbers = tuple(visible_page_numbers)
+            context = context_builder.build()
 
-            out_file_relpath = os.path.join(out_dir_relpath, str(objects_page_i + 1) + '.html')
             self.__render_file(
                 file_name='objects_list.html',
                 context=context,
                 out_file_relpath=out_file_relpath
             )
-            out_file_relpaths.append(out_file_relpath)
-        return out_file_relpaths
+            objects_list_pages.append(context)
+        return tuple(objects_list_pages)
 
-    def __render_sitemap(self, objects_list_file_relpaths):
-        context = \
-            self.__new_top_level_context(
-                out_dir_path=self.__configuration.output_dir_path
-            )
-        context["lastmod"] = date.today().isoformat()
-
-        context["objects_list_pages"] = \
-            [{"absolute_href": "/" + objects_list_file_relpath.replace(os.path.sep, '/')}
-             for objects_list_file_relpath in objects_list_file_relpaths]
-
-        object_contexts = []
-        for object_context in self.__object_contexts_by_id.values():
-            temp_object_context = object_context.copy()
-            temp_object_context["object"]["standard_attributes"] = [item for item in object_context["object"]["standard_attributes"] if item["key"] != "description"]
-            object_contexts.append(temp_object_context)
-        context["objects"] = object_contexts
+    def __render_sitemap(self, objects_list_pages):
+        context_builder = SiteSitemap.builder()
+        context_builder.configuration = self.__configuration
+        context_builder.lastmod = date.today().isoformat()
+        context_builder.objects_list_pages = objects_list_pages
+        objects = []
+        for object_ in self.__objects:
+            objects.append(object_.replacer().set_standard_attributes(tuple(
+                item for item in object_.standard_attributes
+                if item.key != "description"
+            )).build())
+        context_builder.objects = tuple(objects)
+        context = context_builder.build()
 
         self.__render_file(file_name='sitemap.xml', context=context)
 

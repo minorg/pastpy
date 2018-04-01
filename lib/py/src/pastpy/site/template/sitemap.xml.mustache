@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
  <url>
-   <loc>{{{base_url}}}/index.html</loc>
+   <loc>{{{configuration.base_url}}}/index.html</loc>
    <lastmod>{{lastmod}}</lastmod>
  </url>
 {{#objects_list_pages}}
  <url>
-   <loc>{{{base_url}}}{{{absolute_href}}}</loc>
+   <loc>{{{configuration.base_url}}}{{{absolute_href}}}</loc>
    <lastmod>{{lastmod}}</lastmod>
  </url>
 {{/objects_list_pages}}
 {{#objects}}
  <url>
-   <loc>{{{base_url}}}{{{object.absolute_href}}}</loc>
+   <loc>{{{configuration.base_url}}}{{{absolute_href}}}</loc>
    <lastmod>{{lastmod}}</lastmod>
    <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
      <DataObject type="object">
-{{#object.standard_attributes}}
+{{#standard_attributes}}
         <Attribute name="{{key}}"><![CDATA[{{value}}]]></Attribute>
-{{/object.standard_attributes}}
+{{/standard_attributes}}
      </DataObject>
-{{#object.thumbnail_images}}
+{{#thumbnail_images}}
      <DataObject type="thumbnail">
         <Attribute name="src">{{thumbnail_url}}</Attribute>
         <Attribute name="width">210</Attribute>
         <Attribute name="height">211</Attribute>
      </DataObject>
-{{/object.thumbnail_images}}
+{{/thumbnail_images}}
    </PageMap>
  </url>
 {{/objects}}
