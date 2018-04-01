@@ -33,11 +33,12 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        {{>navbar.html}} {{#object.has_full_size_images}}
+    <div class="container-fluid object-detail top-level-container">
+        {{>navbar.html}}
+        {{#object.has_full_size_images}}
         <div class="row text-center w-100">
             {{#object.full_size_images}}
-            <div style="display: inline-block; padding-bottom: 20px; padding-right: 20px">
+            <div class="full-size-image">
                 <a href="{{{full_size_url}}}" data-lity data-lity-desc="{{{title}}}">
                     <img alt="{{title}}" src="{{{thumbnail_url}}}" title="{{title}}">
                 </a>
@@ -49,8 +50,8 @@
             <table class="table table-bordered table-striped">
                 {{#object.impl_attributes}}
                 <tr>
-                    <td style="width: 10%">{{name}}</td>
-                    <td>{{value}}</td>
+                    <td class="name">{{name}}</td>
+                    <td class="value">{{value}}</td>
                 </tr>
                 {{/object.impl_attributes}}
             </table>

@@ -7,9 +7,9 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid objects-list top-level-container">
         {{>navbar.html}}
-        <div class="mb-4 row" style="margin-top: 60px">
+        <div class="mb-4 first-row row">
             <div class="col-8 offset-2">
                 <div class="container-fluid">
                     <div class="row mb-4">
@@ -19,17 +19,17 @@
                     </div>
                     <div class="row">
                         {{#objects}}
-                        <div class="card mb-4 mr-4" style="border-width: 4px">
+                        <div class="card mb-4 mr-4 object-card">
                             <div class="card-header text-center">
                                 <a href="{{{metadata.root_relative_href}}}{{{absolute_href}}}">{{name}}</a>
                             </div>
                             <div class="card-body">
                                 <figure class="figure">
                                     <a href="{{{metadata.root_relative_href}}}{{{absolute_href}}}">
-                                        <img alt="{{title}}" class="figure-img rounded" src="{{{thumbnail_url}}}" style="height: 211px; margin: 5px; width: 210px"
+                                        <img alt="{{title}}" class="figure-img rounded object-thumbnail" src="{{{thumbnail_url}}}"
                                             title="{{title}}" />
                                     </a>
-                                    <figcaption class="figure-caption text-center" style="font-size: small">
+                                    <figcaption class="figure-caption text-center">
                                         {{#title}} {{title}}
                                         <br/>{{/title}} {{#date}} {{date}}
                                         <br/>{{/date}}
@@ -42,7 +42,7 @@
                 </div>
             </div>
         </div>
-        <div class="row" style="margin-bottom: 60px">
+        <div class="row">
             <div class="col-6 offset-3 text-center ">
                 <nav aria-label="Page navigation ">
                     <ul class="pagination justify-content-center ">

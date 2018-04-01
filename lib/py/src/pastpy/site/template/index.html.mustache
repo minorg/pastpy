@@ -7,9 +7,9 @@
 </head>
 
 <body>
-    <div class="container-fluid home">
+    <div class="container-fluid index top-level-container">
         {{>navbar.html}}
-        <div class="row" style="margin-top: 200px"></div>
+        <div class="first-row row"></div>
         <div class="row text-center w-100">
             <div class="col-12">
                 {{#metadata.configuration.institution_name}}
@@ -45,7 +45,7 @@
             </div>
         </div>
         {{/has_featured_searches}}
-        <div class="row" style="margin-bottom: 200px">
+        <div class="last-row row">
         </div>
     </div>
     {{>footer.html}} {{>scripts.html}}
