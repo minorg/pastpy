@@ -216,7 +216,9 @@ class SiteGenerator(object):
                 value = getattr(database_object, member_name)
                 if value is not None:
                     standard_attributes[member_name] = value
-                standard_attributes_json[member_name] = json.dumps(value)
+                    standard_attributes_json[member_name] = json.dumps(value)
+                else:
+                    standard_attributes_json[member_name] = ''
             object_builder.standard_attributes = \
                 tuple(SiteAttribute(name=name, value=value)
                       for name, value in standard_attributes.items())

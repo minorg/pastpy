@@ -26,7 +26,8 @@
             {{#object.standard_attributes_json.date}}
             "temporalCoverage": {{{object.standard_attributes_json.date}}},
             {{/object.standard_attributes_json.date}}
-            "thumbnailUrl": "{{{object.thumbnail_url}}}"
+            "thumbnailUrl": "{{{object.thumbnail_url}}}",
+            "url": "{{{metadata.configuration.base_url}}}{{{object.absolute_href}}}"
         }
     </script>
 </head>
