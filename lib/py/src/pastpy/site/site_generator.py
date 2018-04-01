@@ -1,5 +1,6 @@
 from collections import OrderedDict
 from datetime import date, datetime
+import json
 import logging
 import os.path
 import re
@@ -7,10 +8,10 @@ import shutil
 import pystache
 import inspect
 from urllib.parse import urlparse
+from pastpy.gen.site.site_attribute import SiteAttribute
 from pastpy.gen.site.site_configuration import SiteConfiguration
 from pastpy.gen.site.site_image import SiteImage
 from pastpy.gen.site.site_index import SiteIndex
-from pastpy.gen.site.site_key_value_pair import SiteKeyValuePair
 from pastpy.gen.site.site_metadata import SiteMetadata
 from pastpy.gen.site.site_nav_items import SiteNavItems
 from pastpy.gen.site.site_object import SiteObject
@@ -193,8 +194,8 @@ class SiteGenerator(object):
                 object_builder.thumbnail_url = "http://via.placeholder.com/210x211?text=Missing%20image"
 
             object_builder.impl_attributes = \
-                tuple(SiteKeyValuePair(key=key, value=value)
-                      for key, value in database_object.impl_attributes.items())
+                tuple(SiteAttribute(name=name, value=value)
+                      for name, value in database_object.impl_attributes.items())
 
             if database_object.name:
                 object_builder.name = database_object.name
@@ -204,6 +205,7 @@ class SiteGenerator(object):
                 object_builder.name = database_object.id
 
             standard_attributes = {}
+            standard_attributes_json = {}
             for member_name, member in inspect.getmembers(database_object):
                 if inspect.ismethod(member):
                     continue
@@ -214,11 +216,13 @@ class SiteGenerator(object):
                 value = getattr(database_object, member_name)
                 if value is not None:
                     standard_attributes[member_name] = value
+                standard_attributes_json[member_name] = json.dumps(value)
             object_builder.standard_attributes = \
-                tuple(SiteKeyValuePair(key=key, value=value)
-                      for key, value in standard_attributes.items())
-            for key, value in standard_attributes.items():
-                setattr(object_builder, key, value)
+                tuple(SiteAttribute(name=name, value=value)
+                      for name, value in standard_attributes.items())
+            object_builder.standard_attributes_json = standard_attributes_json
+            for name, value in standard_attributes.items():
+                setattr(object_builder, name, value)
 
             if object_builder.title is None:
                 object_builder.title = object_builder.name
@@ -338,7 +342,7 @@ class SiteGenerator(object):
         for object_ in self.__objects:
             objects.append(object_.replacer().set_standard_attributes(tuple(
                 item for item in object_.standard_attributes
-                if item.key != "description"
+                if item.name != "description"
             )).build())
         context_builder.objects = tuple(objects)
         context = context_builder.build()

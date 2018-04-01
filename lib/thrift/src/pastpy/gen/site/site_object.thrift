@@ -1,8 +1,8 @@
 namespace * pastpy.gen.site
 
 include "pastpy/gen/non_blank_string.thrift"
+include "pastpy/gen/site/site_attribute.thrift"
 include "pastpy/gen/site/site_image.thrift"
-include "pastpy/gen/site/site_key_value_pair.thrift"
 include "thryft/native/url.thrift"
 
 struct SiteObject {
@@ -12,9 +12,10 @@ struct SiteObject {
     bool has_full_size_images;
     bool has_thumbnail_images;
     non_blank_string.NonBlankString id;
-    list<site_key_value_pair.SiteKeyValuePair> impl_attributes;
+    list<site_attribute.SiteAttribute> impl_attributes;
     non_blank_string.NonBlankString name;
-    list<site_key_value_pair.SiteKeyValuePair> standard_attributes;
+    list<site_attribute.SiteAttribute> standard_attributes;
+    map<non_blank_string.NonBlankString, non_blank_string.NonBlankString> standard_attributes_json;
     list<site_image.SiteImage> thumbnail_images;
     url.Url thumbnail_url;
     non_blank_string.NonBlankString title;

@@ -4,6 +4,31 @@
 <head>
     {{>head_meta.html}} {{>head_css.html}}
     <title>{{metadata.configuration.name}} - Object {{object.id}}</title>
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "CreativeWork",
+            {{#object.standard_attributes_json.othername}}
+            "alternateName": {{{object.standard_attributes_json.othername}}},
+            {{/object.standard_attributes_json.othername}}
+            "copyrightHolder": "{{{metadata.configuration.copyright_holder}}}",
+            {{#object.standard_attributes_json.description}}
+            "description": {{{object.standard_attributes_json.description}}},
+            {{/object.standard_attributes_json.description}}
+            {{#object.standard_attributes_json.title}}
+            "headline": {{{object.standard_attributes_json.title}}},
+            {{/object.standard_attributes_json.title}}
+            "identifier": {{{object.standard_attributes_json.id}}},
+            {{#object.standard_attributes_json.name}}
+            "name": {{{object.standard_attributes_json.name}}},
+            {{/object.standard_attributes_json.name}}
+            {{#object.standard_attributes_json.date}}
+            "temporalCoverage": {{{object.standard_attributes_json.date}}},
+            {{/object.standard_attributes_json.date}}
+            "thumbnailUrl": "{{{object.thumbnail_url}}}"
+        }
+    </script>
 </head>
 
 <body>
@@ -23,7 +48,7 @@
             <table class="table table-bordered table-striped">
                 {{#object.impl_attributes}}
                 <tr>
-                    <td style="width: 10%">{{key}}</td>
+                    <td style="width: 10%">{{name}}</td>
                     <td>{{value}}</td>
                 </tr>
                 {{/object.impl_attributes}}

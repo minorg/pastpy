@@ -18,7 +18,7 @@ class OnlineDatabaseObjectDetailHtmlParser(object):
             display_element = category_element.parent.find(attrs={"class": "display"})
             if not display_element:
                 continue
-            display_string = ''.join(display_element.stripped_strings).replace("\\n", '').strip()
+            display_string = ''.join(display_element.stripped_strings).replace("\\n", '').replace("\\'", "'").strip()
             if not category_string or not display_string:
                 continue
             if category_string == "Object ID":

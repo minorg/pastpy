@@ -2,54 +2,54 @@ import builtins
 import pastpy.gen.non_blank_string
 
 
-class SiteKeyValuePair(object):
+class SiteAttribute(object):
     class Builder(object):
         def __init__(
             self,
-            key=None,
+            name=None,
             value=None,
         ):
             '''
-            :type key: str
+            :type name: str
             :type value: object
             '''
 
-            self.__key = key
+            self.__name = name
             self.__value = value
 
         def build(self):
-            return SiteKeyValuePair(key=self.__key, value=self.__value)
+            return SiteAttribute(name=self.__name, value=self.__value)
 
         @classmethod
         def from_template(cls, template):
             '''
-            :type template: pastpy.gen.site.site_key_value_pair.SiteKeyValuePair
-            :rtype: pastpy.gen.site.site_key_value_pair.SiteKeyValuePair
+            :type template: pastpy.gen.site.site_attribute.SiteAttribute
+            :rtype: pastpy.gen.site.site_attribute.SiteAttribute
             '''
 
             builder = cls()
-            builder.key = template.key
+            builder.name = template.name
             builder.value = template.value
             return builder
 
         @property
-        def key(self):
+        def name(self):
             '''
             :rtype: str
             '''
 
-            return self.__key
+            return self.__name
 
-        def set_key(self, key):
+        def set_name(self, name):
             '''
-            :type key: str
+            :type name: str
             '''
 
-            if key is None:
-                raise ValueError('key is required')
-            if not isinstance(key, str):
-                raise TypeError("expected key to be a str but it is a %s" % builtins.type(key))
-            self.__key = key
+            if name is None:
+                raise ValueError('name is required')
+            if not isinstance(name, str):
+                raise TypeError("expected name to be a str but it is a %s" % builtins.type(name))
+            self.__name = name
             return self
 
         def set_value(self, value):
@@ -62,20 +62,20 @@ class SiteKeyValuePair(object):
             self.__value = value
             return self
 
-        def update(self, site_key_value_pair):
+        def update(self, site_attribute):
             '''
-            :type key: str
+            :type name: str
             :type value: object
             '''
 
-            if isinstance(site_key_value_pair, SiteKeyValuePair):
-                self.set_key(site_key_value_pair.key)
-                self.set_value(site_key_value_pair.value)
-            elif isinstance(site_key_value_pair, dict):
-                for key, value in site_key_value_pair.items():
+            if isinstance(site_attribute, SiteAttribute):
+                self.set_name(site_attribute.name)
+                self.set_value(site_attribute.value)
+            elif isinstance(site_attribute, dict):
+                for key, value in site_attribute.items():
                     getattr(self, 'set_' + key)(value)
             else:
-                raise TypeError(site_key_value_pair)
+                raise TypeError(site_attribute)
             return self
 
         @property
@@ -86,13 +86,13 @@ class SiteKeyValuePair(object):
 
             return self.__value
 
-        @key.setter
-        def key(self, key):
+        @name.setter
+        def name(self, name):
             '''
-            :type key: str
+            :type name: str
             '''
 
-            self.set_key(key)
+            self.set_name(name)
 
         @value.setter
         def value(self, value):
@@ -103,7 +103,7 @@ class SiteKeyValuePair(object):
             self.set_value(value)
 
     class FieldMetadata(object):
-        KEY = None
+        NAME = None
         VALUE = None
 
         def __init__(self, name, type_, validation):
@@ -132,26 +132,26 @@ class SiteKeyValuePair(object):
 
         @classmethod
         def values(cls):
-            return (cls.KEY, cls.VALUE,)
+            return (cls.NAME, cls.VALUE,)
 
-    FieldMetadata.KEY = FieldMetadata('key', pastpy.gen.non_blank_string.NonBlankString, None)
+    FieldMetadata.NAME = FieldMetadata('name', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.VALUE = FieldMetadata('value', object, None)
 
     def __init__(
         self,
-        key,
+        name,
         value,
     ):
         '''
-        :type key: str
+        :type name: str
         :type value: object
         '''
 
-        if key is None:
-            raise ValueError('key is required')
-        if not isinstance(key, str):
-            raise TypeError("expected key to be a str but it is a %s" % builtins.type(key))
-        self.__key = key
+        if name is None:
+            raise ValueError('name is required')
+        if not isinstance(name, str):
+            raise TypeError("expected name to be a str but it is a %s" % builtins.type(name))
+        self.__name = name
 
         if value is None:
             raise ValueError('value is required')
@@ -159,32 +159,32 @@ class SiteKeyValuePair(object):
         self.__value = value
 
     def __eq__(self, other):
-        if self.key != other.key:
+        if self.name != other.name:
             return False
         if self.value != other.value:
             return False
         return True
 
     def __hash__(self):
-        return hash((self.key, self.value,))
+        return hash((self.name, self.value,))
 
     def __iter__(self):
-        return iter((self.key, self.value,))
+        return iter((self.name, self.value,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
 
     def __repr__(self):
         field_reprs = []
-        field_reprs.append('key=' + "'" + self.key.encode('ascii', 'replace').decode('ascii') + "'")
+        field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('value=' + "'" + self.value.encode('ascii', 'replace').decode('ascii') + "'")
-        return 'SiteKeyValuePair(' + ', '.join(field_reprs) + ')'
+        return 'SiteAttribute(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
         field_reprs = []
-        field_reprs.append('key=' + "'" + self.key.encode('ascii', 'replace').decode('ascii') + "'")
+        field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('value=' + "'" + self.value.encode('ascii', 'replace').decode('ascii') + "'")
-        return 'SiteKeyValuePair(' + ', '.join(field_reprs) + ')'
+        return 'SiteAttribute(' + ', '.join(field_reprs) + ')'
 
     @classmethod
     def builder(cls):
@@ -197,10 +197,10 @@ class SiteKeyValuePair(object):
 
         __builder = cls.builder()
 
-        key = _dict.get("key")
-        if key is None:
-            raise KeyError("key")
-        __builder.key = key
+        name = _dict.get("name")
+        if name is None:
+            raise KeyError("name")
+        __builder.name = name
 
         value = _dict.get("value")
         if value is None:
@@ -210,12 +210,12 @@ class SiteKeyValuePair(object):
         return __builder.build()
 
     @property
-    def key(self):
+    def name(self):
         '''
         :rtype: str
         '''
 
-        return self.__key
+        return self.__name
 
     @classmethod
     def read(cls, iprot):
@@ -223,7 +223,7 @@ class SiteKeyValuePair(object):
         Read a new object from the given input protocol and return the object.
 
         :type iprot: thryft.protocol._input_protocol._InputProtocol
-        :rtype: pastpy.gen.site.site_key_value_pair.SiteKeyValuePair
+        :rtype: pastpy.gen.site.site_attribute.SiteAttribute
         '''
 
         init_kwds = {}
@@ -233,8 +233,8 @@ class SiteKeyValuePair(object):
             ifield_name, ifield_type, _ifield_id = iprot.read_field_begin()
             if ifield_type == 0:  # STOP
                 break
-            elif ifield_name == 'key':
-                init_kwds['key'] = iprot.read_string()
+            elif ifield_name == 'name':
+                init_kwds['name'] = iprot.read_string()
             elif ifield_name == 'value':
                 init_kwds['value'] = iprot.read_variant()
             iprot.read_field_end()
@@ -247,7 +247,7 @@ class SiteKeyValuePair(object):
 
     def to_builtins(self):
         dict_ = {}
-        dict_["key"] = self.key
+        dict_["name"] = self.name
         dict_["value"] = self.value
         return dict_
 
@@ -264,13 +264,13 @@ class SiteKeyValuePair(object):
         Write this object to the given output protocol and return self.
 
         :type oprot: thryft.protocol._output_protocol._OutputProtocol
-        :rtype: pastpy.gen.site.site_key_value_pair.SiteKeyValuePair
+        :rtype: pastpy.gen.site.site_attribute.SiteAttribute
         '''
 
-        oprot.write_struct_begin('SiteKeyValuePair')
+        oprot.write_struct_begin('SiteAttribute')
 
-        oprot.write_field_begin(name='key', type=11, id=None)
-        oprot.write_string(self.key)
+        oprot.write_field_begin(name='name', type=11, id=None)
+        oprot.write_string(self.name)
         oprot.write_field_end()
 
         oprot.write_field_begin(name='value', type=11, id=None)
