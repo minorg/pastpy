@@ -1,5 +1,7 @@
+from itertools import filterfalse
 import builtins
 import pastpy.gen.non_blank_string
+import pastpy.gen.site.site_featured_search
 
 
 class SiteConfiguration(object):
@@ -11,6 +13,7 @@ class SiteConfiguration(object):
             google_custom_search_engine_id=None,
             name="Your Collection",
             output_dir_path="site",
+            featured_searches=None,
             institution_name=None,
             template_dir_path=None,
         ):
@@ -20,6 +23,7 @@ class SiteConfiguration(object):
             :type google_custom_search_engine_id: str
             :type name: str
             :type output_dir_path: str
+            :type featured_searches: tuple(pastpy.gen.site.site_featured_search.SiteFeaturedSearch) or None
             :type institution_name: str or None
             :type template_dir_path: str or None
             '''
@@ -29,11 +33,12 @@ class SiteConfiguration(object):
             self.__google_custom_search_engine_id = google_custom_search_engine_id
             self.__name = name
             self.__output_dir_path = output_dir_path
+            self.__featured_searches = featured_searches
             self.__institution_name = institution_name
             self.__template_dir_path = template_dir_path
 
         def build(self):
-            return SiteConfiguration(base_url=self.__base_url, copyright_holder=self.__copyright_holder, google_custom_search_engine_id=self.__google_custom_search_engine_id, name=self.__name, output_dir_path=self.__output_dir_path, institution_name=self.__institution_name, template_dir_path=self.__template_dir_path)
+            return SiteConfiguration(base_url=self.__base_url, copyright_holder=self.__copyright_holder, google_custom_search_engine_id=self.__google_custom_search_engine_id, name=self.__name, output_dir_path=self.__output_dir_path, featured_searches=self.__featured_searches, institution_name=self.__institution_name, template_dir_path=self.__template_dir_path)
 
         @property
         def base_url(self):
@@ -51,6 +56,14 @@ class SiteConfiguration(object):
 
             return self.__copyright_holder
 
+        @property
+        def featured_searches(self):
+            '''
+            :rtype: tuple(pastpy.gen.site.site_featured_search.SiteFeaturedSearch)
+            '''
+
+            return self.__featured_searches
+
         @classmethod
         def from_template(cls, template):
             '''
@@ -64,6 +77,7 @@ class SiteConfiguration(object):
             builder.google_custom_search_engine_id = template.google_custom_search_engine_id
             builder.name = template.name
             builder.output_dir_path = template.output_dir_path
+            builder.featured_searches = template.featured_searches
             builder.institution_name = template.institution_name
             builder.template_dir_path = template.template_dir_path
             return builder
@@ -122,6 +136,17 @@ class SiteConfiguration(object):
             if not isinstance(copyright_holder, str):
                 raise TypeError("expected copyright_holder to be a str but it is a %s" % builtins.type(copyright_holder))
             self.__copyright_holder = copyright_holder
+            return self
+
+        def set_featured_searches(self, featured_searches):
+            '''
+            :type featured_searches: tuple(pastpy.gen.site.site_featured_search.SiteFeaturedSearch) or None
+            '''
+
+            if featured_searches is not None:
+                if not (isinstance(featured_searches, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_featured_search.SiteFeaturedSearch), featured_searches))) == 0):
+                    raise TypeError("expected featured_searches to be a tuple(pastpy.gen.site.site_featured_search.SiteFeaturedSearch) but it is a %s" % builtins.type(featured_searches))
+            self.__featured_searches = featured_searches
             return self
 
         def set_google_custom_search_engine_id(self, google_custom_search_engine_id):
@@ -197,6 +222,7 @@ class SiteConfiguration(object):
             :type google_custom_search_engine_id: str
             :type name: str
             :type output_dir_path: str
+            :type featured_searches: tuple(pastpy.gen.site.site_featured_search.SiteFeaturedSearch) or None
             :type institution_name: str or None
             :type template_dir_path: str or None
             '''
@@ -207,6 +233,7 @@ class SiteConfiguration(object):
                 self.set_google_custom_search_engine_id(site_configuration.google_custom_search_engine_id)
                 self.set_name(site_configuration.name)
                 self.set_output_dir_path(site_configuration.output_dir_path)
+                self.set_featured_searches(site_configuration.featured_searches)
                 self.set_institution_name(site_configuration.institution_name)
                 self.set_template_dir_path(site_configuration.template_dir_path)
             elif isinstance(site_configuration, dict):
@@ -231,6 +258,14 @@ class SiteConfiguration(object):
             '''
 
             self.set_copyright_holder(copyright_holder)
+
+        @featured_searches.setter
+        def featured_searches(self, featured_searches):
+            '''
+            :type featured_searches: tuple(pastpy.gen.site.site_featured_search.SiteFeaturedSearch) or None
+            '''
+
+            self.set_featured_searches(featured_searches)
 
         @google_custom_search_engine_id.setter
         def google_custom_search_engine_id(self, google_custom_search_engine_id):
@@ -278,6 +313,7 @@ class SiteConfiguration(object):
         GOOGLE_CUSTOM_SEARCH_ENGINE_ID = None
         NAME = None
         OUTPUT_DIR_PATH = None
+        FEATURED_SEARCHES = None
         INSTITUTION_NAME = None
         TEMPLATE_DIR_PATH = None
 
@@ -307,13 +343,14 @@ class SiteConfiguration(object):
 
         @classmethod
         def values(cls):
-            return (cls.BASE_URL, cls.COPYRIGHT_HOLDER, cls.GOOGLE_CUSTOM_SEARCH_ENGINE_ID, cls.NAME, cls.OUTPUT_DIR_PATH, cls.INSTITUTION_NAME, cls.TEMPLATE_DIR_PATH,)
+            return (cls.BASE_URL, cls.COPYRIGHT_HOLDER, cls.GOOGLE_CUSTOM_SEARCH_ENGINE_ID, cls.NAME, cls.OUTPUT_DIR_PATH, cls.FEATURED_SEARCHES, cls.INSTITUTION_NAME, cls.TEMPLATE_DIR_PATH,)
 
     FieldMetadata.BASE_URL = FieldMetadata('base_url', str, None)
     FieldMetadata.COPYRIGHT_HOLDER = FieldMetadata('copyright_holder', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.GOOGLE_CUSTOM_SEARCH_ENGINE_ID = FieldMetadata('google_custom_search_engine_id', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.NAME = FieldMetadata('name', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.OUTPUT_DIR_PATH = FieldMetadata('output_dir_path', pastpy.gen.non_blank_string.NonBlankString, None)
+    FieldMetadata.FEATURED_SEARCHES = FieldMetadata('featured_searches', tuple, None)
     FieldMetadata.INSTITUTION_NAME = FieldMetadata('institution_name', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.TEMPLATE_DIR_PATH = FieldMetadata('template_dir_path', pastpy.gen.non_blank_string.NonBlankString, None)
 
@@ -324,6 +361,7 @@ class SiteConfiguration(object):
         copyright_holder="Your Collection",
         name="Your Collection",
         output_dir_path="site",
+        featured_searches=None,
         institution_name=None,
         template_dir_path=None,
     ):
@@ -333,6 +371,7 @@ class SiteConfiguration(object):
         :type google_custom_search_engine_id: str
         :type name: str
         :type output_dir_path: str
+        :type featured_searches: tuple(pastpy.gen.site.site_featured_search.SiteFeaturedSearch) or None
         :type institution_name: str or None
         :type template_dir_path: str or None
         '''
@@ -367,6 +406,11 @@ class SiteConfiguration(object):
             raise TypeError("expected output_dir_path to be a str but it is a %s" % builtins.type(output_dir_path))
         self.__output_dir_path = output_dir_path
 
+        if featured_searches is not None:
+            if not (isinstance(featured_searches, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_featured_search.SiteFeaturedSearch), featured_searches))) == 0):
+                raise TypeError("expected featured_searches to be a tuple(pastpy.gen.site.site_featured_search.SiteFeaturedSearch) but it is a %s" % builtins.type(featured_searches))
+        self.__featured_searches = featured_searches
+
         if institution_name is not None:
             if not isinstance(institution_name, str):
                 raise TypeError("expected institution_name to be a str but it is a %s" % builtins.type(institution_name))
@@ -388,6 +432,8 @@ class SiteConfiguration(object):
             return False
         if self.output_dir_path != other.output_dir_path:
             return False
+        if self.featured_searches != other.featured_searches:
+            return False
         if self.institution_name != other.institution_name:
             return False
         if self.template_dir_path != other.template_dir_path:
@@ -395,10 +441,10 @@ class SiteConfiguration(object):
         return True
 
     def __hash__(self):
-        return hash((self.base_url, self.copyright_holder, self.google_custom_search_engine_id, self.name, self.output_dir_path, self.institution_name, self.template_dir_path,))
+        return hash((self.base_url, self.copyright_holder, self.google_custom_search_engine_id, self.name, self.output_dir_path, self.featured_searches, self.institution_name, self.template_dir_path,))
 
     def __iter__(self):
-        return iter((self.base_url, self.copyright_holder, self.google_custom_search_engine_id, self.name, self.output_dir_path, self.institution_name, self.template_dir_path,))
+        return iter((self.base_url, self.copyright_holder, self.google_custom_search_engine_id, self.name, self.output_dir_path, self.featured_searches, self.institution_name, self.template_dir_path,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -410,6 +456,8 @@ class SiteConfiguration(object):
         field_reprs.append('google_custom_search_engine_id=' + "'" + self.google_custom_search_engine_id.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('output_dir_path=' + "'" + self.output_dir_path.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.featured_searches is not None:
+            field_reprs.append('featured_searches=' + repr(self.featured_searches))
         if self.institution_name is not None:
             field_reprs.append('institution_name=' + "'" + self.institution_name.encode('ascii', 'replace').decode('ascii') + "'")
         if self.template_dir_path is not None:
@@ -423,6 +471,8 @@ class SiteConfiguration(object):
         field_reprs.append('google_custom_search_engine_id=' + "'" + self.google_custom_search_engine_id.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('output_dir_path=' + "'" + self.output_dir_path.encode('ascii', 'replace').decode('ascii') + "'")
+        if self.featured_searches is not None:
+            field_reprs.append('featured_searches=' + repr(self.featured_searches))
         if self.institution_name is not None:
             field_reprs.append('institution_name=' + "'" + self.institution_name.encode('ascii', 'replace').decode('ascii') + "'")
         if self.template_dir_path is not None:
@@ -448,6 +498,14 @@ class SiteConfiguration(object):
         '''
 
         return self.__copyright_holder
+
+    @property
+    def featured_searches(self):
+        '''
+        :rtype: tuple(pastpy.gen.site.site_featured_search.SiteFeaturedSearch)
+        '''
+
+        return self.__featured_searches
 
     @classmethod
     def from_builtins(cls, _dict):
@@ -480,6 +538,11 @@ class SiteConfiguration(object):
         if output_dir_path is None:
             output_dir_path = "site"
         __builder.output_dir_path = output_dir_path
+
+        featured_searches = _dict.get("featured_searches")
+        if featured_searches is not None:
+            featured_searches = tuple(pastpy.gen.site.site_featured_search.SiteFeaturedSearch.from_builtins(element0) for element0 in featured_searches)
+        __builder.featured_searches = featured_searches
 
         __builder.institution_name = _dict.get("institution_name")
 
@@ -545,6 +608,8 @@ class SiteConfiguration(object):
                 init_kwds['name'] = iprot.read_string()
             elif ifield_name == 'output_dir_path':
                 init_kwds['output_dir_path'] = iprot.read_string()
+            elif ifield_name == 'featured_searches':
+                init_kwds['featured_searches'] = tuple([pastpy.gen.site.site_featured_search.SiteFeaturedSearch.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
             elif ifield_name == 'institution_name':
                 try:
                     init_kwds['institution_name'] = iprot.read_string()
@@ -578,6 +643,8 @@ class SiteConfiguration(object):
         dict_["google_custom_search_engine_id"] = self.google_custom_search_engine_id
         dict_["name"] = self.name
         dict_["output_dir_path"] = self.output_dir_path
+        if self.featured_searches is not None:
+            dict_["featured_searches"] = tuple(element0.to_builtins() for element0 in self.featured_searches)
         dict_["institution_name"] = self.institution_name
         dict_["template_dir_path"] = self.template_dir_path
         return dict_
@@ -611,6 +678,14 @@ class SiteConfiguration(object):
         oprot.write_field_begin(name='output_dir_path', type=11, id=None)
         oprot.write_string(self.output_dir_path)
         oprot.write_field_end()
+
+        if self.featured_searches is not None:
+            oprot.write_field_begin(name='featured_searches', type=15, id=None)
+            oprot.write_list_begin(12, len(self.featured_searches))
+            for _0 in self.featured_searches:
+                _0.write(oprot)
+            oprot.write_list_end()
+            oprot.write_field_end()
 
         if self.institution_name is not None:
             oprot.write_field_begin(name='institution_name', type=11, id=None)

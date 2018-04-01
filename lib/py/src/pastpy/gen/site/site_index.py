@@ -6,16 +6,19 @@ class SiteIndex(object):
     class Builder(object):
         def __init__(
             self,
+            has_featured_searches=None,
             metadata=None,
         ):
             '''
+            :type has_featured_searches: bool
             :type metadata: pastpy.gen.site.site_metadata.SiteMetadata
             '''
 
+            self.__has_featured_searches = has_featured_searches
             self.__metadata = metadata
 
         def build(self):
-            return SiteIndex(metadata=self.__metadata)
+            return SiteIndex(has_featured_searches=self.__has_featured_searches, metadata=self.__metadata)
 
         @classmethod
         def from_template(cls, template):
@@ -25,8 +28,17 @@ class SiteIndex(object):
             '''
 
             builder = cls()
+            builder.has_featured_searches = template.has_featured_searches
             builder.metadata = template.metadata
             return builder
+
+        @property
+        def has_featured_searches(self):
+            '''
+            :rtype: bool
+            '''
+
+            return self.__has_featured_searches
 
         @property
         def metadata(self):
@@ -35,6 +47,18 @@ class SiteIndex(object):
             '''
 
             return self.__metadata
+
+        def set_has_featured_searches(self, has_featured_searches):
+            '''
+            :type has_featured_searches: bool
+            '''
+
+            if has_featured_searches is None:
+                raise ValueError('has_featured_searches is required')
+            if not isinstance(has_featured_searches, bool):
+                raise TypeError("expected has_featured_searches to be a bool but it is a %s" % builtins.type(has_featured_searches))
+            self.__has_featured_searches = has_featured_searches
+            return self
 
         def set_metadata(self, metadata):
             '''
@@ -50,10 +74,12 @@ class SiteIndex(object):
 
         def update(self, site_index):
             '''
+            :type has_featured_searches: bool
             :type metadata: pastpy.gen.site.site_metadata.SiteMetadata
             '''
 
             if isinstance(site_index, SiteIndex):
+                self.set_has_featured_searches(site_index.has_featured_searches)
                 self.set_metadata(site_index.metadata)
             elif isinstance(site_index, dict):
                 for key, value in site_index.items():
@@ -61,6 +87,14 @@ class SiteIndex(object):
             else:
                 raise TypeError(site_index)
             return self
+
+        @has_featured_searches.setter
+        def has_featured_searches(self, has_featured_searches):
+            '''
+            :type has_featured_searches: bool
+            '''
+
+            self.set_has_featured_searches(has_featured_searches)
 
         @metadata.setter
         def metadata(self, metadata):
@@ -71,6 +105,7 @@ class SiteIndex(object):
             self.set_metadata(metadata)
 
     class FieldMetadata(object):
+        HAS_FEATURED_SEARCHES = None
         METADATA = None
 
         def __init__(self, name, type_, validation):
@@ -99,17 +134,26 @@ class SiteIndex(object):
 
         @classmethod
         def values(cls):
-            return (cls.METADATA,)
+            return (cls.HAS_FEATURED_SEARCHES, cls.METADATA,)
 
+    FieldMetadata.HAS_FEATURED_SEARCHES = FieldMetadata('has_featured_searches', bool, None)
     FieldMetadata.METADATA = FieldMetadata('metadata', pastpy.gen.site.site_metadata.SiteMetadata, None)
 
     def __init__(
         self,
+        has_featured_searches,
         metadata,
     ):
         '''
+        :type has_featured_searches: bool
         :type metadata: pastpy.gen.site.site_metadata.SiteMetadata
         '''
+
+        if has_featured_searches is None:
+            raise ValueError('has_featured_searches is required')
+        if not isinstance(has_featured_searches, bool):
+            raise TypeError("expected has_featured_searches to be a bool but it is a %s" % builtins.type(has_featured_searches))
+        self.__has_featured_searches = has_featured_searches
 
         if metadata is None:
             raise ValueError('metadata is required')
@@ -118,26 +162,30 @@ class SiteIndex(object):
         self.__metadata = metadata
 
     def __eq__(self, other):
+        if self.has_featured_searches != other.has_featured_searches:
+            return False
         if self.metadata != other.metadata:
             return False
         return True
 
     def __hash__(self):
-        return hash(self.metadata)
+        return hash((self.has_featured_searches, self.metadata,))
 
     def __iter__(self):
-        return iter((self.metadata,))
+        return iter((self.has_featured_searches, self.metadata,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
 
     def __repr__(self):
         field_reprs = []
+        field_reprs.append('has_featured_searches=' + repr(self.has_featured_searches))
         field_reprs.append('metadata=' + repr(self.metadata))
         return 'SiteIndex(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
         field_reprs = []
+        field_reprs.append('has_featured_searches=' + repr(self.has_featured_searches))
         field_reprs.append('metadata=' + repr(self.metadata))
         return 'SiteIndex(' + ', '.join(field_reprs) + ')'
 
@@ -152,6 +200,11 @@ class SiteIndex(object):
 
         __builder = cls.builder()
 
+        has_featured_searches = _dict.get("has_featured_searches")
+        if has_featured_searches is None:
+            raise KeyError("has_featured_searches")
+        __builder.has_featured_searches = has_featured_searches
+
         metadata = _dict.get("metadata")
         if metadata is None:
             raise KeyError("metadata")
@@ -159,6 +212,14 @@ class SiteIndex(object):
         __builder.metadata = metadata
 
         return __builder.build()
+
+    @property
+    def has_featured_searches(self):
+        '''
+        :rtype: bool
+        '''
+
+        return self.__has_featured_searches
 
     @property
     def metadata(self):
@@ -184,6 +245,8 @@ class SiteIndex(object):
             ifield_name, ifield_type, _ifield_id = iprot.read_field_begin()
             if ifield_type == 0:  # STOP
                 break
+            elif ifield_name == 'has_featured_searches':
+                init_kwds['has_featured_searches'] = iprot.read_bool()
             elif ifield_name == 'metadata':
                 init_kwds['metadata'] = pastpy.gen.site.site_metadata.SiteMetadata.read(iprot)
             iprot.read_field_end()
@@ -196,6 +259,7 @@ class SiteIndex(object):
 
     def to_builtins(self):
         dict_ = {}
+        dict_["has_featured_searches"] = self.has_featured_searches
         dict_["metadata"] = self.metadata.to_builtins()
         return dict_
 
@@ -208,6 +272,10 @@ class SiteIndex(object):
         '''
 
         oprot.write_struct_begin('SiteIndex')
+
+        oprot.write_field_begin(name='has_featured_searches', type=2, id=None)
+        oprot.write_bool(self.has_featured_searches)
+        oprot.write_field_end()
 
         oprot.write_field_begin(name='metadata', type=12, id=None)
         self.metadata.write(oprot)

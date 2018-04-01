@@ -242,6 +242,7 @@ class SiteGenerator(object):
     def __render_index(self):
         context = \
             SiteIndex(
+                has_featured_searches=bool(self.__configuration.featured_searches),
                 metadata=self.__new_metadata(
                     active_nav_item="home",
                     out_dir_path=self.__configuration.output_dir_path
