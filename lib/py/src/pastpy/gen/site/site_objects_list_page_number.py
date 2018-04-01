@@ -92,8 +92,6 @@ class SiteObjectsListPageNumber(object):
                 raise ValueError('number is required')
             if not isinstance(number, int):
                 raise TypeError("expected number to be a int but it is a %s" % builtins.type(number))
-            if number < 1:
-                raise ValueError("expected number to be >= 1, was %s" % number)
             self.__number = number
             return self
 
@@ -174,7 +172,7 @@ class SiteObjectsListPageNumber(object):
 
     FieldMetadata.ACTIVE = FieldMetadata('active', bool, None)
     FieldMetadata.ENABLED = FieldMetadata('enabled', bool, None)
-    FieldMetadata.NUMBER = FieldMetadata('number', int, {'min': 1})
+    FieldMetadata.NUMBER = FieldMetadata('number', int, None)
 
     def __init__(
         self,
@@ -204,8 +202,6 @@ class SiteObjectsListPageNumber(object):
             raise ValueError('number is required')
         if not isinstance(number, int):
             raise TypeError("expected number to be a int but it is a %s" % builtins.type(number))
-        if number < 1:
-            raise ValueError("expected number to be >= 1, was %s" % number)
         self.__number = number
 
     def __eq__(self, other):

@@ -182,7 +182,7 @@ class SiteGenerator(object):
             object_builder.full_size_images = \
                 tuple(image for image in images if image.full_size_url)
             object_builder.thumbnail_images = \
-                tuple(image for image in images if image.thumbnail_images)
+                tuple(image for image in images if image.thumbnail_url)
             object_builder.has_full_size_images = len(
                 object_builder.full_size_images) > 0
             object_builder.has_thumbnail_images = len(
@@ -203,7 +203,7 @@ class SiteGenerator(object):
             else:
                 object_builder.name = database_object.id
 
-            standard_attributes = []
+            standard_attributes = {}
             for member_name, member in inspect.getmembers(database_object):
                 if inspect.ismethod(member):
                     continue
@@ -217,7 +217,7 @@ class SiteGenerator(object):
             object_builder.standard_attributes = \
                 tuple(SiteKeyValuePair(key=key, value=value)
                       for key, value in standard_attributes.items())
-            for key, value in standard_attributes:
+            for key, value in standard_attributes.items():
                 setattr(object_builder, key, value)
 
             if object_builder.title is None:
@@ -226,6 +226,7 @@ class SiteGenerator(object):
             self.__objects.append(object_builder.build())
             if len(self.__objects) == 100:
                 break
+        self.__objects = tuple(self.__objects)
 
     def __render_file(self, *, context, file_name, out_file_relpath=None):
         rendered = self.__renderer.render_name(
@@ -279,7 +280,7 @@ class SiteGenerator(object):
             objects_page = []
             while objects and len(objects_page) < objects_per_page:
                 objects_page.append(objects.pop())
-            objects_pages.append(objects_page)
+            objects_pages.append(tuple(objects_page))
 
         objects_list_pages = []
         for objects_page_i, objects_page in enumerate(objects_pages):
@@ -325,10 +326,11 @@ class SiteGenerator(object):
                 out_file_relpath=out_file_relpath
             )
             objects_list_pages.append(context)
-        return objects_list_pages
+        return tuple(objects_list_pages)
 
     def __render_sitemap(self, objects_list_pages):
         context_builder = SiteSitemap.builder()
+        context_builder.configuration = self.__configuration
         context_builder.lastmod = date.today().isoformat()
         context_builder.objects_list_pages = objects_list_pages
         objects = []
@@ -336,7 +338,7 @@ class SiteGenerator(object):
             objects.append(object_.replacer().set_standard_attributes(tuple(
                 item for item in object_.standard_attributes
                 if item.key != "description"
-            )))
+            )).build())
         context_builder.objects = tuple(objects)
         context = context_builder.build()
 

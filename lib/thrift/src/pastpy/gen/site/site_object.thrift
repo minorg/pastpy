@@ -11,10 +11,13 @@ struct SiteObject {
     list<site_image.SiteImage> full_size_images;
     bool has_full_size_images;
     bool has_thumbnail_images;
+    non_blank_string.NonBlankString id;
     list<site_key_value_pair.SiteKeyValuePair> impl_attributes;
     non_blank_string.NonBlankString name;
     list<site_key_value_pair.SiteKeyValuePair> standard_attributes;
     list<site_image.SiteImage> thumbnail_images;
     url.Url thumbnail_url;
     non_blank_string.NonBlankString title;
+    optional non_blank_string.NonBlankString date;
+    optional non_blank_string.NonBlankString description;
 }

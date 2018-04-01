@@ -1,6 +1,7 @@
 from itertools import filterfalse
 import builtins
 import pastpy.gen.non_blank_string
+import pastpy.gen.site.site_configuration
 import pastpy.gen.site.site_object
 import pastpy.gen.site.site_objects_list
 
@@ -9,22 +10,33 @@ class SiteSitemap(object):
     class Builder(object):
         def __init__(
             self,
+            configuration=None,
             lastmod=None,
             objects=None,
             objects_list_pages=None,
         ):
             '''
+            :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
             :type lastmod: str
             :type objects: tuple(pastpy.gen.site.site_object.SiteObject)
             :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list.SiteObjectsList)
             '''
 
+            self.__configuration = configuration
             self.__lastmod = lastmod
             self.__objects = objects
             self.__objects_list_pages = objects_list_pages
 
         def build(self):
-            return SiteSitemap(lastmod=self.__lastmod, objects=self.__objects, objects_list_pages=self.__objects_list_pages)
+            return SiteSitemap(configuration=self.__configuration, lastmod=self.__lastmod, objects=self.__objects, objects_list_pages=self.__objects_list_pages)
+
+        @property
+        def configuration(self):
+            '''
+            :rtype: pastpy.gen.site.site_configuration.SiteConfiguration
+            '''
+
+            return self.__configuration
 
         @classmethod
         def from_template(cls, template):
@@ -34,6 +46,7 @@ class SiteSitemap(object):
             '''
 
             builder = cls()
+            builder.configuration = template.configuration
             builder.lastmod = template.lastmod
             builder.objects = template.objects
             builder.objects_list_pages = template.objects_list_pages
@@ -62,6 +75,18 @@ class SiteSitemap(object):
             '''
 
             return self.__objects_list_pages
+
+        def set_configuration(self, configuration):
+            '''
+            :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
+            '''
+
+            if configuration is None:
+                raise ValueError('configuration is required')
+            if not isinstance(configuration, pastpy.gen.site.site_configuration.SiteConfiguration):
+                raise TypeError("expected configuration to be a pastpy.gen.site.site_configuration.SiteConfiguration but it is a %s" % builtins.type(configuration))
+            self.__configuration = configuration
+            return self
 
         def set_lastmod(self, lastmod):
             '''
@@ -101,12 +126,14 @@ class SiteSitemap(object):
 
         def update(self, site_sitemap):
             '''
+            :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
             :type lastmod: str
             :type objects: tuple(pastpy.gen.site.site_object.SiteObject)
             :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list.SiteObjectsList)
             '''
 
             if isinstance(site_sitemap, SiteSitemap):
+                self.set_configuration(site_sitemap.configuration)
                 self.set_lastmod(site_sitemap.lastmod)
                 self.set_objects(site_sitemap.objects)
                 self.set_objects_list_pages(site_sitemap.objects_list_pages)
@@ -116,6 +143,14 @@ class SiteSitemap(object):
             else:
                 raise TypeError(site_sitemap)
             return self
+
+        @configuration.setter
+        def configuration(self, configuration):
+            '''
+            :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
+            '''
+
+            self.set_configuration(configuration)
 
         @lastmod.setter
         def lastmod(self, lastmod):
@@ -142,6 +177,7 @@ class SiteSitemap(object):
             self.set_objects_list_pages(objects_list_pages)
 
     class FieldMetadata(object):
+        CONFIGURATION = None
         LASTMOD = None
         OBJECTS = None
         OBJECTS_LIST_PAGES = None
@@ -172,23 +208,32 @@ class SiteSitemap(object):
 
         @classmethod
         def values(cls):
-            return (cls.LASTMOD, cls.OBJECTS, cls.OBJECTS_LIST_PAGES,)
+            return (cls.CONFIGURATION, cls.LASTMOD, cls.OBJECTS, cls.OBJECTS_LIST_PAGES,)
 
+    FieldMetadata.CONFIGURATION = FieldMetadata('configuration', pastpy.gen.site.site_configuration.SiteConfiguration, None)
     FieldMetadata.LASTMOD = FieldMetadata('lastmod', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.OBJECTS = FieldMetadata('objects', tuple, None)
     FieldMetadata.OBJECTS_LIST_PAGES = FieldMetadata('objects_list_pages', tuple, None)
 
     def __init__(
         self,
+        configuration,
         lastmod,
         objects,
         objects_list_pages,
     ):
         '''
+        :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
         :type lastmod: str
         :type objects: tuple(pastpy.gen.site.site_object.SiteObject)
         :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list.SiteObjectsList)
         '''
+
+        if configuration is None:
+            raise ValueError('configuration is required')
+        if not isinstance(configuration, pastpy.gen.site.site_configuration.SiteConfiguration):
+            raise TypeError("expected configuration to be a pastpy.gen.site.site_configuration.SiteConfiguration but it is a %s" % builtins.type(configuration))
+        self.__configuration = configuration
 
         if lastmod is None:
             raise ValueError('lastmod is required')
@@ -209,6 +254,8 @@ class SiteSitemap(object):
         self.__objects_list_pages = objects_list_pages
 
     def __eq__(self, other):
+        if self.configuration != other.configuration:
+            return False
         if self.lastmod != other.lastmod:
             return False
         if self.objects != other.objects:
@@ -218,16 +265,17 @@ class SiteSitemap(object):
         return True
 
     def __hash__(self):
-        return hash((self.lastmod, self.objects, self.objects_list_pages,))
+        return hash((self.configuration, self.lastmod, self.objects, self.objects_list_pages,))
 
     def __iter__(self):
-        return iter((self.lastmod, self.objects, self.objects_list_pages,))
+        return iter((self.configuration, self.lastmod, self.objects, self.objects_list_pages,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
 
     def __repr__(self):
         field_reprs = []
+        field_reprs.append('configuration=' + repr(self.configuration))
         field_reprs.append('lastmod=' + "'" + self.lastmod.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('objects=' + repr(self.objects))
         field_reprs.append('objects_list_pages=' + repr(self.objects_list_pages))
@@ -235,6 +283,7 @@ class SiteSitemap(object):
 
     def __str__(self):
         field_reprs = []
+        field_reprs.append('configuration=' + repr(self.configuration))
         field_reprs.append('lastmod=' + "'" + self.lastmod.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('objects=' + repr(self.objects))
         field_reprs.append('objects_list_pages=' + repr(self.objects_list_pages))
@@ -244,12 +293,26 @@ class SiteSitemap(object):
     def builder(cls):
         return cls.Builder()
 
+    @property
+    def configuration(self):
+        '''
+        :rtype: pastpy.gen.site.site_configuration.SiteConfiguration
+        '''
+
+        return self.__configuration
+
     @classmethod
     def from_builtins(cls, _dict):
         if not isinstance(_dict, dict):
             raise ValueError("expected dict")
 
         __builder = cls.builder()
+
+        configuration = _dict.get("configuration")
+        if configuration is None:
+            raise KeyError("configuration")
+        configuration = pastpy.gen.site.site_configuration.SiteConfiguration.from_builtins(configuration)
+        __builder.configuration = configuration
 
         lastmod = _dict.get("lastmod")
         if lastmod is None:
@@ -310,6 +373,8 @@ class SiteSitemap(object):
             ifield_name, ifield_type, _ifield_id = iprot.read_field_begin()
             if ifield_type == 0:  # STOP
                 break
+            elif ifield_name == 'configuration':
+                init_kwds['configuration'] = pastpy.gen.site.site_configuration.SiteConfiguration.read(iprot)
             elif ifield_name == 'lastmod':
                 init_kwds['lastmod'] = iprot.read_string()
             elif ifield_name == 'objects':
@@ -326,6 +391,7 @@ class SiteSitemap(object):
 
     def to_builtins(self):
         dict_ = {}
+        dict_["configuration"] = self.configuration.to_builtins()
         dict_["lastmod"] = self.lastmod
         dict_["objects"] = tuple(element0.to_builtins() for element0 in self.objects)
         dict_["objects_list_pages"] = tuple(element0.to_builtins() for element0 in self.objects_list_pages)
@@ -340,6 +406,10 @@ class SiteSitemap(object):
         '''
 
         oprot.write_struct_begin('SiteSitemap')
+
+        oprot.write_field_begin(name='configuration', type=12, id=None)
+        self.configuration.write(oprot)
+        oprot.write_field_end()
 
         oprot.write_field_begin(name='lastmod', type=11, id=None)
         oprot.write_string(self.lastmod)
