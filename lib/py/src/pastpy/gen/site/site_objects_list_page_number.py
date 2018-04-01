@@ -174,7 +174,7 @@ class SiteObjectsListPageNumber(object):
 
     FieldMetadata.ACTIVE = FieldMetadata('active', bool, None)
     FieldMetadata.ENABLED = FieldMetadata('enabled', bool, None)
-    FieldMetadata.NUMBER = FieldMetadata('number', int, OrderedDict([('min', 1)]))
+    FieldMetadata.NUMBER = FieldMetadata('number', int, {'min': 1})
 
     def __init__(
         self,
