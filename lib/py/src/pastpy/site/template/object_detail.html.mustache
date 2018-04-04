@@ -3,7 +3,13 @@
 
 <head>
     {{>head_meta.html}} {{>head_css.html}}
-    <title>{{metadata.configuration.name}} - Object {{object.id}}</title>
+    <title>{{metadata.configuration.name}} - Object {{object.id}} - {{object.name}}</title>
+
+    <meta property="og:url"           content="{{{metadata.configuration.base_url}}}{{{object.absolute_href}}}" />
+    <meta property="og:type"          content="article" />
+    <meta property="og:title"         content="{{object.name}}" />
+    <!-- <meta property="og:description"   content="Your description" /> -->
+    <meta property="og:image"         content="{{object.thumbnail_url}}" />
 
     <script type="application/ld+json">
         {
@@ -33,13 +39,21 @@
 </head>
 
 <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
     <div class="container-fluid object-detail top-level-container">
         {{>navbar.html}}
         <div class="row">
             <div class="col-10 offset-1">
                 <div class="container-fluid content-container">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-3">
                             {{#object.has_full_size_images}}
                             {{#object.full_size_images}}
                             <div class="full-size-image">
@@ -50,15 +64,38 @@
                             {{/object.full_size_images}}
                             {{/object.has_full_size_images}}
                         </div>
-                        <div class="col-8">
-                            <table class="attributes table table-bordered table-striped">
-                                    {{#object.impl_attributes}}
-                                    <tr>
-                                        <td class="name">{{name}}</td>
-                                        <td class="value">{{value}}</td>
-                                    </tr>
-                                    {{/object.impl_attributes}}
-                            </table>
+                        <div class="col-9">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-10">
+                                        <table class="attributes table table-bordered table-striped">
+                                                {{#object.impl_attributes}}
+                                                <tr>
+                                                    <td class="name">{{name}}</td>
+                                                    <td class="value">{{value}}</td>
+                                                </tr>
+                                                {{/object.impl_attributes}}
+                                        </table>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="text-center">
+                                            <div>
+                                                <a data-pin-do="buttonBookmark" data-pin-tall="true" href="https://www.pinterest.com/pin/create/button/"></a>
+                                            </div>
+                                            <br/>
+                                            <div>
+                                                <div class="fb-share-button" data-href="{{{metadata.configuration.base_url}}}{{{object.absolute_href}}}" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{metadata.configuration.base_url}}{{object.absolute_href}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore" style="vertical-align: middle !important"></a></div>
+                                            </div>
+                                            <br/>
+                                            <div class="text-center">
+                                                <a href="mailto:?subject=I wanted you to see this page&amp;body=Check out this page: {{{metadata.configuration.base_url}}}{{{object.absolute_href}}}" title="Share by Email">
+                                                    <i class="fas fa-envelope fa-2x"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -66,6 +103,7 @@
         </div>
     </div>
     {{>footer.html}} {{>scripts.html}}
+    <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 </body>
 
 </html>
