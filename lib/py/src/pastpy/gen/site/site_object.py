@@ -15,11 +15,11 @@ class SiteObject(object):
             has_full_size_images=None,
             has_thumbnail_images=None,
             id=None,  # @ReservedAssignment
-            impl_attributes=None,
+            impl_attributes_list=None,
             name=None,
-            standard_attributes=None,
-            standard_attributes_json=None,
-            standard_attributes_xml=None,
+            standard_attributes_list=None,
+            standard_attributes_list_xml=None,
+            standard_attributes_map_json=None,
             thumbnail_images=None,
             thumbnail_url=None,
             title=None,
@@ -33,11 +33,11 @@ class SiteObject(object):
             :type has_full_size_images: bool
             :type has_thumbnail_images: bool
             :type id: str
-            :type impl_attributes: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type impl_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
             :type name: str
-            :type standard_attributes: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
-            :type standard_attributes_json: dict(str: str)
-            :type standard_attributes_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type standard_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type standard_attributes_list_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type standard_attributes_map_json: dict(str: str)
             :type thumbnail_images: tuple(pastpy.gen.site.site_image.SiteImage)
             :type thumbnail_url: str
             :type title: str
@@ -51,11 +51,11 @@ class SiteObject(object):
             self.__has_full_size_images = has_full_size_images
             self.__has_thumbnail_images = has_thumbnail_images
             self.__id = id
-            self.__impl_attributes = impl_attributes
+            self.__impl_attributes_list = impl_attributes_list
             self.__name = name
-            self.__standard_attributes = standard_attributes
-            self.__standard_attributes_json = standard_attributes_json
-            self.__standard_attributes_xml = standard_attributes_xml
+            self.__standard_attributes_list = standard_attributes_list
+            self.__standard_attributes_list_xml = standard_attributes_list_xml
+            self.__standard_attributes_map_json = standard_attributes_map_json
             self.__thumbnail_images = thumbnail_images
             self.__thumbnail_url = thumbnail_url
             self.__title = title
@@ -63,7 +63,7 @@ class SiteObject(object):
             self.__description = description
 
         def build(self):
-            return SiteObject(absolute_href=self.__absolute_href, file_name=self.__file_name, full_size_images=self.__full_size_images, has_full_size_images=self.__has_full_size_images, has_thumbnail_images=self.__has_thumbnail_images, id=self.__id, impl_attributes=self.__impl_attributes, name=self.__name, standard_attributes=self.__standard_attributes, standard_attributes_json=self.__standard_attributes_json, standard_attributes_xml=self.__standard_attributes_xml, thumbnail_images=self.__thumbnail_images, thumbnail_url=self.__thumbnail_url, title=self.__title, date=self.__date, description=self.__description)
+            return SiteObject(absolute_href=self.__absolute_href, file_name=self.__file_name, full_size_images=self.__full_size_images, has_full_size_images=self.__has_full_size_images, has_thumbnail_images=self.__has_thumbnail_images, id=self.__id, impl_attributes_list=self.__impl_attributes_list, name=self.__name, standard_attributes_list=self.__standard_attributes_list, standard_attributes_list_xml=self.__standard_attributes_list_xml, standard_attributes_map_json=self.__standard_attributes_map_json, thumbnail_images=self.__thumbnail_images, thumbnail_url=self.__thumbnail_url, title=self.__title, date=self.__date, description=self.__description)
 
         @property
         def absolute_href(self):
@@ -111,11 +111,11 @@ class SiteObject(object):
             builder.has_full_size_images = template.has_full_size_images
             builder.has_thumbnail_images = template.has_thumbnail_images
             builder.id = template.id
-            builder.impl_attributes = template.impl_attributes
+            builder.impl_attributes_list = template.impl_attributes_list
             builder.name = template.name
-            builder.standard_attributes = template.standard_attributes
-            builder.standard_attributes_json = template.standard_attributes_json
-            builder.standard_attributes_xml = template.standard_attributes_xml
+            builder.standard_attributes_list = template.standard_attributes_list
+            builder.standard_attributes_list_xml = template.standard_attributes_list_xml
+            builder.standard_attributes_map_json = template.standard_attributes_map_json
             builder.thumbnail_images = template.thumbnail_images
             builder.thumbnail_url = template.thumbnail_url
             builder.title = template.title
@@ -156,12 +156,12 @@ class SiteObject(object):
             return self.__id
 
         @property
-        def impl_attributes(self):
+        def impl_attributes_list(self):
             '''
             :rtype: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
             '''
 
-            return self.__impl_attributes
+            return self.__impl_attributes_list
 
         @property
         def name(self):
@@ -265,16 +265,16 @@ class SiteObject(object):
             self.__id = id
             return self
 
-        def set_impl_attributes(self, impl_attributes):
+        def set_impl_attributes_list(self, impl_attributes_list):
             '''
-            :type impl_attributes: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type impl_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
             '''
 
-            if impl_attributes is None:
-                raise ValueError('impl_attributes is required')
-            if not (isinstance(impl_attributes, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), impl_attributes))) == 0):
-                raise TypeError("expected impl_attributes to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(impl_attributes))
-            self.__impl_attributes = impl_attributes
+            if impl_attributes_list is None:
+                raise ValueError('impl_attributes_list is required')
+            if not (isinstance(impl_attributes_list, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), impl_attributes_list))) == 0):
+                raise TypeError("expected impl_attributes_list to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(impl_attributes_list))
+            self.__impl_attributes_list = impl_attributes_list
             return self
 
         def set_name(self, name):
@@ -289,40 +289,40 @@ class SiteObject(object):
             self.__name = name
             return self
 
-        def set_standard_attributes(self, standard_attributes):
+        def set_standard_attributes_list(self, standard_attributes_list):
             '''
-            :type standard_attributes: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type standard_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
             '''
 
-            if standard_attributes is None:
-                raise ValueError('standard_attributes is required')
-            if not (isinstance(standard_attributes, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), standard_attributes))) == 0):
-                raise TypeError("expected standard_attributes to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(standard_attributes))
-            self.__standard_attributes = standard_attributes
+            if standard_attributes_list is None:
+                raise ValueError('standard_attributes_list is required')
+            if not (isinstance(standard_attributes_list, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), standard_attributes_list))) == 0):
+                raise TypeError("expected standard_attributes_list to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(standard_attributes_list))
+            self.__standard_attributes_list = standard_attributes_list
             return self
 
-        def set_standard_attributes_json(self, standard_attributes_json):
+        def set_standard_attributes_list_xml(self, standard_attributes_list_xml):
             '''
-            :type standard_attributes_json: dict(str: str)
+            :type standard_attributes_list_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
             '''
 
-            if standard_attributes_json is None:
-                raise ValueError('standard_attributes_json is required')
-            if not (isinstance(standard_attributes_json, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], str) and isinstance(__item[1], str), standard_attributes_json.items()))) == 0):
-                raise TypeError("expected standard_attributes_json to be a dict(str: str) but it is a %s" % builtins.type(standard_attributes_json))
-            self.__standard_attributes_json = standard_attributes_json
+            if standard_attributes_list_xml is None:
+                raise ValueError('standard_attributes_list_xml is required')
+            if not (isinstance(standard_attributes_list_xml, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), standard_attributes_list_xml))) == 0):
+                raise TypeError("expected standard_attributes_list_xml to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(standard_attributes_list_xml))
+            self.__standard_attributes_list_xml = standard_attributes_list_xml
             return self
 
-        def set_standard_attributes_xml(self, standard_attributes_xml):
+        def set_standard_attributes_map_json(self, standard_attributes_map_json):
             '''
-            :type standard_attributes_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type standard_attributes_map_json: dict(str: str)
             '''
 
-            if standard_attributes_xml is None:
-                raise ValueError('standard_attributes_xml is required')
-            if not (isinstance(standard_attributes_xml, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), standard_attributes_xml))) == 0):
-                raise TypeError("expected standard_attributes_xml to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(standard_attributes_xml))
-            self.__standard_attributes_xml = standard_attributes_xml
+            if standard_attributes_map_json is None:
+                raise ValueError('standard_attributes_map_json is required')
+            if not (isinstance(standard_attributes_map_json, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], str) and isinstance(__item[1], str), standard_attributes_map_json.items()))) == 0):
+                raise TypeError("expected standard_attributes_map_json to be a dict(str: str) but it is a %s" % builtins.type(standard_attributes_map_json))
+            self.__standard_attributes_map_json = standard_attributes_map_json
             return self
 
         def set_thumbnail_images(self, thumbnail_images):
@@ -362,28 +362,28 @@ class SiteObject(object):
             return self
 
         @property
-        def standard_attributes(self):
+        def standard_attributes_list(self):
             '''
             :rtype: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
             '''
 
-            return self.__standard_attributes
+            return self.__standard_attributes_list
 
         @property
-        def standard_attributes_json(self):
+        def standard_attributes_list_xml(self):
+            '''
+            :rtype: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            '''
+
+            return self.__standard_attributes_list_xml
+
+        @property
+        def standard_attributes_map_json(self):
             '''
             :rtype: dict(str: str)
             '''
 
-            return self.__standard_attributes_json.copy() if self.__standard_attributes_json is not None else None
-
-        @property
-        def standard_attributes_xml(self):
-            '''
-            :rtype: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
-            '''
-
-            return self.__standard_attributes_xml
+            return self.__standard_attributes_map_json.copy() if self.__standard_attributes_map_json is not None else None
 
         @property
         def thumbnail_images(self):
@@ -417,11 +417,11 @@ class SiteObject(object):
             :type has_full_size_images: bool
             :type has_thumbnail_images: bool
             :type id: str
-            :type impl_attributes: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type impl_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
             :type name: str
-            :type standard_attributes: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
-            :type standard_attributes_json: dict(str: str)
-            :type standard_attributes_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type standard_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type standard_attributes_list_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type standard_attributes_map_json: dict(str: str)
             :type thumbnail_images: tuple(pastpy.gen.site.site_image.SiteImage)
             :type thumbnail_url: str
             :type title: str
@@ -436,11 +436,11 @@ class SiteObject(object):
                 self.set_has_full_size_images(site_object.has_full_size_images)
                 self.set_has_thumbnail_images(site_object.has_thumbnail_images)
                 self.set_id(site_object.id)
-                self.set_impl_attributes(site_object.impl_attributes)
+                self.set_impl_attributes_list(site_object.impl_attributes_list)
                 self.set_name(site_object.name)
-                self.set_standard_attributes(site_object.standard_attributes)
-                self.set_standard_attributes_json(site_object.standard_attributes_json)
-                self.set_standard_attributes_xml(site_object.standard_attributes_xml)
+                self.set_standard_attributes_list(site_object.standard_attributes_list)
+                self.set_standard_attributes_list_xml(site_object.standard_attributes_list_xml)
+                self.set_standard_attributes_map_json(site_object.standard_attributes_map_json)
                 self.set_thumbnail_images(site_object.thumbnail_images)
                 self.set_thumbnail_url(site_object.thumbnail_url)
                 self.set_title(site_object.title)
@@ -517,13 +517,13 @@ class SiteObject(object):
 
             self.set_id(id)
 
-        @impl_attributes.setter
-        def impl_attributes(self, impl_attributes):
+        @impl_attributes_list.setter
+        def impl_attributes_list(self, impl_attributes_list):
             '''
-            :type impl_attributes: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type impl_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
             '''
 
-            self.set_impl_attributes(impl_attributes)
+            self.set_impl_attributes_list(impl_attributes_list)
 
         @name.setter
         def name(self, name):
@@ -533,29 +533,29 @@ class SiteObject(object):
 
             self.set_name(name)
 
-        @standard_attributes.setter
-        def standard_attributes(self, standard_attributes):
+        @standard_attributes_list.setter
+        def standard_attributes_list(self, standard_attributes_list):
             '''
-            :type standard_attributes: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
-            '''
-
-            self.set_standard_attributes(standard_attributes)
-
-        @standard_attributes_json.setter
-        def standard_attributes_json(self, standard_attributes_json):
-            '''
-            :type standard_attributes_json: dict(str: str)
+            :type standard_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
             '''
 
-            self.set_standard_attributes_json(standard_attributes_json)
+            self.set_standard_attributes_list(standard_attributes_list)
 
-        @standard_attributes_xml.setter
-        def standard_attributes_xml(self, standard_attributes_xml):
+        @standard_attributes_list_xml.setter
+        def standard_attributes_list_xml(self, standard_attributes_list_xml):
             '''
-            :type standard_attributes_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type standard_attributes_list_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
             '''
 
-            self.set_standard_attributes_xml(standard_attributes_xml)
+            self.set_standard_attributes_list_xml(standard_attributes_list_xml)
+
+        @standard_attributes_map_json.setter
+        def standard_attributes_map_json(self, standard_attributes_map_json):
+            '''
+            :type standard_attributes_map_json: dict(str: str)
+            '''
+
+            self.set_standard_attributes_map_json(standard_attributes_map_json)
 
         @thumbnail_images.setter
         def thumbnail_images(self, thumbnail_images):
@@ -588,11 +588,11 @@ class SiteObject(object):
         HAS_FULL_SIZE_IMAGES = None
         HAS_THUMBNAIL_IMAGES = None
         ID = None
-        IMPL_ATTRIBUTES = None
+        IMPL_ATTRIBUTES_LIST = None
         NAME = None
-        STANDARD_ATTRIBUTES = None
-        STANDARD_ATTRIBUTES_JSON = None
-        STANDARD_ATTRIBUTES_XML = None
+        STANDARD_ATTRIBUTES_LIST = None
+        STANDARD_ATTRIBUTES_LIST_XML = None
+        STANDARD_ATTRIBUTES_MAP_JSON = None
         THUMBNAIL_IMAGES = None
         THUMBNAIL_URL = None
         TITLE = None
@@ -625,7 +625,7 @@ class SiteObject(object):
 
         @classmethod
         def values(cls):
-            return (cls.ABSOLUTE_HREF, cls.FILE_NAME, cls.FULL_SIZE_IMAGES, cls.HAS_FULL_SIZE_IMAGES, cls.HAS_THUMBNAIL_IMAGES, cls.ID, cls.IMPL_ATTRIBUTES, cls.NAME, cls.STANDARD_ATTRIBUTES, cls.STANDARD_ATTRIBUTES_JSON, cls.STANDARD_ATTRIBUTES_XML, cls.THUMBNAIL_IMAGES, cls.THUMBNAIL_URL, cls.TITLE, cls.DATE, cls.DESCRIPTION,)
+            return (cls.ABSOLUTE_HREF, cls.FILE_NAME, cls.FULL_SIZE_IMAGES, cls.HAS_FULL_SIZE_IMAGES, cls.HAS_THUMBNAIL_IMAGES, cls.ID, cls.IMPL_ATTRIBUTES_LIST, cls.NAME, cls.STANDARD_ATTRIBUTES_LIST, cls.STANDARD_ATTRIBUTES_LIST_XML, cls.STANDARD_ATTRIBUTES_MAP_JSON, cls.THUMBNAIL_IMAGES, cls.THUMBNAIL_URL, cls.TITLE, cls.DATE, cls.DESCRIPTION,)
 
     FieldMetadata.ABSOLUTE_HREF = FieldMetadata('absolute_href', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.FILE_NAME = FieldMetadata('file_name', pastpy.gen.non_blank_string.NonBlankString, None)
@@ -633,11 +633,11 @@ class SiteObject(object):
     FieldMetadata.HAS_FULL_SIZE_IMAGES = FieldMetadata('has_full_size_images', bool, None)
     FieldMetadata.HAS_THUMBNAIL_IMAGES = FieldMetadata('has_thumbnail_images', bool, None)
     FieldMetadata.ID = FieldMetadata('id', pastpy.gen.non_blank_string.NonBlankString, None)
-    FieldMetadata.IMPL_ATTRIBUTES = FieldMetadata('impl_attributes', tuple, None)
+    FieldMetadata.IMPL_ATTRIBUTES_LIST = FieldMetadata('impl_attributes_list', tuple, None)
     FieldMetadata.NAME = FieldMetadata('name', pastpy.gen.non_blank_string.NonBlankString, None)
-    FieldMetadata.STANDARD_ATTRIBUTES = FieldMetadata('standard_attributes', tuple, None)
-    FieldMetadata.STANDARD_ATTRIBUTES_JSON = FieldMetadata('standard_attributes_json', dict, None)
-    FieldMetadata.STANDARD_ATTRIBUTES_XML = FieldMetadata('standard_attributes_xml', tuple, None)
+    FieldMetadata.STANDARD_ATTRIBUTES_LIST = FieldMetadata('standard_attributes_list', tuple, None)
+    FieldMetadata.STANDARD_ATTRIBUTES_LIST_XML = FieldMetadata('standard_attributes_list_xml', tuple, None)
+    FieldMetadata.STANDARD_ATTRIBUTES_MAP_JSON = FieldMetadata('standard_attributes_map_json', dict, None)
     FieldMetadata.THUMBNAIL_IMAGES = FieldMetadata('thumbnail_images', tuple, None)
     FieldMetadata.THUMBNAIL_URL = FieldMetadata('thumbnail_url', str, None)
     FieldMetadata.TITLE = FieldMetadata('title', pastpy.gen.non_blank_string.NonBlankString, None)
@@ -652,11 +652,11 @@ class SiteObject(object):
         has_full_size_images,
         has_thumbnail_images,
         id,  # @ReservedAssignment
-        impl_attributes,
+        impl_attributes_list,
         name,
-        standard_attributes,
-        standard_attributes_json,
-        standard_attributes_xml,
+        standard_attributes_list,
+        standard_attributes_list_xml,
+        standard_attributes_map_json,
         thumbnail_images,
         thumbnail_url,
         title,
@@ -670,11 +670,11 @@ class SiteObject(object):
         :type has_full_size_images: bool
         :type has_thumbnail_images: bool
         :type id: str
-        :type impl_attributes: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+        :type impl_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
         :type name: str
-        :type standard_attributes: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
-        :type standard_attributes_json: dict(str: str)
-        :type standard_attributes_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+        :type standard_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+        :type standard_attributes_list_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+        :type standard_attributes_map_json: dict(str: str)
         :type thumbnail_images: tuple(pastpy.gen.site.site_image.SiteImage)
         :type thumbnail_url: str
         :type title: str
@@ -718,11 +718,11 @@ class SiteObject(object):
             raise TypeError("expected id to be a str but it is a %s" % builtins.type(id))
         self.__id = id
 
-        if impl_attributes is None:
-            raise ValueError('impl_attributes is required')
-        if not (isinstance(impl_attributes, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), impl_attributes))) == 0):
-            raise TypeError("expected impl_attributes to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(impl_attributes))
-        self.__impl_attributes = impl_attributes
+        if impl_attributes_list is None:
+            raise ValueError('impl_attributes_list is required')
+        if not (isinstance(impl_attributes_list, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), impl_attributes_list))) == 0):
+            raise TypeError("expected impl_attributes_list to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(impl_attributes_list))
+        self.__impl_attributes_list = impl_attributes_list
 
         if name is None:
             raise ValueError('name is required')
@@ -730,23 +730,23 @@ class SiteObject(object):
             raise TypeError("expected name to be a str but it is a %s" % builtins.type(name))
         self.__name = name
 
-        if standard_attributes is None:
-            raise ValueError('standard_attributes is required')
-        if not (isinstance(standard_attributes, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), standard_attributes))) == 0):
-            raise TypeError("expected standard_attributes to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(standard_attributes))
-        self.__standard_attributes = standard_attributes
+        if standard_attributes_list is None:
+            raise ValueError('standard_attributes_list is required')
+        if not (isinstance(standard_attributes_list, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), standard_attributes_list))) == 0):
+            raise TypeError("expected standard_attributes_list to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(standard_attributes_list))
+        self.__standard_attributes_list = standard_attributes_list
 
-        if standard_attributes_json is None:
-            raise ValueError('standard_attributes_json is required')
-        if not (isinstance(standard_attributes_json, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], str) and isinstance(__item[1], str), standard_attributes_json.items()))) == 0):
-            raise TypeError("expected standard_attributes_json to be a dict(str: str) but it is a %s" % builtins.type(standard_attributes_json))
-        self.__standard_attributes_json = standard_attributes_json.copy() if standard_attributes_json is not None else None
+        if standard_attributes_list_xml is None:
+            raise ValueError('standard_attributes_list_xml is required')
+        if not (isinstance(standard_attributes_list_xml, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), standard_attributes_list_xml))) == 0):
+            raise TypeError("expected standard_attributes_list_xml to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(standard_attributes_list_xml))
+        self.__standard_attributes_list_xml = standard_attributes_list_xml
 
-        if standard_attributes_xml is None:
-            raise ValueError('standard_attributes_xml is required')
-        if not (isinstance(standard_attributes_xml, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), standard_attributes_xml))) == 0):
-            raise TypeError("expected standard_attributes_xml to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(standard_attributes_xml))
-        self.__standard_attributes_xml = standard_attributes_xml
+        if standard_attributes_map_json is None:
+            raise ValueError('standard_attributes_map_json is required')
+        if not (isinstance(standard_attributes_map_json, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], str) and isinstance(__item[1], str), standard_attributes_map_json.items()))) == 0):
+            raise TypeError("expected standard_attributes_map_json to be a dict(str: str) but it is a %s" % builtins.type(standard_attributes_map_json))
+        self.__standard_attributes_map_json = standard_attributes_map_json.copy() if standard_attributes_map_json is not None else None
 
         if thumbnail_images is None:
             raise ValueError('thumbnail_images is required')
@@ -789,15 +789,15 @@ class SiteObject(object):
             return False
         if self.id != other.id:
             return False
-        if self.impl_attributes != other.impl_attributes:
+        if self.impl_attributes_list != other.impl_attributes_list:
             return False
         if self.name != other.name:
             return False
-        if self.standard_attributes != other.standard_attributes:
+        if self.standard_attributes_list != other.standard_attributes_list:
             return False
-        if self.standard_attributes_json != other.standard_attributes_json:
+        if self.standard_attributes_list_xml != other.standard_attributes_list_xml:
             return False
-        if self.standard_attributes_xml != other.standard_attributes_xml:
+        if self.standard_attributes_map_json != other.standard_attributes_map_json:
             return False
         if self.thumbnail_images != other.thumbnail_images:
             return False
@@ -812,10 +812,10 @@ class SiteObject(object):
         return True
 
     def __hash__(self):
-        return hash((self.absolute_href, self.file_name, self.full_size_images, self.has_full_size_images, self.has_thumbnail_images, self.id, self.impl_attributes, self.name, self.standard_attributes, self.standard_attributes_json, self.standard_attributes_xml, self.thumbnail_images, self.thumbnail_url, self.title, self.date, self.description,))
+        return hash((self.absolute_href, self.file_name, self.full_size_images, self.has_full_size_images, self.has_thumbnail_images, self.id, self.impl_attributes_list, self.name, self.standard_attributes_list, self.standard_attributes_list_xml, self.standard_attributes_map_json, self.thumbnail_images, self.thumbnail_url, self.title, self.date, self.description,))
 
     def __iter__(self):
-        return iter((self.absolute_href, self.file_name, self.full_size_images, self.has_full_size_images, self.has_thumbnail_images, self.id, self.impl_attributes, self.name, self.standard_attributes, self.standard_attributes_json, self.standard_attributes_xml, self.thumbnail_images, self.thumbnail_url, self.title, self.date, self.description,))
+        return iter((self.absolute_href, self.file_name, self.full_size_images, self.has_full_size_images, self.has_thumbnail_images, self.id, self.impl_attributes_list, self.name, self.standard_attributes_list, self.standard_attributes_list_xml, self.standard_attributes_map_json, self.thumbnail_images, self.thumbnail_url, self.title, self.date, self.description,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -828,11 +828,11 @@ class SiteObject(object):
         field_reprs.append('has_full_size_images=' + repr(self.has_full_size_images))
         field_reprs.append('has_thumbnail_images=' + repr(self.has_thumbnail_images))
         field_reprs.append('id=' + "'" + self.id.encode('ascii', 'replace').decode('ascii') + "'")
-        field_reprs.append('impl_attributes=' + repr(self.impl_attributes))
+        field_reprs.append('impl_attributes_list=' + repr(self.impl_attributes_list))
         field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
-        field_reprs.append('standard_attributes=' + repr(self.standard_attributes))
-        field_reprs.append('standard_attributes_json=' + repr(self.standard_attributes_json))
-        field_reprs.append('standard_attributes_xml=' + repr(self.standard_attributes_xml))
+        field_reprs.append('standard_attributes_list=' + repr(self.standard_attributes_list))
+        field_reprs.append('standard_attributes_list_xml=' + repr(self.standard_attributes_list_xml))
+        field_reprs.append('standard_attributes_map_json=' + repr(self.standard_attributes_map_json))
         field_reprs.append('thumbnail_images=' + repr(self.thumbnail_images))
         field_reprs.append('thumbnail_url=' + "'" + self.thumbnail_url.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').decode('ascii') + "'")
@@ -850,11 +850,11 @@ class SiteObject(object):
         field_reprs.append('has_full_size_images=' + repr(self.has_full_size_images))
         field_reprs.append('has_thumbnail_images=' + repr(self.has_thumbnail_images))
         field_reprs.append('id=' + "'" + self.id.encode('ascii', 'replace').decode('ascii') + "'")
-        field_reprs.append('impl_attributes=' + repr(self.impl_attributes))
+        field_reprs.append('impl_attributes_list=' + repr(self.impl_attributes_list))
         field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
-        field_reprs.append('standard_attributes=' + repr(self.standard_attributes))
-        field_reprs.append('standard_attributes_json=' + repr(self.standard_attributes_json))
-        field_reprs.append('standard_attributes_xml=' + repr(self.standard_attributes_xml))
+        field_reprs.append('standard_attributes_list=' + repr(self.standard_attributes_list))
+        field_reprs.append('standard_attributes_list_xml=' + repr(self.standard_attributes_list_xml))
+        field_reprs.append('standard_attributes_map_json=' + repr(self.standard_attributes_map_json))
         field_reprs.append('thumbnail_images=' + repr(self.thumbnail_images))
         field_reprs.append('thumbnail_url=' + "'" + self.thumbnail_url.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace').decode('ascii') + "'")
@@ -938,33 +938,33 @@ class SiteObject(object):
             raise KeyError("id")
         __builder.id = id
 
-        impl_attributes = _dict.get("impl_attributes")
-        if impl_attributes is None:
-            raise KeyError("impl_attributes")
-        impl_attributes = tuple(pastpy.gen.site.site_attribute.SiteAttribute.from_builtins(element0) for element0 in impl_attributes)
-        __builder.impl_attributes = impl_attributes
+        impl_attributes_list = _dict.get("impl_attributes_list")
+        if impl_attributes_list is None:
+            raise KeyError("impl_attributes_list")
+        impl_attributes_list = tuple(pastpy.gen.site.site_attribute.SiteAttribute.from_builtins(element0) for element0 in impl_attributes_list)
+        __builder.impl_attributes_list = impl_attributes_list
 
         name = _dict.get("name")
         if name is None:
             raise KeyError("name")
         __builder.name = name
 
-        standard_attributes = _dict.get("standard_attributes")
-        if standard_attributes is None:
-            raise KeyError("standard_attributes")
-        standard_attributes = tuple(pastpy.gen.site.site_attribute.SiteAttribute.from_builtins(element0) for element0 in standard_attributes)
-        __builder.standard_attributes = standard_attributes
+        standard_attributes_list = _dict.get("standard_attributes_list")
+        if standard_attributes_list is None:
+            raise KeyError("standard_attributes_list")
+        standard_attributes_list = tuple(pastpy.gen.site.site_attribute.SiteAttribute.from_builtins(element0) for element0 in standard_attributes_list)
+        __builder.standard_attributes_list = standard_attributes_list
 
-        standard_attributes_json = _dict.get("standard_attributes_json")
-        if standard_attributes_json is None:
-            raise KeyError("standard_attributes_json")
-        __builder.standard_attributes_json = standard_attributes_json
+        standard_attributes_list_xml = _dict.get("standard_attributes_list_xml")
+        if standard_attributes_list_xml is None:
+            raise KeyError("standard_attributes_list_xml")
+        standard_attributes_list_xml = tuple(pastpy.gen.site.site_attribute.SiteAttribute.from_builtins(element0) for element0 in standard_attributes_list_xml)
+        __builder.standard_attributes_list_xml = standard_attributes_list_xml
 
-        standard_attributes_xml = _dict.get("standard_attributes_xml")
-        if standard_attributes_xml is None:
-            raise KeyError("standard_attributes_xml")
-        standard_attributes_xml = tuple(pastpy.gen.site.site_attribute.SiteAttribute.from_builtins(element0) for element0 in standard_attributes_xml)
-        __builder.standard_attributes_xml = standard_attributes_xml
+        standard_attributes_map_json = _dict.get("standard_attributes_map_json")
+        if standard_attributes_map_json is None:
+            raise KeyError("standard_attributes_map_json")
+        __builder.standard_attributes_map_json = standard_attributes_map_json
 
         thumbnail_images = _dict.get("thumbnail_images")
         if thumbnail_images is None:
@@ -1021,12 +1021,12 @@ class SiteObject(object):
         return self.__id
 
     @property
-    def impl_attributes(self):
+    def impl_attributes_list(self):
         '''
         :rtype: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
         '''
 
-        return self.__impl_attributes
+        return self.__impl_attributes_list
 
     @property
     def name(self):
@@ -1064,16 +1064,16 @@ class SiteObject(object):
                 init_kwds['has_thumbnail_images'] = iprot.read_bool()
             elif ifield_name == 'id':
                 init_kwds['id'] = iprot.read_string()
-            elif ifield_name == 'impl_attributes':
-                init_kwds['impl_attributes'] = tuple([pastpy.gen.site.site_attribute.SiteAttribute.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
+            elif ifield_name == 'impl_attributes_list':
+                init_kwds['impl_attributes_list'] = tuple([pastpy.gen.site.site_attribute.SiteAttribute.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
             elif ifield_name == 'name':
                 init_kwds['name'] = iprot.read_string()
-            elif ifield_name == 'standard_attributes':
-                init_kwds['standard_attributes'] = tuple([pastpy.gen.site.site_attribute.SiteAttribute.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
-            elif ifield_name == 'standard_attributes_json':
-                init_kwds['standard_attributes_json'] = dict([(iprot.read_string(), iprot.read_string()) for _ in xrange(iprot.read_map_begin()[2])] + (iprot.read_map_end() is None and []))
-            elif ifield_name == 'standard_attributes_xml':
-                init_kwds['standard_attributes_xml'] = tuple([pastpy.gen.site.site_attribute.SiteAttribute.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
+            elif ifield_name == 'standard_attributes_list':
+                init_kwds['standard_attributes_list'] = tuple([pastpy.gen.site.site_attribute.SiteAttribute.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
+            elif ifield_name == 'standard_attributes_list_xml':
+                init_kwds['standard_attributes_list_xml'] = tuple([pastpy.gen.site.site_attribute.SiteAttribute.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
+            elif ifield_name == 'standard_attributes_map_json':
+                init_kwds['standard_attributes_map_json'] = dict([(iprot.read_string(), iprot.read_string()) for _ in xrange(iprot.read_map_begin()[2])] + (iprot.read_map_end() is None and []))
             elif ifield_name == 'thumbnail_images':
                 init_kwds['thumbnail_images'] = tuple([pastpy.gen.site.site_image.SiteImage.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
             elif ifield_name == 'thumbnail_url':
@@ -1099,28 +1099,28 @@ class SiteObject(object):
         return self.Builder.from_template(template=self)
 
     @property
-    def standard_attributes(self):
+    def standard_attributes_list(self):
         '''
         :rtype: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
         '''
 
-        return self.__standard_attributes
+        return self.__standard_attributes_list
 
     @property
-    def standard_attributes_json(self):
+    def standard_attributes_list_xml(self):
+        '''
+        :rtype: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+        '''
+
+        return self.__standard_attributes_list_xml
+
+    @property
+    def standard_attributes_map_json(self):
         '''
         :rtype: dict(str: str)
         '''
 
-        return self.__standard_attributes_json.copy() if self.__standard_attributes_json is not None else None
-
-    @property
-    def standard_attributes_xml(self):
-        '''
-        :rtype: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
-        '''
-
-        return self.__standard_attributes_xml
+        return self.__standard_attributes_map_json.copy() if self.__standard_attributes_map_json is not None else None
 
     @property
     def thumbnail_images(self):
@@ -1154,11 +1154,11 @@ class SiteObject(object):
         dict_["has_full_size_images"] = self.has_full_size_images
         dict_["has_thumbnail_images"] = self.has_thumbnail_images
         dict_["id"] = self.id
-        dict_["impl_attributes"] = tuple(element0.to_builtins() for element0 in self.impl_attributes)
+        dict_["impl_attributes_list"] = tuple(element0.to_builtins() for element0 in self.impl_attributes_list)
         dict_["name"] = self.name
-        dict_["standard_attributes"] = tuple(element0.to_builtins() for element0 in self.standard_attributes)
-        dict_["standard_attributes_json"] = self.standard_attributes_json
-        dict_["standard_attributes_xml"] = tuple(element0.to_builtins() for element0 in self.standard_attributes_xml)
+        dict_["standard_attributes_list"] = tuple(element0.to_builtins() for element0 in self.standard_attributes_list)
+        dict_["standard_attributes_list_xml"] = tuple(element0.to_builtins() for element0 in self.standard_attributes_list_xml)
+        dict_["standard_attributes_map_json"] = self.standard_attributes_map_json
         dict_["thumbnail_images"] = tuple(element0.to_builtins() for element0 in self.thumbnail_images)
         dict_["thumbnail_url"] = self.thumbnail_url
         dict_["title"] = self.title
@@ -1203,9 +1203,9 @@ class SiteObject(object):
         oprot.write_string(self.id)
         oprot.write_field_end()
 
-        oprot.write_field_begin(name='impl_attributes', type=15, id=None)
-        oprot.write_list_begin(12, len(self.impl_attributes))
-        for _0 in self.impl_attributes:
+        oprot.write_field_begin(name='impl_attributes_list', type=15, id=None)
+        oprot.write_list_begin(12, len(self.impl_attributes_list))
+        for _0 in self.impl_attributes_list:
             _0.write(oprot)
         oprot.write_list_end()
         oprot.write_field_end()
@@ -1214,26 +1214,26 @@ class SiteObject(object):
         oprot.write_string(self.name)
         oprot.write_field_end()
 
-        oprot.write_field_begin(name='standard_attributes', type=15, id=None)
-        oprot.write_list_begin(12, len(self.standard_attributes))
-        for _0 in self.standard_attributes:
+        oprot.write_field_begin(name='standard_attributes_list', type=15, id=None)
+        oprot.write_list_begin(12, len(self.standard_attributes_list))
+        for _0 in self.standard_attributes_list:
             _0.write(oprot)
         oprot.write_list_end()
         oprot.write_field_end()
 
-        oprot.write_field_begin(name='standard_attributes_json', type=13, id=None)
-        oprot.write_map_begin(11, len(self.standard_attributes_json), 11)
-        for __key0, __value0 in self.standard_attributes_json.items():
+        oprot.write_field_begin(name='standard_attributes_list_xml', type=15, id=None)
+        oprot.write_list_begin(12, len(self.standard_attributes_list_xml))
+        for _0 in self.standard_attributes_list_xml:
+            _0.write(oprot)
+        oprot.write_list_end()
+        oprot.write_field_end()
+
+        oprot.write_field_begin(name='standard_attributes_map_json', type=13, id=None)
+        oprot.write_map_begin(11, len(self.standard_attributes_map_json), 11)
+        for __key0, __value0 in self.standard_attributes_map_json.items():
             oprot.write_string(__key0)
             oprot.write_string(__value0)
         oprot.write_map_end()
-        oprot.write_field_end()
-
-        oprot.write_field_begin(name='standard_attributes_xml', type=15, id=None)
-        oprot.write_list_begin(12, len(self.standard_attributes_xml))
-        for _0 in self.standard_attributes_xml:
-            _0.write(oprot)
-        oprot.write_list_end()
         oprot.write_field_end()
 
         oprot.write_field_begin(name='thumbnail_images', type=15, id=None)

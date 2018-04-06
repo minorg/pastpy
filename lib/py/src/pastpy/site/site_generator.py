@@ -208,7 +208,7 @@ class SiteGenerator(object):
             else:
                 object_builder.thumbnail_url = "http://via.placeholder.com/210x211?text=Missing%20image"
 
-            object_builder.impl_attributes = \
+            object_builder.impl_attributes_list = \
                 tuple(SiteAttribute(name=name, value=value)
                       for name, value in database_object.impl_attributes.items())
 
@@ -219,9 +219,9 @@ class SiteGenerator(object):
             else:
                 object_builder.name = database_object.id
 
-            standard_attributes = {}
-            standard_attributes_json = {}
-            standard_attributes_xml = {}
+            standard_attributes_map = {}
+            standard_attributes_map_json = {}
+            standard_attributes_map_xml = {}
             for member_name, member in inspect.getmembers(database_object):
                 if inspect.ismethod(member):
                     continue
@@ -231,18 +231,18 @@ class SiteGenerator(object):
                     continue
                 value = getattr(database_object, member_name)
                 if value is not None:
-                    standard_attributes[member_name] = value
-                    standard_attributes_json[member_name] = json.dumps(value)
-                    standard_attributes_xml[member_name] = saxutils.escape(value)
+                    standard_attributes_map[member_name] = value
+                    standard_attributes_map_json[member_name] = json.dumps(value)
+                    standard_attributes_map_xml[member_name] = saxutils.escape(value)
                 else:
-                    standard_attributes_json[member_name] = ''
-                    standard_attributes_xml[member_name] = ''
-            object_builder.standard_attributes = \
+                    standard_attributes_map_json[member_name] = ''
+                    standard_attributes_map_xml[member_name] = ''
+            object_builder.standard_attributes_list = \
                 tuple(SiteAttribute(name=name, value=value)
-                      for name, value in standard_attributes.items())
-            object_builder.standard_attributes_json = standard_attributes_json
-            object_builder.standard_attributes_xml = tuple(SiteAttribute(key, value) for key, value in standard_attributes_xml.items())
-            for name, value in standard_attributes.items():
+                      for name, value in standard_attributes_map.items())
+            object_builder.standard_attributes_list_xml = tuple(SiteAttribute(key, value) for key, value in standard_attributes_map_xml.items())
+            object_builder.standard_attributes_map_json = standard_attributes_map_json
+            for name, value in standard_attributes_map.items():
                 setattr(object_builder, name, value)
 
             if object_builder.title is None:
@@ -361,8 +361,8 @@ class SiteGenerator(object):
         context_builder.objects_list_pages = objects_list_pages
         objects = []
         for object_ in self.__objects:
-            objects.append(object_.replacer().set_standard_attributes(tuple(
-                item for item in object_.standard_attributes
+            objects.append(object_.replacer().set_standard_attributes_list_xml(tuple(
+                item for item in object_.standard_attributes_list_xml
                 if item.name != "description"
             )).build())
         context_builder.objects = tuple(objects)

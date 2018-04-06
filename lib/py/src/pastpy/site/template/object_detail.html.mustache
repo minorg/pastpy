@@ -15,23 +15,23 @@
         {
             "@context": "http://schema.org",
             "@type": "CreativeWork",
-            {{#object.standard_attributes_json.othername}}
-            "alternateName": {{{object.standard_attributes_json.othername}}},
-            {{/object.standard_attributes_json.othername}}
+            {{#object.standard_attributes_map_json.othername}}
+            "alternateName": {{{object.standard_attributes_map_json.othername}}},
+            {{/object.standard_attributes_map_json.othername}}
             "copyrightHolder": "{{{metadata.configuration.copyright_holder}}}",
-            {{#object.standard_attributes_json.description}}
-            "description": {{{object.standard_attributes_json.description}}},
-            {{/object.standard_attributes_json.description}}
-            {{#object.standard_attributes_json.title}}
-            "headline": {{{object.standard_attributes_json.title}}},
-            {{/object.standard_attributes_json.title}}
-            "identifier": {{{object.standard_attributes_json.id}}},
-            {{#object.standard_attributes_json.name}}
-            "name": {{{object.standard_attributes_json.name}}},
-            {{/object.standard_attributes_json.name}}
-            {{#object.standard_attributes_json.date}}
-            "temporalCoverage": {{{object.standard_attributes_json.date}}},
-            {{/object.standard_attributes_json.date}}
+            {{#object.standard_attributes_map_json.description}}
+            "description": {{{object.standard_attributes_map_json.description}}},
+            {{/object.standard_attributes_map_json.description}}
+            {{#object.standard_attributes_map_json.title}}
+            "headline": {{{object.standard_attributes_map_json.title}}},
+            {{/object.standard_attributes_map_json.title}}
+            "identifier": {{{object.standard_attributes_map_json.id}}},
+            {{#object.standard_attributes_map_json.name}}
+            "name": {{{object.standard_attributes_map_json.name}}},
+            {{/object.standard_attributes_map_json.name}}
+            {{#object.standard_attributes_map_json.date}}
+            "temporalCoverage": {{{object.standard_attributes_map_json.date}}},
+            {{/object.standard_attributes_map_json.date}}
             "thumbnailUrl": "{{{object.thumbnail_url}}}",
             "url": "{{{metadata.configuration.base_url}}}{{{object.absolute_href}}}"
         }
@@ -69,12 +69,12 @@
                                 <div class="row">
                                     <div class="col-10">
                                         <table class="attributes table table-bordered table-striped">
-                                                {{#object.impl_attributes}}
+                                                {{#object.impl_attributes_list}}
                                                 <tr>
                                                     <td class="name">{{name}}</td>
                                                     <td class="value">{{value}}</td>
                                                 </tr>
-                                                {{/object.impl_attributes}}
+                                                {{/object.impl_attributes_list}}
                                         </table>
                                     </div>
                                     <div class="col-2">
