@@ -8,6 +8,7 @@ import shutil
 import pystache
 import inspect
 from urllib.parse import urlparse
+from xml.sax import saxutils
 from pastpy.gen.site.site_attribute import SiteAttribute
 from pastpy.gen.site.site_configuration import SiteConfiguration
 from pastpy.gen.site.site_image import SiteImage
@@ -220,6 +221,7 @@ class SiteGenerator(object):
 
             standard_attributes = {}
             standard_attributes_json = {}
+            standard_attributes_xml = {}
             for member_name, member in inspect.getmembers(database_object):
                 if inspect.ismethod(member):
                     continue
@@ -231,12 +233,15 @@ class SiteGenerator(object):
                 if value is not None:
                     standard_attributes[member_name] = value
                     standard_attributes_json[member_name] = json.dumps(value)
+                    standard_attributes_xml[member_name] = saxutils.escape(value)
                 else:
                     standard_attributes_json[member_name] = ''
+                    standard_attributes_xml[member_name] = ''
             object_builder.standard_attributes = \
                 tuple(SiteAttribute(name=name, value=value)
                       for name, value in standard_attributes.items())
             object_builder.standard_attributes_json = standard_attributes_json
+            object_builder.standard_attributes_xml = tuple(SiteAttribute(key, value) for key, value in standard_attributes_xml.items())
             for name, value in standard_attributes.items():
                 setattr(object_builder, name, value)
 

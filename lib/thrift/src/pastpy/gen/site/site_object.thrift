@@ -16,6 +16,7 @@ struct SiteObject {
     non_blank_string.NonBlankString name;
     list<site_attribute.SiteAttribute> standard_attributes;
     map<non_blank_string.NonBlankString, non_blank_string.NonBlankString> standard_attributes_json;
+    list<site_attribute.SiteAttribute> standard_attributes_xml;
     list<site_image.SiteImage> thumbnail_images;
     url.Url thumbnail_url;
     non_blank_string.NonBlankString title;

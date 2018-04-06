@@ -16,9 +16,9 @@
    <lastmod>{{lastmod}}</lastmod>
    <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
      <DataObject type="object">
-{{#standard_attributes}}
-        <Attribute name="{{name}}"><![CDATA[{{value}}]]></Attribute>
-{{/standard_attributes}}
+{{#standard_attributes_xml}}
+        <Attribute name="{{name}}">{{{value}}}</Attribute>
+{{/standard_attributes_xml}}
      </DataObject>
 {{#thumbnail_images}}
      <DataObject type="thumbnail">
