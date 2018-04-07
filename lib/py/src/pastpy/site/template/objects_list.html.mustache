@@ -19,24 +19,7 @@
                     </div>
                     <div class="row">
                         {{#objects}}
-                        <div class="card mb-4 mr-4 object-card">
-                            <div class="card-header text-center">
-                                <a href="{{{metadata.root_relative_href}}}{{{absolute_href}}}">{{name}}</a>
-                            </div>
-                            <div class="card-body">
-                                <figure class="figure">
-                                    <a href="{{{metadata.root_relative_href}}}{{{absolute_href}}}">
-                                        <img alt="{{title}}" class="figure-img rounded object-thumbnail" src="{{{thumbnail_url}}}"
-                                            title="{{title}}" />
-                                    </a>
-                                    <figcaption class="figure-caption text-center">
-                                        {{#title}} {{title}}
-                                        <br/>{{/title}} {{#date}} {{date}}
-                                        <br/>{{/date}}
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
+                        {{>object_card.html}}
                         {{/objects}}
                     </div>
                 </div>
