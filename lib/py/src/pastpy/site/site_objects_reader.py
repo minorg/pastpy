@@ -12,7 +12,7 @@ from pastpy.gen.site.site_object import SiteObject
 
 
 class SiteObjectsReader(object):
-    def __init__(self, configuration, database):
+    def __init__(self, *, configuration, database):
         self.__configuration = configuration
         self.__database = database
         self.__logger = logging.getLogger(SiteObjectsReader.__class__.__name__)

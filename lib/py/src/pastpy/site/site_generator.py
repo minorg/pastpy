@@ -13,6 +13,7 @@ from pastpy.gen.site.site_objects_list import SiteObjectsList
 from pastpy.gen.site.site_objects_list_page_number import SiteObjectsListPageNumber
 from pastpy.gen.site.site_sitemap import SiteSitemap
 from pastpy.site.site_objects_reader import SiteObjectsReader
+from pastpy.site.site_paginator import SitePaginator
 
 
 class SiteGenerator(object):
@@ -113,34 +114,6 @@ class SiteGenerator(object):
         builder.nav_items = nav_items_builder.build()
         return builder.build()
 
-    @staticmethod
-    def __page_range(*, page_i, page_max, page_min, window):
-        assert window / 2 == window // 2, "window must be even"
-        start = page_i - window // 2
-        end = page_i + window // 2
-        # print("First cut")
-        # print(start, end)
-
-        if start >= page_min and end <= page_max:
-            return range(start, end + 1)
-
-        # print("Adjusting start")
-
-        while start < page_min:
-            start = start + 1
-            if end < page_max:
-                end = end + 1
-            # print(start, end)
-
-        # print("Adjusting end")
-
-        while end > page_max:
-            end = end - 1
-            if start > page_min:
-                start = start - 1
-            # print(start, end)
-
-        return range(start, end + 1)
 
     def __read_objects(self):
         self.__objects = tuple(self.__objects)
@@ -191,51 +164,18 @@ class SiteGenerator(object):
             self.__configuration.output_dir_path, out_dir_relpath)
         self.__makedirs(out_dir_path)
 
-        objects = list(reversed(list(self.__objects)))
-        objects_pages = []
-        objects_per_page = 20
-        while objects:
-            objects_page = []
-            while objects and len(objects_page) < objects_per_page:
-                objects_page.append(objects.pop())
-            objects_pages.append(tuple(objects_page))
-
         objects_list_pages = []
-        for objects_page_i, objects_page in enumerate(objects_pages):
-            # *page_number* is one-based
-            # current_page_number = objects_page_i + 1
-
+        for page in SitePaginator().paginate(objects=self.__objects, objects_per_page=20):
             out_file_relpath = os.path.join(
-                out_dir_relpath, str(objects_page_i + 1) + '.html')
+                out_dir_relpath, str(page.number_one_based) + '.html')
 
             context_builder = SiteObjectsList.builder()
             context_builder.absolute_href = "/" + \
                 out_file_relpath.replace(os.path.sep, '/')
             context_builder.metadata = self.__new_metadata(
                 active_nav_item="objects", out_dir_path=out_dir_path)
-            context_builder.objects = objects_page
-
-            context_builder.next_page_number = SiteObjectsListPageNumber(
-                active=False,
-                enabled=objects_page_i + 1 < len(objects_pages),
-                number=objects_page_i + 2
-            )
-            context_builder.previous_page_number = SiteObjectsListPageNumber(
-                active=False,
-                enabled=objects_page_i > 0,
-                number=objects_page_i
-            )
-
-            visible_page_numbers = []
-            objects_page_range = self.__page_range(
-                page_i=objects_page_i, page_min=0, page_max=len(objects_pages) - 1, window=10)
-            for objects_page_range_i in objects_page_range:
-                visible_page_numbers.append(SiteObjectsListPageNumber(
-                    active=objects_page_range_i == objects_page_i,
-                    enabled=True,
-                    number=objects_page_range_i + 1
-                ))
-            context_builder.visible_page_numbers = tuple(visible_page_numbers)
+            context_builder.objects = page.objects
+            context_builder.pagination = page.pagination
             context = context_builder.build()
 
             self.__render_file(
