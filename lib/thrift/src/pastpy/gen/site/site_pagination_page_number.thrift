@@ -1,6 +1,6 @@
 namespace * pastpy.gen.site
 
-struct SiteObjectsListPageNumber {
+struct SitePaginationPageNumber {
     bool active;
     bool enabled;
     i32 number;
