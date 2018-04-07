@@ -114,15 +114,10 @@ class SiteGenerator(object):
         builder.nav_items = nav_items_builder.build()
         return builder.build()
 
-
-    def __read_objects(self):
-        self.__objects = tuple(self.__objects)
-
-    def __render_file(self, *, context, file_name, out_file_relpath=None):
-        rendered = self.__renderer.render_name(
-            file_name, context)
+    def __render_file(self, *, context, out_file_relpath, template_name):
+        rendered = self.__renderer.render_name(template_name, context)
         if out_file_relpath is None:
-            out_file_relpath = file_name
+            out_file_relpath = template_name
         out_file_path = os.path.join(
             self.__configuration.output_dir_path, out_file_relpath)
         with open(out_file_path, 'w+') as out_file:
@@ -138,7 +133,11 @@ class SiteGenerator(object):
                     out_dir_path=self.__configuration.output_dir_path
                 )
             )
-        self.__render_file(context=context, file_name='index.html')
+        self.__render_file(
+            context=context,
+            out_file_relpath='index.html',
+            template_name='index.html'
+        )
 
     def __render_object_details(self):
         out_dir_relpath = os.path.join('objects', 'details')
@@ -155,8 +154,11 @@ class SiteGenerator(object):
                     ),
                     object=object_
                 )
-            self.__render_file(file_name='object_detail.html', context=context, out_file_relpath=os.path.join(
-                out_dir_relpath, context.object.file_name))
+            self.__render_file(
+                context=context,
+                out_file_relpath=os.path.join(out_dir_relpath, context.object.file_name),
+                template_name='objects/details/object_detail.html'
+            )
 
     def __render_objects_list(self):
         out_dir_relpath = os.path.join('objects', 'list')
@@ -179,9 +181,9 @@ class SiteGenerator(object):
             context = context_builder.build()
 
             self.__render_file(
-                file_name='objects_list.html',
                 context=context,
-                out_file_relpath=out_file_relpath
+                out_file_relpath=out_file_relpath,
+                template_name='objects/list/objects_list.html'
             )
             objects_list_pages.append(context)
         return tuple(objects_list_pages)
@@ -200,7 +202,11 @@ class SiteGenerator(object):
         context_builder.objects = tuple(objects)
         context = context_builder.build()
 
-        self.__render_file(file_name='sitemap.xml', context=context)
+        self.__render_file(
+            context=context,
+            out_file_relpath='sitemap.xml',
+            template_name='sitemap.xml'
+        )
 
     def __rmtree(self, dir_path):
         if os.path.isdir(dir_path):
