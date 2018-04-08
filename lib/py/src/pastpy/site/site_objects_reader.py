@@ -28,6 +28,10 @@ class SiteObjectsReader(object):
         object_ids_by_file_name = {}
         objects = []
         for database_object in self.__database.objects():
+            if not database_object.id:
+                self.__logger.warn("database object has no id")
+                continue
+
             images = []
             for database_image in database_object.images:
                 full_size_url = database_image.full_size_url

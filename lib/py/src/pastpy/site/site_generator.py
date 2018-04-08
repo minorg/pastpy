@@ -50,7 +50,7 @@ class SiteGenerator(object):
 
     def __copy_static_files(self):
         file_paths = {}
-        for in_dir_path, subdir_names, in_file_names in os.walk(self.__configuration.template_dir_path):
+        for in_dir_path, _subdir_names, in_file_names in os.walk(self.__configuration.template_dir_path):
             in_dir_relpath = os.path.relpath(in_dir_path, self.__configuration.template_dir_path)
             for in_file_name in in_file_names:
                 if in_file_name.endswith(".mustache") or in_file_name.endswith(".py"):
@@ -70,18 +70,6 @@ class SiteGenerator(object):
             shutil.copyfile(in_file_path, out_file_path)
             self.__logger.debug("copied %s to %s",
                                 in_file_path, out_file_path)
-
-    def __filter_objects_with_ids(self, *, objects):
-        objects_by_id = OrderedDict()
-        for object_ in objects:
-            if object_.id:
-                if object_.id not in objects_by_id:
-                    objects_by_id[object_.id] = object_
-                else:
-                    self.__logger.warning("duplicate object id: %s", object_)
-            else:
-                self.__logger.warning("object has no id: %s", object_)
-        return objects_by_id.values()
 
     def generate(self):
         self.__clean()
