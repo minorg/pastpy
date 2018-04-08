@@ -1,5 +1,5 @@
-from collections import OrderedDict
 from datetime import date, datetime
+import json
 import logging
 import os.path
 import shutil
@@ -10,7 +10,6 @@ from pastpy.gen.site.site_metadata import SiteMetadata
 from pastpy.gen.site.site_nav_items import SiteNavItems
 from pastpy.gen.site.site_object_detail import SiteObjectDetail
 from pastpy.gen.site.site_objects_list import SiteObjectsList
-from pastpy.gen.site.site_objects_list_page_number import SiteObjectsListPageNumber
 from pastpy.gen.site.site_sitemap import SiteSitemap
 from pastpy.site.site_objects_reader import SiteObjectsReader
 from pastpy.site.site_paginator import SitePaginator
@@ -49,7 +48,7 @@ class SiteGenerator(object):
         self.__rmtree(self.__configuration.output_dir_path)
 
     def __copy_static_files(self):
-        file_paths = {}
+        file_paths = {} # in -> out
         for in_dir_path, _subdir_names, in_file_names in os.walk(self.__configuration.template_dir_path):
             in_dir_relpath = os.path.relpath(in_dir_path, self.__configuration.template_dir_path)
             for in_file_name in in_file_names:
@@ -81,6 +80,7 @@ class SiteGenerator(object):
 
         self.__render_index()
         self.__render_object_details()
+        self.__render_objects_js()
         objects_list_pages = self.__render_objects_list()
         self.__render_sitemap(objects_list_pages=objects_list_pages)
 
@@ -145,6 +145,13 @@ class SiteGenerator(object):
                 out_file_relpath=os.path.join(out_dir_relpath, context.object.file_name),
                 template_name='objects/details/object_detail.html'
             )
+
+    def __render_objects_js(self):
+        self.__render_file(
+            context={"objects_json": json.dumps([object_.standard_attributes_map for object_ in self.__objects])},
+            out_file_relpath=os.path.join("js", "objects.js"),
+            template_name='js/objects.js'
+        )
 
     def __render_objects_list(self):
         out_dir_relpath = os.path.join('objects', 'list')

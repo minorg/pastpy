@@ -19,6 +19,7 @@ class SiteObject(object):
             name=None,
             standard_attributes_list=None,
             standard_attributes_list_xml=None,
+            standard_attributes_map=None,
             standard_attributes_map_json=None,
             thumbnail_images=None,
             thumbnail_url=None,
@@ -37,6 +38,7 @@ class SiteObject(object):
             :type name: str
             :type standard_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
             :type standard_attributes_list_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type standard_attributes_map: dict(str: str)
             :type standard_attributes_map_json: dict(str: str)
             :type thumbnail_images: tuple(pastpy.gen.site.site_image.SiteImage)
             :type thumbnail_url: str
@@ -55,6 +57,7 @@ class SiteObject(object):
             self.__name = name
             self.__standard_attributes_list = standard_attributes_list
             self.__standard_attributes_list_xml = standard_attributes_list_xml
+            self.__standard_attributes_map = standard_attributes_map
             self.__standard_attributes_map_json = standard_attributes_map_json
             self.__thumbnail_images = thumbnail_images
             self.__thumbnail_url = thumbnail_url
@@ -63,7 +66,7 @@ class SiteObject(object):
             self.__description = description
 
         def build(self):
-            return SiteObject(absolute_href=self.__absolute_href, file_name=self.__file_name, full_size_images=self.__full_size_images, has_full_size_images=self.__has_full_size_images, has_thumbnail_images=self.__has_thumbnail_images, id=self.__id, impl_attributes_list=self.__impl_attributes_list, name=self.__name, standard_attributes_list=self.__standard_attributes_list, standard_attributes_list_xml=self.__standard_attributes_list_xml, standard_attributes_map_json=self.__standard_attributes_map_json, thumbnail_images=self.__thumbnail_images, thumbnail_url=self.__thumbnail_url, title=self.__title, date=self.__date, description=self.__description)
+            return SiteObject(absolute_href=self.__absolute_href, file_name=self.__file_name, full_size_images=self.__full_size_images, has_full_size_images=self.__has_full_size_images, has_thumbnail_images=self.__has_thumbnail_images, id=self.__id, impl_attributes_list=self.__impl_attributes_list, name=self.__name, standard_attributes_list=self.__standard_attributes_list, standard_attributes_list_xml=self.__standard_attributes_list_xml, standard_attributes_map=self.__standard_attributes_map, standard_attributes_map_json=self.__standard_attributes_map_json, thumbnail_images=self.__thumbnail_images, thumbnail_url=self.__thumbnail_url, title=self.__title, date=self.__date, description=self.__description)
 
         @property
         def absolute_href(self):
@@ -115,6 +118,7 @@ class SiteObject(object):
             builder.name = template.name
             builder.standard_attributes_list = template.standard_attributes_list
             builder.standard_attributes_list_xml = template.standard_attributes_list_xml
+            builder.standard_attributes_map = template.standard_attributes_map
             builder.standard_attributes_map_json = template.standard_attributes_map_json
             builder.thumbnail_images = template.thumbnail_images
             builder.thumbnail_url = template.thumbnail_url
@@ -313,6 +317,18 @@ class SiteObject(object):
             self.__standard_attributes_list_xml = standard_attributes_list_xml
             return self
 
+        def set_standard_attributes_map(self, standard_attributes_map):
+            '''
+            :type standard_attributes_map: dict(str: str)
+            '''
+
+            if standard_attributes_map is None:
+                raise ValueError('standard_attributes_map is required')
+            if not (isinstance(standard_attributes_map, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], str) and isinstance(__item[1], str), standard_attributes_map.items()))) == 0):
+                raise TypeError("expected standard_attributes_map to be a dict(str: str) but it is a %s" % builtins.type(standard_attributes_map))
+            self.__standard_attributes_map = standard_attributes_map
+            return self
+
         def set_standard_attributes_map_json(self, standard_attributes_map_json):
             '''
             :type standard_attributes_map_json: dict(str: str)
@@ -378,6 +394,14 @@ class SiteObject(object):
             return self.__standard_attributes_list_xml
 
         @property
+        def standard_attributes_map(self):
+            '''
+            :rtype: dict(str: str)
+            '''
+
+            return self.__standard_attributes_map.copy() if self.__standard_attributes_map is not None else None
+
+        @property
         def standard_attributes_map_json(self):
             '''
             :rtype: dict(str: str)
@@ -421,6 +445,7 @@ class SiteObject(object):
             :type name: str
             :type standard_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
             :type standard_attributes_list_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type standard_attributes_map: dict(str: str)
             :type standard_attributes_map_json: dict(str: str)
             :type thumbnail_images: tuple(pastpy.gen.site.site_image.SiteImage)
             :type thumbnail_url: str
@@ -440,6 +465,7 @@ class SiteObject(object):
                 self.set_name(site_object.name)
                 self.set_standard_attributes_list(site_object.standard_attributes_list)
                 self.set_standard_attributes_list_xml(site_object.standard_attributes_list_xml)
+                self.set_standard_attributes_map(site_object.standard_attributes_map)
                 self.set_standard_attributes_map_json(site_object.standard_attributes_map_json)
                 self.set_thumbnail_images(site_object.thumbnail_images)
                 self.set_thumbnail_url(site_object.thumbnail_url)
@@ -549,6 +575,14 @@ class SiteObject(object):
 
             self.set_standard_attributes_list_xml(standard_attributes_list_xml)
 
+        @standard_attributes_map.setter
+        def standard_attributes_map(self, standard_attributes_map):
+            '''
+            :type standard_attributes_map: dict(str: str)
+            '''
+
+            self.set_standard_attributes_map(standard_attributes_map)
+
         @standard_attributes_map_json.setter
         def standard_attributes_map_json(self, standard_attributes_map_json):
             '''
@@ -592,6 +626,7 @@ class SiteObject(object):
         NAME = None
         STANDARD_ATTRIBUTES_LIST = None
         STANDARD_ATTRIBUTES_LIST_XML = None
+        STANDARD_ATTRIBUTES_MAP = None
         STANDARD_ATTRIBUTES_MAP_JSON = None
         THUMBNAIL_IMAGES = None
         THUMBNAIL_URL = None
@@ -625,7 +660,7 @@ class SiteObject(object):
 
         @classmethod
         def values(cls):
-            return (cls.ABSOLUTE_HREF, cls.FILE_NAME, cls.FULL_SIZE_IMAGES, cls.HAS_FULL_SIZE_IMAGES, cls.HAS_THUMBNAIL_IMAGES, cls.ID, cls.IMPL_ATTRIBUTES_LIST, cls.NAME, cls.STANDARD_ATTRIBUTES_LIST, cls.STANDARD_ATTRIBUTES_LIST_XML, cls.STANDARD_ATTRIBUTES_MAP_JSON, cls.THUMBNAIL_IMAGES, cls.THUMBNAIL_URL, cls.TITLE, cls.DATE, cls.DESCRIPTION,)
+            return (cls.ABSOLUTE_HREF, cls.FILE_NAME, cls.FULL_SIZE_IMAGES, cls.HAS_FULL_SIZE_IMAGES, cls.HAS_THUMBNAIL_IMAGES, cls.ID, cls.IMPL_ATTRIBUTES_LIST, cls.NAME, cls.STANDARD_ATTRIBUTES_LIST, cls.STANDARD_ATTRIBUTES_LIST_XML, cls.STANDARD_ATTRIBUTES_MAP, cls.STANDARD_ATTRIBUTES_MAP_JSON, cls.THUMBNAIL_IMAGES, cls.THUMBNAIL_URL, cls.TITLE, cls.DATE, cls.DESCRIPTION,)
 
     FieldMetadata.ABSOLUTE_HREF = FieldMetadata('absolute_href', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.FILE_NAME = FieldMetadata('file_name', pastpy.gen.non_blank_string.NonBlankString, None)
@@ -637,6 +672,7 @@ class SiteObject(object):
     FieldMetadata.NAME = FieldMetadata('name', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.STANDARD_ATTRIBUTES_LIST = FieldMetadata('standard_attributes_list', tuple, None)
     FieldMetadata.STANDARD_ATTRIBUTES_LIST_XML = FieldMetadata('standard_attributes_list_xml', tuple, None)
+    FieldMetadata.STANDARD_ATTRIBUTES_MAP = FieldMetadata('standard_attributes_map', dict, None)
     FieldMetadata.STANDARD_ATTRIBUTES_MAP_JSON = FieldMetadata('standard_attributes_map_json', dict, None)
     FieldMetadata.THUMBNAIL_IMAGES = FieldMetadata('thumbnail_images', tuple, None)
     FieldMetadata.THUMBNAIL_URL = FieldMetadata('thumbnail_url', str, None)
@@ -656,6 +692,7 @@ class SiteObject(object):
         name,
         standard_attributes_list,
         standard_attributes_list_xml,
+        standard_attributes_map,
         standard_attributes_map_json,
         thumbnail_images,
         thumbnail_url,
@@ -674,6 +711,7 @@ class SiteObject(object):
         :type name: str
         :type standard_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
         :type standard_attributes_list_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+        :type standard_attributes_map: dict(str: str)
         :type standard_attributes_map_json: dict(str: str)
         :type thumbnail_images: tuple(pastpy.gen.site.site_image.SiteImage)
         :type thumbnail_url: str
@@ -742,6 +780,12 @@ class SiteObject(object):
             raise TypeError("expected standard_attributes_list_xml to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(standard_attributes_list_xml))
         self.__standard_attributes_list_xml = standard_attributes_list_xml
 
+        if standard_attributes_map is None:
+            raise ValueError('standard_attributes_map is required')
+        if not (isinstance(standard_attributes_map, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], str) and isinstance(__item[1], str), standard_attributes_map.items()))) == 0):
+            raise TypeError("expected standard_attributes_map to be a dict(str: str) but it is a %s" % builtins.type(standard_attributes_map))
+        self.__standard_attributes_map = standard_attributes_map.copy() if standard_attributes_map is not None else None
+
         if standard_attributes_map_json is None:
             raise ValueError('standard_attributes_map_json is required')
         if not (isinstance(standard_attributes_map_json, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], str) and isinstance(__item[1], str), standard_attributes_map_json.items()))) == 0):
@@ -797,6 +841,8 @@ class SiteObject(object):
             return False
         if self.standard_attributes_list_xml != other.standard_attributes_list_xml:
             return False
+        if self.standard_attributes_map != other.standard_attributes_map:
+            return False
         if self.standard_attributes_map_json != other.standard_attributes_map_json:
             return False
         if self.thumbnail_images != other.thumbnail_images:
@@ -812,10 +858,10 @@ class SiteObject(object):
         return True
 
     def __hash__(self):
-        return hash((self.absolute_href, self.file_name, self.full_size_images, self.has_full_size_images, self.has_thumbnail_images, self.id, self.impl_attributes_list, self.name, self.standard_attributes_list, self.standard_attributes_list_xml, self.standard_attributes_map_json, self.thumbnail_images, self.thumbnail_url, self.title, self.date, self.description,))
+        return hash((self.absolute_href, self.file_name, self.full_size_images, self.has_full_size_images, self.has_thumbnail_images, self.id, self.impl_attributes_list, self.name, self.standard_attributes_list, self.standard_attributes_list_xml, self.standard_attributes_map, self.standard_attributes_map_json, self.thumbnail_images, self.thumbnail_url, self.title, self.date, self.description,))
 
     def __iter__(self):
-        return iter((self.absolute_href, self.file_name, self.full_size_images, self.has_full_size_images, self.has_thumbnail_images, self.id, self.impl_attributes_list, self.name, self.standard_attributes_list, self.standard_attributes_list_xml, self.standard_attributes_map_json, self.thumbnail_images, self.thumbnail_url, self.title, self.date, self.description,))
+        return iter((self.absolute_href, self.file_name, self.full_size_images, self.has_full_size_images, self.has_thumbnail_images, self.id, self.impl_attributes_list, self.name, self.standard_attributes_list, self.standard_attributes_list_xml, self.standard_attributes_map, self.standard_attributes_map_json, self.thumbnail_images, self.thumbnail_url, self.title, self.date, self.description,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -832,6 +878,7 @@ class SiteObject(object):
         field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('standard_attributes_list=' + repr(self.standard_attributes_list))
         field_reprs.append('standard_attributes_list_xml=' + repr(self.standard_attributes_list_xml))
+        field_reprs.append('standard_attributes_map=' + repr(self.standard_attributes_map))
         field_reprs.append('standard_attributes_map_json=' + repr(self.standard_attributes_map_json))
         field_reprs.append('thumbnail_images=' + repr(self.thumbnail_images))
         field_reprs.append('thumbnail_url=' + "'" + self.thumbnail_url.encode('ascii', 'replace').decode('ascii') + "'")
@@ -854,6 +901,7 @@ class SiteObject(object):
         field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('standard_attributes_list=' + repr(self.standard_attributes_list))
         field_reprs.append('standard_attributes_list_xml=' + repr(self.standard_attributes_list_xml))
+        field_reprs.append('standard_attributes_map=' + repr(self.standard_attributes_map))
         field_reprs.append('standard_attributes_map_json=' + repr(self.standard_attributes_map_json))
         field_reprs.append('thumbnail_images=' + repr(self.thumbnail_images))
         field_reprs.append('thumbnail_url=' + "'" + self.thumbnail_url.encode('ascii', 'replace').decode('ascii') + "'")
@@ -960,6 +1008,11 @@ class SiteObject(object):
             raise KeyError("standard_attributes_list_xml")
         standard_attributes_list_xml = tuple(pastpy.gen.site.site_attribute.SiteAttribute.from_builtins(element0) for element0 in standard_attributes_list_xml)
         __builder.standard_attributes_list_xml = standard_attributes_list_xml
+
+        standard_attributes_map = _dict.get("standard_attributes_map")
+        if standard_attributes_map is None:
+            raise KeyError("standard_attributes_map")
+        __builder.standard_attributes_map = standard_attributes_map
 
         standard_attributes_map_json = _dict.get("standard_attributes_map_json")
         if standard_attributes_map_json is None:
@@ -1072,6 +1125,8 @@ class SiteObject(object):
                 init_kwds['standard_attributes_list'] = tuple([pastpy.gen.site.site_attribute.SiteAttribute.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
             elif ifield_name == 'standard_attributes_list_xml':
                 init_kwds['standard_attributes_list_xml'] = tuple([pastpy.gen.site.site_attribute.SiteAttribute.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
+            elif ifield_name == 'standard_attributes_map':
+                init_kwds['standard_attributes_map'] = dict([(iprot.read_string(), iprot.read_string()) for _ in xrange(iprot.read_map_begin()[2])] + (iprot.read_map_end() is None and []))
             elif ifield_name == 'standard_attributes_map_json':
                 init_kwds['standard_attributes_map_json'] = dict([(iprot.read_string(), iprot.read_string()) for _ in xrange(iprot.read_map_begin()[2])] + (iprot.read_map_end() is None and []))
             elif ifield_name == 'thumbnail_images':
@@ -1113,6 +1168,14 @@ class SiteObject(object):
         '''
 
         return self.__standard_attributes_list_xml
+
+    @property
+    def standard_attributes_map(self):
+        '''
+        :rtype: dict(str: str)
+        '''
+
+        return self.__standard_attributes_map.copy() if self.__standard_attributes_map is not None else None
 
     @property
     def standard_attributes_map_json(self):
@@ -1158,6 +1221,7 @@ class SiteObject(object):
         dict_["name"] = self.name
         dict_["standard_attributes_list"] = tuple(element0.to_builtins() for element0 in self.standard_attributes_list)
         dict_["standard_attributes_list_xml"] = tuple(element0.to_builtins() for element0 in self.standard_attributes_list_xml)
+        dict_["standard_attributes_map"] = self.standard_attributes_map
         dict_["standard_attributes_map_json"] = self.standard_attributes_map_json
         dict_["thumbnail_images"] = tuple(element0.to_builtins() for element0 in self.thumbnail_images)
         dict_["thumbnail_url"] = self.thumbnail_url
@@ -1226,6 +1290,14 @@ class SiteObject(object):
         for _0 in self.standard_attributes_list_xml:
             _0.write(oprot)
         oprot.write_list_end()
+        oprot.write_field_end()
+
+        oprot.write_field_begin(name='standard_attributes_map', type=13, id=None)
+        oprot.write_map_begin(11, len(self.standard_attributes_map), 11)
+        for __key0, __value0 in self.standard_attributes_map.items():
+            oprot.write_string(__key0)
+            oprot.write_string(__value0)
+        oprot.write_map_end()
         oprot.write_field_end()
 
         oprot.write_field_begin(name='standard_attributes_map_json', type=13, id=None)

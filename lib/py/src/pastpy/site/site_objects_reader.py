@@ -113,6 +113,7 @@ class SiteObjectsReader(object):
                 tuple(SiteAttribute(name=name, value=value)
                       for name, value in standard_attributes_map.items())
             object_builder.standard_attributes_list_xml = tuple(SiteAttribute(key, value) for key, value in standard_attributes_map_xml.items())
+            object_builder.standard_attributes_map = standard_attributes_map
             object_builder.standard_attributes_map_json = standard_attributes_map_json
             for name, value in standard_attributes_map.items():
                 setattr(object_builder, name, value)
