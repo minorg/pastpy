@@ -73,6 +73,7 @@ class SiteGenerator(object):
         self.__render_index_html()
         self.__render_object_details_html()
         self.__render_objects_js()
+        self.__render_lunr_index_js()
         self.__render_objects_list_html()
         self.__render_sitemap_xml()
 
@@ -84,6 +85,10 @@ class SiteGenerator(object):
     def __render_index_html(self):
         from pastpy.site.template.index_html import IndexHtml
         IndexHtml(configuration=self.__configuration).render()
+
+    def __render_lunr_index_js(self):
+        from pastpy.site.template.js.lunr_index_js import LunrIndexJs
+        LunrIndexJs(configuration=self.__configuration).render()
 
     def __render_object_details_html(self):
         from pastpy.site.template.objects.details.object_detail_html import ObjectDetailHtml
