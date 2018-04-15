@@ -3,7 +3,7 @@ import builtins
 import pastpy.gen.non_blank_string
 import pastpy.gen.site.site_configuration
 import pastpy.gen.site.site_object
-import pastpy.gen.site.site_objects_list
+import pastpy.gen.site.site_pagination_page_number
 
 
 class SiteSitemap(object):
@@ -13,22 +13,22 @@ class SiteSitemap(object):
             configuration=None,
             lastmod=None,
             objects=None,
-            objects_list_pages=None,
+            objects_list_page_numbers=None,
         ):
             '''
             :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
             :type lastmod: str
             :type objects: tuple(pastpy.gen.site.site_object.SiteObject)
-            :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list.SiteObjectsList)
+            :type objects_list_page_numbers: tuple(pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber)
             '''
 
             self.__configuration = configuration
             self.__lastmod = lastmod
             self.__objects = objects
-            self.__objects_list_pages = objects_list_pages
+            self.__objects_list_page_numbers = objects_list_page_numbers
 
         def build(self):
-            return SiteSitemap(configuration=self.__configuration, lastmod=self.__lastmod, objects=self.__objects, objects_list_pages=self.__objects_list_pages)
+            return SiteSitemap(configuration=self.__configuration, lastmod=self.__lastmod, objects=self.__objects, objects_list_page_numbers=self.__objects_list_page_numbers)
 
         @property
         def configuration(self):
@@ -49,7 +49,7 @@ class SiteSitemap(object):
             builder.configuration = template.configuration
             builder.lastmod = template.lastmod
             builder.objects = template.objects
-            builder.objects_list_pages = template.objects_list_pages
+            builder.objects_list_page_numbers = template.objects_list_page_numbers
             return builder
 
         @property
@@ -69,12 +69,12 @@ class SiteSitemap(object):
             return self.__objects
 
         @property
-        def objects_list_pages(self):
+        def objects_list_page_numbers(self):
             '''
-            :rtype: tuple(pastpy.gen.site.site_objects_list.SiteObjectsList)
+            :rtype: tuple(pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber)
             '''
 
-            return self.__objects_list_pages
+            return self.__objects_list_page_numbers
 
         def set_configuration(self, configuration):
             '''
@@ -112,16 +112,16 @@ class SiteSitemap(object):
             self.__objects = objects
             return self
 
-        def set_objects_list_pages(self, objects_list_pages):
+        def set_objects_list_page_numbers(self, objects_list_page_numbers):
             '''
-            :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list.SiteObjectsList)
+            :type objects_list_page_numbers: tuple(pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber)
             '''
 
-            if objects_list_pages is None:
-                raise ValueError('objects_list_pages is required')
-            if not (isinstance(objects_list_pages, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_objects_list.SiteObjectsList), objects_list_pages))) == 0):
-                raise TypeError("expected objects_list_pages to be a tuple(pastpy.gen.site.site_objects_list.SiteObjectsList) but it is a %s" % builtins.type(objects_list_pages))
-            self.__objects_list_pages = objects_list_pages
+            if objects_list_page_numbers is None:
+                raise ValueError('objects_list_page_numbers is required')
+            if not (isinstance(objects_list_page_numbers, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber), objects_list_page_numbers))) == 0):
+                raise TypeError("expected objects_list_page_numbers to be a tuple(pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber) but it is a %s" % builtins.type(objects_list_page_numbers))
+            self.__objects_list_page_numbers = objects_list_page_numbers
             return self
 
         def update(self, site_sitemap):
@@ -129,14 +129,14 @@ class SiteSitemap(object):
             :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
             :type lastmod: str
             :type objects: tuple(pastpy.gen.site.site_object.SiteObject)
-            :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list.SiteObjectsList)
+            :type objects_list_page_numbers: tuple(pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber)
             '''
 
             if isinstance(site_sitemap, SiteSitemap):
                 self.set_configuration(site_sitemap.configuration)
                 self.set_lastmod(site_sitemap.lastmod)
                 self.set_objects(site_sitemap.objects)
-                self.set_objects_list_pages(site_sitemap.objects_list_pages)
+                self.set_objects_list_page_numbers(site_sitemap.objects_list_page_numbers)
             elif isinstance(site_sitemap, dict):
                 for key, value in site_sitemap.items():
                     getattr(self, 'set_' + key)(value)
@@ -168,19 +168,19 @@ class SiteSitemap(object):
 
             self.set_objects(objects)
 
-        @objects_list_pages.setter
-        def objects_list_pages(self, objects_list_pages):
+        @objects_list_page_numbers.setter
+        def objects_list_page_numbers(self, objects_list_page_numbers):
             '''
-            :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list.SiteObjectsList)
+            :type objects_list_page_numbers: tuple(pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber)
             '''
 
-            self.set_objects_list_pages(objects_list_pages)
+            self.set_objects_list_page_numbers(objects_list_page_numbers)
 
     class FieldMetadata(object):
         CONFIGURATION = None
         LASTMOD = None
         OBJECTS = None
-        OBJECTS_LIST_PAGES = None
+        OBJECTS_LIST_PAGE_NUMBERS = None
 
         def __init__(self, name, type_, validation):
             object.__init__(self)
@@ -208,25 +208,25 @@ class SiteSitemap(object):
 
         @classmethod
         def values(cls):
-            return (cls.CONFIGURATION, cls.LASTMOD, cls.OBJECTS, cls.OBJECTS_LIST_PAGES,)
+            return (cls.CONFIGURATION, cls.LASTMOD, cls.OBJECTS, cls.OBJECTS_LIST_PAGE_NUMBERS,)
 
     FieldMetadata.CONFIGURATION = FieldMetadata('configuration', pastpy.gen.site.site_configuration.SiteConfiguration, None)
     FieldMetadata.LASTMOD = FieldMetadata('lastmod', pastpy.gen.non_blank_string.NonBlankString, None)
     FieldMetadata.OBJECTS = FieldMetadata('objects', tuple, None)
-    FieldMetadata.OBJECTS_LIST_PAGES = FieldMetadata('objects_list_pages', tuple, None)
+    FieldMetadata.OBJECTS_LIST_PAGE_NUMBERS = FieldMetadata('objects_list_page_numbers', tuple, None)
 
     def __init__(
         self,
         configuration,
         lastmod,
         objects,
-        objects_list_pages,
+        objects_list_page_numbers,
     ):
         '''
         :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
         :type lastmod: str
         :type objects: tuple(pastpy.gen.site.site_object.SiteObject)
-        :type objects_list_pages: tuple(pastpy.gen.site.site_objects_list.SiteObjectsList)
+        :type objects_list_page_numbers: tuple(pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber)
         '''
 
         if configuration is None:
@@ -247,11 +247,11 @@ class SiteSitemap(object):
             raise TypeError("expected objects to be a tuple(pastpy.gen.site.site_object.SiteObject) but it is a %s" % builtins.type(objects))
         self.__objects = objects
 
-        if objects_list_pages is None:
-            raise ValueError('objects_list_pages is required')
-        if not (isinstance(objects_list_pages, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_objects_list.SiteObjectsList), objects_list_pages))) == 0):
-            raise TypeError("expected objects_list_pages to be a tuple(pastpy.gen.site.site_objects_list.SiteObjectsList) but it is a %s" % builtins.type(objects_list_pages))
-        self.__objects_list_pages = objects_list_pages
+        if objects_list_page_numbers is None:
+            raise ValueError('objects_list_page_numbers is required')
+        if not (isinstance(objects_list_page_numbers, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber), objects_list_page_numbers))) == 0):
+            raise TypeError("expected objects_list_page_numbers to be a tuple(pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber) but it is a %s" % builtins.type(objects_list_page_numbers))
+        self.__objects_list_page_numbers = objects_list_page_numbers
 
     def __eq__(self, other):
         if self.configuration != other.configuration:
@@ -260,15 +260,15 @@ class SiteSitemap(object):
             return False
         if self.objects != other.objects:
             return False
-        if self.objects_list_pages != other.objects_list_pages:
+        if self.objects_list_page_numbers != other.objects_list_page_numbers:
             return False
         return True
 
     def __hash__(self):
-        return hash((self.configuration, self.lastmod, self.objects, self.objects_list_pages,))
+        return hash((self.configuration, self.lastmod, self.objects, self.objects_list_page_numbers,))
 
     def __iter__(self):
-        return iter((self.configuration, self.lastmod, self.objects, self.objects_list_pages,))
+        return iter((self.configuration, self.lastmod, self.objects, self.objects_list_page_numbers,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -278,7 +278,7 @@ class SiteSitemap(object):
         field_reprs.append('configuration=' + repr(self.configuration))
         field_reprs.append('lastmod=' + "'" + self.lastmod.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('objects=' + repr(self.objects))
-        field_reprs.append('objects_list_pages=' + repr(self.objects_list_pages))
+        field_reprs.append('objects_list_page_numbers=' + repr(self.objects_list_page_numbers))
         return 'SiteSitemap(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
@@ -286,7 +286,7 @@ class SiteSitemap(object):
         field_reprs.append('configuration=' + repr(self.configuration))
         field_reprs.append('lastmod=' + "'" + self.lastmod.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('objects=' + repr(self.objects))
-        field_reprs.append('objects_list_pages=' + repr(self.objects_list_pages))
+        field_reprs.append('objects_list_page_numbers=' + repr(self.objects_list_page_numbers))
         return 'SiteSitemap(' + ', '.join(field_reprs) + ')'
 
     @classmethod
@@ -325,11 +325,11 @@ class SiteSitemap(object):
         objects = tuple(pastpy.gen.site.site_object.SiteObject.from_builtins(element0) for element0 in objects)
         __builder.objects = objects
 
-        objects_list_pages = _dict.get("objects_list_pages")
-        if objects_list_pages is None:
-            raise KeyError("objects_list_pages")
-        objects_list_pages = tuple(pastpy.gen.site.site_objects_list.SiteObjectsList.from_builtins(element0) for element0 in objects_list_pages)
-        __builder.objects_list_pages = objects_list_pages
+        objects_list_page_numbers = _dict.get("objects_list_page_numbers")
+        if objects_list_page_numbers is None:
+            raise KeyError("objects_list_page_numbers")
+        objects_list_page_numbers = tuple(pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber.from_builtins(element0) for element0 in objects_list_page_numbers)
+        __builder.objects_list_page_numbers = objects_list_page_numbers
 
         return __builder.build()
 
@@ -350,12 +350,12 @@ class SiteSitemap(object):
         return self.__objects
 
     @property
-    def objects_list_pages(self):
+    def objects_list_page_numbers(self):
         '''
-        :rtype: tuple(pastpy.gen.site.site_objects_list.SiteObjectsList)
+        :rtype: tuple(pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber)
         '''
 
-        return self.__objects_list_pages
+        return self.__objects_list_page_numbers
 
     @classmethod
     def read(cls, iprot):
@@ -379,8 +379,8 @@ class SiteSitemap(object):
                 init_kwds['lastmod'] = iprot.read_string()
             elif ifield_name == 'objects':
                 init_kwds['objects'] = tuple([pastpy.gen.site.site_object.SiteObject.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
-            elif ifield_name == 'objects_list_pages':
-                init_kwds['objects_list_pages'] = tuple([pastpy.gen.site.site_objects_list.SiteObjectsList.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
+            elif ifield_name == 'objects_list_page_numbers':
+                init_kwds['objects_list_page_numbers'] = tuple([pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
             iprot.read_field_end()
         iprot.read_struct_end()
 
@@ -394,7 +394,7 @@ class SiteSitemap(object):
         dict_["configuration"] = self.configuration.to_builtins()
         dict_["lastmod"] = self.lastmod
         dict_["objects"] = tuple(element0.to_builtins() for element0 in self.objects)
-        dict_["objects_list_pages"] = tuple(element0.to_builtins() for element0 in self.objects_list_pages)
+        dict_["objects_list_page_numbers"] = tuple(element0.to_builtins() for element0 in self.objects_list_page_numbers)
         return dict_
 
     def write(self, oprot):
@@ -422,9 +422,9 @@ class SiteSitemap(object):
         oprot.write_list_end()
         oprot.write_field_end()
 
-        oprot.write_field_begin(name='objects_list_pages', type=15, id=None)
-        oprot.write_list_begin(12, len(self.objects_list_pages))
-        for _0 in self.objects_list_pages:
+        oprot.write_field_begin(name='objects_list_page_numbers', type=15, id=None)
+        oprot.write_list_begin(12, len(self.objects_list_page_numbers))
+        for _0 in self.objects_list_page_numbers:
             _0.write(oprot)
         oprot.write_list_end()
         oprot.write_field_end()

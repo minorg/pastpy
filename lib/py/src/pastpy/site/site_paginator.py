@@ -20,6 +20,12 @@ class SitePaginator(object):
 
             pagination_builder = SitePagination.builder()
 
+            pagination_builder.current_page_number = SitePaginationPageNumber(
+                active=True,
+                enabled=True,
+                number=page_i + 1
+            )
+
             pagination_builder.next_page_number = SitePaginationPageNumber(
                 active=False,
                 enabled=page_i + 1 < len(objects_chunks),

@@ -37,6 +37,10 @@ class SiteGenerator(object):
     def __copy_static_files(self):
         file_paths = {}  # in -> out
         for in_dir_path, _subdir_names, in_file_names in os.walk(self.__configuration.template_dir_path):
+            in_dir_name = os.path.split(in_dir_path)[-1]
+            if in_dir_name == "__pycache__":
+                continue
+
             in_dir_relpath = os.path.relpath(in_dir_path, self.__configuration.template_dir_path)
             for in_file_name in in_file_names:
                 if in_file_name.endswith(".mustache") or in_file_name.endswith(".py"):
@@ -94,6 +98,10 @@ class SiteGenerator(object):
         from pastpy.site.template.objects.list.objects_list_html import ObjectsListHtml
         for objects_page in self.__objects_pages:
             ObjectsListHtml(configuration=self.__configuration, objects_page=objects_page).render()
+
+    def __render_sitemap_xml(self):
+        from pastpy.site.template.sitemap_xml import SitemapXml
+        SitemapXml(configuration=self.__configuration, objects=self.__objects, objects_pages=self.__objects_pages).render()
 
     def __rmtree(self, dir_path):
         if os.path.isdir(dir_path):

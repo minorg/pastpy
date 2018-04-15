@@ -7,22 +7,33 @@ class SitePagination(object):
     class Builder(object):
         def __init__(
             self,
+            current_page_number=None,
             next_page_number=None,
             previous_page_number=None,
             visible_page_numbers=None,
         ):
             '''
+            :type current_page_number: pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber
             :type next_page_number: pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber
             :type previous_page_number: pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber
             :type visible_page_numbers: tuple(pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber)
             '''
 
+            self.__current_page_number = current_page_number
             self.__next_page_number = next_page_number
             self.__previous_page_number = previous_page_number
             self.__visible_page_numbers = visible_page_numbers
 
         def build(self):
-            return SitePagination(next_page_number=self.__next_page_number, previous_page_number=self.__previous_page_number, visible_page_numbers=self.__visible_page_numbers)
+            return SitePagination(current_page_number=self.__current_page_number, next_page_number=self.__next_page_number, previous_page_number=self.__previous_page_number, visible_page_numbers=self.__visible_page_numbers)
+
+        @property
+        def current_page_number(self):
+            '''
+            :rtype: pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber
+            '''
+
+            return self.__current_page_number
 
         @classmethod
         def from_template(cls, template):
@@ -32,6 +43,7 @@ class SitePagination(object):
             '''
 
             builder = cls()
+            builder.current_page_number = template.current_page_number
             builder.next_page_number = template.next_page_number
             builder.previous_page_number = template.previous_page_number
             builder.visible_page_numbers = template.visible_page_numbers
@@ -52,6 +64,18 @@ class SitePagination(object):
             '''
 
             return self.__previous_page_number
+
+        def set_current_page_number(self, current_page_number):
+            '''
+            :type current_page_number: pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber
+            '''
+
+            if current_page_number is None:
+                raise ValueError('current_page_number is required')
+            if not isinstance(current_page_number, pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber):
+                raise TypeError("expected current_page_number to be a pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber but it is a %s" % builtins.type(current_page_number))
+            self.__current_page_number = current_page_number
+            return self
 
         def set_next_page_number(self, next_page_number):
             '''
@@ -91,12 +115,14 @@ class SitePagination(object):
 
         def update(self, site_pagination):
             '''
+            :type current_page_number: pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber
             :type next_page_number: pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber
             :type previous_page_number: pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber
             :type visible_page_numbers: tuple(pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber)
             '''
 
             if isinstance(site_pagination, SitePagination):
+                self.set_current_page_number(site_pagination.current_page_number)
                 self.set_next_page_number(site_pagination.next_page_number)
                 self.set_previous_page_number(site_pagination.previous_page_number)
                 self.set_visible_page_numbers(site_pagination.visible_page_numbers)
@@ -114,6 +140,14 @@ class SitePagination(object):
             '''
 
             return self.__visible_page_numbers
+
+        @current_page_number.setter
+        def current_page_number(self, current_page_number):
+            '''
+            :type current_page_number: pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber
+            '''
+
+            self.set_current_page_number(current_page_number)
 
         @next_page_number.setter
         def next_page_number(self, next_page_number):
@@ -140,6 +174,7 @@ class SitePagination(object):
             self.set_visible_page_numbers(visible_page_numbers)
 
     class FieldMetadata(object):
+        CURRENT_PAGE_NUMBER = None
         NEXT_PAGE_NUMBER = None
         PREVIOUS_PAGE_NUMBER = None
         VISIBLE_PAGE_NUMBERS = None
@@ -170,23 +205,32 @@ class SitePagination(object):
 
         @classmethod
         def values(cls):
-            return (cls.NEXT_PAGE_NUMBER, cls.PREVIOUS_PAGE_NUMBER, cls.VISIBLE_PAGE_NUMBERS,)
+            return (cls.CURRENT_PAGE_NUMBER, cls.NEXT_PAGE_NUMBER, cls.PREVIOUS_PAGE_NUMBER, cls.VISIBLE_PAGE_NUMBERS,)
 
+    FieldMetadata.CURRENT_PAGE_NUMBER = FieldMetadata('current_page_number', pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber, None)
     FieldMetadata.NEXT_PAGE_NUMBER = FieldMetadata('next_page_number', pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber, None)
     FieldMetadata.PREVIOUS_PAGE_NUMBER = FieldMetadata('previous_page_number', pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber, None)
     FieldMetadata.VISIBLE_PAGE_NUMBERS = FieldMetadata('visible_page_numbers', tuple, None)
 
     def __init__(
         self,
+        current_page_number,
         next_page_number,
         previous_page_number,
         visible_page_numbers,
     ):
         '''
+        :type current_page_number: pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber
         :type next_page_number: pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber
         :type previous_page_number: pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber
         :type visible_page_numbers: tuple(pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber)
         '''
+
+        if current_page_number is None:
+            raise ValueError('current_page_number is required')
+        if not isinstance(current_page_number, pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber):
+            raise TypeError("expected current_page_number to be a pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber but it is a %s" % builtins.type(current_page_number))
+        self.__current_page_number = current_page_number
 
         if next_page_number is None:
             raise ValueError('next_page_number is required')
@@ -207,6 +251,8 @@ class SitePagination(object):
         self.__visible_page_numbers = visible_page_numbers
 
     def __eq__(self, other):
+        if self.current_page_number != other.current_page_number:
+            return False
         if self.next_page_number != other.next_page_number:
             return False
         if self.previous_page_number != other.previous_page_number:
@@ -216,16 +262,17 @@ class SitePagination(object):
         return True
 
     def __hash__(self):
-        return hash((self.next_page_number, self.previous_page_number, self.visible_page_numbers,))
+        return hash((self.current_page_number, self.next_page_number, self.previous_page_number, self.visible_page_numbers,))
 
     def __iter__(self):
-        return iter((self.next_page_number, self.previous_page_number, self.visible_page_numbers,))
+        return iter((self.current_page_number, self.next_page_number, self.previous_page_number, self.visible_page_numbers,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
 
     def __repr__(self):
         field_reprs = []
+        field_reprs.append('current_page_number=' + repr(self.current_page_number))
         field_reprs.append('next_page_number=' + repr(self.next_page_number))
         field_reprs.append('previous_page_number=' + repr(self.previous_page_number))
         field_reprs.append('visible_page_numbers=' + repr(self.visible_page_numbers))
@@ -233,6 +280,7 @@ class SitePagination(object):
 
     def __str__(self):
         field_reprs = []
+        field_reprs.append('current_page_number=' + repr(self.current_page_number))
         field_reprs.append('next_page_number=' + repr(self.next_page_number))
         field_reprs.append('previous_page_number=' + repr(self.previous_page_number))
         field_reprs.append('visible_page_numbers=' + repr(self.visible_page_numbers))
@@ -242,12 +290,26 @@ class SitePagination(object):
     def builder(cls):
         return cls.Builder()
 
+    @property
+    def current_page_number(self):
+        '''
+        :rtype: pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber
+        '''
+
+        return self.__current_page_number
+
     @classmethod
     def from_builtins(cls, _dict):
         if not isinstance(_dict, dict):
             raise ValueError("expected dict")
 
         __builder = cls.builder()
+
+        current_page_number = _dict.get("current_page_number")
+        if current_page_number is None:
+            raise KeyError("current_page_number")
+        current_page_number = pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber.from_builtins(current_page_number)
+        __builder.current_page_number = current_page_number
 
         next_page_number = _dict.get("next_page_number")
         if next_page_number is None:
@@ -301,6 +363,8 @@ class SitePagination(object):
             ifield_name, ifield_type, _ifield_id = iprot.read_field_begin()
             if ifield_type == 0:  # STOP
                 break
+            elif ifield_name == 'current_page_number':
+                init_kwds['current_page_number'] = pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber.read(iprot)
             elif ifield_name == 'next_page_number':
                 init_kwds['next_page_number'] = pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber.read(iprot)
             elif ifield_name == 'previous_page_number':
@@ -317,6 +381,7 @@ class SitePagination(object):
 
     def to_builtins(self):
         dict_ = {}
+        dict_["current_page_number"] = self.current_page_number.to_builtins()
         dict_["next_page_number"] = self.next_page_number.to_builtins()
         dict_["previous_page_number"] = self.previous_page_number.to_builtins()
         dict_["visible_page_numbers"] = tuple(element0.to_builtins() for element0 in self.visible_page_numbers)
@@ -339,6 +404,10 @@ class SitePagination(object):
         '''
 
         oprot.write_struct_begin('SitePagination')
+
+        oprot.write_field_begin(name='current_page_number', type=12, id=None)
+        self.current_page_number.write(oprot)
+        oprot.write_field_end()
 
         oprot.write_field_begin(name='next_page_number', type=12, id=None)
         self.next_page_number.write(oprot)

@@ -1,4 +1,4 @@
-from .._template import _Template
+from ..._template import _Template
 import os.path
 from pastpy.gen.site.site_objects_list import SiteObjectsList
 
@@ -16,7 +16,7 @@ class ObjectsListHtml(_Template):
         context_builder = SiteObjectsList.builder()
         context_builder.absolute_href = "/" + \
             out_file_relpath.replace(os.path.sep, '/')
-        context_builder.metadata = self.__new_metadata(
+        context_builder.metadata = self._new_metadata(
             active_nav_item="objects", out_dir_relpath=out_dir_relpath)
         context_builder.objects = self.__objects_page.objects
         context_builder.pagination = self.__objects_page.pagination

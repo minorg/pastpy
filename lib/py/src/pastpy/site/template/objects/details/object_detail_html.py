@@ -10,15 +10,13 @@ class ObjectDetailHtml(_Template):
 
     def render(self):
         out_dir_relpath = os.path.join('objects', 'details')
-        out_dir_path = os.path.join(
-            self.__configuration.output_dir_path, out_dir_relpath)
         context = \
             SiteObjectDetail(
                 metadata=self._new_metadata(
                     active_nav_item="objects",
-                    out_dir_path=out_dir_path
+                    out_dir_relpath=out_dir_relpath
                 ),
-                object=self.__object_
+                object=self.__object
             )
         self._render_mustache(
             context=context,
