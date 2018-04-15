@@ -2,7 +2,7 @@ import builtins
 import pastpy.gen.non_blank_string
 
 
-class SiteAttribute(object):
+class NameValuePair(object):
     class Builder(object):
         def __init__(
             self,
@@ -18,13 +18,13 @@ class SiteAttribute(object):
             self.__value = value
 
         def build(self):
-            return SiteAttribute(name=self.__name, value=self.__value)
+            return NameValuePair(name=self.__name, value=self.__value)
 
         @classmethod
         def from_template(cls, template):
             '''
-            :type template: pastpy.gen.site.site_attribute.SiteAttribute
-            :rtype: pastpy.gen.site.site_attribute.SiteAttribute
+            :type template: pastpy.gen.name_value_pair.NameValuePair
+            :rtype: pastpy.gen.name_value_pair.NameValuePair
             '''
 
             builder = cls()
@@ -62,20 +62,20 @@ class SiteAttribute(object):
             self.__value = value
             return self
 
-        def update(self, site_attribute):
+        def update(self, name_value_pair):
             '''
             :type name: str
             :type value: object
             '''
 
-            if isinstance(site_attribute, SiteAttribute):
-                self.set_name(site_attribute.name)
-                self.set_value(site_attribute.value)
-            elif isinstance(site_attribute, dict):
-                for key, value in site_attribute.items():
+            if isinstance(name_value_pair, NameValuePair):
+                self.set_name(name_value_pair.name)
+                self.set_value(name_value_pair.value)
+            elif isinstance(name_value_pair, dict):
+                for key, value in name_value_pair.items():
                     getattr(self, 'set_' + key)(value)
             else:
-                raise TypeError(site_attribute)
+                raise TypeError(name_value_pair)
             return self
 
         @property
@@ -178,13 +178,13 @@ class SiteAttribute(object):
         field_reprs = []
         field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('value=' + "'" + self.value.encode('ascii', 'replace').decode('ascii') + "'")
-        return 'SiteAttribute(' + ', '.join(field_reprs) + ')'
+        return 'NameValuePair(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
         field_reprs = []
         field_reprs.append('name=' + "'" + self.name.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('value=' + "'" + self.value.encode('ascii', 'replace').decode('ascii') + "'")
-        return 'SiteAttribute(' + ', '.join(field_reprs) + ')'
+        return 'NameValuePair(' + ', '.join(field_reprs) + ')'
 
     @classmethod
     def builder(cls):
@@ -223,7 +223,7 @@ class SiteAttribute(object):
         Read a new object from the given input protocol and return the object.
 
         :type iprot: thryft.protocol._input_protocol._InputProtocol
-        :rtype: pastpy.gen.site.site_attribute.SiteAttribute
+        :rtype: pastpy.gen.name_value_pair.NameValuePair
         '''
 
         init_kwds = {}
@@ -264,10 +264,10 @@ class SiteAttribute(object):
         Write this object to the given output protocol and return self.
 
         :type oprot: thryft.protocol._output_protocol._OutputProtocol
-        :rtype: pastpy.gen.site.site_attribute.SiteAttribute
+        :rtype: pastpy.gen.name_value_pair.NameValuePair
         '''
 
-        oprot.write_struct_begin('SiteAttribute')
+        oprot.write_struct_begin('NameValuePair')
 
         oprot.write_field_begin(name='name', type=11, id=None)
         oprot.write_string(self.name)

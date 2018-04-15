@@ -6,7 +6,7 @@ import pastpy.gen.site.site_object
 import pastpy.gen.site.site_pagination
 
 
-class SiteObjectsList(object):
+class ObjectsListHtmlContext(object):
     class Builder(object):
         def __init__(
             self,
@@ -28,7 +28,7 @@ class SiteObjectsList(object):
             self.__pagination = pagination
 
         def build(self):
-            return SiteObjectsList(absolute_href=self.__absolute_href, metadata=self.__metadata, objects=self.__objects, pagination=self.__pagination)
+            return ObjectsListHtmlContext(absolute_href=self.__absolute_href, metadata=self.__metadata, objects=self.__objects, pagination=self.__pagination)
 
         @property
         def absolute_href(self):
@@ -41,8 +41,8 @@ class SiteObjectsList(object):
         @classmethod
         def from_template(cls, template):
             '''
-            :type template: pastpy.gen.site.site_objects_list.SiteObjectsList
-            :rtype: pastpy.gen.site.site_objects_list.SiteObjectsList
+            :type template: pastpy.gen.site.template.objects.list.objects_list_html_context.ObjectsListHtmlContext
+            :rtype: pastpy.gen.site.template.objects.list.objects_list_html_context.ObjectsListHtmlContext
             '''
 
             builder = cls()
@@ -124,7 +124,7 @@ class SiteObjectsList(object):
             self.__pagination = pagination
             return self
 
-        def update(self, site_objects_list):
+        def update(self, objects_list_html_context):
             '''
             :type absolute_href: str
             :type metadata: pastpy.gen.site.site_metadata.SiteMetadata
@@ -132,16 +132,16 @@ class SiteObjectsList(object):
             :type pagination: pastpy.gen.site.site_pagination.SitePagination
             '''
 
-            if isinstance(site_objects_list, SiteObjectsList):
-                self.set_absolute_href(site_objects_list.absolute_href)
-                self.set_metadata(site_objects_list.metadata)
-                self.set_objects(site_objects_list.objects)
-                self.set_pagination(site_objects_list.pagination)
-            elif isinstance(site_objects_list, dict):
-                for key, value in site_objects_list.items():
+            if isinstance(objects_list_html_context, ObjectsListHtmlContext):
+                self.set_absolute_href(objects_list_html_context.absolute_href)
+                self.set_metadata(objects_list_html_context.metadata)
+                self.set_objects(objects_list_html_context.objects)
+                self.set_pagination(objects_list_html_context.pagination)
+            elif isinstance(objects_list_html_context, dict):
+                for key, value in objects_list_html_context.items():
                     getattr(self, 'set_' + key)(value)
             else:
-                raise TypeError(site_objects_list)
+                raise TypeError(objects_list_html_context)
             return self
 
         @absolute_href.setter
@@ -279,7 +279,7 @@ class SiteObjectsList(object):
         field_reprs.append('metadata=' + repr(self.metadata))
         field_reprs.append('objects=' + repr(self.objects))
         field_reprs.append('pagination=' + repr(self.pagination))
-        return 'SiteObjectsList(' + ', '.join(field_reprs) + ')'
+        return 'ObjectsListHtmlContext(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
         field_reprs = []
@@ -287,7 +287,7 @@ class SiteObjectsList(object):
         field_reprs.append('metadata=' + repr(self.metadata))
         field_reprs.append('objects=' + repr(self.objects))
         field_reprs.append('pagination=' + repr(self.pagination))
-        return 'SiteObjectsList(' + ', '.join(field_reprs) + ')'
+        return 'ObjectsListHtmlContext(' + ', '.join(field_reprs) + ')'
 
     @property
     def absolute_href(self):
@@ -363,7 +363,7 @@ class SiteObjectsList(object):
         Read a new object from the given input protocol and return the object.
 
         :type iprot: thryft.protocol._input_protocol._InputProtocol
-        :rtype: pastpy.gen.site.site_objects_list.SiteObjectsList
+        :rtype: pastpy.gen.site.template.objects.list.objects_list_html_context.ObjectsListHtmlContext
         '''
 
         init_kwds = {}
@@ -402,10 +402,10 @@ class SiteObjectsList(object):
         Write this object to the given output protocol and return self.
 
         :type oprot: thryft.protocol._output_protocol._OutputProtocol
-        :rtype: pastpy.gen.site.site_objects_list.SiteObjectsList
+        :rtype: pastpy.gen.site.template.objects.list.objects_list_html_context.ObjectsListHtmlContext
         '''
 
-        oprot.write_struct_begin('SiteObjectsList')
+        oprot.write_struct_begin('ObjectsListHtmlContext')
 
         oprot.write_field_begin(name='absolute_href', type=11, id=None)
         oprot.write_string(self.absolute_href)

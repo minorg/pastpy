@@ -6,7 +6,7 @@ import pastpy.gen.site.site_object
 import pastpy.gen.site.site_pagination_page_number
 
 
-class SiteSitemap(object):
+class SitemapXmlContext(object):
     class Builder(object):
         def __init__(
             self,
@@ -28,7 +28,7 @@ class SiteSitemap(object):
             self.__objects_list_page_numbers = objects_list_page_numbers
 
         def build(self):
-            return SiteSitemap(configuration=self.__configuration, lastmod=self.__lastmod, objects=self.__objects, objects_list_page_numbers=self.__objects_list_page_numbers)
+            return SitemapXmlContext(configuration=self.__configuration, lastmod=self.__lastmod, objects=self.__objects, objects_list_page_numbers=self.__objects_list_page_numbers)
 
         @property
         def configuration(self):
@@ -41,8 +41,8 @@ class SiteSitemap(object):
         @classmethod
         def from_template(cls, template):
             '''
-            :type template: pastpy.gen.site.site_sitemap.SiteSitemap
-            :rtype: pastpy.gen.site.site_sitemap.SiteSitemap
+            :type template: pastpy.gen.site.template.sitemap_xml_context.SitemapXmlContext
+            :rtype: pastpy.gen.site.template.sitemap_xml_context.SitemapXmlContext
             '''
 
             builder = cls()
@@ -124,7 +124,7 @@ class SiteSitemap(object):
             self.__objects_list_page_numbers = objects_list_page_numbers
             return self
 
-        def update(self, site_sitemap):
+        def update(self, sitemap_xml_context):
             '''
             :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
             :type lastmod: str
@@ -132,16 +132,16 @@ class SiteSitemap(object):
             :type objects_list_page_numbers: tuple(pastpy.gen.site.site_pagination_page_number.SitePaginationPageNumber)
             '''
 
-            if isinstance(site_sitemap, SiteSitemap):
-                self.set_configuration(site_sitemap.configuration)
-                self.set_lastmod(site_sitemap.lastmod)
-                self.set_objects(site_sitemap.objects)
-                self.set_objects_list_page_numbers(site_sitemap.objects_list_page_numbers)
-            elif isinstance(site_sitemap, dict):
-                for key, value in site_sitemap.items():
+            if isinstance(sitemap_xml_context, SitemapXmlContext):
+                self.set_configuration(sitemap_xml_context.configuration)
+                self.set_lastmod(sitemap_xml_context.lastmod)
+                self.set_objects(sitemap_xml_context.objects)
+                self.set_objects_list_page_numbers(sitemap_xml_context.objects_list_page_numbers)
+            elif isinstance(sitemap_xml_context, dict):
+                for key, value in sitemap_xml_context.items():
                     getattr(self, 'set_' + key)(value)
             else:
-                raise TypeError(site_sitemap)
+                raise TypeError(sitemap_xml_context)
             return self
 
         @configuration.setter
@@ -279,7 +279,7 @@ class SiteSitemap(object):
         field_reprs.append('lastmod=' + "'" + self.lastmod.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('objects=' + repr(self.objects))
         field_reprs.append('objects_list_page_numbers=' + repr(self.objects_list_page_numbers))
-        return 'SiteSitemap(' + ', '.join(field_reprs) + ')'
+        return 'SitemapXmlContext(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
         field_reprs = []
@@ -287,7 +287,7 @@ class SiteSitemap(object):
         field_reprs.append('lastmod=' + "'" + self.lastmod.encode('ascii', 'replace').decode('ascii') + "'")
         field_reprs.append('objects=' + repr(self.objects))
         field_reprs.append('objects_list_page_numbers=' + repr(self.objects_list_page_numbers))
-        return 'SiteSitemap(' + ', '.join(field_reprs) + ')'
+        return 'SitemapXmlContext(' + ', '.join(field_reprs) + ')'
 
     @classmethod
     def builder(cls):
@@ -363,7 +363,7 @@ class SiteSitemap(object):
         Read a new object from the given input protocol and return the object.
 
         :type iprot: thryft.protocol._input_protocol._InputProtocol
-        :rtype: pastpy.gen.site.site_sitemap.SiteSitemap
+        :rtype: pastpy.gen.site.template.sitemap_xml_context.SitemapXmlContext
         '''
 
         init_kwds = {}
@@ -402,10 +402,10 @@ class SiteSitemap(object):
         Write this object to the given output protocol and return self.
 
         :type oprot: thryft.protocol._output_protocol._OutputProtocol
-        :rtype: pastpy.gen.site.site_sitemap.SiteSitemap
+        :rtype: pastpy.gen.site.template.sitemap_xml_context.SitemapXmlContext
         '''
 
-        oprot.write_struct_begin('SiteSitemap')
+        oprot.write_struct_begin('SitemapXmlContext')
 
         oprot.write_field_begin(name='configuration', type=12, id=None)
         self.configuration.write(oprot)

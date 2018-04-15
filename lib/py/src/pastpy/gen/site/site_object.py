@@ -1,7 +1,7 @@
 from itertools import filterfalse
 import builtins
+import pastpy.gen.name_value_pair
 import pastpy.gen.non_blank_string
-import pastpy.gen.site.site_attribute
 import pastpy.gen.site.site_image
 
 
@@ -34,10 +34,10 @@ class SiteObject(object):
             :type has_full_size_images: bool
             :type has_thumbnail_images: bool
             :type id: str
-            :type impl_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type impl_attributes_list: tuple(pastpy.gen.name_value_pair.NameValuePair)
             :type name: str
-            :type standard_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
-            :type standard_attributes_list_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type standard_attributes_list: tuple(pastpy.gen.name_value_pair.NameValuePair)
+            :type standard_attributes_list_xml: tuple(pastpy.gen.name_value_pair.NameValuePair)
             :type standard_attributes_map: dict(str: str)
             :type standard_attributes_map_json: dict(str: str)
             :type thumbnail_images: tuple(pastpy.gen.site.site_image.SiteImage)
@@ -162,7 +162,7 @@ class SiteObject(object):
         @property
         def impl_attributes_list(self):
             '''
-            :rtype: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :rtype: tuple(pastpy.gen.name_value_pair.NameValuePair)
             '''
 
             return self.__impl_attributes_list
@@ -271,13 +271,13 @@ class SiteObject(object):
 
         def set_impl_attributes_list(self, impl_attributes_list):
             '''
-            :type impl_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type impl_attributes_list: tuple(pastpy.gen.name_value_pair.NameValuePair)
             '''
 
             if impl_attributes_list is None:
                 raise ValueError('impl_attributes_list is required')
-            if not (isinstance(impl_attributes_list, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), impl_attributes_list))) == 0):
-                raise TypeError("expected impl_attributes_list to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(impl_attributes_list))
+            if not (isinstance(impl_attributes_list, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.name_value_pair.NameValuePair), impl_attributes_list))) == 0):
+                raise TypeError("expected impl_attributes_list to be a tuple(pastpy.gen.name_value_pair.NameValuePair) but it is a %s" % builtins.type(impl_attributes_list))
             self.__impl_attributes_list = impl_attributes_list
             return self
 
@@ -295,25 +295,25 @@ class SiteObject(object):
 
         def set_standard_attributes_list(self, standard_attributes_list):
             '''
-            :type standard_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type standard_attributes_list: tuple(pastpy.gen.name_value_pair.NameValuePair)
             '''
 
             if standard_attributes_list is None:
                 raise ValueError('standard_attributes_list is required')
-            if not (isinstance(standard_attributes_list, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), standard_attributes_list))) == 0):
-                raise TypeError("expected standard_attributes_list to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(standard_attributes_list))
+            if not (isinstance(standard_attributes_list, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.name_value_pair.NameValuePair), standard_attributes_list))) == 0):
+                raise TypeError("expected standard_attributes_list to be a tuple(pastpy.gen.name_value_pair.NameValuePair) but it is a %s" % builtins.type(standard_attributes_list))
             self.__standard_attributes_list = standard_attributes_list
             return self
 
         def set_standard_attributes_list_xml(self, standard_attributes_list_xml):
             '''
-            :type standard_attributes_list_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type standard_attributes_list_xml: tuple(pastpy.gen.name_value_pair.NameValuePair)
             '''
 
             if standard_attributes_list_xml is None:
                 raise ValueError('standard_attributes_list_xml is required')
-            if not (isinstance(standard_attributes_list_xml, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), standard_attributes_list_xml))) == 0):
-                raise TypeError("expected standard_attributes_list_xml to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(standard_attributes_list_xml))
+            if not (isinstance(standard_attributes_list_xml, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.name_value_pair.NameValuePair), standard_attributes_list_xml))) == 0):
+                raise TypeError("expected standard_attributes_list_xml to be a tuple(pastpy.gen.name_value_pair.NameValuePair) but it is a %s" % builtins.type(standard_attributes_list_xml))
             self.__standard_attributes_list_xml = standard_attributes_list_xml
             return self
 
@@ -380,7 +380,7 @@ class SiteObject(object):
         @property
         def standard_attributes_list(self):
             '''
-            :rtype: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :rtype: tuple(pastpy.gen.name_value_pair.NameValuePair)
             '''
 
             return self.__standard_attributes_list
@@ -388,7 +388,7 @@ class SiteObject(object):
         @property
         def standard_attributes_list_xml(self):
             '''
-            :rtype: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :rtype: tuple(pastpy.gen.name_value_pair.NameValuePair)
             '''
 
             return self.__standard_attributes_list_xml
@@ -441,10 +441,10 @@ class SiteObject(object):
             :type has_full_size_images: bool
             :type has_thumbnail_images: bool
             :type id: str
-            :type impl_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type impl_attributes_list: tuple(pastpy.gen.name_value_pair.NameValuePair)
             :type name: str
-            :type standard_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
-            :type standard_attributes_list_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type standard_attributes_list: tuple(pastpy.gen.name_value_pair.NameValuePair)
+            :type standard_attributes_list_xml: tuple(pastpy.gen.name_value_pair.NameValuePair)
             :type standard_attributes_map: dict(str: str)
             :type standard_attributes_map_json: dict(str: str)
             :type thumbnail_images: tuple(pastpy.gen.site.site_image.SiteImage)
@@ -546,7 +546,7 @@ class SiteObject(object):
         @impl_attributes_list.setter
         def impl_attributes_list(self, impl_attributes_list):
             '''
-            :type impl_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type impl_attributes_list: tuple(pastpy.gen.name_value_pair.NameValuePair)
             '''
 
             self.set_impl_attributes_list(impl_attributes_list)
@@ -562,7 +562,7 @@ class SiteObject(object):
         @standard_attributes_list.setter
         def standard_attributes_list(self, standard_attributes_list):
             '''
-            :type standard_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type standard_attributes_list: tuple(pastpy.gen.name_value_pair.NameValuePair)
             '''
 
             self.set_standard_attributes_list(standard_attributes_list)
@@ -570,7 +570,7 @@ class SiteObject(object):
         @standard_attributes_list_xml.setter
         def standard_attributes_list_xml(self, standard_attributes_list_xml):
             '''
-            :type standard_attributes_list_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+            :type standard_attributes_list_xml: tuple(pastpy.gen.name_value_pair.NameValuePair)
             '''
 
             self.set_standard_attributes_list_xml(standard_attributes_list_xml)
@@ -707,10 +707,10 @@ class SiteObject(object):
         :type has_full_size_images: bool
         :type has_thumbnail_images: bool
         :type id: str
-        :type impl_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+        :type impl_attributes_list: tuple(pastpy.gen.name_value_pair.NameValuePair)
         :type name: str
-        :type standard_attributes_list: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
-        :type standard_attributes_list_xml: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+        :type standard_attributes_list: tuple(pastpy.gen.name_value_pair.NameValuePair)
+        :type standard_attributes_list_xml: tuple(pastpy.gen.name_value_pair.NameValuePair)
         :type standard_attributes_map: dict(str: str)
         :type standard_attributes_map_json: dict(str: str)
         :type thumbnail_images: tuple(pastpy.gen.site.site_image.SiteImage)
@@ -758,8 +758,8 @@ class SiteObject(object):
 
         if impl_attributes_list is None:
             raise ValueError('impl_attributes_list is required')
-        if not (isinstance(impl_attributes_list, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), impl_attributes_list))) == 0):
-            raise TypeError("expected impl_attributes_list to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(impl_attributes_list))
+        if not (isinstance(impl_attributes_list, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.name_value_pair.NameValuePair), impl_attributes_list))) == 0):
+            raise TypeError("expected impl_attributes_list to be a tuple(pastpy.gen.name_value_pair.NameValuePair) but it is a %s" % builtins.type(impl_attributes_list))
         self.__impl_attributes_list = impl_attributes_list
 
         if name is None:
@@ -770,14 +770,14 @@ class SiteObject(object):
 
         if standard_attributes_list is None:
             raise ValueError('standard_attributes_list is required')
-        if not (isinstance(standard_attributes_list, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), standard_attributes_list))) == 0):
-            raise TypeError("expected standard_attributes_list to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(standard_attributes_list))
+        if not (isinstance(standard_attributes_list, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.name_value_pair.NameValuePair), standard_attributes_list))) == 0):
+            raise TypeError("expected standard_attributes_list to be a tuple(pastpy.gen.name_value_pair.NameValuePair) but it is a %s" % builtins.type(standard_attributes_list))
         self.__standard_attributes_list = standard_attributes_list
 
         if standard_attributes_list_xml is None:
             raise ValueError('standard_attributes_list_xml is required')
-        if not (isinstance(standard_attributes_list_xml, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.site.site_attribute.SiteAttribute), standard_attributes_list_xml))) == 0):
-            raise TypeError("expected standard_attributes_list_xml to be a tuple(pastpy.gen.site.site_attribute.SiteAttribute) but it is a %s" % builtins.type(standard_attributes_list_xml))
+        if not (isinstance(standard_attributes_list_xml, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.name_value_pair.NameValuePair), standard_attributes_list_xml))) == 0):
+            raise TypeError("expected standard_attributes_list_xml to be a tuple(pastpy.gen.name_value_pair.NameValuePair) but it is a %s" % builtins.type(standard_attributes_list_xml))
         self.__standard_attributes_list_xml = standard_attributes_list_xml
 
         if standard_attributes_map is None:
@@ -989,7 +989,7 @@ class SiteObject(object):
         impl_attributes_list = _dict.get("impl_attributes_list")
         if impl_attributes_list is None:
             raise KeyError("impl_attributes_list")
-        impl_attributes_list = tuple(pastpy.gen.site.site_attribute.SiteAttribute.from_builtins(element0) for element0 in impl_attributes_list)
+        impl_attributes_list = tuple(pastpy.gen.name_value_pair.NameValuePair.from_builtins(element0) for element0 in impl_attributes_list)
         __builder.impl_attributes_list = impl_attributes_list
 
         name = _dict.get("name")
@@ -1000,13 +1000,13 @@ class SiteObject(object):
         standard_attributes_list = _dict.get("standard_attributes_list")
         if standard_attributes_list is None:
             raise KeyError("standard_attributes_list")
-        standard_attributes_list = tuple(pastpy.gen.site.site_attribute.SiteAttribute.from_builtins(element0) for element0 in standard_attributes_list)
+        standard_attributes_list = tuple(pastpy.gen.name_value_pair.NameValuePair.from_builtins(element0) for element0 in standard_attributes_list)
         __builder.standard_attributes_list = standard_attributes_list
 
         standard_attributes_list_xml = _dict.get("standard_attributes_list_xml")
         if standard_attributes_list_xml is None:
             raise KeyError("standard_attributes_list_xml")
-        standard_attributes_list_xml = tuple(pastpy.gen.site.site_attribute.SiteAttribute.from_builtins(element0) for element0 in standard_attributes_list_xml)
+        standard_attributes_list_xml = tuple(pastpy.gen.name_value_pair.NameValuePair.from_builtins(element0) for element0 in standard_attributes_list_xml)
         __builder.standard_attributes_list_xml = standard_attributes_list_xml
 
         standard_attributes_map = _dict.get("standard_attributes_map")
@@ -1076,7 +1076,7 @@ class SiteObject(object):
     @property
     def impl_attributes_list(self):
         '''
-        :rtype: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+        :rtype: tuple(pastpy.gen.name_value_pair.NameValuePair)
         '''
 
         return self.__impl_attributes_list
@@ -1118,13 +1118,13 @@ class SiteObject(object):
             elif ifield_name == 'id':
                 init_kwds['id'] = iprot.read_string()
             elif ifield_name == 'impl_attributes_list':
-                init_kwds['impl_attributes_list'] = tuple([pastpy.gen.site.site_attribute.SiteAttribute.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
+                init_kwds['impl_attributes_list'] = tuple([pastpy.gen.name_value_pair.NameValuePair.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
             elif ifield_name == 'name':
                 init_kwds['name'] = iprot.read_string()
             elif ifield_name == 'standard_attributes_list':
-                init_kwds['standard_attributes_list'] = tuple([pastpy.gen.site.site_attribute.SiteAttribute.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
+                init_kwds['standard_attributes_list'] = tuple([pastpy.gen.name_value_pair.NameValuePair.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
             elif ifield_name == 'standard_attributes_list_xml':
-                init_kwds['standard_attributes_list_xml'] = tuple([pastpy.gen.site.site_attribute.SiteAttribute.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
+                init_kwds['standard_attributes_list_xml'] = tuple([pastpy.gen.name_value_pair.NameValuePair.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
             elif ifield_name == 'standard_attributes_map':
                 init_kwds['standard_attributes_map'] = dict([(iprot.read_string(), iprot.read_string()) for _ in xrange(iprot.read_map_begin()[2])] + (iprot.read_map_end() is None and []))
             elif ifield_name == 'standard_attributes_map_json':
@@ -1156,7 +1156,7 @@ class SiteObject(object):
     @property
     def standard_attributes_list(self):
         '''
-        :rtype: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+        :rtype: tuple(pastpy.gen.name_value_pair.NameValuePair)
         '''
 
         return self.__standard_attributes_list
@@ -1164,7 +1164,7 @@ class SiteObject(object):
     @property
     def standard_attributes_list_xml(self):
         '''
-        :rtype: tuple(pastpy.gen.site.site_attribute.SiteAttribute)
+        :rtype: tuple(pastpy.gen.name_value_pair.NameValuePair)
         '''
 
         return self.__standard_attributes_list_xml

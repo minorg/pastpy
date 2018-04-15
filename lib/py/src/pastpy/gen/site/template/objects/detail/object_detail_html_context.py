@@ -1,44 +1,37 @@
 import builtins
 import pastpy.gen.site.site_metadata
+import pastpy.gen.site.site_object
 
 
-class SiteIndex(object):
+class ObjectDetailHtmlContext(object):
     class Builder(object):
         def __init__(
             self,
-            has_featured_searches=None,
             metadata=None,
+            object=None,  # @ReservedAssignment
         ):
             '''
-            :type has_featured_searches: bool
             :type metadata: pastpy.gen.site.site_metadata.SiteMetadata
+            :type object: pastpy.gen.site.site_object.SiteObject
             '''
 
-            self.__has_featured_searches = has_featured_searches
             self.__metadata = metadata
+            self.__object = object
 
         def build(self):
-            return SiteIndex(has_featured_searches=self.__has_featured_searches, metadata=self.__metadata)
+            return ObjectDetailHtmlContext(metadata=self.__metadata, object=self.__object)
 
         @classmethod
         def from_template(cls, template):
             '''
-            :type template: pastpy.gen.site.site_index.SiteIndex
-            :rtype: pastpy.gen.site.site_index.SiteIndex
+            :type template: pastpy.gen.site.template.objects.detail.object_detail_html_context.ObjectDetailHtmlContext
+            :rtype: pastpy.gen.site.template.objects.detail.object_detail_html_context.ObjectDetailHtmlContext
             '''
 
             builder = cls()
-            builder.has_featured_searches = template.has_featured_searches
             builder.metadata = template.metadata
+            builder.object = template.object
             return builder
-
-        @property
-        def has_featured_searches(self):
-            '''
-            :rtype: bool
-            '''
-
-            return self.__has_featured_searches
 
         @property
         def metadata(self):
@@ -48,17 +41,13 @@ class SiteIndex(object):
 
             return self.__metadata
 
-        def set_has_featured_searches(self, has_featured_searches):
+        @property
+        def object(self):  # @ReservedAssignment
             '''
-            :type has_featured_searches: bool
+            :rtype: pastpy.gen.site.site_object.SiteObject
             '''
 
-            if has_featured_searches is None:
-                raise ValueError('has_featured_searches is required')
-            if not isinstance(has_featured_searches, bool):
-                raise TypeError("expected has_featured_searches to be a bool but it is a %s" % builtins.type(has_featured_searches))
-            self.__has_featured_searches = has_featured_searches
-            return self
+            return self.__object
 
         def set_metadata(self, metadata):
             '''
@@ -72,29 +61,33 @@ class SiteIndex(object):
             self.__metadata = metadata
             return self
 
-        def update(self, site_index):
+        def set_object(self, object):  # @ReservedAssignment
             '''
-            :type has_featured_searches: bool
-            :type metadata: pastpy.gen.site.site_metadata.SiteMetadata
+            :type object: pastpy.gen.site.site_object.SiteObject
             '''
 
-            if isinstance(site_index, SiteIndex):
-                self.set_has_featured_searches(site_index.has_featured_searches)
-                self.set_metadata(site_index.metadata)
-            elif isinstance(site_index, dict):
-                for key, value in site_index.items():
-                    getattr(self, 'set_' + key)(value)
-            else:
-                raise TypeError(site_index)
+            if object is None:
+                raise ValueError('object is required')
+            if not isinstance(object, pastpy.gen.site.site_object.SiteObject):
+                raise TypeError("expected object to be a pastpy.gen.site.site_object.SiteObject but it is a %s" % builtins.type(object))
+            self.__object = object
             return self
 
-        @has_featured_searches.setter
-        def has_featured_searches(self, has_featured_searches):
+        def update(self, object_detail_html_context):
             '''
-            :type has_featured_searches: bool
+            :type metadata: pastpy.gen.site.site_metadata.SiteMetadata
+            :type object: pastpy.gen.site.site_object.SiteObject
             '''
 
-            self.set_has_featured_searches(has_featured_searches)
+            if isinstance(object_detail_html_context, ObjectDetailHtmlContext):
+                self.set_metadata(object_detail_html_context.metadata)
+                self.set_object(object_detail_html_context.object)
+            elif isinstance(object_detail_html_context, dict):
+                for key, value in object_detail_html_context.items():
+                    getattr(self, 'set_' + key)(value)
+            else:
+                raise TypeError(object_detail_html_context)
+            return self
 
         @metadata.setter
         def metadata(self, metadata):
@@ -104,9 +97,17 @@ class SiteIndex(object):
 
             self.set_metadata(metadata)
 
+        @object.setter
+        def object(self, object):  # @ReservedAssignment
+            '''
+            :type object: pastpy.gen.site.site_object.SiteObject
+            '''
+
+            self.set_object(object)
+
     class FieldMetadata(object):
-        HAS_FEATURED_SEARCHES = None
         METADATA = None
+        OBJECT = None
 
         def __init__(self, name, type_, validation):
             object.__init__(self)
@@ -134,26 +135,20 @@ class SiteIndex(object):
 
         @classmethod
         def values(cls):
-            return (cls.HAS_FEATURED_SEARCHES, cls.METADATA,)
+            return (cls.METADATA, cls.OBJECT,)
 
-    FieldMetadata.HAS_FEATURED_SEARCHES = FieldMetadata('has_featured_searches', bool, None)
     FieldMetadata.METADATA = FieldMetadata('metadata', pastpy.gen.site.site_metadata.SiteMetadata, None)
+    FieldMetadata.OBJECT = FieldMetadata('object', pastpy.gen.site.site_object.SiteObject, None)
 
     def __init__(
         self,
-        has_featured_searches,
         metadata,
+        object,  # @ReservedAssignment
     ):
         '''
-        :type has_featured_searches: bool
         :type metadata: pastpy.gen.site.site_metadata.SiteMetadata
+        :type object: pastpy.gen.site.site_object.SiteObject
         '''
-
-        if has_featured_searches is None:
-            raise ValueError('has_featured_searches is required')
-        if not isinstance(has_featured_searches, bool):
-            raise TypeError("expected has_featured_searches to be a bool but it is a %s" % builtins.type(has_featured_searches))
-        self.__has_featured_searches = has_featured_searches
 
         if metadata is None:
             raise ValueError('metadata is required')
@@ -161,33 +156,39 @@ class SiteIndex(object):
             raise TypeError("expected metadata to be a pastpy.gen.site.site_metadata.SiteMetadata but it is a %s" % builtins.type(metadata))
         self.__metadata = metadata
 
+        if object is None:
+            raise ValueError('object is required')
+        if not isinstance(object, pastpy.gen.site.site_object.SiteObject):
+            raise TypeError("expected object to be a pastpy.gen.site.site_object.SiteObject but it is a %s" % builtins.type(object))
+        self.__object = object
+
     def __eq__(self, other):
-        if self.has_featured_searches != other.has_featured_searches:
-            return False
         if self.metadata != other.metadata:
+            return False
+        if self.object != other.object:
             return False
         return True
 
     def __hash__(self):
-        return hash((self.has_featured_searches, self.metadata,))
+        return hash((self.metadata, self.object,))
 
     def __iter__(self):
-        return iter((self.has_featured_searches, self.metadata,))
+        return iter((self.metadata, self.object,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
 
     def __repr__(self):
         field_reprs = []
-        field_reprs.append('has_featured_searches=' + repr(self.has_featured_searches))
         field_reprs.append('metadata=' + repr(self.metadata))
-        return 'SiteIndex(' + ', '.join(field_reprs) + ')'
+        field_reprs.append('object=' + repr(self.object))
+        return 'ObjectDetailHtmlContext(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
         field_reprs = []
-        field_reprs.append('has_featured_searches=' + repr(self.has_featured_searches))
         field_reprs.append('metadata=' + repr(self.metadata))
-        return 'SiteIndex(' + ', '.join(field_reprs) + ')'
+        field_reprs.append('object=' + repr(self.object))
+        return 'ObjectDetailHtmlContext(' + ', '.join(field_reprs) + ')'
 
     @classmethod
     def builder(cls):
@@ -200,26 +201,19 @@ class SiteIndex(object):
 
         __builder = cls.builder()
 
-        has_featured_searches = _dict.get("has_featured_searches")
-        if has_featured_searches is None:
-            raise KeyError("has_featured_searches")
-        __builder.has_featured_searches = has_featured_searches
-
         metadata = _dict.get("metadata")
         if metadata is None:
             raise KeyError("metadata")
         metadata = pastpy.gen.site.site_metadata.SiteMetadata.from_builtins(metadata)
         __builder.metadata = metadata
 
+        object = _dict.get("object")
+        if object is None:
+            raise KeyError("object")
+        object = pastpy.gen.site.site_object.SiteObject.from_builtins(object)
+        __builder.object = object
+
         return __builder.build()
-
-    @property
-    def has_featured_searches(self):
-        '''
-        :rtype: bool
-        '''
-
-        return self.__has_featured_searches
 
     @property
     def metadata(self):
@@ -229,13 +223,21 @@ class SiteIndex(object):
 
         return self.__metadata
 
+    @property
+    def object(self):  # @ReservedAssignment
+        '''
+        :rtype: pastpy.gen.site.site_object.SiteObject
+        '''
+
+        return self.__object
+
     @classmethod
     def read(cls, iprot):
         '''
         Read a new object from the given input protocol and return the object.
 
         :type iprot: thryft.protocol._input_protocol._InputProtocol
-        :rtype: pastpy.gen.site.site_index.SiteIndex
+        :rtype: pastpy.gen.site.template.objects.detail.object_detail_html_context.ObjectDetailHtmlContext
         '''
 
         init_kwds = {}
@@ -245,10 +247,10 @@ class SiteIndex(object):
             ifield_name, ifield_type, _ifield_id = iprot.read_field_begin()
             if ifield_type == 0:  # STOP
                 break
-            elif ifield_name == 'has_featured_searches':
-                init_kwds['has_featured_searches'] = iprot.read_bool()
             elif ifield_name == 'metadata':
                 init_kwds['metadata'] = pastpy.gen.site.site_metadata.SiteMetadata.read(iprot)
+            elif ifield_name == 'object':
+                init_kwds['object'] = pastpy.gen.site.site_object.SiteObject.read(iprot)
             iprot.read_field_end()
         iprot.read_struct_end()
 
@@ -259,8 +261,8 @@ class SiteIndex(object):
 
     def to_builtins(self):
         dict_ = {}
-        dict_["has_featured_searches"] = self.has_featured_searches
         dict_["metadata"] = self.metadata.to_builtins()
+        dict_["object"] = self.object.to_builtins()
         return dict_
 
     def write(self, oprot):
@@ -268,17 +270,17 @@ class SiteIndex(object):
         Write this object to the given output protocol and return self.
 
         :type oprot: thryft.protocol._output_protocol._OutputProtocol
-        :rtype: pastpy.gen.site.site_index.SiteIndex
+        :rtype: pastpy.gen.site.template.objects.detail.object_detail_html_context.ObjectDetailHtmlContext
         '''
 
-        oprot.write_struct_begin('SiteIndex')
-
-        oprot.write_field_begin(name='has_featured_searches', type=2, id=None)
-        oprot.write_bool(self.has_featured_searches)
-        oprot.write_field_end()
+        oprot.write_struct_begin('ObjectDetailHtmlContext')
 
         oprot.write_field_begin(name='metadata', type=12, id=None)
         self.metadata.write(oprot)
+        oprot.write_field_end()
+
+        oprot.write_field_begin(name='object', type=12, id=None)
+        self.object.write(oprot)
         oprot.write_field_end()
 
         oprot.write_field_stop()
