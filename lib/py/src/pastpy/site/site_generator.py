@@ -75,6 +75,7 @@ class SiteGenerator(object):
         self.__render_objects_js()
         self.__render_lunr_index_js()
         self.__render_objects_list_html()
+        self.__render_search_html()
         self.__render_sitemap_xml()
 
     def __makedirs(self, dir_path):
@@ -103,6 +104,10 @@ class SiteGenerator(object):
         from pastpy.site.template.objects.list.objects_list_html import ObjectsListHtml
         for objects_page in self.__objects_pages:
             ObjectsListHtml(configuration=self.__configuration, objects_page=objects_page).render()
+
+    def __render_search_html(self):
+        from pastpy.site.template.search_html import SearchHtml
+        SearchHtml(configuration=self.__configuration).render()
 
     def __render_sitemap_xml(self):
         from pastpy.site.template.sitemap_xml import SitemapXml

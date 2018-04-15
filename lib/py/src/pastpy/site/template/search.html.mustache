@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>head_meta.html}} {{>head_css.html}}
+    <title>{{configuration.name}} - Search</title>
+
+    <script id="object-card-html-mustache" type="text/html">
+        {{{object_card_html_mustache}}}
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid objects-list top-level-container">
+        {{>navbar.html}}
+        <div class="mb-4 objects-row row">
+            <div class="col-8 offset-2">
+                <div class="container-fluid">
+                    <div class="row mb-4">
+                        <div class="col-12 text-center">
+                            <h4>Objects</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{>footer.html}} {{>scripts.html}}
+</body>
+
+</html>
