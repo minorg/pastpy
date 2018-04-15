@@ -1,16 +1,8 @@
-from datetime import date, datetime
-import json
+from datetime import date
 import logging
 import os.path
 import shutil
-import pystache
 from pastpy.gen.site.site_configuration import SiteConfiguration
-from pastpy.gen.site.site_index import SiteIndex
-from pastpy.gen.site.site_metadata import SiteMetadata
-from pastpy.gen.site.site_nav_items import SiteNavItems
-from pastpy.gen.site.site_object_detail import SiteObjectDetail
-from pastpy.gen.site.site_objects_list import SiteObjectsList
-from pastpy.gen.site.site_sitemap import SiteSitemap
 from pastpy.site.site_objects_reader import SiteObjectsReader
 from pastpy.site.site_paginator import SitePaginator
 
@@ -37,18 +29,13 @@ class SiteGenerator(object):
         self.__configuration = configuration
 
         self.__objects = None
-
-        self.__renderer = \
-            pystache.Renderer(
-                missing_tags='strict',
-                search_dirs=(configuration.template_dir_path,)
-            )
+        self.__objects_pages = None
 
     def __clean(self):
         self.__rmtree(self.__configuration.output_dir_path)
 
     def __copy_static_files(self):
-        file_paths = {} # in -> out
+        file_paths = {}  # in -> out
         for in_dir_path, _subdir_names, in_file_names in os.walk(self.__configuration.template_dir_path):
             in_dir_relpath = os.path.relpath(in_dir_path, self.__configuration.template_dir_path)
             for in_file_name in in_file_names:
@@ -77,129 +64,36 @@ class SiteGenerator(object):
         self.__copy_static_files()
 
         self.__objects = SiteObjectsReader(configuration=self.__configuration, database=self.__database).read_objects()
+        self.__objects_pages = tuple(SitePaginator().paginate(objects=self.__objects, objects_per_page=20))
 
-        self.__render_index()
-        self.__render_object_details()
+        self.__render_index_html()
+        self.__render_object_details_html()
         self.__render_objects_js()
-        objects_list_pages = self.__render_objects_list()
-        self.__render_sitemap(objects_list_pages=objects_list_pages)
+        self.__render_objects_list_html()
+        self.__render_sitemap_xml()
 
     def __makedirs(self, dir_path):
         if not os.path.isdir(dir_path):
             os.makedirs(dir_path)
             self.__logger.debug("created directory %s", dir_path)
 
-    def __new_metadata(self, *, out_dir_path, active_nav_item="home"):
-        builder = SiteMetadata.builder()
-        builder.root_relative_href = os.path.relpath(
-            self.__configuration.output_dir_path, out_dir_path).replace(os.path.sep, '/')
-        builder.configuration = self.__configuration
-        builder.current_year = datetime.now().year
-        nav_items_builder = SiteNavItems.builder()
-        setattr(nav_items_builder, active_nav_item, True)
-        builder.nav_items = nav_items_builder.build()
-        return builder.build()
+    def __render_index_html(self):
+        from pastpy.site.template.index_html import IndexHtml
+        IndexHtml(configuration=self.__configuration).render()
 
-    def __render_file(self, *, context, out_file_relpath, template_name):
-        rendered = self.__renderer.render_name(template_name, context)
-        if out_file_relpath is None:
-            out_file_relpath = template_name
-        out_file_path = os.path.join(
-            self.__configuration.output_dir_path, out_file_relpath)
-        with open(out_file_path, 'w+') as out_file:
-            out_file.write(rendered)
-            self.__logger.debug("wrote %s", out_file_path)
-
-    def __render_index(self):
-        context = \
-            SiteIndex(
-                has_featured_searches=bool(self.__configuration.featured_searches),
-                metadata=self.__new_metadata(
-                    active_nav_item="home",
-                    out_dir_path=self.__configuration.output_dir_path
-                )
-            )
-        self.__render_file(
-            context=context,
-            out_file_relpath='index.html',
-            template_name='index.html'
-        )
-
-    def __render_object_details(self):
-        out_dir_relpath = os.path.join('objects', 'details')
-        out_dir_path = os.path.join(
-            self.__configuration.output_dir_path, out_dir_relpath)
-        self.__makedirs(out_dir_path)
-
+    def __render_object_details_html(self):
+        from pastpy.site.template.objects.details.object_detail_html import ObjectDetailHtml
         for object_ in self.__objects:
-            context = \
-                SiteObjectDetail(
-                    metadata=self.__new_metadata(
-                        active_nav_item="objects",
-                        out_dir_path=out_dir_path
-                    ),
-                    object=object_
-                )
-            self.__render_file(
-                context=context,
-                out_file_relpath=os.path.join(out_dir_relpath, context.object.file_name),
-                template_name='objects/details/object_detail.html'
-            )
+            ObjectDetailHtml(configuration=self.__configuration, object_=object_).render()
 
     def __render_objects_js(self):
-        self.__render_file(
-            context={"objects_json": json.dumps([object_.standard_attributes_map for object_ in self.__objects])},
-            out_file_relpath=os.path.join("js", "objects.js"),
-            template_name='js/objects.js'
-        )
+        from pastpy.site.template.js.objects_js import ObjectsJs
+        ObjectsJs(configuration=self.__configuration, objects=self.__objects).render()
 
-    def __render_objects_list(self):
-        out_dir_relpath = os.path.join('objects', 'list')
-        out_dir_path = os.path.join(
-            self.__configuration.output_dir_path, out_dir_relpath)
-        self.__makedirs(out_dir_path)
-
-        objects_list_pages = []
-        for page in SitePaginator().paginate(objects=self.__objects, objects_per_page=20):
-            out_file_relpath = os.path.join(
-                out_dir_relpath, str(page.number_one_based) + '.html')
-
-            context_builder = SiteObjectsList.builder()
-            context_builder.absolute_href = "/" + \
-                out_file_relpath.replace(os.path.sep, '/')
-            context_builder.metadata = self.__new_metadata(
-                active_nav_item="objects", out_dir_path=out_dir_path)
-            context_builder.objects = page.objects
-            context_builder.pagination = page.pagination
-            context = context_builder.build()
-
-            self.__render_file(
-                context=context,
-                out_file_relpath=out_file_relpath,
-                template_name='objects/list/objects_list.html'
-            )
-            objects_list_pages.append(context)
-        return tuple(objects_list_pages)
-
-    def __render_sitemap(self, objects_list_pages):
-        context_builder = SiteSitemap.builder()
-        context_builder.configuration = self.__configuration
-        context_builder.lastmod = date.today().isoformat()
-        context_builder.objects_list_pages = objects_list_pages
-        objects = []
-        for object_ in self.__objects:
-            objects.append(object_.replacer().set_standard_attributes_list_xml(tuple(
-                item for item in object_.standard_attributes_list_xml
-                if item.name != "description"
-            )).build())
-        context_builder.objects = tuple(objects)
-        context = context_builder.build()
-
-        self.__render_file(
-            context=context,
-            out_file_relpath='sitemap.xml',
-            template_name='sitemap.xml'
-        )
+    def __render_objects_list_html(self):
+        from pastpy.site.template.objects.list.objects_list_html import ObjectsListHtml
+        for objects_page in self.__objects_pages:
+            ObjectsListHtml(configuration=self.__configuration, objects_page=objects_page).render()
 
     def __rmtree(self, dir_path):
         if os.path.isdir(dir_path):

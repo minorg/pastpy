@@ -4,12 +4,12 @@
    <loc>{{{configuration.base_url}}}/index.html</loc>
    <lastmod>{{lastmod}}</lastmod>
  </url>
-{{#objects_list_pages}}
+{{#objects_pages}}
  <url>
-   <loc>{{{configuration.base_url}}}{{{absolute_href}}}</loc>
+   <loc>{{{configuration.base_url}}}/objects/list/{{{number_one_based}}}.html</loc>
    <lastmod>{{lastmod}}</lastmod>
  </url>
-{{/objects_list_pages}}
+{{/objects_pages}}
 {{#objects}}
  <url>
    <loc>{{{configuration.base_url}}}{{{absolute_href}}}</loc>
