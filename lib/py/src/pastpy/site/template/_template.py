@@ -2,26 +2,20 @@ from abc import ABC, abstractmethod
 from datetime import datetime
 import logging
 import os.path
-from pastpy.gen.site.site_metadata import SiteMetadata
-from pastpy.gen.site.site_nav_items import SiteNavItems
+from pastpy.gen.site.template.footer_html_context import FooterHtmlContext
 import pystache
 
 
 class _Template(ABC):
     def __init__(self, *, configuration):
         self._configuration = configuration
+        self._footer_html_context = FooterHtmlContext(current_year=datetime.now().year)
         self._logger = logging.getLogger(self.__class__.__name__)
 
-    def _new_metadata(self, *, out_dir_relpath, active_nav_item="home"):
-        builder = SiteMetadata.builder()
-        builder.root_relative_href = os.path.relpath(
-            self._configuration.output_dir_path, os.path.join(self._configuration.output_dir_path, out_dir_relpath)).replace(os.path.sep, '/')
-        builder.configuration = self._configuration
-        builder.current_year = datetime.now().year
-        nav_items_builder = SiteNavItems.builder()
-        setattr(nav_items_builder, active_nav_item, True)
-        builder.nav_items = nav_items_builder.build()
-        return builder.build()
+    def _root_relative_href(self, out_dir_relpath):
+        return \
+            os.path.relpath(
+                self._configuration.output_dir_path, os.path.join(self._configuration.output_dir_path, out_dir_relpath)).replace(os.path.sep, '/')
 
     @abstractmethod
     def render(self):

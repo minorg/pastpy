@@ -2,7 +2,7 @@ import builtins
 import pastpy.gen.true_bool
 
 
-class SiteNavItems(object):
+class NavbarHtmlContext(object):
     class Builder(object):
         def __init__(
             self,
@@ -18,13 +18,13 @@ class SiteNavItems(object):
             self.__objects = objects
 
         def build(self):
-            return SiteNavItems(home=self.__home, objects=self.__objects)
+            return NavbarHtmlContext(home=self.__home, objects=self.__objects)
 
         @classmethod
         def from_template(cls, template):
             '''
-            :type template: pastpy.gen.site.site_nav_items.SiteNavItems
-            :rtype: pastpy.gen.site.site_nav_items.SiteNavItems
+            :type template: pastpy.gen.site.template.navbar_html_context.NavbarHtmlContext
+            :rtype: pastpy.gen.site.template.navbar_html_context.NavbarHtmlContext
             '''
 
             builder = cls()
@@ -70,20 +70,20 @@ class SiteNavItems(object):
             self.__objects = objects
             return self
 
-        def update(self, site_nav_items):
+        def update(self, navbar_html_context):
             '''
             :type home: bool or None
             :type objects: bool or None
             '''
 
-            if isinstance(site_nav_items, SiteNavItems):
-                self.set_home(site_nav_items.home)
-                self.set_objects(site_nav_items.objects)
-            elif isinstance(site_nav_items, dict):
-                for key, value in site_nav_items.items():
+            if isinstance(navbar_html_context, NavbarHtmlContext):
+                self.set_home(navbar_html_context.home)
+                self.set_objects(navbar_html_context.objects)
+            elif isinstance(navbar_html_context, dict):
+                for key, value in navbar_html_context.items():
                     getattr(self, 'set_' + key)(value)
             else:
-                raise TypeError(site_nav_items)
+                raise TypeError(navbar_html_context)
             return self
 
         @home.setter
@@ -164,7 +164,7 @@ class SiteNavItems(object):
         if self.objects is not None:
             __present_field_count = __present_field_count + 1
         if __present_field_count != 1:
-            raise ValueError("site_nav_items.SiteNavItems: %d fields set in a union" % __present_field_count)
+            raise ValueError("navbar_html_context.NavbarHtmlContext: %d fields set in a union" % __present_field_count)
 
     def __eq__(self, other):
         if self.home != other.home:
@@ -188,7 +188,7 @@ class SiteNavItems(object):
             field_reprs.append('home=' + repr(self.home))
         if self.objects is not None:
             field_reprs.append('objects=' + repr(self.objects))
-        return 'SiteNavItems(' + ', '.join(field_reprs) + ')'
+        return 'NavbarHtmlContext(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
         field_reprs = []
@@ -196,7 +196,7 @@ class SiteNavItems(object):
             field_reprs.append('home=' + repr(self.home))
         if self.objects is not None:
             field_reprs.append('objects=' + repr(self.objects))
-        return 'SiteNavItems(' + ', '.join(field_reprs) + ')'
+        return 'NavbarHtmlContext(' + ', '.join(field_reprs) + ')'
 
     @classmethod
     def builder(cls):
@@ -237,7 +237,7 @@ class SiteNavItems(object):
         Read a new object from the given input protocol and return the object.
 
         :type iprot: thryft.protocol._input_protocol._InputProtocol
-        :rtype: pastpy.gen.site.site_nav_items.SiteNavItems
+        :rtype: pastpy.gen.site.template.navbar_html_context.NavbarHtmlContext
         '''
 
         init_kwds = {}
@@ -276,10 +276,10 @@ class SiteNavItems(object):
         Write this object to the given output protocol and return self.
 
         :type oprot: thryft.protocol._output_protocol._OutputProtocol
-        :rtype: pastpy.gen.site.site_nav_items.SiteNavItems
+        :rtype: pastpy.gen.site.template.navbar_html_context.NavbarHtmlContext
         '''
 
-        oprot.write_struct_begin('SiteNavItems')
+        oprot.write_struct_begin('NavbarHtmlContext')
 
         if self.home is not None:
             oprot.write_field_begin(name='home', type=2, id=None)

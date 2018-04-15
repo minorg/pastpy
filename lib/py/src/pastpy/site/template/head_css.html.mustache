@@ -1,13 +1,13 @@
     <!-- Bootstrap CSS -->
-    {{#metadata.configuration.theme_css_file_path}}
-    <link rel="stylesheet" href="{{{metadata.root_relative_href}}}/css/theme.css" />
-    {{/metadata.configuration.theme_css_file_path}}
-    {{^metadata.configuration.theme_css_file_path}}
+    {{#configuration.theme_css_file_path}}
+    <link rel="stylesheet" href="{{{root_relative_href}}}/css/theme.css" />
+    {{/configuration.theme_css_file_path}}
+    {{^configuration.theme_css_file_path}}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous" />
-    {{/metadata.configuration.theme_css_file_path}}
+    {{/configuration.theme_css_file_path}}
 
     <!-- lity CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lity/2.3.0/lity.min.css" />
 
-    <link rel="stylesheet" href="{{{metadata.root_relative_href}}}/css/google_custom_search_engine.css" />
+    <link rel="stylesheet" href="{{{root_relative_href}}}/css/google_custom_search_engine.css" />

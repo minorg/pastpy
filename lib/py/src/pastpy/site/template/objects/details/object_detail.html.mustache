@@ -3,9 +3,9 @@
 
 <head>
     {{>head_meta.html}} {{>head_css.html}}
-    <title>{{metadata.configuration.name}} - Object {{object.id}} - {{object.name}}</title>
+    <title>{{configuration.name}} - Object {{object.id}} - {{object.name}}</title>
 
-    <meta property="og:url"           content="{{{metadata.configuration.base_url}}}{{{object.absolute_href}}}" />
+    <meta property="og:url"           content="{{{configuration.base_url}}}{{{object.absolute_href}}}" />
     <meta property="og:type"          content="article" />
     <meta property="og:title"         content="{{object.name}}" />
     <!-- <meta property="og:description"   content="Your description" /> -->
@@ -18,7 +18,7 @@
             {{#object.standard_attributes_map_json.othername}}
             "alternateName": {{{object.standard_attributes_map_json.othername}}},
             {{/object.standard_attributes_map_json.othername}}
-            "copyrightHolder": "{{{metadata.configuration.copyright_holder}}}",
+            "copyrightHolder": "{{{configuration.copyright_holder}}}",
             {{#object.standard_attributes_map_json.description}}
             "description": {{{object.standard_attributes_map_json.description}}},
             {{/object.standard_attributes_map_json.description}}
@@ -33,7 +33,7 @@
             "temporalCoverage": {{{object.standard_attributes_map_json.date}}},
             {{/object.standard_attributes_map_json.date}}
             "thumbnailUrl": "{{{object.thumbnail_url}}}",
-            "url": "{{{metadata.configuration.base_url}}}{{{object.absolute_href}}}"
+            "url": "{{{configuration.base_url}}}{{{object.absolute_href}}}"
         }
     </script>
 </head>
@@ -80,7 +80,7 @@
                                     <div class="col-2">
                                         <div class="text-left">
                                             <div>
-                                                <a href="mailto:?subject=I wanted you to see this page at {{metadata.configuration.name}}&amp;body=Check out this page: {{{metadata.configuration.base_url}}}{{{object.absolute_href}}}" title="Share by Email">
+                                                <a href="mailto:?subject=I wanted you to see this page at {{configuration.name}}&amp;body=Check out this page: {{{configuration.base_url}}}{{{object.absolute_href}}}" title="Share by Email">
                                                     <i class="fas fa-envelope fa-2x"></i>
                                                 </a>
                                             </div>
@@ -90,12 +90,12 @@
                                             </div>
                                             <br/>
                                             <div>
-                                                <div class="fb-share-button" data-href="{{{metadata.configuration.base_url}}}{{{object.absolute_href}}}" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{metadata.configuration.base_url}}{{object.absolute_href}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore" style="vertical-align: middle !important"></a></div>
+                                                <div class="fb-share-button" data-href="{{{configuration.base_url}}}{{{object.absolute_href}}}" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{configuration.base_url}}{{object.absolute_href}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore" style="vertical-align: middle !important"></a></div>
                                             </div>
                                             <br/>
                                             <div>
                                                 <a class="twitter-share-button"
-                                                    href="https://twitter.com/intent/tweet?text=I%20just%20found%20this%20from%20{{metadata.configuration.name}}"
+                                                    href="https://twitter.com/intent/tweet?text=I%20just%20found%20this%20from%20{{configuration.name}}"
                                                     data-size="large">
                                                   Tweet</a>
                                             </div>
