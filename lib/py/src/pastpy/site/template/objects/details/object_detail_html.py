@@ -1,6 +1,6 @@
 from ..._template import _Template
 import os.path
-from pastpy.gen.site.site_object_detail import SiteObjectDetail
+from pastpy.gen.site.template.objects.detail.object_detail_html_context import ObjectDetailHtmlContext
 
 
 class ObjectDetailHtml(_Template):
@@ -11,7 +11,7 @@ class ObjectDetailHtml(_Template):
     def render(self):
         out_dir_relpath = os.path.join('objects', 'details')
         context = \
-            SiteObjectDetail(
+            ObjectDetailHtmlContext(
                 metadata=self._new_metadata(
                     active_nav_item="objects",
                     out_dir_relpath=out_dir_relpath

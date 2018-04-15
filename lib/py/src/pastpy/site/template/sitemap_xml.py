@@ -1,7 +1,7 @@
 from datetime import date
 from ._template import _Template
 from pastpy.gen.site.site_pagination_page_number import SitePaginationPageNumber
-from pastpy.gen.site.site_sitemap import SiteSitemap
+from pastpy.gen.site.template.sitemap_xml_context import SitemapXmlContext
 
 
 class SitemapXml(_Template):
@@ -11,7 +11,7 @@ class SitemapXml(_Template):
         self.__objects_pages = objects_pages
 
     def render(self):
-        context_builder = SiteSitemap.builder()
+        context_builder = SitemapXmlContext.builder()
         context_builder.configuration = self._configuration
         context_builder.lastmod = date.today().isoformat()
         context_builder.objects_list_page_numbers = tuple(SitePaginationPageNumber(active=True, enabled=True, number=objects_page.number_one_based) for objects_page in self.__objects_pages)

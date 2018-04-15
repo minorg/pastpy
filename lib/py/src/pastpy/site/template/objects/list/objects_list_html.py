@@ -1,6 +1,6 @@
 from ..._template import _Template
 import os.path
-from pastpy.gen.site.site_objects_list import SiteObjectsList
+from pastpy.gen.site.template.objects.list.objects_list_html_context import ObjectsListHtmlContext
 
 
 class ObjectsListHtml(_Template):
@@ -13,7 +13,7 @@ class ObjectsListHtml(_Template):
         out_file_relpath = os.path.join(
             out_dir_relpath, str(self.__objects_page.number_one_based) + '.html')
 
-        context_builder = SiteObjectsList.builder()
+        context_builder = ObjectsListHtmlContext.builder()
         context_builder.absolute_href = "/" + \
             out_file_relpath.replace(os.path.sep, '/')
         context_builder.metadata = self._new_metadata(

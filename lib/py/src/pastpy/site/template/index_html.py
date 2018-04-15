@@ -1,11 +1,11 @@
-from pastpy.gen.site.site_index import SiteIndex
+from pastpy.gen.site.template.index_html_context import IndexHtmlContext
 from ._template import _Template
 
 
 class IndexHtml(_Template):
     def render(self):
         context = \
-            SiteIndex(
+            IndexHtmlContext(
                 has_featured_searches=bool(self._configuration.featured_searches),
                 metadata=self._new_metadata(
                     active_nav_item="home",

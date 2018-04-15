@@ -6,7 +6,7 @@ import re
 from urllib.parse import urlparse
 from xml.sax import saxutils
 
-from pastpy.gen.site.site_attribute import SiteAttribute
+from pastpy.gen.name_value_pair import NameValuePair
 from pastpy.gen.site.site_image import SiteImage
 from pastpy.gen.site.site_object import SiteObject
 
@@ -81,7 +81,7 @@ class SiteObjectsReader(object):
                 object_builder.thumbnail_url = "http://via.placeholder.com/210x211?text=Missing%20image"
 
             object_builder.impl_attributes_list = \
-                tuple(SiteAttribute(name=name, value=value)
+                tuple(NameValuePair(name=name, value=value)
                       for name, value in database_object.impl_attributes.items())
 
             if database_object.name:
@@ -110,9 +110,9 @@ class SiteObjectsReader(object):
                     standard_attributes_map_json[member_name] = ''
                     standard_attributes_map_xml[member_name] = ''
             object_builder.standard_attributes_list = \
-                tuple(SiteAttribute(name=name, value=value)
+                tuple(NameValuePair(name=name, value=value)
                       for name, value in standard_attributes_map.items())
-            object_builder.standard_attributes_list_xml = tuple(SiteAttribute(key, value) for key, value in standard_attributes_map_xml.items())
+            object_builder.standard_attributes_list_xml = tuple(NameValuePair(key, value) for key, value in standard_attributes_map_xml.items())
             object_builder.standard_attributes_map = standard_attributes_map
             object_builder.standard_attributes_map_json = standard_attributes_map_json
             for name, value in standard_attributes_map.items():
