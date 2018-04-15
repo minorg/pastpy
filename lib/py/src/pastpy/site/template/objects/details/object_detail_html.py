@@ -1,5 +1,6 @@
 from ..._template import _Template
 import os.path
+from pastpy.gen.site.template.navbar_html_context import NavbarHtmlContext
 from pastpy.gen.site.template.objects.detail.object_detail_html_context import ObjectDetailHtmlContext
 
 
@@ -12,11 +13,11 @@ class ObjectDetailHtml(_Template):
         out_dir_relpath = os.path.join('objects', 'details')
         context = \
             ObjectDetailHtmlContext(
-                metadata=self._new_metadata(
-                    active_nav_item="objects",
-                    out_dir_relpath=out_dir_relpath
-                ),
-                object=self.__object
+                configuration=self._configuration,
+                footer=self._footer_html_context,
+                navbar=NavbarHtmlContext(objects=True),
+                object=self.__object,
+                root_relative_href=self._root_relative_href(out_dir_relpath=out_dir_relpath)
             )
         self._render_mustache(
             context=context,

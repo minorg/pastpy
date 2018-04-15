@@ -1,6 +1,7 @@
 from itertools import filterfalse
 import builtins
 import pastpy.gen.non_blank_string
+import pastpy.gen.site.site_configuration
 import pastpy.gen.site.site_object
 import pastpy.gen.site.site_pagination
 import pastpy.gen.site.template.footer_html_context
@@ -12,6 +13,7 @@ class ObjectsListHtmlContext(object):
         def __init__(
             self,
             absolute_href=None,
+            configuration=None,
             footer=None,
             navbar=None,
             objects=None,
@@ -20,6 +22,7 @@ class ObjectsListHtmlContext(object):
         ):
             '''
             :type absolute_href: str
+            :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
             :type footer: pastpy.gen.site.template.footer_html_context.FooterHtmlContext
             :type navbar: pastpy.gen.site.template.navbar_html_context.NavbarHtmlContext
             :type objects: tuple(pastpy.gen.site.site_object.SiteObject)
@@ -28,6 +31,7 @@ class ObjectsListHtmlContext(object):
             '''
 
             self.__absolute_href = absolute_href
+            self.__configuration = configuration
             self.__footer = footer
             self.__navbar = navbar
             self.__objects = objects
@@ -35,7 +39,7 @@ class ObjectsListHtmlContext(object):
             self.__root_relative_href = root_relative_href
 
         def build(self):
-            return ObjectsListHtmlContext(absolute_href=self.__absolute_href, footer=self.__footer, navbar=self.__navbar, objects=self.__objects, pagination=self.__pagination, root_relative_href=self.__root_relative_href)
+            return ObjectsListHtmlContext(absolute_href=self.__absolute_href, configuration=self.__configuration, footer=self.__footer, navbar=self.__navbar, objects=self.__objects, pagination=self.__pagination, root_relative_href=self.__root_relative_href)
 
         @property
         def absolute_href(self):
@@ -44,6 +48,14 @@ class ObjectsListHtmlContext(object):
             '''
 
             return self.__absolute_href
+
+        @property
+        def configuration(self):
+            '''
+            :rtype: pastpy.gen.site.site_configuration.SiteConfiguration
+            '''
+
+            return self.__configuration
 
         @property
         def footer(self):
@@ -62,6 +74,7 @@ class ObjectsListHtmlContext(object):
 
             builder = cls()
             builder.absolute_href = template.absolute_href
+            builder.configuration = template.configuration
             builder.footer = template.footer
             builder.navbar = template.navbar
             builder.objects = template.objects
@@ -111,6 +124,18 @@ class ObjectsListHtmlContext(object):
             if not isinstance(absolute_href, str):
                 raise TypeError("expected absolute_href to be a str but it is a %s" % builtins.type(absolute_href))
             self.__absolute_href = absolute_href
+            return self
+
+        def set_configuration(self, configuration):
+            '''
+            :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
+            '''
+
+            if configuration is None:
+                raise ValueError('configuration is required')
+            if not isinstance(configuration, pastpy.gen.site.site_configuration.SiteConfiguration):
+                raise TypeError("expected configuration to be a pastpy.gen.site.site_configuration.SiteConfiguration but it is a %s" % builtins.type(configuration))
+            self.__configuration = configuration
             return self
 
         def set_footer(self, footer):
@@ -176,6 +201,7 @@ class ObjectsListHtmlContext(object):
         def update(self, objects_list_html_context):
             '''
             :type absolute_href: str
+            :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
             :type footer: pastpy.gen.site.template.footer_html_context.FooterHtmlContext
             :type navbar: pastpy.gen.site.template.navbar_html_context.NavbarHtmlContext
             :type objects: tuple(pastpy.gen.site.site_object.SiteObject)
@@ -185,6 +211,7 @@ class ObjectsListHtmlContext(object):
 
             if isinstance(objects_list_html_context, ObjectsListHtmlContext):
                 self.set_absolute_href(objects_list_html_context.absolute_href)
+                self.set_configuration(objects_list_html_context.configuration)
                 self.set_footer(objects_list_html_context.footer)
                 self.set_navbar(objects_list_html_context.navbar)
                 self.set_objects(objects_list_html_context.objects)
@@ -204,6 +231,14 @@ class ObjectsListHtmlContext(object):
             '''
 
             self.set_absolute_href(absolute_href)
+
+        @configuration.setter
+        def configuration(self, configuration):
+            '''
+            :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
+            '''
+
+            self.set_configuration(configuration)
 
         @footer.setter
         def footer(self, footer):
@@ -247,6 +282,7 @@ class ObjectsListHtmlContext(object):
 
     class FieldMetadata(object):
         ABSOLUTE_HREF = None
+        CONFIGURATION = None
         FOOTER = None
         NAVBAR = None
         OBJECTS = None
@@ -279,9 +315,10 @@ class ObjectsListHtmlContext(object):
 
         @classmethod
         def values(cls):
-            return (cls.ABSOLUTE_HREF, cls.FOOTER, cls.NAVBAR, cls.OBJECTS, cls.PAGINATION, cls.ROOT_RELATIVE_HREF,)
+            return (cls.ABSOLUTE_HREF, cls.CONFIGURATION, cls.FOOTER, cls.NAVBAR, cls.OBJECTS, cls.PAGINATION, cls.ROOT_RELATIVE_HREF,)
 
     FieldMetadata.ABSOLUTE_HREF = FieldMetadata('absolute_href', pastpy.gen.non_blank_string.NonBlankString, None)
+    FieldMetadata.CONFIGURATION = FieldMetadata('configuration', pastpy.gen.site.site_configuration.SiteConfiguration, None)
     FieldMetadata.FOOTER = FieldMetadata('footer', pastpy.gen.site.template.footer_html_context.FooterHtmlContext, None)
     FieldMetadata.NAVBAR = FieldMetadata('navbar', pastpy.gen.site.template.navbar_html_context.NavbarHtmlContext, None)
     FieldMetadata.OBJECTS = FieldMetadata('objects', tuple, None)
@@ -291,6 +328,7 @@ class ObjectsListHtmlContext(object):
     def __init__(
         self,
         absolute_href,
+        configuration,
         footer,
         navbar,
         objects,
@@ -299,6 +337,7 @@ class ObjectsListHtmlContext(object):
     ):
         '''
         :type absolute_href: str
+        :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
         :type footer: pastpy.gen.site.template.footer_html_context.FooterHtmlContext
         :type navbar: pastpy.gen.site.template.navbar_html_context.NavbarHtmlContext
         :type objects: tuple(pastpy.gen.site.site_object.SiteObject)
@@ -311,6 +350,12 @@ class ObjectsListHtmlContext(object):
         if not isinstance(absolute_href, str):
             raise TypeError("expected absolute_href to be a str but it is a %s" % builtins.type(absolute_href))
         self.__absolute_href = absolute_href
+
+        if configuration is None:
+            raise ValueError('configuration is required')
+        if not isinstance(configuration, pastpy.gen.site.site_configuration.SiteConfiguration):
+            raise TypeError("expected configuration to be a pastpy.gen.site.site_configuration.SiteConfiguration but it is a %s" % builtins.type(configuration))
+        self.__configuration = configuration
 
         if footer is None:
             raise ValueError('footer is required')
@@ -345,6 +390,8 @@ class ObjectsListHtmlContext(object):
     def __eq__(self, other):
         if self.absolute_href != other.absolute_href:
             return False
+        if self.configuration != other.configuration:
+            return False
         if self.footer != other.footer:
             return False
         if self.navbar != other.navbar:
@@ -358,10 +405,10 @@ class ObjectsListHtmlContext(object):
         return True
 
     def __hash__(self):
-        return hash((self.absolute_href, self.footer, self.navbar, self.objects, self.pagination, self.root_relative_href,))
+        return hash((self.absolute_href, self.configuration, self.footer, self.navbar, self.objects, self.pagination, self.root_relative_href,))
 
     def __iter__(self):
-        return iter((self.absolute_href, self.footer, self.navbar, self.objects, self.pagination, self.root_relative_href,))
+        return iter((self.absolute_href, self.configuration, self.footer, self.navbar, self.objects, self.pagination, self.root_relative_href,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -369,6 +416,7 @@ class ObjectsListHtmlContext(object):
     def __repr__(self):
         field_reprs = []
         field_reprs.append('absolute_href=' + "'" + self.absolute_href.encode('ascii', 'replace').decode('ascii') + "'")
+        field_reprs.append('configuration=' + repr(self.configuration))
         field_reprs.append('footer=' + repr(self.footer))
         field_reprs.append('navbar=' + repr(self.navbar))
         field_reprs.append('objects=' + repr(self.objects))
@@ -379,6 +427,7 @@ class ObjectsListHtmlContext(object):
     def __str__(self):
         field_reprs = []
         field_reprs.append('absolute_href=' + "'" + self.absolute_href.encode('ascii', 'replace').decode('ascii') + "'")
+        field_reprs.append('configuration=' + repr(self.configuration))
         field_reprs.append('footer=' + repr(self.footer))
         field_reprs.append('navbar=' + repr(self.navbar))
         field_reprs.append('objects=' + repr(self.objects))
@@ -399,6 +448,14 @@ class ObjectsListHtmlContext(object):
         return cls.Builder()
 
     @property
+    def configuration(self):
+        '''
+        :rtype: pastpy.gen.site.site_configuration.SiteConfiguration
+        '''
+
+        return self.__configuration
+
+    @property
     def footer(self):
         '''
         :rtype: pastpy.gen.site.template.footer_html_context.FooterHtmlContext
@@ -417,6 +474,12 @@ class ObjectsListHtmlContext(object):
         if absolute_href is None:
             raise KeyError("absolute_href")
         __builder.absolute_href = absolute_href
+
+        configuration = _dict.get("configuration")
+        if configuration is None:
+            raise KeyError("configuration")
+        configuration = pastpy.gen.site.site_configuration.SiteConfiguration.from_builtins(configuration)
+        __builder.configuration = configuration
 
         footer = _dict.get("footer")
         if footer is None:
@@ -491,6 +554,8 @@ class ObjectsListHtmlContext(object):
                 break
             elif ifield_name == 'absolute_href':
                 init_kwds['absolute_href'] = iprot.read_string()
+            elif ifield_name == 'configuration':
+                init_kwds['configuration'] = pastpy.gen.site.site_configuration.SiteConfiguration.read(iprot)
             elif ifield_name == 'footer':
                 init_kwds['footer'] = pastpy.gen.site.template.footer_html_context.FooterHtmlContext.read(iprot)
             elif ifield_name == 'navbar':
@@ -520,6 +585,7 @@ class ObjectsListHtmlContext(object):
     def to_builtins(self):
         dict_ = {}
         dict_["absolute_href"] = self.absolute_href
+        dict_["configuration"] = self.configuration.to_builtins()
         dict_["footer"] = self.footer.to_builtins()
         dict_["navbar"] = self.navbar.to_builtins()
         dict_["objects"] = tuple(element0.to_builtins() for element0 in self.objects)
@@ -539,6 +605,10 @@ class ObjectsListHtmlContext(object):
 
         oprot.write_field_begin(name='absolute_href', type=11, id=None)
         oprot.write_string(self.absolute_href)
+        oprot.write_field_end()
+
+        oprot.write_field_begin(name='configuration', type=12, id=None)
+        self.configuration.write(oprot)
         oprot.write_field_end()
 
         oprot.write_field_begin(name='footer', type=12, id=None)

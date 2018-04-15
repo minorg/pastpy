@@ -1,5 +1,6 @@
 import builtins
 import pastpy.gen.non_blank_string
+import pastpy.gen.site.site_configuration
 import pastpy.gen.site.site_object
 import pastpy.gen.site.template.footer_html_context
 import pastpy.gen.site.template.navbar_html_context
@@ -9,25 +10,36 @@ class ObjectDetailHtmlContext(object):
     class Builder(object):
         def __init__(
             self,
+            configuration=None,
             footer=None,
             navbar=None,
             object=None,  # @ReservedAssignment
             root_relative_href=None,
         ):
             '''
+            :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
             :type footer: pastpy.gen.site.template.footer_html_context.FooterHtmlContext
             :type navbar: pastpy.gen.site.template.navbar_html_context.NavbarHtmlContext
             :type object: pastpy.gen.site.site_object.SiteObject
             :type root_relative_href: str
             '''
 
+            self.__configuration = configuration
             self.__footer = footer
             self.__navbar = navbar
             self.__object = object
             self.__root_relative_href = root_relative_href
 
         def build(self):
-            return ObjectDetailHtmlContext(footer=self.__footer, navbar=self.__navbar, object=self.__object, root_relative_href=self.__root_relative_href)
+            return ObjectDetailHtmlContext(configuration=self.__configuration, footer=self.__footer, navbar=self.__navbar, object=self.__object, root_relative_href=self.__root_relative_href)
+
+        @property
+        def configuration(self):
+            '''
+            :rtype: pastpy.gen.site.site_configuration.SiteConfiguration
+            '''
+
+            return self.__configuration
 
         @property
         def footer(self):
@@ -45,6 +57,7 @@ class ObjectDetailHtmlContext(object):
             '''
 
             builder = cls()
+            builder.configuration = template.configuration
             builder.footer = template.footer
             builder.navbar = template.navbar
             builder.object = template.object
@@ -74,6 +87,18 @@ class ObjectDetailHtmlContext(object):
             '''
 
             return self.__root_relative_href
+
+        def set_configuration(self, configuration):
+            '''
+            :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
+            '''
+
+            if configuration is None:
+                raise ValueError('configuration is required')
+            if not isinstance(configuration, pastpy.gen.site.site_configuration.SiteConfiguration):
+                raise TypeError("expected configuration to be a pastpy.gen.site.site_configuration.SiteConfiguration but it is a %s" % builtins.type(configuration))
+            self.__configuration = configuration
+            return self
 
         def set_footer(self, footer):
             '''
@@ -125,6 +150,7 @@ class ObjectDetailHtmlContext(object):
 
         def update(self, object_detail_html_context):
             '''
+            :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
             :type footer: pastpy.gen.site.template.footer_html_context.FooterHtmlContext
             :type navbar: pastpy.gen.site.template.navbar_html_context.NavbarHtmlContext
             :type object: pastpy.gen.site.site_object.SiteObject
@@ -132,6 +158,7 @@ class ObjectDetailHtmlContext(object):
             '''
 
             if isinstance(object_detail_html_context, ObjectDetailHtmlContext):
+                self.set_configuration(object_detail_html_context.configuration)
                 self.set_footer(object_detail_html_context.footer)
                 self.set_navbar(object_detail_html_context.navbar)
                 self.set_object(object_detail_html_context.object)
@@ -142,6 +169,14 @@ class ObjectDetailHtmlContext(object):
             else:
                 raise TypeError(object_detail_html_context)
             return self
+
+        @configuration.setter
+        def configuration(self, configuration):
+            '''
+            :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
+            '''
+
+            self.set_configuration(configuration)
 
         @footer.setter
         def footer(self, footer):
@@ -176,6 +211,7 @@ class ObjectDetailHtmlContext(object):
             self.set_root_relative_href(root_relative_href)
 
     class FieldMetadata(object):
+        CONFIGURATION = None
         FOOTER = None
         NAVBAR = None
         OBJECT = None
@@ -207,8 +243,9 @@ class ObjectDetailHtmlContext(object):
 
         @classmethod
         def values(cls):
-            return (cls.FOOTER, cls.NAVBAR, cls.OBJECT, cls.ROOT_RELATIVE_HREF,)
+            return (cls.CONFIGURATION, cls.FOOTER, cls.NAVBAR, cls.OBJECT, cls.ROOT_RELATIVE_HREF,)
 
+    FieldMetadata.CONFIGURATION = FieldMetadata('configuration', pastpy.gen.site.site_configuration.SiteConfiguration, None)
     FieldMetadata.FOOTER = FieldMetadata('footer', pastpy.gen.site.template.footer_html_context.FooterHtmlContext, None)
     FieldMetadata.NAVBAR = FieldMetadata('navbar', pastpy.gen.site.template.navbar_html_context.NavbarHtmlContext, None)
     FieldMetadata.OBJECT = FieldMetadata('object', pastpy.gen.site.site_object.SiteObject, None)
@@ -216,17 +253,25 @@ class ObjectDetailHtmlContext(object):
 
     def __init__(
         self,
+        configuration,
         footer,
         navbar,
         object,  # @ReservedAssignment
         root_relative_href,
     ):
         '''
+        :type configuration: pastpy.gen.site.site_configuration.SiteConfiguration
         :type footer: pastpy.gen.site.template.footer_html_context.FooterHtmlContext
         :type navbar: pastpy.gen.site.template.navbar_html_context.NavbarHtmlContext
         :type object: pastpy.gen.site.site_object.SiteObject
         :type root_relative_href: str
         '''
+
+        if configuration is None:
+            raise ValueError('configuration is required')
+        if not isinstance(configuration, pastpy.gen.site.site_configuration.SiteConfiguration):
+            raise TypeError("expected configuration to be a pastpy.gen.site.site_configuration.SiteConfiguration but it is a %s" % builtins.type(configuration))
+        self.__configuration = configuration
 
         if footer is None:
             raise ValueError('footer is required')
@@ -253,6 +298,8 @@ class ObjectDetailHtmlContext(object):
         self.__root_relative_href = root_relative_href
 
     def __eq__(self, other):
+        if self.configuration != other.configuration:
+            return False
         if self.footer != other.footer:
             return False
         if self.navbar != other.navbar:
@@ -264,16 +311,17 @@ class ObjectDetailHtmlContext(object):
         return True
 
     def __hash__(self):
-        return hash((self.footer, self.navbar, self.object, self.root_relative_href,))
+        return hash((self.configuration, self.footer, self.navbar, self.object, self.root_relative_href,))
 
     def __iter__(self):
-        return iter((self.footer, self.navbar, self.object, self.root_relative_href,))
+        return iter((self.configuration, self.footer, self.navbar, self.object, self.root_relative_href,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
 
     def __repr__(self):
         field_reprs = []
+        field_reprs.append('configuration=' + repr(self.configuration))
         field_reprs.append('footer=' + repr(self.footer))
         field_reprs.append('navbar=' + repr(self.navbar))
         field_reprs.append('object=' + repr(self.object))
@@ -282,6 +330,7 @@ class ObjectDetailHtmlContext(object):
 
     def __str__(self):
         field_reprs = []
+        field_reprs.append('configuration=' + repr(self.configuration))
         field_reprs.append('footer=' + repr(self.footer))
         field_reprs.append('navbar=' + repr(self.navbar))
         field_reprs.append('object=' + repr(self.object))
@@ -291,6 +340,14 @@ class ObjectDetailHtmlContext(object):
     @classmethod
     def builder(cls):
         return cls.Builder()
+
+    @property
+    def configuration(self):
+        '''
+        :rtype: pastpy.gen.site.site_configuration.SiteConfiguration
+        '''
+
+        return self.__configuration
 
     @property
     def footer(self):
@@ -306,6 +363,12 @@ class ObjectDetailHtmlContext(object):
             raise ValueError("expected dict")
 
         __builder = cls.builder()
+
+        configuration = _dict.get("configuration")
+        if configuration is None:
+            raise KeyError("configuration")
+        configuration = pastpy.gen.site.site_configuration.SiteConfiguration.from_builtins(configuration)
+        __builder.configuration = configuration
 
         footer = _dict.get("footer")
         if footer is None:
@@ -364,6 +427,8 @@ class ObjectDetailHtmlContext(object):
             ifield_name, ifield_type, _ifield_id = iprot.read_field_begin()
             if ifield_type == 0:  # STOP
                 break
+            elif ifield_name == 'configuration':
+                init_kwds['configuration'] = pastpy.gen.site.site_configuration.SiteConfiguration.read(iprot)
             elif ifield_name == 'footer':
                 init_kwds['footer'] = pastpy.gen.site.template.footer_html_context.FooterHtmlContext.read(iprot)
             elif ifield_name == 'navbar':
@@ -390,6 +455,7 @@ class ObjectDetailHtmlContext(object):
 
     def to_builtins(self):
         dict_ = {}
+        dict_["configuration"] = self.configuration.to_builtins()
         dict_["footer"] = self.footer.to_builtins()
         dict_["navbar"] = self.navbar.to_builtins()
         dict_["object"] = self.object.to_builtins()
@@ -405,6 +471,10 @@ class ObjectDetailHtmlContext(object):
         '''
 
         oprot.write_struct_begin('ObjectDetailHtmlContext')
+
+        oprot.write_field_begin(name='configuration', type=12, id=None)
+        self.configuration.write(oprot)
+        oprot.write_field_end()
 
         oprot.write_field_begin(name='footer', type=12, id=None)
         self.footer.write(oprot)
