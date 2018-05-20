@@ -17,7 +17,10 @@
             </li>
         </ul>
         <div class="ml-auto" style="max-width: 25%">
-            <gcse:searchbox-only />
+            <form class="form-inline my-2 my-lg-0" action="{{{root_relative_href}}}/search.html" method="GET">
+                <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn my-2 my-sm-0 search-button" type="submit">Search</button>
+            </form>
         </div>
     </div>
 </nav>

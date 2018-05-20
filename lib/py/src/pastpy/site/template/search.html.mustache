@@ -18,16 +18,20 @@
                 <div class="container-fluid">
                     <div class="row mb-4">
                         <div class="col-12 text-center">
-                            <h4>Objects</h4>
+                            <h4>Search results</h4>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" id="search-results">
                     </div>
                 </div>
             </div>
         </div>
     </div>
     {{>footer.html}} {{>scripts.html}}
+    <script type="text/javascript" src="{{{root_relative_href}}}/js/lunr.min.js"></script>
+    <script type="text/javascript" src="{{{root_relative_href}}}/js/lunr_index.js"></script>
+    <script type="text/javascript" src="{{{root_relative_href}}}/js/mustache.min.js"></script>
+    <script type="text/javascript" src="{{{root_relative_href}}}/js/search.js"></script>
 </body>
 
 </html>
