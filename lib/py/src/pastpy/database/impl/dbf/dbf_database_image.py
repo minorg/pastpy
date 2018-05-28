@@ -13,3 +13,7 @@ class DbfDatabaseImage(DatabaseImage):
 
     def __path2url(self, path):
         return urljoin('file:', pathname2url(path))
+
+    @property
+    def thumbnail_url(self):
+        return None

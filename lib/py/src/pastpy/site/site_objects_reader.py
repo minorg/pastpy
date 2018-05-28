@@ -3,7 +3,8 @@ import json
 import logging
 import os.path
 import re
-from urllib.parse import urlparse
+import shutil
+from urllib.parse import unquote, urlparse
 from xml.sax import saxutils
 
 from pastpy.gen.name_value_pair import NameValuePair
@@ -17,13 +18,32 @@ class SiteObjectsReader(object):
         self.__database = database
         self.__logger = logging.getLogger(SiteObjectsReader.__class__.__name__)
 
+    def __copy_file_url(self, source_file_url, dest_dir_path):
+        if not source_file_url:
+            return None, None
+        source_file_url_parsed = urlparse(source_file_url)
+        if source_file_url_parsed.scheme != "file":
+            return source_file_url, None
+        source_file_path = unquote(source_file_url)[7:]
+        source_file_name = os.path.split(
+            source_file_path)[1]
+        dest_file_path = os.path.join(
+            dest_dir_path, source_file_name)
+        self.__makedirs(dest_dir_path)
+        shutil.copyfile(source_file_path,
+                        source_file_name)
+        self.__logger.debug(
+            "copied %s to %s", source_file_path, dest_file_path)
+        source_file_url = os.path.relpath(
+            source_file_path, self.__configuration.output_dir_path).replace(os.path.sep, '/')
+        return source_file_url, source_file_path
+
+    def __makedirs(self, dir_path):
+        if not os.path.isdir(dir_path):
+            os.makedirs(dir_path)
+            self.__logger.debug("created directory %s", dir_path)
+
     def read_objects(self):
-        out_images_dir_path = os.path.join(
-            self.__configuration.output_dir_path, 'img')
-        if not os.path.isdir(out_images_dir_path):
-            os.makedirs(out_images_dir_path)
-            self.__logger.debug(
-                "created output images directory %s", out_images_dir_path)
 
         object_ids_by_file_name = {}
         objects = []
@@ -33,25 +53,25 @@ class SiteObjectsReader(object):
                 continue
 
             images = []
+            out_images_dir_path = os.path.join(
+                self.__configuration.output_dir_path, 'img')
+            out_full_size_images_dir_path = os.path.join(
+                out_images_dir_path, "full_size")
+            out_thumbnail_images_dir_path = os.path.join(
+                out_images_dir_path, "thumbnail")
             for database_image in database_object.images:
-                full_size_url = database_image.full_size_url
-                if full_size_url:
-                    full_size_url_parsed = urlparse(full_size_url)
-                    if full_size_url_parsed.scheme == "file":
-                        raise NotImplementedError(
-                            "TODO: rewrite the actual image object with a substitute")
-                        # full_size_file_path = unquote(full_size_url)[7:]
-                        # full_size_file_name = os.path.split(full_size_file_path)[1]
-                        # out_image_file_path = os.path.join(
-                        #     out_images_dir_path, full_size_file_name)
-                        # shutil.copyfile(full_size_file_path,
-                        #                 full_size_file_name)
-                        # self.__logger.debug(
-                        #     "copied %s to %s", full_size_file_path, out_image_file_path)
-                        # img_srcs.append('img/' + full_size_file_name)
+                full_size_url, full_size_file_path = self.__copy_file_url(
+                    database_image.full_size_url, out_full_size_images_dir_path)
+
+                thumbnail_url, _thumbnail_file_path = self.__copy_file_url(
+                    database_image.thumbnail_url, out_thumbnail_images_dir_path)
+                if not thumbnail_url and full_size_file_path:
+                    thumbnail_url = full_size_url
+                    # raise NotImplementedError("shrink here")
+
                 images.append(SiteImage(
-                    full_size_url=database_image.full_size_url,
-                    thumbnail_url=database_image.thumbnail_url,
+                    full_size_url=full_size_url,
+                    thumbnail_url=thumbnail_url,
                     title=database_image.title
                 ))
 
@@ -104,15 +124,18 @@ class SiteObjectsReader(object):
                 value = getattr(database_object, member_name)
                 if value is not None:
                     standard_attributes_map[member_name] = value
-                    standard_attributes_map_json[member_name] = json.dumps(value)
-                    standard_attributes_map_xml[member_name] = saxutils.escape(value)
+                    standard_attributes_map_json[member_name] = json.dumps(
+                        value)
+                    standard_attributes_map_xml[member_name] = saxutils.escape(
+                        value)
                 else:
                     standard_attributes_map_json[member_name] = ''
                     standard_attributes_map_xml[member_name] = ''
             object_builder.standard_attributes_list = \
                 tuple(NameValuePair(name=name, value=value)
                       for name, value in standard_attributes_map.items())
-            object_builder.standard_attributes_list_xml = tuple(NameValuePair(key, value) for key, value in standard_attributes_map_xml.items())
+            object_builder.standard_attributes_list_xml = tuple(NameValuePair(
+                key, value) for key, value in standard_attributes_map_xml.items())
             object_builder.standard_attributes_map = standard_attributes_map
             object_builder.standard_attributes_map_json = standard_attributes_map_json
             for name, value in standard_attributes_map.items():

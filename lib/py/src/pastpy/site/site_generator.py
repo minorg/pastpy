@@ -55,8 +55,7 @@ class SiteGenerator(object):
 
         for in_file_path, out_file_path in file_paths.items():
             out_dir_path = os.path.dirname(out_file_path)
-            if not os.path.isdir(out_dir_path):
-                os.makedirs(out_dir_path)
+            self.__makedirs(out_dir_path)
             shutil.copyfile(in_file_path, out_file_path)
             self.__logger.debug("copied %s to %s",
                                 in_file_path, out_file_path)

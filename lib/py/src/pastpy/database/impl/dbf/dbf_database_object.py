@@ -21,6 +21,7 @@ class DbfDatabaseObject(DatabaseObject):
 
     @property
     def id(self):
+        assert isinstance(self.__record.objectid, str)
         return self.__record.objectid
 
     @property
@@ -57,7 +58,8 @@ class DbfDatabaseObject(DatabaseObject):
 
     @property
     def impl_attributes(self):
-        return self.__record.to_builtins()
+        return {key: value for key, value in self.__record.to_builtins().items()
+                if value is not None}
 
     @property
     def name(self):
@@ -66,3 +68,7 @@ class DbfDatabaseObject(DatabaseObject):
     @property
     def othername(self):
         return self.__record.othername
+
+    @property
+    def title(self):
+        return self.__record.title
