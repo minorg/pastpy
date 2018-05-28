@@ -1,32 +1,35 @@
-class DatabaseObject(object):
-    @property
+from abc import ABC, abstractproperty
+
+
+class DatabaseObject(ABC):
+    @abstractproperty
     def date(self):
-        raise NotImplementedError
+        pass
 
-    @property
+    @abstractproperty
     def description(self):
-        raise NotImplementedError
+        pass
 
-    @property
+    @abstractproperty
     def id(self):
-        raise NotImplementedError
+        pass
 
-    @property
+    @abstractproperty
     def impl_attributes(self):
-        raise NotImplementedError
+        pass
 
-    @property
+    @abstractproperty
     def images(self):
-        raise NotImplementedError
+        pass
 
-    @property
+    @abstractproperty
     def name(self):
-        raise NotImplementedError
+        pass
 
-    @property
+    @abstractproperty
     def othername(self):
-        raise NotImplementedError
+        pass
 
-    @property
+    @abstractproperty
     def title(self):
-        raise NotImplementedError
+        pass

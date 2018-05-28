@@ -1,12 +1,15 @@
-class DatabaseImage(object):
-    @property
+from abc import ABC, abstractproperty
+
+
+class DatabaseImage(ABC):
+    @abstractproperty
     def full_size_url(self):
-        raise NotImplementedError
+        pass
 
-    @property
+    @abstractproperty
     def thumbnail_url(self):
-        raise NotImplementedError
+        pass
 
-    @property
+    @abstractproperty
     def title(self):
-        raise NotImplementedError
+        pass

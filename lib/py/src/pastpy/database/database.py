@@ -1,3 +1,4 @@
+from abc import abstractmethod
 import logging
 from pastpy.gen.database.database_configuration import DatabaseConfiguration
 from pastpy.gen.database.impl.dbf.dbf_database_configuration import DbfDatabaseConfiguration
@@ -26,9 +27,10 @@ class Database(object):
         else:
             raise NotImplementedError
 
+    @abstractmethod
     def objects(self):
         """
         Iterate over the objects in the database.
         @return an iterable of objects
         """
-        raise NotImplementedError
+        pass
