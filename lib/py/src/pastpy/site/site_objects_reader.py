@@ -24,19 +24,20 @@ class SiteObjectsReader(object):
         source_file_url_parsed = urlparse(source_file_url)
         if source_file_url_parsed.scheme != "file":
             return source_file_url, None
-        source_file_path = unquote(source_file_url)[7:]
+        source_file_path = unquote(source_file_url)[8:].replace('/', os.path.sep)
+        assert os.path.isfile(source_file_path), source_file_path
         source_file_name = os.path.split(
             source_file_path)[1]
         dest_file_path = os.path.join(
             dest_dir_path, source_file_name)
         self.__makedirs(dest_dir_path)
         shutil.copyfile(source_file_path,
-                        source_file_name)
+                        dest_file_path)
         self.__logger.debug(
             "copied %s to %s", source_file_path, dest_file_path)
-        source_file_url = os.path.relpath(
-            source_file_path, self.__configuration.output_dir_path).replace(os.path.sep, '/')
-        return source_file_url, source_file_path
+        dest_file_url = os.path.relpath(
+            dest_file_path, self.__configuration.output_dir_path).replace(os.path.sep, '/')
+        return dest_file_path, dest_file_url
 
     def __makedirs(self, dir_path):
         if not os.path.isdir(dir_path):
@@ -69,11 +70,12 @@ class SiteObjectsReader(object):
                     thumbnail_url = full_size_url
                     # raise NotImplementedError("shrink here")
 
-                images.append(SiteImage(
-                    full_size_url=full_size_url,
-                    thumbnail_url=thumbnail_url,
-                    title=database_image.title
-                ))
+                if full_size_url or thumbnail_url:
+                    images.append(SiteImage(
+                        full_size_url=full_size_url,
+                        thumbnail_url=thumbnail_url,
+                        title=database_image.title
+                    ))
 
             file_name = self.__to_valid_filename(database_object.id) + ".html"
             existing_object_id = object_ids_by_file_name.get(file_name)

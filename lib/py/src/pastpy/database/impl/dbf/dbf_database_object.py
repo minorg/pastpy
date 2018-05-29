@@ -47,7 +47,7 @@ class DbfDatabaseObject(DatabaseObject):
             pp_image_i = pp_image_i + 1
             pp_image_file_name = pp_image_file_name + '.jpg'
             pp_image_file_path = os.path.join(
-                self.__images_dir_path, pp_image_file_name)
+                self.__images_dir_path, "001", pp_image_file_name)
             if not os.path.isfile(pp_image_file_path):
                 self.__logger.debug(
                     "object %s image %s does not exist", self.__record.objectid, pp_image_file_path)
@@ -63,7 +63,7 @@ class DbfDatabaseObject(DatabaseObject):
 
     @property
     def name(self):
-        return self.__record.name
+        return self.__record.objname
 
     @property
     def othername(self):

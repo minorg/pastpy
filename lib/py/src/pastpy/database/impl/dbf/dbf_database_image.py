@@ -17,3 +17,7 @@ class DbfDatabaseImage(DatabaseImage):
     @property
     def thumbnail_url(self):
         return None
+
+    @property
+    def title(self):
+        return None
