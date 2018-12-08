@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "lib\\thrift"
+		},
+		{
+			"path": ".circleci"
 		}
 	],
 	"settings": {
