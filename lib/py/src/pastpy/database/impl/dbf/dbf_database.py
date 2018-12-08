@@ -12,7 +12,7 @@ class DbfDatabase(Database):
 
         configuration_builder = configuration.replacer()
         if configuration.pp_images_dir_path is not None and configuration.pp_objects_dbf_file_path is not None:
-            configuration = configuration_builder.build()
+            self.__configuration = configuration_builder.build()
             return
 
         pp_install_dir_path = configuration.pp_install_dir_path

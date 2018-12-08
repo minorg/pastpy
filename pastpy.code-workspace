@@ -1,9 +1,13 @@
 {
-	"folders": [{
+	"folders": [
+		{
 			"path": "lib\\py"
 		},
 		{
 			"path": "gui\\py"
+		},
+		{
+			"path": "lib\\thrift"
 		}
 	],
 	"settings": {
