@@ -1,16 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "lib\\py"
+			"path": "py"
 		},
 		{
-			"path": "gui\\py"
-		},
-		{
-			"path": "lib\\thrift"
-		},
-		{
-			"path": ".circleci"
+			"path": "thrift"
 		}
 	],
 	"settings": {
