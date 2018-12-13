@@ -3,7 +3,7 @@ import json
 import logging
 
 from pastpy.database.database import Database
-from pastpy.gen.configuration import Configuration
+from pastpy.gen.database.database_configuration import DatabaseConfiguration
 
 
 class Cli(object):
@@ -11,9 +11,9 @@ class Cli(object):
         args = self.__parse_args()
 
         with open(args.configuration_file_path, 'rb') as configuration_file:
-            configuration = Configuration.from_builtins(json.load(configuration_file))
+            configuration = DatabaseConfiguration.from_builtins(json.load(configuration_file))
 
-        database = Database.create(configuration=configuration.database)
+        database = Database.create(configuration=configuration)
 
         if args.command == "download":
             if not hasattr(database, "download"):
@@ -24,12 +24,6 @@ class Cli(object):
                 raise ValueError("configured database is not parseable")
             for object_detail in database.parse_object_details():
                 print(object_detail.id)
-        elif args.command == "site":
-            if not configuration.site:
-                raise ValueError("no site configured")
-
-            from pastpy.site.site_generator import SiteGenerator
-            SiteGenerator(configuration=configuration.site, database=database).generate()
 
     def __parse_args(self):
         argument_parser = ArgumentParser()
@@ -51,9 +45,6 @@ class Cli(object):
 
         subparser = subparsers.add_parser("parse")
         subparser.set_defaults(command="parse")
-
-        subparser = subparsers.add_parser("site")
-        subparser.set_defaults(command="site")
 
         parsed_args = argument_parser.parse_args()
 
