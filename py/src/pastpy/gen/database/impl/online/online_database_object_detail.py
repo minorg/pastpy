@@ -362,13 +362,13 @@ class OnlineDatabaseObjectDetail(object):
             if ifield_type == 0:  # STOP
                 break
             elif ifield_name == 'attributes':
-                init_kwds['attributes'] = dict([(iprot.read_string(), iprot.read_string()) for _ in xrange(iprot.read_map_begin()[2])] + (iprot.read_map_end() is None and []))
+                init_kwds['attributes'] = dict([(iprot.read_string(), iprot.read_string()) for _ in range(iprot.read_map_begin()[2])] + (iprot.read_map_end() is None and []))
             elif ifield_name == 'guid':
                 init_kwds['guid'] = iprot.read_string()
             elif ifield_name == 'id':
                 init_kwds['id'] = iprot.read_string()
             elif ifield_name == 'related_photos':
-                init_kwds['related_photos'] = tuple([pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage.read(iprot) for _ in xrange(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
+                init_kwds['related_photos'] = tuple([pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage.read(iprot) for _ in range(iprot.read_list_begin()[1])] + (iprot.read_list_end() is None and []))
             iprot.read_field_end()
         iprot.read_struct_end()
 
