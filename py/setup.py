@@ -5,8 +5,8 @@ from setuptools import setup, find_packages
 
 MY_DIR_PATH = os.path.abspath(os.path.dirname(__file__))
 
-with open(os.path.join(MY_DIR_PATH, 'README.rst'), encoding='utf-8') as f:
-    long_description = f.read()
+# with open(os.path.join(MY_DIR_PATH, 'README.rst'), encoding='utf-8') as f:
+#    long_description = f.read()
 
 root_package_dir_path = os.path.join(MY_DIR_PATH, "src", "pastpy")
 package_data = []
@@ -20,9 +20,9 @@ setup(
     name='pastpy',
     description='Python library for working with PastPerfect databases',
     license='BSD',
-    long_description=long_description,
+    # long_description=long_description,
     url='https://github.com/minorg/pastpy',
-    version='1.0.1',
+    version='1.0.3',
 
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
