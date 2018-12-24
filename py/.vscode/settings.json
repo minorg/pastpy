@@ -1,2 +1,9 @@
 {
+    "python.pythonPath": "C:\\Users\\minor\\.virtualenvs\\py-QEAXsAQr\\Scripts\\python.exe",
+    "python.unitTest.nosetestArgs": [
+        "test"
+    ],
+    "python.unitTest.pyTestEnabled": false,
+    "python.unitTest.unittestEnabled": false,
+    "python.unitTest.nosetestsEnabled": true
 }

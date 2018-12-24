@@ -5,4 +5,5 @@ from pastpy_test.database.test_database_configurations import TestDatabaseConfig
 
 class OnlineDatabaseTest(_DatabaseTest):
     def setUp(self):
-        self._database = OnlineDatabase(configuration=TestDatabaseConfigurations.ONLINE)
+        if TestDatabaseConfigurations.ONLINE is not None:
+            self._database = OnlineDatabase(configuration=TestDatabaseConfigurations.ONLINE)

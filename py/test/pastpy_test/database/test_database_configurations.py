@@ -8,6 +8,12 @@ class TestDatabaseConfigurations(object):
         .set_pp_objects_dbf_file_path(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..', 'devdata', 'buffalostate', 'ftt', 'PPSdata_Objects.dbf')))\
         .set_pp_images_dir_path(".").build()
 
+    if not os.path.isfile(DBF.pp_objects_dbf_file_path):
+        DBF = None
+
     ONLINE = OnlineDatabaseConfiguration.builder()\
         .set_download_dir_path(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..', 'devdata', 'tcmuseum')))\
         .set_collection_name('Test').build()
+
+    if not os.path.isdir(ONLINE.download_dir_path):
+        ONLINE = None

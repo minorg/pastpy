@@ -5,5 +5,6 @@ from pastpy_test.database.test_database_configurations import TestDatabaseConfig
 
 class DbfDatabaseTest(_DatabaseTest):
     def setUp(self):
-        self._database = \
-            DbfDatabase(configuration=TestDatabaseConfigurations.DBF)
+        if TestDatabaseConfigurations.DBF is not None:
+            self._database = \
+                DbfDatabase(configuration=TestDatabaseConfigurations.DBF)
