@@ -40,7 +40,7 @@ setup(
         'console_scripts': ['pastpy=pastpy.cli:main'],
     },
 
-    install_requires=('beautifulsoup4', 'dbf', 'enum34', 'pystache'),
+    install_requires=('beautifulsoup4', 'dbf', 'enum34'),
 
     # What does your project relate to?
     keywords='pastperfect',
