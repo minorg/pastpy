@@ -2,6 +2,7 @@ from itertools import filterfalse
 import builtins
 import pastpy.gen.database.impl.online.online_database_object_detail_image
 import pastpy.gen.non_blank_string
+import typing
 
 
 class OnlineDatabaseObjectDetail(object):

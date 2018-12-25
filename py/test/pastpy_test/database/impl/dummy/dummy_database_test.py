@@ -7,3 +7,6 @@ class DummyDatabaseTest(_DatabaseTest):
     def setUp(self):
         self._database = \
             DummyDatabase(configuration=TestDatabaseConfigurations.DUMMY)
+
+    def test_objects(self):
+        self._test_objects()

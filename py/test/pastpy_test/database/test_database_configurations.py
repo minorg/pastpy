@@ -1,6 +1,6 @@
 import os.path
 from pastpy.gen.database.impl.dbf.dbf_database_configuration import DbfDatabaseConfiguration
-from pastpy.gen.database.impl.dummy.DummyDatabaseConfiguration import DummyDatabaseConfiguration
+from pastpy.gen.database.impl.dummy.dummy_database_configuration import DummyDatabaseConfiguration
 from pastpy.gen.database.impl.online.online_database_configuration import OnlineDatabaseConfiguration
 
 

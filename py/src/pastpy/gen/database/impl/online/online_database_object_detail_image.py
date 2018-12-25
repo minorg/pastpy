@@ -44,7 +44,7 @@ class OnlineDatabaseObjectDetailImage(object):
             return builder
 
         @property
-        def full_size_url(self) -> thryft.native.url.Url:
+        def full_size_url(self) -> str:
             return self.__full_size_url
 
         @property
@@ -55,11 +55,11 @@ class OnlineDatabaseObjectDetailImage(object):
         def objectid(self) -> pastpy.gen.non_blank_string.NonBlankString:
             return self.__objectid
 
-        def set_full_size_url(self, full_size_url: thryft.native.url.Url):
+        def set_full_size_url(self, full_size_url: str):
             if full_size_url is None:
                 raise ValueError('full_size_url is required')
             if not isinstance(full_size_url, str):
-                raise TypeError("expected full_size_url to be a thryft.native.url.Url but it is a %s" % builtins.type(full_size_url))
+                raise TypeError("expected full_size_url to be a str but it is a %s" % builtins.type(full_size_url))
             self.__full_size_url = full_size_url
             return self
 
@@ -87,11 +87,11 @@ class OnlineDatabaseObjectDetailImage(object):
             self.__src = src
             return self
 
-        def set_thumbnail_url(self, thumbnail_url: thryft.native.url.Url):
+        def set_thumbnail_url(self, thumbnail_url: str):
             if thumbnail_url is None:
                 raise ValueError('thumbnail_url is required')
             if not isinstance(thumbnail_url, str):
-                raise TypeError("expected thumbnail_url to be a thryft.native.url.Url but it is a %s" % builtins.type(thumbnail_url))
+                raise TypeError("expected thumbnail_url to be a str but it is a %s" % builtins.type(thumbnail_url))
             self.__thumbnail_url = thumbnail_url
             return self
 
@@ -116,7 +116,7 @@ class OnlineDatabaseObjectDetailImage(object):
             return self.__src
 
         @property
-        def thumbnail_url(self) -> thryft.native.url.Url:
+        def thumbnail_url(self) -> str:
             return self.__thumbnail_url
 
         @property
@@ -144,7 +144,7 @@ class OnlineDatabaseObjectDetailImage(object):
             return self
 
         @full_size_url.setter
-        def full_size_url(self, full_size_url: thryft.native.url.Url) -> None:
+        def full_size_url(self, full_size_url: str) -> None:
             self.set_full_size_url(full_size_url)
 
         @mediaid.setter
@@ -160,7 +160,7 @@ class OnlineDatabaseObjectDetailImage(object):
             self.set_src(src)
 
         @thumbnail_url.setter
-        def thumbnail_url(self, thumbnail_url: thryft.native.url.Url) -> None:
+        def thumbnail_url(self, thumbnail_url: str) -> None:
             self.set_thumbnail_url(thumbnail_url)
 
         @title.setter
@@ -218,18 +218,18 @@ class OnlineDatabaseObjectDetailImage(object):
 
     def __init__(
         self,
-        full_size_url: thryft.native.url.Url,
+        full_size_url: str,
         mediaid: pastpy.gen.non_blank_string.NonBlankString,
         objectid: pastpy.gen.non_blank_string.NonBlankString,
         src: pastpy.gen.non_blank_string.NonBlankString,
-        thumbnail_url: thryft.native.url.Url,
+        thumbnail_url: str,
         title: pastpy.gen.non_blank_string.NonBlankString,
         type: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType,  # @ReservedAssignment
     ):
         if full_size_url is None:
             raise ValueError('full_size_url is required')
         if not isinstance(full_size_url, str):
-            raise TypeError("expected full_size_url to be a thryft.native.url.Url but it is a %s" % builtins.type(full_size_url))
+            raise TypeError("expected full_size_url to be a str but it is a %s" % builtins.type(full_size_url))
         self.__full_size_url = full_size_url
 
         if mediaid is None:
@@ -253,7 +253,7 @@ class OnlineDatabaseObjectDetailImage(object):
         if thumbnail_url is None:
             raise ValueError('thumbnail_url is required')
         if not isinstance(thumbnail_url, str):
-            raise TypeError("expected thumbnail_url to be a thryft.native.url.Url but it is a %s" % builtins.type(thumbnail_url))
+            raise TypeError("expected thumbnail_url to be a str but it is a %s" % builtins.type(thumbnail_url))
         self.__thumbnail_url = thumbnail_url
 
         if title is None:
@@ -366,7 +366,7 @@ class OnlineDatabaseObjectDetailImage(object):
         return __builder.build()
 
     @property
-    def full_size_url(self) -> thryft.native.url.Url:
+    def full_size_url(self) -> str:
         return self.__full_size_url
 
     @property
@@ -420,7 +420,7 @@ class OnlineDatabaseObjectDetailImage(object):
         return self.__src
 
     @property
-    def thumbnail_url(self) -> thryft.native.url.Url:
+    def thumbnail_url(self) -> str:
         return self.__thumbnail_url
 
     @property

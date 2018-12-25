@@ -58,10 +58,10 @@ class OnlineDatabaseObjectsListItem(object):
             self.__record_type = record_type
             return self
 
-        def set_thumbnail_url(self, thumbnail_url: typing.Union[thryft.native.url.Url, None]):
+        def set_thumbnail_url(self, thumbnail_url: typing.Union[str, None]):
             if thumbnail_url is not None:
                 if not isinstance(thumbnail_url, str):
-                    raise TypeError("expected thumbnail_url to be a thryft.native.url.Url but it is a %s" % builtins.type(thumbnail_url))
+                    raise TypeError("expected thumbnail_url to be a str but it is a %s" % builtins.type(thumbnail_url))
             self.__thumbnail_url = thumbnail_url
             return self
 
@@ -74,7 +74,7 @@ class OnlineDatabaseObjectsListItem(object):
             return self
 
         @property
-        def thumbnail_url(self) -> typing.Union[thryft.native.url.Url, None]:
+        def thumbnail_url(self) -> typing.Union[str, None]:
             return self.__thumbnail_url
 
         @property
@@ -103,7 +103,7 @@ class OnlineDatabaseObjectsListItem(object):
             self.set_record_type(record_type)
 
         @thumbnail_url.setter
-        def thumbnail_url(self, thumbnail_url: typing.Union[thryft.native.url.Url, None]) -> None:
+        def thumbnail_url(self, thumbnail_url: typing.Union[str, None]) -> None:
             self.set_thumbnail_url(thumbnail_url)
 
         @title.setter
@@ -154,7 +154,7 @@ class OnlineDatabaseObjectsListItem(object):
         detail_href: pastpy.gen.non_blank_string.NonBlankString,
         record_type: pastpy.gen.non_blank_string.NonBlankString,
         title: pastpy.gen.non_blank_string.NonBlankString,
-        thumbnail_url: typing.Union[thryft.native.url.Url, None] = None,
+        thumbnail_url: typing.Union[str, None] = None,
     ):
         if detail_href is None:
             raise ValueError('detail_href is required')
@@ -176,7 +176,7 @@ class OnlineDatabaseObjectsListItem(object):
 
         if thumbnail_url is not None:
             if not isinstance(thumbnail_url, str):
-                raise TypeError("expected thumbnail_url to be a thryft.native.url.Url but it is a %s" % builtins.type(thumbnail_url))
+                raise TypeError("expected thumbnail_url to be a str but it is a %s" % builtins.type(thumbnail_url))
         self.__thumbnail_url = thumbnail_url
 
     def __eq__(self, other):
@@ -291,7 +291,7 @@ class OnlineDatabaseObjectsListItem(object):
         return self.Builder.from_template(template=self)
 
     @property
-    def thumbnail_url(self) -> typing.Union[thryft.native.url.Url, None]:
+    def thumbnail_url(self) -> typing.Union[str, None]:
         return self.__thumbnail_url
 
     @property
