@@ -1,67 +1,61 @@
 from abc import ABC, abstractproperty
+from pastpy.database.database_image import DatabaseImage
+from typing import Dict, Iterable, Union
 
 
 class DatabaseObject(ABC):
     @abstractproperty
-    def date(self):
+    def date(self) -> Union[object, None]:
         """
         @return date of the object
-        @rtype object or None
         """
         pass
 
     @abstractproperty
-    def description(self):
+    def description(self) -> Union[str, None]:
         """
         @return description of the object
-        @rtype str or None
         """
         pass
 
     @abstractproperty
-    def id(self):
+    def id(self) -> str:
         """
         @return id of the object
-        @rtype str
         """
         pass
 
     @abstractproperty
-    def impl_attributes(self):
+    def impl_attributes(self) -> Dict[str, object]:
         """
-        @return dict of implementation-defined attributes
-        @rtype dict where neither keys nor values is None
+        @return dict of implementation-defined attributes where neither keys nor values is None
         """
         pass
 
     @abstractproperty
-    def images(self):
+    def images(self) -> Iterable[DatabaseImage]:
         """
         @return iterable of DatabaseImage instances
-        @rtype iterable of DatabaseImage instances
         """
         pass
 
     @abstractproperty
-    def name(self):
+    def name(self) -> Union[str, None]:
         """
         @return name of object
-        @rtype str or None
         """
         pass
 
     @abstractproperty
-    def othername(self):
+    def othername(self) -> Union[str, None]:
         """
         @return alternative name of object
-        @rtype str or None
         """
         pass
 
     @abstractproperty
-    def title(self):
+    def title(self) -> Union[str, None]:
         """
         @return title of object
-        @rtype str or None
         """
         pass
