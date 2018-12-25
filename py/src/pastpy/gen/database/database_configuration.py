@@ -2,6 +2,7 @@ import builtins
 import pastpy.gen.database.impl.dbf.dbf_database_configuration
 import pastpy.gen.database.impl.dummy.dummy_database_configuration
 import pastpy.gen.database.impl.online.online_database_configuration
+import typing
 
 
 class DatabaseConfiguration(object):
@@ -12,12 +13,6 @@ class DatabaseConfiguration(object):
             dummy=None,
             online=None,
         ):
-            '''
-            :type dbf: pastpy.gen.database.impl.dbf.dbf_database_configuration.DbfDatabaseConfiguration or None
-            :type dummy: pastpy.gen.database.impl.dummy.dummy_database_configuration.DummyDatabaseConfiguration or None
-            :type online: pastpy.gen.database.impl.online.online_database_configuration.OnlineDatabaseConfiguration or None
-            '''
-
             self.__dbf = dbf
             self.__dummy = dummy
             self.__online = online
@@ -26,19 +21,11 @@ class DatabaseConfiguration(object):
             return DatabaseConfiguration(dbf=self.__dbf, dummy=self.__dummy, online=self.__online)
 
         @property
-        def dbf(self):
-            '''
-            :rtype: pastpy.gen.database.impl.dbf.dbf_database_configuration.DbfDatabaseConfiguration
-            '''
-
+        def dbf(self) -> typing.Union[pastpy.gen.database.impl.dbf.dbf_database_configuration.DbfDatabaseConfiguration, None]:
             return self.__dbf
 
         @property
-        def dummy(self):
-            '''
-            :rtype: pastpy.gen.database.impl.dummy.dummy_database_configuration.DummyDatabaseConfiguration
-            '''
-
+        def dummy(self) -> typing.Union[pastpy.gen.database.impl.dummy.dummy_database_configuration.DummyDatabaseConfiguration, None]:
             return self.__dummy
 
         @classmethod
@@ -55,40 +42,24 @@ class DatabaseConfiguration(object):
             return builder
 
         @property
-        def online(self):
-            '''
-            :rtype: pastpy.gen.database.impl.online.online_database_configuration.OnlineDatabaseConfiguration
-            '''
-
+        def online(self) -> typing.Union[pastpy.gen.database.impl.online.online_database_configuration.OnlineDatabaseConfiguration, None]:
             return self.__online
 
-        def set_dbf(self, dbf):
-            '''
-            :type dbf: pastpy.gen.database.impl.dbf.dbf_database_configuration.DbfDatabaseConfiguration or None
-            '''
-
+        def set_dbf(self, dbf: typing.Union[pastpy.gen.database.impl.dbf.dbf_database_configuration.DbfDatabaseConfiguration, None]):
             if dbf is not None:
                 if not isinstance(dbf, pastpy.gen.database.impl.dbf.dbf_database_configuration.DbfDatabaseConfiguration):
                     raise TypeError("expected dbf to be a pastpy.gen.database.impl.dbf.dbf_database_configuration.DbfDatabaseConfiguration but it is a %s" % builtins.type(dbf))
             self.__dbf = dbf
             return self
 
-        def set_dummy(self, dummy):
-            '''
-            :type dummy: pastpy.gen.database.impl.dummy.dummy_database_configuration.DummyDatabaseConfiguration or None
-            '''
-
+        def set_dummy(self, dummy: typing.Union[pastpy.gen.database.impl.dummy.dummy_database_configuration.DummyDatabaseConfiguration, None]):
             if dummy is not None:
                 if not isinstance(dummy, pastpy.gen.database.impl.dummy.dummy_database_configuration.DummyDatabaseConfiguration):
                     raise TypeError("expected dummy to be a pastpy.gen.database.impl.dummy.dummy_database_configuration.DummyDatabaseConfiguration but it is a %s" % builtins.type(dummy))
             self.__dummy = dummy
             return self
 
-        def set_online(self, online):
-            '''
-            :type online: pastpy.gen.database.impl.online.online_database_configuration.OnlineDatabaseConfiguration or None
-            '''
-
+        def set_online(self, online: typing.Union[pastpy.gen.database.impl.online.online_database_configuration.OnlineDatabaseConfiguration, None]):
             if online is not None:
                 if not isinstance(online, pastpy.gen.database.impl.online.online_database_configuration.OnlineDatabaseConfiguration):
                     raise TypeError("expected online to be a pastpy.gen.database.impl.online.online_database_configuration.OnlineDatabaseConfiguration but it is a %s" % builtins.type(online))
@@ -96,12 +67,6 @@ class DatabaseConfiguration(object):
             return self
 
         def update(self, database_configuration):
-            '''
-            :type dbf: pastpy.gen.database.impl.dbf.dbf_database_configuration.DbfDatabaseConfiguration or None
-            :type dummy: pastpy.gen.database.impl.dummy.dummy_database_configuration.DummyDatabaseConfiguration or None
-            :type online: pastpy.gen.database.impl.online.online_database_configuration.OnlineDatabaseConfiguration or None
-            '''
-
             if isinstance(database_configuration, DatabaseConfiguration):
                 self.set_dbf(database_configuration.dbf)
                 self.set_dummy(database_configuration.dummy)
@@ -114,27 +79,15 @@ class DatabaseConfiguration(object):
             return self
 
         @dbf.setter
-        def dbf(self, dbf):
-            '''
-            :type dbf: pastpy.gen.database.impl.dbf.dbf_database_configuration.DbfDatabaseConfiguration or None
-            '''
-
+        def dbf(self, dbf: typing.Union[pastpy.gen.database.impl.dbf.dbf_database_configuration.DbfDatabaseConfiguration, None]) -> None:
             self.set_dbf(dbf)
 
         @dummy.setter
-        def dummy(self, dummy):
-            '''
-            :type dummy: pastpy.gen.database.impl.dummy.dummy_database_configuration.DummyDatabaseConfiguration or None
-            '''
-
+        def dummy(self, dummy: typing.Union[pastpy.gen.database.impl.dummy.dummy_database_configuration.DummyDatabaseConfiguration, None]) -> None:
             self.set_dummy(dummy)
 
         @online.setter
-        def online(self, online):
-            '''
-            :type online: pastpy.gen.database.impl.online.online_database_configuration.OnlineDatabaseConfiguration or None
-            '''
-
+        def online(self, online: typing.Union[pastpy.gen.database.impl.online.online_database_configuration.OnlineDatabaseConfiguration, None]) -> None:
             self.set_online(online)
 
     class FieldMetadata(object):
@@ -176,16 +129,10 @@ class DatabaseConfiguration(object):
 
     def __init__(
         self,
-        dbf=None,
-        dummy=None,
-        online=None,
+        dbf: typing.Union[pastpy.gen.database.impl.dbf.dbf_database_configuration.DbfDatabaseConfiguration, None] = None,
+        dummy: typing.Union[pastpy.gen.database.impl.dummy.dummy_database_configuration.DummyDatabaseConfiguration, None] = None,
+        online: typing.Union[pastpy.gen.database.impl.online.online_database_configuration.OnlineDatabaseConfiguration, None] = None,
     ):
-        '''
-        :type dbf: pastpy.gen.database.impl.dbf.dbf_database_configuration.DbfDatabaseConfiguration or None
-        :type dummy: pastpy.gen.database.impl.dummy.dummy_database_configuration.DummyDatabaseConfiguration or None
-        :type online: pastpy.gen.database.impl.online.online_database_configuration.OnlineDatabaseConfiguration or None
-        '''
-
         if dbf is not None:
             if not isinstance(dbf, pastpy.gen.database.impl.dbf.dbf_database_configuration.DbfDatabaseConfiguration):
                 raise TypeError("expected dbf to be a pastpy.gen.database.impl.dbf.dbf_database_configuration.DbfDatabaseConfiguration but it is a %s" % builtins.type(dbf))
@@ -255,19 +202,11 @@ class DatabaseConfiguration(object):
         return cls.Builder()
 
     @property
-    def dbf(self):
-        '''
-        :rtype: pastpy.gen.database.impl.dbf.dbf_database_configuration.DbfDatabaseConfiguration
-        '''
-
+    def dbf(self) -> typing.Union[pastpy.gen.database.impl.dbf.dbf_database_configuration.DbfDatabaseConfiguration, None]:
         return self.__dbf
 
     @property
-    def dummy(self):
-        '''
-        :rtype: pastpy.gen.database.impl.dummy.dummy_database_configuration.DummyDatabaseConfiguration
-        '''
-
+    def dummy(self) -> typing.Union[pastpy.gen.database.impl.dummy.dummy_database_configuration.DummyDatabaseConfiguration, None]:
         return self.__dummy
 
     @classmethod
@@ -295,11 +234,7 @@ class DatabaseConfiguration(object):
         return __builder.build()
 
     @property
-    def online(self):
-        '''
-        :rtype: pastpy.gen.database.impl.online.online_database_configuration.OnlineDatabaseConfiguration
-        '''
-
+    def online(self) -> typing.Union[pastpy.gen.database.impl.online.online_database_configuration.OnlineDatabaseConfiguration, None]:
         return self.__online
 
     @classmethod

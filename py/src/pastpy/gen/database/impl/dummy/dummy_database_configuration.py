@@ -8,11 +8,6 @@ class DummyDatabaseConfiguration(object):
             images_per_object=2,
             objects=10,
         ):
-            '''
-            :type images_per_object: int
-            :type objects: int
-            '''
-
             self.__images_per_object = images_per_object
             self.__objects = objects
 
@@ -32,26 +27,14 @@ class DummyDatabaseConfiguration(object):
             return builder
 
         @property
-        def images_per_object(self):
-            '''
-            :rtype: int
-            '''
-
+        def images_per_object(self) -> int:
             return self.__images_per_object
 
         @property
-        def objects(self):
-            '''
-            :rtype: int
-            '''
-
+        def objects(self) -> int:
             return self.__objects
 
-        def set_images_per_object(self, images_per_object):
-            '''
-            :type images_per_object: int
-            '''
-
+        def set_images_per_object(self, images_per_object: int):
             if images_per_object is None:
                 raise ValueError('images_per_object is required')
             if not isinstance(images_per_object, int):
@@ -59,11 +42,7 @@ class DummyDatabaseConfiguration(object):
             self.__images_per_object = images_per_object
             return self
 
-        def set_objects(self, objects):
-            '''
-            :type objects: int
-            '''
-
+        def set_objects(self, objects: int):
             if objects is None:
                 raise ValueError('objects is required')
             if not isinstance(objects, int):
@@ -72,11 +51,6 @@ class DummyDatabaseConfiguration(object):
             return self
 
         def update(self, dummy_database_configuration):
-            '''
-            :type images_per_object: int
-            :type objects: int
-            '''
-
             if isinstance(dummy_database_configuration, DummyDatabaseConfiguration):
                 self.set_images_per_object(dummy_database_configuration.images_per_object)
                 self.set_objects(dummy_database_configuration.objects)
@@ -88,19 +62,11 @@ class DummyDatabaseConfiguration(object):
             return self
 
         @images_per_object.setter
-        def images_per_object(self, images_per_object):
-            '''
-            :type images_per_object: int
-            '''
-
+        def images_per_object(self, images_per_object: int) -> None:
             self.set_images_per_object(images_per_object)
 
         @objects.setter
-        def objects(self, objects):
-            '''
-            :type objects: int
-            '''
-
+        def objects(self, objects: int) -> None:
             self.set_objects(objects)
 
     class FieldMetadata(object):
@@ -140,14 +106,9 @@ class DummyDatabaseConfiguration(object):
 
     def __init__(
         self,
-        images_per_object=2,
-        objects=10,
+        images_per_object: int = 2,
+        objects: int = 10,
     ):
-        '''
-        :type images_per_object: int
-        :type objects: int
-        '''
-
         if images_per_object is None:
             raise ValueError('images_per_object is required')
         if not isinstance(images_per_object, int):
@@ -212,19 +173,11 @@ class DummyDatabaseConfiguration(object):
         return __builder.build()
 
     @property
-    def images_per_object(self):
-        '''
-        :rtype: int
-        '''
-
+    def images_per_object(self) -> int:
         return self.__images_per_object
 
     @property
-    def objects(self):
-        '''
-        :rtype: int
-        '''
-
+    def objects(self) -> int:
         return self.__objects
 
     @classmethod

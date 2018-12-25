@@ -1,5 +1,6 @@
 import builtins
 import pastpy.gen.non_blank_string
+import typing
 
 
 class OnlineDatabaseObjectsListItem(object):
@@ -11,13 +12,6 @@ class OnlineDatabaseObjectsListItem(object):
             title=None,
             thumbnail_url=None,
         ):
-            '''
-            :type detail_href: str
-            :type record_type: str
-            :type title: str
-            :type thumbnail_url: str or None
-            '''
-
             self.__detail_href = detail_href
             self.__record_type = record_type
             self.__title = title
@@ -27,11 +21,7 @@ class OnlineDatabaseObjectsListItem(object):
             return OnlineDatabaseObjectsListItem(detail_href=self.__detail_href, record_type=self.__record_type, title=self.__title, thumbnail_url=self.__thumbnail_url)
 
         @property
-        def detail_href(self):
-            '''
-            :rtype: str
-            '''
-
+        def detail_href(self) -> pastpy.gen.non_blank_string.NonBlankString:
             return self.__detail_href
 
         @classmethod
@@ -49,84 +39,49 @@ class OnlineDatabaseObjectsListItem(object):
             return builder
 
         @property
-        def record_type(self):
-            '''
-            :rtype: str
-            '''
-
+        def record_type(self) -> pastpy.gen.non_blank_string.NonBlankString:
             return self.__record_type
 
-        def set_detail_href(self, detail_href):
-            '''
-            :type detail_href: str
-            '''
-
+        def set_detail_href(self, detail_href: pastpy.gen.non_blank_string.NonBlankString):
             if detail_href is None:
                 raise ValueError('detail_href is required')
             if not isinstance(detail_href, str):
-                raise TypeError("expected detail_href to be a str but it is a %s" % builtins.type(detail_href))
+                raise TypeError("expected detail_href to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(detail_href))
             self.__detail_href = detail_href
             return self
 
-        def set_record_type(self, record_type):
-            '''
-            :type record_type: str
-            '''
-
+        def set_record_type(self, record_type: pastpy.gen.non_blank_string.NonBlankString):
             if record_type is None:
                 raise ValueError('record_type is required')
             if not isinstance(record_type, str):
-                raise TypeError("expected record_type to be a str but it is a %s" % builtins.type(record_type))
+                raise TypeError("expected record_type to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(record_type))
             self.__record_type = record_type
             return self
 
-        def set_thumbnail_url(self, thumbnail_url):
-            '''
-            :type thumbnail_url: str or None
-            '''
-
+        def set_thumbnail_url(self, thumbnail_url: typing.Union[thryft.native.url.Url, None]):
             if thumbnail_url is not None:
                 if not isinstance(thumbnail_url, str):
-                    raise TypeError("expected thumbnail_url to be a str but it is a %s" % builtins.type(thumbnail_url))
+                    raise TypeError("expected thumbnail_url to be a thryft.native.url.Url but it is a %s" % builtins.type(thumbnail_url))
             self.__thumbnail_url = thumbnail_url
             return self
 
-        def set_title(self, title):
-            '''
-            :type title: str
-            '''
-
+        def set_title(self, title: pastpy.gen.non_blank_string.NonBlankString):
             if title is None:
                 raise ValueError('title is required')
             if not isinstance(title, str):
-                raise TypeError("expected title to be a str but it is a %s" % builtins.type(title))
+                raise TypeError("expected title to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(title))
             self.__title = title
             return self
 
         @property
-        def thumbnail_url(self):
-            '''
-            :rtype: str
-            '''
-
+        def thumbnail_url(self) -> typing.Union[thryft.native.url.Url, None]:
             return self.__thumbnail_url
 
         @property
-        def title(self):
-            '''
-            :rtype: str
-            '''
-
+        def title(self) -> pastpy.gen.non_blank_string.NonBlankString:
             return self.__title
 
         def update(self, online_database_objects_list_item):
-            '''
-            :type detail_href: str
-            :type record_type: str
-            :type title: str
-            :type thumbnail_url: str or None
-            '''
-
             if isinstance(online_database_objects_list_item, OnlineDatabaseObjectsListItem):
                 self.set_detail_href(online_database_objects_list_item.detail_href)
                 self.set_record_type(online_database_objects_list_item.record_type)
@@ -140,35 +95,19 @@ class OnlineDatabaseObjectsListItem(object):
             return self
 
         @detail_href.setter
-        def detail_href(self, detail_href):
-            '''
-            :type detail_href: str
-            '''
-
+        def detail_href(self, detail_href: pastpy.gen.non_blank_string.NonBlankString) -> None:
             self.set_detail_href(detail_href)
 
         @record_type.setter
-        def record_type(self, record_type):
-            '''
-            :type record_type: str
-            '''
-
+        def record_type(self, record_type: pastpy.gen.non_blank_string.NonBlankString) -> None:
             self.set_record_type(record_type)
 
         @thumbnail_url.setter
-        def thumbnail_url(self, thumbnail_url):
-            '''
-            :type thumbnail_url: str or None
-            '''
-
+        def thumbnail_url(self, thumbnail_url: typing.Union[thryft.native.url.Url, None]) -> None:
             self.set_thumbnail_url(thumbnail_url)
 
         @title.setter
-        def title(self, title):
-            '''
-            :type title: str
-            '''
-
+        def title(self, title: pastpy.gen.non_blank_string.NonBlankString) -> None:
             self.set_title(title)
 
     class FieldMetadata(object):
@@ -212,39 +151,32 @@ class OnlineDatabaseObjectsListItem(object):
 
     def __init__(
         self,
-        detail_href,
-        record_type,
-        title,
-        thumbnail_url=None,
+        detail_href: pastpy.gen.non_blank_string.NonBlankString,
+        record_type: pastpy.gen.non_blank_string.NonBlankString,
+        title: pastpy.gen.non_blank_string.NonBlankString,
+        thumbnail_url: typing.Union[thryft.native.url.Url, None] = None,
     ):
-        '''
-        :type detail_href: str
-        :type record_type: str
-        :type title: str
-        :type thumbnail_url: str or None
-        '''
-
         if detail_href is None:
             raise ValueError('detail_href is required')
         if not isinstance(detail_href, str):
-            raise TypeError("expected detail_href to be a str but it is a %s" % builtins.type(detail_href))
+            raise TypeError("expected detail_href to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(detail_href))
         self.__detail_href = detail_href
 
         if record_type is None:
             raise ValueError('record_type is required')
         if not isinstance(record_type, str):
-            raise TypeError("expected record_type to be a str but it is a %s" % builtins.type(record_type))
+            raise TypeError("expected record_type to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(record_type))
         self.__record_type = record_type
 
         if title is None:
             raise ValueError('title is required')
         if not isinstance(title, str):
-            raise TypeError("expected title to be a str but it is a %s" % builtins.type(title))
+            raise TypeError("expected title to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(title))
         self.__title = title
 
         if thumbnail_url is not None:
             if not isinstance(thumbnail_url, str):
-                raise TypeError("expected thumbnail_url to be a str but it is a %s" % builtins.type(thumbnail_url))
+                raise TypeError("expected thumbnail_url to be a thryft.native.url.Url but it is a %s" % builtins.type(thumbnail_url))
         self.__thumbnail_url = thumbnail_url
 
     def __eq__(self, other):
@@ -290,11 +222,7 @@ class OnlineDatabaseObjectsListItem(object):
         return cls.Builder()
 
     @property
-    def detail_href(self):
-        '''
-        :rtype: str
-        '''
-
+    def detail_href(self) -> pastpy.gen.non_blank_string.NonBlankString:
         return self.__detail_href
 
     @classmethod
@@ -356,30 +284,18 @@ class OnlineDatabaseObjectsListItem(object):
         return cls(**init_kwds)
 
     @property
-    def record_type(self):
-        '''
-        :rtype: str
-        '''
-
+    def record_type(self) -> pastpy.gen.non_blank_string.NonBlankString:
         return self.__record_type
 
     def replacer(self):
         return self.Builder.from_template(template=self)
 
     @property
-    def thumbnail_url(self):
-        '''
-        :rtype: str
-        '''
-
+    def thumbnail_url(self) -> typing.Union[thryft.native.url.Url, None]:
         return self.__thumbnail_url
 
     @property
-    def title(self):
-        '''
-        :rtype: str
-        '''
-
+    def title(self) -> pastpy.gen.non_blank_string.NonBlankString:
         return self.__title
 
     def to_builtins(self):

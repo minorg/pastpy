@@ -1,5 +1,6 @@
 import builtins
 import pastpy.gen.non_blank_string
+import typing
 
 
 class OnlineDatabaseConfiguration(object):
@@ -9,11 +10,6 @@ class OnlineDatabaseConfiguration(object):
             collection_name=None,
             download_dir_path=None,
         ):
-            '''
-            :type collection_name: str
-            :type download_dir_path: str or None
-            '''
-
             self.__collection_name = collection_name
             self.__download_dir_path = download_dir_path
 
@@ -21,19 +17,11 @@ class OnlineDatabaseConfiguration(object):
             return OnlineDatabaseConfiguration(collection_name=self.__collection_name, download_dir_path=self.__download_dir_path)
 
         @property
-        def collection_name(self):
-            '''
-            :rtype: str
-            '''
-
+        def collection_name(self) -> pastpy.gen.non_blank_string.NonBlankString:
             return self.__collection_name
 
         @property
-        def download_dir_path(self):
-            '''
-            :rtype: str
-            '''
-
+        def download_dir_path(self) -> typing.Union[pastpy.gen.non_blank_string.NonBlankString, None]:
             return self.__download_dir_path
 
         @classmethod
@@ -48,35 +36,22 @@ class OnlineDatabaseConfiguration(object):
             builder.download_dir_path = template.download_dir_path
             return builder
 
-        def set_collection_name(self, collection_name):
-            '''
-            :type collection_name: str
-            '''
-
+        def set_collection_name(self, collection_name: pastpy.gen.non_blank_string.NonBlankString):
             if collection_name is None:
                 raise ValueError('collection_name is required')
             if not isinstance(collection_name, str):
-                raise TypeError("expected collection_name to be a str but it is a %s" % builtins.type(collection_name))
+                raise TypeError("expected collection_name to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(collection_name))
             self.__collection_name = collection_name
             return self
 
-        def set_download_dir_path(self, download_dir_path):
-            '''
-            :type download_dir_path: str or None
-            '''
-
+        def set_download_dir_path(self, download_dir_path: typing.Union[pastpy.gen.non_blank_string.NonBlankString, None]):
             if download_dir_path is not None:
                 if not isinstance(download_dir_path, str):
-                    raise TypeError("expected download_dir_path to be a str but it is a %s" % builtins.type(download_dir_path))
+                    raise TypeError("expected download_dir_path to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(download_dir_path))
             self.__download_dir_path = download_dir_path
             return self
 
         def update(self, online_database_configuration):
-            '''
-            :type collection_name: str
-            :type download_dir_path: str or None
-            '''
-
             if isinstance(online_database_configuration, OnlineDatabaseConfiguration):
                 self.set_collection_name(online_database_configuration.collection_name)
                 self.set_download_dir_path(online_database_configuration.download_dir_path)
@@ -88,19 +63,11 @@ class OnlineDatabaseConfiguration(object):
             return self
 
         @collection_name.setter
-        def collection_name(self, collection_name):
-            '''
-            :type collection_name: str
-            '''
-
+        def collection_name(self, collection_name: pastpy.gen.non_blank_string.NonBlankString) -> None:
             self.set_collection_name(collection_name)
 
         @download_dir_path.setter
-        def download_dir_path(self, download_dir_path):
-            '''
-            :type download_dir_path: str or None
-            '''
-
+        def download_dir_path(self, download_dir_path: typing.Union[pastpy.gen.non_blank_string.NonBlankString, None]) -> None:
             self.set_download_dir_path(download_dir_path)
 
     class FieldMetadata(object):
@@ -140,23 +107,18 @@ class OnlineDatabaseConfiguration(object):
 
     def __init__(
         self,
-        collection_name,
-        download_dir_path=None,
+        collection_name: pastpy.gen.non_blank_string.NonBlankString,
+        download_dir_path: typing.Union[pastpy.gen.non_blank_string.NonBlankString, None] = None,
     ):
-        '''
-        :type collection_name: str
-        :type download_dir_path: str or None
-        '''
-
         if collection_name is None:
             raise ValueError('collection_name is required')
         if not isinstance(collection_name, str):
-            raise TypeError("expected collection_name to be a str but it is a %s" % builtins.type(collection_name))
+            raise TypeError("expected collection_name to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(collection_name))
         self.__collection_name = collection_name
 
         if download_dir_path is not None:
             if not isinstance(download_dir_path, str):
-                raise TypeError("expected download_dir_path to be a str but it is a %s" % builtins.type(download_dir_path))
+                raise TypeError("expected download_dir_path to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(download_dir_path))
         self.__download_dir_path = download_dir_path
 
     def __eq__(self, other):
@@ -194,19 +156,11 @@ class OnlineDatabaseConfiguration(object):
         return cls.Builder()
 
     @property
-    def collection_name(self):
-        '''
-        :rtype: str
-        '''
-
+    def collection_name(self) -> pastpy.gen.non_blank_string.NonBlankString:
         return self.__collection_name
 
     @property
-    def download_dir_path(self):
-        '''
-        :rtype: str
-        '''
-
+    def download_dir_path(self) -> typing.Union[pastpy.gen.non_blank_string.NonBlankString, None]:
         return self.__download_dir_path
 
     @classmethod

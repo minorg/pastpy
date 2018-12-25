@@ -15,16 +15,6 @@ class OnlineDatabaseObjectDetailImage(object):
             title=None,
             type=None,  # @ReservedAssignment
         ):
-            '''
-            :type full_size_url: str
-            :type mediaid: str
-            :type objectid: str
-            :type src: str
-            :type thumbnail_url: str
-            :type title: str
-            :type type: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType
-            '''
-
             self.__full_size_url = full_size_url
             self.__mediaid = mediaid
             self.__objectid = objectid
@@ -54,106 +44,66 @@ class OnlineDatabaseObjectDetailImage(object):
             return builder
 
         @property
-        def full_size_url(self):
-            '''
-            :rtype: str
-            '''
-
+        def full_size_url(self) -> thryft.native.url.Url:
             return self.__full_size_url
 
         @property
-        def mediaid(self):
-            '''
-            :rtype: str
-            '''
-
+        def mediaid(self) -> pastpy.gen.non_blank_string.NonBlankString:
             return self.__mediaid
 
         @property
-        def objectid(self):
-            '''
-            :rtype: str
-            '''
-
+        def objectid(self) -> pastpy.gen.non_blank_string.NonBlankString:
             return self.__objectid
 
-        def set_full_size_url(self, full_size_url):
-            '''
-            :type full_size_url: str
-            '''
-
+        def set_full_size_url(self, full_size_url: thryft.native.url.Url):
             if full_size_url is None:
                 raise ValueError('full_size_url is required')
             if not isinstance(full_size_url, str):
-                raise TypeError("expected full_size_url to be a str but it is a %s" % builtins.type(full_size_url))
+                raise TypeError("expected full_size_url to be a thryft.native.url.Url but it is a %s" % builtins.type(full_size_url))
             self.__full_size_url = full_size_url
             return self
 
-        def set_mediaid(self, mediaid):
-            '''
-            :type mediaid: str
-            '''
-
+        def set_mediaid(self, mediaid: pastpy.gen.non_blank_string.NonBlankString):
             if mediaid is None:
                 raise ValueError('mediaid is required')
             if not isinstance(mediaid, str):
-                raise TypeError("expected mediaid to be a str but it is a %s" % builtins.type(mediaid))
+                raise TypeError("expected mediaid to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(mediaid))
             self.__mediaid = mediaid
             return self
 
-        def set_objectid(self, objectid):
-            '''
-            :type objectid: str
-            '''
-
+        def set_objectid(self, objectid: pastpy.gen.non_blank_string.NonBlankString):
             if objectid is None:
                 raise ValueError('objectid is required')
             if not isinstance(objectid, str):
-                raise TypeError("expected objectid to be a str but it is a %s" % builtins.type(objectid))
+                raise TypeError("expected objectid to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(objectid))
             self.__objectid = objectid
             return self
 
-        def set_src(self, src):
-            '''
-            :type src: str
-            '''
-
+        def set_src(self, src: pastpy.gen.non_blank_string.NonBlankString):
             if src is None:
                 raise ValueError('src is required')
             if not isinstance(src, str):
-                raise TypeError("expected src to be a str but it is a %s" % builtins.type(src))
+                raise TypeError("expected src to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(src))
             self.__src = src
             return self
 
-        def set_thumbnail_url(self, thumbnail_url):
-            '''
-            :type thumbnail_url: str
-            '''
-
+        def set_thumbnail_url(self, thumbnail_url: thryft.native.url.Url):
             if thumbnail_url is None:
                 raise ValueError('thumbnail_url is required')
             if not isinstance(thumbnail_url, str):
-                raise TypeError("expected thumbnail_url to be a str but it is a %s" % builtins.type(thumbnail_url))
+                raise TypeError("expected thumbnail_url to be a thryft.native.url.Url but it is a %s" % builtins.type(thumbnail_url))
             self.__thumbnail_url = thumbnail_url
             return self
 
-        def set_title(self, title):
-            '''
-            :type title: str
-            '''
-
+        def set_title(self, title: pastpy.gen.non_blank_string.NonBlankString):
             if title is None:
                 raise ValueError('title is required')
             if not isinstance(title, str):
-                raise TypeError("expected title to be a str but it is a %s" % builtins.type(title))
+                raise TypeError("expected title to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(title))
             self.__title = title
             return self
 
-        def set_type(self, type):  # @ReservedAssignment
-            '''
-            :type type: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType
-            '''
-
+        def set_type(self, type: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType):  # @ReservedAssignment
             if type is None:
                 raise ValueError('type is required')
             if not isinstance(type, pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType):
@@ -162,48 +112,22 @@ class OnlineDatabaseObjectDetailImage(object):
             return self
 
         @property
-        def src(self):
-            '''
-            :rtype: str
-            '''
-
+        def src(self) -> pastpy.gen.non_blank_string.NonBlankString:
             return self.__src
 
         @property
-        def thumbnail_url(self):
-            '''
-            :rtype: str
-            '''
-
+        def thumbnail_url(self) -> thryft.native.url.Url:
             return self.__thumbnail_url
 
         @property
-        def title(self):
-            '''
-            :rtype: str
-            '''
-
+        def title(self) -> pastpy.gen.non_blank_string.NonBlankString:
             return self.__title
 
         @property
-        def type(self):  # @ReservedAssignment
-            '''
-            :rtype: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType
-            '''
-
+        def type(self) -> pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType:  # @ReservedAssignment
             return self.__type
 
         def update(self, online_database_object_detail_image):
-            '''
-            :type full_size_url: str
-            :type mediaid: str
-            :type objectid: str
-            :type src: str
-            :type thumbnail_url: str
-            :type title: str
-            :type type: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType
-            '''
-
             if isinstance(online_database_object_detail_image, OnlineDatabaseObjectDetailImage):
                 self.set_full_size_url(online_database_object_detail_image.full_size_url)
                 self.set_mediaid(online_database_object_detail_image.mediaid)
@@ -220,59 +144,31 @@ class OnlineDatabaseObjectDetailImage(object):
             return self
 
         @full_size_url.setter
-        def full_size_url(self, full_size_url):
-            '''
-            :type full_size_url: str
-            '''
-
+        def full_size_url(self, full_size_url: thryft.native.url.Url) -> None:
             self.set_full_size_url(full_size_url)
 
         @mediaid.setter
-        def mediaid(self, mediaid):
-            '''
-            :type mediaid: str
-            '''
-
+        def mediaid(self, mediaid: pastpy.gen.non_blank_string.NonBlankString) -> None:
             self.set_mediaid(mediaid)
 
         @objectid.setter
-        def objectid(self, objectid):
-            '''
-            :type objectid: str
-            '''
-
+        def objectid(self, objectid: pastpy.gen.non_blank_string.NonBlankString) -> None:
             self.set_objectid(objectid)
 
         @src.setter
-        def src(self, src):
-            '''
-            :type src: str
-            '''
-
+        def src(self, src: pastpy.gen.non_blank_string.NonBlankString) -> None:
             self.set_src(src)
 
         @thumbnail_url.setter
-        def thumbnail_url(self, thumbnail_url):
-            '''
-            :type thumbnail_url: str
-            '''
-
+        def thumbnail_url(self, thumbnail_url: thryft.native.url.Url) -> None:
             self.set_thumbnail_url(thumbnail_url)
 
         @title.setter
-        def title(self, title):
-            '''
-            :type title: str
-            '''
-
+        def title(self, title: pastpy.gen.non_blank_string.NonBlankString) -> None:
             self.set_title(title)
 
         @type.setter
-        def type(self, type):  # @ReservedAssignment
-            '''
-            :type type: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType
-            '''
-
+        def type(self, type: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType) -> None:  # @ReservedAssignment
             self.set_type(type)
 
     class FieldMetadata(object):
@@ -322,58 +218,48 @@ class OnlineDatabaseObjectDetailImage(object):
 
     def __init__(
         self,
-        full_size_url,
-        mediaid,
-        objectid,
-        src,
-        thumbnail_url,
-        title,
-        type,  # @ReservedAssignment
+        full_size_url: thryft.native.url.Url,
+        mediaid: pastpy.gen.non_blank_string.NonBlankString,
+        objectid: pastpy.gen.non_blank_string.NonBlankString,
+        src: pastpy.gen.non_blank_string.NonBlankString,
+        thumbnail_url: thryft.native.url.Url,
+        title: pastpy.gen.non_blank_string.NonBlankString,
+        type: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType,  # @ReservedAssignment
     ):
-        '''
-        :type full_size_url: str
-        :type mediaid: str
-        :type objectid: str
-        :type src: str
-        :type thumbnail_url: str
-        :type title: str
-        :type type: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType
-        '''
-
         if full_size_url is None:
             raise ValueError('full_size_url is required')
         if not isinstance(full_size_url, str):
-            raise TypeError("expected full_size_url to be a str but it is a %s" % builtins.type(full_size_url))
+            raise TypeError("expected full_size_url to be a thryft.native.url.Url but it is a %s" % builtins.type(full_size_url))
         self.__full_size_url = full_size_url
 
         if mediaid is None:
             raise ValueError('mediaid is required')
         if not isinstance(mediaid, str):
-            raise TypeError("expected mediaid to be a str but it is a %s" % builtins.type(mediaid))
+            raise TypeError("expected mediaid to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(mediaid))
         self.__mediaid = mediaid
 
         if objectid is None:
             raise ValueError('objectid is required')
         if not isinstance(objectid, str):
-            raise TypeError("expected objectid to be a str but it is a %s" % builtins.type(objectid))
+            raise TypeError("expected objectid to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(objectid))
         self.__objectid = objectid
 
         if src is None:
             raise ValueError('src is required')
         if not isinstance(src, str):
-            raise TypeError("expected src to be a str but it is a %s" % builtins.type(src))
+            raise TypeError("expected src to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(src))
         self.__src = src
 
         if thumbnail_url is None:
             raise ValueError('thumbnail_url is required')
         if not isinstance(thumbnail_url, str):
-            raise TypeError("expected thumbnail_url to be a str but it is a %s" % builtins.type(thumbnail_url))
+            raise TypeError("expected thumbnail_url to be a thryft.native.url.Url but it is a %s" % builtins.type(thumbnail_url))
         self.__thumbnail_url = thumbnail_url
 
         if title is None:
             raise ValueError('title is required')
         if not isinstance(title, str):
-            raise TypeError("expected title to be a str but it is a %s" % builtins.type(title))
+            raise TypeError("expected title to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(title))
         self.__title = title
 
         if type is None:
@@ -480,27 +366,15 @@ class OnlineDatabaseObjectDetailImage(object):
         return __builder.build()
 
     @property
-    def full_size_url(self):
-        '''
-        :rtype: str
-        '''
-
+    def full_size_url(self) -> thryft.native.url.Url:
         return self.__full_size_url
 
     @property
-    def mediaid(self):
-        '''
-        :rtype: str
-        '''
-
+    def mediaid(self) -> pastpy.gen.non_blank_string.NonBlankString:
         return self.__mediaid
 
     @property
-    def objectid(self):
-        '''
-        :rtype: str
-        '''
-
+    def objectid(self) -> pastpy.gen.non_blank_string.NonBlankString:
         return self.__objectid
 
     @classmethod
@@ -542,27 +416,15 @@ class OnlineDatabaseObjectDetailImage(object):
         return self.Builder.from_template(template=self)
 
     @property
-    def src(self):
-        '''
-        :rtype: str
-        '''
-
+    def src(self) -> pastpy.gen.non_blank_string.NonBlankString:
         return self.__src
 
     @property
-    def thumbnail_url(self):
-        '''
-        :rtype: str
-        '''
-
+    def thumbnail_url(self) -> thryft.native.url.Url:
         return self.__thumbnail_url
 
     @property
-    def title(self):
-        '''
-        :rtype: str
-        '''
-
+    def title(self) -> pastpy.gen.non_blank_string.NonBlankString:
         return self.__title
 
     def to_builtins(self):
@@ -577,11 +439,7 @@ class OnlineDatabaseObjectDetailImage(object):
         return dict_
 
     @property
-    def type(self):  # @ReservedAssignment
-        '''
-        :rtype: pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType
-        '''
-
+    def type(self) -> pastpy.gen.database.impl.online.online_database_object_detail_image_type.OnlineDatabaseObjectDetailImageType:  # @ReservedAssignment
         return self.__type
 
     def write(self, oprot):

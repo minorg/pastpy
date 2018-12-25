@@ -13,13 +13,6 @@ class OnlineDatabaseObjectDetail(object):
             id=None,  # @ReservedAssignment
             related_photos=None,
         ):
-            '''
-            :type attributes: dict(str: str)
-            :type guid: str
-            :type id: str
-            :type related_photos: tuple(pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage)
-            '''
-
             self.__attributes = attributes
             self.__guid = guid
             self.__id = id
@@ -29,11 +22,7 @@ class OnlineDatabaseObjectDetail(object):
             return OnlineDatabaseObjectDetail(attributes=self.__attributes, guid=self.__guid, id=self.__id, related_photos=self.__related_photos)
 
         @property
-        def attributes(self):
-            '''
-            :rtype: dict(str: str)
-            '''
-
+        def attributes(self) -> typing.Dict[pastpy.gen.non_blank_string.NonBlankString, pastpy.gen.non_blank_string.NonBlankString]:
             return self.__attributes.copy() if self.__attributes is not None else None
 
         @classmethod
@@ -51,85 +40,50 @@ class OnlineDatabaseObjectDetail(object):
             return builder
 
         @property
-        def guid(self):
-            '''
-            :rtype: str
-            '''
-
+        def guid(self) -> pastpy.gen.non_blank_string.NonBlankString:
             return self.__guid
 
         @property
-        def id(self):  # @ReservedAssignment
-            '''
-            :rtype: str
-            '''
-
+        def id(self) -> pastpy.gen.non_blank_string.NonBlankString:  # @ReservedAssignment
             return self.__id
 
         @property
-        def related_photos(self):
-            '''
-            :rtype: tuple(pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage)
-            '''
-
+        def related_photos(self) -> typing.Tuple[pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage, ...]:
             return self.__related_photos
 
-        def set_attributes(self, attributes):
-            '''
-            :type attributes: dict(str: str)
-            '''
-
+        def set_attributes(self, attributes: typing.Dict[pastpy.gen.non_blank_string.NonBlankString, pastpy.gen.non_blank_string.NonBlankString]):
             if attributes is None:
                 raise ValueError('attributes is required')
             if not (isinstance(attributes, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], str) and isinstance(__item[1], str), attributes.items()))) == 0):
-                raise TypeError("expected attributes to be a dict(str: str) but it is a %s" % builtins.type(attributes))
+                raise TypeError("expected attributes to be a typing.Dict[pastpy.gen.non_blank_string.NonBlankString, pastpy.gen.non_blank_string.NonBlankString] but it is a %s" % builtins.type(attributes))
             self.__attributes = attributes
             return self
 
-        def set_guid(self, guid):
-            '''
-            :type guid: str
-            '''
-
+        def set_guid(self, guid: pastpy.gen.non_blank_string.NonBlankString):
             if guid is None:
                 raise ValueError('guid is required')
             if not isinstance(guid, str):
-                raise TypeError("expected guid to be a str but it is a %s" % builtins.type(guid))
+                raise TypeError("expected guid to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(guid))
             self.__guid = guid
             return self
 
-        def set_id(self, id):  # @ReservedAssignment
-            '''
-            :type id: str
-            '''
-
+        def set_id(self, id: pastpy.gen.non_blank_string.NonBlankString):  # @ReservedAssignment
             if id is None:
                 raise ValueError('id is required')
             if not isinstance(id, str):
-                raise TypeError("expected id to be a str but it is a %s" % builtins.type(id))
+                raise TypeError("expected id to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(id))
             self.__id = id
             return self
 
-        def set_related_photos(self, related_photos):
-            '''
-            :type related_photos: tuple(pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage)
-            '''
-
+        def set_related_photos(self, related_photos: typing.Tuple[pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage, ...]):
             if related_photos is None:
                 raise ValueError('related_photos is required')
             if not (isinstance(related_photos, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage), related_photos))) == 0):
-                raise TypeError("expected related_photos to be a tuple(pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage) but it is a %s" % builtins.type(related_photos))
+                raise TypeError("expected related_photos to be a typing.Tuple[pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage, ...] but it is a %s" % builtins.type(related_photos))
             self.__related_photos = related_photos
             return self
 
         def update(self, online_database_object_detail):
-            '''
-            :type attributes: dict(str: str)
-            :type guid: str
-            :type id: str
-            :type related_photos: tuple(pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage)
-            '''
-
             if isinstance(online_database_object_detail, OnlineDatabaseObjectDetail):
                 self.set_attributes(online_database_object_detail.attributes)
                 self.set_guid(online_database_object_detail.guid)
@@ -143,35 +97,19 @@ class OnlineDatabaseObjectDetail(object):
             return self
 
         @attributes.setter
-        def attributes(self, attributes):
-            '''
-            :type attributes: dict(str: str)
-            '''
-
+        def attributes(self, attributes: typing.Dict[pastpy.gen.non_blank_string.NonBlankString, pastpy.gen.non_blank_string.NonBlankString]) -> None:
             self.set_attributes(attributes)
 
         @guid.setter
-        def guid(self, guid):
-            '''
-            :type guid: str
-            '''
-
+        def guid(self, guid: pastpy.gen.non_blank_string.NonBlankString) -> None:
             self.set_guid(guid)
 
         @id.setter
-        def id(self, id):  # @ReservedAssignment
-            '''
-            :type id: str
-            '''
-
+        def id(self, id: pastpy.gen.non_blank_string.NonBlankString) -> None:  # @ReservedAssignment
             self.set_id(id)
 
         @related_photos.setter
-        def related_photos(self, related_photos):
-            '''
-            :type related_photos: tuple(pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage)
-            '''
-
+        def related_photos(self, related_photos: typing.Tuple[pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage, ...]) -> None:
             self.set_related_photos(related_photos)
 
     class FieldMetadata(object):
@@ -215,40 +153,33 @@ class OnlineDatabaseObjectDetail(object):
 
     def __init__(
         self,
-        attributes,
-        guid,
-        id,  # @ReservedAssignment
-        related_photos,
+        attributes: typing.Dict[pastpy.gen.non_blank_string.NonBlankString, pastpy.gen.non_blank_string.NonBlankString],
+        guid: pastpy.gen.non_blank_string.NonBlankString,
+        id: pastpy.gen.non_blank_string.NonBlankString,  # @ReservedAssignment
+        related_photos: typing.Tuple[pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage, ...],
     ):
-        '''
-        :type attributes: dict(str: str)
-        :type guid: str
-        :type id: str
-        :type related_photos: tuple(pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage)
-        '''
-
         if attributes is None:
             raise ValueError('attributes is required')
         if not (isinstance(attributes, dict) and len(list(filterfalse(lambda __item: isinstance(__item[0], str) and isinstance(__item[1], str), attributes.items()))) == 0):
-            raise TypeError("expected attributes to be a dict(str: str) but it is a %s" % builtins.type(attributes))
+            raise TypeError("expected attributes to be a typing.Dict[pastpy.gen.non_blank_string.NonBlankString, pastpy.gen.non_blank_string.NonBlankString] but it is a %s" % builtins.type(attributes))
         self.__attributes = attributes.copy() if attributes is not None else None
 
         if guid is None:
             raise ValueError('guid is required')
         if not isinstance(guid, str):
-            raise TypeError("expected guid to be a str but it is a %s" % builtins.type(guid))
+            raise TypeError("expected guid to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(guid))
         self.__guid = guid
 
         if id is None:
             raise ValueError('id is required')
         if not isinstance(id, str):
-            raise TypeError("expected id to be a str but it is a %s" % builtins.type(id))
+            raise TypeError("expected id to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(id))
         self.__id = id
 
         if related_photos is None:
             raise ValueError('related_photos is required')
         if not (isinstance(related_photos, tuple) and len(list(filterfalse(lambda _: isinstance(_, pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage), related_photos))) == 0):
-            raise TypeError("expected related_photos to be a tuple(pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage) but it is a %s" % builtins.type(related_photos))
+            raise TypeError("expected related_photos to be a typing.Tuple[pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage, ...] but it is a %s" % builtins.type(related_photos))
         self.__related_photos = related_photos
 
     def __eq__(self, other):
@@ -288,11 +219,7 @@ class OnlineDatabaseObjectDetail(object):
         return 'OnlineDatabaseObjectDetail(' + ', '.join(field_reprs) + ')'
 
     @property
-    def attributes(self):
-        '''
-        :rtype: dict(str: str)
-        '''
-
+    def attributes(self) -> typing.Dict[pastpy.gen.non_blank_string.NonBlankString, pastpy.gen.non_blank_string.NonBlankString]:
         return self.__attributes.copy() if self.__attributes is not None else None
 
     @classmethod
@@ -330,19 +257,11 @@ class OnlineDatabaseObjectDetail(object):
         return __builder.build()
 
     @property
-    def guid(self):
-        '''
-        :rtype: str
-        '''
-
+    def guid(self) -> pastpy.gen.non_blank_string.NonBlankString:
         return self.__guid
 
     @property
-    def id(self):  # @ReservedAssignment
-        '''
-        :rtype: str
-        '''
-
+    def id(self) -> pastpy.gen.non_blank_string.NonBlankString:  # @ReservedAssignment
         return self.__id
 
     @classmethod
@@ -375,11 +294,7 @@ class OnlineDatabaseObjectDetail(object):
         return cls(**init_kwds)
 
     @property
-    def related_photos(self):
-        '''
-        :rtype: tuple(pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage)
-        '''
-
+    def related_photos(self) -> typing.Tuple[pastpy.gen.database.impl.online.online_database_object_detail_image.OnlineDatabaseObjectDetailImage, ...]:
         return self.__related_photos
 
     def replacer(self):

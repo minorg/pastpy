@@ -1,5 +1,6 @@
 import builtins
 import pastpy.gen.non_blank_string
+import typing
 
 
 class DbfDatabaseConfiguration(object):
@@ -10,12 +11,6 @@ class DbfDatabaseConfiguration(object):
             pp_install_dir_path=None,
             pp_objects_dbf_file_path=None,
         ):
-            '''
-            :type pp_images_dir_path: str or None
-            :type pp_install_dir_path: str or None
-            :type pp_objects_dbf_file_path: str or None
-            '''
-
             self.__pp_images_dir_path = pp_images_dir_path
             self.__pp_install_dir_path = pp_install_dir_path
             self.__pp_objects_dbf_file_path = pp_objects_dbf_file_path
@@ -37,69 +32,39 @@ class DbfDatabaseConfiguration(object):
             return builder
 
         @property
-        def pp_images_dir_path(self):
-            '''
-            :rtype: str
-            '''
-
+        def pp_images_dir_path(self) -> typing.Union[pastpy.gen.non_blank_string.NonBlankString, None]:
             return self.__pp_images_dir_path
 
         @property
-        def pp_install_dir_path(self):
-            '''
-            :rtype: str
-            '''
-
+        def pp_install_dir_path(self) -> typing.Union[pastpy.gen.non_blank_string.NonBlankString, None]:
             return self.__pp_install_dir_path
 
         @property
-        def pp_objects_dbf_file_path(self):
-            '''
-            :rtype: str
-            '''
-
+        def pp_objects_dbf_file_path(self) -> typing.Union[pastpy.gen.non_blank_string.NonBlankString, None]:
             return self.__pp_objects_dbf_file_path
 
-        def set_pp_images_dir_path(self, pp_images_dir_path):
-            '''
-            :type pp_images_dir_path: str or None
-            '''
-
+        def set_pp_images_dir_path(self, pp_images_dir_path: typing.Union[pastpy.gen.non_blank_string.NonBlankString, None]):
             if pp_images_dir_path is not None:
                 if not isinstance(pp_images_dir_path, str):
-                    raise TypeError("expected pp_images_dir_path to be a str but it is a %s" % builtins.type(pp_images_dir_path))
+                    raise TypeError("expected pp_images_dir_path to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(pp_images_dir_path))
             self.__pp_images_dir_path = pp_images_dir_path
             return self
 
-        def set_pp_install_dir_path(self, pp_install_dir_path):
-            '''
-            :type pp_install_dir_path: str or None
-            '''
-
+        def set_pp_install_dir_path(self, pp_install_dir_path: typing.Union[pastpy.gen.non_blank_string.NonBlankString, None]):
             if pp_install_dir_path is not None:
                 if not isinstance(pp_install_dir_path, str):
-                    raise TypeError("expected pp_install_dir_path to be a str but it is a %s" % builtins.type(pp_install_dir_path))
+                    raise TypeError("expected pp_install_dir_path to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(pp_install_dir_path))
             self.__pp_install_dir_path = pp_install_dir_path
             return self
 
-        def set_pp_objects_dbf_file_path(self, pp_objects_dbf_file_path):
-            '''
-            :type pp_objects_dbf_file_path: str or None
-            '''
-
+        def set_pp_objects_dbf_file_path(self, pp_objects_dbf_file_path: typing.Union[pastpy.gen.non_blank_string.NonBlankString, None]):
             if pp_objects_dbf_file_path is not None:
                 if not isinstance(pp_objects_dbf_file_path, str):
-                    raise TypeError("expected pp_objects_dbf_file_path to be a str but it is a %s" % builtins.type(pp_objects_dbf_file_path))
+                    raise TypeError("expected pp_objects_dbf_file_path to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(pp_objects_dbf_file_path))
             self.__pp_objects_dbf_file_path = pp_objects_dbf_file_path
             return self
 
         def update(self, dbf_database_configuration):
-            '''
-            :type pp_images_dir_path: str or None
-            :type pp_install_dir_path: str or None
-            :type pp_objects_dbf_file_path: str or None
-            '''
-
             if isinstance(dbf_database_configuration, DbfDatabaseConfiguration):
                 self.set_pp_images_dir_path(dbf_database_configuration.pp_images_dir_path)
                 self.set_pp_install_dir_path(dbf_database_configuration.pp_install_dir_path)
@@ -112,27 +77,15 @@ class DbfDatabaseConfiguration(object):
             return self
 
         @pp_images_dir_path.setter
-        def pp_images_dir_path(self, pp_images_dir_path):
-            '''
-            :type pp_images_dir_path: str or None
-            '''
-
+        def pp_images_dir_path(self, pp_images_dir_path: typing.Union[pastpy.gen.non_blank_string.NonBlankString, None]) -> None:
             self.set_pp_images_dir_path(pp_images_dir_path)
 
         @pp_install_dir_path.setter
-        def pp_install_dir_path(self, pp_install_dir_path):
-            '''
-            :type pp_install_dir_path: str or None
-            '''
-
+        def pp_install_dir_path(self, pp_install_dir_path: typing.Union[pastpy.gen.non_blank_string.NonBlankString, None]) -> None:
             self.set_pp_install_dir_path(pp_install_dir_path)
 
         @pp_objects_dbf_file_path.setter
-        def pp_objects_dbf_file_path(self, pp_objects_dbf_file_path):
-            '''
-            :type pp_objects_dbf_file_path: str or None
-            '''
-
+        def pp_objects_dbf_file_path(self, pp_objects_dbf_file_path: typing.Union[pastpy.gen.non_blank_string.NonBlankString, None]) -> None:
             self.set_pp_objects_dbf_file_path(pp_objects_dbf_file_path)
 
     class FieldMetadata(object):
@@ -174,29 +127,23 @@ class DbfDatabaseConfiguration(object):
 
     def __init__(
         self,
-        pp_images_dir_path=None,
-        pp_install_dir_path=None,
-        pp_objects_dbf_file_path=None,
+        pp_images_dir_path: typing.Union[pastpy.gen.non_blank_string.NonBlankString, None] = None,
+        pp_install_dir_path: typing.Union[pastpy.gen.non_blank_string.NonBlankString, None] = None,
+        pp_objects_dbf_file_path: typing.Union[pastpy.gen.non_blank_string.NonBlankString, None] = None,
     ):
-        '''
-        :type pp_images_dir_path: str or None
-        :type pp_install_dir_path: str or None
-        :type pp_objects_dbf_file_path: str or None
-        '''
-
         if pp_images_dir_path is not None:
             if not isinstance(pp_images_dir_path, str):
-                raise TypeError("expected pp_images_dir_path to be a str but it is a %s" % builtins.type(pp_images_dir_path))
+                raise TypeError("expected pp_images_dir_path to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(pp_images_dir_path))
         self.__pp_images_dir_path = pp_images_dir_path
 
         if pp_install_dir_path is not None:
             if not isinstance(pp_install_dir_path, str):
-                raise TypeError("expected pp_install_dir_path to be a str but it is a %s" % builtins.type(pp_install_dir_path))
+                raise TypeError("expected pp_install_dir_path to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(pp_install_dir_path))
         self.__pp_install_dir_path = pp_install_dir_path
 
         if pp_objects_dbf_file_path is not None:
             if not isinstance(pp_objects_dbf_file_path, str):
-                raise TypeError("expected pp_objects_dbf_file_path to be a str but it is a %s" % builtins.type(pp_objects_dbf_file_path))
+                raise TypeError("expected pp_objects_dbf_file_path to be a pastpy.gen.non_blank_string.NonBlankString but it is a %s" % builtins.type(pp_objects_dbf_file_path))
         self.__pp_objects_dbf_file_path = pp_objects_dbf_file_path
 
     def __eq__(self, other):
@@ -257,27 +204,15 @@ class DbfDatabaseConfiguration(object):
         return __builder.build()
 
     @property
-    def pp_images_dir_path(self):
-        '''
-        :rtype: str
-        '''
-
+    def pp_images_dir_path(self) -> typing.Union[pastpy.gen.non_blank_string.NonBlankString, None]:
         return self.__pp_images_dir_path
 
     @property
-    def pp_install_dir_path(self):
-        '''
-        :rtype: str
-        '''
-
+    def pp_install_dir_path(self) -> typing.Union[pastpy.gen.non_blank_string.NonBlankString, None]:
         return self.__pp_install_dir_path
 
     @property
-    def pp_objects_dbf_file_path(self):
-        '''
-        :rtype: str
-        '''
-
+    def pp_objects_dbf_file_path(self) -> typing.Union[pastpy.gen.non_blank_string.NonBlankString, None]:
         return self.__pp_objects_dbf_file_path
 
     @classmethod
