@@ -4,10 +4,10 @@ from pastpy.gen.database.impl.dummy.dummy_database_configuration import DummyDat
 
 
 class DummyDatabase(Database):
-    def __init__(self, *, configuration):
+    def __init__(self, *, configuration: DummyDatabaseConfiguration):
         Database.__init__(self)
+
         self.__configuration = configuration
-        assert isinstance(configuration, DummyDatabaseConfiguration)
 
     def objects(self):
         for i in range(self.__configuration.objects):
