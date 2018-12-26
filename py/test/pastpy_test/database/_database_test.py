@@ -15,4 +15,3 @@ class _DatabaseTest(unittest.TestCase):
             self.assertNotEqual(None, object_.name)
             self.assertTrue(len(tuple(object_.images())))
             # self.assertTrue(object_.impl_attributes)
-        self.fail()
