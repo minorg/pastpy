@@ -1,6 +1,7 @@
 import builtins
 import datetime
 import decimal
+import typing
 
 
 class ObjectsDbfRecord(object):
@@ -279,603 +280,303 @@ class ObjectsDbfRecord(object):
             return ObjectsDbfRecord(builder=self)
 
         @property
-        def accessno(self):
-            '''
-            :rtype: str
-            '''
-
+        def accessno(self) -> typing.Union[str, None]:
             return self.__accessno
 
         @property
-        def accessory(self):
-            '''
-            :rtype: str
-            '''
-
+        def accessory(self) -> typing.Union[str, None]:
             return self.__accessory
 
         @property
-        def acqvalue(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def acqvalue(self) -> typing.Union[decimal.Decimal, None]:
             return self.__acqvalue
 
         @property
-        def age(self):
-            '''
-            :rtype: str
-            '''
-
+        def age(self) -> typing.Union[str, None]:
             return self.__age
 
         @property
-        def appnotes(self):
-            '''
-            :rtype: str
-            '''
-
+        def appnotes(self) -> typing.Union[str, None]:
             return self.__appnotes
 
         @property
-        def appraisor(self):
-            '''
-            :rtype: str
-            '''
-
+        def appraisor(self) -> typing.Union[str, None]:
             return self.__appraisor
 
         @property
-        def assemzone(self):
-            '''
-            :rtype: str
-            '''
-
+        def assemzone(self) -> typing.Union[str, None]:
             return self.__assemzone
 
         @property
-        def bagno(self):
-            '''
-            :rtype: str
-            '''
-
+        def bagno(self) -> typing.Union[str, None]:
             return self.__bagno
 
         @property
-        def boxno(self):
-            '''
-            :rtype: str
-            '''
-
+        def boxno(self) -> typing.Union[str, None]:
             return self.__boxno
 
         @property
-        def caption(self):
-            '''
-            :rtype: str
-            '''
-
+        def caption(self) -> typing.Union[str, None]:
             return self.__caption
 
         @property
-        def cat(self):
-            '''
-            :rtype: str
-            '''
-
+        def cat(self) -> typing.Union[str, None]:
             return self.__cat
 
         @property
-        def catby(self):
-            '''
-            :rtype: str
-            '''
-
+        def catby(self) -> typing.Union[str, None]:
             return self.__catby
 
         @property
-        def catdate(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def catdate(self) -> typing.Union[datetime.date, None]:
             return self.__catdate
 
         @property
-        def cattype(self):
-            '''
-            :rtype: str
-            '''
-
+        def cattype(self) -> typing.Union[str, None]:
             return self.__cattype
 
         @property
-        def chemcomp(self):
-            '''
-            :rtype: str
-            '''
-
+        def chemcomp(self) -> typing.Union[str, None]:
             return self.__chemcomp
 
         @property
-        def circum(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def circum(self) -> typing.Union[decimal.Decimal, None]:
             return self.__circum
 
         @property
-        def circumft(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def circumft(self) -> typing.Union[decimal.Decimal, None]:
             return self.__circumft
 
         @property
-        def circumin(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def circumin(self) -> typing.Union[decimal.Decimal, None]:
             return self.__circumin
 
         @property
-        def classes(self):
-            '''
-            :rtype: str
-            '''
-
+        def classes(self) -> typing.Union[str, None]:
             return self.__classes
 
         @property
-        def colldate(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def colldate(self) -> typing.Union[datetime.date, None]:
             return self.__colldate
 
         @property
-        def collection(self):
-            '''
-            :rtype: str
-            '''
-
+        def collection(self) -> typing.Union[str, None]:
             return self.__collection
 
         @property
-        def collector(self):
-            '''
-            :rtype: str
-            '''
-
+        def collector(self) -> typing.Union[str, None]:
             return self.__collector
 
         @property
-        def conddate(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def conddate(self) -> typing.Union[datetime.date, None]:
             return self.__conddate
 
         @property
-        def condexam(self):
-            '''
-            :rtype: str
-            '''
-
+        def condexam(self) -> typing.Union[str, None]:
             return self.__condexam
 
         @property
-        def condition(self):
-            '''
-            :rtype: str
-            '''
-
+        def condition(self) -> typing.Union[str, None]:
             return self.__condition
 
         @property
-        def condnotes(self):
-            '''
-            :rtype: str
-            '''
-
+        def condnotes(self) -> typing.Union[str, None]:
             return self.__condnotes
 
         @property
-        def count(self):
-            '''
-            :rtype: str
-            '''
-
+        def count(self) -> typing.Union[str, None]:
             return self.__count
 
         @property
-        def creator(self):
-            '''
-            :rtype: str
-            '''
-
+        def creator(self) -> typing.Union[str, None]:
             return self.__creator
 
         @property
-        def creator2(self):
-            '''
-            :rtype: str
-            '''
-
+        def creator2(self) -> typing.Union[str, None]:
             return self.__creator2
 
         @property
-        def creator3(self):
-            '''
-            :rtype: str
-            '''
-
+        def creator3(self) -> typing.Union[str, None]:
             return self.__creator3
 
         @property
-        def credit(self):
-            '''
-            :rtype: str
-            '''
-
+        def credit(self) -> typing.Union[str, None]:
             return self.__credit
 
         @property
-        def crystal(self):
-            '''
-            :rtype: str
-            '''
-
+        def crystal(self) -> typing.Union[str, None]:
             return self.__crystal
 
         @property
-        def culture(self):
-            '''
-            :rtype: str
-            '''
-
+        def culture(self) -> typing.Union[str, None]:
             return self.__culture
 
         @property
-        def curvalmax(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def curvalmax(self) -> typing.Union[decimal.Decimal, None]:
             return self.__curvalmax
 
         @property
-        def curvalue(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def curvalue(self) -> typing.Union[decimal.Decimal, None]:
             return self.__curvalue
 
         @property
-        def dataset(self):
-            '''
-            :rtype: str
-            '''
-
+        def dataset(self) -> typing.Union[str, None]:
             return self.__dataset
 
         @property
-        def date(self):
-            '''
-            :rtype: str
-            '''
-
+        def date(self) -> typing.Union[str, None]:
             return self.__date
 
         @property
-        def datingmeth(self):
-            '''
-            :rtype: str
-            '''
-
+        def datingmeth(self) -> typing.Union[str, None]:
             return self.__datingmeth
 
         @property
-        def datum(self):
-            '''
-            :rtype: str
-            '''
-
+        def datum(self) -> typing.Union[str, None]:
             return self.__datum
 
         @property
-        def depth(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def depth(self) -> typing.Union[decimal.Decimal, None]:
             return self.__depth
 
         @property
-        def depthft(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def depthft(self) -> typing.Union[decimal.Decimal, None]:
             return self.__depthft
 
         @property
-        def depthin(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def depthin(self) -> typing.Union[decimal.Decimal, None]:
             return self.__depthin
 
         @property
-        def descrip(self):
-            '''
-            :rtype: str
-            '''
-
+        def descrip(self) -> typing.Union[str, None]:
             return self.__descrip
 
         @property
-        def diameter(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def diameter(self) -> typing.Union[decimal.Decimal, None]:
             return self.__diameter
 
         @property
-        def diameterft(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def diameterft(self) -> typing.Union[decimal.Decimal, None]:
             return self.__diameterft
 
         @property
-        def diameterin(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def diameterin(self) -> typing.Union[decimal.Decimal, None]:
             return self.__diameterin
 
         @property
-        def dimnotes(self):
-            '''
-            :rtype: str
-            '''
-
+        def dimnotes(self) -> typing.Union[str, None]:
             return self.__dimnotes
 
         @property
-        def dimtype(self):
-            '''
-            :rtype: int
-            '''
-
+        def dimtype(self) -> typing.Union[int, None]:
             return self.__dimtype
 
         @property
-        def dispvalue(self):
-            '''
-            :rtype: str
-            '''
-
+        def dispvalue(self) -> typing.Union[str, None]:
             return self.__dispvalue
 
         @property
-        def earlydate(self):
-            '''
-            :rtype: int
-            '''
-
+        def earlydate(self) -> typing.Union[int, None]:
             return self.__earlydate
 
         @property
-        def elements(self):
-            '''
-            :rtype: str
-            '''
-
+        def elements(self) -> typing.Union[str, None]:
             return self.__elements
 
         @property
-        def epoch(self):
-            '''
-            :rtype: str
-            '''
-
+        def epoch(self) -> typing.Union[str, None]:
             return self.__epoch
 
         @property
-        def era(self):
-            '''
-            :rtype: str
-            '''
-
+        def era(self) -> typing.Union[str, None]:
             return self.__era
 
         @property
-        def event(self):
-            '''
-            :rtype: str
-            '''
-
+        def event(self) -> typing.Union[str, None]:
             return self.__event
 
         @property
-        def ew(self):
-            '''
-            :rtype: str
-            '''
-
+        def ew(self) -> typing.Union[str, None]:
             return self.__ew
 
         @property
-        def excavadate(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def excavadate(self) -> typing.Union[datetime.date, None]:
             return self.__excavadate
 
         @property
-        def excavateby(self):
-            '''
-            :rtype: str
-            '''
-
+        def excavateby(self) -> typing.Union[str, None]:
             return self.__excavateby
 
         @property
-        def exhibitid(self):
-            '''
-            :rtype: str
-            '''
-
+        def exhibitid(self) -> typing.Union[str, None]:
             return self.__exhibitid
 
         @property
-        def exhibitno(self):
-            '''
-            :rtype: int
-            '''
-
+        def exhibitno(self) -> typing.Union[int, None]:
             return self.__exhibitno
 
         @property
-        def exhlabel1(self):
-            '''
-            :rtype: str
-            '''
-
+        def exhlabel1(self) -> typing.Union[str, None]:
             return self.__exhlabel1
 
         @property
-        def exhlabel2(self):
-            '''
-            :rtype: str
-            '''
-
+        def exhlabel2(self) -> typing.Union[str, None]:
             return self.__exhlabel2
 
         @property
-        def exhlabel3(self):
-            '''
-            :rtype: str
-            '''
-
+        def exhlabel3(self) -> typing.Union[str, None]:
             return self.__exhlabel3
 
         @property
-        def exhlabel4(self):
-            '''
-            :rtype: str
-            '''
-
+        def exhlabel4(self) -> typing.Union[str, None]:
             return self.__exhlabel4
 
         @property
-        def exhstart(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def exhstart(self) -> typing.Union[datetime.date, None]:
             return self.__exhstart
 
         @property
-        def family(self):
-            '''
-            :rtype: str
-            '''
-
+        def family(self) -> typing.Union[str, None]:
             return self.__family
 
         @property
-        def feature(self):
-            '''
-            :rtype: str
-            '''
-
+        def feature(self) -> typing.Union[str, None]:
             return self.__feature
 
         @property
-        def flagdate(self):
-            '''
-            :rtype: datetime.datetime
-            '''
-
+        def flagdate(self) -> typing.Union[datetime.datetime, None]:
             return self.__flagdate
 
         @property
-        def flagnotes(self):
-            '''
-            :rtype: str
-            '''
-
+        def flagnotes(self) -> typing.Union[str, None]:
             return self.__flagnotes
 
         @property
-        def flagreason(self):
-            '''
-            :rtype: str
-            '''
-
+        def flagreason(self) -> typing.Union[str, None]:
             return self.__flagreason
 
         @property
-        def formation(self):
-            '''
-            :rtype: str
-            '''
-
+        def formation(self) -> typing.Union[str, None]:
             return self.__formation
 
         @property
-        def fossils(self):
-            '''
-            :rtype: str
-            '''
-
+        def fossils(self) -> typing.Union[str, None]:
             return self.__fossils
 
         @property
-        def found(self):
-            '''
-            :rtype: str
-            '''
-
+        def found(self) -> typing.Union[str, None]:
             return self.__found
 
         @property
-        def fracture(self):
-            '''
-            :rtype: str
-            '''
-
+        def fracture(self) -> typing.Union[str, None]:
             return self.__fracture
 
         @property
-        def frame(self):
-            '''
-            :rtype: str
-            '''
-
+        def frame(self) -> typing.Union[str, None]:
             return self.__frame
 
         @property
-        def framesize(self):
-            '''
-            :rtype: str
-            '''
-
+        def framesize(self) -> typing.Union[str, None]:
             return self.__framesize
 
         @classmethod
@@ -1155,3805 +856,2301 @@ class ObjectsDbfRecord(object):
             return builder
 
         @property
-        def genus(self):
-            '''
-            :rtype: str
-            '''
-
+        def genus(self) -> typing.Union[str, None]:
             return self.__genus
 
         @property
-        def gparent(self):
-            '''
-            :rtype: str
-            '''
-
+        def gparent(self) -> typing.Union[str, None]:
             return self.__gparent
 
         @property
-        def grainsize(self):
-            '''
-            :rtype: str
-            '''
-
+        def grainsize(self) -> typing.Union[str, None]:
             return self.__grainsize
 
         @property
-        def habitat(self):
-            '''
-            :rtype: str
-            '''
-
+        def habitat(self) -> typing.Union[str, None]:
             return self.__habitat
 
         @property
-        def hardness(self):
-            '''
-            :rtype: str
-            '''
-
+        def hardness(self) -> typing.Union[str, None]:
             return self.__hardness
 
         @property
-        def height(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def height(self) -> typing.Union[decimal.Decimal, None]:
             return self.__height
 
         @property
-        def heightft(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def heightft(self) -> typing.Union[decimal.Decimal, None]:
             return self.__heightft
 
         @property
-        def heightin(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def heightin(self) -> typing.Union[decimal.Decimal, None]:
             return self.__heightin
 
         @property
-        def homeloc(self):
-            '''
-            :rtype: str
-            '''
-
+        def homeloc(self) -> typing.Union[str, None]:
             return self.__homeloc
 
         @property
-        def idby(self):
-            '''
-            :rtype: str
-            '''
-
+        def idby(self) -> typing.Union[str, None]:
             return self.__idby
 
         @property
-        def iddate(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def iddate(self) -> typing.Union[datetime.date, None]:
             return self.__iddate
 
         @property
-        def imagefile(self):
-            '''
-            :rtype: str
-            '''
-
+        def imagefile(self) -> typing.Union[str, None]:
             return self.__imagefile
 
         @property
-        def imageno(self):
-            '''
-            :rtype: int
-            '''
-
+        def imageno(self) -> typing.Union[int, None]:
             return self.__imageno
 
         @property
-        def imagesize(self):
-            '''
-            :rtype: str
-            '''
-
+        def imagesize(self) -> typing.Union[str, None]:
             return self.__imagesize
 
         @property
-        def inscomp(self):
-            '''
-            :rtype: str
-            '''
-
+        def inscomp(self) -> typing.Union[str, None]:
             return self.__inscomp
 
         @property
-        def inscrlang(self):
-            '''
-            :rtype: str
-            '''
-
+        def inscrlang(self) -> typing.Union[str, None]:
             return self.__inscrlang
 
         @property
-        def inscrpos(self):
-            '''
-            :rtype: str
-            '''
-
+        def inscrpos(self) -> typing.Union[str, None]:
             return self.__inscrpos
 
         @property
-        def inscrtech(self):
-            '''
-            :rtype: str
-            '''
-
+        def inscrtech(self) -> typing.Union[str, None]:
             return self.__inscrtech
 
         @property
-        def inscrtext(self):
-            '''
-            :rtype: str
-            '''
-
+        def inscrtext(self) -> typing.Union[str, None]:
             return self.__inscrtext
 
         @property
-        def inscrtrans(self):
-            '''
-            :rtype: str
-            '''
-
+        def inscrtrans(self) -> typing.Union[str, None]:
             return self.__inscrtrans
 
         @property
-        def inscrtype(self):
-            '''
-            :rtype: str
-            '''
-
+        def inscrtype(self) -> typing.Union[str, None]:
             return self.__inscrtype
 
         @property
-        def insdate(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def insdate(self) -> typing.Union[datetime.date, None]:
             return self.__insdate
 
         @property
-        def insphone(self):
-            '''
-            :rtype: str
-            '''
-
+        def insphone(self) -> typing.Union[str, None]:
             return self.__insphone
 
         @property
-        def inspremium(self):
-            '''
-            :rtype: str
-            '''
-
+        def inspremium(self) -> typing.Union[str, None]:
             return self.__inspremium
 
         @property
-        def insrep(self):
-            '''
-            :rtype: str
-            '''
-
+        def insrep(self) -> typing.Union[str, None]:
             return self.__insrep
 
         @property
-        def insvalue(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def insvalue(self) -> typing.Union[decimal.Decimal, None]:
             return self.__insvalue
 
         @property
-        def invnby(self):
-            '''
-            :rtype: str
-            '''
-
+        def invnby(self) -> typing.Union[str, None]:
             return self.__invnby
 
         @property
-        def invndate(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def invndate(self) -> typing.Union[datetime.date, None]:
             return self.__invndate
 
         @property
-        def kingdom(self):
-            '''
-            :rtype: str
-            '''
-
+        def kingdom(self) -> typing.Union[str, None]:
             return self.__kingdom
 
         @property
-        def latdeg(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def latdeg(self) -> typing.Union[decimal.Decimal, None]:
             return self.__latdeg
 
         @property
-        def latedate(self):
-            '''
-            :rtype: int
-            '''
-
+        def latedate(self) -> typing.Union[int, None]:
             return self.__latedate
 
         @property
-        def legal(self):
-            '''
-            :rtype: str
-            '''
-
+        def legal(self) -> typing.Union[str, None]:
             return self.__legal
 
         @property
-        def length(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def length(self) -> typing.Union[decimal.Decimal, None]:
             return self.__length
 
         @property
-        def lengthft(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def lengthft(self) -> typing.Union[decimal.Decimal, None]:
             return self.__lengthft
 
         @property
-        def lengthin(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def lengthin(self) -> typing.Union[decimal.Decimal, None]:
             return self.__lengthin
 
         @property
-        def level(self):
-            '''
-            :rtype: str
-            '''
-
+        def level(self) -> typing.Union[str, None]:
             return self.__level
 
         @property
-        def lithofacie(self):
-            '''
-            :rtype: str
-            '''
-
+        def lithofacie(self) -> typing.Union[str, None]:
             return self.__lithofacie
 
         @property
-        def loancond(self):
-            '''
-            :rtype: str
-            '''
-
+        def loancond(self) -> typing.Union[str, None]:
             return self.__loancond
 
         @property
-        def loandue(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def loandue(self) -> typing.Union[datetime.date, None]:
             return self.__loandue
 
         @property
-        def loanid(self):
-            '''
-            :rtype: str
-            '''
-
+        def loanid(self) -> typing.Union[str, None]:
             return self.__loanid
 
         @property
-        def loaninno(self):
-            '''
-            :rtype: str
-            '''
-
+        def loaninno(self) -> typing.Union[str, None]:
             return self.__loaninno
 
         @property
-        def loanno(self):
-            '''
-            :rtype: int
-            '''
-
+        def loanno(self) -> typing.Union[int, None]:
             return self.__loanno
 
         @property
-        def loanrenew(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def loanrenew(self) -> typing.Union[datetime.date, None]:
             return self.__loanrenew
 
         @property
-        def locfield1(self):
-            '''
-            :rtype: str
-            '''
-
+        def locfield1(self) -> typing.Union[str, None]:
             return self.__locfield1
 
         @property
-        def locfield2(self):
-            '''
-            :rtype: str
-            '''
-
+        def locfield2(self) -> typing.Union[str, None]:
             return self.__locfield2
 
         @property
-        def locfield3(self):
-            '''
-            :rtype: str
-            '''
-
+        def locfield3(self) -> typing.Union[str, None]:
             return self.__locfield3
 
         @property
-        def locfield4(self):
-            '''
-            :rtype: str
-            '''
-
+        def locfield4(self) -> typing.Union[str, None]:
             return self.__locfield4
 
         @property
-        def locfield5(self):
-            '''
-            :rtype: str
-            '''
-
+        def locfield5(self) -> typing.Union[str, None]:
             return self.__locfield5
 
         @property
-        def locfield6(self):
-            '''
-            :rtype: str
-            '''
-
+        def locfield6(self) -> typing.Union[str, None]:
             return self.__locfield6
 
         @property
-        def longdeg(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def longdeg(self) -> typing.Union[decimal.Decimal, None]:
             return self.__longdeg
 
         @property
-        def luster(self):
-            '''
-            :rtype: str
-            '''
-
+        def luster(self) -> typing.Union[str, None]:
             return self.__luster
 
         @property
-        def made(self):
-            '''
-            :rtype: str
-            '''
-
+        def made(self) -> typing.Union[str, None]:
             return self.__made
 
         @property
-        def maintcycle(self):
-            '''
-            :rtype: str
-            '''
-
+        def maintcycle(self) -> typing.Union[str, None]:
             return self.__maintcycle
 
         @property
-        def maintdate(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def maintdate(self) -> typing.Union[datetime.date, None]:
             return self.__maintdate
 
         @property
-        def maintnote(self):
-            '''
-            :rtype: str
-            '''
-
+        def maintnote(self) -> typing.Union[str, None]:
             return self.__maintnote
 
         @property
-        def material(self):
-            '''
-            :rtype: str
-            '''
-
+        def material(self) -> typing.Union[str, None]:
             return self.__material
 
         @property
-        def medium(self):
-            '''
-            :rtype: str
-            '''
-
+        def medium(self) -> typing.Union[str, None]:
             return self.__medium
 
         @property
-        def member(self):
-            '''
-            :rtype: str
-            '''
-
+        def member(self) -> typing.Union[str, None]:
             return self.__member
 
         @property
-        def mmark(self):
-            '''
-            :rtype: str
-            '''
-
+        def mmark(self) -> typing.Union[str, None]:
             return self.__mmark
 
         @property
-        def nhclass(self):
-            '''
-            :rtype: str
-            '''
-
+        def nhclass(self) -> typing.Union[str, None]:
             return self.__nhclass
 
         @property
-        def nhorder(self):
-            '''
-            :rtype: str
-            '''
-
+        def nhorder(self) -> typing.Union[str, None]:
             return self.__nhorder
 
         @property
-        def notes(self):
-            '''
-            :rtype: str
-            '''
-
+        def notes(self) -> typing.Union[str, None]:
             return self.__notes
 
         @property
-        def ns(self):
-            '''
-            :rtype: str
-            '''
-
+        def ns(self) -> typing.Union[str, None]:
             return self.__ns
 
         @property
-        def objectid(self):
-            '''
-            :rtype: str
-            '''
-
+        def objectid(self) -> typing.Union[str, None]:
             return self.__objectid
 
         @property
-        def objname(self):
-            '''
-            :rtype: str
-            '''
-
+        def objname(self) -> typing.Union[str, None]:
             return self.__objname
 
         @property
-        def objname2(self):
-            '''
-            :rtype: str
-            '''
-
+        def objname2(self) -> typing.Union[str, None]:
             return self.__objname2
 
         @property
-        def objname3(self):
-            '''
-            :rtype: str
-            '''
-
+        def objname3(self) -> typing.Union[str, None]:
             return self.__objname3
 
         @property
-        def objnames(self):
-            '''
-            :rtype: str
-            '''
-
+        def objnames(self) -> typing.Union[str, None]:
             return self.__objnames
 
         @property
-        def occurrence(self):
-            '''
-            :rtype: str
-            '''
-
+        def occurrence(self) -> typing.Union[str, None]:
             return self.__occurrence
 
         @property
-        def oldno(self):
-            '''
-            :rtype: str
-            '''
-
+        def oldno(self) -> typing.Union[str, None]:
             return self.__oldno
 
         @property
-        def origin(self):
-            '''
-            :rtype: str
-            '''
-
+        def origin(self) -> typing.Union[str, None]:
             return self.__origin
 
         @property
-        def othername(self):
-            '''
-            :rtype: str
-            '''
-
+        def othername(self) -> typing.Union[str, None]:
             return self.__othername
 
         @property
-        def otherno(self):
-            '''
-            :rtype: str
-            '''
-
+        def otherno(self) -> typing.Union[str, None]:
             return self.__otherno
 
         @property
-        def outdate(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def outdate(self) -> typing.Union[datetime.date, None]:
             return self.__outdate
 
         @property
-        def owned(self):
-            '''
-            :rtype: str
-            '''
-
+        def owned(self) -> typing.Union[str, None]:
             return self.__owned
 
         @property
-        def parent(self):
-            '''
-            :rtype: str
-            '''
-
+        def parent(self) -> typing.Union[str, None]:
             return self.__parent
 
         @property
-        def people(self):
-            '''
-            :rtype: str
-            '''
-
+        def people(self) -> typing.Union[str, None]:
             return self.__people
 
         @property
-        def period(self):
-            '''
-            :rtype: str
-            '''
-
+        def period(self) -> typing.Union[str, None]:
             return self.__period
 
         @property
-        def phylum(self):
-            '''
-            :rtype: str
-            '''
-
+        def phylum(self) -> typing.Union[str, None]:
             return self.__phylum
 
         @property
-        def policyno(self):
-            '''
-            :rtype: str
-            '''
-
+        def policyno(self) -> typing.Union[str, None]:
             return self.__policyno
 
         @property
-        def ppid(self):
-            '''
-            :rtype: str
-            '''
-
+        def ppid(self) -> typing.Union[str, None]:
             return self.__ppid
 
         @property
-        def preparator(self):
-            '''
-            :rtype: str
-            '''
-
+        def preparator(self) -> typing.Union[str, None]:
             return self.__preparator
 
         @property
-        def prepdate(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def prepdate(self) -> typing.Union[datetime.date, None]:
             return self.__prepdate
 
         @property
-        def preserve(self):
-            '''
-            :rtype: str
-            '''
-
+        def preserve(self) -> typing.Union[str, None]:
             return self.__preserve
 
         @property
-        def pressure(self):
-            '''
-            :rtype: str
-            '''
-
+        def pressure(self) -> typing.Union[str, None]:
             return self.__pressure
 
         @property
-        def provenance(self):
-            '''
-            :rtype: str
-            '''
-
+        def provenance(self) -> typing.Union[str, None]:
             return self.__provenance
 
         @property
-        def pubnotes(self):
-            '''
-            :rtype: str
-            '''
-
+        def pubnotes(self) -> typing.Union[str, None]:
             return self.__pubnotes
 
         @property
-        def qrurl(self):
-            '''
-            :rtype: str
-            '''
-
+        def qrurl(self) -> typing.Union[str, None]:
             return self.__qrurl
 
         @property
-        def recas(self):
-            '''
-            :rtype: str
-            '''
-
+        def recas(self) -> typing.Union[str, None]:
             return self.__recas
 
         @property
-        def recdate(self):
-            '''
-            :rtype: str
-            '''
-
+        def recdate(self) -> typing.Union[str, None]:
             return self.__recdate
 
         @property
-        def recfrom(self):
-            '''
-            :rtype: str
-            '''
-
+        def recfrom(self) -> typing.Union[str, None]:
             return self.__recfrom
 
         @property
-        def relation(self):
-            '''
-            :rtype: str
-            '''
-
+        def relation(self) -> typing.Union[str, None]:
             return self.__relation
 
         @property
-        def relnotes(self):
-            '''
-            :rtype: str
-            '''
-
+        def relnotes(self) -> typing.Union[str, None]:
             return self.__relnotes
 
         @property
-        def renewuntil(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def renewuntil(self) -> typing.Union[datetime.date, None]:
             return self.__renewuntil
 
         @property
-        def repatby(self):
-            '''
-            :rtype: str
-            '''
-
+        def repatby(self) -> typing.Union[str, None]:
             return self.__repatby
 
         @property
-        def repatclaim(self):
-            '''
-            :rtype: str
-            '''
-
+        def repatclaim(self) -> typing.Union[str, None]:
             return self.__repatclaim
 
         @property
-        def repatdate(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def repatdate(self) -> typing.Union[datetime.date, None]:
             return self.__repatdate
 
         @property
-        def repatdisp(self):
-            '''
-            :rtype: str
-            '''
-
+        def repatdisp(self) -> typing.Union[str, None]:
             return self.__repatdisp
 
         @property
-        def repathand(self):
-            '''
-            :rtype: str
-            '''
-
+        def repathand(self) -> typing.Union[str, None]:
             return self.__repathand
 
         @property
-        def repatnotes(self):
-            '''
-            :rtype: str
-            '''
-
+        def repatnotes(self) -> typing.Union[str, None]:
             return self.__repatnotes
 
         @property
-        def repatnotic(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def repatnotic(self) -> typing.Union[datetime.date, None]:
             return self.__repatnotic
 
         @property
-        def repattype(self):
-            '''
-            :rtype: str
-            '''
-
+        def repattype(self) -> typing.Union[str, None]:
             return self.__repattype
 
         @property
-        def rockclass(self):
-            '''
-            :rtype: str
-            '''
-
+        def rockclass(self) -> typing.Union[str, None]:
             return self.__rockclass
 
         @property
-        def rockcolor(self):
-            '''
-            :rtype: str
-            '''
-
+        def rockcolor(self) -> typing.Union[str, None]:
             return self.__rockcolor
 
         @property
-        def rockorigin(self):
-            '''
-            :rtype: str
-            '''
-
+        def rockorigin(self) -> typing.Union[str, None]:
             return self.__rockorigin
 
         @property
-        def rocktype(self):
-            '''
-            :rtype: str
-            '''
-
+        def rocktype(self) -> typing.Union[str, None]:
             return self.__rocktype
 
         @property
-        def role(self):
-            '''
-            :rtype: str
-            '''
-
+        def role(self) -> typing.Union[str, None]:
             return self.__role
 
         @property
-        def role2(self):
-            '''
-            :rtype: str
-            '''
-
+        def role2(self) -> typing.Union[str, None]:
             return self.__role2
 
         @property
-        def role3(self):
-            '''
-            :rtype: str
-            '''
-
+        def role3(self) -> typing.Union[str, None]:
             return self.__role3
 
         @property
-        def school(self):
-            '''
-            :rtype: str
-            '''
-
+        def school(self) -> typing.Union[str, None]:
             return self.__school
 
-        def set_accessno(self, accessno):
-            '''
-            :type accessno: str or None
-            '''
-
+        def set_accessno(self, accessno: typing.Union[str, None]):
             if accessno is not None:
                 if not isinstance(accessno, str):
                     raise TypeError("expected accessno to be a str but it is a %s" % builtins.type(accessno))
             self.__accessno = accessno
             return self
 
-        def set_accessory(self, accessory):
-            '''
-            :type accessory: str or None
-            '''
-
+        def set_accessory(self, accessory: typing.Union[str, None]):
             if accessory is not None:
                 if not isinstance(accessory, str):
                     raise TypeError("expected accessory to be a str but it is a %s" % builtins.type(accessory))
             self.__accessory = accessory
             return self
 
-        def set_acqvalue(self, acqvalue):
-            '''
-            :type acqvalue: Decimal or None
-            '''
-
+        def set_acqvalue(self, acqvalue: typing.Union[decimal.Decimal, None]):
             if acqvalue is not None:
                 if not isinstance(acqvalue, decimal.Decimal):
-                    raise TypeError("expected acqvalue to be a Decimal but it is a %s" % builtins.type(acqvalue))
+                    raise TypeError("expected acqvalue to be a decimal.Decimal but it is a %s" % builtins.type(acqvalue))
             self.__acqvalue = acqvalue
             return self
 
-        def set_age(self, age):
-            '''
-            :type age: str or None
-            '''
-
+        def set_age(self, age: typing.Union[str, None]):
             if age is not None:
                 if not isinstance(age, str):
                     raise TypeError("expected age to be a str but it is a %s" % builtins.type(age))
             self.__age = age
             return self
 
-        def set_appnotes(self, appnotes):
-            '''
-            :type appnotes: str or None
-            '''
-
+        def set_appnotes(self, appnotes: typing.Union[str, None]):
             if appnotes is not None:
                 if not isinstance(appnotes, str):
                     raise TypeError("expected appnotes to be a str but it is a %s" % builtins.type(appnotes))
             self.__appnotes = appnotes
             return self
 
-        def set_appraisor(self, appraisor):
-            '''
-            :type appraisor: str or None
-            '''
-
+        def set_appraisor(self, appraisor: typing.Union[str, None]):
             if appraisor is not None:
                 if not isinstance(appraisor, str):
                     raise TypeError("expected appraisor to be a str but it is a %s" % builtins.type(appraisor))
             self.__appraisor = appraisor
             return self
 
-        def set_assemzone(self, assemzone):
-            '''
-            :type assemzone: str or None
-            '''
-
+        def set_assemzone(self, assemzone: typing.Union[str, None]):
             if assemzone is not None:
                 if not isinstance(assemzone, str):
                     raise TypeError("expected assemzone to be a str but it is a %s" % builtins.type(assemzone))
             self.__assemzone = assemzone
             return self
 
-        def set_bagno(self, bagno):
-            '''
-            :type bagno: str or None
-            '''
-
+        def set_bagno(self, bagno: typing.Union[str, None]):
             if bagno is not None:
                 if not isinstance(bagno, str):
                     raise TypeError("expected bagno to be a str but it is a %s" % builtins.type(bagno))
             self.__bagno = bagno
             return self
 
-        def set_boxno(self, boxno):
-            '''
-            :type boxno: str or None
-            '''
-
+        def set_boxno(self, boxno: typing.Union[str, None]):
             if boxno is not None:
                 if not isinstance(boxno, str):
                     raise TypeError("expected boxno to be a str but it is a %s" % builtins.type(boxno))
             self.__boxno = boxno
             return self
 
-        def set_caption(self, caption):
-            '''
-            :type caption: str or None
-            '''
-
+        def set_caption(self, caption: typing.Union[str, None]):
             if caption is not None:
                 if not isinstance(caption, str):
                     raise TypeError("expected caption to be a str but it is a %s" % builtins.type(caption))
             self.__caption = caption
             return self
 
-        def set_cat(self, cat):
-            '''
-            :type cat: str or None
-            '''
-
+        def set_cat(self, cat: typing.Union[str, None]):
             if cat is not None:
                 if not isinstance(cat, str):
                     raise TypeError("expected cat to be a str but it is a %s" % builtins.type(cat))
             self.__cat = cat
             return self
 
-        def set_catby(self, catby):
-            '''
-            :type catby: str or None
-            '''
-
+        def set_catby(self, catby: typing.Union[str, None]):
             if catby is not None:
                 if not isinstance(catby, str):
                     raise TypeError("expected catby to be a str but it is a %s" % builtins.type(catby))
             self.__catby = catby
             return self
 
-        def set_catdate(self, catdate):
-            '''
-            :type catdate: datetime.date or None
-            '''
-
+        def set_catdate(self, catdate: typing.Union[datetime.date, None]):
             if catdate is not None:
                 if not isinstance(catdate, datetime.date):
                     raise TypeError("expected catdate to be a datetime.date but it is a %s" % builtins.type(catdate))
             self.__catdate = catdate
             return self
 
-        def set_cattype(self, cattype):
-            '''
-            :type cattype: str or None
-            '''
-
+        def set_cattype(self, cattype: typing.Union[str, None]):
             if cattype is not None:
                 if not isinstance(cattype, str):
                     raise TypeError("expected cattype to be a str but it is a %s" % builtins.type(cattype))
             self.__cattype = cattype
             return self
 
-        def set_chemcomp(self, chemcomp):
-            '''
-            :type chemcomp: str or None
-            '''
-
+        def set_chemcomp(self, chemcomp: typing.Union[str, None]):
             if chemcomp is not None:
                 if not isinstance(chemcomp, str):
                     raise TypeError("expected chemcomp to be a str but it is a %s" % builtins.type(chemcomp))
             self.__chemcomp = chemcomp
             return self
 
-        def set_circum(self, circum):
-            '''
-            :type circum: Decimal or None
-            '''
-
+        def set_circum(self, circum: typing.Union[decimal.Decimal, None]):
             if circum is not None:
                 if not isinstance(circum, decimal.Decimal):
-                    raise TypeError("expected circum to be a Decimal but it is a %s" % builtins.type(circum))
+                    raise TypeError("expected circum to be a decimal.Decimal but it is a %s" % builtins.type(circum))
             self.__circum = circum
             return self
 
-        def set_circumft(self, circumft):
-            '''
-            :type circumft: Decimal or None
-            '''
-
+        def set_circumft(self, circumft: typing.Union[decimal.Decimal, None]):
             if circumft is not None:
                 if not isinstance(circumft, decimal.Decimal):
-                    raise TypeError("expected circumft to be a Decimal but it is a %s" % builtins.type(circumft))
+                    raise TypeError("expected circumft to be a decimal.Decimal but it is a %s" % builtins.type(circumft))
             self.__circumft = circumft
             return self
 
-        def set_circumin(self, circumin):
-            '''
-            :type circumin: Decimal or None
-            '''
-
+        def set_circumin(self, circumin: typing.Union[decimal.Decimal, None]):
             if circumin is not None:
                 if not isinstance(circumin, decimal.Decimal):
-                    raise TypeError("expected circumin to be a Decimal but it is a %s" % builtins.type(circumin))
+                    raise TypeError("expected circumin to be a decimal.Decimal but it is a %s" % builtins.type(circumin))
             self.__circumin = circumin
             return self
 
-        def set_classes(self, classes):
-            '''
-            :type classes: str or None
-            '''
-
+        def set_classes(self, classes: typing.Union[str, None]):
             if classes is not None:
                 if not isinstance(classes, str):
                     raise TypeError("expected classes to be a str but it is a %s" % builtins.type(classes))
             self.__classes = classes
             return self
 
-        def set_colldate(self, colldate):
-            '''
-            :type colldate: datetime.date or None
-            '''
-
+        def set_colldate(self, colldate: typing.Union[datetime.date, None]):
             if colldate is not None:
                 if not isinstance(colldate, datetime.date):
                     raise TypeError("expected colldate to be a datetime.date but it is a %s" % builtins.type(colldate))
             self.__colldate = colldate
             return self
 
-        def set_collection(self, collection):
-            '''
-            :type collection: str or None
-            '''
-
+        def set_collection(self, collection: typing.Union[str, None]):
             if collection is not None:
                 if not isinstance(collection, str):
                     raise TypeError("expected collection to be a str but it is a %s" % builtins.type(collection))
             self.__collection = collection
             return self
 
-        def set_collector(self, collector):
-            '''
-            :type collector: str or None
-            '''
-
+        def set_collector(self, collector: typing.Union[str, None]):
             if collector is not None:
                 if not isinstance(collector, str):
                     raise TypeError("expected collector to be a str but it is a %s" % builtins.type(collector))
             self.__collector = collector
             return self
 
-        def set_conddate(self, conddate):
-            '''
-            :type conddate: datetime.date or None
-            '''
-
+        def set_conddate(self, conddate: typing.Union[datetime.date, None]):
             if conddate is not None:
                 if not isinstance(conddate, datetime.date):
                     raise TypeError("expected conddate to be a datetime.date but it is a %s" % builtins.type(conddate))
             self.__conddate = conddate
             return self
 
-        def set_condexam(self, condexam):
-            '''
-            :type condexam: str or None
-            '''
-
+        def set_condexam(self, condexam: typing.Union[str, None]):
             if condexam is not None:
                 if not isinstance(condexam, str):
                     raise TypeError("expected condexam to be a str but it is a %s" % builtins.type(condexam))
             self.__condexam = condexam
             return self
 
-        def set_condition(self, condition):
-            '''
-            :type condition: str or None
-            '''
-
+        def set_condition(self, condition: typing.Union[str, None]):
             if condition is not None:
                 if not isinstance(condition, str):
                     raise TypeError("expected condition to be a str but it is a %s" % builtins.type(condition))
             self.__condition = condition
             return self
 
-        def set_condnotes(self, condnotes):
-            '''
-            :type condnotes: str or None
-            '''
-
+        def set_condnotes(self, condnotes: typing.Union[str, None]):
             if condnotes is not None:
                 if not isinstance(condnotes, str):
                     raise TypeError("expected condnotes to be a str but it is a %s" % builtins.type(condnotes))
             self.__condnotes = condnotes
             return self
 
-        def set_count(self, count):
-            '''
-            :type count: str or None
-            '''
-
+        def set_count(self, count: typing.Union[str, None]):
             if count is not None:
                 if not isinstance(count, str):
                     raise TypeError("expected count to be a str but it is a %s" % builtins.type(count))
             self.__count = count
             return self
 
-        def set_creator(self, creator):
-            '''
-            :type creator: str or None
-            '''
-
+        def set_creator(self, creator: typing.Union[str, None]):
             if creator is not None:
                 if not isinstance(creator, str):
                     raise TypeError("expected creator to be a str but it is a %s" % builtins.type(creator))
             self.__creator = creator
             return self
 
-        def set_creator2(self, creator2):
-            '''
-            :type creator2: str or None
-            '''
-
+        def set_creator2(self, creator2: typing.Union[str, None]):
             if creator2 is not None:
                 if not isinstance(creator2, str):
                     raise TypeError("expected creator2 to be a str but it is a %s" % builtins.type(creator2))
             self.__creator2 = creator2
             return self
 
-        def set_creator3(self, creator3):
-            '''
-            :type creator3: str or None
-            '''
-
+        def set_creator3(self, creator3: typing.Union[str, None]):
             if creator3 is not None:
                 if not isinstance(creator3, str):
                     raise TypeError("expected creator3 to be a str but it is a %s" % builtins.type(creator3))
             self.__creator3 = creator3
             return self
 
-        def set_credit(self, credit):
-            '''
-            :type credit: str or None
-            '''
-
+        def set_credit(self, credit: typing.Union[str, None]):
             if credit is not None:
                 if not isinstance(credit, str):
                     raise TypeError("expected credit to be a str but it is a %s" % builtins.type(credit))
             self.__credit = credit
             return self
 
-        def set_crystal(self, crystal):
-            '''
-            :type crystal: str or None
-            '''
-
+        def set_crystal(self, crystal: typing.Union[str, None]):
             if crystal is not None:
                 if not isinstance(crystal, str):
                     raise TypeError("expected crystal to be a str but it is a %s" % builtins.type(crystal))
             self.__crystal = crystal
             return self
 
-        def set_culture(self, culture):
-            '''
-            :type culture: str or None
-            '''
-
+        def set_culture(self, culture: typing.Union[str, None]):
             if culture is not None:
                 if not isinstance(culture, str):
                     raise TypeError("expected culture to be a str but it is a %s" % builtins.type(culture))
             self.__culture = culture
             return self
 
-        def set_curvalmax(self, curvalmax):
-            '''
-            :type curvalmax: Decimal or None
-            '''
-
+        def set_curvalmax(self, curvalmax: typing.Union[decimal.Decimal, None]):
             if curvalmax is not None:
                 if not isinstance(curvalmax, decimal.Decimal):
-                    raise TypeError("expected curvalmax to be a Decimal but it is a %s" % builtins.type(curvalmax))
+                    raise TypeError("expected curvalmax to be a decimal.Decimal but it is a %s" % builtins.type(curvalmax))
             self.__curvalmax = curvalmax
             return self
 
-        def set_curvalue(self, curvalue):
-            '''
-            :type curvalue: Decimal or None
-            '''
-
+        def set_curvalue(self, curvalue: typing.Union[decimal.Decimal, None]):
             if curvalue is not None:
                 if not isinstance(curvalue, decimal.Decimal):
-                    raise TypeError("expected curvalue to be a Decimal but it is a %s" % builtins.type(curvalue))
+                    raise TypeError("expected curvalue to be a decimal.Decimal but it is a %s" % builtins.type(curvalue))
             self.__curvalue = curvalue
             return self
 
-        def set_dataset(self, dataset):
-            '''
-            :type dataset: str or None
-            '''
-
+        def set_dataset(self, dataset: typing.Union[str, None]):
             if dataset is not None:
                 if not isinstance(dataset, str):
                     raise TypeError("expected dataset to be a str but it is a %s" % builtins.type(dataset))
             self.__dataset = dataset
             return self
 
-        def set_date(self, date):
-            '''
-            :type date: str or None
-            '''
-
+        def set_date(self, date: typing.Union[str, None]):
             if date is not None:
                 if not isinstance(date, str):
                     raise TypeError("expected date to be a str but it is a %s" % builtins.type(date))
             self.__date = date
             return self
 
-        def set_datingmeth(self, datingmeth):
-            '''
-            :type datingmeth: str or None
-            '''
-
+        def set_datingmeth(self, datingmeth: typing.Union[str, None]):
             if datingmeth is not None:
                 if not isinstance(datingmeth, str):
                     raise TypeError("expected datingmeth to be a str but it is a %s" % builtins.type(datingmeth))
             self.__datingmeth = datingmeth
             return self
 
-        def set_datum(self, datum):
-            '''
-            :type datum: str or None
-            '''
-
+        def set_datum(self, datum: typing.Union[str, None]):
             if datum is not None:
                 if not isinstance(datum, str):
                     raise TypeError("expected datum to be a str but it is a %s" % builtins.type(datum))
             self.__datum = datum
             return self
 
-        def set_depth(self, depth):
-            '''
-            :type depth: Decimal or None
-            '''
-
+        def set_depth(self, depth: typing.Union[decimal.Decimal, None]):
             if depth is not None:
                 if not isinstance(depth, decimal.Decimal):
-                    raise TypeError("expected depth to be a Decimal but it is a %s" % builtins.type(depth))
+                    raise TypeError("expected depth to be a decimal.Decimal but it is a %s" % builtins.type(depth))
             self.__depth = depth
             return self
 
-        def set_depthft(self, depthft):
-            '''
-            :type depthft: Decimal or None
-            '''
-
+        def set_depthft(self, depthft: typing.Union[decimal.Decimal, None]):
             if depthft is not None:
                 if not isinstance(depthft, decimal.Decimal):
-                    raise TypeError("expected depthft to be a Decimal but it is a %s" % builtins.type(depthft))
+                    raise TypeError("expected depthft to be a decimal.Decimal but it is a %s" % builtins.type(depthft))
             self.__depthft = depthft
             return self
 
-        def set_depthin(self, depthin):
-            '''
-            :type depthin: Decimal or None
-            '''
-
+        def set_depthin(self, depthin: typing.Union[decimal.Decimal, None]):
             if depthin is not None:
                 if not isinstance(depthin, decimal.Decimal):
-                    raise TypeError("expected depthin to be a Decimal but it is a %s" % builtins.type(depthin))
+                    raise TypeError("expected depthin to be a decimal.Decimal but it is a %s" % builtins.type(depthin))
             self.__depthin = depthin
             return self
 
-        def set_descrip(self, descrip):
-            '''
-            :type descrip: str or None
-            '''
-
+        def set_descrip(self, descrip: typing.Union[str, None]):
             if descrip is not None:
                 if not isinstance(descrip, str):
                     raise TypeError("expected descrip to be a str but it is a %s" % builtins.type(descrip))
             self.__descrip = descrip
             return self
 
-        def set_diameter(self, diameter):
-            '''
-            :type diameter: Decimal or None
-            '''
-
+        def set_diameter(self, diameter: typing.Union[decimal.Decimal, None]):
             if diameter is not None:
                 if not isinstance(diameter, decimal.Decimal):
-                    raise TypeError("expected diameter to be a Decimal but it is a %s" % builtins.type(diameter))
+                    raise TypeError("expected diameter to be a decimal.Decimal but it is a %s" % builtins.type(diameter))
             self.__diameter = diameter
             return self
 
-        def set_diameterft(self, diameterft):
-            '''
-            :type diameterft: Decimal or None
-            '''
-
+        def set_diameterft(self, diameterft: typing.Union[decimal.Decimal, None]):
             if diameterft is not None:
                 if not isinstance(diameterft, decimal.Decimal):
-                    raise TypeError("expected diameterft to be a Decimal but it is a %s" % builtins.type(diameterft))
+                    raise TypeError("expected diameterft to be a decimal.Decimal but it is a %s" % builtins.type(diameterft))
             self.__diameterft = diameterft
             return self
 
-        def set_diameterin(self, diameterin):
-            '''
-            :type diameterin: Decimal or None
-            '''
-
+        def set_diameterin(self, diameterin: typing.Union[decimal.Decimal, None]):
             if diameterin is not None:
                 if not isinstance(diameterin, decimal.Decimal):
-                    raise TypeError("expected diameterin to be a Decimal but it is a %s" % builtins.type(diameterin))
+                    raise TypeError("expected diameterin to be a decimal.Decimal but it is a %s" % builtins.type(diameterin))
             self.__diameterin = diameterin
             return self
 
-        def set_dimnotes(self, dimnotes):
-            '''
-            :type dimnotes: str or None
-            '''
-
+        def set_dimnotes(self, dimnotes: typing.Union[str, None]):
             if dimnotes is not None:
                 if not isinstance(dimnotes, str):
                     raise TypeError("expected dimnotes to be a str but it is a %s" % builtins.type(dimnotes))
             self.__dimnotes = dimnotes
             return self
 
-        def set_dimtype(self, dimtype):
-            '''
-            :type dimtype: int or None
-            '''
-
+        def set_dimtype(self, dimtype: typing.Union[int, None]):
             if dimtype is not None:
                 if not isinstance(dimtype, int):
                     raise TypeError("expected dimtype to be a int but it is a %s" % builtins.type(dimtype))
             self.__dimtype = dimtype
             return self
 
-        def set_dispvalue(self, dispvalue):
-            '''
-            :type dispvalue: str or None
-            '''
-
+        def set_dispvalue(self, dispvalue: typing.Union[str, None]):
             if dispvalue is not None:
                 if not isinstance(dispvalue, str):
                     raise TypeError("expected dispvalue to be a str but it is a %s" % builtins.type(dispvalue))
             self.__dispvalue = dispvalue
             return self
 
-        def set_earlydate(self, earlydate):
-            '''
-            :type earlydate: int or None
-            '''
-
+        def set_earlydate(self, earlydate: typing.Union[int, None]):
             if earlydate is not None:
                 if not isinstance(earlydate, int):
                     raise TypeError("expected earlydate to be a int but it is a %s" % builtins.type(earlydate))
             self.__earlydate = earlydate
             return self
 
-        def set_elements(self, elements):
-            '''
-            :type elements: str or None
-            '''
-
+        def set_elements(self, elements: typing.Union[str, None]):
             if elements is not None:
                 if not isinstance(elements, str):
                     raise TypeError("expected elements to be a str but it is a %s" % builtins.type(elements))
             self.__elements = elements
             return self
 
-        def set_epoch(self, epoch):
-            '''
-            :type epoch: str or None
-            '''
-
+        def set_epoch(self, epoch: typing.Union[str, None]):
             if epoch is not None:
                 if not isinstance(epoch, str):
                     raise TypeError("expected epoch to be a str but it is a %s" % builtins.type(epoch))
             self.__epoch = epoch
             return self
 
-        def set_era(self, era):
-            '''
-            :type era: str or None
-            '''
-
+        def set_era(self, era: typing.Union[str, None]):
             if era is not None:
                 if not isinstance(era, str):
                     raise TypeError("expected era to be a str but it is a %s" % builtins.type(era))
             self.__era = era
             return self
 
-        def set_event(self, event):
-            '''
-            :type event: str or None
-            '''
-
+        def set_event(self, event: typing.Union[str, None]):
             if event is not None:
                 if not isinstance(event, str):
                     raise TypeError("expected event to be a str but it is a %s" % builtins.type(event))
             self.__event = event
             return self
 
-        def set_ew(self, ew):
-            '''
-            :type ew: str or None
-            '''
-
+        def set_ew(self, ew: typing.Union[str, None]):
             if ew is not None:
                 if not isinstance(ew, str):
                     raise TypeError("expected ew to be a str but it is a %s" % builtins.type(ew))
             self.__ew = ew
             return self
 
-        def set_excavadate(self, excavadate):
-            '''
-            :type excavadate: datetime.date or None
-            '''
-
+        def set_excavadate(self, excavadate: typing.Union[datetime.date, None]):
             if excavadate is not None:
                 if not isinstance(excavadate, datetime.date):
                     raise TypeError("expected excavadate to be a datetime.date but it is a %s" % builtins.type(excavadate))
             self.__excavadate = excavadate
             return self
 
-        def set_excavateby(self, excavateby):
-            '''
-            :type excavateby: str or None
-            '''
-
+        def set_excavateby(self, excavateby: typing.Union[str, None]):
             if excavateby is not None:
                 if not isinstance(excavateby, str):
                     raise TypeError("expected excavateby to be a str but it is a %s" % builtins.type(excavateby))
             self.__excavateby = excavateby
             return self
 
-        def set_exhibitid(self, exhibitid):
-            '''
-            :type exhibitid: str or None
-            '''
-
+        def set_exhibitid(self, exhibitid: typing.Union[str, None]):
             if exhibitid is not None:
                 if not isinstance(exhibitid, str):
                     raise TypeError("expected exhibitid to be a str but it is a %s" % builtins.type(exhibitid))
             self.__exhibitid = exhibitid
             return self
 
-        def set_exhibitno(self, exhibitno):
-            '''
-            :type exhibitno: int or None
-            '''
-
+        def set_exhibitno(self, exhibitno: typing.Union[int, None]):
             if exhibitno is not None:
                 if not isinstance(exhibitno, int):
                     raise TypeError("expected exhibitno to be a int but it is a %s" % builtins.type(exhibitno))
             self.__exhibitno = exhibitno
             return self
 
-        def set_exhlabel1(self, exhlabel1):
-            '''
-            :type exhlabel1: str or None
-            '''
-
+        def set_exhlabel1(self, exhlabel1: typing.Union[str, None]):
             if exhlabel1 is not None:
                 if not isinstance(exhlabel1, str):
                     raise TypeError("expected exhlabel1 to be a str but it is a %s" % builtins.type(exhlabel1))
             self.__exhlabel1 = exhlabel1
             return self
 
-        def set_exhlabel2(self, exhlabel2):
-            '''
-            :type exhlabel2: str or None
-            '''
-
+        def set_exhlabel2(self, exhlabel2: typing.Union[str, None]):
             if exhlabel2 is not None:
                 if not isinstance(exhlabel2, str):
                     raise TypeError("expected exhlabel2 to be a str but it is a %s" % builtins.type(exhlabel2))
             self.__exhlabel2 = exhlabel2
             return self
 
-        def set_exhlabel3(self, exhlabel3):
-            '''
-            :type exhlabel3: str or None
-            '''
-
+        def set_exhlabel3(self, exhlabel3: typing.Union[str, None]):
             if exhlabel3 is not None:
                 if not isinstance(exhlabel3, str):
                     raise TypeError("expected exhlabel3 to be a str but it is a %s" % builtins.type(exhlabel3))
             self.__exhlabel3 = exhlabel3
             return self
 
-        def set_exhlabel4(self, exhlabel4):
-            '''
-            :type exhlabel4: str or None
-            '''
-
+        def set_exhlabel4(self, exhlabel4: typing.Union[str, None]):
             if exhlabel4 is not None:
                 if not isinstance(exhlabel4, str):
                     raise TypeError("expected exhlabel4 to be a str but it is a %s" % builtins.type(exhlabel4))
             self.__exhlabel4 = exhlabel4
             return self
 
-        def set_exhstart(self, exhstart):
-            '''
-            :type exhstart: datetime.date or None
-            '''
-
+        def set_exhstart(self, exhstart: typing.Union[datetime.date, None]):
             if exhstart is not None:
                 if not isinstance(exhstart, datetime.date):
                     raise TypeError("expected exhstart to be a datetime.date but it is a %s" % builtins.type(exhstart))
             self.__exhstart = exhstart
             return self
 
-        def set_family(self, family):
-            '''
-            :type family: str or None
-            '''
-
+        def set_family(self, family: typing.Union[str, None]):
             if family is not None:
                 if not isinstance(family, str):
                     raise TypeError("expected family to be a str but it is a %s" % builtins.type(family))
             self.__family = family
             return self
 
-        def set_feature(self, feature):
-            '''
-            :type feature: str or None
-            '''
-
+        def set_feature(self, feature: typing.Union[str, None]):
             if feature is not None:
                 if not isinstance(feature, str):
                     raise TypeError("expected feature to be a str but it is a %s" % builtins.type(feature))
             self.__feature = feature
             return self
 
-        def set_flagdate(self, flagdate):
-            '''
-            :type flagdate: datetime.datetime or None
-            '''
-
+        def set_flagdate(self, flagdate: typing.Union[datetime.datetime, None]):
             if flagdate is not None:
                 if not isinstance(flagdate, datetime.datetime):
                     raise TypeError("expected flagdate to be a datetime.datetime but it is a %s" % builtins.type(flagdate))
             self.__flagdate = flagdate
             return self
 
-        def set_flagnotes(self, flagnotes):
-            '''
-            :type flagnotes: str or None
-            '''
-
+        def set_flagnotes(self, flagnotes: typing.Union[str, None]):
             if flagnotes is not None:
                 if not isinstance(flagnotes, str):
                     raise TypeError("expected flagnotes to be a str but it is a %s" % builtins.type(flagnotes))
             self.__flagnotes = flagnotes
             return self
 
-        def set_flagreason(self, flagreason):
-            '''
-            :type flagreason: str or None
-            '''
-
+        def set_flagreason(self, flagreason: typing.Union[str, None]):
             if flagreason is not None:
                 if not isinstance(flagreason, str):
                     raise TypeError("expected flagreason to be a str but it is a %s" % builtins.type(flagreason))
             self.__flagreason = flagreason
             return self
 
-        def set_formation(self, formation):
-            '''
-            :type formation: str or None
-            '''
-
+        def set_formation(self, formation: typing.Union[str, None]):
             if formation is not None:
                 if not isinstance(formation, str):
                     raise TypeError("expected formation to be a str but it is a %s" % builtins.type(formation))
             self.__formation = formation
             return self
 
-        def set_fossils(self, fossils):
-            '''
-            :type fossils: str or None
-            '''
-
+        def set_fossils(self, fossils: typing.Union[str, None]):
             if fossils is not None:
                 if not isinstance(fossils, str):
                     raise TypeError("expected fossils to be a str but it is a %s" % builtins.type(fossils))
             self.__fossils = fossils
             return self
 
-        def set_found(self, found):
-            '''
-            :type found: str or None
-            '''
-
+        def set_found(self, found: typing.Union[str, None]):
             if found is not None:
                 if not isinstance(found, str):
                     raise TypeError("expected found to be a str but it is a %s" % builtins.type(found))
             self.__found = found
             return self
 
-        def set_fracture(self, fracture):
-            '''
-            :type fracture: str or None
-            '''
-
+        def set_fracture(self, fracture: typing.Union[str, None]):
             if fracture is not None:
                 if not isinstance(fracture, str):
                     raise TypeError("expected fracture to be a str but it is a %s" % builtins.type(fracture))
             self.__fracture = fracture
             return self
 
-        def set_frame(self, frame):
-            '''
-            :type frame: str or None
-            '''
-
+        def set_frame(self, frame: typing.Union[str, None]):
             if frame is not None:
                 if not isinstance(frame, str):
                     raise TypeError("expected frame to be a str but it is a %s" % builtins.type(frame))
             self.__frame = frame
             return self
 
-        def set_framesize(self, framesize):
-            '''
-            :type framesize: str or None
-            '''
-
+        def set_framesize(self, framesize: typing.Union[str, None]):
             if framesize is not None:
                 if not isinstance(framesize, str):
                     raise TypeError("expected framesize to be a str but it is a %s" % builtins.type(framesize))
             self.__framesize = framesize
             return self
 
-        def set_genus(self, genus):
-            '''
-            :type genus: str or None
-            '''
-
+        def set_genus(self, genus: typing.Union[str, None]):
             if genus is not None:
                 if not isinstance(genus, str):
                     raise TypeError("expected genus to be a str but it is a %s" % builtins.type(genus))
             self.__genus = genus
             return self
 
-        def set_gparent(self, gparent):
-            '''
-            :type gparent: str or None
-            '''
-
+        def set_gparent(self, gparent: typing.Union[str, None]):
             if gparent is not None:
                 if not isinstance(gparent, str):
                     raise TypeError("expected gparent to be a str but it is a %s" % builtins.type(gparent))
             self.__gparent = gparent
             return self
 
-        def set_grainsize(self, grainsize):
-            '''
-            :type grainsize: str or None
-            '''
-
+        def set_grainsize(self, grainsize: typing.Union[str, None]):
             if grainsize is not None:
                 if not isinstance(grainsize, str):
                     raise TypeError("expected grainsize to be a str but it is a %s" % builtins.type(grainsize))
             self.__grainsize = grainsize
             return self
 
-        def set_habitat(self, habitat):
-            '''
-            :type habitat: str or None
-            '''
-
+        def set_habitat(self, habitat: typing.Union[str, None]):
             if habitat is not None:
                 if not isinstance(habitat, str):
                     raise TypeError("expected habitat to be a str but it is a %s" % builtins.type(habitat))
             self.__habitat = habitat
             return self
 
-        def set_hardness(self, hardness):
-            '''
-            :type hardness: str or None
-            '''
-
+        def set_hardness(self, hardness: typing.Union[str, None]):
             if hardness is not None:
                 if not isinstance(hardness, str):
                     raise TypeError("expected hardness to be a str but it is a %s" % builtins.type(hardness))
             self.__hardness = hardness
             return self
 
-        def set_height(self, height):
-            '''
-            :type height: Decimal or None
-            '''
-
+        def set_height(self, height: typing.Union[decimal.Decimal, None]):
             if height is not None:
                 if not isinstance(height, decimal.Decimal):
-                    raise TypeError("expected height to be a Decimal but it is a %s" % builtins.type(height))
+                    raise TypeError("expected height to be a decimal.Decimal but it is a %s" % builtins.type(height))
             self.__height = height
             return self
 
-        def set_heightft(self, heightft):
-            '''
-            :type heightft: Decimal or None
-            '''
-
+        def set_heightft(self, heightft: typing.Union[decimal.Decimal, None]):
             if heightft is not None:
                 if not isinstance(heightft, decimal.Decimal):
-                    raise TypeError("expected heightft to be a Decimal but it is a %s" % builtins.type(heightft))
+                    raise TypeError("expected heightft to be a decimal.Decimal but it is a %s" % builtins.type(heightft))
             self.__heightft = heightft
             return self
 
-        def set_heightin(self, heightin):
-            '''
-            :type heightin: Decimal or None
-            '''
-
+        def set_heightin(self, heightin: typing.Union[decimal.Decimal, None]):
             if heightin is not None:
                 if not isinstance(heightin, decimal.Decimal):
-                    raise TypeError("expected heightin to be a Decimal but it is a %s" % builtins.type(heightin))
+                    raise TypeError("expected heightin to be a decimal.Decimal but it is a %s" % builtins.type(heightin))
             self.__heightin = heightin
             return self
 
-        def set_homeloc(self, homeloc):
-            '''
-            :type homeloc: str or None
-            '''
-
+        def set_homeloc(self, homeloc: typing.Union[str, None]):
             if homeloc is not None:
                 if not isinstance(homeloc, str):
                     raise TypeError("expected homeloc to be a str but it is a %s" % builtins.type(homeloc))
             self.__homeloc = homeloc
             return self
 
-        def set_idby(self, idby):
-            '''
-            :type idby: str or None
-            '''
-
+        def set_idby(self, idby: typing.Union[str, None]):
             if idby is not None:
                 if not isinstance(idby, str):
                     raise TypeError("expected idby to be a str but it is a %s" % builtins.type(idby))
             self.__idby = idby
             return self
 
-        def set_iddate(self, iddate):
-            '''
-            :type iddate: datetime.date or None
-            '''
-
+        def set_iddate(self, iddate: typing.Union[datetime.date, None]):
             if iddate is not None:
                 if not isinstance(iddate, datetime.date):
                     raise TypeError("expected iddate to be a datetime.date but it is a %s" % builtins.type(iddate))
             self.__iddate = iddate
             return self
 
-        def set_imagefile(self, imagefile):
-            '''
-            :type imagefile: str or None
-            '''
-
+        def set_imagefile(self, imagefile: typing.Union[str, None]):
             if imagefile is not None:
                 if not isinstance(imagefile, str):
                     raise TypeError("expected imagefile to be a str but it is a %s" % builtins.type(imagefile))
             self.__imagefile = imagefile
             return self
 
-        def set_imageno(self, imageno):
-            '''
-            :type imageno: int or None
-            '''
-
+        def set_imageno(self, imageno: typing.Union[int, None]):
             if imageno is not None:
                 if not isinstance(imageno, int):
                     raise TypeError("expected imageno to be a int but it is a %s" % builtins.type(imageno))
             self.__imageno = imageno
             return self
 
-        def set_imagesize(self, imagesize):
-            '''
-            :type imagesize: str or None
-            '''
-
+        def set_imagesize(self, imagesize: typing.Union[str, None]):
             if imagesize is not None:
                 if not isinstance(imagesize, str):
                     raise TypeError("expected imagesize to be a str but it is a %s" % builtins.type(imagesize))
             self.__imagesize = imagesize
             return self
 
-        def set_inscomp(self, inscomp):
-            '''
-            :type inscomp: str or None
-            '''
-
+        def set_inscomp(self, inscomp: typing.Union[str, None]):
             if inscomp is not None:
                 if not isinstance(inscomp, str):
                     raise TypeError("expected inscomp to be a str but it is a %s" % builtins.type(inscomp))
             self.__inscomp = inscomp
             return self
 
-        def set_inscrlang(self, inscrlang):
-            '''
-            :type inscrlang: str or None
-            '''
-
+        def set_inscrlang(self, inscrlang: typing.Union[str, None]):
             if inscrlang is not None:
                 if not isinstance(inscrlang, str):
                     raise TypeError("expected inscrlang to be a str but it is a %s" % builtins.type(inscrlang))
             self.__inscrlang = inscrlang
             return self
 
-        def set_inscrpos(self, inscrpos):
-            '''
-            :type inscrpos: str or None
-            '''
-
+        def set_inscrpos(self, inscrpos: typing.Union[str, None]):
             if inscrpos is not None:
                 if not isinstance(inscrpos, str):
                     raise TypeError("expected inscrpos to be a str but it is a %s" % builtins.type(inscrpos))
             self.__inscrpos = inscrpos
             return self
 
-        def set_inscrtech(self, inscrtech):
-            '''
-            :type inscrtech: str or None
-            '''
-
+        def set_inscrtech(self, inscrtech: typing.Union[str, None]):
             if inscrtech is not None:
                 if not isinstance(inscrtech, str):
                     raise TypeError("expected inscrtech to be a str but it is a %s" % builtins.type(inscrtech))
             self.__inscrtech = inscrtech
             return self
 
-        def set_inscrtext(self, inscrtext):
-            '''
-            :type inscrtext: str or None
-            '''
-
+        def set_inscrtext(self, inscrtext: typing.Union[str, None]):
             if inscrtext is not None:
                 if not isinstance(inscrtext, str):
                     raise TypeError("expected inscrtext to be a str but it is a %s" % builtins.type(inscrtext))
             self.__inscrtext = inscrtext
             return self
 
-        def set_inscrtrans(self, inscrtrans):
-            '''
-            :type inscrtrans: str or None
-            '''
-
+        def set_inscrtrans(self, inscrtrans: typing.Union[str, None]):
             if inscrtrans is not None:
                 if not isinstance(inscrtrans, str):
                     raise TypeError("expected inscrtrans to be a str but it is a %s" % builtins.type(inscrtrans))
             self.__inscrtrans = inscrtrans
             return self
 
-        def set_inscrtype(self, inscrtype):
-            '''
-            :type inscrtype: str or None
-            '''
-
+        def set_inscrtype(self, inscrtype: typing.Union[str, None]):
             if inscrtype is not None:
                 if not isinstance(inscrtype, str):
                     raise TypeError("expected inscrtype to be a str but it is a %s" % builtins.type(inscrtype))
             self.__inscrtype = inscrtype
             return self
 
-        def set_insdate(self, insdate):
-            '''
-            :type insdate: datetime.date or None
-            '''
-
+        def set_insdate(self, insdate: typing.Union[datetime.date, None]):
             if insdate is not None:
                 if not isinstance(insdate, datetime.date):
                     raise TypeError("expected insdate to be a datetime.date but it is a %s" % builtins.type(insdate))
             self.__insdate = insdate
             return self
 
-        def set_insphone(self, insphone):
-            '''
-            :type insphone: str or None
-            '''
-
+        def set_insphone(self, insphone: typing.Union[str, None]):
             if insphone is not None:
                 if not isinstance(insphone, str):
                     raise TypeError("expected insphone to be a str but it is a %s" % builtins.type(insphone))
             self.__insphone = insphone
             return self
 
-        def set_inspremium(self, inspremium):
-            '''
-            :type inspremium: str or None
-            '''
-
+        def set_inspremium(self, inspremium: typing.Union[str, None]):
             if inspremium is not None:
                 if not isinstance(inspremium, str):
                     raise TypeError("expected inspremium to be a str but it is a %s" % builtins.type(inspremium))
             self.__inspremium = inspremium
             return self
 
-        def set_insrep(self, insrep):
-            '''
-            :type insrep: str or None
-            '''
-
+        def set_insrep(self, insrep: typing.Union[str, None]):
             if insrep is not None:
                 if not isinstance(insrep, str):
                     raise TypeError("expected insrep to be a str but it is a %s" % builtins.type(insrep))
             self.__insrep = insrep
             return self
 
-        def set_insvalue(self, insvalue):
-            '''
-            :type insvalue: Decimal or None
-            '''
-
+        def set_insvalue(self, insvalue: typing.Union[decimal.Decimal, None]):
             if insvalue is not None:
                 if not isinstance(insvalue, decimal.Decimal):
-                    raise TypeError("expected insvalue to be a Decimal but it is a %s" % builtins.type(insvalue))
+                    raise TypeError("expected insvalue to be a decimal.Decimal but it is a %s" % builtins.type(insvalue))
             self.__insvalue = insvalue
             return self
 
-        def set_invnby(self, invnby):
-            '''
-            :type invnby: str or None
-            '''
-
+        def set_invnby(self, invnby: typing.Union[str, None]):
             if invnby is not None:
                 if not isinstance(invnby, str):
                     raise TypeError("expected invnby to be a str but it is a %s" % builtins.type(invnby))
             self.__invnby = invnby
             return self
 
-        def set_invndate(self, invndate):
-            '''
-            :type invndate: datetime.date or None
-            '''
-
+        def set_invndate(self, invndate: typing.Union[datetime.date, None]):
             if invndate is not None:
                 if not isinstance(invndate, datetime.date):
                     raise TypeError("expected invndate to be a datetime.date but it is a %s" % builtins.type(invndate))
             self.__invndate = invndate
             return self
 
-        def set_kingdom(self, kingdom):
-            '''
-            :type kingdom: str or None
-            '''
-
+        def set_kingdom(self, kingdom: typing.Union[str, None]):
             if kingdom is not None:
                 if not isinstance(kingdom, str):
                     raise TypeError("expected kingdom to be a str but it is a %s" % builtins.type(kingdom))
             self.__kingdom = kingdom
             return self
 
-        def set_latdeg(self, latdeg):
-            '''
-            :type latdeg: Decimal or None
-            '''
-
+        def set_latdeg(self, latdeg: typing.Union[decimal.Decimal, None]):
             if latdeg is not None:
                 if not isinstance(latdeg, decimal.Decimal):
-                    raise TypeError("expected latdeg to be a Decimal but it is a %s" % builtins.type(latdeg))
+                    raise TypeError("expected latdeg to be a decimal.Decimal but it is a %s" % builtins.type(latdeg))
             self.__latdeg = latdeg
             return self
 
-        def set_latedate(self, latedate):
-            '''
-            :type latedate: int or None
-            '''
-
+        def set_latedate(self, latedate: typing.Union[int, None]):
             if latedate is not None:
                 if not isinstance(latedate, int):
                     raise TypeError("expected latedate to be a int but it is a %s" % builtins.type(latedate))
             self.__latedate = latedate
             return self
 
-        def set_legal(self, legal):
-            '''
-            :type legal: str or None
-            '''
-
+        def set_legal(self, legal: typing.Union[str, None]):
             if legal is not None:
                 if not isinstance(legal, str):
                     raise TypeError("expected legal to be a str but it is a %s" % builtins.type(legal))
             self.__legal = legal
             return self
 
-        def set_length(self, length):
-            '''
-            :type length: Decimal or None
-            '''
-
+        def set_length(self, length: typing.Union[decimal.Decimal, None]):
             if length is not None:
                 if not isinstance(length, decimal.Decimal):
-                    raise TypeError("expected length to be a Decimal but it is a %s" % builtins.type(length))
+                    raise TypeError("expected length to be a decimal.Decimal but it is a %s" % builtins.type(length))
             self.__length = length
             return self
 
-        def set_lengthft(self, lengthft):
-            '''
-            :type lengthft: Decimal or None
-            '''
-
+        def set_lengthft(self, lengthft: typing.Union[decimal.Decimal, None]):
             if lengthft is not None:
                 if not isinstance(lengthft, decimal.Decimal):
-                    raise TypeError("expected lengthft to be a Decimal but it is a %s" % builtins.type(lengthft))
+                    raise TypeError("expected lengthft to be a decimal.Decimal but it is a %s" % builtins.type(lengthft))
             self.__lengthft = lengthft
             return self
 
-        def set_lengthin(self, lengthin):
-            '''
-            :type lengthin: Decimal or None
-            '''
-
+        def set_lengthin(self, lengthin: typing.Union[decimal.Decimal, None]):
             if lengthin is not None:
                 if not isinstance(lengthin, decimal.Decimal):
-                    raise TypeError("expected lengthin to be a Decimal but it is a %s" % builtins.type(lengthin))
+                    raise TypeError("expected lengthin to be a decimal.Decimal but it is a %s" % builtins.type(lengthin))
             self.__lengthin = lengthin
             return self
 
-        def set_level(self, level):
-            '''
-            :type level: str or None
-            '''
-
+        def set_level(self, level: typing.Union[str, None]):
             if level is not None:
                 if not isinstance(level, str):
                     raise TypeError("expected level to be a str but it is a %s" % builtins.type(level))
             self.__level = level
             return self
 
-        def set_lithofacie(self, lithofacie):
-            '''
-            :type lithofacie: str or None
-            '''
-
+        def set_lithofacie(self, lithofacie: typing.Union[str, None]):
             if lithofacie is not None:
                 if not isinstance(lithofacie, str):
                     raise TypeError("expected lithofacie to be a str but it is a %s" % builtins.type(lithofacie))
             self.__lithofacie = lithofacie
             return self
 
-        def set_loancond(self, loancond):
-            '''
-            :type loancond: str or None
-            '''
-
+        def set_loancond(self, loancond: typing.Union[str, None]):
             if loancond is not None:
                 if not isinstance(loancond, str):
                     raise TypeError("expected loancond to be a str but it is a %s" % builtins.type(loancond))
             self.__loancond = loancond
             return self
 
-        def set_loandue(self, loandue):
-            '''
-            :type loandue: datetime.date or None
-            '''
-
+        def set_loandue(self, loandue: typing.Union[datetime.date, None]):
             if loandue is not None:
                 if not isinstance(loandue, datetime.date):
                     raise TypeError("expected loandue to be a datetime.date but it is a %s" % builtins.type(loandue))
             self.__loandue = loandue
             return self
 
-        def set_loanid(self, loanid):
-            '''
-            :type loanid: str or None
-            '''
-
+        def set_loanid(self, loanid: typing.Union[str, None]):
             if loanid is not None:
                 if not isinstance(loanid, str):
                     raise TypeError("expected loanid to be a str but it is a %s" % builtins.type(loanid))
             self.__loanid = loanid
             return self
 
-        def set_loaninno(self, loaninno):
-            '''
-            :type loaninno: str or None
-            '''
-
+        def set_loaninno(self, loaninno: typing.Union[str, None]):
             if loaninno is not None:
                 if not isinstance(loaninno, str):
                     raise TypeError("expected loaninno to be a str but it is a %s" % builtins.type(loaninno))
             self.__loaninno = loaninno
             return self
 
-        def set_loanno(self, loanno):
-            '''
-            :type loanno: int or None
-            '''
-
+        def set_loanno(self, loanno: typing.Union[int, None]):
             if loanno is not None:
                 if not isinstance(loanno, int):
                     raise TypeError("expected loanno to be a int but it is a %s" % builtins.type(loanno))
             self.__loanno = loanno
             return self
 
-        def set_loanrenew(self, loanrenew):
-            '''
-            :type loanrenew: datetime.date or None
-            '''
-
+        def set_loanrenew(self, loanrenew: typing.Union[datetime.date, None]):
             if loanrenew is not None:
                 if not isinstance(loanrenew, datetime.date):
                     raise TypeError("expected loanrenew to be a datetime.date but it is a %s" % builtins.type(loanrenew))
             self.__loanrenew = loanrenew
             return self
 
-        def set_locfield1(self, locfield1):
-            '''
-            :type locfield1: str or None
-            '''
-
+        def set_locfield1(self, locfield1: typing.Union[str, None]):
             if locfield1 is not None:
                 if not isinstance(locfield1, str):
                     raise TypeError("expected locfield1 to be a str but it is a %s" % builtins.type(locfield1))
             self.__locfield1 = locfield1
             return self
 
-        def set_locfield2(self, locfield2):
-            '''
-            :type locfield2: str or None
-            '''
-
+        def set_locfield2(self, locfield2: typing.Union[str, None]):
             if locfield2 is not None:
                 if not isinstance(locfield2, str):
                     raise TypeError("expected locfield2 to be a str but it is a %s" % builtins.type(locfield2))
             self.__locfield2 = locfield2
             return self
 
-        def set_locfield3(self, locfield3):
-            '''
-            :type locfield3: str or None
-            '''
-
+        def set_locfield3(self, locfield3: typing.Union[str, None]):
             if locfield3 is not None:
                 if not isinstance(locfield3, str):
                     raise TypeError("expected locfield3 to be a str but it is a %s" % builtins.type(locfield3))
             self.__locfield3 = locfield3
             return self
 
-        def set_locfield4(self, locfield4):
-            '''
-            :type locfield4: str or None
-            '''
-
+        def set_locfield4(self, locfield4: typing.Union[str, None]):
             if locfield4 is not None:
                 if not isinstance(locfield4, str):
                     raise TypeError("expected locfield4 to be a str but it is a %s" % builtins.type(locfield4))
             self.__locfield4 = locfield4
             return self
 
-        def set_locfield5(self, locfield5):
-            '''
-            :type locfield5: str or None
-            '''
-
+        def set_locfield5(self, locfield5: typing.Union[str, None]):
             if locfield5 is not None:
                 if not isinstance(locfield5, str):
                     raise TypeError("expected locfield5 to be a str but it is a %s" % builtins.type(locfield5))
             self.__locfield5 = locfield5
             return self
 
-        def set_locfield6(self, locfield6):
-            '''
-            :type locfield6: str or None
-            '''
-
+        def set_locfield6(self, locfield6: typing.Union[str, None]):
             if locfield6 is not None:
                 if not isinstance(locfield6, str):
                     raise TypeError("expected locfield6 to be a str but it is a %s" % builtins.type(locfield6))
             self.__locfield6 = locfield6
             return self
 
-        def set_longdeg(self, longdeg):
-            '''
-            :type longdeg: Decimal or None
-            '''
-
+        def set_longdeg(self, longdeg: typing.Union[decimal.Decimal, None]):
             if longdeg is not None:
                 if not isinstance(longdeg, decimal.Decimal):
-                    raise TypeError("expected longdeg to be a Decimal but it is a %s" % builtins.type(longdeg))
+                    raise TypeError("expected longdeg to be a decimal.Decimal but it is a %s" % builtins.type(longdeg))
             self.__longdeg = longdeg
             return self
 
-        def set_luster(self, luster):
-            '''
-            :type luster: str or None
-            '''
-
+        def set_luster(self, luster: typing.Union[str, None]):
             if luster is not None:
                 if not isinstance(luster, str):
                     raise TypeError("expected luster to be a str but it is a %s" % builtins.type(luster))
             self.__luster = luster
             return self
 
-        def set_made(self, made):
-            '''
-            :type made: str or None
-            '''
-
+        def set_made(self, made: typing.Union[str, None]):
             if made is not None:
                 if not isinstance(made, str):
                     raise TypeError("expected made to be a str but it is a %s" % builtins.type(made))
             self.__made = made
             return self
 
-        def set_maintcycle(self, maintcycle):
-            '''
-            :type maintcycle: str or None
-            '''
-
+        def set_maintcycle(self, maintcycle: typing.Union[str, None]):
             if maintcycle is not None:
                 if not isinstance(maintcycle, str):
                     raise TypeError("expected maintcycle to be a str but it is a %s" % builtins.type(maintcycle))
             self.__maintcycle = maintcycle
             return self
 
-        def set_maintdate(self, maintdate):
-            '''
-            :type maintdate: datetime.date or None
-            '''
-
+        def set_maintdate(self, maintdate: typing.Union[datetime.date, None]):
             if maintdate is not None:
                 if not isinstance(maintdate, datetime.date):
                     raise TypeError("expected maintdate to be a datetime.date but it is a %s" % builtins.type(maintdate))
             self.__maintdate = maintdate
             return self
 
-        def set_maintnote(self, maintnote):
-            '''
-            :type maintnote: str or None
-            '''
-
+        def set_maintnote(self, maintnote: typing.Union[str, None]):
             if maintnote is not None:
                 if not isinstance(maintnote, str):
                     raise TypeError("expected maintnote to be a str but it is a %s" % builtins.type(maintnote))
             self.__maintnote = maintnote
             return self
 
-        def set_material(self, material):
-            '''
-            :type material: str or None
-            '''
-
+        def set_material(self, material: typing.Union[str, None]):
             if material is not None:
                 if not isinstance(material, str):
                     raise TypeError("expected material to be a str but it is a %s" % builtins.type(material))
             self.__material = material
             return self
 
-        def set_medium(self, medium):
-            '''
-            :type medium: str or None
-            '''
-
+        def set_medium(self, medium: typing.Union[str, None]):
             if medium is not None:
                 if not isinstance(medium, str):
                     raise TypeError("expected medium to be a str but it is a %s" % builtins.type(medium))
             self.__medium = medium
             return self
 
-        def set_member(self, member):
-            '''
-            :type member: str or None
-            '''
-
+        def set_member(self, member: typing.Union[str, None]):
             if member is not None:
                 if not isinstance(member, str):
                     raise TypeError("expected member to be a str but it is a %s" % builtins.type(member))
             self.__member = member
             return self
 
-        def set_mmark(self, mmark):
-            '''
-            :type mmark: str or None
-            '''
-
+        def set_mmark(self, mmark: typing.Union[str, None]):
             if mmark is not None:
                 if not isinstance(mmark, str):
                     raise TypeError("expected mmark to be a str but it is a %s" % builtins.type(mmark))
             self.__mmark = mmark
             return self
 
-        def set_nhclass(self, nhclass):
-            '''
-            :type nhclass: str or None
-            '''
-
+        def set_nhclass(self, nhclass: typing.Union[str, None]):
             if nhclass is not None:
                 if not isinstance(nhclass, str):
                     raise TypeError("expected nhclass to be a str but it is a %s" % builtins.type(nhclass))
             self.__nhclass = nhclass
             return self
 
-        def set_nhorder(self, nhorder):
-            '''
-            :type nhorder: str or None
-            '''
-
+        def set_nhorder(self, nhorder: typing.Union[str, None]):
             if nhorder is not None:
                 if not isinstance(nhorder, str):
                     raise TypeError("expected nhorder to be a str but it is a %s" % builtins.type(nhorder))
             self.__nhorder = nhorder
             return self
 
-        def set_notes(self, notes):
-            '''
-            :type notes: str or None
-            '''
-
+        def set_notes(self, notes: typing.Union[str, None]):
             if notes is not None:
                 if not isinstance(notes, str):
                     raise TypeError("expected notes to be a str but it is a %s" % builtins.type(notes))
             self.__notes = notes
             return self
 
-        def set_ns(self, ns):
-            '''
-            :type ns: str or None
-            '''
-
+        def set_ns(self, ns: typing.Union[str, None]):
             if ns is not None:
                 if not isinstance(ns, str):
                     raise TypeError("expected ns to be a str but it is a %s" % builtins.type(ns))
             self.__ns = ns
             return self
 
-        def set_objectid(self, objectid):
-            '''
-            :type objectid: str or None
-            '''
-
+        def set_objectid(self, objectid: typing.Union[str, None]):
             if objectid is not None:
                 if not isinstance(objectid, str):
                     raise TypeError("expected objectid to be a str but it is a %s" % builtins.type(objectid))
             self.__objectid = objectid
             return self
 
-        def set_objname(self, objname):
-            '''
-            :type objname: str or None
-            '''
-
+        def set_objname(self, objname: typing.Union[str, None]):
             if objname is not None:
                 if not isinstance(objname, str):
                     raise TypeError("expected objname to be a str but it is a %s" % builtins.type(objname))
             self.__objname = objname
             return self
 
-        def set_objname2(self, objname2):
-            '''
-            :type objname2: str or None
-            '''
-
+        def set_objname2(self, objname2: typing.Union[str, None]):
             if objname2 is not None:
                 if not isinstance(objname2, str):
                     raise TypeError("expected objname2 to be a str but it is a %s" % builtins.type(objname2))
             self.__objname2 = objname2
             return self
 
-        def set_objname3(self, objname3):
-            '''
-            :type objname3: str or None
-            '''
-
+        def set_objname3(self, objname3: typing.Union[str, None]):
             if objname3 is not None:
                 if not isinstance(objname3, str):
                     raise TypeError("expected objname3 to be a str but it is a %s" % builtins.type(objname3))
             self.__objname3 = objname3
             return self
 
-        def set_objnames(self, objnames):
-            '''
-            :type objnames: str or None
-            '''
-
+        def set_objnames(self, objnames: typing.Union[str, None]):
             if objnames is not None:
                 if not isinstance(objnames, str):
                     raise TypeError("expected objnames to be a str but it is a %s" % builtins.type(objnames))
             self.__objnames = objnames
             return self
 
-        def set_occurrence(self, occurrence):
-            '''
-            :type occurrence: str or None
-            '''
-
+        def set_occurrence(self, occurrence: typing.Union[str, None]):
             if occurrence is not None:
                 if not isinstance(occurrence, str):
                     raise TypeError("expected occurrence to be a str but it is a %s" % builtins.type(occurrence))
             self.__occurrence = occurrence
             return self
 
-        def set_oldno(self, oldno):
-            '''
-            :type oldno: str or None
-            '''
-
+        def set_oldno(self, oldno: typing.Union[str, None]):
             if oldno is not None:
                 if not isinstance(oldno, str):
                     raise TypeError("expected oldno to be a str but it is a %s" % builtins.type(oldno))
             self.__oldno = oldno
             return self
 
-        def set_origin(self, origin):
-            '''
-            :type origin: str or None
-            '''
-
+        def set_origin(self, origin: typing.Union[str, None]):
             if origin is not None:
                 if not isinstance(origin, str):
                     raise TypeError("expected origin to be a str but it is a %s" % builtins.type(origin))
             self.__origin = origin
             return self
 
-        def set_othername(self, othername):
-            '''
-            :type othername: str or None
-            '''
-
+        def set_othername(self, othername: typing.Union[str, None]):
             if othername is not None:
                 if not isinstance(othername, str):
                     raise TypeError("expected othername to be a str but it is a %s" % builtins.type(othername))
             self.__othername = othername
             return self
 
-        def set_otherno(self, otherno):
-            '''
-            :type otherno: str or None
-            '''
-
+        def set_otherno(self, otherno: typing.Union[str, None]):
             if otherno is not None:
                 if not isinstance(otherno, str):
                     raise TypeError("expected otherno to be a str but it is a %s" % builtins.type(otherno))
             self.__otherno = otherno
             return self
 
-        def set_outdate(self, outdate):
-            '''
-            :type outdate: datetime.date or None
-            '''
-
+        def set_outdate(self, outdate: typing.Union[datetime.date, None]):
             if outdate is not None:
                 if not isinstance(outdate, datetime.date):
                     raise TypeError("expected outdate to be a datetime.date but it is a %s" % builtins.type(outdate))
             self.__outdate = outdate
             return self
 
-        def set_owned(self, owned):
-            '''
-            :type owned: str or None
-            '''
-
+        def set_owned(self, owned: typing.Union[str, None]):
             if owned is not None:
                 if not isinstance(owned, str):
                     raise TypeError("expected owned to be a str but it is a %s" % builtins.type(owned))
             self.__owned = owned
             return self
 
-        def set_parent(self, parent):
-            '''
-            :type parent: str or None
-            '''
-
+        def set_parent(self, parent: typing.Union[str, None]):
             if parent is not None:
                 if not isinstance(parent, str):
                     raise TypeError("expected parent to be a str but it is a %s" % builtins.type(parent))
             self.__parent = parent
             return self
 
-        def set_people(self, people):
-            '''
-            :type people: str or None
-            '''
-
+        def set_people(self, people: typing.Union[str, None]):
             if people is not None:
                 if not isinstance(people, str):
                     raise TypeError("expected people to be a str but it is a %s" % builtins.type(people))
             self.__people = people
             return self
 
-        def set_period(self, period):
-            '''
-            :type period: str or None
-            '''
-
+        def set_period(self, period: typing.Union[str, None]):
             if period is not None:
                 if not isinstance(period, str):
                     raise TypeError("expected period to be a str but it is a %s" % builtins.type(period))
             self.__period = period
             return self
 
-        def set_phylum(self, phylum):
-            '''
-            :type phylum: str or None
-            '''
-
+        def set_phylum(self, phylum: typing.Union[str, None]):
             if phylum is not None:
                 if not isinstance(phylum, str):
                     raise TypeError("expected phylum to be a str but it is a %s" % builtins.type(phylum))
             self.__phylum = phylum
             return self
 
-        def set_policyno(self, policyno):
-            '''
-            :type policyno: str or None
-            '''
-
+        def set_policyno(self, policyno: typing.Union[str, None]):
             if policyno is not None:
                 if not isinstance(policyno, str):
                     raise TypeError("expected policyno to be a str but it is a %s" % builtins.type(policyno))
             self.__policyno = policyno
             return self
 
-        def set_ppid(self, ppid):
-            '''
-            :type ppid: str or None
-            '''
-
+        def set_ppid(self, ppid: typing.Union[str, None]):
             if ppid is not None:
                 if not isinstance(ppid, str):
                     raise TypeError("expected ppid to be a str but it is a %s" % builtins.type(ppid))
             self.__ppid = ppid
             return self
 
-        def set_preparator(self, preparator):
-            '''
-            :type preparator: str or None
-            '''
-
+        def set_preparator(self, preparator: typing.Union[str, None]):
             if preparator is not None:
                 if not isinstance(preparator, str):
                     raise TypeError("expected preparator to be a str but it is a %s" % builtins.type(preparator))
             self.__preparator = preparator
             return self
 
-        def set_prepdate(self, prepdate):
-            '''
-            :type prepdate: datetime.date or None
-            '''
-
+        def set_prepdate(self, prepdate: typing.Union[datetime.date, None]):
             if prepdate is not None:
                 if not isinstance(prepdate, datetime.date):
                     raise TypeError("expected prepdate to be a datetime.date but it is a %s" % builtins.type(prepdate))
             self.__prepdate = prepdate
             return self
 
-        def set_preserve(self, preserve):
-            '''
-            :type preserve: str or None
-            '''
-
+        def set_preserve(self, preserve: typing.Union[str, None]):
             if preserve is not None:
                 if not isinstance(preserve, str):
                     raise TypeError("expected preserve to be a str but it is a %s" % builtins.type(preserve))
             self.__preserve = preserve
             return self
 
-        def set_pressure(self, pressure):
-            '''
-            :type pressure: str or None
-            '''
-
+        def set_pressure(self, pressure: typing.Union[str, None]):
             if pressure is not None:
                 if not isinstance(pressure, str):
                     raise TypeError("expected pressure to be a str but it is a %s" % builtins.type(pressure))
             self.__pressure = pressure
             return self
 
-        def set_provenance(self, provenance):
-            '''
-            :type provenance: str or None
-            '''
-
+        def set_provenance(self, provenance: typing.Union[str, None]):
             if provenance is not None:
                 if not isinstance(provenance, str):
                     raise TypeError("expected provenance to be a str but it is a %s" % builtins.type(provenance))
             self.__provenance = provenance
             return self
 
-        def set_pubnotes(self, pubnotes):
-            '''
-            :type pubnotes: str or None
-            '''
-
+        def set_pubnotes(self, pubnotes: typing.Union[str, None]):
             if pubnotes is not None:
                 if not isinstance(pubnotes, str):
                     raise TypeError("expected pubnotes to be a str but it is a %s" % builtins.type(pubnotes))
             self.__pubnotes = pubnotes
             return self
 
-        def set_qrurl(self, qrurl):
-            '''
-            :type qrurl: str or None
-            '''
-
+        def set_qrurl(self, qrurl: typing.Union[str, None]):
             if qrurl is not None:
                 if not isinstance(qrurl, str):
                     raise TypeError("expected qrurl to be a str but it is a %s" % builtins.type(qrurl))
             self.__qrurl = qrurl
             return self
 
-        def set_recas(self, recas):
-            '''
-            :type recas: str or None
-            '''
-
+        def set_recas(self, recas: typing.Union[str, None]):
             if recas is not None:
                 if not isinstance(recas, str):
                     raise TypeError("expected recas to be a str but it is a %s" % builtins.type(recas))
             self.__recas = recas
             return self
 
-        def set_recdate(self, recdate):
-            '''
-            :type recdate: str or None
-            '''
-
+        def set_recdate(self, recdate: typing.Union[str, None]):
             if recdate is not None:
                 if not isinstance(recdate, str):
                     raise TypeError("expected recdate to be a str but it is a %s" % builtins.type(recdate))
             self.__recdate = recdate
             return self
 
-        def set_recfrom(self, recfrom):
-            '''
-            :type recfrom: str or None
-            '''
-
+        def set_recfrom(self, recfrom: typing.Union[str, None]):
             if recfrom is not None:
                 if not isinstance(recfrom, str):
                     raise TypeError("expected recfrom to be a str but it is a %s" % builtins.type(recfrom))
             self.__recfrom = recfrom
             return self
 
-        def set_relation(self, relation):
-            '''
-            :type relation: str or None
-            '''
-
+        def set_relation(self, relation: typing.Union[str, None]):
             if relation is not None:
                 if not isinstance(relation, str):
                     raise TypeError("expected relation to be a str but it is a %s" % builtins.type(relation))
             self.__relation = relation
             return self
 
-        def set_relnotes(self, relnotes):
-            '''
-            :type relnotes: str or None
-            '''
-
+        def set_relnotes(self, relnotes: typing.Union[str, None]):
             if relnotes is not None:
                 if not isinstance(relnotes, str):
                     raise TypeError("expected relnotes to be a str but it is a %s" % builtins.type(relnotes))
             self.__relnotes = relnotes
             return self
 
-        def set_renewuntil(self, renewuntil):
-            '''
-            :type renewuntil: datetime.date or None
-            '''
-
+        def set_renewuntil(self, renewuntil: typing.Union[datetime.date, None]):
             if renewuntil is not None:
                 if not isinstance(renewuntil, datetime.date):
                     raise TypeError("expected renewuntil to be a datetime.date but it is a %s" % builtins.type(renewuntil))
             self.__renewuntil = renewuntil
             return self
 
-        def set_repatby(self, repatby):
-            '''
-            :type repatby: str or None
-            '''
-
+        def set_repatby(self, repatby: typing.Union[str, None]):
             if repatby is not None:
                 if not isinstance(repatby, str):
                     raise TypeError("expected repatby to be a str but it is a %s" % builtins.type(repatby))
             self.__repatby = repatby
             return self
 
-        def set_repatclaim(self, repatclaim):
-            '''
-            :type repatclaim: str or None
-            '''
-
+        def set_repatclaim(self, repatclaim: typing.Union[str, None]):
             if repatclaim is not None:
                 if not isinstance(repatclaim, str):
                     raise TypeError("expected repatclaim to be a str but it is a %s" % builtins.type(repatclaim))
             self.__repatclaim = repatclaim
             return self
 
-        def set_repatdate(self, repatdate):
-            '''
-            :type repatdate: datetime.date or None
-            '''
-
+        def set_repatdate(self, repatdate: typing.Union[datetime.date, None]):
             if repatdate is not None:
                 if not isinstance(repatdate, datetime.date):
                     raise TypeError("expected repatdate to be a datetime.date but it is a %s" % builtins.type(repatdate))
             self.__repatdate = repatdate
             return self
 
-        def set_repatdisp(self, repatdisp):
-            '''
-            :type repatdisp: str or None
-            '''
-
+        def set_repatdisp(self, repatdisp: typing.Union[str, None]):
             if repatdisp is not None:
                 if not isinstance(repatdisp, str):
                     raise TypeError("expected repatdisp to be a str but it is a %s" % builtins.type(repatdisp))
             self.__repatdisp = repatdisp
             return self
 
-        def set_repathand(self, repathand):
-            '''
-            :type repathand: str or None
-            '''
-
+        def set_repathand(self, repathand: typing.Union[str, None]):
             if repathand is not None:
                 if not isinstance(repathand, str):
                     raise TypeError("expected repathand to be a str but it is a %s" % builtins.type(repathand))
             self.__repathand = repathand
             return self
 
-        def set_repatnotes(self, repatnotes):
-            '''
-            :type repatnotes: str or None
-            '''
-
+        def set_repatnotes(self, repatnotes: typing.Union[str, None]):
             if repatnotes is not None:
                 if not isinstance(repatnotes, str):
                     raise TypeError("expected repatnotes to be a str but it is a %s" % builtins.type(repatnotes))
             self.__repatnotes = repatnotes
             return self
 
-        def set_repatnotic(self, repatnotic):
-            '''
-            :type repatnotic: datetime.date or None
-            '''
-
+        def set_repatnotic(self, repatnotic: typing.Union[datetime.date, None]):
             if repatnotic is not None:
                 if not isinstance(repatnotic, datetime.date):
                     raise TypeError("expected repatnotic to be a datetime.date but it is a %s" % builtins.type(repatnotic))
             self.__repatnotic = repatnotic
             return self
 
-        def set_repattype(self, repattype):
-            '''
-            :type repattype: str or None
-            '''
-
+        def set_repattype(self, repattype: typing.Union[str, None]):
             if repattype is not None:
                 if not isinstance(repattype, str):
                     raise TypeError("expected repattype to be a str but it is a %s" % builtins.type(repattype))
             self.__repattype = repattype
             return self
 
-        def set_rockclass(self, rockclass):
-            '''
-            :type rockclass: str or None
-            '''
-
+        def set_rockclass(self, rockclass: typing.Union[str, None]):
             if rockclass is not None:
                 if not isinstance(rockclass, str):
                     raise TypeError("expected rockclass to be a str but it is a %s" % builtins.type(rockclass))
             self.__rockclass = rockclass
             return self
 
-        def set_rockcolor(self, rockcolor):
-            '''
-            :type rockcolor: str or None
-            '''
-
+        def set_rockcolor(self, rockcolor: typing.Union[str, None]):
             if rockcolor is not None:
                 if not isinstance(rockcolor, str):
                     raise TypeError("expected rockcolor to be a str but it is a %s" % builtins.type(rockcolor))
             self.__rockcolor = rockcolor
             return self
 
-        def set_rockorigin(self, rockorigin):
-            '''
-            :type rockorigin: str or None
-            '''
-
+        def set_rockorigin(self, rockorigin: typing.Union[str, None]):
             if rockorigin is not None:
                 if not isinstance(rockorigin, str):
                     raise TypeError("expected rockorigin to be a str but it is a %s" % builtins.type(rockorigin))
             self.__rockorigin = rockorigin
             return self
 
-        def set_rocktype(self, rocktype):
-            '''
-            :type rocktype: str or None
-            '''
-
+        def set_rocktype(self, rocktype: typing.Union[str, None]):
             if rocktype is not None:
                 if not isinstance(rocktype, str):
                     raise TypeError("expected rocktype to be a str but it is a %s" % builtins.type(rocktype))
             self.__rocktype = rocktype
             return self
 
-        def set_role(self, role):
-            '''
-            :type role: str or None
-            '''
-
+        def set_role(self, role: typing.Union[str, None]):
             if role is not None:
                 if not isinstance(role, str):
                     raise TypeError("expected role to be a str but it is a %s" % builtins.type(role))
             self.__role = role
             return self
 
-        def set_role2(self, role2):
-            '''
-            :type role2: str or None
-            '''
-
+        def set_role2(self, role2: typing.Union[str, None]):
             if role2 is not None:
                 if not isinstance(role2, str):
                     raise TypeError("expected role2 to be a str but it is a %s" % builtins.type(role2))
             self.__role2 = role2
             return self
 
-        def set_role3(self, role3):
-            '''
-            :type role3: str or None
-            '''
-
+        def set_role3(self, role3: typing.Union[str, None]):
             if role3 is not None:
                 if not isinstance(role3, str):
                     raise TypeError("expected role3 to be a str but it is a %s" % builtins.type(role3))
             self.__role3 = role3
             return self
 
-        def set_school(self, school):
-            '''
-            :type school: str or None
-            '''
-
+        def set_school(self, school: typing.Union[str, None]):
             if school is not None:
                 if not isinstance(school, str):
                     raise TypeError("expected school to be a str but it is a %s" % builtins.type(school))
             self.__school = school
             return self
 
-        def set_sex(self, sex):
-            '''
-            :type sex: str or None
-            '''
-
+        def set_sex(self, sex: typing.Union[str, None]):
             if sex is not None:
                 if not isinstance(sex, str):
                     raise TypeError("expected sex to be a str but it is a %s" % builtins.type(sex))
             self.__sex = sex
             return self
 
-        def set_sgflag(self, sgflag):
-            '''
-            :type sgflag: str or None
-            '''
-
+        def set_sgflag(self, sgflag: typing.Union[str, None]):
             if sgflag is not None:
                 if not isinstance(sgflag, str):
                     raise TypeError("expected sgflag to be a str but it is a %s" % builtins.type(sgflag))
             self.__sgflag = sgflag
             return self
 
-        def set_signedname(self, signedname):
-            '''
-            :type signedname: str or None
-            '''
-
+        def set_signedname(self, signedname: typing.Union[str, None]):
             if signedname is not None:
                 if not isinstance(signedname, str):
                     raise TypeError("expected signedname to be a str but it is a %s" % builtins.type(signedname))
             self.__signedname = signedname
             return self
 
-        def set_signloc(self, signloc):
-            '''
-            :type signloc: str or None
-            '''
-
+        def set_signloc(self, signloc: typing.Union[str, None]):
             if signloc is not None:
                 if not isinstance(signloc, str):
                     raise TypeError("expected signloc to be a str but it is a %s" % builtins.type(signloc))
             self.__signloc = signloc
             return self
 
-        def set_site(self, site):
-            '''
-            :type site: str or None
-            '''
-
+        def set_site(self, site: typing.Union[str, None]):
             if site is not None:
                 if not isinstance(site, str):
                     raise TypeError("expected site to be a str but it is a %s" % builtins.type(site))
             self.__site = site
             return self
 
-        def set_siteno(self, siteno):
-            '''
-            :type siteno: str or None
-            '''
-
+        def set_siteno(self, siteno: typing.Union[str, None]):
             if siteno is not None:
                 if not isinstance(siteno, str):
                     raise TypeError("expected siteno to be a str but it is a %s" % builtins.type(siteno))
             self.__siteno = siteno
             return self
 
-        def set_specgrav(self, specgrav):
-            '''
-            :type specgrav: str or None
-            '''
-
+        def set_specgrav(self, specgrav: typing.Union[str, None]):
             if specgrav is not None:
                 if not isinstance(specgrav, str):
                     raise TypeError("expected specgrav to be a str but it is a %s" % builtins.type(specgrav))
             self.__specgrav = specgrav
             return self
 
-        def set_species(self, species):
-            '''
-            :type species: str or None
-            '''
-
+        def set_species(self, species: typing.Union[str, None]):
             if species is not None:
                 if not isinstance(species, str):
                     raise TypeError("expected species to be a str but it is a %s" % builtins.type(species))
             self.__species = species
             return self
 
-        def set_sprocess(self, sprocess):
-            '''
-            :type sprocess: str or None
-            '''
-
+        def set_sprocess(self, sprocess: typing.Union[str, None]):
             if sprocess is not None:
                 if not isinstance(sprocess, str):
                     raise TypeError("expected sprocess to be a str but it is a %s" % builtins.type(sprocess))
             self.__sprocess = sprocess
             return self
 
-        def set_stage(self, stage):
-            '''
-            :type stage: str or None
-            '''
-
+        def set_stage(self, stage: typing.Union[str, None]):
             if stage is not None:
                 if not isinstance(stage, str):
                     raise TypeError("expected stage to be a str but it is a %s" % builtins.type(stage))
             self.__stage = stage
             return self
 
-        def set_status(self, status):
-            '''
-            :type status: str or None
-            '''
-
+        def set_status(self, status: typing.Union[str, None]):
             if status is not None:
                 if not isinstance(status, str):
                     raise TypeError("expected status to be a str but it is a %s" % builtins.type(status))
             self.__status = status
             return self
 
-        def set_statusby(self, statusby):
-            '''
-            :type statusby: str or None
-            '''
-
+        def set_statusby(self, statusby: typing.Union[str, None]):
             if statusby is not None:
                 if not isinstance(statusby, str):
                     raise TypeError("expected statusby to be a str but it is a %s" % builtins.type(statusby))
             self.__statusby = statusby
             return self
 
-        def set_statusdate(self, statusdate):
-            '''
-            :type statusdate: datetime.date or None
-            '''
-
+        def set_statusdate(self, statusdate: typing.Union[datetime.date, None]):
             if statusdate is not None:
                 if not isinstance(statusdate, datetime.date):
                     raise TypeError("expected statusdate to be a datetime.date but it is a %s" % builtins.type(statusdate))
             self.__statusdate = statusdate
             return self
 
-        def set_sterms(self, sterms):
-            '''
-            :type sterms: str or None
-            '''
-
+        def set_sterms(self, sterms: typing.Union[str, None]):
             if sterms is not None:
                 if not isinstance(sterms, str):
                     raise TypeError("expected sterms to be a str but it is a %s" % builtins.type(sterms))
             self.__sterms = sterms
             return self
 
-        def set_stratum(self, stratum):
-            '''
-            :type stratum: str or None
-            '''
-
+        def set_stratum(self, stratum: typing.Union[str, None]):
             if stratum is not None:
                 if not isinstance(stratum, str):
                     raise TypeError("expected stratum to be a str but it is a %s" % builtins.type(stratum))
             self.__stratum = stratum
             return self
 
-        def set_streak(self, streak):
-            '''
-            :type streak: str or None
-            '''
-
+        def set_streak(self, streak: typing.Union[str, None]):
             if streak is not None:
                 if not isinstance(streak, str):
                     raise TypeError("expected streak to be a str but it is a %s" % builtins.type(streak))
             self.__streak = streak
             return self
 
-        def set_subfamily(self, subfamily):
-            '''
-            :type subfamily: str or None
-            '''
-
+        def set_subfamily(self, subfamily: typing.Union[str, None]):
             if subfamily is not None:
                 if not isinstance(subfamily, str):
                     raise TypeError("expected subfamily to be a str but it is a %s" % builtins.type(subfamily))
             self.__subfamily = subfamily
             return self
 
-        def set_subjects(self, subjects):
-            '''
-            :type subjects: str or None
-            '''
-
+        def set_subjects(self, subjects: typing.Union[str, None]):
             if subjects is not None:
                 if not isinstance(subjects, str):
                     raise TypeError("expected subjects to be a str but it is a %s" % builtins.type(subjects))
             self.__subjects = subjects
             return self
 
-        def set_subspecies(self, subspecies):
-            '''
-            :type subspecies: str or None
-            '''
-
+        def set_subspecies(self, subspecies: typing.Union[str, None]):
             if subspecies is not None:
                 if not isinstance(subspecies, str):
                     raise TypeError("expected subspecies to be a str but it is a %s" % builtins.type(subspecies))
             self.__subspecies = subspecies
             return self
 
-        def set_technique(self, technique):
-            '''
-            :type technique: str or None
-            '''
-
+        def set_technique(self, technique: typing.Union[str, None]):
             if technique is not None:
                 if not isinstance(technique, str):
                     raise TypeError("expected technique to be a str but it is a %s" % builtins.type(technique))
             self.__technique = technique
             return self
 
-        def set_tempauthor(self, tempauthor):
-            '''
-            :type tempauthor: str or None
-            '''
-
+        def set_tempauthor(self, tempauthor: typing.Union[str, None]):
             if tempauthor is not None:
                 if not isinstance(tempauthor, str):
                     raise TypeError("expected tempauthor to be a str but it is a %s" % builtins.type(tempauthor))
             self.__tempauthor = tempauthor
             return self
 
-        def set_tempby(self, tempby):
-            '''
-            :type tempby: str or None
-            '''
-
+        def set_tempby(self, tempby: typing.Union[str, None]):
             if tempby is not None:
                 if not isinstance(tempby, str):
                     raise TypeError("expected tempby to be a str but it is a %s" % builtins.type(tempby))
             self.__tempby = tempby
             return self
 
-        def set_tempdate(self, tempdate):
-            '''
-            :type tempdate: datetime.date or None
-            '''
-
+        def set_tempdate(self, tempdate: typing.Union[datetime.date, None]):
             if tempdate is not None:
                 if not isinstance(tempdate, datetime.date):
                     raise TypeError("expected tempdate to be a datetime.date but it is a %s" % builtins.type(tempdate))
             self.__tempdate = tempdate
             return self
 
-        def set_temperatur(self, temperatur):
-            '''
-            :type temperatur: str or None
-            '''
-
+        def set_temperatur(self, temperatur: typing.Union[str, None]):
             if temperatur is not None:
                 if not isinstance(temperatur, str):
                     raise TypeError("expected temperatur to be a str but it is a %s" % builtins.type(temperatur))
             self.__temperatur = temperatur
             return self
 
-        def set_temploc(self, temploc):
-            '''
-            :type temploc: str or None
-            '''
-
+        def set_temploc(self, temploc: typing.Union[str, None]):
             if temploc is not None:
                 if not isinstance(temploc, str):
                     raise TypeError("expected temploc to be a str but it is a %s" % builtins.type(temploc))
             self.__temploc = temploc
             return self
 
-        def set_tempnotes(self, tempnotes):
-            '''
-            :type tempnotes: str or None
-            '''
-
+        def set_tempnotes(self, tempnotes: typing.Union[str, None]):
             if tempnotes is not None:
                 if not isinstance(tempnotes, str):
                     raise TypeError("expected tempnotes to be a str but it is a %s" % builtins.type(tempnotes))
             self.__tempnotes = tempnotes
             return self
 
-        def set_tempreason(self, tempreason):
-            '''
-            :type tempreason: str or None
-            '''
-
+        def set_tempreason(self, tempreason: typing.Union[str, None]):
             if tempreason is not None:
                 if not isinstance(tempreason, str):
                     raise TypeError("expected tempreason to be a str but it is a %s" % builtins.type(tempreason))
             self.__tempreason = tempreason
             return self
 
-        def set_tempuntil(self, tempuntil):
-            '''
-            :type tempuntil: str or None
-            '''
-
+        def set_tempuntil(self, tempuntil: typing.Union[str, None]):
             if tempuntil is not None:
                 if not isinstance(tempuntil, str):
                     raise TypeError("expected tempuntil to be a str but it is a %s" % builtins.type(tempuntil))
             self.__tempuntil = tempuntil
             return self
 
-        def set_texture(self, texture):
-            '''
-            :type texture: str or None
-            '''
-
+        def set_texture(self, texture: typing.Union[str, None]):
             if texture is not None:
                 if not isinstance(texture, str):
                     raise TypeError("expected texture to be a str but it is a %s" % builtins.type(texture))
             self.__texture = texture
             return self
 
-        def set_title(self, title):
-            '''
-            :type title: str or None
-            '''
-
+        def set_title(self, title: typing.Union[str, None]):
             if title is not None:
                 if not isinstance(title, str):
                     raise TypeError("expected title to be a str but it is a %s" % builtins.type(title))
             self.__title = title
             return self
 
-        def set_tlocfield1(self, tlocfield1):
-            '''
-            :type tlocfield1: str or None
-            '''
-
+        def set_tlocfield1(self, tlocfield1: typing.Union[str, None]):
             if tlocfield1 is not None:
                 if not isinstance(tlocfield1, str):
                     raise TypeError("expected tlocfield1 to be a str but it is a %s" % builtins.type(tlocfield1))
             self.__tlocfield1 = tlocfield1
             return self
 
-        def set_tlocfield2(self, tlocfield2):
-            '''
-            :type tlocfield2: str or None
-            '''
-
+        def set_tlocfield2(self, tlocfield2: typing.Union[str, None]):
             if tlocfield2 is not None:
                 if not isinstance(tlocfield2, str):
                     raise TypeError("expected tlocfield2 to be a str but it is a %s" % builtins.type(tlocfield2))
             self.__tlocfield2 = tlocfield2
             return self
 
-        def set_tlocfield3(self, tlocfield3):
-            '''
-            :type tlocfield3: str or None
-            '''
-
+        def set_tlocfield3(self, tlocfield3: typing.Union[str, None]):
             if tlocfield3 is not None:
                 if not isinstance(tlocfield3, str):
                     raise TypeError("expected tlocfield3 to be a str but it is a %s" % builtins.type(tlocfield3))
             self.__tlocfield3 = tlocfield3
             return self
 
-        def set_tlocfield4(self, tlocfield4):
-            '''
-            :type tlocfield4: str or None
-            '''
-
+        def set_tlocfield4(self, tlocfield4: typing.Union[str, None]):
             if tlocfield4 is not None:
                 if not isinstance(tlocfield4, str):
                     raise TypeError("expected tlocfield4 to be a str but it is a %s" % builtins.type(tlocfield4))
             self.__tlocfield4 = tlocfield4
             return self
 
-        def set_tlocfield5(self, tlocfield5):
-            '''
-            :type tlocfield5: str or None
-            '''
-
+        def set_tlocfield5(self, tlocfield5: typing.Union[str, None]):
             if tlocfield5 is not None:
                 if not isinstance(tlocfield5, str):
                     raise TypeError("expected tlocfield5 to be a str but it is a %s" % builtins.type(tlocfield5))
             self.__tlocfield5 = tlocfield5
             return self
 
-        def set_tlocfield6(self, tlocfield6):
-            '''
-            :type tlocfield6: str or None
-            '''
-
+        def set_tlocfield6(self, tlocfield6: typing.Union[str, None]):
             if tlocfield6 is not None:
                 if not isinstance(tlocfield6, str):
                     raise TypeError("expected tlocfield6 to be a str but it is a %s" % builtins.type(tlocfield6))
             self.__tlocfield6 = tlocfield6
             return self
 
-        def set_udf1(self, udf1):
-            '''
-            :type udf1: str or None
-            '''
-
+        def set_udf1(self, udf1: typing.Union[str, None]):
             if udf1 is not None:
                 if not isinstance(udf1, str):
                     raise TypeError("expected udf1 to be a str but it is a %s" % builtins.type(udf1))
             self.__udf1 = udf1
             return self
 
-        def set_udf10(self, udf10):
-            '''
-            :type udf10: str or None
-            '''
-
+        def set_udf10(self, udf10: typing.Union[str, None]):
             if udf10 is not None:
                 if not isinstance(udf10, str):
                     raise TypeError("expected udf10 to be a str but it is a %s" % builtins.type(udf10))
             self.__udf10 = udf10
             return self
 
-        def set_udf11(self, udf11):
-            '''
-            :type udf11: str or None
-            '''
-
+        def set_udf11(self, udf11: typing.Union[str, None]):
             if udf11 is not None:
                 if not isinstance(udf11, str):
                     raise TypeError("expected udf11 to be a str but it is a %s" % builtins.type(udf11))
             self.__udf11 = udf11
             return self
 
-        def set_udf12(self, udf12):
-            '''
-            :type udf12: str or None
-            '''
-
+        def set_udf12(self, udf12: typing.Union[str, None]):
             if udf12 is not None:
                 if not isinstance(udf12, str):
                     raise TypeError("expected udf12 to be a str but it is a %s" % builtins.type(udf12))
             self.__udf12 = udf12
             return self
 
-        def set_udf13(self, udf13):
-            '''
-            :type udf13: int or None
-            '''
-
+        def set_udf13(self, udf13: typing.Union[int, None]):
             if udf13 is not None:
                 if not isinstance(udf13, int):
                     raise TypeError("expected udf13 to be a int but it is a %s" % builtins.type(udf13))
             self.__udf13 = udf13
             return self
 
-        def set_udf14(self, udf14):
-            '''
-            :type udf14: Decimal or None
-            '''
-
+        def set_udf14(self, udf14: typing.Union[decimal.Decimal, None]):
             if udf14 is not None:
                 if not isinstance(udf14, decimal.Decimal):
-                    raise TypeError("expected udf14 to be a Decimal but it is a %s" % builtins.type(udf14))
+                    raise TypeError("expected udf14 to be a decimal.Decimal but it is a %s" % builtins.type(udf14))
             self.__udf14 = udf14
             return self
 
-        def set_udf15(self, udf15):
-            '''
-            :type udf15: Decimal or None
-            '''
-
+        def set_udf15(self, udf15: typing.Union[decimal.Decimal, None]):
             if udf15 is not None:
                 if not isinstance(udf15, decimal.Decimal):
-                    raise TypeError("expected udf15 to be a Decimal but it is a %s" % builtins.type(udf15))
+                    raise TypeError("expected udf15 to be a decimal.Decimal but it is a %s" % builtins.type(udf15))
             self.__udf15 = udf15
             return self
 
-        def set_udf16(self, udf16):
-            '''
-            :type udf16: Decimal or None
-            '''
-
+        def set_udf16(self, udf16: typing.Union[decimal.Decimal, None]):
             if udf16 is not None:
                 if not isinstance(udf16, decimal.Decimal):
-                    raise TypeError("expected udf16 to be a Decimal but it is a %s" % builtins.type(udf16))
+                    raise TypeError("expected udf16 to be a decimal.Decimal but it is a %s" % builtins.type(udf16))
             self.__udf16 = udf16
             return self
 
-        def set_udf17(self, udf17):
-            '''
-            :type udf17: Decimal or None
-            '''
-
+        def set_udf17(self, udf17: typing.Union[decimal.Decimal, None]):
             if udf17 is not None:
                 if not isinstance(udf17, decimal.Decimal):
-                    raise TypeError("expected udf17 to be a Decimal but it is a %s" % builtins.type(udf17))
+                    raise TypeError("expected udf17 to be a decimal.Decimal but it is a %s" % builtins.type(udf17))
             self.__udf17 = udf17
             return self
 
-        def set_udf18(self, udf18):
-            '''
-            :type udf18: datetime.date or None
-            '''
-
+        def set_udf18(self, udf18: typing.Union[datetime.date, None]):
             if udf18 is not None:
                 if not isinstance(udf18, datetime.date):
                     raise TypeError("expected udf18 to be a datetime.date but it is a %s" % builtins.type(udf18))
             self.__udf18 = udf18
             return self
 
-        def set_udf19(self, udf19):
-            '''
-            :type udf19: datetime.date or None
-            '''
-
+        def set_udf19(self, udf19: typing.Union[datetime.date, None]):
             if udf19 is not None:
                 if not isinstance(udf19, datetime.date):
                     raise TypeError("expected udf19 to be a datetime.date but it is a %s" % builtins.type(udf19))
             self.__udf19 = udf19
             return self
 
-        def set_udf2(self, udf2):
-            '''
-            :type udf2: str or None
-            '''
-
+        def set_udf2(self, udf2: typing.Union[str, None]):
             if udf2 is not None:
                 if not isinstance(udf2, str):
                     raise TypeError("expected udf2 to be a str but it is a %s" % builtins.type(udf2))
             self.__udf2 = udf2
             return self
 
-        def set_udf20(self, udf20):
-            '''
-            :type udf20: datetime.date or None
-            '''
-
+        def set_udf20(self, udf20: typing.Union[datetime.date, None]):
             if udf20 is not None:
                 if not isinstance(udf20, datetime.date):
                     raise TypeError("expected udf20 to be a datetime.date but it is a %s" % builtins.type(udf20))
             self.__udf20 = udf20
             return self
 
-        def set_udf21(self, udf21):
-            '''
-            :type udf21: str or None
-            '''
-
+        def set_udf21(self, udf21: typing.Union[str, None]):
             if udf21 is not None:
                 if not isinstance(udf21, str):
                     raise TypeError("expected udf21 to be a str but it is a %s" % builtins.type(udf21))
             self.__udf21 = udf21
             return self
 
-        def set_udf22(self, udf22):
-            '''
-            :type udf22: str or None
-            '''
-
+        def set_udf22(self, udf22: typing.Union[str, None]):
             if udf22 is not None:
                 if not isinstance(udf22, str):
                     raise TypeError("expected udf22 to be a str but it is a %s" % builtins.type(udf22))
             self.__udf22 = udf22
             return self
 
-        def set_udf3(self, udf3):
-            '''
-            :type udf3: str or None
-            '''
-
+        def set_udf3(self, udf3: typing.Union[str, None]):
             if udf3 is not None:
                 if not isinstance(udf3, str):
                     raise TypeError("expected udf3 to be a str but it is a %s" % builtins.type(udf3))
             self.__udf3 = udf3
             return self
 
-        def set_udf4(self, udf4):
-            '''
-            :type udf4: str or None
-            '''
-
+        def set_udf4(self, udf4: typing.Union[str, None]):
             if udf4 is not None:
                 if not isinstance(udf4, str):
                     raise TypeError("expected udf4 to be a str but it is a %s" % builtins.type(udf4))
             self.__udf4 = udf4
             return self
 
-        def set_udf5(self, udf5):
-            '''
-            :type udf5: str or None
-            '''
-
+        def set_udf5(self, udf5: typing.Union[str, None]):
             if udf5 is not None:
                 if not isinstance(udf5, str):
                     raise TypeError("expected udf5 to be a str but it is a %s" % builtins.type(udf5))
             self.__udf5 = udf5
             return self
 
-        def set_udf6(self, udf6):
-            '''
-            :type udf6: str or None
-            '''
-
+        def set_udf6(self, udf6: typing.Union[str, None]):
             if udf6 is not None:
                 if not isinstance(udf6, str):
                     raise TypeError("expected udf6 to be a str but it is a %s" % builtins.type(udf6))
             self.__udf6 = udf6
             return self
 
-        def set_udf7(self, udf7):
-            '''
-            :type udf7: str or None
-            '''
-
+        def set_udf7(self, udf7: typing.Union[str, None]):
             if udf7 is not None:
                 if not isinstance(udf7, str):
                     raise TypeError("expected udf7 to be a str but it is a %s" % builtins.type(udf7))
             self.__udf7 = udf7
             return self
 
-        def set_udf8(self, udf8):
-            '''
-            :type udf8: str or None
-            '''
-
+        def set_udf8(self, udf8: typing.Union[str, None]):
             if udf8 is not None:
                 if not isinstance(udf8, str):
                     raise TypeError("expected udf8 to be a str but it is a %s" % builtins.type(udf8))
             self.__udf8 = udf8
             return self
 
-        def set_udf9(self, udf9):
-            '''
-            :type udf9: str or None
-            '''
-
+        def set_udf9(self, udf9: typing.Union[str, None]):
             if udf9 is not None:
                 if not isinstance(udf9, str):
                     raise TypeError("expected udf9 to be a str but it is a %s" % builtins.type(udf9))
             self.__udf9 = udf9
             return self
 
-        def set_unit(self, unit):
-            '''
-            :type unit: str or None
-            '''
-
+        def set_unit(self, unit: typing.Union[str, None]):
             if unit is not None:
                 if not isinstance(unit, str):
                     raise TypeError("expected unit to be a str but it is a %s" % builtins.type(unit))
             self.__unit = unit
             return self
 
-        def set_updated(self, updated):
-            '''
-            :type updated: datetime.datetime or None
-            '''
-
+        def set_updated(self, updated: typing.Union[datetime.datetime, None]):
             if updated is not None:
                 if not isinstance(updated, datetime.datetime):
                     raise TypeError("expected updated to be a datetime.datetime but it is a %s" % builtins.type(updated))
             self.__updated = updated
             return self
 
-        def set_updatedby(self, updatedby):
-            '''
-            :type updatedby: str or None
-            '''
-
+        def set_updatedby(self, updatedby: typing.Union[str, None]):
             if updatedby is not None:
                 if not isinstance(updatedby, str):
                     raise TypeError("expected updatedby to be a str but it is a %s" % builtins.type(updatedby))
             self.__updatedby = updatedby
             return self
 
-        def set_used(self, used):
-            '''
-            :type used: str or None
-            '''
-
+        def set_used(self, used: typing.Union[str, None]):
             if used is not None:
                 if not isinstance(used, str):
                     raise TypeError("expected used to be a str but it is a %s" % builtins.type(used))
             self.__used = used
             return self
 
-        def set_valuedate(self, valuedate):
-            '''
-            :type valuedate: datetime.date or None
-            '''
-
+        def set_valuedate(self, valuedate: typing.Union[datetime.date, None]):
             if valuedate is not None:
                 if not isinstance(valuedate, datetime.date):
                     raise TypeError("expected valuedate to be a datetime.date but it is a %s" % builtins.type(valuedate))
             self.__valuedate = valuedate
             return self
 
-        def set_varieties(self, varieties):
-            '''
-            :type varieties: str or None
-            '''
-
+        def set_varieties(self, varieties: typing.Union[str, None]):
             if varieties is not None:
                 if not isinstance(varieties, str):
                     raise TypeError("expected varieties to be a str but it is a %s" % builtins.type(varieties))
             self.__varieties = varieties
             return self
 
-        def set_vexhtml(self, vexhtml):
-            '''
-            :type vexhtml: str or None
-            '''
-
+        def set_vexhtml(self, vexhtml: typing.Union[str, None]):
             if vexhtml is not None:
                 if not isinstance(vexhtml, str):
                     raise TypeError("expected vexhtml to be a str but it is a %s" % builtins.type(vexhtml))
             self.__vexhtml = vexhtml
             return self
 
-        def set_vexlabel1(self, vexlabel1):
-            '''
-            :type vexlabel1: str or None
-            '''
-
+        def set_vexlabel1(self, vexlabel1: typing.Union[str, None]):
             if vexlabel1 is not None:
                 if not isinstance(vexlabel1, str):
                     raise TypeError("expected vexlabel1 to be a str but it is a %s" % builtins.type(vexlabel1))
             self.__vexlabel1 = vexlabel1
             return self
 
-        def set_vexlabel2(self, vexlabel2):
-            '''
-            :type vexlabel2: str or None
-            '''
-
+        def set_vexlabel2(self, vexlabel2: typing.Union[str, None]):
             if vexlabel2 is not None:
                 if not isinstance(vexlabel2, str):
                     raise TypeError("expected vexlabel2 to be a str but it is a %s" % builtins.type(vexlabel2))
             self.__vexlabel2 = vexlabel2
             return self
 
-        def set_vexlabel3(self, vexlabel3):
-            '''
-            :type vexlabel3: str or None
-            '''
-
+        def set_vexlabel3(self, vexlabel3: typing.Union[str, None]):
             if vexlabel3 is not None:
                 if not isinstance(vexlabel3, str):
                     raise TypeError("expected vexlabel3 to be a str but it is a %s" % builtins.type(vexlabel3))
             self.__vexlabel3 = vexlabel3
             return self
 
-        def set_vexlabel4(self, vexlabel4):
-            '''
-            :type vexlabel4: str or None
-            '''
-
+        def set_vexlabel4(self, vexlabel4: typing.Union[str, None]):
             if vexlabel4 is not None:
                 if not isinstance(vexlabel4, str):
                     raise TypeError("expected vexlabel4 to be a str but it is a %s" % builtins.type(vexlabel4))
             self.__vexlabel4 = vexlabel4
             return self
 
-        def set_webinclude(self, webinclude):
-            '''
-            :type webinclude: bool or None
-            '''
-
+        def set_webinclude(self, webinclude: typing.Union[bool, None]):
             if webinclude is not None:
                 if not isinstance(webinclude, bool):
                     raise TypeError("expected webinclude to be a bool but it is a %s" % builtins.type(webinclude))
             self.__webinclude = webinclude
             return self
 
-        def set_weight(self, weight):
-            '''
-            :type weight: Decimal or None
-            '''
-
+        def set_weight(self, weight: typing.Union[decimal.Decimal, None]):
             if weight is not None:
                 if not isinstance(weight, decimal.Decimal):
-                    raise TypeError("expected weight to be a Decimal but it is a %s" % builtins.type(weight))
+                    raise TypeError("expected weight to be a decimal.Decimal but it is a %s" % builtins.type(weight))
             self.__weight = weight
             return self
 
-        def set_weightin(self, weightin):
-            '''
-            :type weightin: Decimal or None
-            '''
-
+        def set_weightin(self, weightin: typing.Union[decimal.Decimal, None]):
             if weightin is not None:
                 if not isinstance(weightin, decimal.Decimal):
-                    raise TypeError("expected weightin to be a Decimal but it is a %s" % builtins.type(weightin))
+                    raise TypeError("expected weightin to be a decimal.Decimal but it is a %s" % builtins.type(weightin))
             self.__weightin = weightin
             return self
 
-        def set_weightlb(self, weightlb):
-            '''
-            :type weightlb: Decimal or None
-            '''
-
+        def set_weightlb(self, weightlb: typing.Union[decimal.Decimal, None]):
             if weightlb is not None:
                 if not isinstance(weightlb, decimal.Decimal):
-                    raise TypeError("expected weightlb to be a Decimal but it is a %s" % builtins.type(weightlb))
+                    raise TypeError("expected weightlb to be a decimal.Decimal but it is a %s" % builtins.type(weightlb))
             self.__weightlb = weightlb
             return self
 
-        def set_width(self, width):
-            '''
-            :type width: Decimal or None
-            '''
-
+        def set_width(self, width: typing.Union[decimal.Decimal, None]):
             if width is not None:
                 if not isinstance(width, decimal.Decimal):
-                    raise TypeError("expected width to be a Decimal but it is a %s" % builtins.type(width))
+                    raise TypeError("expected width to be a decimal.Decimal but it is a %s" % builtins.type(width))
             self.__width = width
             return self
 
-        def set_widthft(self, widthft):
-            '''
-            :type widthft: Decimal or None
-            '''
-
+        def set_widthft(self, widthft: typing.Union[decimal.Decimal, None]):
             if widthft is not None:
                 if not isinstance(widthft, decimal.Decimal):
-                    raise TypeError("expected widthft to be a Decimal but it is a %s" % builtins.type(widthft))
+                    raise TypeError("expected widthft to be a decimal.Decimal but it is a %s" % builtins.type(widthft))
             self.__widthft = widthft
             return self
 
-        def set_widthin(self, widthin):
-            '''
-            :type widthin: Decimal or None
-            '''
-
+        def set_widthin(self, widthin: typing.Union[decimal.Decimal, None]):
             if widthin is not None:
                 if not isinstance(widthin, decimal.Decimal):
-                    raise TypeError("expected widthin to be a Decimal but it is a %s" % builtins.type(widthin))
+                    raise TypeError("expected widthin to be a decimal.Decimal but it is a %s" % builtins.type(widthin))
             self.__widthin = widthin
             return self
 
-        def set_xcord(self, xcord):
-            '''
-            :type xcord: Decimal or None
-            '''
-
+        def set_xcord(self, xcord: typing.Union[decimal.Decimal, None]):
             if xcord is not None:
                 if not isinstance(xcord, decimal.Decimal):
-                    raise TypeError("expected xcord to be a Decimal but it is a %s" % builtins.type(xcord))
+                    raise TypeError("expected xcord to be a decimal.Decimal but it is a %s" % builtins.type(xcord))
             self.__xcord = xcord
             return self
 
-        def set_ycord(self, ycord):
-            '''
-            :type ycord: Decimal or None
-            '''
-
+        def set_ycord(self, ycord: typing.Union[decimal.Decimal, None]):
             if ycord is not None:
                 if not isinstance(ycord, decimal.Decimal):
-                    raise TypeError("expected ycord to be a Decimal but it is a %s" % builtins.type(ycord))
+                    raise TypeError("expected ycord to be a decimal.Decimal but it is a %s" % builtins.type(ycord))
             self.__ycord = ycord
             return self
 
-        def set_zcord(self, zcord):
-            '''
-            :type zcord: Decimal or None
-            '''
-
+        def set_zcord(self, zcord: typing.Union[decimal.Decimal, None]):
             if zcord is not None:
                 if not isinstance(zcord, decimal.Decimal):
-                    raise TypeError("expected zcord to be a Decimal but it is a %s" % builtins.type(zcord))
+                    raise TypeError("expected zcord to be a decimal.Decimal but it is a %s" % builtins.type(zcord))
             self.__zcord = zcord
             return self
 
-        def set_zsorter(self, zsorter):
-            '''
-            :type zsorter: str or None
-            '''
-
+        def set_zsorter(self, zsorter: typing.Union[str, None]):
             if zsorter is not None:
                 if not isinstance(zsorter, str):
                     raise TypeError("expected zsorter to be a str but it is a %s" % builtins.type(zsorter))
             self.__zsorter = zsorter
             return self
 
-        def set_zsorterx(self, zsorterx):
-            '''
-            :type zsorterx: str or None
-            '''
-
+        def set_zsorterx(self, zsorterx: typing.Union[str, None]):
             if zsorterx is not None:
                 if not isinstance(zsorterx, str):
                     raise TypeError("expected zsorterx to be a str but it is a %s" % builtins.type(zsorterx))
@@ -4961,747 +3158,242 @@ class ObjectsDbfRecord(object):
             return self
 
         @property
-        def sex(self):
-            '''
-            :rtype: str
-            '''
-
+        def sex(self) -> typing.Union[str, None]:
             return self.__sex
 
         @property
-        def sgflag(self):
-            '''
-            :rtype: str
-            '''
-
+        def sgflag(self) -> typing.Union[str, None]:
             return self.__sgflag
 
         @property
-        def signedname(self):
-            '''
-            :rtype: str
-            '''
-
+        def signedname(self) -> typing.Union[str, None]:
             return self.__signedname
 
         @property
-        def signloc(self):
-            '''
-            :rtype: str
-            '''
-
+        def signloc(self) -> typing.Union[str, None]:
             return self.__signloc
 
         @property
-        def site(self):
-            '''
-            :rtype: str
-            '''
-
+        def site(self) -> typing.Union[str, None]:
             return self.__site
 
         @property
-        def siteno(self):
-            '''
-            :rtype: str
-            '''
-
+        def siteno(self) -> typing.Union[str, None]:
             return self.__siteno
 
         @property
-        def specgrav(self):
-            '''
-            :rtype: str
-            '''
-
+        def specgrav(self) -> typing.Union[str, None]:
             return self.__specgrav
 
         @property
-        def species(self):
-            '''
-            :rtype: str
-            '''
-
+        def species(self) -> typing.Union[str, None]:
             return self.__species
 
         @property
-        def sprocess(self):
-            '''
-            :rtype: str
-            '''
-
+        def sprocess(self) -> typing.Union[str, None]:
             return self.__sprocess
 
         @property
-        def stage(self):
-            '''
-            :rtype: str
-            '''
-
+        def stage(self) -> typing.Union[str, None]:
             return self.__stage
 
         @property
-        def status(self):
-            '''
-            :rtype: str
-            '''
-
+        def status(self) -> typing.Union[str, None]:
             return self.__status
 
         @property
-        def statusby(self):
-            '''
-            :rtype: str
-            '''
-
+        def statusby(self) -> typing.Union[str, None]:
             return self.__statusby
 
         @property
-        def statusdate(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def statusdate(self) -> typing.Union[datetime.date, None]:
             return self.__statusdate
 
         @property
-        def sterms(self):
-            '''
-            :rtype: str
-            '''
-
+        def sterms(self) -> typing.Union[str, None]:
             return self.__sterms
 
         @property
-        def stratum(self):
-            '''
-            :rtype: str
-            '''
-
+        def stratum(self) -> typing.Union[str, None]:
             return self.__stratum
 
         @property
-        def streak(self):
-            '''
-            :rtype: str
-            '''
-
+        def streak(self) -> typing.Union[str, None]:
             return self.__streak
 
         @property
-        def subfamily(self):
-            '''
-            :rtype: str
-            '''
-
+        def subfamily(self) -> typing.Union[str, None]:
             return self.__subfamily
 
         @property
-        def subjects(self):
-            '''
-            :rtype: str
-            '''
-
+        def subjects(self) -> typing.Union[str, None]:
             return self.__subjects
 
         @property
-        def subspecies(self):
-            '''
-            :rtype: str
-            '''
-
+        def subspecies(self) -> typing.Union[str, None]:
             return self.__subspecies
 
         @property
-        def technique(self):
-            '''
-            :rtype: str
-            '''
-
+        def technique(self) -> typing.Union[str, None]:
             return self.__technique
 
         @property
-        def tempauthor(self):
-            '''
-            :rtype: str
-            '''
-
+        def tempauthor(self) -> typing.Union[str, None]:
             return self.__tempauthor
 
         @property
-        def tempby(self):
-            '''
-            :rtype: str
-            '''
-
+        def tempby(self) -> typing.Union[str, None]:
             return self.__tempby
 
         @property
-        def tempdate(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def tempdate(self) -> typing.Union[datetime.date, None]:
             return self.__tempdate
 
         @property
-        def temperatur(self):
-            '''
-            :rtype: str
-            '''
-
+        def temperatur(self) -> typing.Union[str, None]:
             return self.__temperatur
 
         @property
-        def temploc(self):
-            '''
-            :rtype: str
-            '''
-
+        def temploc(self) -> typing.Union[str, None]:
             return self.__temploc
 
         @property
-        def tempnotes(self):
-            '''
-            :rtype: str
-            '''
-
+        def tempnotes(self) -> typing.Union[str, None]:
             return self.__tempnotes
 
         @property
-        def tempreason(self):
-            '''
-            :rtype: str
-            '''
-
+        def tempreason(self) -> typing.Union[str, None]:
             return self.__tempreason
 
         @property
-        def tempuntil(self):
-            '''
-            :rtype: str
-            '''
-
+        def tempuntil(self) -> typing.Union[str, None]:
             return self.__tempuntil
 
         @property
-        def texture(self):
-            '''
-            :rtype: str
-            '''
-
+        def texture(self) -> typing.Union[str, None]:
             return self.__texture
 
         @property
-        def title(self):
-            '''
-            :rtype: str
-            '''
-
+        def title(self) -> typing.Union[str, None]:
             return self.__title
 
         @property
-        def tlocfield1(self):
-            '''
-            :rtype: str
-            '''
-
+        def tlocfield1(self) -> typing.Union[str, None]:
             return self.__tlocfield1
 
         @property
-        def tlocfield2(self):
-            '''
-            :rtype: str
-            '''
-
+        def tlocfield2(self) -> typing.Union[str, None]:
             return self.__tlocfield2
 
         @property
-        def tlocfield3(self):
-            '''
-            :rtype: str
-            '''
-
+        def tlocfield3(self) -> typing.Union[str, None]:
             return self.__tlocfield3
 
         @property
-        def tlocfield4(self):
-            '''
-            :rtype: str
-            '''
-
+        def tlocfield4(self) -> typing.Union[str, None]:
             return self.__tlocfield4
 
         @property
-        def tlocfield5(self):
-            '''
-            :rtype: str
-            '''
-
+        def tlocfield5(self) -> typing.Union[str, None]:
             return self.__tlocfield5
 
         @property
-        def tlocfield6(self):
-            '''
-            :rtype: str
-            '''
-
+        def tlocfield6(self) -> typing.Union[str, None]:
             return self.__tlocfield6
 
         @property
-        def udf1(self):
-            '''
-            :rtype: str
-            '''
-
+        def udf1(self) -> typing.Union[str, None]:
             return self.__udf1
 
         @property
-        def udf10(self):
-            '''
-            :rtype: str
-            '''
-
+        def udf10(self) -> typing.Union[str, None]:
             return self.__udf10
 
         @property
-        def udf11(self):
-            '''
-            :rtype: str
-            '''
-
+        def udf11(self) -> typing.Union[str, None]:
             return self.__udf11
 
         @property
-        def udf12(self):
-            '''
-            :rtype: str
-            '''
-
+        def udf12(self) -> typing.Union[str, None]:
             return self.__udf12
 
         @property
-        def udf13(self):
-            '''
-            :rtype: int
-            '''
-
+        def udf13(self) -> typing.Union[int, None]:
             return self.__udf13
 
         @property
-        def udf14(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def udf14(self) -> typing.Union[decimal.Decimal, None]:
             return self.__udf14
 
         @property
-        def udf15(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def udf15(self) -> typing.Union[decimal.Decimal, None]:
             return self.__udf15
 
         @property
-        def udf16(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def udf16(self) -> typing.Union[decimal.Decimal, None]:
             return self.__udf16
 
         @property
-        def udf17(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def udf17(self) -> typing.Union[decimal.Decimal, None]:
             return self.__udf17
 
         @property
-        def udf18(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def udf18(self) -> typing.Union[datetime.date, None]:
             return self.__udf18
 
         @property
-        def udf19(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def udf19(self) -> typing.Union[datetime.date, None]:
             return self.__udf19
 
         @property
-        def udf2(self):
-            '''
-            :rtype: str
-            '''
-
+        def udf2(self) -> typing.Union[str, None]:
             return self.__udf2
 
         @property
-        def udf20(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def udf20(self) -> typing.Union[datetime.date, None]:
             return self.__udf20
 
         @property
-        def udf21(self):
-            '''
-            :rtype: str
-            '''
-
+        def udf21(self) -> typing.Union[str, None]:
             return self.__udf21
 
         @property
-        def udf22(self):
-            '''
-            :rtype: str
-            '''
-
+        def udf22(self) -> typing.Union[str, None]:
             return self.__udf22
 
         @property
-        def udf3(self):
-            '''
-            :rtype: str
-            '''
-
+        def udf3(self) -> typing.Union[str, None]:
             return self.__udf3
 
         @property
-        def udf4(self):
-            '''
-            :rtype: str
-            '''
-
+        def udf4(self) -> typing.Union[str, None]:
             return self.__udf4
 
         @property
-        def udf5(self):
-            '''
-            :rtype: str
-            '''
-
+        def udf5(self) -> typing.Union[str, None]:
             return self.__udf5
 
         @property
-        def udf6(self):
-            '''
-            :rtype: str
-            '''
-
+        def udf6(self) -> typing.Union[str, None]:
             return self.__udf6
 
         @property
-        def udf7(self):
-            '''
-            :rtype: str
-            '''
-
+        def udf7(self) -> typing.Union[str, None]:
             return self.__udf7
 
         @property
-        def udf8(self):
-            '''
-            :rtype: str
-            '''
-
+        def udf8(self) -> typing.Union[str, None]:
             return self.__udf8
 
         @property
-        def udf9(self):
-            '''
-            :rtype: str
-            '''
-
+        def udf9(self) -> typing.Union[str, None]:
             return self.__udf9
 
         @property
-        def unit(self):
-            '''
-            :rtype: str
-            '''
-
+        def unit(self) -> typing.Union[str, None]:
             return self.__unit
 
         def update(self, objects_dbf_record):
-            '''
-            :type accessno: str or None
-            :type accessory: str or None
-            :type acqvalue: Decimal or None
-            :type age: str or None
-            :type appnotes: str or None
-            :type appraisor: str or None
-            :type assemzone: str or None
-            :type bagno: str or None
-            :type boxno: str or None
-            :type caption: str or None
-            :type cat: str or None
-            :type catby: str or None
-            :type catdate: datetime.date or None
-            :type cattype: str or None
-            :type chemcomp: str or None
-            :type circum: Decimal or None
-            :type circumft: Decimal or None
-            :type circumin: Decimal or None
-            :type classes: str or None
-            :type colldate: datetime.date or None
-            :type collection: str or None
-            :type collector: str or None
-            :type conddate: datetime.date or None
-            :type condexam: str or None
-            :type condition: str or None
-            :type condnotes: str or None
-            :type count: str or None
-            :type creator: str or None
-            :type creator2: str or None
-            :type creator3: str or None
-            :type credit: str or None
-            :type crystal: str or None
-            :type culture: str or None
-            :type curvalmax: Decimal or None
-            :type curvalue: Decimal or None
-            :type dataset: str or None
-            :type date: str or None
-            :type datingmeth: str or None
-            :type datum: str or None
-            :type depth: Decimal or None
-            :type depthft: Decimal or None
-            :type depthin: Decimal or None
-            :type descrip: str or None
-            :type diameter: Decimal or None
-            :type diameterft: Decimal or None
-            :type diameterin: Decimal or None
-            :type dimnotes: str or None
-            :type dimtype: int or None
-            :type dispvalue: str or None
-            :type earlydate: int or None
-            :type elements: str or None
-            :type epoch: str or None
-            :type era: str or None
-            :type event: str or None
-            :type ew: str or None
-            :type excavadate: datetime.date or None
-            :type excavateby: str or None
-            :type exhibitid: str or None
-            :type exhibitno: int or None
-            :type exhlabel1: str or None
-            :type exhlabel2: str or None
-            :type exhlabel3: str or None
-            :type exhlabel4: str or None
-            :type exhstart: datetime.date or None
-            :type family: str or None
-            :type feature: str or None
-            :type flagdate: datetime.datetime or None
-            :type flagnotes: str or None
-            :type flagreason: str or None
-            :type formation: str or None
-            :type fossils: str or None
-            :type found: str or None
-            :type fracture: str or None
-            :type frame: str or None
-            :type framesize: str or None
-            :type genus: str or None
-            :type gparent: str or None
-            :type grainsize: str or None
-            :type habitat: str or None
-            :type hardness: str or None
-            :type height: Decimal or None
-            :type heightft: Decimal or None
-            :type heightin: Decimal or None
-            :type homeloc: str or None
-            :type idby: str or None
-            :type iddate: datetime.date or None
-            :type imagefile: str or None
-            :type imageno: int or None
-            :type imagesize: str or None
-            :type inscomp: str or None
-            :type inscrlang: str or None
-            :type inscrpos: str or None
-            :type inscrtech: str or None
-            :type inscrtext: str or None
-            :type inscrtrans: str or None
-            :type inscrtype: str or None
-            :type insdate: datetime.date or None
-            :type insphone: str or None
-            :type inspremium: str or None
-            :type insrep: str or None
-            :type insvalue: Decimal or None
-            :type invnby: str or None
-            :type invndate: datetime.date or None
-            :type kingdom: str or None
-            :type latdeg: Decimal or None
-            :type latedate: int or None
-            :type legal: str or None
-            :type length: Decimal or None
-            :type lengthft: Decimal or None
-            :type lengthin: Decimal or None
-            :type level: str or None
-            :type lithofacie: str or None
-            :type loancond: str or None
-            :type loandue: datetime.date or None
-            :type loanid: str or None
-            :type loaninno: str or None
-            :type loanno: int or None
-            :type loanrenew: datetime.date or None
-            :type locfield1: str or None
-            :type locfield2: str or None
-            :type locfield3: str or None
-            :type locfield4: str or None
-            :type locfield5: str or None
-            :type locfield6: str or None
-            :type longdeg: Decimal or None
-            :type luster: str or None
-            :type made: str or None
-            :type maintcycle: str or None
-            :type maintdate: datetime.date or None
-            :type maintnote: str or None
-            :type material: str or None
-            :type medium: str or None
-            :type member: str or None
-            :type mmark: str or None
-            :type nhclass: str or None
-            :type nhorder: str or None
-            :type notes: str or None
-            :type ns: str or None
-            :type objectid: str or None
-            :type objname: str or None
-            :type objname2: str or None
-            :type objname3: str or None
-            :type objnames: str or None
-            :type occurrence: str or None
-            :type oldno: str or None
-            :type origin: str or None
-            :type othername: str or None
-            :type otherno: str or None
-            :type outdate: datetime.date or None
-            :type owned: str or None
-            :type parent: str or None
-            :type people: str or None
-            :type period: str or None
-            :type phylum: str or None
-            :type policyno: str or None
-            :type ppid: str or None
-            :type preparator: str or None
-            :type prepdate: datetime.date or None
-            :type preserve: str or None
-            :type pressure: str or None
-            :type provenance: str or None
-            :type pubnotes: str or None
-            :type qrurl: str or None
-            :type recas: str or None
-            :type recdate: str or None
-            :type recfrom: str or None
-            :type relation: str or None
-            :type relnotes: str or None
-            :type renewuntil: datetime.date or None
-            :type repatby: str or None
-            :type repatclaim: str or None
-            :type repatdate: datetime.date or None
-            :type repatdisp: str or None
-            :type repathand: str or None
-            :type repatnotes: str or None
-            :type repatnotic: datetime.date or None
-            :type repattype: str or None
-            :type rockclass: str or None
-            :type rockcolor: str or None
-            :type rockorigin: str or None
-            :type rocktype: str or None
-            :type role: str or None
-            :type role2: str or None
-            :type role3: str or None
-            :type school: str or None
-            :type sex: str or None
-            :type sgflag: str or None
-            :type signedname: str or None
-            :type signloc: str or None
-            :type site: str or None
-            :type siteno: str or None
-            :type specgrav: str or None
-            :type species: str or None
-            :type sprocess: str or None
-            :type stage: str or None
-            :type status: str or None
-            :type statusby: str or None
-            :type statusdate: datetime.date or None
-            :type sterms: str or None
-            :type stratum: str or None
-            :type streak: str or None
-            :type subfamily: str or None
-            :type subjects: str or None
-            :type subspecies: str or None
-            :type technique: str or None
-            :type tempauthor: str or None
-            :type tempby: str or None
-            :type tempdate: datetime.date or None
-            :type temperatur: str or None
-            :type temploc: str or None
-            :type tempnotes: str or None
-            :type tempreason: str or None
-            :type tempuntil: str or None
-            :type texture: str or None
-            :type title: str or None
-            :type tlocfield1: str or None
-            :type tlocfield2: str or None
-            :type tlocfield3: str or None
-            :type tlocfield4: str or None
-            :type tlocfield5: str or None
-            :type tlocfield6: str or None
-            :type udf1: str or None
-            :type udf10: str or None
-            :type udf11: str or None
-            :type udf12: str or None
-            :type udf13: int or None
-            :type udf14: Decimal or None
-            :type udf15: Decimal or None
-            :type udf16: Decimal or None
-            :type udf17: Decimal or None
-            :type udf18: datetime.date or None
-            :type udf19: datetime.date or None
-            :type udf2: str or None
-            :type udf20: datetime.date or None
-            :type udf21: str or None
-            :type udf22: str or None
-            :type udf3: str or None
-            :type udf4: str or None
-            :type udf5: str or None
-            :type udf6: str or None
-            :type udf7: str or None
-            :type udf8: str or None
-            :type udf9: str or None
-            :type unit: str or None
-            :type updated: datetime.datetime or None
-            :type updatedby: str or None
-            :type used: str or None
-            :type valuedate: datetime.date or None
-            :type varieties: str or None
-            :type vexhtml: str or None
-            :type vexlabel1: str or None
-            :type vexlabel2: str or None
-            :type vexlabel3: str or None
-            :type vexlabel4: str or None
-            :type webinclude: bool or None
-            :type weight: Decimal or None
-            :type weightin: Decimal or None
-            :type weightlb: Decimal or None
-            :type width: Decimal or None
-            :type widthft: Decimal or None
-            :type widthin: Decimal or None
-            :type xcord: Decimal or None
-            :type ycord: Decimal or None
-            :type zcord: Decimal or None
-            :type zsorter: str or None
-            :type zsorterx: str or None
-            '''
-
             if isinstance(objects_dbf_record, ObjectsDbfRecord):
                 self.set_accessno(objects_dbf_record.accessno)
                 self.set_accessory(objects_dbf_record.accessory)
@@ -5977,2307 +3669,1155 @@ class ObjectsDbfRecord(object):
             return self
 
         @property
-        def updated(self):
-            '''
-            :rtype: datetime.datetime
-            '''
-
+        def updated(self) -> typing.Union[datetime.datetime, None]:
             return self.__updated
 
         @property
-        def updatedby(self):
-            '''
-            :rtype: str
-            '''
-
+        def updatedby(self) -> typing.Union[str, None]:
             return self.__updatedby
 
         @property
-        def used(self):
-            '''
-            :rtype: str
-            '''
-
+        def used(self) -> typing.Union[str, None]:
             return self.__used
 
         @property
-        def valuedate(self):
-            '''
-            :rtype: datetime.date
-            '''
-
+        def valuedate(self) -> typing.Union[datetime.date, None]:
             return self.__valuedate
 
         @property
-        def varieties(self):
-            '''
-            :rtype: str
-            '''
-
+        def varieties(self) -> typing.Union[str, None]:
             return self.__varieties
 
         @property
-        def vexhtml(self):
-            '''
-            :rtype: str
-            '''
-
+        def vexhtml(self) -> typing.Union[str, None]:
             return self.__vexhtml
 
         @property
-        def vexlabel1(self):
-            '''
-            :rtype: str
-            '''
-
+        def vexlabel1(self) -> typing.Union[str, None]:
             return self.__vexlabel1
 
         @property
-        def vexlabel2(self):
-            '''
-            :rtype: str
-            '''
-
+        def vexlabel2(self) -> typing.Union[str, None]:
             return self.__vexlabel2
 
         @property
-        def vexlabel3(self):
-            '''
-            :rtype: str
-            '''
-
+        def vexlabel3(self) -> typing.Union[str, None]:
             return self.__vexlabel3
 
         @property
-        def vexlabel4(self):
-            '''
-            :rtype: str
-            '''
-
+        def vexlabel4(self) -> typing.Union[str, None]:
             return self.__vexlabel4
 
         @property
-        def webinclude(self):
-            '''
-            :rtype: bool
-            '''
-
+        def webinclude(self) -> typing.Union[bool, None]:
             return self.__webinclude
 
         @property
-        def weight(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def weight(self) -> typing.Union[decimal.Decimal, None]:
             return self.__weight
 
         @property
-        def weightin(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def weightin(self) -> typing.Union[decimal.Decimal, None]:
             return self.__weightin
 
         @property
-        def weightlb(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def weightlb(self) -> typing.Union[decimal.Decimal, None]:
             return self.__weightlb
 
         @property
-        def width(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def width(self) -> typing.Union[decimal.Decimal, None]:
             return self.__width
 
         @property
-        def widthft(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def widthft(self) -> typing.Union[decimal.Decimal, None]:
             return self.__widthft
 
         @property
-        def widthin(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def widthin(self) -> typing.Union[decimal.Decimal, None]:
             return self.__widthin
 
         @property
-        def xcord(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def xcord(self) -> typing.Union[decimal.Decimal, None]:
             return self.__xcord
 
         @property
-        def ycord(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def ycord(self) -> typing.Union[decimal.Decimal, None]:
             return self.__ycord
 
         @property
-        def zcord(self):
-            '''
-            :rtype: Decimal
-            '''
-
+        def zcord(self) -> typing.Union[decimal.Decimal, None]:
             return self.__zcord
 
         @property
-        def zsorter(self):
-            '''
-            :rtype: str
-            '''
-
+        def zsorter(self) -> typing.Union[str, None]:
             return self.__zsorter
 
         @property
-        def zsorterx(self):
-            '''
-            :rtype: str
-            '''
-
+        def zsorterx(self) -> typing.Union[str, None]:
             return self.__zsorterx
 
         @accessno.setter
-        def accessno(self, accessno):
-            '''
-            :type accessno: str or None
-            '''
-
+        def accessno(self, accessno: typing.Union[str, None]) -> None:
             self.set_accessno(accessno)
 
         @accessory.setter
-        def accessory(self, accessory):
-            '''
-            :type accessory: str or None
-            '''
-
+        def accessory(self, accessory: typing.Union[str, None]) -> None:
             self.set_accessory(accessory)
 
         @acqvalue.setter
-        def acqvalue(self, acqvalue):
-            '''
-            :type acqvalue: Decimal or None
-            '''
-
+        def acqvalue(self, acqvalue: typing.Union[decimal.Decimal, None]) -> None:
             self.set_acqvalue(acqvalue)
 
         @age.setter
-        def age(self, age):
-            '''
-            :type age: str or None
-            '''
-
+        def age(self, age: typing.Union[str, None]) -> None:
             self.set_age(age)
 
         @appnotes.setter
-        def appnotes(self, appnotes):
-            '''
-            :type appnotes: str or None
-            '''
-
+        def appnotes(self, appnotes: typing.Union[str, None]) -> None:
             self.set_appnotes(appnotes)
 
         @appraisor.setter
-        def appraisor(self, appraisor):
-            '''
-            :type appraisor: str or None
-            '''
-
+        def appraisor(self, appraisor: typing.Union[str, None]) -> None:
             self.set_appraisor(appraisor)
 
         @assemzone.setter
-        def assemzone(self, assemzone):
-            '''
-            :type assemzone: str or None
-            '''
-
+        def assemzone(self, assemzone: typing.Union[str, None]) -> None:
             self.set_assemzone(assemzone)
 
         @bagno.setter
-        def bagno(self, bagno):
-            '''
-            :type bagno: str or None
-            '''
-
+        def bagno(self, bagno: typing.Union[str, None]) -> None:
             self.set_bagno(bagno)
 
         @boxno.setter
-        def boxno(self, boxno):
-            '''
-            :type boxno: str or None
-            '''
-
+        def boxno(self, boxno: typing.Union[str, None]) -> None:
             self.set_boxno(boxno)
 
         @caption.setter
-        def caption(self, caption):
-            '''
-            :type caption: str or None
-            '''
-
+        def caption(self, caption: typing.Union[str, None]) -> None:
             self.set_caption(caption)
 
         @cat.setter
-        def cat(self, cat):
-            '''
-            :type cat: str or None
-            '''
-
+        def cat(self, cat: typing.Union[str, None]) -> None:
             self.set_cat(cat)
 
         @catby.setter
-        def catby(self, catby):
-            '''
-            :type catby: str or None
-            '''
-
+        def catby(self, catby: typing.Union[str, None]) -> None:
             self.set_catby(catby)
 
         @catdate.setter
-        def catdate(self, catdate):
-            '''
-            :type catdate: datetime.date or None
-            '''
-
+        def catdate(self, catdate: typing.Union[datetime.date, None]) -> None:
             self.set_catdate(catdate)
 
         @cattype.setter
-        def cattype(self, cattype):
-            '''
-            :type cattype: str or None
-            '''
-
+        def cattype(self, cattype: typing.Union[str, None]) -> None:
             self.set_cattype(cattype)
 
         @chemcomp.setter
-        def chemcomp(self, chemcomp):
-            '''
-            :type chemcomp: str or None
-            '''
-
+        def chemcomp(self, chemcomp: typing.Union[str, None]) -> None:
             self.set_chemcomp(chemcomp)
 
         @circum.setter
-        def circum(self, circum):
-            '''
-            :type circum: Decimal or None
-            '''
-
+        def circum(self, circum: typing.Union[decimal.Decimal, None]) -> None:
             self.set_circum(circum)
 
         @circumft.setter
-        def circumft(self, circumft):
-            '''
-            :type circumft: Decimal or None
-            '''
-
+        def circumft(self, circumft: typing.Union[decimal.Decimal, None]) -> None:
             self.set_circumft(circumft)
 
         @circumin.setter
-        def circumin(self, circumin):
-            '''
-            :type circumin: Decimal or None
-            '''
-
+        def circumin(self, circumin: typing.Union[decimal.Decimal, None]) -> None:
             self.set_circumin(circumin)
 
         @classes.setter
-        def classes(self, classes):
-            '''
-            :type classes: str or None
-            '''
-
+        def classes(self, classes: typing.Union[str, None]) -> None:
             self.set_classes(classes)
 
         @colldate.setter
-        def colldate(self, colldate):
-            '''
-            :type colldate: datetime.date or None
-            '''
-
+        def colldate(self, colldate: typing.Union[datetime.date, None]) -> None:
             self.set_colldate(colldate)
 
         @collection.setter
-        def collection(self, collection):
-            '''
-            :type collection: str or None
-            '''
-
+        def collection(self, collection: typing.Union[str, None]) -> None:
             self.set_collection(collection)
 
         @collector.setter
-        def collector(self, collector):
-            '''
-            :type collector: str or None
-            '''
-
+        def collector(self, collector: typing.Union[str, None]) -> None:
             self.set_collector(collector)
 
         @conddate.setter
-        def conddate(self, conddate):
-            '''
-            :type conddate: datetime.date or None
-            '''
-
+        def conddate(self, conddate: typing.Union[datetime.date, None]) -> None:
             self.set_conddate(conddate)
 
         @condexam.setter
-        def condexam(self, condexam):
-            '''
-            :type condexam: str or None
-            '''
-
+        def condexam(self, condexam: typing.Union[str, None]) -> None:
             self.set_condexam(condexam)
 
         @condition.setter
-        def condition(self, condition):
-            '''
-            :type condition: str or None
-            '''
-
+        def condition(self, condition: typing.Union[str, None]) -> None:
             self.set_condition(condition)
 
         @condnotes.setter
-        def condnotes(self, condnotes):
-            '''
-            :type condnotes: str or None
-            '''
-
+        def condnotes(self, condnotes: typing.Union[str, None]) -> None:
             self.set_condnotes(condnotes)
 
         @count.setter
-        def count(self, count):
-            '''
-            :type count: str or None
-            '''
-
+        def count(self, count: typing.Union[str, None]) -> None:
             self.set_count(count)
 
         @creator.setter
-        def creator(self, creator):
-            '''
-            :type creator: str or None
-            '''
-
+        def creator(self, creator: typing.Union[str, None]) -> None:
             self.set_creator(creator)
 
         @creator2.setter
-        def creator2(self, creator2):
-            '''
-            :type creator2: str or None
-            '''
-
+        def creator2(self, creator2: typing.Union[str, None]) -> None:
             self.set_creator2(creator2)
 
         @creator3.setter
-        def creator3(self, creator3):
-            '''
-            :type creator3: str or None
-            '''
-
+        def creator3(self, creator3: typing.Union[str, None]) -> None:
             self.set_creator3(creator3)
 
         @credit.setter
-        def credit(self, credit):
-            '''
-            :type credit: str or None
-            '''
-
+        def credit(self, credit: typing.Union[str, None]) -> None:
             self.set_credit(credit)
 
         @crystal.setter
-        def crystal(self, crystal):
-            '''
-            :type crystal: str or None
-            '''
-
+        def crystal(self, crystal: typing.Union[str, None]) -> None:
             self.set_crystal(crystal)
 
         @culture.setter
-        def culture(self, culture):
-            '''
-            :type culture: str or None
-            '''
-
+        def culture(self, culture: typing.Union[str, None]) -> None:
             self.set_culture(culture)
 
         @curvalmax.setter
-        def curvalmax(self, curvalmax):
-            '''
-            :type curvalmax: Decimal or None
-            '''
-
+        def curvalmax(self, curvalmax: typing.Union[decimal.Decimal, None]) -> None:
             self.set_curvalmax(curvalmax)
 
         @curvalue.setter
-        def curvalue(self, curvalue):
-            '''
-            :type curvalue: Decimal or None
-            '''
-
+        def curvalue(self, curvalue: typing.Union[decimal.Decimal, None]) -> None:
             self.set_curvalue(curvalue)
 
         @dataset.setter
-        def dataset(self, dataset):
-            '''
-            :type dataset: str or None
-            '''
-
+        def dataset(self, dataset: typing.Union[str, None]) -> None:
             self.set_dataset(dataset)
 
         @date.setter
-        def date(self, date):
-            '''
-            :type date: str or None
-            '''
-
+        def date(self, date: typing.Union[str, None]) -> None:
             self.set_date(date)
 
         @datingmeth.setter
-        def datingmeth(self, datingmeth):
-            '''
-            :type datingmeth: str or None
-            '''
-
+        def datingmeth(self, datingmeth: typing.Union[str, None]) -> None:
             self.set_datingmeth(datingmeth)
 
         @datum.setter
-        def datum(self, datum):
-            '''
-            :type datum: str or None
-            '''
-
+        def datum(self, datum: typing.Union[str, None]) -> None:
             self.set_datum(datum)
 
         @depth.setter
-        def depth(self, depth):
-            '''
-            :type depth: Decimal or None
-            '''
-
+        def depth(self, depth: typing.Union[decimal.Decimal, None]) -> None:
             self.set_depth(depth)
 
         @depthft.setter
-        def depthft(self, depthft):
-            '''
-            :type depthft: Decimal or None
-            '''
-
+        def depthft(self, depthft: typing.Union[decimal.Decimal, None]) -> None:
             self.set_depthft(depthft)
 
         @depthin.setter
-        def depthin(self, depthin):
-            '''
-            :type depthin: Decimal or None
-            '''
-
+        def depthin(self, depthin: typing.Union[decimal.Decimal, None]) -> None:
             self.set_depthin(depthin)
 
         @descrip.setter
-        def descrip(self, descrip):
-            '''
-            :type descrip: str or None
-            '''
-
+        def descrip(self, descrip: typing.Union[str, None]) -> None:
             self.set_descrip(descrip)
 
         @diameter.setter
-        def diameter(self, diameter):
-            '''
-            :type diameter: Decimal or None
-            '''
-
+        def diameter(self, diameter: typing.Union[decimal.Decimal, None]) -> None:
             self.set_diameter(diameter)
 
         @diameterft.setter
-        def diameterft(self, diameterft):
-            '''
-            :type diameterft: Decimal or None
-            '''
-
+        def diameterft(self, diameterft: typing.Union[decimal.Decimal, None]) -> None:
             self.set_diameterft(diameterft)
 
         @diameterin.setter
-        def diameterin(self, diameterin):
-            '''
-            :type diameterin: Decimal or None
-            '''
-
+        def diameterin(self, diameterin: typing.Union[decimal.Decimal, None]) -> None:
             self.set_diameterin(diameterin)
 
         @dimnotes.setter
-        def dimnotes(self, dimnotes):
-            '''
-            :type dimnotes: str or None
-            '''
-
+        def dimnotes(self, dimnotes: typing.Union[str, None]) -> None:
             self.set_dimnotes(dimnotes)
 
         @dimtype.setter
-        def dimtype(self, dimtype):
-            '''
-            :type dimtype: int or None
-            '''
-
+        def dimtype(self, dimtype: typing.Union[int, None]) -> None:
             self.set_dimtype(dimtype)
 
         @dispvalue.setter
-        def dispvalue(self, dispvalue):
-            '''
-            :type dispvalue: str or None
-            '''
-
+        def dispvalue(self, dispvalue: typing.Union[str, None]) -> None:
             self.set_dispvalue(dispvalue)
 
         @earlydate.setter
-        def earlydate(self, earlydate):
-            '''
-            :type earlydate: int or None
-            '''
-
+        def earlydate(self, earlydate: typing.Union[int, None]) -> None:
             self.set_earlydate(earlydate)
 
         @elements.setter
-        def elements(self, elements):
-            '''
-            :type elements: str or None
-            '''
-
+        def elements(self, elements: typing.Union[str, None]) -> None:
             self.set_elements(elements)
 
         @epoch.setter
-        def epoch(self, epoch):
-            '''
-            :type epoch: str or None
-            '''
-
+        def epoch(self, epoch: typing.Union[str, None]) -> None:
             self.set_epoch(epoch)
 
         @era.setter
-        def era(self, era):
-            '''
-            :type era: str or None
-            '''
-
+        def era(self, era: typing.Union[str, None]) -> None:
             self.set_era(era)
 
         @event.setter
-        def event(self, event):
-            '''
-            :type event: str or None
-            '''
-
+        def event(self, event: typing.Union[str, None]) -> None:
             self.set_event(event)
 
         @ew.setter
-        def ew(self, ew):
-            '''
-            :type ew: str or None
-            '''
-
+        def ew(self, ew: typing.Union[str, None]) -> None:
             self.set_ew(ew)
 
         @excavadate.setter
-        def excavadate(self, excavadate):
-            '''
-            :type excavadate: datetime.date or None
-            '''
-
+        def excavadate(self, excavadate: typing.Union[datetime.date, None]) -> None:
             self.set_excavadate(excavadate)
 
         @excavateby.setter
-        def excavateby(self, excavateby):
-            '''
-            :type excavateby: str or None
-            '''
-
+        def excavateby(self, excavateby: typing.Union[str, None]) -> None:
             self.set_excavateby(excavateby)
 
         @exhibitid.setter
-        def exhibitid(self, exhibitid):
-            '''
-            :type exhibitid: str or None
-            '''
-
+        def exhibitid(self, exhibitid: typing.Union[str, None]) -> None:
             self.set_exhibitid(exhibitid)
 
         @exhibitno.setter
-        def exhibitno(self, exhibitno):
-            '''
-            :type exhibitno: int or None
-            '''
-
+        def exhibitno(self, exhibitno: typing.Union[int, None]) -> None:
             self.set_exhibitno(exhibitno)
 
         @exhlabel1.setter
-        def exhlabel1(self, exhlabel1):
-            '''
-            :type exhlabel1: str or None
-            '''
-
+        def exhlabel1(self, exhlabel1: typing.Union[str, None]) -> None:
             self.set_exhlabel1(exhlabel1)
 
         @exhlabel2.setter
-        def exhlabel2(self, exhlabel2):
-            '''
-            :type exhlabel2: str or None
-            '''
-
+        def exhlabel2(self, exhlabel2: typing.Union[str, None]) -> None:
             self.set_exhlabel2(exhlabel2)
 
         @exhlabel3.setter
-        def exhlabel3(self, exhlabel3):
-            '''
-            :type exhlabel3: str or None
-            '''
-
+        def exhlabel3(self, exhlabel3: typing.Union[str, None]) -> None:
             self.set_exhlabel3(exhlabel3)
 
         @exhlabel4.setter
-        def exhlabel4(self, exhlabel4):
-            '''
-            :type exhlabel4: str or None
-            '''
-
+        def exhlabel4(self, exhlabel4: typing.Union[str, None]) -> None:
             self.set_exhlabel4(exhlabel4)
 
         @exhstart.setter
-        def exhstart(self, exhstart):
-            '''
-            :type exhstart: datetime.date or None
-            '''
-
+        def exhstart(self, exhstart: typing.Union[datetime.date, None]) -> None:
             self.set_exhstart(exhstart)
 
         @family.setter
-        def family(self, family):
-            '''
-            :type family: str or None
-            '''
-
+        def family(self, family: typing.Union[str, None]) -> None:
             self.set_family(family)
 
         @feature.setter
-        def feature(self, feature):
-            '''
-            :type feature: str or None
-            '''
-
+        def feature(self, feature: typing.Union[str, None]) -> None:
             self.set_feature(feature)
 
         @flagdate.setter
-        def flagdate(self, flagdate):
-            '''
-            :type flagdate: datetime.datetime or None
-            '''
-
+        def flagdate(self, flagdate: typing.Union[datetime.datetime, None]) -> None:
             self.set_flagdate(flagdate)
 
         @flagnotes.setter
-        def flagnotes(self, flagnotes):
-            '''
-            :type flagnotes: str or None
-            '''
-
+        def flagnotes(self, flagnotes: typing.Union[str, None]) -> None:
             self.set_flagnotes(flagnotes)
 
         @flagreason.setter
-        def flagreason(self, flagreason):
-            '''
-            :type flagreason: str or None
-            '''
-
+        def flagreason(self, flagreason: typing.Union[str, None]) -> None:
             self.set_flagreason(flagreason)
 
         @formation.setter
-        def formation(self, formation):
-            '''
-            :type formation: str or None
-            '''
-
+        def formation(self, formation: typing.Union[str, None]) -> None:
             self.set_formation(formation)
 
         @fossils.setter
-        def fossils(self, fossils):
-            '''
-            :type fossils: str or None
-            '''
-
+        def fossils(self, fossils: typing.Union[str, None]) -> None:
             self.set_fossils(fossils)
 
         @found.setter
-        def found(self, found):
-            '''
-            :type found: str or None
-            '''
-
+        def found(self, found: typing.Union[str, None]) -> None:
             self.set_found(found)
 
         @fracture.setter
-        def fracture(self, fracture):
-            '''
-            :type fracture: str or None
-            '''
-
+        def fracture(self, fracture: typing.Union[str, None]) -> None:
             self.set_fracture(fracture)
 
         @frame.setter
-        def frame(self, frame):
-            '''
-            :type frame: str or None
-            '''
-
+        def frame(self, frame: typing.Union[str, None]) -> None:
             self.set_frame(frame)
 
         @framesize.setter
-        def framesize(self, framesize):
-            '''
-            :type framesize: str or None
-            '''
-
+        def framesize(self, framesize: typing.Union[str, None]) -> None:
             self.set_framesize(framesize)
 
         @genus.setter
-        def genus(self, genus):
-            '''
-            :type genus: str or None
-            '''
-
+        def genus(self, genus: typing.Union[str, None]) -> None:
             self.set_genus(genus)
 
         @gparent.setter
-        def gparent(self, gparent):
-            '''
-            :type gparent: str or None
-            '''
-
+        def gparent(self, gparent: typing.Union[str, None]) -> None:
             self.set_gparent(gparent)
 
         @grainsize.setter
-        def grainsize(self, grainsize):
-            '''
-            :type grainsize: str or None
-            '''
-
+        def grainsize(self, grainsize: typing.Union[str, None]) -> None:
             self.set_grainsize(grainsize)
 
         @habitat.setter
-        def habitat(self, habitat):
-            '''
-            :type habitat: str or None
-            '''
-
+        def habitat(self, habitat: typing.Union[str, None]) -> None:
             self.set_habitat(habitat)
 
         @hardness.setter
-        def hardness(self, hardness):
-            '''
-            :type hardness: str or None
-            '''
-
+        def hardness(self, hardness: typing.Union[str, None]) -> None:
             self.set_hardness(hardness)
 
         @height.setter
-        def height(self, height):
-            '''
-            :type height: Decimal or None
-            '''
-
+        def height(self, height: typing.Union[decimal.Decimal, None]) -> None:
             self.set_height(height)
 
         @heightft.setter
-        def heightft(self, heightft):
-            '''
-            :type heightft: Decimal or None
-            '''
-
+        def heightft(self, heightft: typing.Union[decimal.Decimal, None]) -> None:
             self.set_heightft(heightft)
 
         @heightin.setter
-        def heightin(self, heightin):
-            '''
-            :type heightin: Decimal or None
-            '''
-
+        def heightin(self, heightin: typing.Union[decimal.Decimal, None]) -> None:
             self.set_heightin(heightin)
 
         @homeloc.setter
-        def homeloc(self, homeloc):
-            '''
-            :type homeloc: str or None
-            '''
-
+        def homeloc(self, homeloc: typing.Union[str, None]) -> None:
             self.set_homeloc(homeloc)
 
         @idby.setter
-        def idby(self, idby):
-            '''
-            :type idby: str or None
-            '''
-
+        def idby(self, idby: typing.Union[str, None]) -> None:
             self.set_idby(idby)
 
         @iddate.setter
-        def iddate(self, iddate):
-            '''
-            :type iddate: datetime.date or None
-            '''
-
+        def iddate(self, iddate: typing.Union[datetime.date, None]) -> None:
             self.set_iddate(iddate)
 
         @imagefile.setter
-        def imagefile(self, imagefile):
-            '''
-            :type imagefile: str or None
-            '''
-
+        def imagefile(self, imagefile: typing.Union[str, None]) -> None:
             self.set_imagefile(imagefile)
 
         @imageno.setter
-        def imageno(self, imageno):
-            '''
-            :type imageno: int or None
-            '''
-
+        def imageno(self, imageno: typing.Union[int, None]) -> None:
             self.set_imageno(imageno)
 
         @imagesize.setter
-        def imagesize(self, imagesize):
-            '''
-            :type imagesize: str or None
-            '''
-
+        def imagesize(self, imagesize: typing.Union[str, None]) -> None:
             self.set_imagesize(imagesize)
 
         @inscomp.setter
-        def inscomp(self, inscomp):
-            '''
-            :type inscomp: str or None
-            '''
-
+        def inscomp(self, inscomp: typing.Union[str, None]) -> None:
             self.set_inscomp(inscomp)
 
         @inscrlang.setter
-        def inscrlang(self, inscrlang):
-            '''
-            :type inscrlang: str or None
-            '''
-
+        def inscrlang(self, inscrlang: typing.Union[str, None]) -> None:
             self.set_inscrlang(inscrlang)
 
         @inscrpos.setter
-        def inscrpos(self, inscrpos):
-            '''
-            :type inscrpos: str or None
-            '''
-
+        def inscrpos(self, inscrpos: typing.Union[str, None]) -> None:
             self.set_inscrpos(inscrpos)
 
         @inscrtech.setter
-        def inscrtech(self, inscrtech):
-            '''
-            :type inscrtech: str or None
-            '''
-
+        def inscrtech(self, inscrtech: typing.Union[str, None]) -> None:
             self.set_inscrtech(inscrtech)
 
         @inscrtext.setter
-        def inscrtext(self, inscrtext):
-            '''
-            :type inscrtext: str or None
-            '''
-
+        def inscrtext(self, inscrtext: typing.Union[str, None]) -> None:
             self.set_inscrtext(inscrtext)
 
         @inscrtrans.setter
-        def inscrtrans(self, inscrtrans):
-            '''
-            :type inscrtrans: str or None
-            '''
-
+        def inscrtrans(self, inscrtrans: typing.Union[str, None]) -> None:
             self.set_inscrtrans(inscrtrans)
 
         @inscrtype.setter
-        def inscrtype(self, inscrtype):
-            '''
-            :type inscrtype: str or None
-            '''
-
+        def inscrtype(self, inscrtype: typing.Union[str, None]) -> None:
             self.set_inscrtype(inscrtype)
 
         @insdate.setter
-        def insdate(self, insdate):
-            '''
-            :type insdate: datetime.date or None
-            '''
-
+        def insdate(self, insdate: typing.Union[datetime.date, None]) -> None:
             self.set_insdate(insdate)
 
         @insphone.setter
-        def insphone(self, insphone):
-            '''
-            :type insphone: str or None
-            '''
-
+        def insphone(self, insphone: typing.Union[str, None]) -> None:
             self.set_insphone(insphone)
 
         @inspremium.setter
-        def inspremium(self, inspremium):
-            '''
-            :type inspremium: str or None
-            '''
-
+        def inspremium(self, inspremium: typing.Union[str, None]) -> None:
             self.set_inspremium(inspremium)
 
         @insrep.setter
-        def insrep(self, insrep):
-            '''
-            :type insrep: str or None
-            '''
-
+        def insrep(self, insrep: typing.Union[str, None]) -> None:
             self.set_insrep(insrep)
 
         @insvalue.setter
-        def insvalue(self, insvalue):
-            '''
-            :type insvalue: Decimal or None
-            '''
-
+        def insvalue(self, insvalue: typing.Union[decimal.Decimal, None]) -> None:
             self.set_insvalue(insvalue)
 
         @invnby.setter
-        def invnby(self, invnby):
-            '''
-            :type invnby: str or None
-            '''
-
+        def invnby(self, invnby: typing.Union[str, None]) -> None:
             self.set_invnby(invnby)
 
         @invndate.setter
-        def invndate(self, invndate):
-            '''
-            :type invndate: datetime.date or None
-            '''
-
+        def invndate(self, invndate: typing.Union[datetime.date, None]) -> None:
             self.set_invndate(invndate)
 
         @kingdom.setter
-        def kingdom(self, kingdom):
-            '''
-            :type kingdom: str or None
-            '''
-
+        def kingdom(self, kingdom: typing.Union[str, None]) -> None:
             self.set_kingdom(kingdom)
 
         @latdeg.setter
-        def latdeg(self, latdeg):
-            '''
-            :type latdeg: Decimal or None
-            '''
-
+        def latdeg(self, latdeg: typing.Union[decimal.Decimal, None]) -> None:
             self.set_latdeg(latdeg)
 
         @latedate.setter
-        def latedate(self, latedate):
-            '''
-            :type latedate: int or None
-            '''
-
+        def latedate(self, latedate: typing.Union[int, None]) -> None:
             self.set_latedate(latedate)
 
         @legal.setter
-        def legal(self, legal):
-            '''
-            :type legal: str or None
-            '''
-
+        def legal(self, legal: typing.Union[str, None]) -> None:
             self.set_legal(legal)
 
         @length.setter
-        def length(self, length):
-            '''
-            :type length: Decimal or None
-            '''
-
+        def length(self, length: typing.Union[decimal.Decimal, None]) -> None:
             self.set_length(length)
 
         @lengthft.setter
-        def lengthft(self, lengthft):
-            '''
-            :type lengthft: Decimal or None
-            '''
-
+        def lengthft(self, lengthft: typing.Union[decimal.Decimal, None]) -> None:
             self.set_lengthft(lengthft)
 
         @lengthin.setter
-        def lengthin(self, lengthin):
-            '''
-            :type lengthin: Decimal or None
-            '''
-
+        def lengthin(self, lengthin: typing.Union[decimal.Decimal, None]) -> None:
             self.set_lengthin(lengthin)
 
         @level.setter
-        def level(self, level):
-            '''
-            :type level: str or None
-            '''
-
+        def level(self, level: typing.Union[str, None]) -> None:
             self.set_level(level)
 
         @lithofacie.setter
-        def lithofacie(self, lithofacie):
-            '''
-            :type lithofacie: str or None
-            '''
-
+        def lithofacie(self, lithofacie: typing.Union[str, None]) -> None:
             self.set_lithofacie(lithofacie)
 
         @loancond.setter
-        def loancond(self, loancond):
-            '''
-            :type loancond: str or None
-            '''
-
+        def loancond(self, loancond: typing.Union[str, None]) -> None:
             self.set_loancond(loancond)
 
         @loandue.setter
-        def loandue(self, loandue):
-            '''
-            :type loandue: datetime.date or None
-            '''
-
+        def loandue(self, loandue: typing.Union[datetime.date, None]) -> None:
             self.set_loandue(loandue)
 
         @loanid.setter
-        def loanid(self, loanid):
-            '''
-            :type loanid: str or None
-            '''
-
+        def loanid(self, loanid: typing.Union[str, None]) -> None:
             self.set_loanid(loanid)
 
         @loaninno.setter
-        def loaninno(self, loaninno):
-            '''
-            :type loaninno: str or None
-            '''
-
+        def loaninno(self, loaninno: typing.Union[str, None]) -> None:
             self.set_loaninno(loaninno)
 
         @loanno.setter
-        def loanno(self, loanno):
-            '''
-            :type loanno: int or None
-            '''
-
+        def loanno(self, loanno: typing.Union[int, None]) -> None:
             self.set_loanno(loanno)
 
         @loanrenew.setter
-        def loanrenew(self, loanrenew):
-            '''
-            :type loanrenew: datetime.date or None
-            '''
-
+        def loanrenew(self, loanrenew: typing.Union[datetime.date, None]) -> None:
             self.set_loanrenew(loanrenew)
 
         @locfield1.setter
-        def locfield1(self, locfield1):
-            '''
-            :type locfield1: str or None
-            '''
-
+        def locfield1(self, locfield1: typing.Union[str, None]) -> None:
             self.set_locfield1(locfield1)
 
         @locfield2.setter
-        def locfield2(self, locfield2):
-            '''
-            :type locfield2: str or None
-            '''
-
+        def locfield2(self, locfield2: typing.Union[str, None]) -> None:
             self.set_locfield2(locfield2)
 
         @locfield3.setter
-        def locfield3(self, locfield3):
-            '''
-            :type locfield3: str or None
-            '''
-
+        def locfield3(self, locfield3: typing.Union[str, None]) -> None:
             self.set_locfield3(locfield3)
 
         @locfield4.setter
-        def locfield4(self, locfield4):
-            '''
-            :type locfield4: str or None
-            '''
-
+        def locfield4(self, locfield4: typing.Union[str, None]) -> None:
             self.set_locfield4(locfield4)
 
         @locfield5.setter
-        def locfield5(self, locfield5):
-            '''
-            :type locfield5: str or None
-            '''
-
+        def locfield5(self, locfield5: typing.Union[str, None]) -> None:
             self.set_locfield5(locfield5)
 
         @locfield6.setter
-        def locfield6(self, locfield6):
-            '''
-            :type locfield6: str or None
-            '''
-
+        def locfield6(self, locfield6: typing.Union[str, None]) -> None:
             self.set_locfield6(locfield6)
 
         @longdeg.setter
-        def longdeg(self, longdeg):
-            '''
-            :type longdeg: Decimal or None
-            '''
-
+        def longdeg(self, longdeg: typing.Union[decimal.Decimal, None]) -> None:
             self.set_longdeg(longdeg)
 
         @luster.setter
-        def luster(self, luster):
-            '''
-            :type luster: str or None
-            '''
-
+        def luster(self, luster: typing.Union[str, None]) -> None:
             self.set_luster(luster)
 
         @made.setter
-        def made(self, made):
-            '''
-            :type made: str or None
-            '''
-
+        def made(self, made: typing.Union[str, None]) -> None:
             self.set_made(made)
 
         @maintcycle.setter
-        def maintcycle(self, maintcycle):
-            '''
-            :type maintcycle: str or None
-            '''
-
+        def maintcycle(self, maintcycle: typing.Union[str, None]) -> None:
             self.set_maintcycle(maintcycle)
 
         @maintdate.setter
-        def maintdate(self, maintdate):
-            '''
-            :type maintdate: datetime.date or None
-            '''
-
+        def maintdate(self, maintdate: typing.Union[datetime.date, None]) -> None:
             self.set_maintdate(maintdate)
 
         @maintnote.setter
-        def maintnote(self, maintnote):
-            '''
-            :type maintnote: str or None
-            '''
-
+        def maintnote(self, maintnote: typing.Union[str, None]) -> None:
             self.set_maintnote(maintnote)
 
         @material.setter
-        def material(self, material):
-            '''
-            :type material: str or None
-            '''
-
+        def material(self, material: typing.Union[str, None]) -> None:
             self.set_material(material)
 
         @medium.setter
-        def medium(self, medium):
-            '''
-            :type medium: str or None
-            '''
-
+        def medium(self, medium: typing.Union[str, None]) -> None:
             self.set_medium(medium)
 
         @member.setter
-        def member(self, member):
-            '''
-            :type member: str or None
-            '''
-
+        def member(self, member: typing.Union[str, None]) -> None:
             self.set_member(member)
 
         @mmark.setter
-        def mmark(self, mmark):
-            '''
-            :type mmark: str or None
-            '''
-
+        def mmark(self, mmark: typing.Union[str, None]) -> None:
             self.set_mmark(mmark)
 
         @nhclass.setter
-        def nhclass(self, nhclass):
-            '''
-            :type nhclass: str or None
-            '''
-
+        def nhclass(self, nhclass: typing.Union[str, None]) -> None:
             self.set_nhclass(nhclass)
 
         @nhorder.setter
-        def nhorder(self, nhorder):
-            '''
-            :type nhorder: str or None
-            '''
-
+        def nhorder(self, nhorder: typing.Union[str, None]) -> None:
             self.set_nhorder(nhorder)
 
         @notes.setter
-        def notes(self, notes):
-            '''
-            :type notes: str or None
-            '''
-
+        def notes(self, notes: typing.Union[str, None]) -> None:
             self.set_notes(notes)
 
         @ns.setter
-        def ns(self, ns):
-            '''
-            :type ns: str or None
-            '''
-
+        def ns(self, ns: typing.Union[str, None]) -> None:
             self.set_ns(ns)
 
         @objectid.setter
-        def objectid(self, objectid):
-            '''
-            :type objectid: str or None
-            '''
-
+        def objectid(self, objectid: typing.Union[str, None]) -> None:
             self.set_objectid(objectid)
 
         @objname.setter
-        def objname(self, objname):
-            '''
-            :type objname: str or None
-            '''
-
+        def objname(self, objname: typing.Union[str, None]) -> None:
             self.set_objname(objname)
 
         @objname2.setter
-        def objname2(self, objname2):
-            '''
-            :type objname2: str or None
-            '''
-
+        def objname2(self, objname2: typing.Union[str, None]) -> None:
             self.set_objname2(objname2)
 
         @objname3.setter
-        def objname3(self, objname3):
-            '''
-            :type objname3: str or None
-            '''
-
+        def objname3(self, objname3: typing.Union[str, None]) -> None:
             self.set_objname3(objname3)
 
         @objnames.setter
-        def objnames(self, objnames):
-            '''
-            :type objnames: str or None
-            '''
-
+        def objnames(self, objnames: typing.Union[str, None]) -> None:
             self.set_objnames(objnames)
 
         @occurrence.setter
-        def occurrence(self, occurrence):
-            '''
-            :type occurrence: str or None
-            '''
-
+        def occurrence(self, occurrence: typing.Union[str, None]) -> None:
             self.set_occurrence(occurrence)
 
         @oldno.setter
-        def oldno(self, oldno):
-            '''
-            :type oldno: str or None
-            '''
-
+        def oldno(self, oldno: typing.Union[str, None]) -> None:
             self.set_oldno(oldno)
 
         @origin.setter
-        def origin(self, origin):
-            '''
-            :type origin: str or None
-            '''
-
+        def origin(self, origin: typing.Union[str, None]) -> None:
             self.set_origin(origin)
 
         @othername.setter
-        def othername(self, othername):
-            '''
-            :type othername: str or None
-            '''
-
+        def othername(self, othername: typing.Union[str, None]) -> None:
             self.set_othername(othername)
 
         @otherno.setter
-        def otherno(self, otherno):
-            '''
-            :type otherno: str or None
-            '''
-
+        def otherno(self, otherno: typing.Union[str, None]) -> None:
             self.set_otherno(otherno)
 
         @outdate.setter
-        def outdate(self, outdate):
-            '''
-            :type outdate: datetime.date or None
-            '''
-
+        def outdate(self, outdate: typing.Union[datetime.date, None]) -> None:
             self.set_outdate(outdate)
 
         @owned.setter
-        def owned(self, owned):
-            '''
-            :type owned: str or None
-            '''
-
+        def owned(self, owned: typing.Union[str, None]) -> None:
             self.set_owned(owned)
 
         @parent.setter
-        def parent(self, parent):
-            '''
-            :type parent: str or None
-            '''
-
+        def parent(self, parent: typing.Union[str, None]) -> None:
             self.set_parent(parent)
 
         @people.setter
-        def people(self, people):
-            '''
-            :type people: str or None
-            '''
-
+        def people(self, people: typing.Union[str, None]) -> None:
             self.set_people(people)
 
         @period.setter
-        def period(self, period):
-            '''
-            :type period: str or None
-            '''
-
+        def period(self, period: typing.Union[str, None]) -> None:
             self.set_period(period)
 
         @phylum.setter
-        def phylum(self, phylum):
-            '''
-            :type phylum: str or None
-            '''
-
+        def phylum(self, phylum: typing.Union[str, None]) -> None:
             self.set_phylum(phylum)
 
         @policyno.setter
-        def policyno(self, policyno):
-            '''
-            :type policyno: str or None
-            '''
-
+        def policyno(self, policyno: typing.Union[str, None]) -> None:
             self.set_policyno(policyno)
 
         @ppid.setter
-        def ppid(self, ppid):
-            '''
-            :type ppid: str or None
-            '''
-
+        def ppid(self, ppid: typing.Union[str, None]) -> None:
             self.set_ppid(ppid)
 
         @preparator.setter
-        def preparator(self, preparator):
-            '''
-            :type preparator: str or None
-            '''
-
+        def preparator(self, preparator: typing.Union[str, None]) -> None:
             self.set_preparator(preparator)
 
         @prepdate.setter
-        def prepdate(self, prepdate):
-            '''
-            :type prepdate: datetime.date or None
-            '''
-
+        def prepdate(self, prepdate: typing.Union[datetime.date, None]) -> None:
             self.set_prepdate(prepdate)
 
         @preserve.setter
-        def preserve(self, preserve):
-            '''
-            :type preserve: str or None
-            '''
-
+        def preserve(self, preserve: typing.Union[str, None]) -> None:
             self.set_preserve(preserve)
 
         @pressure.setter
-        def pressure(self, pressure):
-            '''
-            :type pressure: str or None
-            '''
-
+        def pressure(self, pressure: typing.Union[str, None]) -> None:
             self.set_pressure(pressure)
 
         @provenance.setter
-        def provenance(self, provenance):
-            '''
-            :type provenance: str or None
-            '''
-
+        def provenance(self, provenance: typing.Union[str, None]) -> None:
             self.set_provenance(provenance)
 
         @pubnotes.setter
-        def pubnotes(self, pubnotes):
-            '''
-            :type pubnotes: str or None
-            '''
-
+        def pubnotes(self, pubnotes: typing.Union[str, None]) -> None:
             self.set_pubnotes(pubnotes)
 
         @qrurl.setter
-        def qrurl(self, qrurl):
-            '''
-            :type qrurl: str or None
-            '''
-
+        def qrurl(self, qrurl: typing.Union[str, None]) -> None:
             self.set_qrurl(qrurl)
 
         @recas.setter
-        def recas(self, recas):
-            '''
-            :type recas: str or None
-            '''
-
+        def recas(self, recas: typing.Union[str, None]) -> None:
             self.set_recas(recas)
 
         @recdate.setter
-        def recdate(self, recdate):
-            '''
-            :type recdate: str or None
-            '''
-
+        def recdate(self, recdate: typing.Union[str, None]) -> None:
             self.set_recdate(recdate)
 
         @recfrom.setter
-        def recfrom(self, recfrom):
-            '''
-            :type recfrom: str or None
-            '''
-
+        def recfrom(self, recfrom: typing.Union[str, None]) -> None:
             self.set_recfrom(recfrom)
 
         @relation.setter
-        def relation(self, relation):
-            '''
-            :type relation: str or None
-            '''
-
+        def relation(self, relation: typing.Union[str, None]) -> None:
             self.set_relation(relation)
 
         @relnotes.setter
-        def relnotes(self, relnotes):
-            '''
-            :type relnotes: str or None
-            '''
-
+        def relnotes(self, relnotes: typing.Union[str, None]) -> None:
             self.set_relnotes(relnotes)
 
         @renewuntil.setter
-        def renewuntil(self, renewuntil):
-            '''
-            :type renewuntil: datetime.date or None
-            '''
-
+        def renewuntil(self, renewuntil: typing.Union[datetime.date, None]) -> None:
             self.set_renewuntil(renewuntil)
 
         @repatby.setter
-        def repatby(self, repatby):
-            '''
-            :type repatby: str or None
-            '''
-
+        def repatby(self, repatby: typing.Union[str, None]) -> None:
             self.set_repatby(repatby)
 
         @repatclaim.setter
-        def repatclaim(self, repatclaim):
-            '''
-            :type repatclaim: str or None
-            '''
-
+        def repatclaim(self, repatclaim: typing.Union[str, None]) -> None:
             self.set_repatclaim(repatclaim)
 
         @repatdate.setter
-        def repatdate(self, repatdate):
-            '''
-            :type repatdate: datetime.date or None
-            '''
-
+        def repatdate(self, repatdate: typing.Union[datetime.date, None]) -> None:
             self.set_repatdate(repatdate)
 
         @repatdisp.setter
-        def repatdisp(self, repatdisp):
-            '''
-            :type repatdisp: str or None
-            '''
-
+        def repatdisp(self, repatdisp: typing.Union[str, None]) -> None:
             self.set_repatdisp(repatdisp)
 
         @repathand.setter
-        def repathand(self, repathand):
-            '''
-            :type repathand: str or None
-            '''
-
+        def repathand(self, repathand: typing.Union[str, None]) -> None:
             self.set_repathand(repathand)
 
         @repatnotes.setter
-        def repatnotes(self, repatnotes):
-            '''
-            :type repatnotes: str or None
-            '''
-
+        def repatnotes(self, repatnotes: typing.Union[str, None]) -> None:
             self.set_repatnotes(repatnotes)
 
         @repatnotic.setter
-        def repatnotic(self, repatnotic):
-            '''
-            :type repatnotic: datetime.date or None
-            '''
-
+        def repatnotic(self, repatnotic: typing.Union[datetime.date, None]) -> None:
             self.set_repatnotic(repatnotic)
 
         @repattype.setter
-        def repattype(self, repattype):
-            '''
-            :type repattype: str or None
-            '''
-
+        def repattype(self, repattype: typing.Union[str, None]) -> None:
             self.set_repattype(repattype)
 
         @rockclass.setter
-        def rockclass(self, rockclass):
-            '''
-            :type rockclass: str or None
-            '''
-
+        def rockclass(self, rockclass: typing.Union[str, None]) -> None:
             self.set_rockclass(rockclass)
 
         @rockcolor.setter
-        def rockcolor(self, rockcolor):
-            '''
-            :type rockcolor: str or None
-            '''
-
+        def rockcolor(self, rockcolor: typing.Union[str, None]) -> None:
             self.set_rockcolor(rockcolor)
 
         @rockorigin.setter
-        def rockorigin(self, rockorigin):
-            '''
-            :type rockorigin: str or None
-            '''
-
+        def rockorigin(self, rockorigin: typing.Union[str, None]) -> None:
             self.set_rockorigin(rockorigin)
 
         @rocktype.setter
-        def rocktype(self, rocktype):
-            '''
-            :type rocktype: str or None
-            '''
-
+        def rocktype(self, rocktype: typing.Union[str, None]) -> None:
             self.set_rocktype(rocktype)
 
         @role.setter
-        def role(self, role):
-            '''
-            :type role: str or None
-            '''
-
+        def role(self, role: typing.Union[str, None]) -> None:
             self.set_role(role)
 
         @role2.setter
-        def role2(self, role2):
-            '''
-            :type role2: str or None
-            '''
-
+        def role2(self, role2: typing.Union[str, None]) -> None:
             self.set_role2(role2)
 
         @role3.setter
-        def role3(self, role3):
-            '''
-            :type role3: str or None
-            '''
-
+        def role3(self, role3: typing.Union[str, None]) -> None:
             self.set_role3(role3)
 
         @school.setter
-        def school(self, school):
-            '''
-            :type school: str or None
-            '''
-
+        def school(self, school: typing.Union[str, None]) -> None:
             self.set_school(school)
 
         @sex.setter
-        def sex(self, sex):
-            '''
-            :type sex: str or None
-            '''
-
+        def sex(self, sex: typing.Union[str, None]) -> None:
             self.set_sex(sex)
 
         @sgflag.setter
-        def sgflag(self, sgflag):
-            '''
-            :type sgflag: str or None
-            '''
-
+        def sgflag(self, sgflag: typing.Union[str, None]) -> None:
             self.set_sgflag(sgflag)
 
         @signedname.setter
-        def signedname(self, signedname):
-            '''
-            :type signedname: str or None
-            '''
-
+        def signedname(self, signedname: typing.Union[str, None]) -> None:
             self.set_signedname(signedname)
 
         @signloc.setter
-        def signloc(self, signloc):
-            '''
-            :type signloc: str or None
-            '''
-
+        def signloc(self, signloc: typing.Union[str, None]) -> None:
             self.set_signloc(signloc)
 
         @site.setter
-        def site(self, site):
-            '''
-            :type site: str or None
-            '''
-
+        def site(self, site: typing.Union[str, None]) -> None:
             self.set_site(site)
 
         @siteno.setter
-        def siteno(self, siteno):
-            '''
-            :type siteno: str or None
-            '''
-
+        def siteno(self, siteno: typing.Union[str, None]) -> None:
             self.set_siteno(siteno)
 
         @specgrav.setter
-        def specgrav(self, specgrav):
-            '''
-            :type specgrav: str or None
-            '''
-
+        def specgrav(self, specgrav: typing.Union[str, None]) -> None:
             self.set_specgrav(specgrav)
 
         @species.setter
-        def species(self, species):
-            '''
-            :type species: str or None
-            '''
-
+        def species(self, species: typing.Union[str, None]) -> None:
             self.set_species(species)
 
         @sprocess.setter
-        def sprocess(self, sprocess):
-            '''
-            :type sprocess: str or None
-            '''
-
+        def sprocess(self, sprocess: typing.Union[str, None]) -> None:
             self.set_sprocess(sprocess)
 
         @stage.setter
-        def stage(self, stage):
-            '''
-            :type stage: str or None
-            '''
-
+        def stage(self, stage: typing.Union[str, None]) -> None:
             self.set_stage(stage)
 
         @status.setter
-        def status(self, status):
-            '''
-            :type status: str or None
-            '''
-
+        def status(self, status: typing.Union[str, None]) -> None:
             self.set_status(status)
 
         @statusby.setter
-        def statusby(self, statusby):
-            '''
-            :type statusby: str or None
-            '''
-
+        def statusby(self, statusby: typing.Union[str, None]) -> None:
             self.set_statusby(statusby)
 
         @statusdate.setter
-        def statusdate(self, statusdate):
-            '''
-            :type statusdate: datetime.date or None
-            '''
-
+        def statusdate(self, statusdate: typing.Union[datetime.date, None]) -> None:
             self.set_statusdate(statusdate)
 
         @sterms.setter
-        def sterms(self, sterms):
-            '''
-            :type sterms: str or None
-            '''
-
+        def sterms(self, sterms: typing.Union[str, None]) -> None:
             self.set_sterms(sterms)
 
         @stratum.setter
-        def stratum(self, stratum):
-            '''
-            :type stratum: str or None
-            '''
-
+        def stratum(self, stratum: typing.Union[str, None]) -> None:
             self.set_stratum(stratum)
 
         @streak.setter
-        def streak(self, streak):
-            '''
-            :type streak: str or None
-            '''
-
+        def streak(self, streak: typing.Union[str, None]) -> None:
             self.set_streak(streak)
 
         @subfamily.setter
-        def subfamily(self, subfamily):
-            '''
-            :type subfamily: str or None
-            '''
-
+        def subfamily(self, subfamily: typing.Union[str, None]) -> None:
             self.set_subfamily(subfamily)
 
         @subjects.setter
-        def subjects(self, subjects):
-            '''
-            :type subjects: str or None
-            '''
-
+        def subjects(self, subjects: typing.Union[str, None]) -> None:
             self.set_subjects(subjects)
 
         @subspecies.setter
-        def subspecies(self, subspecies):
-            '''
-            :type subspecies: str or None
-            '''
-
+        def subspecies(self, subspecies: typing.Union[str, None]) -> None:
             self.set_subspecies(subspecies)
 
         @technique.setter
-        def technique(self, technique):
-            '''
-            :type technique: str or None
-            '''
-
+        def technique(self, technique: typing.Union[str, None]) -> None:
             self.set_technique(technique)
 
         @tempauthor.setter
-        def tempauthor(self, tempauthor):
-            '''
-            :type tempauthor: str or None
-            '''
-
+        def tempauthor(self, tempauthor: typing.Union[str, None]) -> None:
             self.set_tempauthor(tempauthor)
 
         @tempby.setter
-        def tempby(self, tempby):
-            '''
-            :type tempby: str or None
-            '''
-
+        def tempby(self, tempby: typing.Union[str, None]) -> None:
             self.set_tempby(tempby)
 
         @tempdate.setter
-        def tempdate(self, tempdate):
-            '''
-            :type tempdate: datetime.date or None
-            '''
-
+        def tempdate(self, tempdate: typing.Union[datetime.date, None]) -> None:
             self.set_tempdate(tempdate)
 
         @temperatur.setter
-        def temperatur(self, temperatur):
-            '''
-            :type temperatur: str or None
-            '''
-
+        def temperatur(self, temperatur: typing.Union[str, None]) -> None:
             self.set_temperatur(temperatur)
 
         @temploc.setter
-        def temploc(self, temploc):
-            '''
-            :type temploc: str or None
-            '''
-
+        def temploc(self, temploc: typing.Union[str, None]) -> None:
             self.set_temploc(temploc)
 
         @tempnotes.setter
-        def tempnotes(self, tempnotes):
-            '''
-            :type tempnotes: str or None
-            '''
-
+        def tempnotes(self, tempnotes: typing.Union[str, None]) -> None:
             self.set_tempnotes(tempnotes)
 
         @tempreason.setter
-        def tempreason(self, tempreason):
-            '''
-            :type tempreason: str or None
-            '''
-
+        def tempreason(self, tempreason: typing.Union[str, None]) -> None:
             self.set_tempreason(tempreason)
 
         @tempuntil.setter
-        def tempuntil(self, tempuntil):
-            '''
-            :type tempuntil: str or None
-            '''
-
+        def tempuntil(self, tempuntil: typing.Union[str, None]) -> None:
             self.set_tempuntil(tempuntil)
 
         @texture.setter
-        def texture(self, texture):
-            '''
-            :type texture: str or None
-            '''
-
+        def texture(self, texture: typing.Union[str, None]) -> None:
             self.set_texture(texture)
 
         @title.setter
-        def title(self, title):
-            '''
-            :type title: str or None
-            '''
-
+        def title(self, title: typing.Union[str, None]) -> None:
             self.set_title(title)
 
         @tlocfield1.setter
-        def tlocfield1(self, tlocfield1):
-            '''
-            :type tlocfield1: str or None
-            '''
-
+        def tlocfield1(self, tlocfield1: typing.Union[str, None]) -> None:
             self.set_tlocfield1(tlocfield1)
 
         @tlocfield2.setter
-        def tlocfield2(self, tlocfield2):
-            '''
-            :type tlocfield2: str or None
-            '''
-
+        def tlocfield2(self, tlocfield2: typing.Union[str, None]) -> None:
             self.set_tlocfield2(tlocfield2)
 
         @tlocfield3.setter
-        def tlocfield3(self, tlocfield3):
-            '''
-            :type tlocfield3: str or None
-            '''
-
+        def tlocfield3(self, tlocfield3: typing.Union[str, None]) -> None:
             self.set_tlocfield3(tlocfield3)
 
         @tlocfield4.setter
-        def tlocfield4(self, tlocfield4):
-            '''
-            :type tlocfield4: str or None
-            '''
-
+        def tlocfield4(self, tlocfield4: typing.Union[str, None]) -> None:
             self.set_tlocfield4(tlocfield4)
 
         @tlocfield5.setter
-        def tlocfield5(self, tlocfield5):
-            '''
-            :type tlocfield5: str or None
-            '''
-
+        def tlocfield5(self, tlocfield5: typing.Union[str, None]) -> None:
             self.set_tlocfield5(tlocfield5)
 
         @tlocfield6.setter
-        def tlocfield6(self, tlocfield6):
-            '''
-            :type tlocfield6: str or None
-            '''
-
+        def tlocfield6(self, tlocfield6: typing.Union[str, None]) -> None:
             self.set_tlocfield6(tlocfield6)
 
         @udf1.setter
-        def udf1(self, udf1):
-            '''
-            :type udf1: str or None
-            '''
-
+        def udf1(self, udf1: typing.Union[str, None]) -> None:
             self.set_udf1(udf1)
 
         @udf10.setter
-        def udf10(self, udf10):
-            '''
-            :type udf10: str or None
-            '''
-
+        def udf10(self, udf10: typing.Union[str, None]) -> None:
             self.set_udf10(udf10)
 
         @udf11.setter
-        def udf11(self, udf11):
-            '''
-            :type udf11: str or None
-            '''
-
+        def udf11(self, udf11: typing.Union[str, None]) -> None:
             self.set_udf11(udf11)
 
         @udf12.setter
-        def udf12(self, udf12):
-            '''
-            :type udf12: str or None
-            '''
-
+        def udf12(self, udf12: typing.Union[str, None]) -> None:
             self.set_udf12(udf12)
 
         @udf13.setter
-        def udf13(self, udf13):
-            '''
-            :type udf13: int or None
-            '''
-
+        def udf13(self, udf13: typing.Union[int, None]) -> None:
             self.set_udf13(udf13)
 
         @udf14.setter
-        def udf14(self, udf14):
-            '''
-            :type udf14: Decimal or None
-            '''
-
+        def udf14(self, udf14: typing.Union[decimal.Decimal, None]) -> None:
             self.set_udf14(udf14)
 
         @udf15.setter
-        def udf15(self, udf15):
-            '''
-            :type udf15: Decimal or None
-            '''
-
+        def udf15(self, udf15: typing.Union[decimal.Decimal, None]) -> None:
             self.set_udf15(udf15)
 
         @udf16.setter
-        def udf16(self, udf16):
-            '''
-            :type udf16: Decimal or None
-            '''
-
+        def udf16(self, udf16: typing.Union[decimal.Decimal, None]) -> None:
             self.set_udf16(udf16)
 
         @udf17.setter
-        def udf17(self, udf17):
-            '''
-            :type udf17: Decimal or None
-            '''
-
+        def udf17(self, udf17: typing.Union[decimal.Decimal, None]) -> None:
             self.set_udf17(udf17)
 
         @udf18.setter
-        def udf18(self, udf18):
-            '''
-            :type udf18: datetime.date or None
-            '''
-
+        def udf18(self, udf18: typing.Union[datetime.date, None]) -> None:
             self.set_udf18(udf18)
 
         @udf19.setter
-        def udf19(self, udf19):
-            '''
-            :type udf19: datetime.date or None
-            '''
-
+        def udf19(self, udf19: typing.Union[datetime.date, None]) -> None:
             self.set_udf19(udf19)
 
         @udf2.setter
-        def udf2(self, udf2):
-            '''
-            :type udf2: str or None
-            '''
-
+        def udf2(self, udf2: typing.Union[str, None]) -> None:
             self.set_udf2(udf2)
 
         @udf20.setter
-        def udf20(self, udf20):
-            '''
-            :type udf20: datetime.date or None
-            '''
-
+        def udf20(self, udf20: typing.Union[datetime.date, None]) -> None:
             self.set_udf20(udf20)
 
         @udf21.setter
-        def udf21(self, udf21):
-            '''
-            :type udf21: str or None
-            '''
-
+        def udf21(self, udf21: typing.Union[str, None]) -> None:
             self.set_udf21(udf21)
 
         @udf22.setter
-        def udf22(self, udf22):
-            '''
-            :type udf22: str or None
-            '''
-
+        def udf22(self, udf22: typing.Union[str, None]) -> None:
             self.set_udf22(udf22)
 
         @udf3.setter
-        def udf3(self, udf3):
-            '''
-            :type udf3: str or None
-            '''
-
+        def udf3(self, udf3: typing.Union[str, None]) -> None:
             self.set_udf3(udf3)
 
         @udf4.setter
-        def udf4(self, udf4):
-            '''
-            :type udf4: str or None
-            '''
-
+        def udf4(self, udf4: typing.Union[str, None]) -> None:
             self.set_udf4(udf4)
 
         @udf5.setter
-        def udf5(self, udf5):
-            '''
-            :type udf5: str or None
-            '''
-
+        def udf5(self, udf5: typing.Union[str, None]) -> None:
             self.set_udf5(udf5)
 
         @udf6.setter
-        def udf6(self, udf6):
-            '''
-            :type udf6: str or None
-            '''
-
+        def udf6(self, udf6: typing.Union[str, None]) -> None:
             self.set_udf6(udf6)
 
         @udf7.setter
-        def udf7(self, udf7):
-            '''
-            :type udf7: str or None
-            '''
-
+        def udf7(self, udf7: typing.Union[str, None]) -> None:
             self.set_udf7(udf7)
 
         @udf8.setter
-        def udf8(self, udf8):
-            '''
-            :type udf8: str or None
-            '''
-
+        def udf8(self, udf8: typing.Union[str, None]) -> None:
             self.set_udf8(udf8)
 
         @udf9.setter
-        def udf9(self, udf9):
-            '''
-            :type udf9: str or None
-            '''
-
+        def udf9(self, udf9: typing.Union[str, None]) -> None:
             self.set_udf9(udf9)
 
         @unit.setter
-        def unit(self, unit):
-            '''
-            :type unit: str or None
-            '''
-
+        def unit(self, unit: typing.Union[str, None]) -> None:
             self.set_unit(unit)
 
         @updated.setter
-        def updated(self, updated):
-            '''
-            :type updated: datetime.datetime or None
-            '''
-
+        def updated(self, updated: typing.Union[datetime.datetime, None]) -> None:
             self.set_updated(updated)
 
         @updatedby.setter
-        def updatedby(self, updatedby):
-            '''
-            :type updatedby: str or None
-            '''
-
+        def updatedby(self, updatedby: typing.Union[str, None]) -> None:
             self.set_updatedby(updatedby)
 
         @used.setter
-        def used(self, used):
-            '''
-            :type used: str or None
-            '''
-
+        def used(self, used: typing.Union[str, None]) -> None:
             self.set_used(used)
 
         @valuedate.setter
-        def valuedate(self, valuedate):
-            '''
-            :type valuedate: datetime.date or None
-            '''
-
+        def valuedate(self, valuedate: typing.Union[datetime.date, None]) -> None:
             self.set_valuedate(valuedate)
 
         @varieties.setter
-        def varieties(self, varieties):
-            '''
-            :type varieties: str or None
-            '''
-
+        def varieties(self, varieties: typing.Union[str, None]) -> None:
             self.set_varieties(varieties)
 
         @vexhtml.setter
-        def vexhtml(self, vexhtml):
-            '''
-            :type vexhtml: str or None
-            '''
-
+        def vexhtml(self, vexhtml: typing.Union[str, None]) -> None:
             self.set_vexhtml(vexhtml)
 
         @vexlabel1.setter
-        def vexlabel1(self, vexlabel1):
-            '''
-            :type vexlabel1: str or None
-            '''
-
+        def vexlabel1(self, vexlabel1: typing.Union[str, None]) -> None:
             self.set_vexlabel1(vexlabel1)
 
         @vexlabel2.setter
-        def vexlabel2(self, vexlabel2):
-            '''
-            :type vexlabel2: str or None
-            '''
-
+        def vexlabel2(self, vexlabel2: typing.Union[str, None]) -> None:
             self.set_vexlabel2(vexlabel2)
 
         @vexlabel3.setter
-        def vexlabel3(self, vexlabel3):
-            '''
-            :type vexlabel3: str or None
-            '''
-
+        def vexlabel3(self, vexlabel3: typing.Union[str, None]) -> None:
             self.set_vexlabel3(vexlabel3)
 
         @vexlabel4.setter
-        def vexlabel4(self, vexlabel4):
-            '''
-            :type vexlabel4: str or None
-            '''
-
+        def vexlabel4(self, vexlabel4: typing.Union[str, None]) -> None:
             self.set_vexlabel4(vexlabel4)
 
         @webinclude.setter
-        def webinclude(self, webinclude):
-            '''
-            :type webinclude: bool or None
-            '''
-
+        def webinclude(self, webinclude: typing.Union[bool, None]) -> None:
             self.set_webinclude(webinclude)
 
         @weight.setter
-        def weight(self, weight):
-            '''
-            :type weight: Decimal or None
-            '''
-
+        def weight(self, weight: typing.Union[decimal.Decimal, None]) -> None:
             self.set_weight(weight)
 
         @weightin.setter
-        def weightin(self, weightin):
-            '''
-            :type weightin: Decimal or None
-            '''
-
+        def weightin(self, weightin: typing.Union[decimal.Decimal, None]) -> None:
             self.set_weightin(weightin)
 
         @weightlb.setter
-        def weightlb(self, weightlb):
-            '''
-            :type weightlb: Decimal or None
-            '''
-
+        def weightlb(self, weightlb: typing.Union[decimal.Decimal, None]) -> None:
             self.set_weightlb(weightlb)
 
         @width.setter
-        def width(self, width):
-            '''
-            :type width: Decimal or None
-            '''
-
+        def width(self, width: typing.Union[decimal.Decimal, None]) -> None:
             self.set_width(width)
 
         @widthft.setter
-        def widthft(self, widthft):
-            '''
-            :type widthft: Decimal or None
-            '''
-
+        def widthft(self, widthft: typing.Union[decimal.Decimal, None]) -> None:
             self.set_widthft(widthft)
 
         @widthin.setter
-        def widthin(self, widthin):
-            '''
-            :type widthin: Decimal or None
-            '''
-
+        def widthin(self, widthin: typing.Union[decimal.Decimal, None]) -> None:
             self.set_widthin(widthin)
 
         @xcord.setter
-        def xcord(self, xcord):
-            '''
-            :type xcord: Decimal or None
-            '''
-
+        def xcord(self, xcord: typing.Union[decimal.Decimal, None]) -> None:
             self.set_xcord(xcord)
 
         @ycord.setter
-        def ycord(self, ycord):
-            '''
-            :type ycord: Decimal or None
-            '''
-
+        def ycord(self, ycord: typing.Union[decimal.Decimal, None]) -> None:
             self.set_ycord(ycord)
 
         @zcord.setter
-        def zcord(self, zcord):
-            '''
-            :type zcord: Decimal or None
-            '''
-
+        def zcord(self, zcord: typing.Union[decimal.Decimal, None]) -> None:
             self.set_zcord(zcord)
 
         @zsorter.setter
-        def zsorter(self, zsorter):
-            '''
-            :type zsorter: str or None
-            '''
-
+        def zsorter(self, zsorter: typing.Union[str, None]) -> None:
             self.set_zsorter(zsorter)
 
         @zsorterx.setter
-        def zsorterx(self, zsorterx):
-            '''
-            :type zsorterx: str or None
-            '''
-
+        def zsorterx(self, zsorterx: typing.Union[str, None]) -> None:
             self.set_zsorterx(zsorterx)
 
     class FieldMetadata(object):
@@ -8847,11 +5387,6 @@ class ObjectsDbfRecord(object):
         self,
         builder
     ):
-        '''
-        :type builder %(qname)s.Builder
-
-        '''
-
         accessno = builder.accessno
         if accessno is not None:
             if not isinstance(accessno, str):
@@ -8867,7 +5402,7 @@ class ObjectsDbfRecord(object):
         acqvalue = builder.acqvalue
         if acqvalue is not None:
             if not isinstance(acqvalue, decimal.Decimal):
-                raise TypeError("expected acqvalue to be a Decimal but it is a %s" % builtins.type(acqvalue))
+                raise TypeError("expected acqvalue to be a decimal.Decimal but it is a %s" % builtins.type(acqvalue))
         self.__acqvalue = acqvalue
 
         age = builder.age
@@ -8945,19 +5480,19 @@ class ObjectsDbfRecord(object):
         circum = builder.circum
         if circum is not None:
             if not isinstance(circum, decimal.Decimal):
-                raise TypeError("expected circum to be a Decimal but it is a %s" % builtins.type(circum))
+                raise TypeError("expected circum to be a decimal.Decimal but it is a %s" % builtins.type(circum))
         self.__circum = circum
 
         circumft = builder.circumft
         if circumft is not None:
             if not isinstance(circumft, decimal.Decimal):
-                raise TypeError("expected circumft to be a Decimal but it is a %s" % builtins.type(circumft))
+                raise TypeError("expected circumft to be a decimal.Decimal but it is a %s" % builtins.type(circumft))
         self.__circumft = circumft
 
         circumin = builder.circumin
         if circumin is not None:
             if not isinstance(circumin, decimal.Decimal):
-                raise TypeError("expected circumin to be a Decimal but it is a %s" % builtins.type(circumin))
+                raise TypeError("expected circumin to be a decimal.Decimal but it is a %s" % builtins.type(circumin))
         self.__circumin = circumin
 
         classes = builder.classes
@@ -9053,13 +5588,13 @@ class ObjectsDbfRecord(object):
         curvalmax = builder.curvalmax
         if curvalmax is not None:
             if not isinstance(curvalmax, decimal.Decimal):
-                raise TypeError("expected curvalmax to be a Decimal but it is a %s" % builtins.type(curvalmax))
+                raise TypeError("expected curvalmax to be a decimal.Decimal but it is a %s" % builtins.type(curvalmax))
         self.__curvalmax = curvalmax
 
         curvalue = builder.curvalue
         if curvalue is not None:
             if not isinstance(curvalue, decimal.Decimal):
-                raise TypeError("expected curvalue to be a Decimal but it is a %s" % builtins.type(curvalue))
+                raise TypeError("expected curvalue to be a decimal.Decimal but it is a %s" % builtins.type(curvalue))
         self.__curvalue = curvalue
 
         dataset = builder.dataset
@@ -9089,19 +5624,19 @@ class ObjectsDbfRecord(object):
         depth = builder.depth
         if depth is not None:
             if not isinstance(depth, decimal.Decimal):
-                raise TypeError("expected depth to be a Decimal but it is a %s" % builtins.type(depth))
+                raise TypeError("expected depth to be a decimal.Decimal but it is a %s" % builtins.type(depth))
         self.__depth = depth
 
         depthft = builder.depthft
         if depthft is not None:
             if not isinstance(depthft, decimal.Decimal):
-                raise TypeError("expected depthft to be a Decimal but it is a %s" % builtins.type(depthft))
+                raise TypeError("expected depthft to be a decimal.Decimal but it is a %s" % builtins.type(depthft))
         self.__depthft = depthft
 
         depthin = builder.depthin
         if depthin is not None:
             if not isinstance(depthin, decimal.Decimal):
-                raise TypeError("expected depthin to be a Decimal but it is a %s" % builtins.type(depthin))
+                raise TypeError("expected depthin to be a decimal.Decimal but it is a %s" % builtins.type(depthin))
         self.__depthin = depthin
 
         descrip = builder.descrip
@@ -9113,19 +5648,19 @@ class ObjectsDbfRecord(object):
         diameter = builder.diameter
         if diameter is not None:
             if not isinstance(diameter, decimal.Decimal):
-                raise TypeError("expected diameter to be a Decimal but it is a %s" % builtins.type(diameter))
+                raise TypeError("expected diameter to be a decimal.Decimal but it is a %s" % builtins.type(diameter))
         self.__diameter = diameter
 
         diameterft = builder.diameterft
         if diameterft is not None:
             if not isinstance(diameterft, decimal.Decimal):
-                raise TypeError("expected diameterft to be a Decimal but it is a %s" % builtins.type(diameterft))
+                raise TypeError("expected diameterft to be a decimal.Decimal but it is a %s" % builtins.type(diameterft))
         self.__diameterft = diameterft
 
         diameterin = builder.diameterin
         if diameterin is not None:
             if not isinstance(diameterin, decimal.Decimal):
-                raise TypeError("expected diameterin to be a Decimal but it is a %s" % builtins.type(diameterin))
+                raise TypeError("expected diameterin to be a decimal.Decimal but it is a %s" % builtins.type(diameterin))
         self.__diameterin = diameterin
 
         dimnotes = builder.dimnotes
@@ -9335,19 +5870,19 @@ class ObjectsDbfRecord(object):
         height = builder.height
         if height is not None:
             if not isinstance(height, decimal.Decimal):
-                raise TypeError("expected height to be a Decimal but it is a %s" % builtins.type(height))
+                raise TypeError("expected height to be a decimal.Decimal but it is a %s" % builtins.type(height))
         self.__height = height
 
         heightft = builder.heightft
         if heightft is not None:
             if not isinstance(heightft, decimal.Decimal):
-                raise TypeError("expected heightft to be a Decimal but it is a %s" % builtins.type(heightft))
+                raise TypeError("expected heightft to be a decimal.Decimal but it is a %s" % builtins.type(heightft))
         self.__heightft = heightft
 
         heightin = builder.heightin
         if heightin is not None:
             if not isinstance(heightin, decimal.Decimal):
-                raise TypeError("expected heightin to be a Decimal but it is a %s" % builtins.type(heightin))
+                raise TypeError("expected heightin to be a decimal.Decimal but it is a %s" % builtins.type(heightin))
         self.__heightin = heightin
 
         homeloc = builder.homeloc
@@ -9455,7 +5990,7 @@ class ObjectsDbfRecord(object):
         insvalue = builder.insvalue
         if insvalue is not None:
             if not isinstance(insvalue, decimal.Decimal):
-                raise TypeError("expected insvalue to be a Decimal but it is a %s" % builtins.type(insvalue))
+                raise TypeError("expected insvalue to be a decimal.Decimal but it is a %s" % builtins.type(insvalue))
         self.__insvalue = insvalue
 
         invnby = builder.invnby
@@ -9479,7 +6014,7 @@ class ObjectsDbfRecord(object):
         latdeg = builder.latdeg
         if latdeg is not None:
             if not isinstance(latdeg, decimal.Decimal):
-                raise TypeError("expected latdeg to be a Decimal but it is a %s" % builtins.type(latdeg))
+                raise TypeError("expected latdeg to be a decimal.Decimal but it is a %s" % builtins.type(latdeg))
         self.__latdeg = latdeg
 
         latedate = builder.latedate
@@ -9497,19 +6032,19 @@ class ObjectsDbfRecord(object):
         length = builder.length
         if length is not None:
             if not isinstance(length, decimal.Decimal):
-                raise TypeError("expected length to be a Decimal but it is a %s" % builtins.type(length))
+                raise TypeError("expected length to be a decimal.Decimal but it is a %s" % builtins.type(length))
         self.__length = length
 
         lengthft = builder.lengthft
         if lengthft is not None:
             if not isinstance(lengthft, decimal.Decimal):
-                raise TypeError("expected lengthft to be a Decimal but it is a %s" % builtins.type(lengthft))
+                raise TypeError("expected lengthft to be a decimal.Decimal but it is a %s" % builtins.type(lengthft))
         self.__lengthft = lengthft
 
         lengthin = builder.lengthin
         if lengthin is not None:
             if not isinstance(lengthin, decimal.Decimal):
-                raise TypeError("expected lengthin to be a Decimal but it is a %s" % builtins.type(lengthin))
+                raise TypeError("expected lengthin to be a decimal.Decimal but it is a %s" % builtins.type(lengthin))
         self.__lengthin = lengthin
 
         level = builder.level
@@ -9599,7 +6134,7 @@ class ObjectsDbfRecord(object):
         longdeg = builder.longdeg
         if longdeg is not None:
             if not isinstance(longdeg, decimal.Decimal):
-                raise TypeError("expected longdeg to be a Decimal but it is a %s" % builtins.type(longdeg))
+                raise TypeError("expected longdeg to be a decimal.Decimal but it is a %s" % builtins.type(longdeg))
         self.__longdeg = longdeg
 
         luster = builder.luster
@@ -10211,25 +6746,25 @@ class ObjectsDbfRecord(object):
         udf14 = builder.udf14
         if udf14 is not None:
             if not isinstance(udf14, decimal.Decimal):
-                raise TypeError("expected udf14 to be a Decimal but it is a %s" % builtins.type(udf14))
+                raise TypeError("expected udf14 to be a decimal.Decimal but it is a %s" % builtins.type(udf14))
         self.__udf14 = udf14
 
         udf15 = builder.udf15
         if udf15 is not None:
             if not isinstance(udf15, decimal.Decimal):
-                raise TypeError("expected udf15 to be a Decimal but it is a %s" % builtins.type(udf15))
+                raise TypeError("expected udf15 to be a decimal.Decimal but it is a %s" % builtins.type(udf15))
         self.__udf15 = udf15
 
         udf16 = builder.udf16
         if udf16 is not None:
             if not isinstance(udf16, decimal.Decimal):
-                raise TypeError("expected udf16 to be a Decimal but it is a %s" % builtins.type(udf16))
+                raise TypeError("expected udf16 to be a decimal.Decimal but it is a %s" % builtins.type(udf16))
         self.__udf16 = udf16
 
         udf17 = builder.udf17
         if udf17 is not None:
             if not isinstance(udf17, decimal.Decimal):
-                raise TypeError("expected udf17 to be a Decimal but it is a %s" % builtins.type(udf17))
+                raise TypeError("expected udf17 to be a decimal.Decimal but it is a %s" % builtins.type(udf17))
         self.__udf17 = udf17
 
         udf18 = builder.udf18
@@ -10385,55 +6920,55 @@ class ObjectsDbfRecord(object):
         weight = builder.weight
         if weight is not None:
             if not isinstance(weight, decimal.Decimal):
-                raise TypeError("expected weight to be a Decimal but it is a %s" % builtins.type(weight))
+                raise TypeError("expected weight to be a decimal.Decimal but it is a %s" % builtins.type(weight))
         self.__weight = weight
 
         weightin = builder.weightin
         if weightin is not None:
             if not isinstance(weightin, decimal.Decimal):
-                raise TypeError("expected weightin to be a Decimal but it is a %s" % builtins.type(weightin))
+                raise TypeError("expected weightin to be a decimal.Decimal but it is a %s" % builtins.type(weightin))
         self.__weightin = weightin
 
         weightlb = builder.weightlb
         if weightlb is not None:
             if not isinstance(weightlb, decimal.Decimal):
-                raise TypeError("expected weightlb to be a Decimal but it is a %s" % builtins.type(weightlb))
+                raise TypeError("expected weightlb to be a decimal.Decimal but it is a %s" % builtins.type(weightlb))
         self.__weightlb = weightlb
 
         width = builder.width
         if width is not None:
             if not isinstance(width, decimal.Decimal):
-                raise TypeError("expected width to be a Decimal but it is a %s" % builtins.type(width))
+                raise TypeError("expected width to be a decimal.Decimal but it is a %s" % builtins.type(width))
         self.__width = width
 
         widthft = builder.widthft
         if widthft is not None:
             if not isinstance(widthft, decimal.Decimal):
-                raise TypeError("expected widthft to be a Decimal but it is a %s" % builtins.type(widthft))
+                raise TypeError("expected widthft to be a decimal.Decimal but it is a %s" % builtins.type(widthft))
         self.__widthft = widthft
 
         widthin = builder.widthin
         if widthin is not None:
             if not isinstance(widthin, decimal.Decimal):
-                raise TypeError("expected widthin to be a Decimal but it is a %s" % builtins.type(widthin))
+                raise TypeError("expected widthin to be a decimal.Decimal but it is a %s" % builtins.type(widthin))
         self.__widthin = widthin
 
         xcord = builder.xcord
         if xcord is not None:
             if not isinstance(xcord, decimal.Decimal):
-                raise TypeError("expected xcord to be a Decimal but it is a %s" % builtins.type(xcord))
+                raise TypeError("expected xcord to be a decimal.Decimal but it is a %s" % builtins.type(xcord))
         self.__xcord = xcord
 
         ycord = builder.ycord
         if ycord is not None:
             if not isinstance(ycord, decimal.Decimal):
-                raise TypeError("expected ycord to be a Decimal but it is a %s" % builtins.type(ycord))
+                raise TypeError("expected ycord to be a decimal.Decimal but it is a %s" % builtins.type(ycord))
         self.__ycord = ycord
 
         zcord = builder.zcord
         if zcord is not None:
             if not isinstance(zcord, decimal.Decimal):
-                raise TypeError("expected zcord to be a Decimal but it is a %s" % builtins.type(zcord))
+                raise TypeError("expected zcord to be a decimal.Decimal but it is a %s" % builtins.type(zcord))
         self.__zcord = zcord
 
         zsorter = builder.zsorter
@@ -12065,75 +8600,39 @@ class ObjectsDbfRecord(object):
         return 'ObjectsDbfRecord(' + ', '.join(field_reprs) + ')'
 
     @property
-    def accessno(self):
-        '''
-        :rtype: str
-        '''
-
+    def accessno(self) -> typing.Union[str, None]:
         return self.__accessno
 
     @property
-    def accessory(self):
-        '''
-        :rtype: str
-        '''
-
+    def accessory(self) -> typing.Union[str, None]:
         return self.__accessory
 
     @property
-    def acqvalue(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def acqvalue(self) -> typing.Union[decimal.Decimal, None]:
         return self.__acqvalue
 
     @property
-    def age(self):
-        '''
-        :rtype: str
-        '''
-
+    def age(self) -> typing.Union[str, None]:
         return self.__age
 
     @property
-    def appnotes(self):
-        '''
-        :rtype: str
-        '''
-
+    def appnotes(self) -> typing.Union[str, None]:
         return self.__appnotes
 
     @property
-    def appraisor(self):
-        '''
-        :rtype: str
-        '''
-
+    def appraisor(self) -> typing.Union[str, None]:
         return self.__appraisor
 
     @property
-    def assemzone(self):
-        '''
-        :rtype: str
-        '''
-
+    def assemzone(self) -> typing.Union[str, None]:
         return self.__assemzone
 
     @property
-    def bagno(self):
-        '''
-        :rtype: str
-        '''
-
+    def bagno(self) -> typing.Union[str, None]:
         return self.__bagno
 
     @property
-    def boxno(self):
-        '''
-        :rtype: str
-        '''
-
+    def boxno(self) -> typing.Union[str, None]:
         return self.__boxno
 
     @classmethod
@@ -12141,531 +8640,267 @@ class ObjectsDbfRecord(object):
         return cls.Builder()
 
     @property
-    def caption(self):
-        '''
-        :rtype: str
-        '''
-
+    def caption(self) -> typing.Union[str, None]:
         return self.__caption
 
     @property
-    def cat(self):
-        '''
-        :rtype: str
-        '''
-
+    def cat(self) -> typing.Union[str, None]:
         return self.__cat
 
     @property
-    def catby(self):
-        '''
-        :rtype: str
-        '''
-
+    def catby(self) -> typing.Union[str, None]:
         return self.__catby
 
     @property
-    def catdate(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def catdate(self) -> typing.Union[datetime.date, None]:
         return self.__catdate
 
     @property
-    def cattype(self):
-        '''
-        :rtype: str
-        '''
-
+    def cattype(self) -> typing.Union[str, None]:
         return self.__cattype
 
     @property
-    def chemcomp(self):
-        '''
-        :rtype: str
-        '''
-
+    def chemcomp(self) -> typing.Union[str, None]:
         return self.__chemcomp
 
     @property
-    def circum(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def circum(self) -> typing.Union[decimal.Decimal, None]:
         return self.__circum
 
     @property
-    def circumft(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def circumft(self) -> typing.Union[decimal.Decimal, None]:
         return self.__circumft
 
     @property
-    def circumin(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def circumin(self) -> typing.Union[decimal.Decimal, None]:
         return self.__circumin
 
     @property
-    def classes(self):
-        '''
-        :rtype: str
-        '''
-
+    def classes(self) -> typing.Union[str, None]:
         return self.__classes
 
     @property
-    def colldate(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def colldate(self) -> typing.Union[datetime.date, None]:
         return self.__colldate
 
     @property
-    def collection(self):
-        '''
-        :rtype: str
-        '''
-
+    def collection(self) -> typing.Union[str, None]:
         return self.__collection
 
     @property
-    def collector(self):
-        '''
-        :rtype: str
-        '''
-
+    def collector(self) -> typing.Union[str, None]:
         return self.__collector
 
     @property
-    def conddate(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def conddate(self) -> typing.Union[datetime.date, None]:
         return self.__conddate
 
     @property
-    def condexam(self):
-        '''
-        :rtype: str
-        '''
-
+    def condexam(self) -> typing.Union[str, None]:
         return self.__condexam
 
     @property
-    def condition(self):
-        '''
-        :rtype: str
-        '''
-
+    def condition(self) -> typing.Union[str, None]:
         return self.__condition
 
     @property
-    def condnotes(self):
-        '''
-        :rtype: str
-        '''
-
+    def condnotes(self) -> typing.Union[str, None]:
         return self.__condnotes
 
     @property
-    def count(self):
-        '''
-        :rtype: str
-        '''
-
+    def count(self) -> typing.Union[str, None]:
         return self.__count
 
     @property
-    def creator(self):
-        '''
-        :rtype: str
-        '''
-
+    def creator(self) -> typing.Union[str, None]:
         return self.__creator
 
     @property
-    def creator2(self):
-        '''
-        :rtype: str
-        '''
-
+    def creator2(self) -> typing.Union[str, None]:
         return self.__creator2
 
     @property
-    def creator3(self):
-        '''
-        :rtype: str
-        '''
-
+    def creator3(self) -> typing.Union[str, None]:
         return self.__creator3
 
     @property
-    def credit(self):
-        '''
-        :rtype: str
-        '''
-
+    def credit(self) -> typing.Union[str, None]:
         return self.__credit
 
     @property
-    def crystal(self):
-        '''
-        :rtype: str
-        '''
-
+    def crystal(self) -> typing.Union[str, None]:
         return self.__crystal
 
     @property
-    def culture(self):
-        '''
-        :rtype: str
-        '''
-
+    def culture(self) -> typing.Union[str, None]:
         return self.__culture
 
     @property
-    def curvalmax(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def curvalmax(self) -> typing.Union[decimal.Decimal, None]:
         return self.__curvalmax
 
     @property
-    def curvalue(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def curvalue(self) -> typing.Union[decimal.Decimal, None]:
         return self.__curvalue
 
     @property
-    def dataset(self):
-        '''
-        :rtype: str
-        '''
-
+    def dataset(self) -> typing.Union[str, None]:
         return self.__dataset
 
     @property
-    def date(self):
-        '''
-        :rtype: str
-        '''
-
+    def date(self) -> typing.Union[str, None]:
         return self.__date
 
     @property
-    def datingmeth(self):
-        '''
-        :rtype: str
-        '''
-
+    def datingmeth(self) -> typing.Union[str, None]:
         return self.__datingmeth
 
     @property
-    def datum(self):
-        '''
-        :rtype: str
-        '''
-
+    def datum(self) -> typing.Union[str, None]:
         return self.__datum
 
     @property
-    def depth(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def depth(self) -> typing.Union[decimal.Decimal, None]:
         return self.__depth
 
     @property
-    def depthft(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def depthft(self) -> typing.Union[decimal.Decimal, None]:
         return self.__depthft
 
     @property
-    def depthin(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def depthin(self) -> typing.Union[decimal.Decimal, None]:
         return self.__depthin
 
     @property
-    def descrip(self):
-        '''
-        :rtype: str
-        '''
-
+    def descrip(self) -> typing.Union[str, None]:
         return self.__descrip
 
     @property
-    def diameter(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def diameter(self) -> typing.Union[decimal.Decimal, None]:
         return self.__diameter
 
     @property
-    def diameterft(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def diameterft(self) -> typing.Union[decimal.Decimal, None]:
         return self.__diameterft
 
     @property
-    def diameterin(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def diameterin(self) -> typing.Union[decimal.Decimal, None]:
         return self.__diameterin
 
     @property
-    def dimnotes(self):
-        '''
-        :rtype: str
-        '''
-
+    def dimnotes(self) -> typing.Union[str, None]:
         return self.__dimnotes
 
     @property
-    def dimtype(self):
-        '''
-        :rtype: int
-        '''
-
+    def dimtype(self) -> typing.Union[int, None]:
         return self.__dimtype
 
     @property
-    def dispvalue(self):
-        '''
-        :rtype: str
-        '''
-
+    def dispvalue(self) -> typing.Union[str, None]:
         return self.__dispvalue
 
     @property
-    def earlydate(self):
-        '''
-        :rtype: int
-        '''
-
+    def earlydate(self) -> typing.Union[int, None]:
         return self.__earlydate
 
     @property
-    def elements(self):
-        '''
-        :rtype: str
-        '''
-
+    def elements(self) -> typing.Union[str, None]:
         return self.__elements
 
     @property
-    def epoch(self):
-        '''
-        :rtype: str
-        '''
-
+    def epoch(self) -> typing.Union[str, None]:
         return self.__epoch
 
     @property
-    def era(self):
-        '''
-        :rtype: str
-        '''
-
+    def era(self) -> typing.Union[str, None]:
         return self.__era
 
     @property
-    def event(self):
-        '''
-        :rtype: str
-        '''
-
+    def event(self) -> typing.Union[str, None]:
         return self.__event
 
     @property
-    def ew(self):
-        '''
-        :rtype: str
-        '''
-
+    def ew(self) -> typing.Union[str, None]:
         return self.__ew
 
     @property
-    def excavadate(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def excavadate(self) -> typing.Union[datetime.date, None]:
         return self.__excavadate
 
     @property
-    def excavateby(self):
-        '''
-        :rtype: str
-        '''
-
+    def excavateby(self) -> typing.Union[str, None]:
         return self.__excavateby
 
     @property
-    def exhibitid(self):
-        '''
-        :rtype: str
-        '''
-
+    def exhibitid(self) -> typing.Union[str, None]:
         return self.__exhibitid
 
     @property
-    def exhibitno(self):
-        '''
-        :rtype: int
-        '''
-
+    def exhibitno(self) -> typing.Union[int, None]:
         return self.__exhibitno
 
     @property
-    def exhlabel1(self):
-        '''
-        :rtype: str
-        '''
-
+    def exhlabel1(self) -> typing.Union[str, None]:
         return self.__exhlabel1
 
     @property
-    def exhlabel2(self):
-        '''
-        :rtype: str
-        '''
-
+    def exhlabel2(self) -> typing.Union[str, None]:
         return self.__exhlabel2
 
     @property
-    def exhlabel3(self):
-        '''
-        :rtype: str
-        '''
-
+    def exhlabel3(self) -> typing.Union[str, None]:
         return self.__exhlabel3
 
     @property
-    def exhlabel4(self):
-        '''
-        :rtype: str
-        '''
-
+    def exhlabel4(self) -> typing.Union[str, None]:
         return self.__exhlabel4
 
     @property
-    def exhstart(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def exhstart(self) -> typing.Union[datetime.date, None]:
         return self.__exhstart
 
     @property
-    def family(self):
-        '''
-        :rtype: str
-        '''
-
+    def family(self) -> typing.Union[str, None]:
         return self.__family
 
     @property
-    def feature(self):
-        '''
-        :rtype: str
-        '''
-
+    def feature(self) -> typing.Union[str, None]:
         return self.__feature
 
     @property
-    def flagdate(self):
-        '''
-        :rtype: datetime.datetime
-        '''
-
+    def flagdate(self) -> typing.Union[datetime.datetime, None]:
         return self.__flagdate
 
     @property
-    def flagnotes(self):
-        '''
-        :rtype: str
-        '''
-
+    def flagnotes(self) -> typing.Union[str, None]:
         return self.__flagnotes
 
     @property
-    def flagreason(self):
-        '''
-        :rtype: str
-        '''
-
+    def flagreason(self) -> typing.Union[str, None]:
         return self.__flagreason
 
     @property
-    def formation(self):
-        '''
-        :rtype: str
-        '''
-
+    def formation(self) -> typing.Union[str, None]:
         return self.__formation
 
     @property
-    def fossils(self):
-        '''
-        :rtype: str
-        '''
-
+    def fossils(self) -> typing.Union[str, None]:
         return self.__fossils
 
     @property
-    def found(self):
-        '''
-        :rtype: str
-        '''
-
+    def found(self) -> typing.Union[str, None]:
         return self.__found
 
     @property
-    def fracture(self):
-        '''
-        :rtype: str
-        '''
-
+    def fracture(self) -> typing.Union[str, None]:
         return self.__fracture
 
     @property
-    def frame(self):
-        '''
-        :rtype: str
-        '''
-
+    def frame(self) -> typing.Union[str, None]:
         return self.__frame
 
     @property
-    def framesize(self):
-        '''
-        :rtype: str
-        '''
-
+    def framesize(self) -> typing.Union[str, None]:
         return self.__framesize
 
     @classmethod
@@ -13210,707 +9445,355 @@ class ObjectsDbfRecord(object):
         return __builder.build()
 
     @property
-    def genus(self):
-        '''
-        :rtype: str
-        '''
-
+    def genus(self) -> typing.Union[str, None]:
         return self.__genus
 
     @property
-    def gparent(self):
-        '''
-        :rtype: str
-        '''
-
+    def gparent(self) -> typing.Union[str, None]:
         return self.__gparent
 
     @property
-    def grainsize(self):
-        '''
-        :rtype: str
-        '''
-
+    def grainsize(self) -> typing.Union[str, None]:
         return self.__grainsize
 
     @property
-    def habitat(self):
-        '''
-        :rtype: str
-        '''
-
+    def habitat(self) -> typing.Union[str, None]:
         return self.__habitat
 
     @property
-    def hardness(self):
-        '''
-        :rtype: str
-        '''
-
+    def hardness(self) -> typing.Union[str, None]:
         return self.__hardness
 
     @property
-    def height(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def height(self) -> typing.Union[decimal.Decimal, None]:
         return self.__height
 
     @property
-    def heightft(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def heightft(self) -> typing.Union[decimal.Decimal, None]:
         return self.__heightft
 
     @property
-    def heightin(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def heightin(self) -> typing.Union[decimal.Decimal, None]:
         return self.__heightin
 
     @property
-    def homeloc(self):
-        '''
-        :rtype: str
-        '''
-
+    def homeloc(self) -> typing.Union[str, None]:
         return self.__homeloc
 
     @property
-    def idby(self):
-        '''
-        :rtype: str
-        '''
-
+    def idby(self) -> typing.Union[str, None]:
         return self.__idby
 
     @property
-    def iddate(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def iddate(self) -> typing.Union[datetime.date, None]:
         return self.__iddate
 
     @property
-    def imagefile(self):
-        '''
-        :rtype: str
-        '''
-
+    def imagefile(self) -> typing.Union[str, None]:
         return self.__imagefile
 
     @property
-    def imageno(self):
-        '''
-        :rtype: int
-        '''
-
+    def imageno(self) -> typing.Union[int, None]:
         return self.__imageno
 
     @property
-    def imagesize(self):
-        '''
-        :rtype: str
-        '''
-
+    def imagesize(self) -> typing.Union[str, None]:
         return self.__imagesize
 
     @property
-    def inscomp(self):
-        '''
-        :rtype: str
-        '''
-
+    def inscomp(self) -> typing.Union[str, None]:
         return self.__inscomp
 
     @property
-    def inscrlang(self):
-        '''
-        :rtype: str
-        '''
-
+    def inscrlang(self) -> typing.Union[str, None]:
         return self.__inscrlang
 
     @property
-    def inscrpos(self):
-        '''
-        :rtype: str
-        '''
-
+    def inscrpos(self) -> typing.Union[str, None]:
         return self.__inscrpos
 
     @property
-    def inscrtech(self):
-        '''
-        :rtype: str
-        '''
-
+    def inscrtech(self) -> typing.Union[str, None]:
         return self.__inscrtech
 
     @property
-    def inscrtext(self):
-        '''
-        :rtype: str
-        '''
-
+    def inscrtext(self) -> typing.Union[str, None]:
         return self.__inscrtext
 
     @property
-    def inscrtrans(self):
-        '''
-        :rtype: str
-        '''
-
+    def inscrtrans(self) -> typing.Union[str, None]:
         return self.__inscrtrans
 
     @property
-    def inscrtype(self):
-        '''
-        :rtype: str
-        '''
-
+    def inscrtype(self) -> typing.Union[str, None]:
         return self.__inscrtype
 
     @property
-    def insdate(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def insdate(self) -> typing.Union[datetime.date, None]:
         return self.__insdate
 
     @property
-    def insphone(self):
-        '''
-        :rtype: str
-        '''
-
+    def insphone(self) -> typing.Union[str, None]:
         return self.__insphone
 
     @property
-    def inspremium(self):
-        '''
-        :rtype: str
-        '''
-
+    def inspremium(self) -> typing.Union[str, None]:
         return self.__inspremium
 
     @property
-    def insrep(self):
-        '''
-        :rtype: str
-        '''
-
+    def insrep(self) -> typing.Union[str, None]:
         return self.__insrep
 
     @property
-    def insvalue(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def insvalue(self) -> typing.Union[decimal.Decimal, None]:
         return self.__insvalue
 
     @property
-    def invnby(self):
-        '''
-        :rtype: str
-        '''
-
+    def invnby(self) -> typing.Union[str, None]:
         return self.__invnby
 
     @property
-    def invndate(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def invndate(self) -> typing.Union[datetime.date, None]:
         return self.__invndate
 
     @property
-    def kingdom(self):
-        '''
-        :rtype: str
-        '''
-
+    def kingdom(self) -> typing.Union[str, None]:
         return self.__kingdom
 
     @property
-    def latdeg(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def latdeg(self) -> typing.Union[decimal.Decimal, None]:
         return self.__latdeg
 
     @property
-    def latedate(self):
-        '''
-        :rtype: int
-        '''
-
+    def latedate(self) -> typing.Union[int, None]:
         return self.__latedate
 
     @property
-    def legal(self):
-        '''
-        :rtype: str
-        '''
-
+    def legal(self) -> typing.Union[str, None]:
         return self.__legal
 
     @property
-    def length(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def length(self) -> typing.Union[decimal.Decimal, None]:
         return self.__length
 
     @property
-    def lengthft(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def lengthft(self) -> typing.Union[decimal.Decimal, None]:
         return self.__lengthft
 
     @property
-    def lengthin(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def lengthin(self) -> typing.Union[decimal.Decimal, None]:
         return self.__lengthin
 
     @property
-    def level(self):
-        '''
-        :rtype: str
-        '''
-
+    def level(self) -> typing.Union[str, None]:
         return self.__level
 
     @property
-    def lithofacie(self):
-        '''
-        :rtype: str
-        '''
-
+    def lithofacie(self) -> typing.Union[str, None]:
         return self.__lithofacie
 
     @property
-    def loancond(self):
-        '''
-        :rtype: str
-        '''
-
+    def loancond(self) -> typing.Union[str, None]:
         return self.__loancond
 
     @property
-    def loandue(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def loandue(self) -> typing.Union[datetime.date, None]:
         return self.__loandue
 
     @property
-    def loanid(self):
-        '''
-        :rtype: str
-        '''
-
+    def loanid(self) -> typing.Union[str, None]:
         return self.__loanid
 
     @property
-    def loaninno(self):
-        '''
-        :rtype: str
-        '''
-
+    def loaninno(self) -> typing.Union[str, None]:
         return self.__loaninno
 
     @property
-    def loanno(self):
-        '''
-        :rtype: int
-        '''
-
+    def loanno(self) -> typing.Union[int, None]:
         return self.__loanno
 
     @property
-    def loanrenew(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def loanrenew(self) -> typing.Union[datetime.date, None]:
         return self.__loanrenew
 
     @property
-    def locfield1(self):
-        '''
-        :rtype: str
-        '''
-
+    def locfield1(self) -> typing.Union[str, None]:
         return self.__locfield1
 
     @property
-    def locfield2(self):
-        '''
-        :rtype: str
-        '''
-
+    def locfield2(self) -> typing.Union[str, None]:
         return self.__locfield2
 
     @property
-    def locfield3(self):
-        '''
-        :rtype: str
-        '''
-
+    def locfield3(self) -> typing.Union[str, None]:
         return self.__locfield3
 
     @property
-    def locfield4(self):
-        '''
-        :rtype: str
-        '''
-
+    def locfield4(self) -> typing.Union[str, None]:
         return self.__locfield4
 
     @property
-    def locfield5(self):
-        '''
-        :rtype: str
-        '''
-
+    def locfield5(self) -> typing.Union[str, None]:
         return self.__locfield5
 
     @property
-    def locfield6(self):
-        '''
-        :rtype: str
-        '''
-
+    def locfield6(self) -> typing.Union[str, None]:
         return self.__locfield6
 
     @property
-    def longdeg(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def longdeg(self) -> typing.Union[decimal.Decimal, None]:
         return self.__longdeg
 
     @property
-    def luster(self):
-        '''
-        :rtype: str
-        '''
-
+    def luster(self) -> typing.Union[str, None]:
         return self.__luster
 
     @property
-    def made(self):
-        '''
-        :rtype: str
-        '''
-
+    def made(self) -> typing.Union[str, None]:
         return self.__made
 
     @property
-    def maintcycle(self):
-        '''
-        :rtype: str
-        '''
-
+    def maintcycle(self) -> typing.Union[str, None]:
         return self.__maintcycle
 
     @property
-    def maintdate(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def maintdate(self) -> typing.Union[datetime.date, None]:
         return self.__maintdate
 
     @property
-    def maintnote(self):
-        '''
-        :rtype: str
-        '''
-
+    def maintnote(self) -> typing.Union[str, None]:
         return self.__maintnote
 
     @property
-    def material(self):
-        '''
-        :rtype: str
-        '''
-
+    def material(self) -> typing.Union[str, None]:
         return self.__material
 
     @property
-    def medium(self):
-        '''
-        :rtype: str
-        '''
-
+    def medium(self) -> typing.Union[str, None]:
         return self.__medium
 
     @property
-    def member(self):
-        '''
-        :rtype: str
-        '''
-
+    def member(self) -> typing.Union[str, None]:
         return self.__member
 
     @property
-    def mmark(self):
-        '''
-        :rtype: str
-        '''
-
+    def mmark(self) -> typing.Union[str, None]:
         return self.__mmark
 
     @property
-    def nhclass(self):
-        '''
-        :rtype: str
-        '''
-
+    def nhclass(self) -> typing.Union[str, None]:
         return self.__nhclass
 
     @property
-    def nhorder(self):
-        '''
-        :rtype: str
-        '''
-
+    def nhorder(self) -> typing.Union[str, None]:
         return self.__nhorder
 
     @property
-    def notes(self):
-        '''
-        :rtype: str
-        '''
-
+    def notes(self) -> typing.Union[str, None]:
         return self.__notes
 
     @property
-    def ns(self):
-        '''
-        :rtype: str
-        '''
-
+    def ns(self) -> typing.Union[str, None]:
         return self.__ns
 
     @property
-    def objectid(self):
-        '''
-        :rtype: str
-        '''
-
+    def objectid(self) -> typing.Union[str, None]:
         return self.__objectid
 
     @property
-    def objname(self):
-        '''
-        :rtype: str
-        '''
-
+    def objname(self) -> typing.Union[str, None]:
         return self.__objname
 
     @property
-    def objname2(self):
-        '''
-        :rtype: str
-        '''
-
+    def objname2(self) -> typing.Union[str, None]:
         return self.__objname2
 
     @property
-    def objname3(self):
-        '''
-        :rtype: str
-        '''
-
+    def objname3(self) -> typing.Union[str, None]:
         return self.__objname3
 
     @property
-    def objnames(self):
-        '''
-        :rtype: str
-        '''
-
+    def objnames(self) -> typing.Union[str, None]:
         return self.__objnames
 
     @property
-    def occurrence(self):
-        '''
-        :rtype: str
-        '''
-
+    def occurrence(self) -> typing.Union[str, None]:
         return self.__occurrence
 
     @property
-    def oldno(self):
-        '''
-        :rtype: str
-        '''
-
+    def oldno(self) -> typing.Union[str, None]:
         return self.__oldno
 
     @property
-    def origin(self):
-        '''
-        :rtype: str
-        '''
-
+    def origin(self) -> typing.Union[str, None]:
         return self.__origin
 
     @property
-    def othername(self):
-        '''
-        :rtype: str
-        '''
-
+    def othername(self) -> typing.Union[str, None]:
         return self.__othername
 
     @property
-    def otherno(self):
-        '''
-        :rtype: str
-        '''
-
+    def otherno(self) -> typing.Union[str, None]:
         return self.__otherno
 
     @property
-    def outdate(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def outdate(self) -> typing.Union[datetime.date, None]:
         return self.__outdate
 
     @property
-    def owned(self):
-        '''
-        :rtype: str
-        '''
-
+    def owned(self) -> typing.Union[str, None]:
         return self.__owned
 
     @property
-    def parent(self):
-        '''
-        :rtype: str
-        '''
-
+    def parent(self) -> typing.Union[str, None]:
         return self.__parent
 
     @property
-    def people(self):
-        '''
-        :rtype: str
-        '''
-
+    def people(self) -> typing.Union[str, None]:
         return self.__people
 
     @property
-    def period(self):
-        '''
-        :rtype: str
-        '''
-
+    def period(self) -> typing.Union[str, None]:
         return self.__period
 
     @property
-    def phylum(self):
-        '''
-        :rtype: str
-        '''
-
+    def phylum(self) -> typing.Union[str, None]:
         return self.__phylum
 
     @property
-    def policyno(self):
-        '''
-        :rtype: str
-        '''
-
+    def policyno(self) -> typing.Union[str, None]:
         return self.__policyno
 
     @property
-    def ppid(self):
-        '''
-        :rtype: str
-        '''
-
+    def ppid(self) -> typing.Union[str, None]:
         return self.__ppid
 
     @property
-    def preparator(self):
-        '''
-        :rtype: str
-        '''
-
+    def preparator(self) -> typing.Union[str, None]:
         return self.__preparator
 
     @property
-    def prepdate(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def prepdate(self) -> typing.Union[datetime.date, None]:
         return self.__prepdate
 
     @property
-    def preserve(self):
-        '''
-        :rtype: str
-        '''
-
+    def preserve(self) -> typing.Union[str, None]:
         return self.__preserve
 
     @property
-    def pressure(self):
-        '''
-        :rtype: str
-        '''
-
+    def pressure(self) -> typing.Union[str, None]:
         return self.__pressure
 
     @property
-    def provenance(self):
-        '''
-        :rtype: str
-        '''
-
+    def provenance(self) -> typing.Union[str, None]:
         return self.__provenance
 
     @property
-    def pubnotes(self):
-        '''
-        :rtype: str
-        '''
-
+    def pubnotes(self) -> typing.Union[str, None]:
         return self.__pubnotes
 
     @property
-    def qrurl(self):
-        '''
-        :rtype: str
-        '''
-
+    def qrurl(self) -> typing.Union[str, None]:
         return self.__qrurl
 
     @classmethod
@@ -15265,470 +11148,238 @@ class ObjectsDbfRecord(object):
         return cls(**init_kwds)
 
     @property
-    def recas(self):
-        '''
-        :rtype: str
-        '''
-
+    def recas(self) -> typing.Union[str, None]:
         return self.__recas
 
     @property
-    def recdate(self):
-        '''
-        :rtype: str
-        '''
-
+    def recdate(self) -> typing.Union[str, None]:
         return self.__recdate
 
     @property
-    def recfrom(self):
-        '''
-        :rtype: str
-        '''
-
+    def recfrom(self) -> typing.Union[str, None]:
         return self.__recfrom
 
     @property
-    def relation(self):
-        '''
-        :rtype: str
-        '''
-
+    def relation(self) -> typing.Union[str, None]:
         return self.__relation
 
     @property
-    def relnotes(self):
-        '''
-        :rtype: str
-        '''
-
+    def relnotes(self) -> typing.Union[str, None]:
         return self.__relnotes
 
     @property
-    def renewuntil(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def renewuntil(self) -> typing.Union[datetime.date, None]:
         return self.__renewuntil
 
     @property
-    def repatby(self):
-        '''
-        :rtype: str
-        '''
-
+    def repatby(self) -> typing.Union[str, None]:
         return self.__repatby
 
     @property
-    def repatclaim(self):
-        '''
-        :rtype: str
-        '''
-
+    def repatclaim(self) -> typing.Union[str, None]:
         return self.__repatclaim
 
     @property
-    def repatdate(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def repatdate(self) -> typing.Union[datetime.date, None]:
         return self.__repatdate
 
     @property
-    def repatdisp(self):
-        '''
-        :rtype: str
-        '''
-
+    def repatdisp(self) -> typing.Union[str, None]:
         return self.__repatdisp
 
     @property
-    def repathand(self):
-        '''
-        :rtype: str
-        '''
-
+    def repathand(self) -> typing.Union[str, None]:
         return self.__repathand
 
     @property
-    def repatnotes(self):
-        '''
-        :rtype: str
-        '''
-
+    def repatnotes(self) -> typing.Union[str, None]:
         return self.__repatnotes
 
     @property
-    def repatnotic(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def repatnotic(self) -> typing.Union[datetime.date, None]:
         return self.__repatnotic
 
     @property
-    def repattype(self):
-        '''
-        :rtype: str
-        '''
-
+    def repattype(self) -> typing.Union[str, None]:
         return self.__repattype
 
     def replacer(self):
         return self.Builder.from_template(template=self)
 
     @property
-    def rockclass(self):
-        '''
-        :rtype: str
-        '''
-
+    def rockclass(self) -> typing.Union[str, None]:
         return self.__rockclass
 
     @property
-    def rockcolor(self):
-        '''
-        :rtype: str
-        '''
-
+    def rockcolor(self) -> typing.Union[str, None]:
         return self.__rockcolor
 
     @property
-    def rockorigin(self):
-        '''
-        :rtype: str
-        '''
-
+    def rockorigin(self) -> typing.Union[str, None]:
         return self.__rockorigin
 
     @property
-    def rocktype(self):
-        '''
-        :rtype: str
-        '''
-
+    def rocktype(self) -> typing.Union[str, None]:
         return self.__rocktype
 
     @property
-    def role(self):
-        '''
-        :rtype: str
-        '''
-
+    def role(self) -> typing.Union[str, None]:
         return self.__role
 
     @property
-    def role2(self):
-        '''
-        :rtype: str
-        '''
-
+    def role2(self) -> typing.Union[str, None]:
         return self.__role2
 
     @property
-    def role3(self):
-        '''
-        :rtype: str
-        '''
-
+    def role3(self) -> typing.Union[str, None]:
         return self.__role3
 
     @property
-    def school(self):
-        '''
-        :rtype: str
-        '''
-
+    def school(self) -> typing.Union[str, None]:
         return self.__school
 
     @property
-    def sex(self):
-        '''
-        :rtype: str
-        '''
-
+    def sex(self) -> typing.Union[str, None]:
         return self.__sex
 
     @property
-    def sgflag(self):
-        '''
-        :rtype: str
-        '''
-
+    def sgflag(self) -> typing.Union[str, None]:
         return self.__sgflag
 
     @property
-    def signedname(self):
-        '''
-        :rtype: str
-        '''
-
+    def signedname(self) -> typing.Union[str, None]:
         return self.__signedname
 
     @property
-    def signloc(self):
-        '''
-        :rtype: str
-        '''
-
+    def signloc(self) -> typing.Union[str, None]:
         return self.__signloc
 
     @property
-    def site(self):
-        '''
-        :rtype: str
-        '''
-
+    def site(self) -> typing.Union[str, None]:
         return self.__site
 
     @property
-    def siteno(self):
-        '''
-        :rtype: str
-        '''
-
+    def siteno(self) -> typing.Union[str, None]:
         return self.__siteno
 
     @property
-    def specgrav(self):
-        '''
-        :rtype: str
-        '''
-
+    def specgrav(self) -> typing.Union[str, None]:
         return self.__specgrav
 
     @property
-    def species(self):
-        '''
-        :rtype: str
-        '''
-
+    def species(self) -> typing.Union[str, None]:
         return self.__species
 
     @property
-    def sprocess(self):
-        '''
-        :rtype: str
-        '''
-
+    def sprocess(self) -> typing.Union[str, None]:
         return self.__sprocess
 
     @property
-    def stage(self):
-        '''
-        :rtype: str
-        '''
-
+    def stage(self) -> typing.Union[str, None]:
         return self.__stage
 
     @property
-    def status(self):
-        '''
-        :rtype: str
-        '''
-
+    def status(self) -> typing.Union[str, None]:
         return self.__status
 
     @property
-    def statusby(self):
-        '''
-        :rtype: str
-        '''
-
+    def statusby(self) -> typing.Union[str, None]:
         return self.__statusby
 
     @property
-    def statusdate(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def statusdate(self) -> typing.Union[datetime.date, None]:
         return self.__statusdate
 
     @property
-    def sterms(self):
-        '''
-        :rtype: str
-        '''
-
+    def sterms(self) -> typing.Union[str, None]:
         return self.__sterms
 
     @property
-    def stratum(self):
-        '''
-        :rtype: str
-        '''
-
+    def stratum(self) -> typing.Union[str, None]:
         return self.__stratum
 
     @property
-    def streak(self):
-        '''
-        :rtype: str
-        '''
-
+    def streak(self) -> typing.Union[str, None]:
         return self.__streak
 
     @property
-    def subfamily(self):
-        '''
-        :rtype: str
-        '''
-
+    def subfamily(self) -> typing.Union[str, None]:
         return self.__subfamily
 
     @property
-    def subjects(self):
-        '''
-        :rtype: str
-        '''
-
+    def subjects(self) -> typing.Union[str, None]:
         return self.__subjects
 
     @property
-    def subspecies(self):
-        '''
-        :rtype: str
-        '''
-
+    def subspecies(self) -> typing.Union[str, None]:
         return self.__subspecies
 
     @property
-    def technique(self):
-        '''
-        :rtype: str
-        '''
-
+    def technique(self) -> typing.Union[str, None]:
         return self.__technique
 
     @property
-    def tempauthor(self):
-        '''
-        :rtype: str
-        '''
-
+    def tempauthor(self) -> typing.Union[str, None]:
         return self.__tempauthor
 
     @property
-    def tempby(self):
-        '''
-        :rtype: str
-        '''
-
+    def tempby(self) -> typing.Union[str, None]:
         return self.__tempby
 
     @property
-    def tempdate(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def tempdate(self) -> typing.Union[datetime.date, None]:
         return self.__tempdate
 
     @property
-    def temperatur(self):
-        '''
-        :rtype: str
-        '''
-
+    def temperatur(self) -> typing.Union[str, None]:
         return self.__temperatur
 
     @property
-    def temploc(self):
-        '''
-        :rtype: str
-        '''
-
+    def temploc(self) -> typing.Union[str, None]:
         return self.__temploc
 
     @property
-    def tempnotes(self):
-        '''
-        :rtype: str
-        '''
-
+    def tempnotes(self) -> typing.Union[str, None]:
         return self.__tempnotes
 
     @property
-    def tempreason(self):
-        '''
-        :rtype: str
-        '''
-
+    def tempreason(self) -> typing.Union[str, None]:
         return self.__tempreason
 
     @property
-    def tempuntil(self):
-        '''
-        :rtype: str
-        '''
-
+    def tempuntil(self) -> typing.Union[str, None]:
         return self.__tempuntil
 
     @property
-    def texture(self):
-        '''
-        :rtype: str
-        '''
-
+    def texture(self) -> typing.Union[str, None]:
         return self.__texture
 
     @property
-    def title(self):
-        '''
-        :rtype: str
-        '''
-
+    def title(self) -> typing.Union[str, None]:
         return self.__title
 
     @property
-    def tlocfield1(self):
-        '''
-        :rtype: str
-        '''
-
+    def tlocfield1(self) -> typing.Union[str, None]:
         return self.__tlocfield1
 
     @property
-    def tlocfield2(self):
-        '''
-        :rtype: str
-        '''
-
+    def tlocfield2(self) -> typing.Union[str, None]:
         return self.__tlocfield2
 
     @property
-    def tlocfield3(self):
-        '''
-        :rtype: str
-        '''
-
+    def tlocfield3(self) -> typing.Union[str, None]:
         return self.__tlocfield3
 
     @property
-    def tlocfield4(self):
-        '''
-        :rtype: str
-        '''
-
+    def tlocfield4(self) -> typing.Union[str, None]:
         return self.__tlocfield4
 
     @property
-    def tlocfield5(self):
-        '''
-        :rtype: str
-        '''
-
+    def tlocfield5(self) -> typing.Union[str, None]:
         return self.__tlocfield5
 
     @property
-    def tlocfield6(self):
-        '''
-        :rtype: str
-        '''
-
+    def tlocfield6(self) -> typing.Union[str, None]:
         return self.__tlocfield6
 
     def to_builtins(self):
@@ -16002,323 +11653,163 @@ class ObjectsDbfRecord(object):
         return dict_
 
     @property
-    def udf1(self):
-        '''
-        :rtype: str
-        '''
-
+    def udf1(self) -> typing.Union[str, None]:
         return self.__udf1
 
     @property
-    def udf10(self):
-        '''
-        :rtype: str
-        '''
-
+    def udf10(self) -> typing.Union[str, None]:
         return self.__udf10
 
     @property
-    def udf11(self):
-        '''
-        :rtype: str
-        '''
-
+    def udf11(self) -> typing.Union[str, None]:
         return self.__udf11
 
     @property
-    def udf12(self):
-        '''
-        :rtype: str
-        '''
-
+    def udf12(self) -> typing.Union[str, None]:
         return self.__udf12
 
     @property
-    def udf13(self):
-        '''
-        :rtype: int
-        '''
-
+    def udf13(self) -> typing.Union[int, None]:
         return self.__udf13
 
     @property
-    def udf14(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def udf14(self) -> typing.Union[decimal.Decimal, None]:
         return self.__udf14
 
     @property
-    def udf15(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def udf15(self) -> typing.Union[decimal.Decimal, None]:
         return self.__udf15
 
     @property
-    def udf16(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def udf16(self) -> typing.Union[decimal.Decimal, None]:
         return self.__udf16
 
     @property
-    def udf17(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def udf17(self) -> typing.Union[decimal.Decimal, None]:
         return self.__udf17
 
     @property
-    def udf18(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def udf18(self) -> typing.Union[datetime.date, None]:
         return self.__udf18
 
     @property
-    def udf19(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def udf19(self) -> typing.Union[datetime.date, None]:
         return self.__udf19
 
     @property
-    def udf2(self):
-        '''
-        :rtype: str
-        '''
-
+    def udf2(self) -> typing.Union[str, None]:
         return self.__udf2
 
     @property
-    def udf20(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def udf20(self) -> typing.Union[datetime.date, None]:
         return self.__udf20
 
     @property
-    def udf21(self):
-        '''
-        :rtype: str
-        '''
-
+    def udf21(self) -> typing.Union[str, None]:
         return self.__udf21
 
     @property
-    def udf22(self):
-        '''
-        :rtype: str
-        '''
-
+    def udf22(self) -> typing.Union[str, None]:
         return self.__udf22
 
     @property
-    def udf3(self):
-        '''
-        :rtype: str
-        '''
-
+    def udf3(self) -> typing.Union[str, None]:
         return self.__udf3
 
     @property
-    def udf4(self):
-        '''
-        :rtype: str
-        '''
-
+    def udf4(self) -> typing.Union[str, None]:
         return self.__udf4
 
     @property
-    def udf5(self):
-        '''
-        :rtype: str
-        '''
-
+    def udf5(self) -> typing.Union[str, None]:
         return self.__udf5
 
     @property
-    def udf6(self):
-        '''
-        :rtype: str
-        '''
-
+    def udf6(self) -> typing.Union[str, None]:
         return self.__udf6
 
     @property
-    def udf7(self):
-        '''
-        :rtype: str
-        '''
-
+    def udf7(self) -> typing.Union[str, None]:
         return self.__udf7
 
     @property
-    def udf8(self):
-        '''
-        :rtype: str
-        '''
-
+    def udf8(self) -> typing.Union[str, None]:
         return self.__udf8
 
     @property
-    def udf9(self):
-        '''
-        :rtype: str
-        '''
-
+    def udf9(self) -> typing.Union[str, None]:
         return self.__udf9
 
     @property
-    def unit(self):
-        '''
-        :rtype: str
-        '''
-
+    def unit(self) -> typing.Union[str, None]:
         return self.__unit
 
     @property
-    def updated(self):
-        '''
-        :rtype: datetime.datetime
-        '''
-
+    def updated(self) -> typing.Union[datetime.datetime, None]:
         return self.__updated
 
     @property
-    def updatedby(self):
-        '''
-        :rtype: str
-        '''
-
+    def updatedby(self) -> typing.Union[str, None]:
         return self.__updatedby
 
     @property
-    def used(self):
-        '''
-        :rtype: str
-        '''
-
+    def used(self) -> typing.Union[str, None]:
         return self.__used
 
     @property
-    def valuedate(self):
-        '''
-        :rtype: datetime.date
-        '''
-
+    def valuedate(self) -> typing.Union[datetime.date, None]:
         return self.__valuedate
 
     @property
-    def varieties(self):
-        '''
-        :rtype: str
-        '''
-
+    def varieties(self) -> typing.Union[str, None]:
         return self.__varieties
 
     @property
-    def vexhtml(self):
-        '''
-        :rtype: str
-        '''
-
+    def vexhtml(self) -> typing.Union[str, None]:
         return self.__vexhtml
 
     @property
-    def vexlabel1(self):
-        '''
-        :rtype: str
-        '''
-
+    def vexlabel1(self) -> typing.Union[str, None]:
         return self.__vexlabel1
 
     @property
-    def vexlabel2(self):
-        '''
-        :rtype: str
-        '''
-
+    def vexlabel2(self) -> typing.Union[str, None]:
         return self.__vexlabel2
 
     @property
-    def vexlabel3(self):
-        '''
-        :rtype: str
-        '''
-
+    def vexlabel3(self) -> typing.Union[str, None]:
         return self.__vexlabel3
 
     @property
-    def vexlabel4(self):
-        '''
-        :rtype: str
-        '''
-
+    def vexlabel4(self) -> typing.Union[str, None]:
         return self.__vexlabel4
 
     @property
-    def webinclude(self):
-        '''
-        :rtype: bool
-        '''
-
+    def webinclude(self) -> typing.Union[bool, None]:
         return self.__webinclude
 
     @property
-    def weight(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def weight(self) -> typing.Union[decimal.Decimal, None]:
         return self.__weight
 
     @property
-    def weightin(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def weightin(self) -> typing.Union[decimal.Decimal, None]:
         return self.__weightin
 
     @property
-    def weightlb(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def weightlb(self) -> typing.Union[decimal.Decimal, None]:
         return self.__weightlb
 
     @property
-    def width(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def width(self) -> typing.Union[decimal.Decimal, None]:
         return self.__width
 
     @property
-    def widthft(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def widthft(self) -> typing.Union[decimal.Decimal, None]:
         return self.__widthft
 
     @property
-    def widthin(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def widthin(self) -> typing.Union[decimal.Decimal, None]:
         return self.__widthin
 
     def write(self, oprot):
@@ -17668,41 +13159,21 @@ class ObjectsDbfRecord(object):
         return self
 
     @property
-    def xcord(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def xcord(self) -> typing.Union[decimal.Decimal, None]:
         return self.__xcord
 
     @property
-    def ycord(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def ycord(self) -> typing.Union[decimal.Decimal, None]:
         return self.__ycord
 
     @property
-    def zcord(self):
-        '''
-        :rtype: Decimal
-        '''
-
+    def zcord(self) -> typing.Union[decimal.Decimal, None]:
         return self.__zcord
 
     @property
-    def zsorter(self):
-        '''
-        :rtype: str
-        '''
-
+    def zsorter(self) -> typing.Union[str, None]:
         return self.__zsorter
 
     @property
-    def zsorterx(self):
-        '''
-        :rtype: str
-        '''
-
+    def zsorterx(self) -> typing.Union[str, None]:
         return self.__zsorterx

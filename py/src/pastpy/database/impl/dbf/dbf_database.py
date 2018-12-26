@@ -6,9 +6,8 @@ from pastpy.gen.database.impl.dbf.dbf_database_configuration import DbfDatabaseC
 
 
 class DbfDatabase(Database):
-    def __init__(self, *, configuration):
+    def __init__(self, *, configuration: DbfDatabaseConfiguration):
         Database.__init__(self)
-        assert isinstance(configuration, DbfDatabaseConfiguration)
 
         configuration_builder = configuration.replacer()
         if configuration.pp_images_dir_path is not None and configuration.pp_objects_dbf_file_path is not None:
