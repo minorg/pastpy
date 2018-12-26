@@ -24,6 +24,7 @@ class DummyDatabaseObject(DatabaseObject):
         for i in range(self.__configuration.images_per_object):
             yield DummyDatabaseImage(image_index=i, object_index=self.__index)
 
+    @property
     def impl_attributes(self):
         return {}
 
