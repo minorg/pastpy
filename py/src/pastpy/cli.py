@@ -40,11 +40,9 @@ class Cli(object):
 
         subparsers = argument_parser.add_subparsers()
 
-        subparser = subparsers.add_parser("download")
-        subparser.set_defaults(command="download")
-
-        subparser = subparsers.add_parser("parse")
-        subparser.set_defaults(command="parse")
+        for command in ("download", "parse"):
+            subparser = subparsers.add_parser(command)
+            subparser.set_defaults(command=command)
 
         parsed_args = argument_parser.parse_args()
 
