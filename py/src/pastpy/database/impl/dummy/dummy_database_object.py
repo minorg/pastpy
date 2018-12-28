@@ -20,6 +20,7 @@ class DummyDatabaseObject(DatabaseObject):
     def description(self):
         return self.__description
 
+    @property
     def images(self):
         for i in range(self.__configuration.images_per_object):
             yield DummyDatabaseImage(image_index=i, object_index=self.__index)

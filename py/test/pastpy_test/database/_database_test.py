@@ -13,5 +13,5 @@ class _DatabaseTest(unittest.TestCase):
         for object_ in self._database.objects():
             self.assertNotEqual(None, object_.date)
             self.assertNotEqual(None, object_.name)
-            self.assertTrue(len(tuple(object_.images())))
+            self.assertTrue(len(tuple(object_.images)))
             # self.assertTrue(object_.impl_attributes)
