@@ -14,7 +14,6 @@ jobs:
           command: |
             mkdir test-results
             cd py
-            export PYTHONPATH=$PWD/src
             nose2
       - store_test_results:
           path: test-results
