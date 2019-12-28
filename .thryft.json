@@ -3,7 +3,7 @@
 
     "tasks": {
         "clean": [
-            "py/src/pastpy/gen"
+            "py/pastpy/gen"
         ],
         "lint": [{
             "thrift_root_dir": "thrift/src"
@@ -12,7 +12,7 @@
             "thrift_root_dir": "thrift/src",
             "thrift_files": "thrift/src/**/*.thrift",
             "gen": {
-                "py": "py/src"
+                "py": "py"
             }
         }]
     }
