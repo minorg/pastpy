@@ -5,7 +5,7 @@ from pastpy.database.impl.online.online_file_paths import OnlineFilePaths
 from pastpy.database.impl.online.online_database_object import OnlineDatabaseObject
 from pastpy.database.impl.online.online_database_object_detail_html_parser import OnlineDatabaseObjectDetailHtmlParser
 from pastpy.database.impl.online.online_database_objects_list_html_parser import OnlineDatabaseObjectsListHtmlParser
-from pastpy.gen.database.impl.online.online_database_configuration import OnlineDatabaseConfiguration
+from pastpy.database.impl.online.online_database_configuration import OnlineDatabaseConfiguration
 
 
 class OnlineDatabase(Database):

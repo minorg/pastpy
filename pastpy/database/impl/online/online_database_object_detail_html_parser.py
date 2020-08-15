@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
 
-from pastpy.gen.database.impl.online.online_database_object_detail import OnlineDatabaseObjectDetail
-from pastpy.gen.database.impl.online.online_database_object_detail_image import OnlineDatabaseObjectDetailImage
-from pastpy.gen.database.impl.online.online_database_object_detail_image_type import OnlineDatabaseObjectDetailImageType
+from pastpy.database.impl.online.online_database_object_detail import OnlineDatabaseObjectDetail
+from pastpy.database.impl.online.online_database_object_detail_image import OnlineDatabaseObjectDetailImage
+from pastpy.database.impl.online.online_database_object_detail_image_type import OnlineDatabaseObjectDetailImageType
 
 
 class OnlineDatabaseObjectDetailHtmlParser(object):

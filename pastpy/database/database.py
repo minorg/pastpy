@@ -1,10 +1,10 @@
 from abc import abstractmethod
 import logging
 from pastpy.database.database_object import DatabaseObject
-from pastpy.gen.database.database_configuration import DatabaseConfiguration
-from pastpy.gen.database.impl.dbf.dbf_database_configuration import DbfDatabaseConfiguration
-from pastpy.gen.database.impl.dummy.dummy_database_configuration import DummyDatabaseConfiguration
-from pastpy.gen.database.impl.online.online_database_configuration import OnlineDatabaseConfiguration
+from pastpy.database.database_configuration import DatabaseConfiguration
+from pastpy.database.impl.dbf.dbf_database_configuration import DbfDatabaseConfiguration
+from pastpy.database.impl.dummy.dummy_database_configuration import DummyDatabaseConfiguration
+from pastpy.database.impl.online.online_database_configuration import OnlineDatabaseConfiguration
 from typing import Iterable
 
 

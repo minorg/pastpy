@@ -3,7 +3,7 @@ import json
 import logging
 
 from pastpy.database.database import Database
-from pastpy.gen.database.database_configuration import DatabaseConfiguration
+from pastpy.database.database_configuration import DatabaseConfiguration
 
 
 class Cli(object):

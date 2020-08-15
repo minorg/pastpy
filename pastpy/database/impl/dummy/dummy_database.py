@@ -1,6 +1,6 @@
 from pastpy.database.database import Database
 from pastpy.database.impl.dummy.dummy_database_object import DummyDatabaseObject
-from pastpy.gen.database.impl.dummy.dummy_database_configuration import DummyDatabaseConfiguration
+from pastpy.database.impl.dummy.dummy_database_configuration import DummyDatabaseConfiguration
 
 
 class DummyDatabase(Database):

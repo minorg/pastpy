@@ -1,6 +1,6 @@
 from typing import NamedTuple
 
-from pastpy.gen.database.impl.online.online_database_object_detail_image_type import OnlineDatabaseObjectDetailImageType
+from pastpy.database.impl.online.online_database_object_detail_image_type import OnlineDatabaseObjectDetailImageType
 
 
 class OnlineDatabaseObjectDetailImage(NamedTuple):

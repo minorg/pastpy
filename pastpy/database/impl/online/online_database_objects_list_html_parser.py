@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from pastpy.gen.database.impl.online.online_database_objects_list_item import OnlineDatabaseObjectsListItem
+from pastpy.database.impl.online.online_database_objects_list_item import OnlineDatabaseObjectsListItem
 import logging
 
 
