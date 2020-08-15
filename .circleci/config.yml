@@ -2,18 +2,17 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.6.4
+      - image: circleci/python:3.8
     steps:
       - checkout
       - run: sudo chown -R circleci:circleci /usr/local/bin
       - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
-      - run: pip install -r py/requirements.txt
+      - run: pip install -r requirements.txt
       - run: pip install nose2
       - run:
           name: Try to run nose
           command: |
             mkdir test-results
-            cd py
             nose2
       - store_test_results:
           path: test-results
