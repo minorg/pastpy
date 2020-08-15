@@ -1,11 +1,11 @@
 import os.path
-from pastpy.database.database import Database
-from pastpy.database.impl.online.online_file_downloader import OnlineFileDownloader
-from pastpy.database.impl.online.online_file_paths import OnlineFilePaths
-from pastpy.database.impl.online.online_database_object import OnlineDatabaseObject
-from pastpy.database.impl.online.online_database_object_detail_html_parser import OnlineDatabaseObjectDetailHtmlParser
-from pastpy.database.impl.online.online_database_objects_list_html_parser import OnlineDatabaseObjectsListHtmlParser
-from pastpy.database.impl.online.online_database_configuration import OnlineDatabaseConfiguration
+from pastpy.database import Database
+from pastpy.impl.online.online_file_downloader import OnlineFileDownloader
+from pastpy.impl.online.online_file_paths import OnlineFilePaths
+from pastpy.impl.online.online_database_object import OnlineDatabaseObject
+from pastpy.impl.online.online_database_object_detail_html_parser import OnlineDatabaseObjectDetailHtmlParser
+from pastpy.impl.online.online_database_objects_list_html_parser import OnlineDatabaseObjectsListHtmlParser
+from pastpy.impl.online.online_database_configuration import OnlineDatabaseConfiguration
 
 
 class OnlineDatabase(Database):

@@ -1,5 +1,5 @@
-from pastpy.database.database_object import DatabaseObject
-from pastpy.database.impl.online.online_database_image import OnlineDatabaseImage
+from pastpy.database_object import DatabaseObject
+from pastpy.impl.online.online_database_image import OnlineDatabaseImage
 
 
 class OnlineDatabaseObject(DatabaseObject):

@@ -1,8 +1,8 @@
 import os.path
-from pastpy.database.database import Database
-from pastpy.database.impl.dbf.objects_dbf_table import ObjectsDbfTable
-from pastpy.database.impl.dbf.dbf_database_object import DbfDatabaseObject
-from pastpy.database.impl.dbf.dbf_database_configuration import DbfDatabaseConfiguration
+from pastpy.database import Database
+from pastpy.impl.dbf.objects_dbf_table import ObjectsDbfTable
+from pastpy.impl.dbf.dbf_database_object import DbfDatabaseObject
+from pastpy.impl.dbf.dbf_database_configuration import DbfDatabaseConfiguration
 
 
 class DbfDatabase(Database):

@@ -1,4 +1,4 @@
-from pastpy.database.impl.dummy.dummy_database import DummyDatabase
+from pastpy.impl.dummy.dummy_database import DummyDatabase
 from pastpy_test.database._database_test import _DatabaseTest
 from pastpy_test.database.test_database_configurations import TestDatabaseConfigurations
 

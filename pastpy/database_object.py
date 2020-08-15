@@ -1,5 +1,5 @@
 from abc import ABC, abstractproperty
-from pastpy.database.database_image import DatabaseImage
+from pastpy.database_image import DatabaseImage
 from typing import Dict, Iterable, Union
 
 

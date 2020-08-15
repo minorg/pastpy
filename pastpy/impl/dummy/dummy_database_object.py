@@ -1,5 +1,5 @@
-from pastpy.database.database_object import DatabaseObject
-from pastpy.database.impl.dummy.dummy_database_image import DummyDatabaseImage
+from pastpy.database_object import DatabaseObject
+from pastpy.impl.dummy.dummy_database_image import DummyDatabaseImage
 import datetime
 
 

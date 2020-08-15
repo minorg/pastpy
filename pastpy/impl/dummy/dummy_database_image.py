@@ -1,4 +1,4 @@
-from pastpy.database.database_image import DatabaseImage
+from pastpy.database_image import DatabaseImage
 
 
 class DummyDatabaseImage(DatabaseImage):

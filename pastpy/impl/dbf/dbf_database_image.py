@@ -1,4 +1,4 @@
-from pastpy.database.database_image import DatabaseImage
+from pastpy.database_image import DatabaseImage
 from urllib.parse import urljoin
 from urllib.request import pathname2url
 

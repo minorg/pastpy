@@ -1,10 +1,10 @@
 from abc import abstractmethod
 import logging
-from pastpy.database.database_object import DatabaseObject
-from pastpy.database.database_configuration import DatabaseConfiguration
-from pastpy.database.impl.dbf.dbf_database_configuration import DbfDatabaseConfiguration
-from pastpy.database.impl.dummy.dummy_database_configuration import DummyDatabaseConfiguration
-from pastpy.database.impl.online.online_database_configuration import OnlineDatabaseConfiguration
+from pastpy.database_object import DatabaseObject
+from pastpy.database_configuration import DatabaseConfiguration
+from pastpy.impl.dbf.dbf_database_configuration import DbfDatabaseConfiguration
+from pastpy.impl.dummy.dummy_database_configuration import DummyDatabaseConfiguration
+from pastpy.impl.online.online_database_configuration import OnlineDatabaseConfiguration
 from typing import Iterable
 
 
@@ -24,13 +24,13 @@ class Database(object):
             else:
                 raise NotImplementedError
         elif isinstance(configuration, DbfDatabaseConfiguration):
-            from pastpy.database.impl.dbf.dbf_database import DbfDatabase
+            from pastpy.impl.dbf.dbf_database import DbfDatabase
             return DbfDatabase(configuration=configuration)
         elif isinstance(configuration, DummyDatabaseConfiguration):
-            from pastpy.database.impl.dummy.dummy_database import DummyDatabase
+            from pastpy.impl.dummy.dummy_database import DummyDatabase
             return DummyDatabase(configuration=configuration)
         elif isinstance(configuration, OnlineDatabaseConfiguration):
-            from pastpy.database.impl.online.online_database import OnlineDatabase
+            from pastpy.impl.online.online_database import OnlineDatabase
             return OnlineDatabase(configuration=configuration)
         else:
             raise NotImplementedError

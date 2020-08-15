@@ -1,7 +1,7 @@
 import logging
 import os.path
-from pastpy.database.database_object import DatabaseObject
-from pastpy.database.impl.dbf.dbf_database_image import DbfDatabaseImage
+from pastpy.database_object import DatabaseObject
+from pastpy.impl.dbf.dbf_database_image import DbfDatabaseImage
 
 
 class DbfDatabaseObject(DatabaseObject):

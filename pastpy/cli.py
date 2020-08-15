@@ -2,8 +2,8 @@ from argparse import ArgumentParser
 import json
 import logging
 
-from pastpy.database.database import Database
-from pastpy.database.database_configuration import DatabaseConfiguration
+from pastpy.database import Database
+from pastpy.database_configuration import DatabaseConfiguration
 
 
 class Cli(object):
