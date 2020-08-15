@@ -1,6 +1,6 @@
 from pastpy.impl.dummy.dummy_database import DummyDatabase
-from pastpy_test.database._database_test import _DatabaseTest
-from pastpy_test.database.test_database_configurations import TestDatabaseConfigurations
+from pastpy_test._database_test import _DatabaseTest
+from pastpy_test.test_database_configurations import TestDatabaseConfigurations
 
 
 class DummyDatabaseTest(_DatabaseTest):
