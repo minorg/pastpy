@@ -2,4 +2,8 @@ devdata
 .noseids
 __pycache__/
 /temp/
-/.vscode/.ropeproject/objectdb
+/build/
+*.pyc
+/dist/
+*.egg-info/
+/venv/
