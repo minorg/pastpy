@@ -1,11 +1,10 @@
 from abc import abstractmethod
 import logging
 from pastpy.database_object import DatabaseObject
-from pastpy.database_configuration import DatabaseConfiguration
 from pastpy.impl.dbf.dbf_database_configuration import DbfDatabaseConfiguration
 from pastpy.impl.dummy.dummy_database_configuration import DummyDatabaseConfiguration
 from pastpy.impl.online.online_database_configuration import OnlineDatabaseConfiguration
-from typing import Iterable
+from typing import Iterable, Union
 
 
 class Database(object):
@@ -13,17 +12,8 @@ class Database(object):
         self._logger = logging.getLogger(self.__class__.__name__)
 
     @classmethod
-    def create(cls, configuration):
-        if isinstance(configuration, DatabaseConfiguration):
-            if configuration.dbf:
-                return cls.create(configuration.dbf)
-            elif configuration.dummy:
-                return cls.create(configuration.dummy)
-            elif configuration.online:
-                return cls.create(configuration.online)
-            else:
-                raise NotImplementedError
-        elif isinstance(configuration, DbfDatabaseConfiguration):
+    def create(cls, configuration: Union[DbfDatabaseConfiguration, DummyDatabaseConfiguration, OnlineDatabaseConfiguration]):
+        if isinstance(configuration, DbfDatabaseConfiguration):
             from pastpy.impl.dbf.dbf_database import DbfDatabase
             return DbfDatabase(configuration=configuration)
         elif isinstance(configuration, DummyDatabaseConfiguration):
