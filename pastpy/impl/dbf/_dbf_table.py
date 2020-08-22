@@ -119,7 +119,6 @@ class _DbfTable:
     def records(self):
         for record in self.__table:
             yield self._map_record(record)
-        raise StopIteration
 
     def thrift_field_names(self):
         for field_name in self.field_names:

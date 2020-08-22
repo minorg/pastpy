@@ -22,7 +22,12 @@ class OnlineDatabase(Database):
         self.__configuration = configuration
         self.__file_paths = OnlineFilePaths(configuration.download_dir_path)
 
-    def download(self):
+    def download(self, progress_meter_factory=None):
+        """
+        Download the objects list and object details from PastPerfect Online.
+        :param progress_meter_factory: factory method that takes an iterable
+        """
+
         with OnlineFileDownloader(
             file_paths=self.__file_paths,
             host=self.__configuration.collection_name + ".pastperfectonline.com",
@@ -43,7 +48,6 @@ class OnlineDatabase(Database):
             yield OnlineDatabaseObject(
                 detail=object_detail, list_item=objects_list_item
             )
-        raise StopIteration
 
     def __object_guid(self, objects_list_item):
         return objects_list_item.detail_href.split("/")[-1]
@@ -62,7 +66,6 @@ class OnlineDatabase(Database):
                 yield self.__parse_object_detail(guid=guid)
             except FileNotFoundError:
                 self._logger.debug("object detail for " + guid + " not found")
-        raise StopIteration
 
     def parse_objects_list(self):
         objects_list_page_i = 1
@@ -71,7 +74,7 @@ class OnlineDatabase(Database):
                 objects_list_page_i
             )
             if not objects_list_page_file_path.is_file():
-                raise StopIteration
+                return
             with open(objects_list_page_file_path, "rb") as objects_list_page_file:
                 objects_list_page_html = str(objects_list_page_file.read())
 
