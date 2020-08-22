@@ -14,7 +14,10 @@ class OnlineFileDownloader(object):
     def download_object_detail(self, *, guid):
         object_detail_file_path = self.__file_paths.object_detail_file_path(guid)
         if os.path.isfile(object_detail_file_path):
-            self.__logger.debug("object detail file %s already exists, skipping", object_detail_file_path)
+            self.__logger.debug(
+                "object detail file %s already exists, skipping",
+                object_detail_file_path,
+            )
             return
 
         object_details_dir_path = self.__file_paths.object_details_dir_path
@@ -33,7 +36,9 @@ class OnlineFileDownloader(object):
     def __download_objects_list_page(self, page_i):
         page_file_path = self.__file_paths.objects_list_page_file_path(page_i)
         if os.path.isfile(page_file_path):
-            self.__logger.debug("objects list page file %s already exists, skipping", page_file_path)
+            self.__logger.debug(
+                "objects list page file %s already exists, skipping", page_file_path
+            )
             return True
         page_contents = self.__download("/webobject?page=" + str(page_i))
         if "No results found" in str(page_contents):
@@ -47,6 +52,8 @@ class OnlineFileDownloader(object):
         self.__http_client_connection.request("GET", url_path)
         response = self.__http_client_connection.getresponse()
         html = response.read()
+        if response.status != 200:
+            raise RuntimeError(f"{response.status} response for {url_path}: ${html}")
         self.__logger.debug("retrieved %s", url_path)
         sleep(1)
         return html
@@ -55,7 +62,7 @@ class OnlineFileDownloader(object):
         if not os.path.isdir(self.__file_paths.root_dir_path):
             os.makedirs(self.__file_paths.root_dir_path)
 
-        self.__http_client_connection = http.client.HTTPConnection(self.__host)
+        self.__http_client_connection = http.client.HTTPSConnection(self.__host)
 
         return self
 

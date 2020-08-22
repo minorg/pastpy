@@ -9,9 +9,11 @@ class DbfDatabase(Database):
     def __init__(self, *, configuration: DbfDatabaseConfiguration):
         Database.__init__(self)
 
-        configuration_builder = configuration.replacer()
-        if configuration.pp_images_dir_path is not None and configuration.pp_objects_dbf_file_path is not None:
-            self.__configuration = configuration_builder.build()
+        if (
+            configuration.pp_images_dir_path is not None
+            and configuration.pp_objects_dbf_file_path is not None
+        ):
+            self.__configuration = configuration
             return
 
         pp_install_dir_path = configuration.pp_install_dir_path
@@ -20,26 +22,39 @@ class DbfDatabase(Database):
 
         if not os.path.isdir(pp_install_dir_path):
             raise ValueError(
-                "PastPerfect installation directory %s does not exist" % pp_install_dir_path)
+                "PastPerfect installation directory %s does not exist"
+                % pp_install_dir_path
+            )
         if configuration.pp_images_dir_path is None:
-            configuration_builder.pp_images_dir_path = os.path.join(
-                pp_install_dir_path, 'Images')
+            configuration = configuration._replace(
+                pp_images_dir_path=os.path.join(pp_install_dir_path, "Images")
+            )
         if configuration.pp_objects_dbf_file_path is None:
-            configuration_builder.pp_objects_dbf_file_path = os.path.join(
-                pp_install_dir_path, 'Data', 'OBJECTS.DBF')
-
-        configuration = configuration_builder.build()
+            configuration = configuration._replace(
+                pp_objects_dbf_file_path=os.path.join(
+                    pp_install_dir_path, "Data", "OBJECTS.DBF"
+                )
+            )
 
         if not os.path.isdir(configuration.pp_images_dir_path):
             raise ValueError(
-                "PastPerfect images directory %s does not exist" % configuration.pp_images_dir_path)
+                "PastPerfect images directory %s does not exist"
+                % configuration.pp_images_dir_path
+            )
         if not os.path.isfile(configuration.pp_objects_dbf_file_path):
             raise ValueError(
-                "PastPerfect objects DBF file %s does not exist" % configuration.pp_objects_dbf_file_path)
+                "PastPerfect objects DBF file %s does not exist"
+                % configuration.pp_objects_dbf_file_path
+            )
 
         self.__configuration = configuration
 
     def objects(self):
-        with ObjectsDbfTable.open(self.__configuration.pp_objects_dbf_file_path) as table:
+        with ObjectsDbfTable.open(
+            self.__configuration.pp_objects_dbf_file_path
+        ) as table:
             for record in table.records():
-                yield DbfDatabaseObject(images_dir_path=self.__configuration.pp_images_dir_path, record=record)
+                yield DbfDatabaseObject(
+                    images_dir_path=self.__configuration.pp_images_dir_path,
+                    record=record,
+                )
