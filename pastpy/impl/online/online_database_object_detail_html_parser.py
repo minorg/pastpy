@@ -1,11 +1,15 @@
 from bs4 import BeautifulSoup
 
 from pastpy.impl.online.online_database_object_detail import OnlineDatabaseObjectDetail
-from pastpy.impl.online.online_database_object_detail_image import OnlineDatabaseObjectDetailImage
-from pastpy.impl.online.online_database_object_detail_image_type import OnlineDatabaseObjectDetailImageType
+from pastpy.impl.online.online_database_object_detail_image import (
+    OnlineDatabaseObjectDetailImage,
+)
+from pastpy.impl.online.online_database_object_detail_image_type import (
+    OnlineDatabaseObjectDetailImageType,
+)
 
 
-class OnlineDatabaseObjectDetailHtmlParser(object):
+class OnlineDatabaseObjectDetailHtmlParser:
     def parse(self, *, guid, html):
         soup = BeautifulSoup(html, "html.parser")
         result_builder = OnlineDatabaseObjectDetail.Builder()
@@ -13,12 +17,19 @@ class OnlineDatabaseObjectDetailHtmlParser(object):
         result_builder.guid = guid
 
         attributes = {}
-        for category_element in soup.find(attrs={"class": "recordData"}).find_all(attrs={"class": "category"}):
-            category_string = ''.join(category_element.stripped_strings).strip()
+        for category_element in soup.find(attrs={"class": "recordData"}).find_all(
+            attrs={"class": "category"}
+        ):
+            category_string = "".join(category_element.stripped_strings).strip()
             display_element = category_element.parent.find(attrs={"class": "display"})
             if not display_element:
                 continue
-            display_string = ''.join(display_element.stripped_strings).replace("\\n", '').replace("\\'", "'").strip()
+            display_string = (
+                "".join(display_element.stripped_strings)
+                .replace("\\n", "")
+                .replace("\\'", "'")
+                .strip()
+            )
             if not category_string or not display_string:
                 continue
             if category_string == "Object ID":

@@ -4,7 +4,7 @@ import os.path
 from time import sleep
 
 
-class OnlineFileDownloader(object):
+class OnlineFileDownloader:
     def __init__(self, *, file_paths, host):
         self.__http_client_connection = None
         self.__file_paths = file_paths

@@ -5,7 +5,7 @@ from pastpy.impl.online.online_database_objects_list_item import (
 import logging
 
 
-class OnlineDatabaseObjectsListHtmlParser(object):
+class OnlineDatabaseObjectsListHtmlParser:
     def __init__(self):
         self.__logger = logging.getLogger(self.__class__.__name__)
 
