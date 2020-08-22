@@ -1,3 +1,7 @@
+from typing import Optional
+
+from tqdm import tqdm
+
 from pastpy.database import Database
 from pastpy.impl.online.online_file_downloader import OnlineFileDownloader
 from pastpy.impl.online.online_file_paths import OnlineFilePaths
@@ -22,19 +26,22 @@ class OnlineDatabase(Database):
         self.__configuration = configuration
         self.__file_paths = OnlineFilePaths(configuration.download_dir_path)
 
-    def download(self, progress_meter_factory=None):
+    def download(self, tqdm_disable: Optional[bool] = True):
         """
         Download the objects list and object details from PastPerfect Online.
-        :param progress_meter_factory: factory method that takes an iterable
+        :param progress_meter_factory: factory method that takes an iterable and returns a new iterable that reports progress
         """
 
         with OnlineFileDownloader(
             file_paths=self.__file_paths,
             host=self.__configuration.collection_name + ".pastperfectonline.com",
+            tqdm_disable=tqdm_disable,
         ) as downloader:
             downloader.download_objects_list()
             objects_list = self.parse_objects_list()
-            for objects_list_item in objects_list:
+            for objects_list_item in tqdm(
+                objects_list, desc="Object details", disable=tqdm_disable
+            ):
                 guid = self.__object_guid(objects_list_item)
                 downloader.download_object_detail(guid=guid)
 

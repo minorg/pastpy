@@ -1,15 +1,26 @@
 import http.client
 import logging
 from pathlib import Path
+from tqdm import tqdm
 from time import sleep
+from typing import Optional
+
+from pastpy.impl.online.online_file_paths import OnlineFilePaths
 
 
 class OnlineFileDownloader:
-    def __init__(self, *, file_paths, host):
+    def __init__(
+        self,
+        *,
+        file_paths: OnlineFilePaths,
+        host: str,
+        tqdm_disable: Optional[bool] = True,
+    ):
         self.__http_client_connection = None
         self.__file_paths = file_paths
         self.__host = host
         self.__logger = logging.getLogger(self.__class__.__name__)
+        self.__tqdm_disable = tqdm_disable
 
     def download_object_detail(self, *, guid):
         object_detail_file_path = self.__file_paths.object_detail_file_path(guid)
@@ -30,7 +41,11 @@ class OnlineFileDownloader:
         objects_list_dir_path = self.__file_paths.objects_list_dir_path
         self.__makedirs(objects_list_dir_path)
         page_i = 1
-        while self.__download_objects_list_page(page_i):
+        while tqdm(
+            self.__download_objects_list_page(page_i),
+            desc="Objects list pages",
+            disable=self.__tqdm_disable,
+        ):
             page_i = page_i + 1
 
     def __download_objects_list_page(self, page_i):
