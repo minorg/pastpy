@@ -12,7 +12,13 @@ class OnlineDatabaseTest(_DatabaseTest):
         else:
             self._database = None
 
-    def test_download(self):
-        if self._database is None:
-            return
-        self._database.download(tqdm_disable=False)
+    # def test_download(self):
+    #     if self._database is None:
+    #         return
+    #     self._database.download(tqdm_disable=False)
+    #
+    # def test_objects(self):
+    #     if self._database is None:
+    #         return
+    #     for object_ in self._database.objects():
+    #         print(object_)
