@@ -1,66 +1,79 @@
 from bs4 import BeautifulSoup
 
 from pastpy.impl.online.online_database_object_detail import OnlineDatabaseObjectDetail
-from pastpy.impl.online.online_database_object_detail_image import OnlineDatabaseObjectDetailImage
-from pastpy.impl.online.online_database_object_detail_image_type import OnlineDatabaseObjectDetailImageType
+from pastpy.impl.online.online_database_object_detail_image import (
+    OnlineDatabaseObjectDetailImage,
+)
+from pastpy.impl.online.online_database_object_detail_image_type import (
+    OnlineDatabaseObjectDetailImageType,
+)
 
 
-class OnlineDatabaseObjectDetailHtmlParser(object):
-    def parse(self, *, guid, html):
+class OnlineDatabaseObjectDetailHtmlParser:
+    def parse(self, *, guid: str, html: str) -> OnlineDatabaseObjectDetail:
         soup = BeautifulSoup(html, "html.parser")
-        result_builder = OnlineDatabaseObjectDetail.Builder()
 
-        result_builder.guid = guid
+        result_kwds = {}
+
+        result_kwds["guid"] = guid
 
         attributes = {}
-        for category_element in soup.find(attrs={"class": "recordData"}).find_all(attrs={"class": "category"}):
-            category_string = ''.join(category_element.stripped_strings).strip()
+        for category_element in soup.find(attrs={"class": "recordData"}).find_all(
+            attrs={"class": "category"}
+        ):
+            category_string = "".join(category_element.stripped_strings).strip()
             display_element = category_element.parent.find(attrs={"class": "display"})
             if not display_element:
                 continue
-            display_string = ''.join(display_element.stripped_strings).replace("\\n", '').replace("\\'", "'").strip()
+            display_string = (
+                "".join(display_element.stripped_strings)
+                .replace("\\n", "")
+                .replace("\\'", "'")
+                .strip()
+            )
             if not category_string or not display_string:
                 continue
             if category_string == "Object ID":
-                assert result_builder.id is None
-                result_builder.id = display_string
+                assert "id" not in result_kwds
+                result_kwds["id"] = display_string
             else:
                 assert category_string not in attributes
                 attributes[category_string] = display_string
-        result_builder.attributes = attributes
+        result_kwds["attributes"] = attributes
 
         related_photos_element = soup.find(attrs={"class": "relatedPhotos"})
         related_photos = []
         if related_photos_element:
             for td in related_photos_element.find_all("td"):
                 related_photos.append(self.__parse_image(td.div))
-        result_builder.related_photos = tuple(related_photos)
+        result_kwds["related_photos"] = tuple(related_photos)
 
-        return result_builder.build()
+        return OnlineDatabaseObjectDetail(**result_kwds)
 
-    def __parse_image(self, image_div_element):
-        result_builder = OnlineDatabaseObjectDetailImage.Builder()
+    def __parse_image(self, image_div_element) -> OnlineDatabaseObjectDetailImage:
 
+        type_ = None
         for class_ in image_div_element["class"]:
             if class_ == "indvImage":
-                result_builder.type = OnlineDatabaseObjectDetailImageType.INDIVIDUAL
+                type_ = OnlineDatabaseObjectDetailImageType.INDIVIDUAL
                 break
             elif class_ == "largeImage":
-                result_builder.type = OnlineDatabaseObjectDetailImageType.LARGE
+                type_ = OnlineDatabaseObjectDetailImageType.LARGE
                 break
             else:
                 continue
 
         a = image_div_element.a
 
-        result_builder.full_size_url = self.__strip_attr(a.attrs["href"])
-        result_builder.src = self.__strip_attr(a.attrs["image_src"])
-        result_builder.objectid = self.__strip_attr(a.attrs["objectid"])
-        result_builder.mediaid = self.__strip_attr(a.attrs["mediaid"])
-        result_builder.thumbnail_url = self.__strip_attr(a.figure.img.attrs["src"])
-        result_builder.title = self.__strip_attr(a.attrs["linktitle"])
-
-        return result_builder.build()
+        return OnlineDatabaseObjectDetailImage(
+            full_size_url=self.__strip_attr(a.attrs["href"]),
+            mediaid=self.__strip_attr(a.attrs["mediaid"]),
+            objectid=self.__strip_attr(a.attrs["objectid"]),
+            src=self.__strip_attr(a.attrs["image_src"]),
+            thumbnail_url=self.__strip_attr(a.figure.img.attrs["src"]),
+            title=self.__strip_attr(a.attrs["linktitle"]),
+            type=type_,
+        )
 
     def __strip_attr(self, value):
         old_value = value

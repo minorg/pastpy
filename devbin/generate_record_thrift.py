@@ -2,37 +2,33 @@ import dbf
 import os.path
 
 
-THRIFT_DIR_PATH = os.path.join(os.path.dirname(
-    __file__), '..', 'src', 'pastpy', 'models')
+THRIFT_DIR_PATH = os.path.join(
+    os.path.dirname(__file__), "..", "src", "pastpy", "models"
+)
 
 
-class RecordField(object):
+class RecordField:
     THRIFT_IMPORTS_BY_TYPE = {
-        'date.Date': 'include "thryft/native/date.thrift"',
-        'date_time.DateTime': 'include "thryft/native/date_time.thrift"',
-        'decimal.Decimal': 'include "thryft/native/decimal.thrift"',
+        "date.Date": 'include "thryft/native/date.thrift"',
+        "date_time.DateTime": 'include "thryft/native/date_time.thrift"',
+        "decimal.Decimal": 'include "thryft/native/decimal.thrift"',
     }
 
     # DBF type is C for char, et al.
     # http://dbfread.readthedocs.io/en/latest/field_types.html
     THRIFT_TYPE_BY_DBF_TYPE = {
         # C	text	unicode string
-        'C': 'string',
-
+        "C": "string",
         # D	date	datetime.date or None
-        'D': 'date.Date',
-
+        "D": "date.Date",
         # L	logical	True, False or None
-        'L': 'bool',
-
+        "L": "bool",
         # M	memo	unicode string (memo), byte string (picture or object) or None
-        'M': 'string',
-
+        "M": "string",
         # N	numeric	int, float or None
-        'N': 'decimal.Decimal',
-
+        "N": "decimal.Decimal",
         # T	time	datetime.datetime
-        'T': 'date_time.DateTime',
+        "T": "date_time.DateTime",
     }
 
     def __init__(self, dbf_field_info, name):
@@ -40,11 +36,11 @@ class RecordField(object):
         self.__name = name
 
         dbf_type = chr(dbf_field_info.field_type)
-        if dbf_type == 'N':
+        if dbf_type == "N":
             if dbf_field_info.decimal > 0:
-                thrift_type = 'decimal.Decimal'
+                thrift_type = "decimal.Decimal"
             else:
-                thrift_type = 'i32'
+                thrift_type = "i32"
         else:
             thrift_type = self.THRIFT_TYPE_BY_DBF_TYPE[dbf_type]
         self.__thrift_type = thrift_type
@@ -69,12 +65,15 @@ class RecordField(object):
             dbf_type.append(str(self.__dbf_field_info.length))
         if self.__dbf_field_info.decimal > 0:
             dbf_type.append(str(self.__dbf_field_info.decimal))
-        dbf_type = ','.join(dbf_type)
+        dbf_type = ",".join(dbf_type)
         name = self.name
         thrift_type = self.thrift_type
-        return """\
+        return (
+            """\
     // %(dbf_type)s
-    optional %(thrift_type)s %(name)s;""" % locals()
+    optional %(thrift_type)s %(name)s;"""
+            % locals()
+        )
 
     @property
     def thrift_type(self):
@@ -87,8 +86,9 @@ def generate_record_thrift(union_dbf_file_paths, thrift_file_name):
     for dbf_file_path in union_dbf_file_paths:
         with dbf.Table(dbf_file_path) as table:
             for field_name in table.field_names:
-                field = RecordField(dbf_field_info=table.field_info(
-                    field_name), name=field_name)
+                field = RecordField(
+                    dbf_field_info=table.field_info(field_name), name=field_name
+                )
                 if field_name in fields_by_name:
                     assert field == fields_by_name[field_name]
                 fields_by_name[field_name] = field
@@ -104,10 +104,13 @@ def generate_record_thrift(union_dbf_file_paths, thrift_file_name):
 
     thrift_imports = "\n".join(sorted(thrift_imports))
 
-    struct_name = ''.join(part.capitalize()
-                          for part in os.path.splitext(thrift_file_name)[0].split('_'))
-    with open(thrift_file_path, 'w+b') as thrift_file:
-        thrift_file.write(("""\
+    struct_name = "".join(
+        part.capitalize() for part in os.path.splitext(thrift_file_name)[0].split("_")
+    )
+    with open(thrift_file_path, "w+b") as thrift_file:
+        thrift_file.write(
+            (
+                """\
 namespace * pastpy.models
 
 %(thrift_imports)s
@@ -115,11 +118,18 @@ namespace * pastpy.models
 struct %(struct_name)s {
 %(field_thrift_reprs)s
 }
-""" % locals()).replace("\r\n", "\n").encode("ascii"))
-        print('wrote', thrift_file_path)
+"""
+                % locals()
+            )
+            .replace("\r\n", "\n")
+            .encode("ascii")
+        )
+        print("wrote", thrift_file_path)
 
 
-assert __name__ == '__main__'
+assert __name__ == "__main__"
 
-generate_record_thrift(("C:\\pp5eval\\Data\\OBJECTS.DBF", "C:\\pp5Reports\\PPSdata.dbf",),
-                       'objects_dbf_record.thrift')
+generate_record_thrift(
+    ("C:\\pp5eval\\Data\\OBJECTS.DBF", "C:\\pp5Reports\\PPSdata.dbf",),
+    "objects_dbf_record.thrift",
+)
