@@ -1,4 +1,3 @@
-import os.path
 from pastpy.database import Database
 from pastpy.impl.online.online_file_downloader import OnlineFileDownloader
 from pastpy.impl.online.online_file_paths import OnlineFilePaths
@@ -71,7 +70,7 @@ class OnlineDatabase(Database):
             objects_list_page_file_path = self.__file_paths.objects_list_page_file_path(
                 objects_list_page_i
             )
-            if not os.path.isfile(objects_list_page_file_path):
+            if not objects_list_page_file_path.is_file():
                 raise StopIteration
             with open(objects_list_page_file_path, "rb") as objects_list_page_file:
                 objects_list_page_html = str(objects_list_page_file.read())

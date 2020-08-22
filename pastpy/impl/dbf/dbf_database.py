@@ -1,4 +1,3 @@
-import os.path
 from pastpy.database import Database
 from pastpy.impl.dbf.objects_dbf_table import ObjectsDbfTable
 from pastpy.impl.dbf.dbf_database_object import DbfDatabaseObject
@@ -20,28 +19,26 @@ class DbfDatabase(Database):
         if pp_install_dir_path is None:
             pp_install_dir_path = "C:\\pp5"
 
-        if not os.path.isdir(pp_install_dir_path):
+        if not pp_install_dir_path.is_dir():
             raise ValueError(
                 "PastPerfect installation directory %s does not exist"
                 % pp_install_dir_path
             )
         if configuration.pp_images_dir_path is None:
             configuration = configuration._replace(
-                pp_images_dir_path=os.path.join(pp_install_dir_path, "Images")
+                pp_images_dir_path=pp_install_dir_path / "Images"
             )
         if configuration.pp_objects_dbf_file_path is None:
             configuration = configuration._replace(
-                pp_objects_dbf_file_path=os.path.join(
-                    pp_install_dir_path, "Data", "OBJECTS.DBF"
-                )
+                pp_objects_dbf_file_path=pp_install_dir_path / "Data" / "OBJECTS.DBF"
             )
 
-        if not os.path.isdir(configuration.pp_images_dir_path):
+        if not configuration.pp_images_dir_path.is_dir():
             raise ValueError(
                 "PastPerfect images directory %s does not exist"
                 % configuration.pp_images_dir_path
             )
-        if not os.path.isfile(configuration.pp_objects_dbf_file_path):
+        if not configuration.pp_objects_dbf_file_path.is_file():
             raise ValueError(
                 "PastPerfect objects DBF file %s does not exist"
                 % configuration.pp_objects_dbf_file_path

@@ -1,6 +1,6 @@
 import http.client
 import logging
-import os.path
+from pathlib import Path
 from time import sleep
 
 
@@ -13,7 +13,7 @@ class OnlineFileDownloader:
 
     def download_object_detail(self, *, guid):
         object_detail_file_path = self.__file_paths.object_detail_file_path(guid)
-        if os.path.isfile(object_detail_file_path):
+        if object_detail_file_path.is_file():
             self.__logger.debug(
                 "object detail file %s already exists, skipping",
                 object_detail_file_path,
@@ -35,7 +35,7 @@ class OnlineFileDownloader:
 
     def __download_objects_list_page(self, page_i):
         page_file_path = self.__file_paths.objects_list_page_file_path(page_i)
-        if os.path.isfile(page_file_path):
+        if page_file_path.is_file():
             self.__logger.debug(
                 "objects list page file %s already exists, skipping", page_file_path
             )
@@ -59,8 +59,7 @@ class OnlineFileDownloader:
         return html
 
     def __enter__(self):
-        if not os.path.isdir(self.__file_paths.root_dir_path):
-            os.makedirs(self.__file_paths.root_dir_path)
+        self.__file_paths.root_dir_path.mkdir(exist_ok=True, parents=True)
 
         self.__http_client_connection = http.client.HTTPSConnection(self.__host)
 
@@ -69,9 +68,9 @@ class OnlineFileDownloader:
     def __exit__(self, *args, **kwds):
         self.__http_client_connection.close()
 
-    def __makedirs(self, dir_path):
-        if not os.path.isdir(dir_path):
-            os.makedirs(dir_path)
+    def __makedirs(self, dir_path: Path):
+        if not dir_path.is_dir():
+            dir_path.mkdir(exist_ok=True, parents=True)
             self.__logger.info("created directory %s", dir_path)
 
     def __write_file(self, file_contents, file_path):

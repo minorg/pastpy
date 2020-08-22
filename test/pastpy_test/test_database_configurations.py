@@ -1,4 +1,3 @@
-import os.path
 from pathlib import Path
 
 from pastpy.impl.dbf.dbf_database_configuration import DbfDatabaseConfiguration
@@ -16,7 +15,7 @@ class TestDatabaseConfigurations:
         pp_images_dir_path=Path("."),
     )
 
-    if not os.path.isfile(DBF.pp_objects_dbf_file_path):
+    if not DBF.pp_objects_dbf_file_path.is_file():
         DBF = None
 
     DUMMY = DummyDatabaseConfiguration()
@@ -26,5 +25,5 @@ class TestDatabaseConfigurations:
         collection_name="tcmuseum",
     )
 
-    if not os.path.isdir(ONLINE.download_dir_path):
+    if not ONLINE.download_dir_path.is_dir():
         ONLINE = None
