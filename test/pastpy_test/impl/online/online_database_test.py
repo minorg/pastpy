@@ -22,3 +22,5 @@ class OnlineDatabaseTest(_DatabaseTest):
     #         return
     #     for object_ in self._database.objects():
     #         print(object_)
+    #         for image in object_.images:
+    #             print(image)
