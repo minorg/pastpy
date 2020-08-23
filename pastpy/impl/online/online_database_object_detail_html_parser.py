@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 
 from pastpy.impl.online.online_database_object_detail import OnlineDatabaseObjectDetail
 from pastpy.impl.online.online_database_object_detail_image import (
@@ -25,20 +25,41 @@ class OnlineDatabaseObjectDetailHtmlParser:
             display_element = category_element.parent.find(attrs={"class": "display"})
             if not display_element:
                 continue
-            display_string = (
-                "".join(display_element.stripped_strings)
-                .replace("\\n", "")
-                .replace("\\'", "'")
-                .strip()
-            )
-            if not category_string or not display_string:
+            display_strings = []
+            for page_element in display_element.contents:
+                if isinstance(page_element, str):
+                    display_string = page_element
+                else:
+                    assert isinstance(page_element, Tag)
+                    if page_element.name == "br":
+                        continue
+                    if page_element.name != "a":
+                        # Something that looks like a tag that isn't, like unescaped <whatever>
+                        continue
+                    # Use the link text
+                    display_string = "".join(page_element.stripped_strings)
+                display_string = (
+                    display_string.replace("\\n", "").replace("\\'", "'").strip()
+                )
+                if not display_string:
+                    continue
+                display_strings.append(display_string)
+            if not category_string or not display_strings:
                 continue
             if category_string == "Object ID":
                 assert "id" not in result_kwds
-                result_kwds["id"] = display_string
+                result_kwds["id"] = (
+                    display_strings[0]
+                    if len(display_strings) == 1
+                    else tuple(display_strings)
+                )
             else:
                 assert category_string not in attributes
-                attributes[category_string] = display_string
+                attributes[category_string] = (
+                    display_strings[0]
+                    if len(display_strings) == 1
+                    else tuple(display_strings)
+                )
         result_kwds["attributes"] = attributes
 
         related_photos_element = soup.find(attrs={"class": "relatedPhotos"})
