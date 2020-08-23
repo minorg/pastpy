@@ -1,19 +1,20 @@
 from abc import ABC, abstractmethod
+from typing import Dict, Iterable, Optional
+
 from pastpy.database_image import DatabaseImage
-from typing import Dict, Iterable, Union
 
 
 class DatabaseObject(ABC):
     @property
     @abstractmethod
-    def date(self) -> Union[object, None]:
+    def date(self) -> Optional[object]:
         """
         @return date of the object
         """
 
     @property
     @abstractmethod
-    def description(self) -> Union[str, None]:
+    def description(self) -> Optional[str]:
         """
         @return description of the object
         """
@@ -41,21 +42,21 @@ class DatabaseObject(ABC):
 
     @property
     @abstractmethod
-    def name(self) -> Union[str, None]:
+    def name(self) -> Optional[str]:
         """
         @return name of object
         """
 
     @property
     @abstractmethod
-    def othername(self) -> Union[str, None]:
+    def othername(self) -> Optional[str]:
         """
         @return alternative name of object
         """
 
     @property
     @abstractmethod
-    def title(self) -> Union[str, None]:
+    def title(self) -> Optional[str]:
         """
         @return title of object
         """
