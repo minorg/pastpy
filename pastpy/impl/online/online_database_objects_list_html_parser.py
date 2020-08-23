@@ -10,7 +10,7 @@ class OnlineDatabaseObjectsListHtmlParser:
         self.__logger = logging.getLogger(self.__class__.__name__)
 
     def parse(self, html):
-        soup = BeautifulSoup(html, "html.parser")
+        soup = BeautifulSoup(html, "html.parser", multi_valued_attributes=None)
         results = []
         for indvResult in soup.find_all(attrs={"class": "indvResult"}):
             details = indvResult.find(attrs={"class": "indvResultDetails"})
