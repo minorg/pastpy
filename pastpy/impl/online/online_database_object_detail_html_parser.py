@@ -99,9 +99,10 @@ class OnlineDatabaseObjectDetailHtmlParser:
     def __strip_attr(self, value):
         old_value = value
         while True:
+            new_value = old_value
             for char in "'\\":
-                new_value = old_value.strip(char)
-                if new_value == old_value:
-                    return new_value
-                else:
-                    old_value = new_value
+                new_value = new_value.strip(char)
+            if new_value == old_value:
+                return new_value
+            else:
+                old_value = new_value
